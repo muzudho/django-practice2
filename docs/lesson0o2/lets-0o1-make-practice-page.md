@@ -78,3 +78,96 @@ docker-compose run --rm web python manage.py startapp practice ./apps1/practice
 # 1. 任意のDjangoアプリケーション名
 # 2. パス
 ```
+
+👇 以下のようなディレクトリー、ファイルが自動生成される  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice              # アプリケーション名
+👉              ├── 📂migrations
+👉              │   └── 📄__init__.py
+👉              ├── 📄__init__.py
+👉              ├── 📄admin.py
+👉              ├── 📄apps.py
+👉              ├── 📄models.py
+👉              ├── 📄tests.py
+👉              └── 📄views.py
+```
+
+# Step 3. 今回使わないファイルの削除
+
+👇 以下のファイルを削除してほしい  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice              # アプリケーション名
+                ├── 📂migrations
+                │   └── 📄__init__.py
+                ├── 📄__init__.py
+                ├── 📄admin.py
+                ├── 📄apps.py
+👉              ├── 📄models.py
+                ├── 📄tests.py
+👉              └── 📄views.py
+```
+
+
+# Step 4. 画面作成 - page1.html ファイル
+
+以下のファイルを作成してほしい。
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice              # アプリケーション名
+                └── 📂templates
+                    └── 📂practice      # アプリケーション名と同名
+                        └── 📂v0o0o1        # Version 0.0.1 の意味で付けた任意の名前
+👉                          └── 📄page1.html
+```
+
+```html
+<html>
+    <head>
+        <title>ページ１</title>
+    </head>
+    <body>
+        テストだよ
+    </body>
+</html>
+```
+
+# Step 5. ビュー作成 - pages.py ファイル
+
+👇 以下のファイルを作成してほしい  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice              # アプリケーション名
+                ├── 📂templates
+                │   └── 📂practice
+                │       └── 📂v0o0o1
+                │           └── 📄page1.html
+                └── 📂views
+                    └── 📂v0o0o1            # Version 0.0.1 の意味で付けた任意の名前
+👉                      └── 📄pages.py
+```
+
+```py
+from django.http import HttpResponse
+from django.template import loader
+
+
+def render_page1(request):
+    template = loader.get_template('practice/v0o0o1/page1.html')
+    #                               --------------------------
+    #                               1
+    # 1. host1/apps1/practice/templates/practice/v0o0o1/page1.html を取得
+    #                                   --------------------------
+
+    context = {}
+    return HttpResponse(template.render(context, request))
+```
