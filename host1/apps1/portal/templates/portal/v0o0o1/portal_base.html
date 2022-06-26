@@ -1,0 +1,62 @@
+{% load static %} {# 👈あとで static "URL" を使うので load static します #}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>ポータル</title>
+    </head>
+    <body>
+        <div id="app">
+            <v-app>
+                <v-main>
+                    <v-container>
+                        <v-row class="my-2">
+                            <h3>終わったレッスン</h3>
+                        </v-row>
+                        <v-row class="my-2">
+                            <v-btn :href="vu_pathOfPage1">ページ１</v-btn>
+                        </v-row>
+                        <v-row class="my-2">
+                            <v-btn :href="vu_pathOfPage2Patch1">ページ２ パッチ１</v-btn>
+                        </v-row>
+                        <v-row class="my-2">
+                            <v-btn :href="vu_pathOfPage2Patch2">ページ２ パッチ２</v-btn>
+                        </v-row>
+                        {% block finished_lesson_footer %}
+                        <!-- -->
+                        {% endblock finished_lesson_footer %}
+                    </v-container>
+                </v-main>
+            </v-app>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+        <script>
+            let vue1 = new Vue({
+                el: "#app",
+                vuetify: new Vuetify(),
+                data: {
+                    // "vu_" は 「vue1.dataのメンバー」 の目印
+                    // "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
+                    vu_pathOfPage1: `${location.protocol}//${location.host}{{ dj_path_of_page1 }}`,
+                    //               --------------------  ---------------]----------------------
+                    //               1                     2               3
+                    // 1. スキーム（HTTPプロトコル）
+                    // 2. ホスト
+                    // 3. パス
+                    vu_pathOfPage2Patch1: `${location.protocol}//${location.host}{{ dj_path_of_page2_patch1 }}`,
+                    vu_pathOfPage2Patch2: `${location.protocol}//${location.host}{{ dj_path_of_page2_patch2 }}`,
+                    {% block vue1_data_footer %}
+                    <!-- -->
+                    {% endblock vue1_data_footer %}
+                },
+            });
+        </script>
+    </body>
+</html>

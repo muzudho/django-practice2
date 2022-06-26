@@ -34,11 +34,20 @@ urlpatterns = [
     # 2. `host1/app1/urls.py` の urlpatterns を (1.) にぶら下げる
     #           ---------
 
-    # ページ１
+    # 練習
     path('', include('project1.urls_practice')),
     #    --           ----------------------
     #      1          2
     # 1. 例えば `http://example.com/` のような URLの直下
     # 2. `host1/project1/urls_practice.py` の urlpatterns を (1.) にぶら下げる
     #           ----------------------
+
+
+    # ポータル
+    path('', include('project1.urls_portal')),
+    #    --           --------------------
+    #      1          2
+    # 1. 例えば `http://example.com/` のような URLの直下
+    # 2. `host1/project1/urls_portal.py` の urlpatterns を (1.) にぶら下げる
+    #           --------------------
 ]

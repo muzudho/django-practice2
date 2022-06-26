@@ -34,6 +34,7 @@ http://example.com/practice/page1
     │   ├── 📂project1
     │   │   ├── 📄__init__.py
     │   │   ├── 📄asgi.py
+    │   │   ├── 📄settings_secrets.py
     │   │   ├── 📄settings.py
     │   │   ├── 📄urls.py
     │   │   └── 📄wsgi.py
@@ -58,7 +59,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. フォルダー作成 - apps1 フォルダー
+# Step 2. フォルダー作成 - apps1/practice フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -113,7 +114,6 @@ docker-compose run --rm web python manage.py startapp practice ./apps1/practice
                 ├── 📄tests.py
 👉              └── 📄views.py
 ```
-
 
 # Step 5. 画面作成 - page1.html ファイル
 
@@ -227,6 +227,10 @@ class Page1():
 
         context = {}
         return HttpResponse(template.render(context, request))
+
+        # テンプレートを使わず、HTMLをハードコーディングすることもできる
+        # return HttpResponse("""Hello, world. You're at the webapp1 index.<br/>
+        #                    <a href="home/v1/">ホーム</a>""")
 ```
 
 # Step 8. サブ ルート作成 - urls_practice.py
@@ -305,7 +309,7 @@ urlpatterns = [
     # ...中略...
 
 
-    # ページ１
+    # 練習
     path('', include('project1.urls_practice')),
     #    --           ----------------------
     #      1          2

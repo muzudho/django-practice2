@@ -82,6 +82,19 @@ TEMPLATES = [
             #
             # 1. あなたの開発用ディレクトリー相当
             # 2. テンプレートへのパス
+
+
+            # * 追加
+            os.path.join(BASE_DIR, 'apps1/portal/templates'),
+            #            --------   ----------------------
+            #            1          2
+            #
+            # Example: /host1/apps1/portal/templates/portal/v0o0o1/portal_base.html
+            #          ------ ----------------------
+            #          1      2
+            #
+            # 1. あなたの開発用ディレクトリー相当
+            # 2. テンプレートへのパス
         ],
         'APP_DIRS': True,
         'OPTIONS': {

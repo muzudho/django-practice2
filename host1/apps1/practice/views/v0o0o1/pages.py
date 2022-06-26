@@ -18,6 +18,10 @@ class Page1():
         context = {}
         return HttpResponse(template.render(context, request))
 
+        # テンプレートを使わず、HTMLをハードコーディングすることもできる
+        # return HttpResponse("""Hello, world. You're at the webapp1 index.<br/>
+        #                    <a href="home/v1/">ホーム</a>""")
+
 
 class Page2Patch1():
     """ページ２ パッチ１"""
