@@ -1,6 +1,6 @@
 # 目的
 
-何か所にも同じ HTML （＝ボイラープレート）があるような悪いコードを書く癖を止められる技術を早い学習段階で取得したい  
+パッチを当てるようにテンプレートを改修したい  
 
 # はじめに
 
@@ -24,7 +24,9 @@
     │   │       ├── 📂templates
     │   │       │   └── 📂practice
     │   │       │       └── 📂v0o0o1
-    │   │       │           └── 📄page1.html
+    │   │       │           ├── 📄page1.html
+    │   │       │           ├── 📄page2_base.html
+    │   │       │           └── 📄page2_patch1.html.txt
     │   │       └── 📂views
     │   │           └── 📂v0o0o1
     │   │               └── 📄pages.py
@@ -57,48 +59,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. 画面作成 - page2_base.html ファイル
-
-以下のファイルを作成してほしい。
-
-```plaintext
-    └── 📂host1
-        └── 📂apps1
-            └── 📂practice
-                └── 📂templates
-                    └── 📂practice
-                        └── 📂v0o0o1
-👉                          └── 📄page2_base.html
-```
-
-```html
-<html>
-    <head>
-        <title>{% block title %}ページ２{% endblock %}</title>
-    </head>
-    <body>
-        <!-- -->
-        {% block section1 %}
-        <h1>セクション１</h1>
-        <p>コンテンツ１</p>
-        {% endblock section1 %}
-
-        <!-- -->
-        {% block section2 %}
-        <h1>セクション２</h1>
-        <p>コンテンツ２</p>
-        {% endblock section2 %}
-
-        <!-- -->
-        {% block section3 %}
-        <h1>セクション３</h1>
-        <p>コンテンツ３</p>
-        {% endblock section3 %}
-    </body>
-</html>
-```
-
-# Step 3. 画面作成 - page2_patch1.html.txt ファイル
+# Step 2. 画面作成 - page2_patch2.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい。  
 自動フォーマットされてくないので、拡張子をテキストファイルにしておく  
@@ -110,67 +71,28 @@ docker-compose up
                 └── 📂templates
                     └── 📂practice
                         └── 📂v0o0o1
-                            ├── 📄page2_base.html
-👉                          └── 📄page2_patch1.html.txt
+👉                          └── 📄page2_patch2.html.txt
 ```
 
 ```html
-{% extends "practice/v0o0o1/page2_base.html" %}
-{#          -------------------------------
+{% extends "practice/v0o0o1/page2_patch1.html.txt" %}
+<!-- -->
+{#          -------------------------------------
             1
-1. host1/apps1/practice/templates/practice/v0o0o1/page2_base.html
-                                  -------------------------------
+1. host1/apps1/practice/templates/practice/v0o0o1/page2_patch1.html.txt
+                                  -------------------------------------
 #}
 
 <!-- -->
-{% block title %}ページ２（その２）{% endblock %}
-
-<!-- -->
-{% block section1 %}
-    <h1>第１区画</1>
-    <ul>
-        <li>あ</li>
-        <li>い</li>
-        <li>う</li>
-    </ul>
-{% endblock section1 %}
-
-<!-- -->
-{% block section2 %}
-    <h1>Section 2</h1>
-
-    <table>
-        <tr>
-            <th></th>
-            <th>A</th>
-            <th>B</th>
-            <th>C</th>
-        </tr>
-        <tr>
-            {% block section2o1 %}
-            <td>1</td>
-            <td>ア</td>
-            <td>イ</td>
-            <td>ウ</td>
-            {% endblock section2o1 %}
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>エ</td>
-            <td>オ</td>
-            <td>カ</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>キ</td>
-            <td>ク</td>
-            <td>ケ</td>
-        </tr>
-    </table>
-{% endblock section2 %}
+{% block section2o1 %}
+<td>1</td>
+<td>松</td>
+<td>竹</td>
+<td>梅</td>
+{% endblock section2o1 %}
 ```
 
-# Step 4. ビュー作成 - pages.py ファイル
+# Step 3. ビュー作成 - pages.py ファイル
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -181,8 +103,7 @@ docker-compose up
                 ├── 📂templates
                 │   └── 📂practice
                 │       └── 📂v0o0o1
-                │           ├── 📄page2_base.html
-                │           └── 📄page2_patch1.html.txt
+                │           └── 📄page2_patch2.html.txt
                 └── 📂views
                     └── 📂v0o0o1
 👉                      └── 📄pages.py
@@ -196,23 +117,24 @@ from django.template import loader
 # ...中略...
 
 
-class Page2Patch1():
-    """ページ２ パッチ１"""
+class Page2Patch2():
+    """ページ２ パッチ２"""
 
     def render(request):
         """描画"""
 
-        template = loader.get_template('practice/v0o0o1/page2_patch1.html.txt')
+        template = loader.get_template('practice/v0o0o1/page2_patch2.html.txt')
+        #                                                          ^two
         #                               -------------------------------------
         #                               1
-        # 1. host1/apps1/practice/templates/practice/v0o0o1/page2_patch1.html.txt を取得
+        # 1. host1/apps1/practice/templates/practice/v0o0o1/page2_patch2.html.txt を取得
         #                                   -------------------------------------
 
         context = {}
         return HttpResponse(template.render(context, request))
 ```
 
-# Step 5. サブ ルート編集 - urls_practice.py
+# Step 4. サブ ルート編集 - urls_practice.py
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -223,8 +145,7 @@ class Page2Patch1():
         │       ├── 📂templates
         │       │   └── 📂practice
         │       │       └── 📂v0o0o1
-        │       │           ├── 📄page2_base.html
-        │       │           └── 📄page2_patch1.html.txt
+        │       │           └── 📄page2_patch2.html.txt
         │       └── 📂views
         │           └── 📂v0o0o1
         │               └── 📄pages.py
@@ -240,7 +161,8 @@ from django.urls import path
 # ...中略...
 
 
-from apps1.practice.views.v0o0o1.pages import Page2Patch1
+from apps1.practice.views.v0o0o1.pages import Page2Patch2
+#                                                       ^two
 #    --------------------------- -----        -----------
 #    1                           2            3
 # 1. ディレクトリー名
@@ -257,26 +179,19 @@ urlpatterns = [
     # ...中略...
 
 
-    # ページ２ パッチ１
-    path('practice/page2_patch1', Page2Patch1.render, name='page2_patch1'),
+    # ページ２ パッチ２
+    path('practice/page2_patch2', Page2Patch2.render, name='page2_patch2'),
+    #                         ^two          ^two                       ^two
     #     ---------------------   ------------------        ------------
     #     1                       2                         3
     #
-    # 1. 例えば `http://example.com/practice/page2_patch1` のようなURLのパスの部分
+    # 1. 例えば `http://example.com/practice/page2_patch2` のようなURLのパスの部分
     #                              ----------------------
-    # 2. Page2Patch1 クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'page2_patch1' %} のような形でURLを取得するのに使える
+    # 2. Page2Patch2 クラスの render 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'page2_patch2' %} のような形でURLを取得するのに使える
 ]
 ```
 
-# Step 6. Webページにアクセスする
+# Step 5. Webページにアクセスする
 
-📖 [http://localhost:8000/practice/page2_patch1](http://localhost:8000/practice/page2_patch1)  
-
-# 次の記事
-
-📖 [DjangoのHTMLのボイラープレートを減らすテンプレートを作るのも減らそう！](https://qiita.com/muzudho1/items/606d314c01543666c51b)  
-
-# 参考にした記事
-
-📖 [The Django template language](https://docs.djangoproject.com/en/4.0/ref/templates/language/) - これを読むのがよい  
+📖 [http://localhost:8000/practice/page2_patch2](http://localhost:8000/practice/page2_patch2)  
