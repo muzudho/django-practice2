@@ -83,10 +83,22 @@ docker-compose up
         <p>コンテンツ１</p>
         {% endblock section1 %}
 
-        <!-- -->
+        <!-- 伸びることを想定したリスト -->
         {% block section2 %}
         <h1>セクション２</h1>
-        <p>コンテンツ２</p>
+        <p>
+            <ol>
+                <li>
+                    しりとり
+                </li>
+                <li>
+                    りんご
+                </li>
+                {% block section2_footer %}
+                <!-- -->
+                {% endblock section2_footer %}
+            </ol>
+        </p>
         {% endblock section2 %}
 
         <!-- -->
@@ -135,39 +147,18 @@ docker-compose up
     </ul>
 {% endblock section1 %}
 
-<!-- -->
-{% block section2 %}
-    <h1>Section 2</h1>
-
-    <table>
-        <tr>
-            <th></th>
-            <th>A</th>
-            <th>B</th>
-            <th>C</th>
-        </tr>
-        <tr>
-            {% block section2o1 %}
-            <td>1</td>
-            <td>ア</td>
-            <td>イ</td>
-            <td>ウ</td>
-            {% endblock section2o1 %}
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>エ</td>
-            <td>オ</td>
-            <td>カ</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>キ</td>
-            <td>ク</td>
-            <td>ケ</td>
-        </tr>
-    </table>
-{% endblock section2 %}
+<!-- 伸びることを想定したリスト -->
+{% block section2_footer %}
+    <li>
+        ごりら
+    </li>
+    <li>
+        らっぱ
+    </li>
+    <!-- ブロックの名前は早い者勝ちで再定義できないので、変える -->
+    {% block section2_footer_patch1 %}
+    {% endblock section2_footer_patch1 %}
+{% endblock section2_footer %}
 ```
 
 # Step 4. ビュー作成 - pages.py ファイル

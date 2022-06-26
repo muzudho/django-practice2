@@ -9,10 +9,22 @@
         <p>コンテンツ１</p>
         {% endblock section1 %}
 
-        <!-- -->
+        <!-- 伸びることを想定したリスト -->
         {% block section2 %}
         <h1>セクション２</h1>
-        <p>コンテンツ２</p>
+        <p>
+            <ol>
+                <li>
+                    しりとり
+                </li>
+                <li>
+                    りんご
+                </li>
+                {% block section2_footer %}
+                <!-- -->
+                {% endblock section2_footer %}
+            </ol>
+        </p>
         {% endblock section2 %}
 
         <!-- -->

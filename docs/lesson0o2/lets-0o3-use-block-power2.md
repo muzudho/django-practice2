@@ -83,13 +83,24 @@ docker-compose up
                                   -------------------------------------
 #}
 
-<!-- -->
-{% block section2o1 %}
-<td>1</td>
-<td>松</td>
-<td>竹</td>
-<td>梅</td>
-{% endblock section2o1 %}
+<!-- 伸びることを想定したリスト -->
+{% block section2_footer_patch1 %}
+    <li>
+        ぱんだ
+    </li>
+    <li>
+        だるま
+    </li>
+    <!-- ブロックの名前は早い者勝ちで再定義できないので、変える -->
+    {% block section2_footer_patch2 %}
+    {% endblock section2_footer_patch2 %}
+{% endblock section2_footer_patch1 %}
+
+<!-- page2_patch1 を飛び越して page2_base のブロックも変更可能 -->
+{% block section3 %}
+<h1>せくしょん　さん</h1>
+<p>こんてんつ　さん</p>
+{% endblock section3 %}
 ```
 
 # Step 3. ビュー作成 - pages.py ファイル
