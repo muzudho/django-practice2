@@ -1,6 +1,10 @@
 from django.urls import path
 
-from apps1.portal.views.v0o0o1.pages import Portal
+# * 変更前
+#from apps1.portal.views.v0o0o1.pages import Portal
+# * 変更後
+from apps1.portal.views.v0o0o2.pages import Portal
+#                            ^two
 #    ------------------------- -----        ------
 #    1                         2            3
 # 1. ディレクトリー名

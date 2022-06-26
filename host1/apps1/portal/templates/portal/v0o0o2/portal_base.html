@@ -1,0 +1,58 @@
+{% load static %} {# 👈あとで static "URL" を使うので load static します #}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>ポータル</title>
+    </head>
+    <body>
+        <div id="app">
+            <v-app>
+                <v-main>
+                    <v-container>
+                        <v-row class="my-2">
+                            <h3>終わったレッスン</h3>
+                        </v-row>
+                        {# "vu_" は 「vue1のメンバー」 の目印 #}
+                        <!-- -->
+                        {# "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印 #}
+                        <!-- -->
+                        {% for item in dj_finished_lesson_list %}
+                        <v-row class="my-2">
+                            <v-btn :href="vu_createUrl('{{item.path}}')">{{item.label}}</v-btn>
+                        </v-row>
+                        {% endfor %}
+                    </v-container>
+                </v-main>
+            </v-app>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+        <script>
+            let vue1 = new Vue({
+                el: "#app",
+                vuetify: new Vuetify(),
+                data: {},
+                methods: {
+                    /**
+                     * URLを作成します
+                     */
+                    vu_createUrl(path) {
+                        return `${location.protocol}//${location.host}${path}`;
+                        //      --------------------  ---------------]-------
+                        //      1                     2               3
+                        // 1. スキーム（HTTPプロトコル）
+                        // 2. ホスト
+                        // 3. パス
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>

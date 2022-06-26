@@ -65,9 +65,9 @@ docker-compose -version
 python -m pip install --upgrade pip
 ```
 
-# Step 5. Pythonパッケージのインストールの指定 - requirements.txt ファイル
+# Step 5. Pythonパッケージ インストール指定 - requirements.txt ファイル
 
-以下のファイルを新規作成してほしい  
+👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂host1                   # あなたの開発用ディレクトリー。任意の名前
