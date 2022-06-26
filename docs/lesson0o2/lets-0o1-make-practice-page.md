@@ -38,6 +38,7 @@ http://example.com/practice/page1
     │   │   ├── 📄urls.py
     │   │   └── 📄wsgi.py
     │   ├── 📂project2
+    │   ├── 🐳docker-compose-project2.yml
     │   ├── 🐳docker-compose.yml
     │   ├── 🐳Dockerfile
     │   ├── 📄manage.py
@@ -217,6 +218,7 @@ class Page1():
     @staticmethod
     def render(request):
         """描画"""
+
         template = loader.get_template('practice/v0o0o1/page1.html')
         #                               --------------------------
         #                               1
@@ -257,9 +259,8 @@ from apps1.practice.views.v0o0o1.pages import Page1
 # 2. Python ファイル名。拡張子抜き
 # 3. クラス名
 
-# 追記
+
 urlpatterns = [
-    # ...中略...
 
     path('practice/page1', Page1.render, name='page1'),
     #     --------------   ------------        -----
@@ -320,4 +321,4 @@ urlpatterns = [
 
 # 次の記事
 
-📖 [Djangoでユーザー認証を付けよう！](https://qiita.com/muzudho1/items/55cb7ac55299afd51887)  
+📖 [DjangoのHTMLのボイラープレートを減らすテンプレートを使おう！](https://qiita.com/muzudho1/items/7dcfc068e0bec009d371)  
