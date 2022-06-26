@@ -83,7 +83,27 @@ docker-compose up
 pandas
 ```
 
-# Step 3. Dockerコンテナの停止～ビルド～起動
+# Step 3. Visual Studio Code のエラー抑制 - pip コマンド
+
+Python の pandas パッケージは、 Dockerコンテナにインストールされていればよく、  
+Dockerコンテナの外側のPCにインストールしている必要はないが、  
+しかし あなたの Visual Studio Code は  
+👇 以下のような PROBLEMS （エラーメッセージ）を出しているかもしれない  
+
+```plaintext
+Import "pandas" could not be resolved from source
+```
+
+その Pythonソースは Dockerコンテナの中で実行されるのだから無視して構わないが、  
+気になるということはあるだろう。  
+Dockerコンテナの外側のPCにも pandas をインストールすれば（本末転倒だが）エラーメッセージは解消する。  
+👇 もし望むなら、以下のコマンドを打鍵してほしい  
+
+```shell
+pip install pandas
+```
+
+# Step 4. Dockerコンテナの停止～ビルド～起動
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -107,7 +127,7 @@ docker-compose build
 docker-compose up
 ```
 
-# Step 4. データ作成 - finished-lessons.csv ファイル
+# Step 5. データ作成 - finished-lessons.csv ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -129,7 +149,7 @@ path,label
 /practice/page2_patch2,ページ２ パッチ２
 ```
 
-# Step 5. 画面作成 - portal_base.html ファイル
+# Step 6. 画面作成 - portal_base.html ファイル
 
 以下のファイルを新規作成してほしい  
 
@@ -208,7 +228,7 @@ path,label
 </html>
 ```
 
-# Step 6. ビュー作成 - pages.py ファイル
+# Step 7. ビュー作成 - pages.py ファイル
 
 以下のファイルを新規作成してほしい  
 
@@ -296,7 +316,7 @@ class Portal():
         return HttpResponse(template.render(context, request))
 ```
 
-# Step 7. サブ ルート編集 - urls_portal.py
+# Step 8. サブ ルート編集 - urls_portal.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -328,7 +348,7 @@ from apps1.portal.views.v0o0o2.pages import Portal
 #                            ^two
 ```
 
-# Step 8. Webページにアクセスする
+# Step 9. Webページにアクセスする
 
 📖 [http://localhost:8000/](http://localhost:8000/)  
 
