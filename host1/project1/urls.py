@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 
 urlpatterns = [
     # 最初から Django の管理画面は用意されている
@@ -33,4 +33,12 @@ urlpatterns = [
     # 1. 例えば `http://example.com/` のような URLの直下
     # 2. `host1/app1/urls.py` の urlpatterns を (1.) にぶら下げる
     #           ---------
+
+    # ページ１
+    path('', include('project1.urls_practice')),
+    #    --           ----------------------
+    #      1          2
+    # 1. 例えば `http://example.com/` のような URLの直下
+    # 2. `host1/project1/urls_practice.py` の urlpatterns を (1.) にぶら下げる
+    #           ----------------------
 ]

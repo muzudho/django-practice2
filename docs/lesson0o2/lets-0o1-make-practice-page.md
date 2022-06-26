@@ -8,8 +8,8 @@ http://example.com/practice/page1
 ------]----------]---------------
 1      2          3
 
-1. プロトコル
-2. ホスト
+1. スキーム（HTTPプロトコル）
+2. ホストの例
 3. パス
 ```
 
@@ -67,7 +67,7 @@ docker-compose up
             └── 📂practice  # アプリケーション名
 ```
 
-# Step 2. アプリケーション作成
+# Step 3. アプリケーション作成
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -95,7 +95,7 @@ docker-compose run --rm web python manage.py startapp practice ./apps1/practice
 👉              └── 📄views.py
 ```
 
-# Step 3. 今回使わないファイルの削除
+# Step 4. 今回使わないファイルの削除
 
 👇 以下のファイルを削除してほしい  
 
@@ -114,7 +114,7 @@ docker-compose run --rm web python manage.py startapp practice ./apps1/practice
 ```
 
 
-# Step 4. 画面作成 - page1.html ファイル
+# Step 5. 画面作成 - page1.html ファイル
 
 以下のファイルを作成してほしい。
 
@@ -139,7 +139,57 @@ docker-compose run --rm web python manage.py startapp practice ./apps1/practice
 </html>
 ```
 
-# Step 5. ビュー作成 - pages.py ファイル
+# Step 6. 設定変更 - settings.py ファイル
+
+👇 以下のファイルを編集してほしい  
+
+```plaintext
+    └── 📂host1
+        ├── 📂apps1
+        │   └── 📂practice              # アプリケーション名
+        │       └── 📂templates
+        │           └── 📂practice
+        │               └── 📂v0o0o1
+        │                   └── 📄page1.html
+        └── 📂project1
+            └── 📄settings.py
+```
+
+👇 変更するのは `TEMPLATES[0]["DIRS"]` 変数  
+
+```py
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # * 変更前
+        # 'DIRS': [],
+        # * 変更後
+        'DIRS': [
+            os.path.join(BASE_DIR, 'apps1/practice/templates'),
+            #            --------   ------------------------
+            #            1          2
+            #
+            # Example: /host1/apps1/practice/templates/practice/v0o0o1/page1.html
+            #          ------ ------------------------
+            #          1      2
+            #
+            # 1. あなたの開発用ディレクトリー相当
+            # 2. テンプレートへのパス
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+```
+
+# Step 7. ビュー作成 - pages.py ファイル
 
 👇 以下のファイルを作成してほしい  
 
@@ -161,13 +211,113 @@ from django.http import HttpResponse
 from django.template import loader
 
 
-def render_page1(request):
-    template = loader.get_template('practice/v0o0o1/page1.html')
-    #                               --------------------------
-    #                               1
-    # 1. host1/apps1/practice/templates/practice/v0o0o1/page1.html を取得
-    #                                   --------------------------
+class Page1():
+    """ページ１"""
 
-    context = {}
-    return HttpResponse(template.render(context, request))
+    @staticmethod
+    def render(request):
+        """描画"""
+        template = loader.get_template('practice/v0o0o1/page1.html')
+        #                               --------------------------
+        #                               1
+        # 1. host1/apps1/practice/templates/practice/v0o0o1/page1.html を取得
+        #                                   --------------------------
+
+        context = {}
+        return HttpResponse(template.render(context, request))
 ```
+
+# Step 8. サブ ルート作成 - urls_practice.py
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂host1
+        ├── 📂apps1
+        │   └── 📂practice              # アプリケーション名
+        │       ├── 📂templates
+        │       │   └── 📂practice
+        │       │       └── 📂v0o0o1
+        │       │           └── 📄page1.html
+        │       └── 📂views
+        │           └── 📂v0o0o1
+        │               └── 📄pages.py
+        └── 📂project1
+👉          ├── 📄urls_practice.py          # 新規作成
+❌          └── 📄urls.py                   # これではない
+```
+
+```py
+from django.urls import path
+
+from apps1.practice.views.v0o0o1.pages import Page1
+#    --------------------------- -----        -----
+#    1                           2            3
+# 1. ディレクトリー名
+# 2. Python ファイル名。拡張子抜き
+# 3. クラス名
+
+# 追記
+urlpatterns = [
+    # ...中略...
+
+    path('practice/page1', Page1.render, name='page1'),
+    #     --------------   ------------        -----
+    #     1                2                   3
+    # 1. 例えば `http://example.com/practice/page1` のようなURLのパスの部分
+    #                              --------------
+    # 2. Page1 クラスの render 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'page1' %} のような形でURLを取得するのに使える
+]
+```
+
+# Step 9. 総合ルート編集 - urls.py
+
+👇 以下のファイルを編集してほしい  
+
+```plaintext
+    └── 📂host1
+        ├── 📂apps1
+        │   └── 📂practice              # アプリケーション名
+        │       ├── 📂templates
+        │       │   └── 📂practice
+        │       │       └── 📂v0o0o1
+        │       │           └── 📄page1.html
+        │       └── 📂views
+        │           └── 📂v0o0o1
+        │               └── 📄pages.py
+        └── 📂project1
+❌          ├── 📄urls_practice.py          # これではない
+👉          └── 📄urls.py                   # こっち
+```
+
+```py
+from django.urls import include, path # include を追加
+
+
+# ...中略...
+
+
+urlpatterns = [
+
+
+    # ...中略...
+
+
+    # ページ１
+    path('', include('project1.urls_practice')),
+    #    --           ----------------------
+    #      1          2
+    # 1. 例えば `http://example.com/` のような URLの直下
+    # 2. `host1/project1/urls_practice.py` の urlpatterns を (1.) にぶら下げる
+    #           ----------------------
+]
+```
+
+# Step 10. Webページにアクセスする
+
+📖 [http://localhost:8000/practice/page1](http://localhost:8000/practice/page1)  
+
+# 次の記事
+
+📖 [Djangoでユーザー認証を付けよう！](https://qiita.com/muzudho1/items/55cb7ac55299afd51887)  

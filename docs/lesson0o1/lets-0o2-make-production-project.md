@@ -200,4 +200,4 @@ docker-compose -f docker-compose-project2.yml up
 
 # 次の記事
 
-📖 [Djangoでユーザー認証を付けよう！](https://qiita.com/muzudho1/items/55cb7ac55299afd51887)  
+📖 [DjangoでWebページを追加しよう！](https://qiita.com/muzudho1/items/06fe071c1147b4b8f062)  

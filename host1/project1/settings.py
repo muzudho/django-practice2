@@ -68,7 +68,21 @@ ROOT_URLCONF = 'project1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # * 変更前
+        # 'DIRS': [],
+        # * 変更後
+        'DIRS': [
+            os.path.join(BASE_DIR, 'apps1/practice/templates'),
+            #            --------   ------------------------
+            #            1          2
+            #
+            # Example: /host1/apps1/practice/templates/practice/v0o0o1/page1.html
+            #          ------ ------------------------
+            #          1      2
+            #
+            # 1. あなたの開発用ディレクトリー相当
+            # 2. テンプレートへのパス
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
