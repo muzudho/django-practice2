@@ -40,6 +40,10 @@ DEBUG = True
 # Application definition
 
 INSTALLED_APPS = [
+    # あなたが追加したアプリケーション
+    'apps1.portal',
+
+    # Djangoの標準アプリケーション
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
