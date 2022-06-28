@@ -121,7 +121,76 @@ docker-compose run --rm web python manage.py startapp portal ./apps1/portal
 👉              └── 📄views.py
 ```
 
-# Step 5. 画面作成 - portal_base.html ファイル
+# Step 5. アプリケーション設定変更 - apps.py
+
+👇 以下のファイルを編集してほしい  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂portal                # アプリケーション名
+                ├── 📂migrations
+                │   └── 📄__init__.py
+                ├── 📄__init__.py
+                ├── 📄admin.py
+👉              ├── 📄apps.py
+                └── 📄tests.py
+```
+
+```py
+from django.apps import AppConfig
+
+
+class PortalConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    # 変更前
+    #name = 'portal'
+    # 変更後
+    name = 'apps1.portal'
+    #       ------------
+    #       1
+    # 1. `host1/apps1/portal/apps.py`
+    #           ------------
+```
+
+
+# Step 5. アイコンの設定 - favicon.ico ファイル
+
+favicon.ico は、例えば 以下のサイトで作れる。作ってきてほしい  
+
+📖 [Favicon Generator. For real.](https://realfavicongenerator.net/)  
+
+例えば、以下の場所に置いてほしい  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂portal        # アプリケーション
+                └── 📂static
+👉                  └── 🚀favicon.ico   # アプリケーション毎にアイコンを作るのがめんどくさいので static の直下に置いた
+```
+
+favicon.ico を有効にするには HTML で設定する必要があるが、まだ作成しない。以下は例。あとで全体を再掲する  
+
+```plaintext
+{% load static %} {% comment %} 👈あとで static "URL" を使うので load static します {% endcomment %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+        <!--                                                ===================
+                                                            1
+            1. Example: `http://example.com/static/favicon.ico`
+                                            ==================
+        -->
+        中略
+        <title>Tic Tac Toe</title>
+    </head>
+    <body>
+以下略
+```
+
+# Step 6. 画面作成 - portal_base.html ファイル
 
 以下のファイルを作成してほしい。
 
@@ -148,6 +217,11 @@ docker-compose run --rm web python manage.py startapp portal ./apps1/portal
     <head>
         <meta charset="utf-8" />
         <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+        <!--                                                ===================
+                                                            1
+            1. Example: `http://example.com/static/favicon.ico`
+                                            ==================
+        -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
