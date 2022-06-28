@@ -6,3 +6,6 @@ psycopg2>=2.8
 
 # CSV読取等
 pandas
+
+# ユーザー認証
+django-allauth>=0.32.0

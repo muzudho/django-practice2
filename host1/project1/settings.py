@@ -51,6 +51,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # ユーザー認証のためのアプリケーション
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
 
 MIDDLEWARE = [
@@ -96,6 +102,19 @@ TEMPLATES = [
             #
             # Example: /host1/apps1/portal/templates/portal/v0o0o1/portal_base.html
             #          ------ ----------------------
+            #          1      2
+            #
+            # 1. あなたの開発用ディレクトリー相当
+            # 2. テンプレートへのパス
+
+
+            # allauth
+            os.path.join(BASE_DIR, 'apps1/allauth_customized/templates'),
+            #            --------   ----------------------------------
+            #            1          2
+            #
+            # Example: /host1/apps1/allauth_customized/templates/allauth_customized/v0o0o1/account/login.html
+            #          ------ ----------------------------------
             #          1      2
             #
             # 1. あなたの開発用ディレクトリー相当
@@ -186,3 +205,30 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# +----
+# | Allauth
+# |
+# https://sinyblog.com/django/django-allauth/
+
+SITE_ID = 1  # 動かしているサイトを識別するID
+LOGIN_REDIRECT_URL = 'home'  # ログイン後に遷移するURL, または name の指定
+LOGIN_URL = 'login'  # ログインしていないときに飛ばされる先のURL, または name の指定
+
+# ログアウト後に遷移するURL, または name の指定
+# ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/v1/login/'
+#                                -------------------
+#                                1
+# 1. 例えば `http://example.com/accounts/v1/login/` というURLのパスの部分
+#                             -------------------
+ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
+
+EMAIL_HOST = 'smtp.gmail.com'  # メールサーバの指定
+EMAIL_PORT = 587  # ポート番号の指定
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')  # メールサーバのGmailのアドレス
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  # メールサーバのGmailのパスワード
+EMAIL_USE_TLS = True  # TLSの設定（TRUE,FALSE)
+# |
+# | Allauth
+# +----

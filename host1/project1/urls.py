@@ -50,4 +50,13 @@ urlpatterns = [
     # 1. 例えば `http://example.com/` のような URLの直下
     # 2. `host1/project1/urls_portal.py` の urlpatterns を (1.) にぶら下げる
     #           --------------------
+
+
+    # 認証
+    path('', include('project1.urls_accounts')),
+    #    --           ----------------------
+    #      1          2
+    # 1. 例えば `http://example.com/` のような URLの直下
+    # 2. `host1/project1/urls_accounts.py` の urlpatterns を (1.) にぶら下げる
+    #           ----------------------
 ]
