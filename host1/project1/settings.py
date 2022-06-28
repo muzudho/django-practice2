@@ -41,6 +41,7 @@ DEBUG = True
 
 INSTALLED_APPS = [
     # あなたが追加したアプリケーション
+    'apps1.practice',
     'apps1.portal',
 
     # Djangoの標準アプリケーション
