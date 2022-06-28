@@ -172,28 +172,19 @@ class PortalConfig(AppConfig):
 ```
 
 ```py
-# * 変更前
-# INSTALLED_APPS = [
-#     'django.contrib.admin',
-#     'django.contrib.auth',
-#     'django.contrib.contenttypes',
-#     'django.contrib.sessions',
-#     'django.contrib.messages',
-#     'django.contrib.staticfiles',
-# ]
-#
-# * 変更後
 INSTALLED_APPS = [
     # あなたが追加したアプリケーション
+
+
+    # ...中略...
+
+
     'apps1.portal',
 
-    # Djangoの標準アプリケーション
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+
+    # ...中略...
+
+
 ]
 ```
 
