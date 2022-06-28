@@ -201,6 +201,13 @@ INSTALLED_APPS = [
     # ...略...
 
 
+    # 以下を追加
+    'apps1.allauth_customized',
+
+
+    # ...略...
+
+
     # Djangoの標準アプリケーション
 
 
@@ -235,7 +242,7 @@ TEMPLATES = [
             #            --------   ----------------------------------
             #            1          2
             #
-            # Example: /host1/apps1/allauth_customized/templates/allauth_customized/v0o0o1/account/login.html
+            # Example: /host1/apps1/allauth_customized/templates/account/login.html
             #          ------ ----------------------------------
             #          1      2
             #
@@ -495,9 +502,8 @@ class DjangoAllauthFormParser {
         │       │       └── 📂v0o0o1
         │       │           └── 📄form-html-parser.js
         │       └── 📂templates
-        │           └── 📂allauth_customized
-        │               └── 📂v0o0o1
-👉      │                   └── 📄signup.html
+        │           └── 📂account                   # ディレクトリ構成を allauth アプリケーション に合わせる
+👉      │               └── 📄signup.html
         ├── 📂project1
         │   └── 📄settings.py
         ├── 📄.env
@@ -509,7 +515,7 @@ class DjangoAllauthFormParser {
 <!--
     # See also: 📖[Custom Signup View in django-allauth](https://tech.serhatteker.com/post/2020-06/custom-signup-view-in-django-allauth/)
 -->
-{% load static %} {% comment %} 👈あとで static "URL" を使うので load static します {% endcomment %}
+{% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!-- -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -531,10 +537,14 @@ class DjangoAllauthFormParser {
                     <v-toolbar-title>サインアップ</v-toolbar-title>
                 </v-app-bar>
                 <v-main>
+                    {% block section_login %}
+                    <!--
                     <v-container>
                         <h3>既にアカウントを持っているなら</h3>
                         <v-btn class="my-4" color="primary" :href="createPathOfSignin()">サインイン</v-btn>
                     </v-container>
+                    -->
+                    {% endblock section_login %}
                     <v-container>
                         <h3>会員登録するなら</h3>
                         <form class="signup" id="signup_form" method="post" :action="createPathOfSignup()">
@@ -579,8 +589,8 @@ class DjangoAllauthFormParser {
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 
-        <script src="{% static 'allauth_customized/v1/form-html-parser.js' %}"></script>
-        <!--            =================================================
+        <script src="{% static 'allauth_customized/v0o0o1/form-html-parser.js' %}"></script>
+        <!--            =====================================================
                         1
             1. host1/apps1/allauth_customized/static/allauth_customized/v0o0o1/form-html-parser.js
                                              =====================================================
@@ -592,10 +602,6 @@ class DjangoAllauthFormParser {
                 vuetify: new Vuetify(),
                 data: {
                     // "vu_" は 「vue1.dataのメンバー」 の目印
-
-                    // vu_pathOfSignin: "{{ login_url }}", // django-allauth のデフォルト
-                    vu_pathOfSignin: "{% url 'login' %}",
-                    vu_pathOfSignup: "{% url 'signup' %}",
 
                     // HTMLタグ文字列が渡されるので、解析します
                     vu_usernameFormDoc: new DjangoAllauthFormParser().parseHtmlString("username", "{{ form.username|escapejs }}"),
@@ -622,6 +628,12 @@ class DjangoAllauthFormParser {
 
                     vu_password2FormDoc: new DjangoAllauthFormParser().parseHtmlString("password2", "{{ form.password2|escapejs }}"),
                     vu_password2: "",
+
+                    vu_pathOfSignup: "{% url 'signup' %}",
+                    {% block vue1_data_footer %}
+                    // vu_pathOfSignin: "{{ login_url }}", // django-allauth のデフォルト
+                    // vu_pathOfSignin: "｛％ url 'login' ％｝",
+                    {% endblock vue1_data_footer %}
                 },
                 methods: {
                     createPathOfSignin() {
@@ -664,9 +676,8 @@ class DjangoAllauthFormParser {
         │       │       └── 📂v0o0o1
         │       │           └── 📄form-html-parser.js
         │       ├── 📂templates
-        │       │   └── 📂allauth_customized
-        │       │       └── 📂v0o0o1
-        │       │           └── 📄signup.html
+        │       │   └── 📂account                   # ディレクトリ構成を allauth アプリケーション に合わせる
+        │       │       └── 📄signup.html
         │       └── 📂views
         │           └── 📂v0o0o1
 👉      │               └── v_accounts.py
@@ -688,11 +699,11 @@ class AccountsV1SignupView(SignupView):
     """
 
     # ファイルパス
-    template_name = "allauth_customized/v0o0o1/account/signup.html"
-    #                ---------------------------------------------
+    template_name = "account/signup.html"
+    #                -------------------
     #                1
-    # 1. `host1/apps1/allauth_customized/templates/allauth_customized/v0o0o1/account/signup.html` を取得
-    #                                              ---------------------------------------------
+    # 1. `host1/apps1/allauth_customized/templates/account/signup.html` を取得
+    #                                              -------------------
 
     # You can also override some other methods of SignupView
     # Like below:
@@ -720,9 +731,8 @@ accounts_v1_signup_view = AccountsV1SignupView.as_view()
         │       │       └── 📂v0o0o1
         │       │           └── 📄form-html-parser.js
         │       ├── 📂templates
-        │       │   └── 📂allauth_customized
-        │       │       └── 📂v0o0o1
-        │       │           └── 📄signup.html
+        │       │   └── 📂account                   # ディレクトリ構成を allauth アプリケーション に合わせる
+        │       │       └── 📄signup.html
         │       └── 📂views
         │           └── 📂v0o0o1
         │               └── v_accounts.py
@@ -805,9 +815,8 @@ urlpatterns = [
         │       │       └── 📂v0o0o1
         │       │           └── 📄form-html-parser.js
         │       ├── 📂templates
-        │       │   └── 📂allauth_customized
-        │       │       └── 📂v0o0o1
-        │       │           └── 📄signup.html
+        │       │   └── 📂account                   # ディレクトリ構成を allauth アプリケーション に合わせる
+        │       │       └── 📄signup.html
         │       └── 📂views
         │           └── 📂v0o0o1
         │               └── v_accounts.py
@@ -850,13 +859,13 @@ urlpatterns = [
 👆 サインアップ ページを開く  
 メールが届くことも確認してほしい  
 
-既にログインしているなら、  
-
-📖 [http://localhost:8000/accounts/v1/logout/](http://localhost:8000/accounts/v1/logout/)  
-
-👆 ログアウトを試してほしい  
-
 あとは アカウントを作成したり、パスワードを忘れたときの手続きを試してほしい  
+
+// 既にログインしているなら、  
+//
+// 📖 [http://localhost:8000/accounts/v1/logout/](http://localhost:8000/accounts/v1/logout/)  
+//
+// 👆 ログアウトを試してほしい  
 
 # 次の記事
 

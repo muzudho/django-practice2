@@ -1,7 +1,7 @@
 <!--
     # See also: 📖[Custom Signup View in django-allauth](https://tech.serhatteker.com/post/2020-06/custom-signup-view-in-django-allauth/)
 -->
-{% load static %} {% comment %} 👈あとで static "URL" を使うので load static します {% endcomment %}
+{% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!-- -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -23,10 +23,14 @@
                     <v-toolbar-title>サインアップ</v-toolbar-title>
                 </v-app-bar>
                 <v-main>
+                    {% block section_login %}
+                    <!--
                     <v-container>
                         <h3>既にアカウントを持っているなら</h3>
                         <v-btn class="my-4" color="primary" :href="createPathOfSignin()">サインイン</v-btn>
                     </v-container>
+                    -->
+                    {% endblock section_login %}
                     <v-container>
                         <h3>会員登録するなら</h3>
                         <form class="signup" id="signup_form" method="post" :action="createPathOfSignup()">
@@ -71,10 +75,10 @@
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 
-        <script src="{% static 'allauth-customized/v1/form-html-parser.js' %}"></script>
-        <!--            =================================================
+        <script src="{% static 'allauth_customized/v0o0o1/form-html-parser.js' %}"></script>
+        <!--            =====================================================
                         1
-            1. host1/apps1/allauth-customized/static/allauth-customized/v0o0o1/form-html-parser.js
+            1. host1/apps1/allauth_customized/static/allauth_customized/v0o0o1/form-html-parser.js
                                              =====================================================
         -->
 
@@ -84,10 +88,6 @@
                 vuetify: new Vuetify(),
                 data: {
                     // "vu_" は 「vue1.dataのメンバー」 の目印
-
-                    // vu_pathOfSignin: "{{ login_url }}", // django-allauth のデフォルト
-                    vu_pathOfSignin: "{% url 'login' %}",
-                    vu_pathOfSignup: "{% url 'signup' %}",
 
                     // HTMLタグ文字列が渡されるので、解析します
                     vu_usernameFormDoc: new DjangoAllauthFormParser().parseHtmlString("username", "{{ form.username|escapejs }}"),
@@ -114,6 +114,12 @@
 
                     vu_password2FormDoc: new DjangoAllauthFormParser().parseHtmlString("password2", "{{ form.password2|escapejs }}"),
                     vu_password2: "",
+
+                    vu_pathOfSignup: "{% url 'signup' %}",
+                    {% block vue1_data_footer %}
+                    // vu_pathOfSignin: "{{ login_url }}", // django-allauth のデフォルト
+                    // vu_pathOfSignin: "｛％ url 'login' ％｝",
+                    {% endblock vue1_data_footer %}
                 },
                 methods: {
                     createPathOfSignin() {

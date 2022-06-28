@@ -41,8 +41,9 @@ DEBUG = True
 
 INSTALLED_APPS = [
     # あなたが追加したアプリケーション
-    'apps1.practice',
+    'apps1.allauth_customized',
     'apps1.portal',
+    'apps1.practice',
 
     # Djangoの標準アプリケーション
     'django.contrib.admin',
@@ -113,7 +114,7 @@ TEMPLATES = [
             #            --------   ----------------------------------
             #            1          2
             #
-            # Example: /host1/apps1/allauth_customized/templates/allauth_customized/v0o0o1/account/login.html
+            # Example: /host1/apps1/allauth_customized/templates/account/signup.html
             #          ------ ----------------------------------
             #          1      2
             #
