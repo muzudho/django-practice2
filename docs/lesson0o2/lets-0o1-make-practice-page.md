@@ -141,6 +141,10 @@ class PracticeConfig(AppConfig):
     #name = 'practice'
     # * 変更後
     name = 'apps1.practice'
+    #       --------------
+    #       1
+    # 1. `host1/apps1/practice/apps.py`
+    #           --------------
 ```
 
 # Step 6. 画面作成 - page1.html ファイル
