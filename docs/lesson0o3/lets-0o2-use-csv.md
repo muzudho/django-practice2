@@ -354,6 +354,10 @@ from apps1.portal.views.v0o0o2.pages import Portal
 
 📖 [http://localhost:8000/](http://localhost:8000/)  
 
+# 次の記事
+
+📖 [Djangoでユーザー認証を付けよう！](https://qiita.com/muzudho1/items/55cb7ac55299afd51887)  
+
 # 参考にした記事
 
 ## CSV
