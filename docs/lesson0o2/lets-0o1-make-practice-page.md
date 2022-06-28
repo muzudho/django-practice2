@@ -115,7 +115,35 @@ docker-compose run --rm web python manage.py startapp practice ./apps1/practice
 👉              └── 📄views.py
 ```
 
-# Step 5. 画面作成 - page1.html ファイル
+# Step 5. アプリケーション設定変更 - apps.py
+
+👇 以下のファイルを編集してほしい  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice              # アプリケーション名
+                ├── 📂migrations
+                │   └── 📄__init__.py
+                ├── 📄__init__.py
+                ├── 📄admin.py
+👉              ├── 📄apps.py
+                └── 📄tests.py
+```
+
+```py
+from django.apps import AppConfig
+
+
+class PracticeConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    # * 変更前
+    #name = 'practice'
+    # * 変更後
+    name = 'apps1.practice'
+```
+
+# Step 6. 画面作成 - page1.html ファイル
 
 以下のファイルを作成してほしい。
 
@@ -140,7 +168,7 @@ docker-compose run --rm web python manage.py startapp practice ./apps1/practice
 </html>
 ```
 
-# Step 6. 設定変更 - settings.py ファイル
+# Step 7. 設定変更 - settings.py ファイル
 
 👇 以下のファイルを編集してほしい  
 
@@ -190,7 +218,7 @@ TEMPLATES = [
 ]
 ```
 
-# Step 7. ビュー作成 - pages.py ファイル
+# Step 8. ビュー作成 - pages.py ファイル
 
 👇 以下のファイルを作成してほしい  
 
@@ -233,7 +261,7 @@ class Page1():
         #                    <a href="home/v1/">ホーム</a>""")
 ```
 
-# Step 8. サブ ルート作成 - urls_practice.py
+# Step 9. サブ ルート作成 - urls_practice.py
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -276,7 +304,7 @@ urlpatterns = [
 ]
 ```
 
-# Step 9. 総合ルート編集 - urls.py
+# Step 10. 総合ルート編集 - urls.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -319,7 +347,7 @@ urlpatterns = [
 ]
 ```
 
-# Step 10. Webページにアクセスする
+# Step 11. Webページにアクセスする
 
 📖 [http://localhost:8000/practice/page1](http://localhost:8000/practice/page1)  
 
