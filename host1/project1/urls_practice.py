@@ -22,6 +22,12 @@ from apps1.practice.views.v0o0o1.pages import Page2Patch2
 # 2. Python ファイル名。拡張子抜き
 # 3. クラス名
 
+from apps1.practice.views.v0o0o1 import v_login_required
+#    ---------------------------        ----------------
+#    1                                  2
+# 1. ディレクトリー名
+# 2. Python ファイル名。拡張子抜き
+
 
 urlpatterns = [
 
@@ -53,4 +59,28 @@ urlpatterns = [
     #                              ----------------------
     # 2. Page2Patch2 クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'page2_patch2' %} のような形でURLを取得するのに使える
+
+    # ログイン中
+    path('practice/login-required', v_login_required.LoggingIn.render,
+         # ----------------------   ---------------------------------
+         # 1                        2
+         name='practiceLoginRequired'),
+    #          ---------------------
+    #          3
+    # 1. 例えば `http://example.com/practice/login-required` のような URL のパスの部分
+    #                              -----------------------
+    # 2. v_login_required.py ファイルの LoggingIn クラスの render 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'practiceLoginRequired' %} のような形でURLを取得するのに使える
+
+    # ログアウト中
+    path('practice/logout', v_login_required.LoggingOut.render,
+         # --------------   ----------------------------------
+         # 1                2
+         name='practiceLogout'),
+    #          --------------
+    #          3
+    # 1. 例えば `http://example.com/practice/logout` のような URL のパスの部分
+    #                              ---------------
+    # 2. v_login_required.py ファイルの LoggingOut クラスの render 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'practiceLogout' %} のような形でURLを取得するのに使える
 ]

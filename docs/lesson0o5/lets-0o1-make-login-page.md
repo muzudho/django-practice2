@@ -351,7 +351,7 @@ urlpatterns = [
 
 # 次の記事
 
-📖 ...  
+📖 [Djangoでログインしていないと見れないページ，およびログアウト機能を付けよう！](https://qiita.com/muzudho1/items/9f1ae4d0debc0b8aa4b1)  
 
 # 関連する記事
 
