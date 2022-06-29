@@ -4,3 +4,5 @@ path,label
 /practice/page2_patch2,ページ２ パッチ２
 /accounts/v1/signup/,サインアップ
 /accounts/v1/logout/,サインアウト
+/practice/login-required,ログイン必須
+/practice/logout,ログアウト

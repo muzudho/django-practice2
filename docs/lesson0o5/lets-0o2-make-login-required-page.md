@@ -257,6 +257,35 @@ urlpatterns = [
 
 📖 [http://localhost:8000/practice/logout](http://localhost:8000/practice/logout)  
 
+# Step 6. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+
+👇 以下の既存ファイルの最終行に追記してほしい  
+
+```plaintext
+    └── 📂host1
+        ├── 📂apps1
+        │   ├── 📂portal                # アプリケーション
+        │   │   └── 📂data
+👉      │   │       └── 📄finished-lessons.csv
+        │   └── 📂practice              # アプリケーション
+        │       └── 📂templates
+        │           ├── 📂practice
+        │           │   └── 📂v0o0o1
+        │           │       └── 📄login_required.html
+        │           └── 📂views
+        │               └── 📄v_login_required.py
+        └── 📂project1
+            ├── 📄urls_practice.py
+            └── 📄urls.py
+```
+
+👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
+
+```csv
+/practice/login-required,ログイン必須
+/practice/logout,ログアウト
+```
+
 # 関連する記事
 
 📖 [Using the Django authentication system](https://docs.djangoproject.com/en/3.1/topics/auth/default/)  
