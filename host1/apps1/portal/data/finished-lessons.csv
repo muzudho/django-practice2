@@ -2,3 +2,5 @@ path,label
 /practice/page1,ページ１
 /practice/page2_patch1,ページ２ パッチ１
 /practice/page2_patch2,ページ２ パッチ２
+/accounts/v1/signup/,サインアップ
+/accounts/v1/logout/,サインアウト
