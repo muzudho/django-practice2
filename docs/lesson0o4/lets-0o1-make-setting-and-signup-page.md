@@ -763,9 +763,7 @@ urlpatterns = [
     # ...中略...
 
 
-    # +----
-    # | 認証
-    # | See also: https://sinyblog.com/django/django-allauth/
+    # See also: https://sinyblog.com/django/django-allauth/
 
     # ログイン後に戻ってくるWebページの指定
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
@@ -796,9 +794,6 @@ urlpatterns = [
     #                              -------------------
     # 2. allauth の SignupView をカスタマイズしたオブジェクト
     # 3. HTMLテンプレートの中で {% url 'signup' %} のような形でURLを取得するのに使える
-
-    # | 認証
-    # +----
 ]
 ```
 
@@ -869,7 +864,7 @@ urlpatterns = [
 
 # 次の記事
 
-📖 ...  
+📖 [Djangoでサインイン（利用開始）のページを作ろう！](https://qiita.com/muzudho1/items/1d34d64562ff07f1742a)  
 
 # 関連する記事
 

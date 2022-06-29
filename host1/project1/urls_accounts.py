@@ -8,6 +8,12 @@ from apps1.allauth_customized.views.v0o0o1 import v_accounts
 # 2. Pythonモジュール名（ディレクトリー名）
 # 3. Python ファイル名。拡張子抜き
 
+from apps1.allauth_customized.views.v0o0o1 import v_login
+#    -------------------------------------        -------
+#    1                                            2
+# 1. Pythonモジュール名（ディレクトリー名）
+# 2. Python ファイル名。拡張子抜き
+
 
 urlpatterns = [
 
@@ -15,9 +21,7 @@ urlpatterns = [
     # ...中略...
 
 
-    # +----
-    # | 認証
-    # | See also: https://sinyblog.com/django/django-allauth/
+    # See also: https://sinyblog.com/django/django-allauth/
 
     # ログイン後に戻ってくるWebページの指定
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
@@ -49,6 +53,15 @@ urlpatterns = [
     # 2. allauth の SignupView をカスタマイズしたオブジェクト
     # 3. HTMLテンプレートの中で {% url 'signup' %} のような形でURLを取得するのに使える
 
-    # | 認証
-    # +----
+    # ログイン（入場）
+    path("accounts/v1/login/", view=v_login.accounts_v1_login_view,
+         # -----------------        ------------------------------
+         # 1                        2
+         name="login"),
+    #          -----
+    #          3
+    # 1. 例えば `http://example.com/accounts/v1/login/` のような URL のパスの部分
+    #                              -------------------
+    # 2. v_login.py ファイルの accounts_v1_login_view グローバル変数。ビューのオブジェクト
+    # 3. HTMLテンプレートの中で {% url 'login' %} のような形でURLを取得するのに使える
 ]
