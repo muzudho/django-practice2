@@ -286,6 +286,10 @@ urlpatterns = [
 /practice/logout,ログアウト
 ```
 
+# 次の記事
+
+📖 [Djangoでスーパーユーザーを追加しよう！](https://qiita.com/muzudho1/items/cf21fa75e23e1f987153)  
+
 # 関連する記事
 
 📖 [Using the Django authentication system](https://docs.djangoproject.com/en/3.1/topics/auth/default/)  
