@@ -11,7 +11,7 @@ from apps1.practice.models.m_prefecture import Prefecture
 
 
 def render_list(request):
-    """一覧画面を描画"""
+    """一覧画面の描画"""
 
     template = loader.get_template('practice/v0o0o1/prefecture/list.html')
     #                               ------------------------------------

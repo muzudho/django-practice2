@@ -11,7 +11,7 @@ from apps1.practice.models.m_prefecture import Prefecture
 
 
 def render_delete(request, id=id):
-    """描画
+    """削除画面の描画
 
     Parameters
     ----------

@@ -251,38 +251,67 @@ from apps1.practice.forms.f_prefecture import PrefectureForm
 # 5. クラス名
 
 
-class PrefectureUpsertV():
-    """都道府県の新規作成または更新ビュー"""
+def render_upsert(request, id=None):
+    """新規作成または更新の画面の描画"""
 
-    def render(request, id=None):
-        """描画"""
+    if id:  # idがあるとき（更新の時）
+        # idで検索して、結果を戻すか、404エラー
+        prefecture = get_object_or_404(Prefecture, pk=id)
+    else:  # idが無いとき（作成の時）
+        prefecture = Prefecture()
 
-        if id:  # idがあるとき（更新の時）
-            # idで検索して、結果を戻すか、404エラー
-            prefecture = get_object_or_404(Prefecture, pk=id)
-        else:  # idが無いとき（作成の時）
-            prefecture = Prefecture()
+    # POSTの時（作成であれ更新であれ送信ボタンが押されたとき）
+    if request.method == 'POST':
+        # フォームを生成
+        form = PrefectureForm(request.POST, instance=prefecture)
+        if form.is_valid():  # バリデーションがOKなら保存
+            prefecture = form.save(commit=False)
+            prefecture.save()
+            return redirect('prefecture_list')
+    else:  # GETの時（フォームを生成）
+        form = PrefectureForm(instance=prefecture)
 
-        # POSTの時（作成であれ更新であれ送信ボタンが押されたとき）
-        if request.method == 'POST':
-            # フォームを生成
-            form = PrefectureForm(request.POST, instance=prefecture)
-            if form.is_valid():  # バリデーションがOKなら保存
-                prefecture = form.save(commit=False)
-                prefecture.save()
-                return redirect('prefecture_list')
-        else:  # GETの時（フォームを生成）
-            form = PrefectureForm(instance=prefecture)
-
-        # 作成・更新画面を表示
-        return render(request, 'practice/v0o0o1/prefecture/upsert.html', dict(form=form, id=id))
-        #                       --------------------------------------
-        #                       1
-        # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/upsert.html` を取得
-        #                                    --------------------------------------
+    # 作成・更新画面を表示
+    return render(request, 'practice/v0o0o1/prefecture/upsert.html', dict(form=form, id=id))
+    #                       --------------------------------------
+    #                       1
+    # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/upsert.html` を取得
+    #                                    --------------------------------------
 ```
 
-# Step 5. ルート編集 - urls.py ファイル
+# Step 5. ビュー作成 - prefecture モジュール
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice                      # アプリケーション
+                ├── 📂templates
+                │   └── 📂practice
+                │       └── 📂v0o0o1
+                │           └── 📂prefecture
+                │               └── 📄upsert.html
+                └── 📂views
+                    └── 📂v0o0o1
+                        └── 📂prefecture
+👉                          ├── 📄__init__.py
+                            └── 📄v_upsert.py
+```
+
+```py
+class PrefectureV(object):
+    """都道府県のビュー"""
+
+
+    # ..略..
+
+
+    # 以下を追加
+    from .v_upsert import render_upsert
+```
+
+# Step 6. ルート編集 - urls.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -313,9 +342,9 @@ from django.urls import path
 # ...略...
 
 
-from apps1.practice.views.v0o0o1.prefecture.v_upsert import PrefectureUpsertV
-#    ----- -------- ----------------------- --------        -----------------
-#    1     2        3                       4               5
+from apps1.practice.views.v0o0o1.prefecture import PrefectureV
+#    ----- -------- -----------------------        -----------
+#    1     2        3                              4
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
@@ -329,30 +358,33 @@ urlpatterns = [
 
 
     # 都道府県の新規作成
-    path('practice/prefecture/create/', PrefectureUpsertV.render, name='prefecture_create'),
-    #     ---------------------------   ------------------------        -----------------
-    #     1                             2                            3
+    path('practice/prefecture/create/',
+         # --------------------------
+         # 1
+         PrefectureV.render_upsert, name='prefecture_create'),
+    #    -------------------------        -----------------
+    #    2                                3
     # 1. 例えば `http://example.com/practice/prefecture/create/` のような URL のパスの部分
     #                              ----------------------------
-    # 2. PrefectureUpsertV クラスの render メソッド
+    # 2. PrefectureV クラスの render_upsert メソッド
     # 3. HTMLテンプレートの中で {% url 'prefecture_create' %} のような形でURLを取得するのに使える
 
     # 都道府県の更新
     path('practice/prefecture/update/<int:id>/',
          # -----------------------------------
          # 1
-         PrefectureUpsertV.render, name='prefecture_update'),
-    #    ------------------------        -----------------
-    #    2                               3
+         PrefectureV.render_upsert, name='prefecture_update'),
+    #    -------------------------        -----------------
+    #    2                                3
     # 1. 例えば `http://example.com/practice/prefecture/update/<数字列>/` のような URL のパスの部分
     #                              ------------------------------------
     #    数字列は `2.` のメソッドの引数に `=id` と指定することで取得できる
-    # 2. PrefectureUpsertV クラスの render メソッド
+    # 2. PrefectureV クラスの render_upsert メソッド
     # 3. HTMLテンプレートの中で {% url 'prefecture_update' %} のような形でURLを取得するのに使える
 ]
 ```
 
-# Step 5. Web画面へアクセス
+# Step 7. Web画面へアクセス
 
 👇 作成するとき、IDは付けるな  
 
@@ -360,7 +392,7 @@ urlpatterns = [
 
 👇 更新するとき、IDを付けろ。 IDは適宜変えてほしい  
 
-📖 [http://localhost:8000/practice/prefecture/update/5/](http://localhost:8000/practice/prefecture/update/4/)  
+📖 [http://localhost:8000/practice/prefecture/update/4/](http://localhost:8000/practice/prefecture/update/4/)  
 
 # 参考にした記事
 

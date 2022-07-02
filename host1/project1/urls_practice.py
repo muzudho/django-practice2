@@ -36,14 +36,6 @@ from apps1.practice.views.v0o0o1.prefecture import PrefectureV
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
-from apps1.practice.views.v0o0o1.prefecture.v_upsert import PrefectureUpsertV
-#    ----- -------- ----------------------- --------        -----------------
-#    1     2        3                       4               5
-# 1,3. ディレクトリー名
-# 2. アプリケーション名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
-
 
 urlpatterns = [
 
@@ -139,24 +131,26 @@ urlpatterns = [
 
     # 都道府県の新規作成
     path('practice/prefecture/create/',
-         PrefectureUpsertV.render, name='prefecture_create'),
-    #     ---------------------------   ------------------------        -----------------
-    #     1                             2                            3
+         # --------------------------
+         # 1
+         PrefectureV.render_upsert, name='prefecture_create'),
+    #    -------------------------        -----------------
+    #    2                                3
     # 1. 例えば `http://example.com/practice/prefecture/create/` のような URL のパスの部分
     #                              ----------------------------
-    # 2. PrefectureUpsertV クラスの render メソッド
+    # 2. PrefectureV クラスの render_upsert メソッド
     # 3. HTMLテンプレートの中で {% url 'prefecture_create' %} のような形でURLを取得するのに使える
 
     # 都道府県の更新
     path('practice/prefecture/update/<int:id>/',
          # -----------------------------------
          # 1
-         PrefectureUpsertV.render, name='prefecture_update'),
-    #    ------------------------        -----------------
-    #    2                               3
+         PrefectureV.render_upsert, name='prefecture_update'),
+    #    -------------------------        -----------------
+    #    2                                3
     # 1. 例えば `http://example.com/practice/prefecture/update/<数字列>/` のような URL のパスの部分
     #                              ------------------------------------
     #    数字列は `2.` のメソッドの引数に `=id` と指定することで取得できる
-    # 2. PrefectureUpsertV クラスの render メソッド
+    # 2. PrefectureV クラスの render_upsert メソッド
     # 3. HTMLテンプレートの中で {% url 'prefecture_update' %} のような形でURLを取得するのに使える
 ]

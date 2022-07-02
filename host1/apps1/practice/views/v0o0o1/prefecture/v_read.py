@@ -11,7 +11,7 @@ from apps1.practice.models.m_prefecture import Prefecture
 
 
 def render_read(request, id=id):
-    """描画
+    """詳細画面の描画
 
     Parameters
     ----------
