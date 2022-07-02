@@ -36,6 +36,14 @@ from apps1.practice.views.v0o0o1.prefecture.v_list import PrefectureListV
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
+from apps1.practice.views.v0o0o1.prefecture.v_read import PrefectureReadV
+#    ----- -------- ----------------------- ------        ---------------
+#    1     2        3                       4             5
+# 1,3. ディレクトリー名
+# 2. アプリケーション名
+# 4. Python ファイル名。拡張子抜き
+# 5. クラス名
+
 
 urlpatterns = [
 
@@ -100,4 +108,18 @@ urlpatterns = [
     #                              ----------------------
     # 2. PrefectureListV クラスの render メソッド
     # 3. HTMLテンプレートの中で {% url 'prefecture_list' %} のような形でURLを取得するのに使える
+
+    # 都道府県詳細
+    path('practice/prefectures/read/<int:id>/',
+         # ----------------------------------
+         # 1
+         PrefectureReadV.render, name='prefecture_read'),
+    #    ----------------------        ---------------
+    #    2                             3
+    #
+    # 1. 例えば `http://example.com/practice/prefectures/read/<数字列>/` のような URL のパスの部分
+    #                              -----------------------------------
+    #    数字列は `2.` のメソッドの引数に `=id` と指定することで取得できる
+    # 2. PrefectureReadV クラスの render メソッド
+    # 3. HTMLテンプレートの中で {% url 'prefecture_read' %} のような形でURLを取得するのに使える
 ]

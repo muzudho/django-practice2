@@ -1,16 +1,20 @@
 # 目的
 
-サーバー側に記憶したデータを一覧したい  
+（※いわゆる CRUD の R）  
+
+`http://localhost:8000/prefectures/read/1/` へアクセスすると、  
+pk が 1 の都道府県を表示したい  
 
 表示例:  
 
 ```plaintext
-一覧表示
-主キー  連番  名前
-------  ----  ----
-1       1     東京
-2       2     大阪
-3       3     愛知
+都道府県の詳細情報
+
+連番
+1
+
+名前
+東京
 ```
 
 # はじめに
@@ -35,26 +39,28 @@
 ```plaintext
     ├── 📂host1
     │   ├── 📂apps1
-    │   │   ├── 📂allauth_customized    # アプリケーション名
-    │   │   ├── 📂portal                # アプリケーション名
-    │   │   │   ├── 📂data
-    │   │   │   ├── 📂migrations
-    │   │   │   ├── 📂static
-    │   │   │   ├── 📂templates
-    │   │   │   └── 📂views
-    │   │   └── 📂practice              # アプリケーション名
+    │   │   ├── 📂allauth_customized    # アプリケーション
+    │   │   ├── 📂portal                # アプリケーション
+    │   │   └── 📂practice              # アプリケーション
     │   │       ├── 📂management
     │   │       ├── 📂migrations
     │   │       ├── 📂models
     │   │       ├── 📂static
     │   │       ├── 📂templates
+    │   │       │   └── 📂practice          # アプリケーションと同名
+    │   │       │       └── 📂v0o0o1
+    │   │       │           └── 📂prefecture
+    │   │       │               └── 📄list.html
     │   │       ├── 📂views
+    │   │       │   └── 📂v0o0o1
+    │   │       │       └── 📂prefecture
+    │   │       │           └── 📄list.html
     │   │       ├── 📄__init__.py
     │   │       ├── 📄admin.py
     │   │       ├── 📄apps.py
     │   │       └── 📄tests.py
     │   ├── 📂data
-    │   ├── 📂project1                  # プロジェクト名
+    │   ├── 📂project1                  # プロジェクト
     │   │   ├── 📄__init__.py
     │   │   ├── 📄asgi.py
     │   │   ├── 📄settings_secrets_example.txt
@@ -63,7 +69,7 @@
     │   │   ├── 📄urls_practice.py
     │   │   ├── 📄urls.py
     │   │   └── 📄wsgi.py
-    │   ├── 📂project2
+    │   ├── 📂project2                  # プロジェクト
     │   ├── 🐳docker-compose-project2.yml
     │   ├── 🐳docker-compose.yml
     │   ├── 🐳Dockerfile
@@ -84,7 +90,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. 画面作成 - list.html ファイル
+# Step 2. 画面作成 - read.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -96,7 +102,7 @@ docker-compose up
                     └── 📂practice              # アプリケーションと同名
                         └── 📂v0o0o1                # ただのフォルダー
                             └── 📂prefecture            # ただのフォルダー
-👉                              └── 📄list.html
+👉                              └── 📄read.html
 ```
 
 ```html
@@ -114,34 +120,29 @@ docker-compose up
         -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>都道府県一覧</title>
+        <title>都道府県の詳細</title>
         <!-- 覚えなくていい : Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     </head>
     <body>
         <div class="container">
-            <h3>都道府県一覧</h3>
-
-            <table class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>主キー</th>
-                        <th>連番</th>
-                        <th>名前</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for prefecture in prefectures %}
-                    <tr>
-                        <td>{{ prefecture.pk }}</td>
-                        <td>{{ prefecture.seq }}</td>
-                        <td>{{ prefecture.name }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <h3>都道府県の詳細情報</h3>
+            <div class="card" style="width: 18rem">
+                <div class="card-body">
+                    <h5 class="card-title">主キー</h5>
+                    <p class="card-text">{{ prefecture.pk }}</p>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">連番</h5>
+                    <p class="card-text">{{ prefecture.seq }}</p>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">名前</h5>
+                    <p class="card-text">{{ prefecture.name }}</p>
+                </div>
+            </div>
+            <a href="{% url 'prefecture_list' %}" class="btn btn-default btn-sm">戻る</a>
         </div>
-
         <!-- 覚えなくていい : jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- 覚えなくていい : Include all compiled plugins (below), or include individual files as needed -->
@@ -150,7 +151,7 @@ docker-compose up
 </html>
 ```
 
-# Step 3. ビュー編集 - v_list.py ファイル
+# Step 3. ビュー編集 - v_read.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -162,11 +163,11 @@ docker-compose up
                 │   └── 📂practice              # アプリケーションと同名
                 │       └── 📂v0o0o1                # ただのフォルダー
                 │           └── 📂prefecture            # ただのフォルダー
-                │               └── 📄list.html
+                │               └── 📄read.html
                 └── 📂views
                     └── 📂v0o0o1                # ただのフォルダー
                         └── 📂prefecture            # ただのフォルダー
-👉                          └── 📄v_list.py
+👉                          └── 📄v_read.py
 ```
 
 ```py
@@ -182,20 +183,29 @@ from apps1.practice.models.m_prefecture import Prefecture
 # 5. クラス名
 
 
-class PrefectureListV():
-    """都道府県一覧ビュー"""
+class PrefectureReadV():
+    """都道府県詳細ビュー"""
 
-    def render(request):
-        """描画"""
+    def render(request, id=id):
+        """描画
 
-        template = loader.get_template('practice/v0o0o1/prefecture/list.html')
+        Parameters
+        ----------
+        request : object
+            リクエスト
+        id : str
+            URLのGETストリングの ?id= の値
+        """
+
+        template = loader.get_template('practice/v0o0o1/prefecture/read.html')
         #                               ------------------------------------
         #                               1
-        # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/list.html` を取得
+        # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/read.html` を取得
         #                                    ------------------------------------
 
         context = {
-            'prefectures': Prefecture.objects.all().order_by('pk'),  # pk順にメンバーを全部取得
+            # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得
+            'prefecture': Prefecture.objects.get(pk=id),
         }
         return HttpResponse(template.render(context, request))
 ```
@@ -212,11 +222,11 @@ class PrefectureListV():
         │       │   └── 📂practice              # アプリケーションと同名
         │       │       └── 📂v0o0o1                # ただのフォルダー
         │       │           └── 📂prefecture            # ただのフォルダー
-        │       │               └── 📄list.html
+        │       │               └── 📄read.html
         │       └── 📂views
         │           └── 📂v0o0o1                # ただのフォルダー
         │               └── 📂prefecture            # ただのフォルダー
-        │                   └── 📄v_list.py
+        │                   └── 📄v_read.py
         └── project1
 👉          ├── 📄urls_practice.py              # こちら
 ❌          └── 📄urls.py                       # これではない
@@ -229,7 +239,7 @@ from django.urls import path
 # ...略...
 
 
-from apps1.practice.views.v0o0o1.prefecture.v_list import PrefectureListV
+from apps1.practice.views.v0o0o1.prefecture.v_read import PrefectureReadV
 #    ----- -------- ----------------------- ------        ---------------
 #    1     2        3                       4             5
 # 1,3. ディレクトリー名
@@ -244,21 +254,22 @@ urlpatterns = [
     # ...略...
 
 
-    # 都道府県一覧
-    path('practice/prefectures/', PrefectureListV.render, name='prefecture_list'),
-    #     ---------------------   ----------------------        ---------------
-    #     1                       2                             3
-    # 1. 例えば `http://example.com/practice/prefectures/` のような URL のパスの部分
-    #                              ----------------------
-    # 2. PrefectureListV クラスの render メソッド
-    # 3. HTMLテンプレートの中で {% url 'prefecture_list' %} のような形でURLを取得するのに使える
+    # 都道府県詳細
+    path('practice/prefectures/read/<int:id>/',
+         # ----------------------------------
+         # 1
+         PrefectureReadV.render, name='prefecture_read'),
+    #    ----------------------        ---------------
+    #    2                             3
+    #
+    # 1. 例えば `http://example.com/practice/prefectures/read/<数字列>/` のような URL のパスの部分
+    #                              -----------------------------------
+    #    数字列は `2.` のメソッドの引数に `=id` と指定することで取得できる
+    # 2. PrefectureReadV クラスの render メソッド
+    # 3. HTMLテンプレートの中で {% url 'prefecture_read' %} のような形でURLを取得するのに使える
 ]
 ```
 
-# Step 5. Web画面へアクセス
+# Step 4. Web画面へアクセス
 
-📖 [http://localhost:8000/practice/prefectures/](http://localhost:8000/practice/prefectures/)  
-
-# 次の記事
-
-📖 [Djangoでモデルのインスタンスの読取ページを作成しよう！](https://qiita.com/muzudho1/items/ae362f53a670e265a7e4)  
+📖 [http://localhost:8000/practice/prefectures/read/1/](http://localhost:8000/practice/prefectures/read/1/)  
