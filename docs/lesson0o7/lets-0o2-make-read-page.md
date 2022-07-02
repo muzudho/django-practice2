@@ -54,6 +54,7 @@ pk が 1 の都道府県を表示したい
     │   │       ├── 📂views
     │   │       │   └── 📂v0o0o1
     │   │       │       └── 📂prefecture
+    │   │       │           ├── 📄__init__.py
     │   │       │           └── 📄v_list.py
     │   │       ├── 📄__init__.py
     │   │       ├── 📄admin.py
@@ -151,7 +152,7 @@ docker-compose up
 </html>
 ```
 
-# Step 3. ビュー編集 - v_read.py ファイル
+# Step 3. ビュー作成- v_read.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -183,34 +184,63 @@ from apps1.practice.models.m_prefecture import Prefecture
 # 5. クラス名
 
 
-class PrefectureReadV():
-    """都道府県の詳細ビュー"""
+def render_read(request, id=id):
+    """描画
 
-    def render(request, id=id):
-        """描画
+    Parameters
+    ----------
+    request : object
+        リクエスト
+    id : str
+        URLのGETストリングの ?id= の値
+    """
 
-        Parameters
-        ----------
-        request : object
-            リクエスト
-        id : str
-            URLのGETストリングの ?id= の値
-        """
+    template = loader.get_template('practice/v0o0o1/prefecture/read.html')
+    #                               ------------------------------------
+    #                               1
+    # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/read.html` を取得
+    #                                    ------------------------------------
 
-        template = loader.get_template('practice/v0o0o1/prefecture/read.html')
-        #                               ------------------------------------
-        #                               1
-        # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/read.html` を取得
-        #                                    ------------------------------------
-
-        context = {
-            # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得
-            'prefecture': Prefecture.objects.get(pk=id),
-        }
-        return HttpResponse(template.render(context, request))
+    context = {
+        # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得
+        'prefecture': Prefecture.objects.get(pk=id),
+    }
+    return HttpResponse(template.render(context, request))
 ```
 
-# Step 4. ルート編集 - urls.py ファイル
+# Step 4. ビュー作成 - prefecture モジュール
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice                      # アプリケーション
+                ├── 📂templates
+                │   └── 📂practice
+                │       └── 📂v0o0o1
+                │           └── 📂prefecture
+                │               └── 📄read.html
+                └── 📂views
+                    └── 📂v0o0o1
+                        └── 📂prefecture
+👉                          ├── 📄__init__.py
+                            └── 📄v_read.py
+```
+
+```py
+class PrefectureV(object):
+    """都道府県のビュー"""
+
+
+    # ..略..
+
+
+    # 以下を追加
+    from .v_read import render_read
+```
+
+# Step 5. ルート編集 - urls.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -226,6 +256,7 @@ class PrefectureReadV():
         │       └── 📂views
         │           └── 📂v0o0o1
         │               └── 📂prefecture
+        │                   ├── 📄__init__.py
         │                   └── 📄v_read.py
         └── 📂project1                          # プロジェクト
 👉          ├── 📄urls_practice.py              # こちら
@@ -239,9 +270,9 @@ from django.urls import path
 # ...略...
 
 
-from apps1.practice.views.v0o0o1.prefecture.v_read import PrefectureReadV
-#    ----- -------- ----------------------- ------        ---------------
-#    1     2        3                       4             5
+from apps1.practice.views.v0o0o1.prefecture import PrefectureV
+#    ----- -------- -----------------------        -----------
+#    1     2        3                              4
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
@@ -258,19 +289,19 @@ urlpatterns = [
     path('practice/prefectures/read/<int:id>/',
          # ----------------------------------
          # 1
-         PrefectureReadV.render, name='prefecture_read'),
-    #    ----------------------        ---------------
-    #    2                             3
+         PrefectureV.render_read, name='prefecture_read'),
+    #    -----------------------        ---------------
+    #    2                              3
     #
     # 1. 例えば `http://example.com/practice/prefectures/read/<数字列>/` のような URL のパスの部分
     #                              -----------------------------------
     #    数字列は `2.` のメソッドの引数に `=id` と指定することで取得できる
-    # 2. PrefectureReadV クラスの render メソッド
+    # 2. PrefectureV クラスの render_read メソッド
     # 3. HTMLテンプレートの中で {% url 'prefecture_read' %} のような形でURLを取得するのに使える
 ]
 ```
 
-# Step 4. Web画面へアクセス
+# Step 6. Web画面へアクセス
 
 📖 [http://localhost:8000/practice/prefectures/read/1/](http://localhost:8000/practice/prefectures/read/1/)  
 
