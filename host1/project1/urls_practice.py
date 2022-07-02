@@ -28,9 +28,9 @@ from apps1.practice.views.v0o0o1 import v_login_required
 # 1. ディレクトリー名
 # 2. Python ファイル名。拡張子抜き
 
-from apps1.practice.views.v0o0o1.prefecture.v_list import PrefectureListV
-#    ----- -------- ----------------------- ------        ---------------
-#    1     2        3                       4             5
+from apps1.practice.views.v0o0o1.prefecture import PrefectureV
+#    ----- -------- -----------------------        -----------
+#    1     2        3                              4
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
@@ -117,12 +117,12 @@ urlpatterns = [
     # 3. HTMLテンプレートの中で {% url 'practiceLogout' %} のような形でURLを取得するのに使える
 
     # 都道府県の一覧
-    path('practice/prefectures/', PrefectureListV.render, name='prefecture_list'),
-    #     ---------------------   ----------------------        ---------------
-    #     1                       2                             3
+    path('practice/prefectures/', PrefectureV.render_list, name='prefecture_list'),
+    #     ---------------------   -----------------------        ---------------
+    #     1                       2                              3
     # 1. 例えば `http://example.com/practice/prefectures/` のような URL のパスの部分
     #                              ----------------------
-    # 2. PrefectureListV クラスの render メソッド
+    # 2. PrefectureV クラスの render_list メソッド
     # 3. HTMLテンプレートの中で {% url 'prefecture_list' %} のような形でURLを取得するのに使える
 
     # 都道府県の詳細

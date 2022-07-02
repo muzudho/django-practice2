@@ -10,19 +10,16 @@ from apps1.practice.models.m_prefecture import Prefecture
 # 5. クラス名
 
 
-class PrefectureListV():
-    """都道府県の一覧ビュー"""
+def render_list(request):
+    """一覧画面を描画"""
 
-    def render(request):
-        """描画"""
+    template = loader.get_template('practice/v0o0o1/prefecture/list.html')
+    #                               ------------------------------------
+    #                               1
+    # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/list.html` を取得
+    #                                    ------------------------------------
 
-        template = loader.get_template('practice/v0o0o1/prefecture/list.html')
-        #                               ------------------------------------
-        #                               1
-        # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/list.html` を取得
-        #                                    ------------------------------------
-
-        context = {
-            'prefectures': Prefecture.objects.all().order_by('pk'),  # pk順にメンバーを全部取得
-        }
-        return HttpResponse(template.render(context, request))
+    context = {
+        'prefectures': Prefecture.objects.all().order_by('pk'),  # pk順にメンバーを全部取得
+    }
+    return HttpResponse(template.render(context, request))

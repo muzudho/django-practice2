@@ -150,7 +150,7 @@ docker-compose up
 </html>
 ```
 
-# Step 3. ビュー編集 - v_list.py ファイル
+# Step 3. ビュー作成 - v_list.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -159,9 +159,9 @@ docker-compose up
         └── 📂apps1
             └── 📂practice                      # アプリケーション
                 ├── 📂templates
-                │   └── 📂practice              # アプリケーションと同名
-                │       └── 📂v0o0o1                # ただのフォルダー
-                │           └── 📂prefecture            # ただのフォルダー
+                │   └── 📂practice
+                │       └── 📂v0o0o1
+                │           └── 📂prefecture
                 │               └── 📄list.html
                 └── 📂views
                     └── 📂v0o0o1                # ただのフォルダー
@@ -182,25 +182,49 @@ from apps1.practice.models.m_prefecture import Prefecture
 # 5. クラス名
 
 
-class PrefectureListV():
-    """都道府県の一覧ビュー"""
+def render_list(request):
+    """一覧画面を描画"""
 
-    def render(request):
-        """描画"""
+    template = loader.get_template('practice/v0o0o1/prefecture/list.html')
+    #                               ------------------------------------
+    #                               1
+    # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/list.html` を取得
+    #                                    ------------------------------------
 
-        template = loader.get_template('practice/v0o0o1/prefecture/list.html')
-        #                               ------------------------------------
-        #                               1
-        # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/list.html` を取得
-        #                                    ------------------------------------
-
-        context = {
-            'prefectures': Prefecture.objects.all().order_by('pk'),  # pk順にメンバーを全部取得
-        }
-        return HttpResponse(template.render(context, request))
+    context = {
+        'prefectures': Prefecture.objects.all().order_by('pk'),  # pk順にメンバーを全部取得
+    }
+    return HttpResponse(template.render(context, request))
 ```
 
-# Step 4. ルート編集 - urls.py ファイル
+# Step 4. ビュー作成 - prefecture モジュール
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice                      # アプリケーション
+                ├── 📂templates
+                │   └── 📂practice
+                │       └── 📂v0o0o1
+                │           └── 📂prefecture
+                │               └── 📄list.html
+                └── 📂views
+                    └── 📂v0o0o1
+                        └── 📂prefecture
+👉                          ├── 📄__init__.py
+                            └── 📄v_list.py
+```
+
+```py
+class PrefectureV(object):
+    """都道府県のビュー"""
+
+    from .v_list import render_list
+```
+
+# Step 5. ルート編集 - urls.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -216,6 +240,7 @@ class PrefectureListV():
         │       └── 📂views
         │           └── 📂v0o0o1
         │               └── 📂prefecture
+        │                   ├── 📄__init__.py
         │                   └── 📄v_list.py
         └── 📂project1                          # プロジェクト
 👉          ├── 📄urls_practice.py              # こちら
@@ -229,9 +254,9 @@ from django.urls import path
 # ...略...
 
 
-from apps1.practice.views.v0o0o1.prefecture.v_list import PrefectureListV
-#    ----- -------- ----------------------- ------        ---------------
-#    1     2        3                       4             5
+from apps1.practice.views.v0o0o1.prefecture import PrefectureV
+#    ----- -------- -----------------------        -----------
+#    1     2        3                              4
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
@@ -245,17 +270,17 @@ urlpatterns = [
 
 
     # 都道府県の一覧
-    path('practice/prefectures/', PrefectureListV.render, name='prefecture_list'),
-    #     ---------------------   ----------------------        ---------------
-    #     1                       2                             3
+    path('practice/prefectures/', PrefectureV.render_list, name='prefecture_list'),
+    #     ---------------------   -----------------------        ---------------
+    #     1                       2                              3
     # 1. 例えば `http://example.com/practice/prefectures/` のような URL のパスの部分
     #                              ----------------------
-    # 2. PrefectureListV クラスの render メソッド
+    # 2. PrefectureV クラスの render_list メソッド
     # 3. HTMLテンプレートの中で {% url 'prefecture_list' %} のような形でURLを取得するのに使える
 ]
 ```
 
-# Step 5. Web画面へアクセス
+# Step 6. Web画面へアクセス
 
 📖 [http://localhost:8000/practice/prefectures/](http://localhost:8000/practice/prefectures/)  
 
