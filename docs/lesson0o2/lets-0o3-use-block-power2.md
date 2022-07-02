@@ -207,3 +207,7 @@ urlpatterns = [
 # Step 5. Webページにアクセスする
 
 📖 [http://localhost:8000/practice/page2_patch2](http://localhost:8000/practice/page2_patch2)  
+
+# 次の記事
+
+📖 [Djangoでスーパーユーザーを追加しよう！](https://qiita.com/muzudho1/items/cf21fa75e23e1f987153)  

@@ -202,6 +202,10 @@ Prefectures ラベルの右横の `➕ Add` リンクをクリックしてほし
 
 `Prefectures` ラベルをクリックすると、一覧画面が出てくる  
 
+# 次の記事
+
+📖 [Djangoでモデルのインスタンスの一覧表示をしよう！](https://qiita.com/muzudho1/items/77668130b6d941596327)  
+
 # 参考にした記事
 
 📖 [Django model data types and fields list](https://www.geeksforgeeks.org/django-model-data-types-and-fields-list/)  
