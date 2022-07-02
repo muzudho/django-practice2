@@ -171,41 +171,70 @@ from apps1.practice.models.m_prefecture import Prefecture
 # 5. クラス名
 
 
-class PrefectureDeleteV():
-    """都道府県の削除ビュー"""
+def render_delete(request, id=id):
+    """描画
 
-    def render(request, id=id):
-        """描画
+    Parameters
+    ----------
+    request : object
+        リクエスト
+    id : str
+        URLのGETストリングの ?id= の値
+    """
 
-        Parameters
-        ----------
-        request : object
-            リクエスト
-        id : str
-            URLのGETストリングの ?id= の値
-        """
+    template = loader.get_template(
+        'practice/v0o0o1/prefecture/delete.html')
+    #    --------------------------------------
+    #    1
+    # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/delete.html` を取得
+    #                                    --------------------------------------
 
-        template = loader.get_template(
-            'practice/v0o0o1/prefecture/delete.html')
-        #    --------------------------------------
-        #    1
-        # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/delete.html` を取得
-        #                                    --------------------------------------
-
-        # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得
-        prefecture = Prefecture.objects.get(pk=id)
-        name = prefecture.name  # 名前だけまだ使う
-        prefecture.delete()
-        # すでに削除されたデータを使うために以下のようにする
-        context = {
-            'prefecture': {
-                'name': name
-            }
+    # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得
+    prefecture = Prefecture.objects.get(pk=id)
+    name = prefecture.name  # 名前だけまだ使う
+    prefecture.delete()
+    # すでに削除されたデータを使うために以下のようにする
+    context = {
+        'prefecture': {
+            'name': name
         }
-        return HttpResponse(template.render(context, request))
+    }
+    return HttpResponse(template.render(context, request))
 ```
 
-# Step 4. ルート編集 - urls.py ファイル
+# Step 4. ビュー作成 - prefecture モジュール
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice                      # アプリケーション
+                ├── 📂templates
+                │   └── 📂practice
+                │       └── 📂v0o0o1
+                │           └── 📂prefecture
+                │               └── 📄delete.html
+                └── 📂views
+                    └── 📂v0o0o1
+                        └── 📂prefecture
+👉                          ├── 📄__init__.py
+                            └── 📄v_delete.py
+```
+
+```py
+class PrefectureV(object):
+    """都道府県のビュー"""
+
+
+    # ..略..
+
+
+    # 以下を追加
+    from .v_delete import render_delete
+```
+
+# Step 5. ルート編集 - urls.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -221,6 +250,7 @@ class PrefectureDeleteV():
         │       └── 📂views
         │           └── 📂v0o0o1
         │               └── 📂prefecture
+        │                   ├── 📄__init__.py
         │                   └── 📄v_delete.py
         └── 📂project1                          # プロジェクト
 👉          ├── 📄urls_practice.py              # こちら
@@ -234,9 +264,9 @@ from django.urls import path
 # ...略...
 
 
-from apps1.practice.views.v0o0o1.prefecture.v_delete import PrefectureDeleteV
-#    ----- -------- ----------------------- --------        -----------------
-#    1     2        3                       4               5
+from apps1.practice.views.v0o0o1.prefecture import PrefectureV
+#    ----- -------- -----------------------        -----------
+#    1     2        3                              4
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
@@ -253,19 +283,19 @@ urlpatterns = [
     path('practice/prefectures/delete/<int:id>/',
          # ------------------------------------
          # 1
-         PrefectureDeleteV.render, name='prefecture_delete'),
-    #    ------------------------        -----------------
-    #    2                               3
+         PrefectureV.render_delete, name='prefecture_delete'),
+    #    -------------------------        -----------------
+    #    2                                3
     #
     # 1. 例えば `http://example.com/practice/prefectures/delete/<数字列>/` のような URL のパスの部分
     #                              -------------------------------------
     #    数字列は `2.` のメソッドの引数に `=id` と指定することで取得できる
-    # 2. PrefectureDeleteV クラスの render メソッド
+    # 2. PrefectureV クラスの render_delete メソッド
     # 3. HTMLテンプレートの中で {% url 'prefecture_delete' %} のような形でURLを取得するのに使える
 ]
 ```
 
-# Step 4. Web画面へアクセス
+# Step 6. Web画面へアクセス
 
 👇 IDの番号は適宜変えてほしい。  
 

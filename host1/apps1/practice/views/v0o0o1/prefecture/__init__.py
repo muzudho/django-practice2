@@ -3,3 +3,4 @@ class PrefectureV(object):
 
     from .v_list import render_list
     from .v_read import render_read
+    from .v_delete import render_delete

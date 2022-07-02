@@ -36,14 +36,6 @@ from apps1.practice.views.v0o0o1.prefecture import PrefectureV
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
-from apps1.practice.views.v0o0o1.prefecture.v_delete import PrefectureDeleteV
-#    ----- -------- ----------------------- --------        -----------------
-#    1     2        3                       4               5
-# 1,3. ディレクトリー名
-# 2. アプリケーション名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
-
 from apps1.practice.views.v0o0o1.prefecture.v_upsert import PrefectureUpsertV
 #    ----- -------- ----------------------- --------        -----------------
 #    1     2        3                       4               5
@@ -135,14 +127,14 @@ urlpatterns = [
     path('practice/prefectures/delete/<int:id>/',
          # ------------------------------------
          # 1
-         PrefectureDeleteV.render, name='prefecture_delete'),
-    #    ------------------------        -----------------
-    #    2                               3
+         PrefectureV.render_delete, name='prefecture_delete'),
+    #    -------------------------        -----------------
+    #    2                                3
     #
     # 1. 例えば `http://example.com/practice/prefectures/delete/<数字列>/` のような URL のパスの部分
     #                              -------------------------------------
     #    数字列は `2.` のメソッドの引数に `=id` と指定することで取得できる
-    # 2. PrefectureDeleteV クラスの render メソッド
+    # 2. PrefectureV クラスの render_delete メソッド
     # 3. HTMLテンプレートの中で {% url 'prefecture_delete' %} のような形でURLを取得するのに使える
 
     # 都道府県の新規作成
