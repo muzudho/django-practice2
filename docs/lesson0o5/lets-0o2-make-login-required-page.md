@@ -288,7 +288,7 @@ urlpatterns = [
 
 # 次の記事
 
-📖 [Djangoでスーパーユーザーを追加しよう！](https://qiita.com/muzudho1/items/cf21fa75e23e1f987153)  
+📖 [Djangoでモデルを追加しよう！](https://qiita.com/muzudho1/items/2463cc006da69f5ed7b2)  
 
 # 関連する記事
 
