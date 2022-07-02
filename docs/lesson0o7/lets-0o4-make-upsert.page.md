@@ -1,17 +1,32 @@
 # 目的
 
-（※いわゆる CRUD の D）  
+（※いわゆる CRUD の C と U）  
 
-`http://localhost:8000/members/delete/2/` へアクセスすると、  
-id が 2 のメンバーを削除したい。  
+`http://localhost:8000/members/upsert/4/` へアクセスすると、  
+主キーが 4 のメンバーが存在しないときは新規作成を、  
+主キーが 4 のメンバーが既に存在するなら更新をしたい  
 
-表示例:  
+👇 表示例（新規作成のとき）:  
 
 ```plaintext
-都道府県の削除
+都道府県の作成
 
-「大阪」を削除しました。
+名前:
+      --------------------
 
+送信
+戻る
+```
+
+👇 表示例（更新のとき）:  
+
+```plaintext
+都道府県の更新
+
+氏名: 福岡
+      --------------------
+
+送信
 戻る
 ```
 
@@ -48,11 +63,13 @@ id が 2 のメンバーを削除したい。
     │   │       │   └── 📂practice          # アプリケーションと同名
     │   │       │       └── 📂v0o0o1
     │   │       │           └── 📂prefecture
+    │   │       │               ├── 📄delete.html
     │   │       │               ├── 📄list.html
     │   │       │               └── 📄read.html
     │   │       ├── 📂views
     │   │       │   └── 📂v0o0o1
     │   │       │       └── 📂prefecture
+    │   │       │           ├── 📄v_delete.py
     │   │       │           ├── 📄v_list.py
     │   │       │           └── 📄v_read.py
     │   │       ├── 📄__init__.py
@@ -90,7 +107,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. 画面作成 - delete.html ファイル
+# Step 2. 画面作成 - upsert.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -102,7 +119,7 @@ docker-compose up
                     └── 📂practice              # アプリケーションと同名
                         └── 📂v0o0o1                # ただのフォルダー
                             └── 📂prefecture            # ただのフォルダー
-👉                              └── 📄delete.html
+👉                              └── 📄upsert.html
 ```
 
 ```html
@@ -120,14 +137,31 @@ docker-compose up
         -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>都道府県の削除</title>
+        <title>会員の作成/更新</title>
         <!-- 覚えなくていい : Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     </head>
     <body>
         <div class="container">
-            <h3>都道府県の削除</h3>
-            <div class="card" style="width: 18rem">「{{ prefecture.name }}」を削除しました。</div>
+
+            {% if id %}
+            <h3 class="page-header">都道府県の更新</h3>
+            <form action="{% url 'prefecture_update' id=id %}" method="post" class="form-horizontal" role="form">
+            {% else %}
+            <h3 class="page-header">都道府県の作成</h3>
+            <form action="{% url 'prefecture_create' %}" method="post" class="form-horizontal" role="form">
+            {% endif %}
+
+                {% csrf_token %}
+                {{ form }}
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">送信</button>
+                    </div>
+                </div>
+
+            </form>
             <a href="{% url 'prefecture_list' %}" class="btn btn-default btn-sm">戻る</a>
         </div>
         <!-- 覚えなくていい : jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -138,7 +172,7 @@ docker-compose up
 </html>
 ```
 
-# Step 3. ビュー編集 - v_delete.py ファイル
+# Step 3. 入力フォーム作成 - f_prefecture.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -146,20 +180,17 @@ docker-compose up
     └── 📂host1
         └── 📂apps1
             └── 📂practice                      # アプリケーション
-                ├── 📂templates
-                │   └── 📂practice              # アプリケーションと同名
-                │       └── 📂v0o0o1                # ただのフォルダー
-                │           └── 📂prefecture            # ただのフォルダー
-                │               └── 📄delete.html
-                └── 📂views
-                    └── 📂v0o0o1                # ただのフォルダー
-                        └── 📂prefecture            # ただのフォルダー
-👉                          └── 📄v_delete.py
+                ├── 📂forms                         # ただのフォルダー
+👉              │   └── 📄f_prefecture.py
+                └── 📂templates
+                    └── 📂practice              # アプリケーションと同名
+                        └── 📂v0o0o1                # ただのフォルダー
+                            └── 📂prefecture            # ただのフォルダー
+                                └── 📄upsert.html
 ```
 
 ```py
-from django.http import HttpResponse
-from django.template import loader
+from django.forms import ModelForm
 
 from apps1.practice.models.m_prefecture import Prefecture
 #    ----- -------- ------ ------------        ----------
@@ -170,41 +201,87 @@ from apps1.practice.models.m_prefecture import Prefecture
 # 5. クラス名
 
 
-class PrefectureDeleteV():
-    """都道府県の削除ビュー"""
-
-    def render(request, id=id):
-        """描画
-
-        Parameters
-        ----------
-        request : object
-            リクエスト
-        id : str
-            URLのGETストリングの ?id= の値
-        """
-
-        template = loader.get_template(
-            'practice/v0o0o1/prefecture/delete.html')
-        #    --------------------------------------
-        #    1
-        # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/delete.html` を取得
-        #                                    --------------------------------------
-
-        # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得
-        prefecture = Prefecture.objects.get(pk=id)
-        name = prefecture.name  # 名前だけまだ使う
-        prefecture.delete()
-        # すでに削除されたデータを使うために以下のようにする
-        context = {
-            'prefecture': {
-                'name': name
-            }
-        }
-        return HttpResponse(template.render(context, request))
+class PrefectureForm(ModelForm):
+    class Meta:
+        model = Prefecture  # モデル指定
+        fields = ('seq', 'name',)  # フィールド指定
 ```
 
-# Step 4. ルート編集 - urls.py ファイル
+👆 HTMLタグの `<form>～</form>` の子要素を自動的に埋めてくれる  
+
+# Step 4. ビュー編集 - v_upsert.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice                      # アプリケーション
+                ├── 📂forms                         # ただのフォルダー
+                │   └── 📄f_prefecture.py
+                ├── 📂templates
+                │   └── 📂practice              # アプリケーションと同名
+                │       └── 📂v0o0o1                # ただのフォルダー
+                │           └── 📂prefecture            # ただのフォルダー
+                │               └── 📄upsert.html
+                └── 📂views
+                    └── 📂v0o0o1                # ただのフォルダー
+                        └── 📂prefecture            # ただのフォルダー
+👉                          └── 📄v_upsert.py
+```
+
+```py
+from django.shortcuts import render, get_object_or_404, redirect
+
+from apps1.practice.models.m_prefecture import Prefecture
+#    ----- -------- ------ ------------        ----------
+#    1     2        3      4                   5
+# 1,3. ディレクトリー名
+# 2. アプリケーション名
+# 4. Python ファイル名。拡張子抜き
+# 5. クラス名
+
+from apps1.practice.forms.f_prefecture import PrefectureForm
+#    ----- -------- ----- ------------        --------------
+#    1     2        3     4                   5
+# 1,3. ディレクトリー名
+# 2. アプリケーション名
+# 4. Python ファイル名。拡張子抜き
+# 5. クラス名
+
+
+class PrefectureUpsertV():
+    """都道府県の新規作成または更新ビュー"""
+
+    def render(request, id=None):
+        """描画"""
+
+        if id:  # idがあるとき（更新の時）
+            # idで検索して、結果を戻すか、404エラー
+            prefecture = get_object_or_404(Prefecture, pk=id)
+        else:  # idが無いとき（作成の時）
+            prefecture = Prefecture()
+
+        # POSTの時（作成であれ更新であれ送信ボタンが押されたとき）
+        if request.method == 'POST':
+            # フォームを生成
+            form = PrefectureForm(request.POST, instance=prefecture)
+            if form.is_valid():  # バリデーションがOKなら保存
+                prefecture = form.save(commit=False)
+                prefecture.save()
+                return redirect('prefecture_list')
+        else:  # GETの時（フォームを生成）
+            form = PrefectureForm(instance=prefecture)
+
+        # 作成・更新画面を表示
+        return render(request, 'practice/v0o0o1/prefecture/upsert.html', dict(form=form, id=id))
+        #                       --------------------------------------
+        #                       1
+        # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/upsert.html` を取得
+        #                                    --------------------------------------
+```
+
+# Step 5. ルート編集 - urls.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -212,6 +289,8 @@ class PrefectureDeleteV():
     └── 📂host1
         ├── 📂apps1
         │   └── 📂practice                      # アプリケーション
+        │       ├── 📂forms
+        │       │   └── 📄f_prefecture.py
         │       ├── 📂templates
         │       │   └── 📂practice
         │       │       └── 📂v0o0o1
@@ -233,7 +312,7 @@ from django.urls import path
 # ...略...
 
 
-from apps1.practice.views.v0o0o1.prefecture.v_delete import PrefectureDeleteV
+from apps1.practice.views.v0o0o1.prefecture.v_upsert import PrefectureUpsertV
 #    ----- -------- ----------------------- --------        -----------------
 #    1     2        3                       4               5
 # 1,3. ディレクトリー名
@@ -248,28 +327,40 @@ urlpatterns = [
     # ...略...
 
 
-    # 都道府県の削除
-    path('practice/prefectures/delete/<int:id>/',
-         # ------------------------------------
+    # 都道府県の新規作成
+    path('practice/prefecture/create/', PrefectureUpsertV.render, name='prefecture_create'),
+    #     ---------------------------   ------------------------        -----------------
+    #     1                             2                            3
+    # 1. 例えば `http://example.com/practice/prefecture/create/` のような URL のパスの部分
+    #                              ----------------------------
+    # 2. PrefectureUpsertV クラスの render メソッド
+    # 3. HTMLテンプレートの中で {% url 'prefecture_create' %} のような形でURLを取得するのに使える
+
+    # 都道府県の更新
+    path('practice/prefecture/update/<int:id>/',
+         # -----------------------------------
          # 1
-         PrefectureDeleteV.render, name='prefecture_delete'),
+         PrefectureUpsertV.render, name='prefecture_update'),
     #    ------------------------        -----------------
     #    2                               3
-    #
-    # 1. 例えば `http://example.com/practice/prefectures/delete/<数字列>/` のような URL のパスの部分
-    #                              -------------------------------------
+    # 1. 例えば `http://example.com/practice/prefecture/update/<数字列>/` のような URL のパスの部分
+    #                              ------------------------------------
     #    数字列は `2.` のメソッドの引数に `=id` と指定することで取得できる
-    # 2. PrefectureDeleteV クラスの render メソッド
-    # 3. HTMLテンプレートの中で {% url 'prefecture_delete' %} のような形でURLを取得するのに使える
+    # 2. PrefectureUpsertV クラスの render メソッド
+    # 3. HTMLテンプレートの中で {% url 'prefecture_update' %} のような形でURLを取得するのに使える
 ]
 ```
 
-# Step 4. Web画面へアクセス
+# Step 5. Web画面へアクセス
 
-👇 IDの番号は適宜変えてほしい。  
+👇 作成するとき、IDは付けるな  
 
-📖 [http://localhost:8000/practice/prefectures/delete/2/](http://localhost:8000/practice/prefectures/delete/2/)  
+📖 [http://localhost:8000/practice/prefecture/create/](http://localhost:8000/practice/prefecture/create/)  
 
-# 次の記事
+👇 更新するとき、IDを付けろ。 IDは適宜変えてほしい  
 
-📖 [Djangoでモデルのインスタンスの作成／更新ページを作成しよう！](https://qiita.com/muzudho1/items/806ecdba1654ae169f37)  
+📖 [http://localhost:8000/practice/prefecture/update/5/](http://localhost:8000/practice/prefecture/update/4/)  
+
+# 参考にした記事
+
+📖 [DjangoでCRUD](https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92)
