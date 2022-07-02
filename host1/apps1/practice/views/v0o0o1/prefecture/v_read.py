@@ -11,7 +11,7 @@ from apps1.practice.models.m_prefecture import Prefecture
 
 
 class PrefectureReadV():
-    """都道府県詳細ビュー"""
+    """都道府県の詳細ビュー"""
 
     def render(request, id=id):
         """描画

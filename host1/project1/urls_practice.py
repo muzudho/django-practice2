@@ -44,6 +44,14 @@ from apps1.practice.views.v0o0o1.prefecture.v_read import PrefectureReadV
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
+from apps1.practice.views.v0o0o1.prefecture.v_delete import PrefectureDeleteV
+#    ----- -------- ----------------------- --------        -----------------
+#    1     2        3                       4               5
+# 1,3. ディレクトリー名
+# 2. アプリケーション名
+# 4. Python ファイル名。拡張子抜き
+# 5. クラス名
+
 
 urlpatterns = [
 
@@ -100,7 +108,7 @@ urlpatterns = [
     # 2. v_login_required.py ファイルの LoggingOut クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practiceLogout' %} のような形でURLを取得するのに使える
 
-    # 都道府県一覧
+    # 都道府県の一覧
     path('practice/prefectures/', PrefectureListV.render, name='prefecture_list'),
     #     ---------------------   ----------------------        ---------------
     #     1                       2                             3
@@ -109,7 +117,7 @@ urlpatterns = [
     # 2. PrefectureListV クラスの render メソッド
     # 3. HTMLテンプレートの中で {% url 'prefecture_list' %} のような形でURLを取得するのに使える
 
-    # 都道府県詳細
+    # 都道府県の詳細
     path('practice/prefectures/read/<int:id>/',
          # ----------------------------------
          # 1
@@ -122,4 +130,18 @@ urlpatterns = [
     #    数字列は `2.` のメソッドの引数に `=id` と指定することで取得できる
     # 2. PrefectureReadV クラスの render メソッド
     # 3. HTMLテンプレートの中で {% url 'prefecture_read' %} のような形でURLを取得するのに使える
+
+    # 都道府県の削除
+    path('practice/prefectures/delete/<int:id>/',
+         # ------------------------------------
+         # 1
+         PrefectureDeleteV.render, name='prefecture_delete'),
+    #    ------------------------        -----------------
+    #    2                               3
+    #
+    # 1. 例えば `http://example.com/practice/prefectures/delete/<数字列>/` のような URL のパスの部分
+    #                              -------------------------------------
+    #    数字列は `2.` のメソッドの引数に `=id` と指定することで取得できる
+    # 2. PrefectureDeleteV クラスの render メソッド
+    # 3. HTMLテンプレートの中で {% url 'prefecture_delete' %} のような形でURLを取得するのに使える
 ]

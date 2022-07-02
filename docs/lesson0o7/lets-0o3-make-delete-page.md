@@ -1,20 +1,18 @@
 # 目的
 
-（※いわゆる CRUD の R）  
+（※いわゆる CRUD の D）  
 
-`http://localhost:8000/prefectures/read/1/` へアクセスすると、  
-pk が 1 の都道府県を表示したい  
+`http://localhost:8000/members/delete/2/` へアクセスすると、  
+id が 2 のメンバーを削除したい。  
 
 表示例:  
 
 ```plaintext
-都道府県の詳細情報
+都道府県の削除
 
-連番
-1
+「大阪」を削除しました。
 
-名前
-東京
+戻る
 ```
 
 # はじめに
@@ -50,11 +48,13 @@ pk が 1 の都道府県を表示したい
     │   │       │   └── 📂practice          # アプリケーションと同名
     │   │       │       └── 📂v0o0o1
     │   │       │           └── 📂prefecture
-    │   │       │               └── 📄list.html
+    │   │       │               ├── 📄list.html
+    │   │       │               └── 📄read.html
     │   │       ├── 📂views
     │   │       │   └── 📂v0o0o1
     │   │       │       └── 📂prefecture
-    │   │       │           └── 📄v_list.py
+    │   │       │           ├── 📄v_list.py
+    │   │       │           └── 📄v_read.py
     │   │       ├── 📄__init__.py
     │   │       ├── 📄admin.py
     │   │       ├── 📄apps.py
@@ -90,7 +90,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. 画面作成 - read.html ファイル
+# Step 2. 画面作成 - delete.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -102,7 +102,7 @@ docker-compose up
                     └── 📂practice              # アプリケーションと同名
                         └── 📂v0o0o1                # ただのフォルダー
                             └── 📂prefecture            # ただのフォルダー
-👉                              └── 📄read.html
+👉                              └── 📄delete.html
 ```
 
 ```html
@@ -120,27 +120,14 @@ docker-compose up
         -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>都道府県の詳細</title>
+        <title>都道府県の削除</title>
         <!-- 覚えなくていい : Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     </head>
     <body>
         <div class="container">
-            <h3>都道府県の詳細</h3>
-            <div class="card" style="width: 18rem">
-                <div class="card-body">
-                    <h5 class="card-title">主キー</h5>
-                    <p class="card-text">{{ prefecture.pk }}</p>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">連番</h5>
-                    <p class="card-text">{{ prefecture.seq }}</p>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">名前</h5>
-                    <p class="card-text">{{ prefecture.name }}</p>
-                </div>
-            </div>
+            <h3>都道府県の削除</h3>
+            <div class="card" style="width: 18rem">「{{ prefecture.name }}」を削除しました。</div>
             <a href="{% url 'prefecture_list' %}" class="btn btn-default btn-sm">戻る</a>
         </div>
         <!-- 覚えなくていい : jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -151,7 +138,7 @@ docker-compose up
 </html>
 ```
 
-# Step 3. ビュー編集 - v_read.py ファイル
+# Step 3. ビュー編集 - v_delete.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -163,11 +150,11 @@ docker-compose up
                 │   └── 📂practice              # アプリケーションと同名
                 │       └── 📂v0o0o1                # ただのフォルダー
                 │           └── 📂prefecture            # ただのフォルダー
-                │               └── 📄read.html
+                │               └── 📄delete.html
                 └── 📂views
                     └── 📂v0o0o1                # ただのフォルダー
                         └── 📂prefecture            # ただのフォルダー
-👉                          └── 📄v_read.py
+👉                          └── 📄v_delete.py
 ```
 
 ```py
@@ -183,8 +170,8 @@ from apps1.practice.models.m_prefecture import Prefecture
 # 5. クラス名
 
 
-class PrefectureReadV():
-    """都道府県の詳細ビュー"""
+class PrefectureDeleteV():
+    """都道府県の削除ビュー"""
 
     def render(request, id=id):
         """描画
@@ -197,15 +184,22 @@ class PrefectureReadV():
             URLのGETストリングの ?id= の値
         """
 
-        template = loader.get_template('practice/v0o0o1/prefecture/read.html')
-        #                               ------------------------------------
-        #                               1
-        # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/read.html` を取得
-        #                                    ------------------------------------
+        template = loader.get_template(
+            'practice/v0o0o1/prefecture/delete.html')
+        #    --------------------------------------
+        #    1
+        # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/delete.html` を取得
+        #                                    --------------------------------------
 
+        # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得
+        prefecture = Prefecture.objects.get(pk=id)
+        name = prefecture.name  # 名前だけまだ使う
+        prefecture.delete()
+        # すでに削除されたデータを使うために以下のようにする
         context = {
-            # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得
-            'prefecture': Prefecture.objects.get(pk=id),
+            'prefecture': {
+                'name': name
+            }
         }
         return HttpResponse(template.render(context, request))
 ```
@@ -222,11 +216,11 @@ class PrefectureReadV():
         │       │   └── 📂practice              # アプリケーションと同名
         │       │       └── 📂v0o0o1                # ただのフォルダー
         │       │           └── 📂prefecture            # ただのフォルダー
-        │       │               └── 📄read.html
+        │       │               └── 📄delete.html
         │       └── 📂views
         │           └── 📂v0o0o1                # ただのフォルダー
         │               └── 📂prefecture            # ただのフォルダー
-        │                   └── 📄v_read.py
+        │                   └── 📄v_delete.py
         └── project1
 👉          ├── 📄urls_practice.py              # こちら
 ❌          └── 📄urls.py                       # これではない
@@ -239,9 +233,9 @@ from django.urls import path
 # ...略...
 
 
-from apps1.practice.views.v0o0o1.prefecture.v_read import PrefectureReadV
-#    ----- -------- ----------------------- ------        ---------------
-#    1     2        3                       4             5
+from apps1.practice.views.v0o0o1.prefecture.v_delete import PrefectureDeleteV
+#    ----- -------- ----------------------- --------        -----------------
+#    1     2        3                       4               5
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
@@ -254,26 +248,24 @@ urlpatterns = [
     # ...略...
 
 
-    # 都道府県の詳細
-    path('practice/prefectures/read/<int:id>/',
-         # ----------------------------------
+    # 都道府県の削除
+    path('practice/prefectures/delete/<int:id>/',
+         # ------------------------------------
          # 1
-         PrefectureReadV.render, name='prefecture_read'),
-    #    ----------------------        ---------------
-    #    2                             3
+         PrefectureDeleteV.render, name='prefecture_delete'),
+    #    ------------------------        -----------------
+    #    2                               3
     #
-    # 1. 例えば `http://example.com/practice/prefectures/read/<数字列>/` のような URL のパスの部分
-    #                              -----------------------------------
+    # 1. 例えば `http://example.com/practice/prefectures/delete/<数字列>/` のような URL のパスの部分
+    #                              -------------------------------------
     #    数字列は `2.` のメソッドの引数に `=id` と指定することで取得できる
-    # 2. PrefectureReadV クラスの render メソッド
-    # 3. HTMLテンプレートの中で {% url 'prefecture_read' %} のような形でURLを取得するのに使える
+    # 2. PrefectureDeleteV クラスの render メソッド
+    # 3. HTMLテンプレートの中で {% url 'prefecture_delete' %} のような形でURLを取得するのに使える
 ]
 ```
 
 # Step 4. Web画面へアクセス
 
-📖 [http://localhost:8000/practice/prefectures/read/1/](http://localhost:8000/practice/prefectures/read/1/)  
+👇 IDの番号は適宜変えてほしい。  
 
-# 次の記事
-
-📖 [Djangoでモデルのインスタンスの削除ページを作成しよう！](https://qiita.com/muzudho1/items/32694c883331c75ef059)  
+📖 [http://localhost:8000/practice/prefectures/delete/2/](http://localhost:8000/practice/prefectures/delete/2/)  

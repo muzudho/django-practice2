@@ -114,13 +114,13 @@ docker-compose up
         -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>都道府県一覧</title>
+        <title>都道府県の一覧</title>
         <!-- 覚えなくていい : Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     </head>
     <body>
         <div class="container">
-            <h3>都道府県一覧</h3>
+            <h3>都道府県の一覧</h3>
 
             <table class="table table-striped table-bordered">
                 <thead>
@@ -183,7 +183,7 @@ from apps1.practice.models.m_prefecture import Prefecture
 
 
 class PrefectureListV():
-    """都道府県一覧ビュー"""
+    """都道府県の一覧ビュー"""
 
     def render(request):
         """描画"""
@@ -244,7 +244,7 @@ urlpatterns = [
     # ...略...
 
 
-    # 都道府県一覧
+    # 都道府県の一覧
     path('practice/prefectures/', PrefectureListV.render, name='prefecture_list'),
     #     ---------------------   ----------------------        ---------------
     #     1                       2                             3
