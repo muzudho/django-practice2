@@ -365,7 +365,7 @@ websocket_urlpatterns = [
     # Webソケットの練習１
     url(r'^websock-practice1/v1/$', WebsockPractice1V1Consumer.as_asgi()),
     #     -----------------------   ------------------------------------
-    #     1                                      2
+    #     1                         2
     # 1. 例えば `ws://example.com/websock-practice1/v1/` といったURLのパスの部分
     #                            ----------------------
     # 2. WebsockPractice1V1Consumer クラスの as_asgi 静的メソッドの返却値
