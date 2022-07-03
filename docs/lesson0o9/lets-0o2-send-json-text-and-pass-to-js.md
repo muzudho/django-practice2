@@ -96,7 +96,7 @@ docker-compose up
 👉                              └── 📄desserts1.json
 ```
 
-# Step 3. 画面作成 - textarea1.html ファイル
+# Step 3. 画面作成 - textarea1_base.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -113,7 +113,7 @@ docker-compose up
                     └── 📂practice              # アプリケーションと同名
                         └── 📂v0o0o1
                             └── 📂vuetify
-👉                              └── 📄textarea1.html
+👉                              └── 📄textarea1_base.html
 ```
 
 ```html
@@ -200,7 +200,7 @@ docker-compose up
                         └── 📂v0o0o1
                             └── 📂vuetify
 👉                              ├── 📄desserts1.html
-                                └── 📄textarea1.html
+                                └── 📄textarea1_base.html
 ```
 
 # Step 5. ビュー作成 - v_textarea1.py ファイル
@@ -221,7 +221,7 @@ docker-compose up
                 │       └── 📂v0o0o1
                 │           └── 📂vuetify
                 │               ├── 📄desserts1.html
-                │               └── 📄textarea1.html
+                │               └── 📄textarea1_base.html
                 └── 📂views
                     └── 📂v0o0o1
                         └── 📂vuetify
@@ -238,11 +238,11 @@ def render_textarea1(request):
     """ビューティファイのテキストエリア１"""
 
     template = loader.get_template(
-        'practice/v0o0o1/vuetify/textarea1.html')
-    #    --------------------------------------
+        'practice/v0o0o1/vuetify/textarea1_base.html')
+    #    -------------------------------------------
     #    1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o1/vuetify/textarea1.html` を取得
-    #                                    --------------------------------------
+    # 1. `host1/apps1/practice/templates/practice/v0o0o1/vuetify/textarea1_base.html` を取得
+    #                                    -------------------------------------------
 
     with open('apps1/practice/static/practice/v0o0o1/data/desserts1.json', mode='r', encoding='utf-8') as f:
         #      ---------------------------------------------------------
@@ -293,7 +293,7 @@ def render_desserts1_from_textarea1(request):
                 │       └── 📂v0o0o1
                 │           └── 📂vuetify
                 │               ├── 📄desserts1.html
-                │               └── 📄textarea1.html
+                │               └── 📄textarea1_base.html
                 └── 📂views
                     └── 📂v0o0o1
                         └── 📂vuetify
@@ -329,7 +329,7 @@ class VuetifyV(object):
         │       │   └── 📂practice
         │       │       └── 📂v0o0o1
         │       │           └── 📂vuetify
-        │       │               ├── 📄textarea1.html
+        │       │               ├── 📄textarea1_base.html
         │       │               └── 📄desserts1.html
         │       └── 📂views
         │           └── 📂v0o0o1

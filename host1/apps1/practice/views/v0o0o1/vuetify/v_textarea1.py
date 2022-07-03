@@ -7,11 +7,11 @@ def render_textarea1(request):
     """ビューティファイのテキストエリア１"""
 
     template = loader.get_template(
-        'practice/v0o0o1/vuetify/textarea1.html')
-    #    --------------------------------------
+        'practice/v0o0o1/vuetify/textarea1_base.html')
+    #    -------------------------------------------
     #    1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o1/vuetify/textarea1.html` を取得
-    #                                    --------------------------------------
+    # 1. `host1/apps1/practice/templates/practice/v0o0o1/vuetify/textarea1_base.html` を取得
+    #                                    -------------------------------------------
 
     with open('apps1/practice/static/practice/v0o0o1/data/desserts1.json', mode='r', encoding='utf-8') as f:
         #      ---------------------------------------------------------
