@@ -386,7 +386,7 @@ websocket_urlpatterns = [
         ├── 📂project1                  # プロジェクト
 👉      │   ├── 📄asgi.py
         │   ├── 📄settings.py
-        │   └── 📄ws_urls1.py
+        │   └── 📄ws_urls_practice.py
         └── 📄requirements.txt
 ```
 
@@ -411,7 +411,7 @@ import project1.ws_urls_practice
 # 1. `host1/project1/ws_urls_practice.py`
 #           -------------------------
 
-import project1.ws_urls1
+#import project1.ws_urls1
 #      -----------------
 #      1
 # 1. `host1/project1/ws_urls1.py`
@@ -501,7 +501,7 @@ pip install websocket-client
         ├── 📂project1                  # プロジェクト
         │   ├── 📄asgi.py
         │   ├── 📄settings.py
-        │   └── 📄ws_urls1.py
+        │   └── 📄ws_urls_practice.py
         └── 📄requirements.txt
 ```
 
@@ -527,7 +527,7 @@ pip install websocket-client
         ├── 📂project1                  # プロジェクト
         │   ├── 📄asgi.py
         │   ├── 📄settings.py
-        │   └── 📄ws_urls1.py
+        │   └── 📄ws_urls_practice.py
         └── 📄requirements.txt
 ```
 
