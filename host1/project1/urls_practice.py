@@ -194,4 +194,40 @@ urlpatterns = [
     #                              ----------------------------
     # 2. VuetifyV クラスの render_validation1 メソッド
     # 3. HTMLテンプレートの中で {% url 'vuetify_validation1' %} のような形でURLを取得するのに使える
+
+    # ビューティファイでデザート１
+    path('practice/vuetify/desserts1',
+         # -------------------------
+         # 1
+         VuetifyV.render_desserts1, name='vuetify_desserts1'),
+    #    -------------------------        -----------------
+    #    2                                3
+    # 1. 例えば `http://example.com/practice/vuetify/desserts1` のような URL のパスの部分
+    #                              --------------------------
+    # 2. VuetifyV クラスの render_desserts1 メソッド
+    # 3. HTMLテンプレートの中で {% url 'vuetify_desserts1' %} のような形でURLを取得するのに使える
+
+    # ビューティファイでテキストエリア１
+    path('practice/vuetify/textarea1',
+         # -------------------------
+         # 1
+         VuetifyV.render_textarea1, name='vuetify_textarea1'),
+    #    -------------------------        -----------------
+    #    2                                3
+    # 1. 例えば `http://example.com/practice/vuetify/textarea1` のような URL のパスの部分
+    #                              --------------------------
+    # 2. VuetifyV クラスの render_textarea1 メソッド
+    # 3. HTMLテンプレートの中で {% url 'vuetify_textarea1' %} のような形でURLを取得するのに使える
+
+    # ビューティファイでデザート１ . テキストエリア１から
+    path('practice/vuetify/desserts1-from-textarea1',
+         # ----------------------------------------
+         # 1
+         VuetifyV.render_desserts1_from_textarea1, name='vuetify_desserts1_from_textarea1'),
+    #    ----------------------------------------        --------------------------------
+    #    2                                               3
+    # 1. 例えば `http://example.com/practice/vuetify/desserts1-from-textarea1` のような URL のパスの部分
+    #                              -----------------------------------------
+    # 2. VuetifyV クラスの render_desserts1_from_textarea1 メソッド
+    # 3. HTMLテンプレートの中で {% url 'vuetify_desserts1_from_textarea1' %} のような形でURLを取得するのに使える
 ]

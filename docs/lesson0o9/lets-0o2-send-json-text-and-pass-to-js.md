@@ -1,0 +1,398 @@
+# 目的
+
+Web ページで表示する内容を、JSON形式のテキストで渡したい  
+
+# はじめに
+
+この記事は Lesson0 から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
+
+この記事のアーキテクチャ:  
+
+| Key         | Value                                     |
+| ----------- | ----------------------------------------- |
+| OS          | Windows10                                 |
+| Container   | Docker                                    |
+| Auth        | allauth                                   |
+| Frontend    | Vuetify                                   |
+| Data format | JSON                                      |
+| Editor      | Visual Studio Code （以下 VSCode と表記） |
+
+ディレクトリ構成を抜粋すると 以下のようになっている  
+
+```plaintext
+    ├── 📂host1
+    │   ├── 📂apps1
+    │   │   ├── 📂allauth_customized    # アプリケーション
+    │   │   ├── 📂portal                # アプリケーション
+    │   │   └── 📂practice              # アプリケーション
+    │   │       ├── 📂management
+    │   │       ├── 📂migrations
+    │   │       ├── 📂models
+    │   │       ├── 📂static
+    │   │       │   └── 📂practice
+    │   │       │       └── 📂v0o0o1
+    │   │       │           └── 📂data
+    │   │       │               └── 📄desserts1.json
+    │   │       ├── 📂templates
+    │   │       │   └── 📂practice          # アプリケーションと同名
+    │   │       │       └── 📂v0o0o1
+    │   │       │           ├── 📂prefecture
+    │   │       │           └── 📂vuetify
+    │   │       │               └── 📄desserts1.html
+    │   │       ├── 📂views
+    │   │       │   └── 📂v0o0o1
+    │   │       │       ├── 📂prefecture
+    │   │       │       └── 📂vuetify
+    │   │       ├── 📄__init__.py
+    │   │       ├── 📄admin.py
+    │   │       ├── 📄apps.py
+    │   │       └── 📄tests.py
+    │   ├── 📂data
+    │   ├── 📂project1                  # プロジェクト
+    │   │   ├── 📄__init__.py
+    │   │   ├── 📄asgi.py
+    │   │   ├── 📄settings_secrets_example.txt
+    │   │   ├── 📄settings.py
+    │   │   ├── 📄urls_accounts.py
+    │   │   ├── 📄urls_practice.py
+    │   │   ├── 📄urls.py
+    │   │   └── 📄wsgi.py
+    │   ├── 📂project2                  # プロジェクト
+    │   ├── 🐳docker-compose-project2.yml
+    │   ├── 🐳docker-compose.yml
+    │   ├── 🐳Dockerfile
+    │   ├── 📄manage.py
+    │   └── 📄requirements.txt
+    └── 📄.gitignore
+```
+
+# Step 1. Dockerコンテナの起動
+
+👇 （していなければ） Docker コンテナを起動しておいてほしい  
+
+```shell
+# docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
+cd host1
+
+# Docker コンテナ起動
+docker-compose up
+```
+
+# Step 2. データの再利用 - desserts.json ファイル
+
+👇 以下の記事で掲載した JSON ファイルを再利用してほしい  
+
+* 📖 [Django のビューの Python スクリプトで JSON ファイルを読み込んで HTML に埋め込んでいる JavaScript にデータを渡そう！](https://qiita.com/muzudho1/items/b3b0c25fc329eb9bc0c1)
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice                  # アプリケーション
+                └── 📂static
+                    └── 📂practice              # アプリケーションと同名
+                        └── 📂v0o0o1
+                            └── 📂data
+👉                              └── 📄desserts1.json
+```
+
+# Step 3. 画面作成 - textarea1.html ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice                  # アプリケーション
+                ├── 📂static
+                │   └── 📂practice
+                │       └── 📂v0o0o1
+                │           └── 📂data
+                │               └── 📄desserts1.json
+                └── 📂templates
+                    └── 📂practice              # アプリケーションと同名
+                        └── 📂v0o0o1
+                            └── 📂vuetify
+👉                              └── 📄textarea1.html
+```
+
+```html
+{% load static %} {# 👈あとで static "URL" を使うので load static します #}
+<!DOCTYPE html>
+<!-- See also: https://vuetifyjs.com/en/components/textareas/#counter -->
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
+        <!-- Vuetify -->
+        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+        <!--                                                ===================
+                                                            1
+            1. Example: `http://example.com/static/favicon.ico`
+                                            ==================
+        -->
+        <title>ビューティファイのテキストエリア１</title>
+    </head>
+    <body>
+        <div id="app">
+            <v-app>
+                <v-main>
+                    <v-container fluid>
+                        <form method="POST" action="desserts1-from-textarea1">
+                            <!--                    ========================
+                                                    1
+                            1. 宛先を間違えないように
+                               `http://example.com/practice/vuetify/desserts1-from-textarea1`
+                                                                    ========================
+                            -->
+                            {% csrf_token %}
+                            <!--
+                               ==========
+                               2
+                            2. form要素の中に csrf_token を入れてください
+                            -->
+                            <v-textarea counter name="textarea1" label="JSONを入力してください" :rules="rules" :value="value"></v-textarea>
+                            <v-btn type="submit" class="mr-4">送信</v-btn>
+                        </form>
+                    </v-container>
+                </v-main>
+            </v-app>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+        <script>
+            var dessertsDoc = JSON.parse("{{ dessertsStr|escapejs }}");
+
+            new Vue({
+                el: "#app",
+                vuetify: new Vuetify(),
+                data: {
+                    rules: [(v) => v.length <= 3000 || "Max 3000 characters"],
+                    value: JSON.stringify(dessertsDoc, null, "    "),
+                },
+            });
+        </script>
+    </body>
+</html>
+```
+
+# Step 4. HTMLファイルの再利用 - desserts1.html ファイル
+
+👇 以下の記事で掲載した HTML ファイルを再利用してほしい  
+
+* 📖 [Django のビューの Python スクリプトで JSON ファイルを読み込んで HTML に埋め込んでいる JavaScript にデータを渡そう！](https://qiita.com/muzudho1/items/b3b0c25fc329eb9bc0c1)
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice                  # アプリケーション
+                ├── 📂static
+                │   └── 📂practice
+                │       └── 📂v0o0o1
+                │           └── 📂data
+                │               └── 📄desserts1.json
+                └── 📂templates
+                    └── 📂practice              # アプリケーションと同名
+                        └── 📂v0o0o1
+                            └── 📂vuetify
+👉                              ├── 📄desserts1.html
+                                └── 📄textarea1.html
+```
+
+# Step 5. ビュー作成 - v_textarea1.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice                  # アプリケーション
+                ├── 📂static
+                │   └── 📂practice
+                │       └── 📂v0o0o1
+                │           └── 📂data
+                │               └── 📄desserts1.json
+                ├── 📂templates
+                │   └── 📂practice
+                │       └── 📂v0o0o1
+                │           └── 📂vuetify
+                │               ├── 📄desserts1.html
+                │               └── 📄textarea1.html
+                └── 📂views
+                    └── 📂v0o0o1
+                        └── 📂vuetify
+👉                          └── 📄v_textarea1.py
+```
+
+```py
+import json
+from django.http import HttpResponse
+from django.template import loader
+
+
+def render_textarea1(request):
+    """ビューティファイのテキストエリア１"""
+
+    template = loader.get_template(
+        'practice/v0o0o1/vuetify/textarea1.html')
+    #    --------------------------------------
+    #    1
+    # 1. `host1/apps1/practice/templates/practice/v0o0o1/vuetify/textarea1.html` を取得
+    #                                    --------------------------------------
+
+    with open('apps1/practice/static/practice/v0o0o1/data/desserts1.json', mode='r', encoding='utf-8') as f:
+        #      ---------------------------------------------------------
+        #      1
+        # 1. `host1/apps1/practice/static/practice/v0o0o1/data/desserts1.json` を取得
+        #           ---------------------------------------------------------
+        doc = json.load(f)
+
+    context = {
+        'dessertsStr': json.dumps(doc)
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def render_desserts1_from_textarea1(request):
+    """ビューティファイのデザート１ . テキストエリア１から"""
+
+    form1Textarea1 = request.POST["textarea1"]
+
+    template = loader.get_template(
+        'practice/v0o0o1/vuetify/desserts1.html')
+    #    --------------------------------------
+    #    1
+    # 1. `host1/apps1/practice/templates/practice/v0o0o1/vuetify/desserts1.html` を取得
+    #                                    --------------------------------------
+
+    context = {
+        'dessertsStr': form1Textarea1
+    }
+    return HttpResponse(template.render(context, request))
+```
+
+# Step 6. ビュー編集 - VuetifyV モジュール
+
+👇 以下の既存ファイルを編集してほしい  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice                  # アプリケーション
+                ├── 📂static
+                │   └── 📂practice
+                │       └── 📂v0o0o1
+                │           └── 📂data
+                │               └── 📄desserts1.json
+                ├── 📂templates
+                │   └── 📂practice
+                │       └── 📂v0o0o1
+                │           └── 📂vuetify
+                │               ├── 📄desserts1.html
+                │               └── 📄textarea1.html
+                └── 📂views
+                    └── 📂v0o0o1
+                        └── 📂vuetify
+👉                          ├── 📄__init__.py
+                            └── 📄v_textarea1.py
+```
+
+```py
+class VuetifyV(object):
+    """ビューティファイの練習のビュー"""
+
+    # ..略..
+
+
+    # 以下を追加
+    from .v_textarea1 import render_textarea1, render_desserts1_from_textarea1
+```
+
+# Step 7. ルート編集 - urls.py ファイル
+
+👇 以下の既存ファイルを編集してほしい  
+
+```plaintext
+    └── 📂host1
+        ├── 📂apps1
+        │   └── 📂practice                  # アプリケーション
+        │       ├── 📂static
+        │       │   └── 📂practice
+        │       │       └── 📂v0o0o1
+        │       │           └── 📂data
+        │       │               └── 📄desserts1.json
+        │       ├── 📂templates
+        │       │   └── 📂practice
+        │       │       └── 📂v0o0o1
+        │       │           └── 📂vuetify
+        │       │               ├── 📄textarea1.html
+        │       │               └── 📄desserts1.html
+        │       └── 📂views
+        │           └── 📂v0o0o1
+        │               └── 📂vuetify
+        │                   ├── 📄__init__.py
+        │                   └── 📄v_textarea1.py
+        └── 📂project1                          # プロジェクト
+👉          ├── 📄urls_practice.py              # こちら
+❌          └── 📄urls.py                       # これではない
+```
+
+```py
+from django.urls import path
+
+
+# ...略...
+
+
+from apps1.practice.views.v0o0o1.vuetify import VuetifyV
+#    ----- -------- --------------------        --------
+#    1     2        3                           4
+# 1,3. ディレクトリー名
+# 2. アプリケーション名
+# 4. Python ファイル名。拡張子抜き
+# 5. クラス名
+
+
+urlpatterns = [
+
+
+    # ...略...
+
+
+    # ビューティファイでテキストエリア１
+    path('practice/vuetify/textarea1',
+         # -------------------------
+         # 1
+         VuetifyV.render_textarea1, name='vuetify_textarea1'),
+    #    -------------------------        -----------------
+    #    2                                3
+    # 1. 例えば `http://example.com/practice/vuetify/textarea1` のような URL のパスの部分
+    #                              --------------------------
+    # 2. VuetifyV クラスの render_textarea1 メソッド
+    # 3. HTMLテンプレートの中で {% url 'vuetify_textarea1' %} のような形でURLを取得するのに使える
+
+    # ビューティファイでデザート１ . テキストエリア１から
+    path('practice/vuetify/desserts1-from-textarea1',
+         # ----------------------------------------
+         # 1
+         VuetifyV.render_desserts1_from_textarea1, name='vuetify_desserts1_from_textarea1'),
+    #    ----------------------------------------        --------------------------------
+    #    2                                               3
+    # 1. 例えば `http://example.com/practice/vuetify/desserts1-from-textarea1` のような URL のパスの部分
+    #                              -----------------------------------------
+    # 2. VuetifyV クラスの render_desserts1_from_textarea1 メソッド
+    # 3. HTMLテンプレートの中で {% url 'vuetify_desserts1_from_textarea1' %} のような形でURLを取得するのに使える
+]
+```
+
+# Step 8. Web画面へアクセス
+
+📖 [http://localhost:8000/practice/vuetify/textarea1](http://localhost:8000/practice/vuetify/textarea1)  
+
+# 次の記事
+
+📖 [DjangoのサーバーからデータをJSON形式のテキストで受信しよう！](https://qiita.com/muzudho1/items/d83760a6a4abadaf19c4)  

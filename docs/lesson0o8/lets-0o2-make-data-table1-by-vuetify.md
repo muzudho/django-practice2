@@ -367,3 +367,7 @@ urlpatterns = [
 # Step 6. Web画面へアクセス
 
 📖 [http://localhost:8000/practice/vuetify/data-table1](http://localhost:8000/practice/vuetify/data-table1)  
+
+# 次の記事
+
+📖 [DjangoでVuetifyのテキストフィールドのバリデーションの練習をしよう！](https://qiita.com/muzudho1/items/fd47e589cd3f9449fcbb)  
