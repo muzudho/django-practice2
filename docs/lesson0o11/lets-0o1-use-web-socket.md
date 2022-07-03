@@ -410,12 +410,6 @@ import project1.ws_urls_practice
 #      1
 # 1. `host1/project1/ws_urls_practice.py`
 #           -------------------------
-
-#import project1.ws_urls1
-#      -----------------
-#      1
-# 1. `host1/project1/ws_urls1.py`
-#           -----------------
 # * 追加ここまで
 
 
@@ -435,8 +429,6 @@ import project1.ws_urls_practice
 websocket_urlpatterns_merged = []
 websocket_urlpatterns_merged.extend(
     project1.ws_urls_practice.websocket_urlpatterns)
-#websocket_urlpatterns_merged.extend(
-#    project1.ws_urls1.websocket_urlpatterns)
 
 
 # * 変更前
@@ -453,9 +445,6 @@ application = ProtocolTypeRouter({
     # * 追加
     "websocket": AuthMiddlewareStack(
         URLRouter(
-            # * 削除
-            # project1.ws_urls1.websocket_urlpatterns
-            # * 追加
             websocket_urlpatterns_merged
         )
     ),

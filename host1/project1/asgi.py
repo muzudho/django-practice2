@@ -19,11 +19,11 @@ import project1.ws_urls_practice
 # 1. `host1/project1/ws_urls_practice.py`
 #           -------------------------
 
-import project1.ws_urls1
-#      -----------------
+import project1.ws_urls_tic_tac_toe_v1
+#      -------------------------------
 #      1
-# 1. `host1/project1/ws_urls1.py`
-#           -----------------
+# 1. `host1/project1/ws_urls_tic_tac_toe_v1.py`
+#           -------------------------------
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project1.settings')
 #                                                -----------------
@@ -43,14 +43,13 @@ websocket_urlpatterns_merged = []
 websocket_urlpatterns_merged.extend(
     project1.ws_urls_practice.websocket_urlpatterns)
 websocket_urlpatterns_merged.extend(
-    project1.ws_urls1.websocket_urlpatterns)
+    project1.ws_urls_tic_tac_toe_v1.websocket_urlpatterns)
 
 
 application = ProtocolTypeRouter({
     "http": get_asgi_application(),
     "websocket": AuthMiddlewareStack(
         URLRouter(
-            # project1.ws_urls1.websocket_urlpatterns
             websocket_urlpatterns_merged
         )
     ),
