@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'apps1.allauth_customized',
     'apps1.portal',
     'apps1.practice',
+    'apps1.tic_tac_toe_v1',
 
     # Djangoの標準アプリケーション
     'django.contrib.admin',
@@ -122,6 +123,19 @@ TEMPLATES = [
             #          1      2
             #
             # 1. あなたの開発用ディレクトリー相当
+            # 2. テンプレートへのパス
+
+
+            # 〇×ゲーム v1.0.1
+            os.path.join(BASE_DIR, 'apps1/tic_tac_toe_v1/templates'),
+            #            --------   ------------------------------
+            #            1          2
+            #
+            # Example: /host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/v0o1/match_application.html
+            #          ------ ------------------------------
+            #          1      2
+            #
+            # 1. あなたの開発用ディレクトリー（例えば host1）が code に差し替わっています
             # 2. テンプレートへのパス
         ],
         'APP_DIRS': True,

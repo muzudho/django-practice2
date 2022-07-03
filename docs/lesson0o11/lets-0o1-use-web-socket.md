@@ -343,7 +343,7 @@ class WebsockPractice1V1Consumer(AsyncWebsocketConsumer):
         ├── 📂project1                  # プロジェクト
         │   ├── 📄asgi.py
         │   ├── 📄settings.py
-👉      │   └── 📄ws_urls1.py
+👉      │   └── 📄ws_urls1.py           # 末尾の 1 は文字列検索しやすいように付けているだけで特別な意味はない
         └── 📄requirements.txt
 ```
 
