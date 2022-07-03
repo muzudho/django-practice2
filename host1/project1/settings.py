@@ -58,6 +58,9 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+
+    # For web socket
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -133,12 +136,45 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'project1.wsgi.application'
+# * WSGI を ASGI にバージョンアップする
+# ├── * 変更前
+# │ WSGI_APPLICATION = 'project1.wsgi.application'
+# │                     -------------------------
+# │                     1
+# │ 1. DjangoのWSGI設定の大元となるグローバル変数。
+# │    `host1/project1/wsgi.py` ファイルの中の application 変数を指している
+# │           -------------
+# │
+# └── * 変更後
+ASGI_APPLICATION = "project1.asgi.application"
 #                   -------------------------
 #                   1
-# 1. DjangoのWSGI設定の大元となるグローバル変数。
-#    `host1/project1/wsgi.py` ファイルの中の application 変数を指している
+# 1. DjangoのASGI設定の大元となるグローバル変数。
+#    `host1/project1/asgi.py` ファイルの中の application 変数を指している
 #           -------------
+
+# See also: 📖 [Django Channels and WebSockets](https://blog.logrocket.com/django-channels-and-websockets/)
+CHANNEL_LAYERS = {
+    'default': {
+        # * Method 1: Via redis lab
+        # 'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        # 'CONFIG': {
+        #     "hosts": [
+        #       'redis://h:<password>;@<redis Endpoint>:<port>'
+        #     ],
+        # },
+
+        # * Method 2: Via local Redis
+        # 'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        # 'CONFIG': {
+        #      "hosts": [('127.0.0.1', 6379)],
+        # },
+
+        # Method 3: Via In-memory channel layer
+        # Using this method.
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    },
+}
 
 
 # Database
