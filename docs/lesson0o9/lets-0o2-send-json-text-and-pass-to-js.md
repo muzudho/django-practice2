@@ -141,6 +141,7 @@ docker-compose up
             <v-app>
                 <v-main>
                     <v-container fluid>
+                        {% block form_signature %}
                         <form method="POST" action="desserts1-from-textarea1">
                             <!--                    ========================
                                                     1
@@ -148,6 +149,8 @@ docker-compose up
                                `http://example.com/practice/vuetify/desserts1-from-textarea1`
                                                                     ========================
                             -->
+                            {% endblock form_signature %}
+                            <!-- -->
                             {% csrf_token %}
                             <!--
                                ==========
