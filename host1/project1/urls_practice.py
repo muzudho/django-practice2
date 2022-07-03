@@ -242,4 +242,31 @@ urlpatterns = [
     #                              --------------------------
     # 2. VuetifyV クラスの render_desserts1_as_json メソッド
     # 3. HTMLテンプレートの中で {% url 'vuetify_desserts1_as_json' %} のような形でURLを取得するのに使える
+
+    # ビューティファイでテキストエリア１ . 保存用
+    path('practice/vuetify/textarea1-to-model',
+         # ----------------------------------
+         # 1
+         VuetifyV.render_textarea1_to_model, name='vuetify_textarea1_to_model'),
+    #    ----------------------------------        --------------------------
+    #    2                                         3
+    # 1. 例えば `http://example.com/practice/vuetify/textarea1-to-model` のような URL のパスの部分
+    #                              -----------------------------------
+    # 2. VuetifyV クラスの render_textarea1_to_model メソッド
+    # 3. HTMLテンプレートの中で {% url 'vuetify_textarea1_to_model' %} のような形でURLを取得するのに使える
+
+    # ビューティファイでデザート１ . テキストエリア１から . 保存付き
+    path('practice/vuetify/save-desserts1-from-textarea1',
+         # ---------------------------------------------
+         # 1
+         VuetifyV.render_save_result_of_desserts1_from_textarea1,
+         # -----------------------------------------------------
+         # 2
+         name='vuetify_save_desserts1_from_textarea1'),
+    #          -------------------------------------
+    #          3
+    # 1. 例えば `http://example.com/practice/vuetify/save-desserts1-from-textarea1` のような URL のパスの部分
+    #                              ----------------------------------------------
+    # 2. VuetifyV クラスの render_save_result_of_desserts1_from_textarea1 メソッド
+    # 3. HTMLテンプレートの中で {% url 'vuetify_save_desserts1_from_textarea1' %} のような形でURLを取得するのに使える
 ]

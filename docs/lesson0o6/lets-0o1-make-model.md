@@ -115,7 +115,6 @@ class Prefecture(models.Model):
 ```
 
 ```py
-# See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92
 from django.contrib import admin
 
 from .models.m_prefecture import Prefecture
@@ -123,11 +122,13 @@ from .models.m_prefecture import Prefecture
 #    1                           2
 #
 # 1. このファイルと同じディレクトリにある `models/m_prefecture.py` ファイルの拡張子抜き
+#                                      -------------------
 # 2. クラス名
 
 # Register your models here.
+#   └── * 管理画面にモデルが表示されるようになる
+#       └── * `manage.py makemigrations` コマンドの実行対象になる
 admin.site.register(Prefecture)
-# 管理画面に Prefecture モデルを登録
 ```
 
 👆 管理画面に Prefecture オブジェクトが表示されるようにしている  
@@ -150,7 +151,7 @@ docker-compose run --rm web python3 manage.py makemigrations practice
 ```plaintext
     └── 📂host1
         └── 📂apps1
-            └── 📂practice
+            └── 📂practice          # アプリケーション
                 └── 📂migrations
                     ├── 📄__init__.py
                     └── 📄0001_initial.py
@@ -195,7 +196,7 @@ Prefectures ラベルの右横の `➕ Add` リンクをクリックしてほし
                 [Save and add another] [Save and continue editing] [SAVE]
 ```
 
-👆 入力フォームが出てくるから、３件ほど適当に追加してほしい  
+👆 入力フォームが出てくるから、３件ほど適当に追加してほしい。  
 `[SAVE]` が追加ボタンのようだ  
 
 # Step 8. 登録した Prefecture を確認してほしい
