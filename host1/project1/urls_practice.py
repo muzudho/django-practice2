@@ -230,4 +230,16 @@ urlpatterns = [
     #                              -----------------------------------------
     # 2. VuetifyV クラスの render_desserts1_from_textarea1 メソッド
     # 3. HTMLテンプレートの中で {% url 'vuetify_desserts1_from_textarea1' %} のような形でURLを取得するのに使える
+
+    # ビューティファイでJSON形式のデザート１
+    path('practice/vuetify/desserts1-as-json',
+         # ---------------------------------
+         # 1
+         VuetifyV.render_desserts1_as_json, name='vuetify_desserts1_as_json'),
+    #    ---------------------------------        -------------------------
+    #    2                                        3
+    # 1. 例えば `http://example.com/practice/vuetify/textarea1` のような URL のパスの部分
+    #                              --------------------------
+    # 2. VuetifyV クラスの render_desserts1_as_json メソッド
+    # 3. HTMLテンプレートの中で {% url 'vuetify_desserts1_as_json' %} のような形でURLを取得するのに使える
 ]
