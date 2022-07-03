@@ -13,6 +13,12 @@ from django.core.asgi import get_asgi_application
 from channels.auth import AuthMiddlewareStack
 from channels.routing import ProtocolTypeRouter, URLRouter
 
+import project1.ws_urls_practice
+#      -------------------------
+#      1
+# 1. `host1/project1/ws_urls_practice.py`
+#           -------------------------
+
 import project1.ws_urls1
 #      -----------------
 #      1
@@ -32,18 +38,20 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project1.settings')
 #    1.2 settings.py ファイルの拡張子抜き
 
 
-# TODO 複数のアプリケーションの websocket_urlpatterns をマージします
-#websocket_urlpatterns_merged = []
-# websocket_urlpatterns_merged.extend(
-#    apps1.tic_tac_toe.urls_ws1.websocket_urlpatterns)
-# websocket_urlpatterns_merged.extend(webapp1.routing1.websocket_urlpatterns)
+# 複数のアプリケーションの websocket_urlpatterns をマージします
+websocket_urlpatterns_merged = []
+websocket_urlpatterns_merged.extend(
+    project1.ws_urls_practice.websocket_urlpatterns)
+websocket_urlpatterns_merged.extend(
+    project1.ws_urls1.websocket_urlpatterns)
+
 
 application = ProtocolTypeRouter({
     "http": get_asgi_application(),
     "websocket": AuthMiddlewareStack(
         URLRouter(
-            project1.ws_urls1.websocket_urlpatterns
-            # TODO websocket_urlpatterns_merged
+            # project1.ws_urls1.websocket_urlpatterns
+            websocket_urlpatterns_merged
         )
     ),
 })

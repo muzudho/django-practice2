@@ -329,7 +329,7 @@ class WebsockPractice1V1Consumer(AsyncWebsocketConsumer):
         await self.send(text_data=res)
 ```
 
-# Step 8. ルート編集 - ws_urls1.py ファイル
+# Step 8. ルート編集 - ws_urls_practice.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -343,7 +343,7 @@ class WebsockPractice1V1Consumer(AsyncWebsocketConsumer):
         ├── 📂project1                  # プロジェクト
         │   ├── 📄asgi.py
         │   ├── 📄settings.py
-👉      │   └── 📄ws_urls1.py           # 末尾の 1 は文字列検索しやすいように付けているだけで特別な意味はない
+👉      │   └── 📄ws_urls_practice.py
         └── 📄requirements.txt
 ```
 
@@ -404,14 +404,19 @@ from django.core.asgi import get_asgi_application
 # * 追加ここから
 from channels.auth import AuthMiddlewareStack
 from channels.routing import ProtocolTypeRouter, URLRouter
-# * 追加ここまで
 
-# * 以下を追加
+import project1.ws_urls_practice
+#      -------------------------
+#      1
+# 1. `host1/project1/ws_urls_practice.py`
+#           -------------------------
+
 import project1.ws_urls1
 #      -----------------
 #      1
 # 1. `host1/project1/ws_urls1.py`
 #           -----------------
+# * 追加ここまで
 
 
 # ...略...
@@ -423,6 +428,15 @@ import project1.ws_urls1
 
 
 # ...略...
+
+
+# * 以下を追加
+# 複数のアプリケーションの websocket_urlpatterns をマージします
+websocket_urlpatterns_merged = []
+websocket_urlpatterns_merged.extend(
+    project1.ws_urls_practice.websocket_urlpatterns)
+#websocket_urlpatterns_merged.extend(
+#    project1.ws_urls1.websocket_urlpatterns)
 
 
 # * 変更前
@@ -439,7 +453,10 @@ application = ProtocolTypeRouter({
     # * 追加
     "websocket": AuthMiddlewareStack(
         URLRouter(
-            project1.ws_urls1.websocket_urlpatterns
+            # * 削除
+            # project1.ws_urls1.websocket_urlpatterns
+            # * 追加
+            websocket_urlpatterns_merged
         )
     ),
 })
