@@ -495,20 +495,23 @@ pip install websocket-client
 ```plaintext
     ├── 📂host_local1
     │    ├── 📂sockapp1
+    │    │   ├── 📄client.py
+    │    │   ├── 📄echo_server.py
     │    │   └── 📄main_finally.py
     │    └── 📂websockapp1
     │        ├── 📄main_finally.py
 👉  │        └── 📄websock_client.py
     └── 📂host1
-        ├── 📂webapp1
-        │   ├── 📂websocks
-        │   │   └── 📂websock_practice1
-        │   │       └── 📂v1
-        │   │           └── 📄consumer.py
-        │   └── 📄routing1.py
-        ├── 📄asgi.py
-        ├── 📄requirements.txt
-        └── 📄settings.py
+        ├── 📂apps1
+        │   └── 📂practice              # アプリケーション
+        │       └── 📂websocks
+        │           └── 📂v0o0o1
+        │               └── 📄consumer.py
+        ├── 📂project1                  # プロジェクト
+        │   ├── 📄asgi.py
+        │   ├── 📄settings.py
+        │   └── 📄ws_urls1.py
+        └── 📄requirements.txt
 ```
 
 ```py

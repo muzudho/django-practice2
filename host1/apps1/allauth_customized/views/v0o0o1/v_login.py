@@ -8,11 +8,11 @@ class AccountsV1LoginView(LoginView):
     """
 
     # ファイルパス
-    template_name = "allauth-customized/v1/account/login.html"
-    #                ----------------------------------------
+    template_name = "allauth-customized/templates/account/login.html"
+    #                -----------------------------------------------
     #                1
-    # 1. host1/webapp1/templates/allauth-customized/v1/account/login.html を取得
-    #                            ----------------------------------------
+    # 1. host1/apps1/allauth-customized/templates/account/login.html を取得
+    #                -----------------------------------------------
 
 
 # グローバル変数

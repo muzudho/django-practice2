@@ -308,7 +308,7 @@ class Page1():
         return HttpResponse(template.render(context, request))
 
         # テンプレートを使わず、HTMLをハードコーディングすることもできる
-        # return HttpResponse("""Hello, world. You're at the webapp1 index.<br/>
+        # return HttpResponse("""Hello, world.<br/>
         #                    <a href="home/v1/">ホーム</a>""")
 ```
 
