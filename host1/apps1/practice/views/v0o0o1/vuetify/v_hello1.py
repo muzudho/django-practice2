@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.template import loader
 
 
-def render_hello(request):
+def render_hello1(request):
     """ハローの描画"""
 
     template = loader.get_template(

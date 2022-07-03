@@ -131,14 +131,14 @@ docker-compose up
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- 覚えなくていい : Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
         <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
         <!--                                                ===================
                                                             1
             1. Example: `http://example.com/static/favicon.ico`
                                             ==================
         -->
-        <!-- 覚えなくていい : Bootstrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
         <title>都道府県の新規作成/更新</title>
     </head>
     <body>
@@ -392,6 +392,10 @@ urlpatterns = [
 👇 更新するとき、IDを付けろ。 IDは適宜変えてほしい  
 
 📖 [http://localhost:8000/practice/prefecture/update/4/](http://localhost:8000/practice/prefecture/update/4/)  
+
+# 次の記事
+
+📖 [DjangoでフロントエンドにVuetifyを使おう！](https://qiita.com/muzudho1/items/e80a72b027249daa4d41)
 
 # 参考にした記事
 

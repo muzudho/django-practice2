@@ -105,15 +105,16 @@ docker-compose up
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
+        <!-- Vuetify -->
+        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
         <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
         <!--                                                ===================
                                                             1
             1. Example: `http://example.com/static/favicon.ico`
                                             ==================
         -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
         <title>ビューティファイのハロー</title>
     </head>
     <body>
@@ -166,7 +167,7 @@ from django.http import HttpResponse
 from django.template import loader
 
 
-def render_hello(request):
+def render_hello1(request):
     """ハローの描画"""
 
     template = loader.get_template(
@@ -206,7 +207,7 @@ def render_hello(request):
 class VuetifyV(object):
     """ビューティファイの練習のビュー"""
 
-    from .v_hello1 import render_hello
+    from .v_hello1 import render_hello1
 ```
 
 # Step 5. ルート編集 - urls.py ファイル
@@ -255,12 +256,12 @@ urlpatterns = [
 
 
     # ビューティファイでハロー
-    path('practice/vuetify/hello1', VuetifyV.render_hello, name='vuetify_hello1'),
-    #     -----------------------   ---------------------        --------------
-    #     1                         2                            3
+    path('practice/vuetify/hello1', VuetifyV.render_hello1, name='vuetify_hello1'),
+    #     -----------------------   ----------------------        --------------
+    #     1                         2                             3
     # 1. 例えば `http://example.com/practice/vuetify/hello1` のような URL のパスの部分
-    #                              -----------------------
-    # 2. VuetifyV クラスの render_hello メソッド
+    #                              ------------------------
+    # 2. VuetifyV クラスの render_hello1 メソッド
     # 3. HTMLテンプレートの中で {% url 'vuetify_hello1' %} のような形でURLを取得するのに使える
 ]
 ```
