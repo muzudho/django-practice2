@@ -14,11 +14,11 @@ def render_textarea1_to_model(request):
     """ビューティファイのテキストエリア１ to model"""
 
     template = loader.get_template(
-        'practice/v0o0o1/vuetify/textarea1_to_model.html')
-    #    -----------------------------------------------
+        'practice/v0o0o1/vuetify/textarea1_to_model.html.txt')
+    #    ---------------------------------------------------
     #    1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o1/vuetify/textarea1_to_model.html` を取得
-    #                                    -----------------------------------------------
+    # 1. `host1/apps1/practice/templates/practice/v0o0o1/vuetify/textarea1_to_model.html.txt` を取得
+    #                                    ---------------------------------------------------
 
     with open('apps1/practice/static/practice/v0o0o1/data/desserts1-placeholder.json', mode='r', encoding='utf-8') as f:
         #      ---------------------------------------------------------------------

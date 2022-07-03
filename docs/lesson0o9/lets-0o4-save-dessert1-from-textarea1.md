@@ -303,7 +303,7 @@ Iron (%):
 
 👆 入力フォームの規定値にする  
 
-# Step 10. 画面作成 - textarea1_to_model.html ファイル
+# Step 10. 画面作成 - textarea1_to_model.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -327,72 +327,27 @@ Iron (%):
                 │   └── 📂practice      # アプリケーションと同名
                 │       └── 📂v0o0o1
                 │           └── 📂vuetify
-👉              │               └── 📄textarea1_to_model.html
+👉              │               └── 📄textarea1_to_model.html.txt
                 └── admin.py
 ```
 
 ```html
-{% load static %} {# 👈あとで static "URL" を使うので load static します #}
-<!DOCTYPE html>
-<!-- See also: https://vuetifyjs.com/en/components/textareas/#counter -->
-<html lang="ja">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
-        <!-- Vuetify -->
-        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
-        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
-        <!--                                                ===================
-                                                            1
-            1. Example: `http://example.com/static/favicon.ico`
-                                            ==================
+{% extends "practice/v0o0o1/vuetify/textarea1_base.html" %}
+{#          -------------------------------------------
+            1
+1. host1/apps1/practice/templates/practice/v0o0o1/vuetify/textarea1_base.html
+                                  -------------------------------------------
+#}
+
+{% block form_signature %}
+    <form method="POST" action="save-desserts1-from-textarea1">
+        <!--                    =============================
+                                1
+        1. 宛先を間違えないように
+            `http://example.com/practice/vuetify/save-desserts1-from-textarea1`
+                                                =============================
         -->
-        <title>ビューティファイのテキストエリア１　保存用</title>
-    </head>
-    <body>
-        <div id="app">
-            <v-app>
-                <v-main>
-                    <v-container fluid>
-                        <form method="POST" action="save-desserts1-from-textarea1">
-                            <!--                    =============================
-                                                    1
-                            1. 宛先を間違えないように
-                               `http://example.com/practice/vuetify/save-desserts1-from-textarea1`
-                                                                    =============================
-                            -->
-                            {% csrf_token %}
-                            <!--
-                               ==========
-                               2
-                            2. form要素の中に csrf_token を入れてください
-                            -->
-                            <v-textarea counter name="textarea1" label="JSONを入力してください" :rules="rules" :value="value"></v-textarea>
-                            <v-btn type="submit" class="mr-4">送信</v-btn>
-                        </form>
-                    </v-container>
-                </v-main>
-            </v-app>
-        </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-        <script>
-            var dessertsDoc = JSON.parse("{{ dessertsStr|escapejs }}");
-
-            new Vue({
-                el: "#app",
-                vuetify: new Vuetify(),
-                data: {
-                    rules: [(v) => v.length <= 3000 || "Max 3000 characters"],
-                    value: JSON.stringify(dessertsDoc, null, "    "),
-                },
-            });
-        </script>
-    </body>
-</html>
+{% endblock form_signature %}
 ```
 
 # Step 11. ビュー作成 - v_textarea1_to_model.py ファイル
@@ -444,11 +399,11 @@ def render_textarea1_to_model(request):
     """ビューティファイのテキストエリア１ to model"""
 
     template = loader.get_template(
-        'practice/v0o0o1/vuetify/textarea1_to_model.html')
-    #    -----------------------------------------------
+        'practice/v0o0o1/vuetify/textarea1_to_model.html.txt')
+    #    ---------------------------------------------------
     #    1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o1/vuetify/textarea1_to_model.html` を取得
-    #                                    -----------------------------------------------
+    # 1. `host1/apps1/practice/templates/practice/v0o0o1/vuetify/textarea1_to_model.html.txt` を取得
+    #                                    ---------------------------------------------------
 
     with open('apps1/practice/static/practice/v0o0o1/data/desserts1-placeholder.json', mode='r', encoding='utf-8') as f:
         #      ---------------------------------------------------------------------
