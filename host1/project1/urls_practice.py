@@ -36,6 +36,14 @@ from apps1.practice.views.v0o0o1.prefecture import PrefectureV
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
+from apps1.practice.views.v0o0o1.vuetify import VuetifyV
+#    ----- -------- --------------------        --------
+#    1     2        3                           4
+# 1,3. ディレクトリー名
+# 2. アプリケーション名
+# 4. Python ファイル名。拡張子抜き
+# 5. クラス名
+
 
 urlpatterns = [
 
@@ -153,4 +161,13 @@ urlpatterns = [
     #    数字列は `2.` のメソッドの引数に `=id` と指定することで取得できる
     # 2. PrefectureV クラスの render_upsert メソッド
     # 3. HTMLテンプレートの中で {% url 'prefecture_update' %} のような形でURLを取得するのに使える
+
+    # ビューティファイでハロー
+    path('practice/vuetify/hello1', VuetifyV.render_hello, name='vuetify_hello1'),
+    #     -----------------------   ---------------------        --------------
+    #     1                         2                            3
+    # 1. 例えば `http://example.com/practice/vuetify/hello1` のような URL のパスの部分
+    #                              -----------------------
+    # 2. VuetifyV クラスの render_hello メソッド
+    # 3. HTMLテンプレートの中で {% url 'vuetify_hello1' %} のような形でURLを取得するのに使える
 ]

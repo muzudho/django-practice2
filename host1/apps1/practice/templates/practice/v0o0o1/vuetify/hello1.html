@@ -1,0 +1,40 @@
+{% load static %} {# 👈あとで static "URL" を使うので load static します #}
+<!DOCTYPE html>
+<!-- See also: https://vuetifyjs.com/en/getting-started/installation/#usage-with-cdn -->
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+        <!--                                                ===================
+                                                            1
+            1. Example: `http://example.com/static/favicon.ico`
+                                            ==================
+        -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
+        <title>ビューティファイのハロー</title>
+    </head>
+    <body>
+        <div id="app">
+            <v-app>
+                <v-main>
+                    <v-container>
+                        <v-alert type="success">This is a sample.</v-alert>
+                        Hello world
+                    </v-container>
+                </v-main>
+            </v-app>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+        <script>
+            new Vue({
+                el: "#app",
+                vuetify: new Vuetify(),
+            });
+        </script>
+    </body>
+</html>

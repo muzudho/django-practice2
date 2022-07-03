@@ -17,7 +17,7 @@ id が 2 のメンバーを削除したい。
 
 # はじめに
 
-この記事は Lesson01 から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson0 から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 この記事のアーキテクチャ:  
@@ -113,17 +113,16 @@ docker-compose up
 <html lang="ja">
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
         <!--                                                ===================
                                                             1
             1. Example: `http://example.com/static/favicon.ico`
                                             ==================
         -->
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>都道府県の削除</title>
         <!-- 覚えなくていい : Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+        <title>都道府県の削除</title>
     </head>
     <body>
         <div class="container">
@@ -202,9 +201,9 @@ def render_delete(request, id=id):
     return HttpResponse(template.render(context, request))
 ```
 
-# Step 4. ビュー作成 - prefecture モジュール
+# Step 4. ビュー編集 - prefecture モジュール
 
-👇 以下のファイルを新規作成してほしい  
+👇 以下のファイルを編集してほしい  
 
 ```plaintext
     └── 📂host1
