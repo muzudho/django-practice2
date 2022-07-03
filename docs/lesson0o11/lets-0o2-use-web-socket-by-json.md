@@ -153,7 +153,7 @@ class WebsockPractice2V1Consumer(AsyncJsonWebsocketConsumer):
         await self.send(text_data=res)
 ```
 
-# Step 4. ルート編集 - ws_urls1.py ファイル
+# Step 4. ルート編集 - ws_urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -165,13 +165,14 @@ class WebsockPractice2V1Consumer(AsyncJsonWebsocketConsumer):
         │           └── 📂v0o0o1
         │               └── 📄consumer_as_json.py
         └── 📂project1                  # プロジェクト
-👉          └── 📄ws_urls1.py
+👉          └── 📄ws_urls_practice.py
 ```
 
 ```py
 # ...略...
 
 
+# * 以下を追加
 # Webソケットの練習２
 from apps1.practice.websocks.v0o0o1.consumer_as_json import WebsockPractice2V1Consumer
 #                                                                          ^two
@@ -186,6 +187,7 @@ websocket_urlpatterns = [
     # ...略...
 
 
+    # * 以下を追加
     # Webソケットの練習２
     url(r'^websock-practice2/v1/$', WebsockPractice2V1Consumer.as_asgi()),
     #                      ^two                    ^two
@@ -204,7 +206,7 @@ Step 5. からは クライアントサイドを説明する
 
 websocket-client パッケージは以前の記事で既にインストールしてある  
 
-# Step 6. Webクライアントソケット設定 - websock_client.py ファイル
+# Step 6. Webクライアントソケット設定 - client_as_json.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -219,7 +221,7 @@ websocket-client パッケージは以前の記事で既にインストールし
         │           └── 📂v0o0o1
         │               └── 📄consumer_as_json.py
         └── 📂project1                  # プロジェクト
-👉          └── 📄ws_urls1.py
+            └── 📄ws_urls_practice.py
 ```
 
 ```py
