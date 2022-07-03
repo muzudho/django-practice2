@@ -84,7 +84,7 @@ docker-compose up
 
 # Step 2. 画面作成 - hello1.html ファイル
 
-以下のファイルを作成してほしい。  
+👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂host1
