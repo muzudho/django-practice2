@@ -1,0 +1,67 @@
+{% load static %} {% comment %} 👈あとで static "URL" を使うので load static します {% endcomment %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+        <title>Tic Tac Toe</title>
+    </head>
+    <body>
+        <div id="app">
+            <v-app>
+                <v-main>
+                    <v-container fluid>
+                        <h1>Welcome to Tic Tac Toe Game</h1>
+                        <v-form method="POST">
+                            {% csrf_token %}
+
+                            <!-- `po_` は POST送信するパラメーター名の目印 -->
+                            <!-- 部屋名 -->
+                            <v-text-field name="po_room_name" required v-model="roomName.value" :rules="roomName.rules" counter="25" hint="A-Z, a-z, 0-9, No number at the beginning. Max 25 characters" label="Room name"></v-text-field>
+
+                            <!--
+                                自分の番。 "X" か "O"。 機能拡張も想定
+
+                                * 戻り値をオブジェクトのまま受け取りたいときは、タグの属性として return-object を付ける
+                            -->
+                            <v-select name="po_my_turn" v-model="visitor.value" :items="visitor.select" item-text="text" item-value="value" label="Your turn" persistent-hint single-line></v-select>
+
+                            <v-btn block elevation="2" type="submit"> Start Game </v-btn>
+                        </v-form>
+                    </v-container>
+                </v-main>
+            </v-app>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+        <script>
+            new Vue({
+                el: "#app",
+                vuetify: new Vuetify(),
+                data: {
+                    // 部屋名
+                    roomName: {
+                        value: "Elephant",
+                        rules: [
+                            (v) => v.length <= 25 || "Max 25 characters", // 文字数上限
+                            (value) => {
+                                const pattern = /^[A-Za-z][A-Za-z0-9]*$/; // 正規表現で指定
+                                return pattern.test(value) || "Invalid format";
+                            },
+                        ],
+                    },
+                    // 入場者
+                    visitor: {
+                        // `dj_` は Djangoでレンダーするパラメーター名の目印
+                        value: "{{dj_visitor_value}}",
+                        select: JSON.parse("{{dj_visitor_select | escapejs}}"),
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>

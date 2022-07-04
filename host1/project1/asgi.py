@@ -25,6 +25,13 @@ import project1.ws_urls_tic_tac_toe_v1
 # 1. `host1/project1/ws_urls_tic_tac_toe_v1.py`
 #           -------------------------------
 
+import project1.ws_urls_tic_tac_toe_v2
+#                                    ^two
+#      -------------------------------
+#      1
+# 1. `host1/project1/ws_urls_tic_tac_toe_v2.py`
+#           -------------------------------
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project1.settings')
 #                                                -----------------
 #                                                1
@@ -44,6 +51,9 @@ websocket_urlpatterns_merged.extend(
     project1.ws_urls_practice.websocket_urlpatterns)
 websocket_urlpatterns_merged.extend(
     project1.ws_urls_tic_tac_toe_v1.websocket_urlpatterns)
+websocket_urlpatterns_merged.extend(
+    project1.ws_urls_tic_tac_toe_v2.websocket_urlpatterns)
+#                                 ^two
 
 
 application = ProtocolTypeRouter({

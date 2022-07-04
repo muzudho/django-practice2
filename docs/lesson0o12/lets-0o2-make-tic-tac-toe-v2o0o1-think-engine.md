@@ -1717,14 +1717,14 @@ from apps1.tic_tac_toe_v2.views.v2o0o1.think.engine_manual import EngineManual
 urlpatterns = [
 
     # エンジン手動
-    path('tic-tac-toe/v2o0o1/engine-manual/',
-         # --------------------------------
+    path('tic-tac-toe/v2/engine-manual/',
+         # ----------------------------
          # 1
          EngineManual.render),
     #    -------------------
     #    2
-    # 1. 例えば `http://example.com/tic-tac-toe/v2o0o1/engine-manual/` のような URL のパスの部分
-    #                              --------------------------------
+    # 1. 例えば `http://example.com/tic-tac-toe/v2/engine-manual/` のような URL のパスの部分
+    #                              -----------------------------
     # 2. EngineManual クラスの render 静的メソッド
 ]
 ```
@@ -1795,7 +1795,7 @@ urlpatterns = [
 
 # Step 18. Web画面へアクセス
 
-📖 [http://localhost:8000/tic-tac-toe/v2o0o1/engine-manual/](http://localhost:8000/tic-tac-toe/v2o0o1/engine-manual/)  
+📖 [http://localhost:8000/tic-tac-toe/v2/engine-manual/](http://localhost:8000/tic-tac-toe/v2/engine-manual/)  
 
 # 次の記事
 
