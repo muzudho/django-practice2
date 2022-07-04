@@ -1571,8 +1571,9 @@ board
         │       │               └── 📄engine_manual.html
         │       ├── 📂views
         │       │   └── 📂v2o0o1
-        │       │       └── 📂engine_manual
-👉      │       │           └── 📄__init__.py
+        │       │       └── 📂think
+        │       │           └── 📂engine_manual
+👉      │       │               └── 📄__init__.py
         │       ├── 📄__init__.py
         │       ├── 📄admin.py
         │       ├── 📄apps.py
@@ -1599,8 +1600,8 @@ class EngineManual():
         from .v_render import render_engine_manual
         #    ---------        --------------------
         #    1                2
-        # 1. `host1/apps1/tic_tac_toe_v2/views/v2o0o1/engine_manual/v_render.py`
-        #                                                           --------
+        # 1. `host1/apps1/tic_tac_toe_v2/views/v2o0o1/think/engine_manual/v_render.py`
+        #                                                                 --------
         # 2. `1.` に含まれる関数
 
         return render_engine_manual(request, EngineManual._path_of_html)
@@ -1633,9 +1634,10 @@ class EngineManual():
         │       │               └── 📄engine_manual.html
         │       ├── 📂views
         │       │   └── 📂v2o0o1
-        │       │       └── 📂engine_manual
-        │       │           ├── 📄__init__.py
-👉      │       │           └── 📄v_render.py
+        │       │       └── 📂think
+        │       │           └── 📂engine_manual
+        │       │               ├── 📄__init__.py
+👉      │       │               └── 📄v_render.py
         │       ├── 📄__init__.py
         │       ├── 📄admin.py
         │       ├── 📄apps.py
@@ -1683,9 +1685,10 @@ def render_engine_manual(request, path_of_html):
         │       │               └── 📄engine_manual.html
         │       ├── 📂views
         │       │   └── 📂v2o0o1
-        │       │       └── 📂engine_manual
-        │       │           ├── 📄__init__.py
-        │       │           └── 📄v_render.py
+        │       │       └── 📂think
+        │       │           └── 📂engine_manual
+        │       │               ├── 📄__init__.py
+        │       │               └── 📄v_render.py
         │       ├── 📄__init__.py
         │       ├── 📄admin.py
         │       ├── 📄apps.py
@@ -1699,10 +1702,10 @@ def render_engine_manual(request, path_of_html):
 from django.urls import path
 
 # 〇×ゲーム v2.0.1
-from apps1.tic_tac_toe_v2.views.v2o0o1.engine_manual import EngineManual
-#    ----- -------------- --------------------------        ------------
-#    1     2              3                                 4
-#    -----------------------------------------------
+from apps1.tic_tac_toe_v2.views.v2o0o1.think.engine_manual import EngineManual
+#    ----- -------------- --------------------------------        ------------
+#    1     2              3                                       4
+#    -----------------------------------------------------
 #    5
 # 1. 開発者用ディレクトリーの一部
 # 2. アプリケーション フォルダー名
@@ -1753,9 +1756,10 @@ urlpatterns = [
         │       │               └── 📄engine_manual.html
         │       ├── 📂views
         │       │   └── 📂v2o0o1
-        │       │       └── 📂engine_manual
-        │       │           ├── 📄__init__.py
-        │       │           └── 📄v_render.py
+        │       │       └── 📂think
+        │       │           └── 📂engine_manual
+        │       │               ├── 📄__init__.py
+        │       │               └── 📄v_render.py
         │       ├── 📄__init__.py
         │       ├── 📄admin.py
         │       ├── 📄apps.py
