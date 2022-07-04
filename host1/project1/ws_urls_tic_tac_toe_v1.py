@@ -2,10 +2,10 @@
 from django.conf.urls import url
 
 # 〇×ゲーム v1.0.1
-from apps1.tic_tac_toe_v1.websocks.v0o1.consumer import TicTacToeV1Consumer
-#    ----- -------------- ------------- --------        -------------------
-#    1     2              3             4               5
-#    -------------------------------------------
+from apps1.tic_tac_toe_v1.websocks.v1o0o1.consumer import TicTacToeV1Consumer
+#    ----- -------------- --------------- --------        -------------------
+#    1     2              3               4               5
+#    ---------------------------------------------
 #    6
 # 1. 開発者用ディレクトリーの一部
 # 2. アプリケーション フォルダー名

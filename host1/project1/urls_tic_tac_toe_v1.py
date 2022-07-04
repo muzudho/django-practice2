@@ -1,10 +1,10 @@
 from django.urls import path
 
 # 〇×ゲーム v1.0.1
-from apps1.tic_tac_toe_v1.views.v0o1 import resources as tic_tac_toe_v1
-#    ----- -------------- ----------        ---------    --------------
-#    1     2              3                 4            5
-#    -------------------------------
+from apps1.tic_tac_toe_v1.views.v1o0o1 import resources as tic_tac_toe_v1
+#    ----- -------------- ------------        ---------    --------------
+#    1     2              3                   4            5
+#    ---------------------------------
 #    6
 # 1. 開発者用ディレクトリーの一部
 # 2. アプリケーション フォルダー名

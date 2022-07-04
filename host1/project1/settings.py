@@ -132,7 +132,7 @@ TEMPLATES = [
             #            --------   ------------------------------
             #            1          2
             #
-            # Example: /host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/v0o1/match_application.html
+            # Example: /host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o0o1/match_application.html
             #          ------ ------------------------------
             #          1      2
             #

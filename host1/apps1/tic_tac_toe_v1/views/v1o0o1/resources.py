@@ -16,11 +16,11 @@ class MatchApplication():
     # 1. http://example.com:8000/tic-tac-toe/v1o0o1/playing/Elephant/?&mypiece=X
     #                           ------------------------------------------------
 
-    _path_of_html = "tic_tac_toe_v1/v0o1/match_application.html"
+    _path_of_html = "tic_tac_toe_v1/o0o1/match_application.html"
     #                                ^^^zero.one
     #                -----------------------------------------
     #                1
-    # 1. host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/v0o1/match_application.html
+    # 1. host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o0o1/match_application.html
     #                                         ------------------------------------------
 
     def render(request):
@@ -31,11 +31,11 @@ class MatchApplication():
 class Playing():
     """対局"""
 
-    _path_of_html = "tic_tac_toe_v1/v0o1/playing.html"
+    _path_of_html = "tic_tac_toe_v1/o0o1/playing.html"
     #                                ^^^ zero.one
     #                --------------------------------
     #                1
-    # 1. `host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/v0o1/playing.html`
+    # 1. `host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o0o1/playing.html`
     #                                          --------------------------------
 
     def render(request, room_name):
