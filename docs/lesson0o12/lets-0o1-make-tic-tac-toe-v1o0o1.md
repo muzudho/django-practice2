@@ -1051,13 +1051,12 @@ from apps1.tic_tac_toe_v1.views.v1o0o1.match_application import MatchApplication
 #    ----- -------------- ------------------------------        ----------------
 #    1     2              3                                     4
 #    ---------------------------------------------------
-#    6
+#    5
 # 1. 開発者用ディレクトリーの一部
 # 2. アプリケーション フォルダー名
 # 3. ディレクトリー名
-# 4. Python ファイル名。拡張子抜き
-# 5. `4.` の別名
-# 6. モジュール名
+# 4. クラス名
+# 5. Pythonモジュール名
 
 from apps1.tic_tac_toe_v1.views.v1o0o1.playing import Playing
 

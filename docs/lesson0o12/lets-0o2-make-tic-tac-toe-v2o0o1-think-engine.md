@@ -64,7 +64,12 @@
     │   │       │           └── 📄playing.html
     │   │       ├── 📂views
     │   │       │   └── 📂v1o0o1
-    │   │       │       └── 📄resources.py
+    │   │       │       ├── 📂match_application
+    │   │       │       │   ├── 📄__init__.py
+    │   │       │       │   └── 📄v_render.py
+    │   │       │       └── 📂playing
+    │   │       │           ├── 📄__init__.py
+    │   │       │           └── 📄v_render.py
     │   │       ├── 📂websocks
     │   │       │   └── 📂v1o0o1
     │   │       │       └── 📄consumer.py
@@ -1546,7 +1551,7 @@ board
 </html>
 ```
 
-# Step 14. ビュー作成 - resources.py ファイル
+# Step 14. ビュー モジュール作成 - engine_manual フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1567,12 +1572,13 @@ board
         │       │               ├── 📄things.js
         │       │               └── 📄user_ctrl.js
         │       ├── 📂templates
-        │       │   └── 📂tic_tac_toe_v2
+        │       │   └── 📂tic_tac_toe_v2    # アプリケーションと同名
         │       │       └── 📂o0o1
         │       │           └── 📄engine_manual.html
         │       ├── 📂views
         │       │   └── 📂v2o0o1
-👉      │       │       └── 📄resources.py
+        │       │       └── 📂engine_manual
+👉      │       │           └── 📄__init__.py
         │       ├── 📄__init__.py
         │       ├── 📄admin.py
         │       ├── 📄apps.py
@@ -1582,10 +1588,6 @@ board
 ```
 
 ```py
-"""〇×ゲームの練習２．０．１"""
-from django.shortcuts import render
-
-
 class EngineManual():
     """エンジン手動"""
 
@@ -1598,21 +1600,68 @@ class EngineManual():
     @staticmethod
     def render(request):
         """描画"""
-        return render_match_application(request, EngineManual._path_of_html)
+
+        # 以下のファイルはあとで作ります
+        from .v_render import render_engine_manual
+        #    ---------        --------------------
+        #    1                2
+        # 1. `host1/apps1/tic_tac_toe_v2/views/v2o0o1/engine_manual/v_render.py`
+        #                                                           --------
+        # 2. `1.` に含まれる関数
+
+        return render_engine_manual(request, EngineManual._path_of_html)
+```
+
+# Step 15. ビュー モジュール作成 - engine_manual/v_render.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂host1
+        ├── 📂apps1
+        │   └── 📂tic_tac_toe_v2    # アプリケーション
+        │       ├── 📂migrations
+        │       │   └── 📄__init__.py
+        │       ├── 📂static
+        │       │   └── 📂tic_tac_toe_v2
+        │       │       └── 📂o0o1
+        │       │           └── 📂think
+        │       │               ├── 📄concepts.js
+        │       │               ├── 📄engine.js
+        │       │               ├── 📄judge_ctrl.js
+        │       │               ├── 📄position.js
+        │       │               ├── 📄things.js
+        │       │               └── 📄user_ctrl.js
+        │       ├── 📂templates
+        │       │   └── 📂tic_tac_toe_v2    # アプリケーションと同名
+        │       │       └── 📂o0o1
+        │       │           └── 📄engine_manual.html
+        │       ├── 📂views
+        │       │   └── 📂v2o0o1
+        │       │       └── 📂engine_manual
+        │       │           ├── 📄__init__.py
+👉      │       │           └── 📄v_render.py
+        │       ├── 📄__init__.py
+        │       ├── 📄admin.py
+        │       ├── 📄apps.py
+        │       └── 📄tests.py
+        └── 📂project1
+            └── 📄settings.py
+```
+
+```py
+from django.shortcuts import render
 
 
-# 以下、関数
-
-
-def render_match_application(request, path_of_html):
-    """対局申込 - 描画"""
+def render_engine_manual(request, path_of_html):
+    """描画 - エンジン手動"""
 
     context = {}
 
     return render(request, path_of_html, context)
 ```
 
-# Step 15. ルート新規作成 - urls_tic_tac_toe_v2.py ファイル
+# Step 16. ルート新規作成 - urls_tic_tac_toe_v2.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1638,7 +1687,9 @@ def render_match_application(request, path_of_html):
         │       │           └── 📄engine_manual.html
         │       ├── 📂views
         │       │   └── 📂v2o0o1
-        │       │       └── 📄resources.py
+        │       │       └── 📂engine_manual
+        │       │           ├── 📄__init__.py
+        │       │           └── 📄v_render.py
         │       ├── 📄__init__.py
         │       ├── 📄admin.py
         │       ├── 📄apps.py
@@ -1652,17 +1703,16 @@ def render_match_application(request, path_of_html):
 from django.urls import path
 
 # 〇×ゲーム v2.0.1
-from apps1.tic_tac_toe_v2.views.v2o0o1 import resources as tic_tac_toe_v2
-#    ----- -------------- ------------        ---------    --------------
-#    1     2              3                 4            5
-#    -------------------------------
-#    6
+from apps1.tic_tac_toe_v2.views.v2o0o1.engine_manual import EngineManual
+#    ----- -------------- --------------------------        ------------
+#    1     2              3                                 4
+#    -----------------------------------------------
+#    5
 # 1. 開発者用ディレクトリーの一部
 # 2. アプリケーション フォルダー名
 # 3. ディレクトリー名
-# 4. Python ファイル名。拡張子抜き
-# 5. `4.` の別名
-# 6. モジュール名
+# 4. クラス名
+# 5. Pythonモジュール名
 
 
 urlpatterns = [
@@ -1671,16 +1721,16 @@ urlpatterns = [
     path('tic-tac-toe/v2o0o1/engine-manual/',
          # --------------------------------
          # 1
-         tic_tac_toe_v2.EngineManual.render),
-    #    ----------------------------------
+         EngineManual.render),
+    #    -------------------
     #    2
     # 1. 例えば `http://example.com/tic-tac-toe/v2o0o1/engine-manual/` のような URL のパスの部分
     #                              --------------------------------
-    # 2. tic_tac_toe_v2 (別名)ファイルの EngineManual クラスの render 静的メソッド
+    # 2. EngineManual クラスの render 静的メソッド
 ]
 ```
 
-# Step 16. 総合ルート編集 - urls.py
+# Step 17. 総合ルート編集 - urls.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -1706,7 +1756,9 @@ urlpatterns = [
         │       │           └── 📄engine_manual.html
         │       ├── 📂views
         │       │   └── 📂v2o0o1
-        │       │       └── 📄resources.py
+        │       │       └── 📂engine_manual
+        │       │           ├── 📄__init__.py
+        │       │           └── 📄v_render.py
         │       ├── 📄__init__.py
         │       ├── 📄admin.py
         │       ├── 📄apps.py
@@ -1740,7 +1792,7 @@ urlpatterns = [
 ]
 ```
 
-# Step 17. Web画面へアクセス
+# Step 18. Web画面へアクセス
 
 📖 [http://localhost:8000/tic-tac-toe/v2o0o1/engine-manual/](http://localhost:8000/tic-tac-toe/v2o0o1/engine-manual/)  
 
