@@ -164,7 +164,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v1 ./apps1/tic
 #                                                     -------------- ----------------------
 #                                                     1              2
 # 1. 任意のDjangoアプリケーション名
-# 2. パス
+# 2. 既存のアプリケーション ディレクトリーへのパス
 ```
 
 👇 以下のようなディレクトリー、ファイルが自動生成される  

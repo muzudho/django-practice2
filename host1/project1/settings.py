@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'apps1.portal',
     'apps1.practice',
     'apps1.tic_tac_toe_v1',
+    'apps1.tic_tac_toe_v2',
 
     # Djangoの標準アプリケーション
     'django.contrib.admin',

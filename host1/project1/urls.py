@@ -67,4 +67,12 @@ urlpatterns = [
     # 1. 例えば `http://example.com/` のような URLの直下
     # 2. `host1/project1/urls_tic_tac_toe_v1.py` の urlpatterns を (1.) にぶら下げる
     #           ----------------------------
+
+    # 〇×ゲーム v2.0.1
+    path('', include('project1.urls_tic_tac_toe_v2')),
+    #    --           ----------------------------
+    #      1          2
+    # 1. 例えば `http://example.com/` のような URLの直下
+    # 2. `host1/project1/urls_tic_tac_toe_v2.py` の urlpatterns を (1.) にぶら下げる
+    #           ----------------------------
 ]
