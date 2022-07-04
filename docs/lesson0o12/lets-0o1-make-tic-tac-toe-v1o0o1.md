@@ -780,7 +780,7 @@ connect();
 </html>
 ```
 
-# Step 13. ビュー作成 - resources.py ファイル
+# Step 13. ビュー モジュール作成 - match_application フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -802,7 +802,8 @@ connect();
         │       │           └── 📄playing.html
         │       ├── 📂views
         │       │   └── 📂v1o0o1
-👉      │       │       └── 📄resources.py
+        │       │       └── 📂match_application
+👉      │       │           └── 📄__init__.py
         │       ├── 📄__init__.py
         │       ├── 📄admin.py
         │       ├── 📄apps.py
@@ -811,36 +812,123 @@ connect();
 ```
 
 ```py
-"""〇×ゲーム v1.0.1"""
-from django.http import Http404
-from django.shortcuts import render, redirect
-
-
-# 以下、リソース
-
-
 class MatchApplication():
     """対局申込"""
 
     _path_of_http_playing = "/tic-tac-toe/v1o0o1/playing/{0}/?&mypiece={1}"
-    #                                      ^^^^^ one.zero.one
+    #                                      ^^^ one.zero.one
     #                        ---------------------------------------------
     #                        1
     # 1. http://example.com:8000/tic-tac-toe/v1o0o1/playing/Elephant/?&mypiece=X
     #                           ------------------------------------------------
 
     _path_of_html = "tic_tac_toe_v1/o0o1/match_application.html"
-    #                                ^^^ zero.one
-    #                ------------------------------------------
+    #                                ^^^zero.one
+    #                -----------------------------------------
     #                1
     # 1. host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o0o1/match_application.html
     #                                         ------------------------------------------
 
     def render(request):
         """描画"""
+
+        # 以下のファイルはあとで作ります
+        from .v_render import render_match_application
+        #    ---------        ------------------------
+        #    1                2
+        # 1. `host1/apps1/tic_tac_toe_v1/views/v1o0o1/match_application/v_render.py`
+        #                                                               --------
+        # 2. `1.` に含まれる関数
+
         return render_match_application(request, MatchApplication._path_of_http_playing, MatchApplication._path_of_html)
+```
 
 
+# Step 14. ビュー モジュール作成 - match_application/v_render.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂host1
+        ├── 📂apps1
+        │   └── 📂tic_tac_toe_v1            # アプリケーション
+        │       ├── 📂migrations
+        │       │   └── 📄__init__.py
+        │       ├── 📂static
+        │       │   └── 📂tic_tac_toe_v1
+        │       │       └── 📂o0o1
+        │       │           ├── 📄main.css
+        │       │           └── 📄play.js
+        │       ├── 📂templates
+        │       │   └── 📂tic_tac_toe_v1        # アプリケーションと同名
+        │       │       └── 📂o0o1
+        │       │           ├── 📄match_application.html
+        │       │           └── 📄playing.html
+        │       ├── 📂views
+        │       │   └── 📂v1o0o1
+        │       │       └── 📂match_application
+        │       │           ├── 📄__init__.py
+👉      │       │           └── 📄v_render.py
+        │       ├── 📄__init__.py
+        │       ├── 📄admin.py
+        │       ├── 📄apps.py
+        │       └── 📄tests.py
+        └── 📄requirements.txt
+```
+
+```py
+from django.shortcuts import render, redirect
+
+
+def render_match_application(request, path_of_http_playing, path_of_html):
+    """描画 - 対局申込"""
+
+    if request.method == "POST":
+        # 送信後
+        room_name = request.POST.get("room_name")
+        myPiece = request.POST.get("my_piece")
+        # TODO バリデーションチェックしたい
+        return redirect(path_of_http_playing.format(room_name, myPiece))
+
+    # 訪問後
+    return render(request, path_of_html, {})
+```
+
+# Step 15. ビュー モジュール作成 - playing フォルダー
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂host1
+        ├── 📂apps1
+        │   └── 📂tic_tac_toe_v1            # アプリケーション
+        │       ├── 📂migrations
+        │       │   └── 📄__init__.py
+        │       ├── 📂static
+        │       │   └── 📂tic_tac_toe_v1
+        │       │       └── 📂o0o1
+        │       │           ├── 📄main.css
+        │       │           └── 📄play.js
+        │       ├── 📂templates
+        │       │   └── 📂tic_tac_toe_v1        # アプリケーションと同名
+        │       │       └── 📂o0o1
+        │       │           ├── 📄match_application.html
+        │       │           └── 📄playing.html
+        │       ├── 📂views
+        │       │   └── 📂v1o0o1
+        │       │       ├── 📂match_application
+        │       │       │   ├── 📄__init__.py
+        │       │       │   └── 📄v_render.py
+        │       │       └── 📂playing
+👉      │       │           └── 📄__init__.py
+        │       ├── 📄__init__.py
+        │       ├── 📄admin.py
+        │       ├── 📄apps.py
+        │       └── 📄tests.py
+        └── 📄requirements.txt
+```
+
+```py
 class Playing():
     """対局"""
 
@@ -853,41 +941,19 @@ class Playing():
 
     def render(request, room_name):
         """描画"""
+
+        # 以下のファイルはあとで作ります
+        from .v_render import render_playing
+        #    ---------        --------------
+        #    1                2
+        # 1. `host1/apps1/tic_tac_toe_v1/views/v1o0o1/playing/v_render.py`
+        #                                                     --------
+        # 2. `1.` に含まれる関数
+
         return render_playing(request, room_name, Playing._path_of_html)
-
-
-# 以下、関数
-
-
-def render_match_application(request, path_of_http_playing, path_of_html):
-    """対局申込 - 描画"""
-
-    if request.method == "POST":
-        # 送信後
-        room_name = request.POST.get("room_name")
-        myPiece = request.POST.get("my_piece")
-        # TODO バリデーションチェックしたい
-        return redirect(path_of_http_playing.format(room_name, myPiece))
-
-    # 訪問後
-    return render(request, path_of_html, {})
-
-
-def render_playing(request, room_name, path_of_html):
-    """対局 - 描画"""
-
-    myPiece = request.GET.get("mypiece")
-    if myPiece not in ['X', 'O']:
-        raise Http404(f"My piece '{myPiece}' does not exists")
-
-    context = {
-        "my_piece": myPiece,
-        "room_name": room_name
-    }
-    return render(request, path_of_html, context)
 ```
 
-# Step 14. ルート新規作成 - urls_tic_tac_toe_v1.py ファイル
+# Step 16. ビュー モジュール作成 - playing/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -909,7 +975,66 @@ def render_playing(request, room_name, path_of_html):
         │       │           └── 📄playing.html
         │       ├── 📂views
         │       │   └── 📂v1o0o1
-        │       │       └── 📄resources.py
+        │       │       ├── 📂match_application
+        │       │       │   ├── 📄__init__.py
+        │       │       │   └── 📄v_render.py
+        │       │       └── 📂playing
+        │       │           ├── 📄__init__.py
+👉      │       │           └── 📄v_render.py
+        │       ├── 📄__init__.py
+        │       ├── 📄admin.py
+        │       ├── 📄apps.py
+        │       └── 📄tests.py
+        └── 📄requirements.txt
+```
+
+```py
+from django.http import Http404
+from django.shortcuts import render
+
+
+def render_playing(request, room_name, path_of_html):
+    """描画 - 対局"""
+
+    myPiece = request.GET.get("mypiece")
+    if myPiece not in ['X', 'O']:
+        raise Http404(f"My piece '{myPiece}' does not exists")
+
+    context = {
+        "my_piece": myPiece,
+        "room_name": room_name
+    }
+    return render(request, path_of_html, context)
+```
+
+# Step 17. ルート新規作成 - urls_tic_tac_toe_v1.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂host1
+        ├── 📂apps1
+        │   └── 📂tic_tac_toe_v1            # アプリケーション
+        │       ├── 📂migrations
+        │       │   └── 📄__init__.py
+        │       ├── 📂static
+        │       │   └── 📂tic_tac_toe_v1
+        │       │       └── 📂o0o1
+        │       │           ├── 📄main.css
+        │       │           └── 📄play.js
+        │       ├── 📂templates
+        │       │   └── 📂tic_tac_toe_v1
+        │       │       └── 📂o0o1
+        │       │           ├── 📄match_application.html
+        │       │           └── 📄playing.html
+        │       ├── 📂views
+        │       │   └── 📂v1o0o1
+        │       │       ├── 📂match_application
+        │       │       │   ├── 📄__init__.py
+        │       │       │   └── 📄v_render.py
+        │       │       └── 📂playing
+        │       │           ├── 📄__init__.py
+        │       │           └── 📄v_render.py
         │       ├── 📄__init__.py
         │       ├── 📄admin.py
         │       ├── 📄apps.py
@@ -922,11 +1047,10 @@ def render_playing(request, room_name, path_of_html):
 ```py
 from django.urls import path
 
-# 〇×ゲーム v1.0.1
-from apps1.tic_tac_toe_v1.views.v1o0o1 import resources as tic_tac_toe_v1
-#    ----- -------------- ------------        ---------    --------------
-#    1     2              3                   4            5
-#    ---------------------------------
+from apps1.tic_tac_toe_v1.views.v1o0o1.match_application import MatchApplication
+#    ----- -------------- ------------------------------        ----------------
+#    1     2              3                                     4
+#    ---------------------------------------------------
 #    6
 # 1. 開発者用ディレクトリーの一部
 # 2. アプリケーション フォルダー名
@@ -935,6 +1059,8 @@ from apps1.tic_tac_toe_v1.views.v1o0o1 import resources as tic_tac_toe_v1
 # 5. `4.` の別名
 # 6. モジュール名
 
+from apps1.tic_tac_toe_v1.views.v1o0o1.playing import Playing
+
 
 urlpatterns = [
 
@@ -942,28 +1068,28 @@ urlpatterns = [
     path('tic-tac-toe/v1o0o1/match-application/',
          # ------------------------------------
          # 1
-         tic_tac_toe_v1.MatchApplication.render),
-    #    --------------------------------------
+         MatchApplication.render),
+    #    -----------------------
     #    2
     # 1. 例えば `http://example.com/tic-tac-toe/v1o0o1/match-application/` のような URL のパスの部分
     #                              -------------------------------------
-    # 2. tic_tac_toe_v1 (別名)ファイルの MatchApplication クラスの render 静的メソッド
+    # 2. MatchApplication クラスの render 静的メソッド
 
     # 対局中
     path('tic-tac-toe/v1o0o1/playing/<str:room_name>/',
          # ------------------------------------------
          # 1
-         tic_tac_toe_v1.Playing.render),
-    #    -----------------------------
+         Playing.render),
+    #    --------------
     #    2
     # 1. 例えば `http://example.com/tic-tac-toe/v1o0o1/playing/<部屋名>/` のような URL のパスの部分。
     #                              ------------------------------------
     #    <部屋名> に入った文字列は room_name 変数に渡されます
-    # 2. tic_tac_toe_v1 (別名)ファイルの Playing クラスの render 静的メソッド
+    # 2. Playing クラスの render 静的メソッド
 ]
 ```
 
-# Step 15. 総合ルート編集 - urls.py
+# Step 18. 総合ルート編集 - urls.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -985,7 +1111,12 @@ urlpatterns = [
         │       │           └── 📄playing.html
         │       ├── 📂views
         │       │   └── 📂v1o0o1
-        │       │       └── 📄resources.py
+        │       │       ├── 📂match_application
+        │       │       │   ├── 📄__init__.py
+        │       │       │   └── 📄v_render.py
+        │       │       └── 📂playing
+        │       │           ├── 📄__init__.py
+        │       │           └── 📄v_render.py
         │       ├── 📄__init__.py
         │       ├── 📄admin.py
         │       ├── 📄apps.py
@@ -1019,7 +1150,7 @@ urlpatterns = [
 ]
 ```
 
-# Step 16. consumer.py ファイルの作成
+# Step 19. consumer.py ファイルの作成
 
 以下のファイルを新規作成してほしい  
 
@@ -1041,7 +1172,12 @@ urlpatterns = [
         │       │           └── 📄playing.html
         │       ├── 📂views
         │       │   └── 📂v1o0o1
-        │       │       └── 📄resources.py
+        │       │       ├── 📂match_application
+        │       │       │   ├── 📄__init__.py
+        │       │       │   └── 📄v_render.py
+        │       │       └── 📂playing
+        │       │           ├── 📄__init__.py
+        │       │           └── 📄v_render.py
         │       ├── 📂websocks
         │       │   └── 📂v1o0o1
 👉      │       │       └── 📄consumer.py
@@ -1129,7 +1265,7 @@ class TicTacToeV1Consumer(AsyncJsonWebsocketConsumer):
         }))
 ```
 
-# Step 17. Webソケット用ルート新規作成 - ws_urls_tic_tac_toe_v1.py ファイル
+# Step 20. Webソケット用ルート新規作成 - ws_urls_tic_tac_toe_v1.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1151,7 +1287,12 @@ class TicTacToeV1Consumer(AsyncJsonWebsocketConsumer):
         │       │           └── 📄playing.html
         │       ├── 📂views
         │       │   └── 📂v1o0o1
-        │       │       └── 📄resources.py
+        │       │       ├── 📂match_application
+        │       │       │   ├── 📄__init__.py
+        │       │       │   └── 📄v_render.py
+        │       │       └── 📂playing
+        │       │           ├── 📄__init__.py
+        │       │           └── 📄v_render.py
         │       ├── 📂websocks
         │       │   └── 📂v1o0o1
         │       │       └── 📄consumer.py
@@ -1201,7 +1342,7 @@ websocket_urlpatterns = [
 ]
 ```
 
-# Step 18. ASGI設定 - asgi.py ファイル＜その２＞
+# Step 21. ASGI設定 - asgi.py ファイル＜その２＞
 
 👇以下の既存のファイルを編集してほしい  
 
@@ -1223,7 +1364,12 @@ websocket_urlpatterns = [
         │       │           └── 📄playing.html
         │       ├── 📂views
         │       │   └── 📂v1o0o1
-        │       │       └── 📄resources.py
+        │       │       ├── 📂match_application
+        │       │       │   ├── 📄__init__.py
+        │       │       │   └── 📄v_render.py
+        │       │       └── 📂playing
+        │       │           ├── 📄__init__.py
+        │       │           └── 📄v_render.py
         │       ├── 📂websocks
         │       │   └── 📂v1o0o1
         │       │       └── 📄consumer.py
@@ -1272,7 +1418,7 @@ websocket_urlpatterns_merged.extend(
 
 
 
-# Step 19. Djangoの設定 - settings.py ファイル
+# Step 22. Djangoの設定 - settings.py ファイル
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -1294,7 +1440,12 @@ websocket_urlpatterns_merged.extend(
         │       │           └── 📄playing.html
         │       ├── 📂views
         │       │   └── 📂v1o0o1
-        │       │       └── 📄resources.py
+        │       │       ├── 📂match_application
+        │       │       │   ├── 📄__init__.py
+        │       │       │   └── 📄v_render.py
+        │       │       └── 📂playing
+        │       │           ├── 📄__init__.py
+        │       │           └── 📄v_render.py
         │       ├── 📂websocks
         │       │   └── 📂v1o0o1
         │       │       └── 📄consumer.py
@@ -1345,7 +1496,7 @@ TEMPLATES = [
 ]
 ```
 
-# Step 20. Web画面へアクセス
+# Step 23. Web画面へアクセス
 
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでください  
 
