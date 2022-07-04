@@ -31,16 +31,6 @@
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    └── 📂host1
-        ├── 📂apps1
-        ├── 📂project1                      # プロジェクト
-        │   ├── 📄urls_tic_tac_toe_v1.py
-        │   ├── 📄urls.py
-👉      │   └── 📄ws_urls_tic_tac_toe_v1.py
-        └── 📄requirements.txt
-```
-
-```plaintext
     ├── 📂host_local1                   # Djangoとは関係ないもの
     │    ├── 📂sockapp1
     │    └── 📂websockapp1
@@ -85,7 +75,9 @@
     │   │   ├── 📄settings.py
     │   │   ├── 📄urls_accounts.py
     │   │   ├── 📄urls_practice.py
+    │   │   ├── 📄urls_tic_tac_toe_v1.py
     │   │   ├── 📄urls.py
+    │   │   ├── 📄ws_urls_tic_tac_toe_v1.py
     │   │   └── 📄wsgi.py
     │   ├── 📂project2                  # プロジェクト
     │   ├── 🐳docker-compose-project2.yml
@@ -1367,7 +1359,8 @@ ${indent}${this._position.dump(indent + "    ")}`;
         │       ├── 📂templates
         │       │   └── 📂tic_tac_toe_v2    # アプリケーションと同名
         │       │       └── 📂o0o1
-👉      │       │           └── 📄engine_manual.html
+        │       │           └── 📂think
+👉      │       │               └── 📄engine_manual.html
         │       ├── 📄__init__.py
         │       ├── 📄admin.py
         │       ├── 📄apps.py
@@ -1574,7 +1567,8 @@ board
         │       ├── 📂templates
         │       │   └── 📂tic_tac_toe_v2    # アプリケーションと同名
         │       │       └── 📂o0o1
-        │       │           └── 📄engine_manual.html
+        │       │           └── 📂think
+        │       │               └── 📄engine_manual.html
         │       ├── 📂views
         │       │   └── 📂v2o0o1
         │       │       └── 📂engine_manual
@@ -1591,11 +1585,11 @@ board
 class EngineManual():
     """エンジン手動"""
 
-    _path_of_html = "tic_tac_toe_v2/o0o1/engine_manual.html"
-    #                --------------------------------------
+    _path_of_html = "tic_tac_toe_v2/o0o1/think/engine_manual.html"
+    #                --------------------------------------------
     #                1
-    # 1. host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o0o1/engine_manual.html
-    #                                         --------------------------------------
+    # 1. host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o0o1/think/engine_manual.html
+    #                                         --------------------------------------------
 
     @staticmethod
     def render(request):
@@ -1635,7 +1629,8 @@ class EngineManual():
         │       ├── 📂templates
         │       │   └── 📂tic_tac_toe_v2    # アプリケーションと同名
         │       │       └── 📂o0o1
-        │       │           └── 📄engine_manual.html
+        │       │           └── 📂think
+        │       │               └── 📄engine_manual.html
         │       ├── 📂views
         │       │   └── 📂v2o0o1
         │       │       └── 📂engine_manual
@@ -1684,7 +1679,8 @@ def render_engine_manual(request, path_of_html):
         │       ├── 📂templates
         │       │   └── 📂tic_tac_toe_v2
         │       │       └── 📂o0o1
-        │       │           └── 📄engine_manual.html
+        │       │           └── 📂think
+        │       │               └── 📄engine_manual.html
         │       ├── 📂views
         │       │   └── 📂v2o0o1
         │       │       └── 📂engine_manual
@@ -1753,7 +1749,8 @@ urlpatterns = [
         │       ├── 📂templates
         │       │   └── 📂tic_tac_toe_v2
         │       │       └── 📂o0o1
-        │       │           └── 📄engine_manual.html
+        │       │           └── 📂think
+        │       │               └── 📄engine_manual.html
         │       ├── 📂views
         │       │   └── 📂v2o0o1
         │       │       └── 📂engine_manual
