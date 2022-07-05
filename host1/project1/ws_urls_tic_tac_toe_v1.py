@@ -24,8 +24,8 @@ websocket_urlpatterns = [
         TicTacToeV1Consumer.as_asgi()),
     #   -----------------------------
     #   2
-    # 1. 例えば `http://example.com/tic-tac-toe/v1o0o1/playing/Elephant/` のようなURLのパスの部分
-    #                              ------------------------------------
+    # 1. 例えば `ws://example.com/tic-tac-toe/v1o0o1/playing/Elephant/` のようなURLのパスの部分
+    #                            ------------------------------------
     #    room_name は変数として渡される
     # 2. クラス名とメソッド。 URL を ASGI形式にする
 ]

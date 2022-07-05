@@ -815,12 +815,12 @@ connect();
 class MatchApplication():
     """対局申込"""
 
-    _path_of_http_playing = "/tic-tac-toe/v1o0o1/playing/{0}/?&mypiece={1}"
-    #                                      ^^^ one.zero.one
-    #                        ---------------------------------------------
+    _path_of_http_playing = "/tic-tac-toe/v1/playing/{0}/?&mypiece={1}"
+    #                                      ^one
+    #                        -----------------------------------------
     #                        1
-    # 1. http://example.com:8000/tic-tac-toe/v1o0o1/playing/Elephant/?&mypiece=X
-    #                           ------------------------------------------------
+    # 1. http://example.com:8000/tic-tac-toe/v1/playing/Elephant/?&mypiece=X
+    #                           --------------------------------------------
 
     _path_of_html = "tic_tac_toe_v1/o0o1/match_application.html"
     #                                ^^^zero.one
@@ -1064,25 +1064,25 @@ from apps1.tic_tac_toe_v1.views.v1o0o1.playing import Playing
 urlpatterns = [
 
     # 対局申込
-    path('tic-tac-toe/v1o0o1/match-application/',
-         # ------------------------------------
+    path('tic-tac-toe/v1/match-application/',
+         # --------------------------------
          # 1
          MatchApplication.render),
     #    -----------------------
     #    2
-    # 1. 例えば `http://example.com/tic-tac-toe/v1o0o1/match-application/` のような URL のパスの部分
-    #                              -------------------------------------
+    # 1. 例えば `http://example.com/tic-tac-toe/v1/match-application/` のような URL のパスの部分
+    #                              ---------------------------------
     # 2. MatchApplication クラスの render 静的メソッド
 
     # 対局中
-    path('tic-tac-toe/v1o0o1/playing/<str:room_name>/',
-         # ------------------------------------------
+    path('tic-tac-toe/v1/playing/<str:room_name>/',
+         # --------------------------------------
          # 1
          Playing.render),
     #    --------------
     #    2
-    # 1. 例えば `http://example.com/tic-tac-toe/v1o0o1/playing/<部屋名>/` のような URL のパスの部分。
-    #                              ------------------------------------
+    # 1. 例えば `http://example.com/tic-tac-toe/v1/playing/<部屋名>/` のような URL のパスの部分。
+    #                              --------------------------------
     #    <部屋名> に入った文字列は room_name 変数に渡されます
     # 2. Playing クラスの render 静的メソッド
 ]
@@ -1334,8 +1334,8 @@ websocket_urlpatterns = [
         TicTacToeV1Consumer.as_asgi()),
     #   -----------------------------
     #   2
-    # 1. 例えば `http://example.com/tic-tac-toe/v1o0o1/playing/Elephant/` のようなURLのパスの部分
-    #                              ------------------------------------
+    # 1. 例えば `ws://example.com/tic-tac-toe/v1o0o1/playing/Elephant/` のようなURLのパスの部分
+    #                            ------------------------------------
     #    room_name は変数として渡される
     # 2. クラス名とメソッド。 URL を ASGI形式にする
 ]
@@ -1499,7 +1499,62 @@ TEMPLATES = [
 
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでください  
 
-📖 [http://localhost:8000/tic-tac-toe/v1o0o1/match-application/](http://localhost:8000/tic-tac-toe/v1o0o1/match-application/)  
+📖 [http://localhost:8000/tic-tac-toe/v1/match-application/](http://localhost:8000/tic-tac-toe/v1/match-application/)  
+
+# Step 24. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+
+👇 以下の既存ファイルの最終行に追記してほしい  
+
+```plaintext
+    └── 📂host1
+        ├── 📂apps1
+        │   ├── 📂portal                        # アプリケーション
+        │   │   └── 📂data
+👉      │   │       └── 📄finished-lessons.csv
+        │   └── 📂tic_tac_toe_v1                # アプリケーション
+        │       ├── 📂migrations
+        │       │   └── 📄__init__.py
+        │       ├── 📂static
+        │       │   └── 📂tic_tac_toe_v1
+        │       │       └── 📂o0o1
+        │       │           ├── 📄main.css
+        │       │           └── 📄play.js
+        │       ├── 📂templates
+        │       │   └── 📂tic_tac_toe_v1
+        │       │       └── 📂o0o1
+        │       │           ├── 📄match_application.html
+        │       │           └── 📄playing.html
+        │       ├── 📂views
+        │       │   └── 📂v1o0o1
+        │       │       ├── 📂match_application
+        │       │       │   ├── 📄__init__.py
+        │       │       │   └── 📄v_render.py
+        │       │       └── 📂playing
+        │       │           ├── 📄__init__.py
+        │       │           └── 📄v_render.py
+        │       ├── 📂websocks
+        │       │   └── 📂v1o0o1
+        │       │       └── 📄consumer.py
+        │       ├── 📄__init__.py
+        │       ├── 📄admin.py
+        │       ├── 📄apps.py
+        │       └── 📄tests.py
+        ├── 📂project1                          # プロジェクト
+        │   ├── 📄urls_tic_tac_toe_v1.py
+        │   ├── 📄urls.py
+        │   └── 📄ws_urls_tic_tac_toe_v1.py
+        └── 📄requirements.txt
+```
+
+👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
+
+```csv
+/tic-tac-toe/v1/match-application/,〇×ゲーム v1
+```
+
+👇 ポータルにリンクが追加されていることを確認してほしい 
+
+📖 [http://localhost:8000/](http://localhost:8000/)  
 
 # 次の記事
 
