@@ -7,3 +7,4 @@ path,label
 /practice/login-required,ログイン必須
 /practice/logout,ログアウト
 /practice/prefectures/,都道府県の一覧
+/practice/prefectures/read/1/,都道府県(1)の詳細
