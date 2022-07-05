@@ -226,11 +226,11 @@ urlpatterns = [
 ]
 ```
 
-# Step 4. Web画面へアクセス
+# Step 6. Web画面へアクセス
 
 📖 [http://localhost:8000/practice/vuetify/desserts1-as-json](http://localhost:8000/practice/vuetify/desserts1-as-json)  
 
-# Step 9. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step 7. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
