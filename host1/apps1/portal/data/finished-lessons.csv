@@ -8,6 +8,7 @@ path,label
 /practice/login-required,ログイン必須
 /practice/logout,ログアウト
 /practice/buttom_for_member/,会員にだけ見えるボタンを説明するページ
+/practice/user-list/,会員一覧
 /practice/prefectures/,都道府県の一覧
 /practice/prefectures/read/1/,都道府県(1)の詳細
 /practice/prefectures/delete/2/,都道府県(2)の削除

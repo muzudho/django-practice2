@@ -1,11 +1,17 @@
 # 目的
 
-会員に特典を与えたい  
+管理者でなくても、会員（メンバー，会員登録しているユーザー）の一覧を見たい  
 
-# 手段
+管理者は、管理画面から会員一覧を見れる  
 
-ログインしていない人には見えず、  
-ログインしている人には見えるボタンを作ろう！  
+# 知識
+
+Django では、サインアップした口座を User と呼んでいる。  
+従って、「会員登録しているユーザー」と、「ユーザー」は同義だ  
+
+「会員登録していないユーザー」とは、Django では、単に口座に紐づかないアクセスに過ぎない  
+
+名称を User ではなく Member にしてほしかった  
 
 # はじめに
 
@@ -79,9 +85,9 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. HTMLファイルの作成
+# Step 2. テンプレート編集 - user-list.html ファイル
 
-以下のファイルを作成してほしい。  
+以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂host1
@@ -90,7 +96,7 @@ docker-compose up
                 └── 📂templates
                     └── 📂practice          # アプリケーションと同名
                         └── 📂v0o0o1
-👉                          └── 📄button_for_member.html
+👉                          └── 📄user_list.html
 ```
 
 ```html
@@ -105,34 +111,41 @@ docker-compose up
         <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>会員専用のボタン</title>
+        <title>会員登録ユーザー一覧</title>
     </head>
     <body>
         <div id="app">
             <v-app>
+                <!-- v-app-bar に app プロパティを指定しないなら、背景画像を付けてほしい -->
+                <v-app-bar app dense elevation="4">
+                    <v-app-bar-nav-icon></v-app-bar-nav-icon>
+                    <v-toolbar-title>ゲーム対局サーバー</v-toolbar-title>
+                </v-app-bar>
                 <v-main>
                     <v-container>
-                        <v-row class="my-2">
-                            <h3>みんなのボタン</h3>
-                        </v-row>
-                        <v-row class="my-2">
-                            <v-btn :href="createPortalUrl()">ポータルへ移動する</v-btn>
-                        </v-row>
-                        {% if user.is_authenticated %}
-                        <v-row class="my-2">
-                            <h3>会員専用のボタン</h3>
-                        </v-row>
-                        <v-row class="my-2">
-                            <v-btn :href="createLoginRequiredUrl()">ログイン必須ページ</v-btn>
-                        </v-row>
-                        <v-row class="my-2">
-                            <v-btn :href="createLogoutUrl()">ログアウト</v-btn>
-                        </v-row>
-                        {% else %}
-                        <v-row class="my-2">
-                            <v-btn :href="createLoginUrl()">ログイン／会員登録</v-btn>
-                        </v-row>
-                        {% endif %}
+                        <h3>会員登録ユーザー一覧</h3>
+                        <v-simple-table>
+                            <template v-slot:default>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>ユーザー名</th>
+                                        <th>アクティブか</th>
+                                        <th>最終ログイン</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="user in vu_userDic" :key="user.pk">
+                                        {% comment %} Vue で二重波括弧（braces）は変数の展開に使っていることから、 Python のテンプレートに二重波括弧を変数の展開に使わないよう verbatim で指示します。 {% endcomment %} {% verbatim %}
+                                        <td>{{ user.pk }}</td>
+                                        <td>{{ user.username }}</td>
+                                        <td>{{ user.is_active }}</td>
+                                        <td>{{ user.last_login }}</td>
+                                        {% endverbatim %}
+                                    </tr>
+                                </tbody>
+                            </template>
+                        </v-simple-table>
                     </v-container>
                 </v-main>
             </v-app>
@@ -145,39 +158,8 @@ docker-compose up
                 el: "#app",
                 vuetify: new Vuetify(),
                 data: {
-                    // * `vu_` - 「vue1.dataのメンバー」 の目印
-                    // * `dj_` - 「Djangoがレンダーに埋め込む変数」 の目印
-                    vu_pathOfPortal: "{{ dj_path_of_portal }}",
-                    vu_pathOfLogin: "{{ dj_path_of_login }}",
-                    vu_pathOfLoginRequired: "{{ dj_path_of_login_required }}",
-                    vu_pathOfLogout: "{{ dj_path_of_logout }}",
-                },
-                methods: {
-                    createPortalUrl() {
-                        let url = `${location.protocol}//${location.host}${this.vu_pathOfPortal}`;
-                        //          --------------------  --------------]----------------------
-                        //          1                     2              3
-                        // 1. protocol
-                        // 2. host
-                        // 3. path
-                        console.log(`portal url=[${url}]`);
-                        return url;
-                    },
-                    createLoginUrl() {
-                        let url = `${location.protocol}//${location.host}${this.vu_pathOfLogin}`;
-                        console.log(`login url=[${url}]`);
-                        return url;
-                    },
-                    createLoginRequiredUrl() {
-                        let url = `${location.protocol}//${location.host}${this.vu_pathOfLoginRequired}`;
-                        console.log(`loginRequired url=[${url}]`);
-                        return url;
-                    },
-                    createLogoutUrl() {
-                        let url = `${location.protocol}//${location.host}${this.vu_pathOfLogout}`;
-                        console.log(`logout url=[${url}]`);
-                        return url;
-                    },
+                    // "vu_" は 「vue1.dataのメンバー」 の目印
+                    vu_userDic: JSON.parse("{{ dj_user_dic|escapejs }}"),
                 },
             });
         </script>
@@ -185,7 +167,7 @@ docker-compose up
 </html>
 ```
 
-# Step 3. ビュー モジュール作成 - button_for_member フォルダー
+# Step 3. モデルヘルパー作成 - mh_user フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -193,71 +175,98 @@ docker-compose up
     └── 📂host1
         └── 📂apps1
             └── 📂practice                  # アプリケーション
+                ├── 📂models_helper
+                │   └── 📂mh_user               # 頭の `mh_` は models helper の頭文字を目印にしたもの。無くてもいい
+👉              │       └── 📄__init__.py
+                └── 📂templates
+                    └── 📂practice
+                        └── 📂v0o0o1
+                            └── 📄user_list.html
+```
+
+```py
+import json
+from django.contrib.auth import get_user_model  # カスタムした User
+# from django.contrib.auth.models import User # デフォルトの User
+from django.core import serializers
+
+
+class MhUser():
+
+    @staticmethod
+    def get_user_dic():
+        """会員登録ユーザー一覧"""
+        User = get_user_model()
+
+        # 会員登録ユーザー一覧
+        # ２段階変換: 問合せ結果（QuerySet） ----> JSON文字列 ----> オブジェクト
+        user_table_qs = User.objects.all()  # QuerySet
+        print(f"user_table_qs={user_table_qs}")
+        user_table_json = serializers.serialize('json', user_table_qs)
+        user_table_doc = json.loads(user_table_json)  # オブジェクト
+        # print(f"user_table_doc={json.dumps(user_table_doc, indent=4)}")
+
+        # 使いやすい形に変換します
+        user_dic = dict()
+        for user_rec in user_table_doc:
+            user_dic[user_rec["pk"]] = {
+                "pk": user_rec["pk"],
+                "last_login": user_rec["fields"]["last_login"],
+                "username": user_rec["fields"]["username"],
+                "is_active": user_rec["fields"]["is_active"],
+            }
+
+        return user_dic
+```
+
+# Step 4. ビュー モジュール作成 - user_list フォルダー
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice                  # アプリケーション
+                ├── 📂models_helper
+                │   └── 📂mh_user
+                │       └── 📄__init__.py
                 ├── 📂templates
                 │   └── 📂practice
                 │       └── 📂v0o0o1
-                │           └── 📄button_for_member.html
+                │           └── 📄user_list.html
                 └── 📂views
                     └── 📂v0o0o1
-                        └── 📂button_for_member
+                        └── 📂user_list
 👉                          └── 📄__init__.py
 ```
 
 ```py
-class ButtonForMember():
-    """会員にだけ見えるボタンを説明するページ"""
+class UserList():
+    """会員一覧"""
 
     # そのページ
-    _path_of_this_page = "practice/v0o0o1/button_for_member.html"
-    #                     --------------------------------------
+    _path_of_this_page = "practice/v0o0o1/user_list.html"
+    #                     ------------------------------
     #                     1
-    # 1. host1/apps1/portal/templates/practice/v0o0o1/button_for_member.html を取得
-    #                                 --------------------------------------
-
-    # 既存のポータルページ
-    _path_of_portal = "/"
-    #                  -
-    #                  1
-    # 1. http://example.com:8000/ を取得
-    #                           -
-
-    # 既存のログイン必須ページ
-    _path_of_login_required = "/practice/login-required"
-    #                          ------------------------
-    #                          1
-    # 1. http://example.com/practice/login-required
-    #                      ------------------------
-
-    # 既存のログイン ページ
-    _path_of_login = "/accounts/v1/login/"
-    #                  -------------------
-    #                  1
-    # 1. http://example.com/accounts/v1/login/
-    #                      -------------------
-
-    # 既存のログアウト ページ
-    _path_of_logout = "/accounts/v1/logout/"
-    #                  --------------------
-    #                  1
-    # 1. http://example.com/accounts/v1/logout/
-    #                      -------------------
+    # 1. host1/apps1/portal/templates/practice/v0o0o1/user_list.html を取得
+    #                                 ------------------------------
 
     @staticmethod
     def render(request):
         """描画"""
 
         # 以下のファイルはあとで作ります
-        from .v_render import render_button_for_member
-        #    ---------        ------------------------
+        from .v_render import render_user_list
+        #    ---------        ----------------
         #    1                2
-        # 1. `host1/apps1/portal/views/v0o0o1/button_for_member/v_render.py`
-        #                                                       --------
+        # 1. `host1/apps1/portal/views/v0o0o1/user_list/v_render.py`
+        #                                               --------
         # 2. `1.` に含まれる関数
 
-        return render_button_for_member(request, ButtonForMember._path_of_this_page, ButtonForMember._path_of_portal, ButtonForMember._path_of_login_required, ButtonForMember._path_of_login, ButtonForMember._path_of_logout)
+        return render_user_list(request, UserList._path_of_this_page)
 ```
 
-# Step 4. ビュー モジュール作成 - button_for_member/v_render.py ファイル
+# Step 5. ビュー モジュール作成 - user_list/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -265,39 +274,49 @@ class ButtonForMember():
     └── 📂host1
         └── 📂apps1
             └── 📂practice                  # アプリケーション
+                ├── 📂models_helper
+                │   └── 📂mh_user
+                │       └── 📄__init__.py
                 ├── 📂templates
                 │   └── 📂practice
                 │       └── 📂v0o0o1
-                │           └── 📄button_for_member.html
+                │           └── 📄user_list.html
                 └── 📂views
                     └── 📂v0o0o1
-                        └── 📂button_for_member
+                        └── 📂user_list
                             ├── 📄__init__.py
 👉                          └── 📄v_render.py       # 頭の `v_` は、これはビューだと分かるよう目印に付けているだけなので、無くてもいい
 ```
 
 ```py
+import json
 from django.http import HttpResponse
 from django.template import loader
 
+from apps1.practice.models_helper.mh_user import MhUser
+#    ----- -------- ------------- -------        ------
+#    1     2        3             4              5
+# 1,3. ディレクトリー名
+# 2. アプリケーション フォルダー名
+# 4. Python ファイル名。拡張子抜き
+# 5. クラス名
 
-def render_button_for_member(request, path_of_this_page, path_of_portal, path_of_login_required, path_of_login, path_of_logout):
-    """描画 - 会員にだけ見えるボタンを説明するページ"""
+
+def render_user_list(request, path_of_this_page):
+    """描画 - 会員一覧"""
 
     template = loader.get_template(path_of_this_page)
 
     context = {
-        # "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
-        'dj_user': request.user,
-        'dj_path_of_portal': path_of_portal,
-        'dj_path_of_login_required': path_of_login_required,
-        'dj_path_of_login': path_of_login,
-        'dj_path_of_logout': path_of_logout,
+        # * `dj_` - 「Djangoがレンダーに埋め込む変数」 の目印
+        # * Vue に渡すときは、 JSON オブジェクトではなく、 JSON 文字列
+        'dj_user_dic': json.dumps(MhUser.get_user_dic())
     }
+
     return HttpResponse(template.render(context, request))
 ```
 
-# Step 5. ルート編集 - urls_practice.py ファイル
+# Step 6. ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -305,13 +324,16 @@ def render_button_for_member(request, path_of_this_page, path_of_portal, path_of
     └── 📂host1
         ├── 📂apps1
         │   └── 📂practice                  # アプリケーション
+        │       ├── 📂models_helper
+        │       │   └── 📂mh_user
+        │       │       └── 📄__init__.py
         │       ├── 📂templates
         │       │   └── 📂practice
         │       │       └── 📂v0o0o1
-        │       │           └── 📄button_for_member.html
+        │       │           └── 📄user_list.html
         │       └── 📂views
         │           └── 📂v0o0o1
-        │               └── 📂button_for_member
+        │               └── 📂user_list
         │                   ├── 📄__init__.py
         │                   └── 📄v_render.py
         └── 📂project1                      # プロジェクト
@@ -322,9 +344,10 @@ def render_button_for_member(request, path_of_this_page, path_of_portal, path_of
 # ...略...
 
 
-from apps1.practice.views.v0o0o1.button_for_member import ButtonForMember
-#    ----- -------- ------------------------------        ---------------
-#    1     2        3                                     4
+# 会員一覧
+from apps1.practice.views.v0o0o1.user_list import UserList
+#    ----- -------- ----------------------        --------
+#    1     2        3                             4
 #    ---------------------------------------------
 #    5
 # 1. 開発者用ディレクトリーの一部
@@ -338,24 +361,25 @@ urlpatterns = [
     # ...略...
 
 
-    # 会員にだけ見えるボタンを説明するページ
-    path('practice/buttom_for_member/',
-         # --------------------------
+    # 会員一覧
+    path('practice/user-list/',
+         # ------------------
          # 1
-         ButtonForMember.render),
-    #    ----------------------
-    #    2
-    # 1. 例えば `http://example.com/practice/buttom_for_member/` のような URL のパスの部分
-    #                              ----------------------------
-    # 2. ButtonForMember クラスの render 静的メソッド
+         UserList.render, name='practice_user_list'),
+    #    ---------------        ------------------
+    #    2                      3
+    # 1. 例えば `http://example.com/practice/user-list/` のような URL のパスの部分
+    #                              ------------------
+    # 2. UserList クラスの render 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_user_list' %} のような形でURLを取得するのに使える
 ]
 ```
 
-# Step 6. Web画面へアクセス
+# Step 7. Web画面へアクセス
 
-📖 [http://localhost:8000/practice/buttom_for_member/](http://localhost:8000/practice/buttom_for_member/)  
+📖 [http://localhost:8000/practice/user-list/](http://localhost:8000/practice/user-list/)  
 
-# Step 7. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step 8. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
@@ -366,13 +390,16 @@ urlpatterns = [
         │   │   └── 📂data
 👉      │   │       └── 📄finished-lessons.csv
         │   └── 📂practice                  # アプリケーション
+        │       ├── 📂models_helper
+        │       │   └── 📂mh_user
+        │       │       └── 📄__init__.py
         │       ├── 📂templates
         │       │   └── 📂practice
         │       │       └── 📂v0o0o1
-        │       │           └── 📄button_for_member.html
+        │       │           └── 📄user_list.html
         │       └── 📂views
         │           └── 📂v0o0o1
-        │               └── 📂button_for_member
+        │               └── 📂user_list
         │                   ├── 📄__init__.py
         │                   └── 📄v_render.py
         └── 📂project1                      # プロジェクト
@@ -382,7 +409,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/buttom_for_member/,会員にだけ見えるボタンを説明するページ
+/practice/user-list/,会員一覧
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 
@@ -391,4 +418,4 @@ urlpatterns = [
 
 # 次の記事
 
-📖 [Djangoで会員登録ユーザーを一覧しよう！](https://qiita.com/muzudho1/items/13c15be5b9070dab1770)  
+📖 [Djangoでモデルを追加しよう！](https://qiita.com/muzudho1/items/2463cc006da69f5ed7b2)  

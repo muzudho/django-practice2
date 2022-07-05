@@ -39,6 +39,18 @@ from apps1.practice.views.v0o0o1.button_for_member import ButtonForMember
 # 4. クラス名
 # 5. Pythonモジュール名
 
+# 会員一覧
+from apps1.practice.views.v0o0o1.user_list import UserList
+#    ----- -------- ----------------------        --------
+#    1     2        3                             4
+#    ---------------------------------------------
+#    5
+# 1. 開発者用ディレクトリーの一部
+# 2. アプリケーション フォルダー名
+# 3. ディレクトリー名
+# 4. クラス名
+# 5. Pythonモジュール名
+
 from apps1.practice.views.v0o0o1.prefecture import PrefectureV
 #    ----- -------- -----------------------        -----------
 #    1     2        3                              4
@@ -121,6 +133,18 @@ urlpatterns = [
     # 1. 例えば `http://example.com/practice/buttom_for_member/` のような URL のパスの部分
     #                              ----------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
+
+    # 会員一覧
+    path('practice/user-list/',
+         # -----------------
+         # 1
+         UserList.render, name='practice_user_list'),
+    #    ---------------        ------------------
+    #    2                      3
+    # 1. 例えば `http://example.com/practice/user-list/` のような URL のパスの部分
+    #                              ------------------
+    # 2. UserList クラスの render 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_user_list' %} のような形でURLを取得するのに使える
 
     # 都道府県の一覧
     path('practice/prefectures/', PrefectureV.render_list, name='prefecture_list'),
