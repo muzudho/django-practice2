@@ -4,6 +4,7 @@ path,label
 /practice/page2_patch2,ページ２ パッチ２
 /accounts/v1/signup/,サインアップ
 /accounts/v1/logout/,サインアウト
+/accounts/v1/login/,ログイン（入場）
 /practice/login-required,ログイン必須
 /practice/logout,ログアウト
 /practice/prefectures/,都道府県の一覧

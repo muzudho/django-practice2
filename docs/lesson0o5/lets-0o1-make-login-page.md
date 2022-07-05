@@ -1,6 +1,6 @@
 # 目的
 
-見た目がマシな　サインイン（利用開始）のページがほしい  
+見た目がマシな　サインイン（入場）のページがほしい  
 
 # はじめに
 
@@ -350,6 +350,38 @@ urlpatterns = [
 📖 [http://localhost:8000/accounts/v1/logout/](http://localhost:8000/accounts/v1/logout/)  
 
 👆 ログアウトを試してほしい  
+
+# Step 6. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+
+👇 以下の既存ファイルの最終行に追記してほしい  
+
+```plaintext
+    └── 📂host1
+        ├── 📂apps1
+        │   ├── 📂portal
+        │   │   └── 📂data
+👉      │   │       └── 📄finished-lessons.csv
+        │   └── 📂allauth-customized    # アプリケーション
+        │       ├── 📂templates
+        │       │   └── 📂account
+        │       │       └── 📄login.html
+        │       └── 📂views
+        │           └── 📂v0o0o1
+        │               └── v_login.py
+        └── 📂project1
+            ├── 📄urls_accounts.py
+            └── 📄urls.py
+```
+
+👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
+
+```csv
+/accounts/v1/login/,サインイン（入場）
+```
+
+👇 ポータルにリンクが追加されていることを確認してほしい 
+
+📖 [http://localhost:8000/](http://localhost:8000/)  
 
 # 次の記事
 
