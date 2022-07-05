@@ -53,7 +53,7 @@ urlpatterns = [
     # 2. allauth の SignupView をカスタマイズしたオブジェクト
     # 3. HTMLテンプレートの中で {% url 'signup' %} のような形でURLを取得するのに使える
 
-    # ログイン（入場）
+    # ログイン（ユーザー認証）
     path("accounts/v1/login/", view=v_login.accounts_v1_login_view,
          # -----------------        ------------------------------
          # 1                        2

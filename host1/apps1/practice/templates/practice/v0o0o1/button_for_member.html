@@ -1,0 +1,89 @@
+{% load static %} {# 👈あとで static "URL" を使うので load static します #}
+<!DOCTYPE html>
+<!-- See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92 -->
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>会員専用のボタン</title>
+    </head>
+    <body>
+        <div id="app">
+            <v-app>
+                <v-main>
+                    <v-container>
+                        <v-row class="my-2">
+                            <h3>みんなのボタン</h3>
+                        </v-row>
+                        <v-row class="my-2">
+                            <v-btn :href="createPortalUrl()">ポータルへ移動する</v-btn>
+                        </v-row>
+                        {% if user.is_authenticated %}
+                        <v-row class="my-2">
+                            <h3>会員専用のボタン</h3>
+                        </v-row>
+                        <v-row class="my-2">
+                            <v-btn :href="createLoginRequiredUrl()">ログイン必須ページ</v-btn>
+                        </v-row>
+                        <v-row class="my-2">
+                            <v-btn :href="createLogoutUrl()">ログアウト</v-btn>
+                        </v-row>
+                        {% else %}
+                        <v-row class="my-2">
+                            <v-btn :href="createLoginUrl()">ログイン／会員登録</v-btn>
+                        </v-row>
+                        {% endif %}
+                    </v-container>
+                </v-main>
+            </v-app>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+        <script>
+            let vue1 = new Vue({
+                el: "#app",
+                vuetify: new Vuetify(),
+                data: {
+                    // * `vu_` - 「vue1.dataのメンバー」 の目印
+                    // * `dj_` - 「Djangoがレンダーに埋め込む変数」 の目印
+                    vu_pathOfPortal: "{{ dj_path_of_portal }}",
+                    vu_pathOfLogin: "{{ dj_path_of_login }}",
+                    vu_pathOfLoginRequired: "{{ dj_path_of_login_required }}",
+                    vu_pathOfLogout: "{{ dj_path_of_logout }}",
+                },
+                methods: {
+                    createPortalUrl() {
+                        let url = `${location.protocol}//${location.host}${this.vu_pathOfPortal}`;
+                        //          --------------------  --------------]----------------------
+                        //          1                     2              3
+                        // 1. protocol
+                        // 2. host
+                        // 3. path
+                        console.log(`portal url=[${url}]`);
+                        return url;
+                    },
+                    createLoginUrl() {
+                        let url = `${location.protocol}//${location.host}${this.vu_pathOfLogin}`;
+                        console.log(`login url=[${url}]`);
+                        return url;
+                    },
+                    createLoginRequiredUrl() {
+                        let url = `${location.protocol}//${location.host}${this.vu_pathOfLoginRequired}`;
+                        console.log(`loginRequired url=[${url}]`);
+                        return url;
+                    },
+                    createLogoutUrl() {
+                        let url = `${location.protocol}//${location.host}${this.vu_pathOfLogout}`;
+                        console.log(`logout url=[${url}]`);
+                        return url;
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>

@@ -28,6 +28,17 @@ from apps1.practice.views.v0o0o1 import v_login_required
 # 1. ディレクトリー名
 # 2. Python ファイル名。拡張子抜き
 
+from apps1.practice.views.v0o0o1.button_for_member import ButtonForMember
+#    ----- -------- ------------------------------        ---------------
+#    1     2        3                                     4
+#    ---------------------------------------------
+#    5
+# 1. 開発者用ディレクトリーの一部
+# 2. アプリケーション フォルダー名
+# 3. ディレクトリー名
+# 4. クラス名
+# 5. Pythonモジュール名
+
 from apps1.practice.views.v0o0o1.prefecture import PrefectureV
 #    ----- -------- -----------------------        -----------
 #    1     2        3                              4
@@ -99,6 +110,17 @@ urlpatterns = [
     #                              ---------------
     # 2. v_login_required.py ファイルの LoggingOut クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practiceLogout' %} のような形でURLを取得するのに使える
+
+    # 会員にだけ見えるボタンを説明するページ
+    path('practice/buttom_for_member/',
+         # --------------------------
+         # 1
+         ButtonForMember.render),
+    #    ----------------------
+    #    2
+    # 1. 例えば `http://example.com/practice/buttom_for_member/` のような URL のパスの部分
+    #                              ----------------------------
+    # 2. ButtonForMember クラスの render 静的メソッド
 
     # 都道府県の一覧
     path('practice/prefectures/', PrefectureV.render_list, name='prefecture_list'),
