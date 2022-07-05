@@ -270,6 +270,42 @@ urlpatterns = [
 
 📖 [http://localhost:8000/practice/vuetify/hello1](http://localhost:8000/practice/vuetify/hello1)  
 
+# Step 7. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+
+👇 以下の既存ファイルの最終行に追記してほしい  
+
+```plaintext
+    └── 📂host1
+        ├── 📂apps1
+        │   ├── 📂portal                        # アプリケーション
+        │   │   └── 📂data
+👉      │   │       └── 📄finished-lessons.csv
+        │   └── 📂practice                  # アプリケーション
+        │       ├── 📂templates
+        │       │   └── 📂practice
+        │       │       └── 📂v0o0o1
+        │       │           └── 📂vuetify
+        │       │               └── 📄hello1.html
+        │       └── 📂views
+        │           └── 📂v0o0o1
+        │               └── 📂vuetify
+        │                   ├── 📄__init__.py
+        │                   └── 📄v_hello1.py
+        └── 📂project1                          # プロジェクト
+            ├── 📄urls_practice.py
+            └── 📄urls.py
+```
+
+👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
+
+```csv
+/practice/vuetify/hello1,ビューティファイでハロー
+```
+
+👇 ポータルにリンクが追加されていることを確認してほしい 
+
+📖 [http://localhost:8000/](http://localhost:8000/)  
+
 # 次の記事
 
 📖 [DjangoでVuetifyのData tableを使おう！](https://qiita.com/muzudho1/items/2b01d3acce5ec1b5770b)  
