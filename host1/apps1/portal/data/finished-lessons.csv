@@ -6,3 +6,4 @@ path,label
 /accounts/v1/logout/,サインアウト
 /practice/login-required,ログイン必須
 /practice/logout,ログアウト
+/practice/prefectures/,都道府県の一覧
