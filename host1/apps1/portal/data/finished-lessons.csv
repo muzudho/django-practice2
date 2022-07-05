@@ -8,3 +8,4 @@ path,label
 /practice/logout,ログアウト
 /practice/prefectures/,都道府県の一覧
 /practice/prefectures/read/1/,都道府県(1)の詳細
+/practice/prefectures/delete/2/,都道府県(2)の削除
