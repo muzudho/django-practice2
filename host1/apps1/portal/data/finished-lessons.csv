@@ -19,3 +19,4 @@ path,label
 /practice/vuetify/desserts1-as-json,ビューティファイでJSON形式のデザート１
 /practice/vuetify/textarea1-to-model,ビューティファイでテキストエリア１ . 保存用
 /tic-tac-toe/v1/match-application/,〇×ゲーム v1
+/tic-tac-toe/v2/engine-manual/,〇×ゲーム v2 思考エンジン手動テスト
