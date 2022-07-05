@@ -9,3 +9,5 @@ path,label
 /practice/prefectures/,都道府県の一覧
 /practice/prefectures/read/1/,都道府県(1)の詳細
 /practice/prefectures/delete/2/,都道府県(2)の削除
+/practice/prefecture/create/,都道府県の新規作成
+/practice/prefecture/update/4/,都道府県(4)の更新
