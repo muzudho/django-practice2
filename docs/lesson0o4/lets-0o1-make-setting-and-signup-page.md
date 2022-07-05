@@ -901,6 +901,10 @@ urlpatterns = [
 /accounts/v1/logout/,サインアウト
 ```
 
+👇 ポータルにリンクが追加されていることを確認してほしい 
+
+📖 [http://localhost:8000/](http://localhost:8000/)  
+
 # 次の記事
 
 📖 [Djangoでdataフォルダーを壊してしまったときのリセット方法を覚えよう！](https://qiita.com/muzudho1/items/1ecaac80568c981fcd59)  
