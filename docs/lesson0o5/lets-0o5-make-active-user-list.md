@@ -394,7 +394,7 @@ def render_active_user_list(request, path_of_this_page):
 # ...略...
 
 
-# 会員一覧
+# アクティブユーザー一覧
 from apps1.practice.views.v0o0o1.session import SessionV
 #    ----- -------- --------------------        --------
 #    1     2        3                           4

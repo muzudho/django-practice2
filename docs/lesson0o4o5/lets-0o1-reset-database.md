@@ -142,6 +142,10 @@ docker-compose run --rm web python3 manage.py migrate
 👆 allauth など、正常に動いているか　確認してほしい。  
 もし動いていなければ Webサイト は破壊してしまった。 連載を１からやり直してほしい  
 
+# Step 7. やりなおし
+
+Super-user など 今までにデータベースに登録した内容は消えているので、連載をやり直してほしい  
+
 # 次の記事
 
 📖 [Djangoでサインイン（利用開始）のページを作ろう！](https://qiita.com/muzudho1/items/1d34d64562ff07f1742a)  
