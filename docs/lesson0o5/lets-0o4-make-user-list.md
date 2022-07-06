@@ -185,41 +185,70 @@ docker-compose up
 ```
 
 ```py
+class MhUser():
+    """ユーザー モデルヘルパー"""
+
+    # 以下のファイルはあとで作ります
+    from .mh_get_user_dic import get_user_dic
+    #    ----------------        ------------
+    #    1                       2
+    # 1. `host1/apps1/practice/model_helper/mh_user/mh_get_user_dic.py`
+    #                                               ---------------
+    # 2. `1.` に含まれる関数
+```
+
+# Step 4. モデルヘルパー モジュール作成 - mh_get_user_dic.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice                  # アプリケーション
+                ├── 📂models_helper
+                │   └── 📂mh_user
+                │       ├── 📄__init__.py
+👉              │       └── 📄mh_get_user_dic.py
+                └── 📂templates
+                    └── 📂practice
+                        └── 📂v0o0o1
+                            └── 📄user_list.html
+```
+
+```py
 import json
 from django.contrib.auth import get_user_model  # カスタムした User
 # from django.contrib.auth.models import User # デフォルトの User
 from django.core import serializers
 
 
-class MhUser():
+@staticmethod
+def get_user_dic():
+    """会員登録ユーザー一覧"""
+    User = get_user_model()
 
-    @staticmethod
-    def get_user_dic():
-        """会員登録ユーザー一覧"""
-        User = get_user_model()
+    # 会員登録ユーザー一覧
+    # ２段階変換: 問合せ結果（QuerySet） ----> JSON文字列 ----> オブジェクト
+    user_table_qs = User.objects.all()  # QuerySet
+    print(f"user_table_qs={user_table_qs}")
+    user_table_json = serializers.serialize('json', user_table_qs)
+    user_table_doc = json.loads(user_table_json)  # オブジェクト
+    # print(f"user_table_doc={json.dumps(user_table_doc, indent=4)}")
 
-        # 会員登録ユーザー一覧
-        # ２段階変換: 問合せ結果（QuerySet） ----> JSON文字列 ----> オブジェクト
-        user_table_qs = User.objects.all()  # QuerySet
-        print(f"user_table_qs={user_table_qs}")
-        user_table_json = serializers.serialize('json', user_table_qs)
-        user_table_doc = json.loads(user_table_json)  # オブジェクト
-        # print(f"user_table_doc={json.dumps(user_table_doc, indent=4)}")
+    # 使いやすい形に変換します
+    user_dic = dict()
+    for user_rec in user_table_doc:
+        user_dic[user_rec["pk"]] = {
+            "pk": user_rec["pk"],
+            "last_login": user_rec["fields"]["last_login"],
+            "username": user_rec["fields"]["username"],
+            "is_active": user_rec["fields"]["is_active"],
+        }
 
-        # 使いやすい形に変換します
-        user_dic = dict()
-        for user_rec in user_table_doc:
-            user_dic[user_rec["pk"]] = {
-                "pk": user_rec["pk"],
-                "last_login": user_rec["fields"]["last_login"],
-                "username": user_rec["fields"]["username"],
-                "is_active": user_rec["fields"]["is_active"],
-            }
-
-        return user_dic
+    return user_dic
 ```
 
-# Step 4. ビュー モジュール作成 - user_list フォルダー
+# Step 5. ビュー モジュール作成 - user_list フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -266,7 +295,7 @@ class UserListV():
         return render_user_list(request, UserListV._path_of_this_page)
 ```
 
-# Step 5. ビュー モジュール作成 - user_list/v_render.py ファイル
+# Step 6. ビュー モジュール作成 - user_list/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -316,7 +345,7 @@ def render_user_list(request, path_of_this_page):
     return HttpResponse(template.render(context, request))
 ```
 
-# Step 6. ルート編集 - urls_practice.py ファイル
+# Step 7. ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -375,11 +404,11 @@ urlpatterns = [
 ]
 ```
 
-# Step 7. Web画面へアクセス
+# Step 8. Web画面へアクセス
 
 📖 [http://localhost:8000/practice/user-list/](http://localhost:8000/practice/user-list/)  
 
-# Step 8. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step 9. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
