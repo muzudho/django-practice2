@@ -40,10 +40,22 @@ from apps1.practice.views.v0o0o1.button_for_member import ButtonForMember
 # 5. Pythonモジュール名
 
 # 会員一覧
-from apps1.practice.views.v0o0o1.user_list import UserList
-#    ----- -------- ----------------------        --------
+from apps1.practice.views.v0o0o1.user_list import UserListV
+#    ----- -------- ----------------------        ---------
 #    1     2        3                             4
-#    ---------------------------------------------
+#    -------------------------------------
+#    5
+# 1. 開発者用ディレクトリーの一部
+# 2. アプリケーション フォルダー名
+# 3. ディレクトリー名
+# 4. クラス名
+# 5. Pythonモジュール名
+
+# 会員一覧
+from apps1.practice.views.v0o0o1.session import SessionV
+#    ----- -------- --------------------        --------
+#    1     2        3                           4
+#    -----------------------------------
 #    5
 # 1. 開発者用ディレクトリーの一部
 # 2. アプリケーション フォルダー名
@@ -138,13 +150,25 @@ urlpatterns = [
     path('practice/user-list/',
          # -----------------
          # 1
-         UserList.render, name='practice_user_list'),
-    #    ---------------        ------------------
-    #    2                      3
+         UserListV.render, name='practice_user_list'),
+    #    ----------------        ------------------
+    #    2                       3
     # 1. 例えば `http://example.com/practice/user-list/` のような URL のパスの部分
     #                              ------------------
-    # 2. UserList クラスの render 静的メソッド
+    # 2. UserListV クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_user_list' %} のような形でURLを取得するのに使える
+
+    # アクティブユーザー一覧
+    path('practice/active-user-list/',
+         # -------------------------
+         # 1
+         SessionV.render, name='practice_active_user_list'),
+    #    ---------------        -------------------------
+    #    2                      3
+    # 1. 例えば `http://example.com/practice/active-user-list/` のような URL のパスの部分
+    #                              --------------------------
+    # 2. UserListV クラスの render 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_active_user_list' %} のような形でURLを取得するのに使える
 
     # 都道府県の一覧
     path('practice/prefectures/', PrefectureV.render_list, name='prefecture_list'),

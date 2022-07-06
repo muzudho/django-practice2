@@ -1,5 +1,5 @@
-class UserList():
-    """会員一覧"""
+class UserListV():
+    """会員一覧ビュー"""
 
     # そのページ
     _path_of_this_page = "practice/v0o0o1/user_list.html"
@@ -20,4 +20,4 @@ class UserList():
         #                                               --------
         # 2. `1.` に含まれる関数
 
-        return render_user_list(request, UserList._path_of_this_page)
+        return render_user_list(request, UserListV._path_of_this_page)

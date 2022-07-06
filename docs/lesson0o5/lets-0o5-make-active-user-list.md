@@ -1,17 +1,8 @@
 # 目的
 
-管理者でなくても、会員（メンバー，会員登録しているユーザー）の一覧を見たい  
+（会員登録ユーザーではなく）現在、サーバーに接続されていると思われるユーザー（≒アクティブ・ユーザー）を一覧したい  
 
-管理者は、管理画面から会員一覧を見れる  
-
-# 知識
-
-Django では、サインアップした口座を User と呼んでいる。  
-従って、「会員登録しているユーザー」と、「ユーザー」は同義だ  
-
-「会員登録していないユーザー」とは、Django では、単に口座に紐づかないアクセスに過ぎない  
-
-名称を User ではなく Member にしてほしかった  
+* ログインしたまま サーバーから離れていて、まだセッション期限切れをしていないユーザーを数えてしまっても構わないものとする  
 
 # はじめに
 
@@ -85,9 +76,9 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. テンプレート編集 - user-list.html ファイル
+# Step 2. 画面作成 - active-user-list.html ファイル
 
-以下のファイルを新規作成してほしい  
+👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂host1
@@ -96,11 +87,11 @@ docker-compose up
                 └── 📂templates
                     └── 📂practice          # アプリケーションと同名
                         └── 📂v0o0o1
-👉                          └── 📄user_list.html
+👉                          └── active-user-list.html
 ```
 
 ```html
-{% load static %} {# 👈あとで static "URL" を使うので load static します #}
+{% load static %} {% comment %} 👈あとで static "URL" を使うので load static します {% endcomment %}
 <!DOCTYPE html>
 <!-- See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92 -->
 <html lang="ja">
@@ -111,19 +102,16 @@ docker-compose up
         <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>会員登録ユーザー一覧</title>
+        <title>アクティブ ユーザー一覧</title>
     </head>
     <body>
         <div id="app">
             <v-app>
-                <!-- v-app-bar に app プロパティを指定しないなら、背景画像を付けてほしい -->
-                <v-app-bar app dense elevation="4">
-                    <v-app-bar-nav-icon></v-app-bar-nav-icon>
-                    <v-toolbar-title>ゲーム対局サーバー</v-toolbar-title>
-                </v-app-bar>
                 <v-main>
                     <v-container>
-                        <h3>会員登録ユーザー一覧</h3>
+                        <h3>アクティブ ユーザー一覧</h3>
+                    </v-container>
+                    <v-container>
                         <v-simple-table>
                             <template v-slot:default>
                                 <thead>
@@ -135,7 +123,7 @@ docker-compose up
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="user in vu_userDic" :key="user.pk">
+                                    <tr v-for="user in vu_users" :key="user.pk">
                                         {% comment %} Vue で二重波括弧（braces）は変数の展開に使っていることから、 Python のテンプレートに二重波括弧を変数の展開に使わないよう verbatim で指示します。 {% endcomment %} {% verbatim %}
                                         <td>{{ user.pk }}</td>
                                         <td>{{ user.username }}</td>
@@ -159,7 +147,12 @@ docker-compose up
                 vuetify: new Vuetify(),
                 data: {
                     // "vu_" は 「vue1.dataのメンバー」 の目印
-                    vu_userDic: JSON.parse("{{ dj_user_dic|escapejs }}"),
+                    vu_users: JSON.parse("{{ dj_users|escapejs }}"),
+                },
+                methods: {
+                    createRoomsReadPath(id) {
+                        return `${this.vu_readRoomPath}${id}`;
+                    },
                 },
             });
         </script>
@@ -167,7 +160,7 @@ docker-compose up
 </html>
 ```
 
-# Step 3. モデルヘルパー作成 - mh_user フォルダー
+# Step 3. モデル関連作成 - mh_session フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -176,50 +169,28 @@ docker-compose up
         └── 📂apps1
             └── 📂practice                  # アプリケーション
                 ├── 📂models_helper
-                │   └── 📂mh_user               # 頭の `mh_` は models helper の頭文字を目印にしたもの。無くてもいい
+                │   └── 📂mh_session
 👉              │       └── 📄__init__.py
                 └── 📂templates
-                    └── 📂practice
+                    └── 📂practice          # アプリケーションと同名
                         └── 📂v0o0o1
-                            └── 📄user_list.html
+                            └── active-user-list.html
 ```
 
 ```py
-import json
-from django.contrib.auth import get_user_model  # カスタムした User
-# from django.contrib.auth.models import User # デフォルトの User
-from django.core import serializers
+class MhSession():
+    """セッション ヘルパー"""
 
-
-class MhUser():
-
-    @staticmethod
-    def get_user_dic():
-        """会員登録ユーザー一覧"""
-        User = get_user_model()
-
-        # 会員登録ユーザー一覧
-        # ２段階変換: 問合せ結果（QuerySet） ----> JSON文字列 ----> オブジェクト
-        user_table_qs = User.objects.all()  # QuerySet
-        print(f"user_table_qs={user_table_qs}")
-        user_table_json = serializers.serialize('json', user_table_qs)
-        user_table_doc = json.loads(user_table_json)  # オブジェクト
-        # print(f"user_table_doc={json.dumps(user_table_doc, indent=4)}")
-
-        # 使いやすい形に変換します
-        user_dic = dict()
-        for user_rec in user_table_doc:
-            user_dic[user_rec["pk"]] = {
-                "pk": user_rec["pk"],
-                "last_login": user_rec["fields"]["last_login"],
-                "username": user_rec["fields"]["username"],
-                "is_active": user_rec["fields"]["is_active"],
-            }
-
-        return user_dic
+    # 以下のファイルはあとで作ります
+    from .v_get_all_logged_in_users import get_all_logged_in_users
+    #    --------------------------        -----------------------
+    #    1                                 2
+    # 1. `host1/apps1/practice/model_helper/mh_sesion/v_get_all_logged_in_users.py`
+    #                                                 -------------------------
+    # 2. `1.` に含まれる関数
 ```
 
-# Step 4. ビュー モジュール作成 - user_list フォルダー
+# Step 4. ビュー モジュール作成 - mh_session/v_get_all_logged_in_users.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -228,45 +199,127 @@ class MhUser():
         └── 📂apps1
             └── 📂practice                  # アプリケーション
                 ├── 📂models_helper
-                │   └── 📂mh_user
-                │       └── 📄__init__.py
+                │   └── 📂mh_session
+                │       ├── 📄__init__.py
+👉              │       └── 📄v_get_all_logged_in_users.py
+                └── 📂templates
+                    └── 📂practice          # アプリケーションと同名
+                        └── 📂v0o0o1
+                            └── active-user-list.html
+```
+
+```py
+# See also: 📖[How to get the list of the authenticated users?](https://stackoverflow.com/questions/2723052/how-to-get-the-list-of-the-authenticated-users)
+import json
+from django.contrib.auth.models import User
+from django.contrib.sessions.models import Session
+from django.core import serializers
+from django.utils import timezone
+
+
+@staticmethod
+def get_all_logged_in_users():
+    # 接続が切れていないセッションを絞りこみます。
+    # ログアウトせず２週間放置しているセッションが含まれる場合があります
+    sessions = Session.objects.filter(expire_date__gte=timezone.now())
+    uid_list = []
+
+    # セッション一覧を、ユーザーID一覧に変換します
+    for session in sessions:
+        data = session.get_decoded()
+        uid_list.append(data.get('_auth_user_id', None))
+
+    # ２段階変換: 問合せ結果（QuerySet）id絞りこみ ----> JSON文字列 ----> オブジェクト
+    user_table_qs = User.objects.filter(id__in=uid_list)  # QuerySet
+    # users=<QuerySet [<User: kifuwarabe>]>
+    # print(f"user_table_qs={user_table_qs}")
+    user_table_json = serializers.serialize('json', user_table_qs)
+    user_table_doc = json.loads(user_table_json)  # オブジェクトに変換
+    """
+web_1  | user_table_doc=[
+web_1  |     {
+web_1  |         "model": "auth.user",
+web_1  |         "pk": 1,
+web_1  |         "fields": {
+web_1  |             "password": "pbkdf2_sha256$260000$tOSdFO6BqvafBgtFgE1qYS$+rv007MKnAy8j+krixlQuogvi46Xl8fZf87xn4lAU+0=",
+web_1  |             "last_login": "2022-05-14T03:09:21.968Z",
+web_1  |             "is_superuser": false,
+web_1  |             "username": "kifuwarabe",
+web_1  |             "first_name": "",
+web_1  |             "last_name": "",
+web_1  |             "email": "muzudho1@gmail.com",
+web_1  |             "is_staff": false,
+web_1  |             "is_active": true,
+web_1  |             "date_joined": "2022-03-13T05:45:26.368Z",
+web_1  |             "groups": [],
+web_1  |             "user_permissions": []
+web_1  |         }
+web_1  |     }
+web_1  | ]
+"""
+    # print(f"user_table_doc={json.dumps(user_table_doc, indent=4)}")
+
+    # 使いやすい形に変換します
+    user_dic = dict()
+    for user_rec in user_table_doc:  # User Record
+        user_dic[user_rec["pk"]] = {
+            "pk": user_rec["pk"],
+            "last_login": user_rec["fields"]["last_login"],
+            "username": user_rec["fields"]["username"],
+            "is_active": user_rec["fields"]["is_active"],
+        }
+
+    return user_dic
+```
+
+# Step 5. ビュー モジュール作成 - session フォルダー
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice                  # アプリケーション
+                ├── 📂models_helper
+                │   └── 📂mh_session
+                │       ├── 📄__init__.py
+                │       └── 📄v_get_all_logged_in_users.py
                 ├── 📂templates
                 │   └── 📂practice
                 │       └── 📂v0o0o1
-                │           └── 📄user_list.html
+                │           └── active-user-list.html
                 └── 📂views
                     └── 📂v0o0o1
-                        └── 📂user_list
+                        └── 📂session
 👉                          └── 📄__init__.py
 ```
 
 ```py
-class UserListV():
-    """会員一覧ビュー"""
+class SessionV():
 
     # そのページ
-    _path_of_this_page = "practice/v0o0o1/user_list.html"
-    #                     ------------------------------
+    _path_of_this_page = "practice/v0o0o1/active-user-list.html"
+    #                     -------------------------------------
     #                     1
-    # 1. host1/apps1/portal/templates/practice/v0o0o1/user_list.html を取得
-    #                                 ------------------------------
+    # 1. `host1/apps1/practice/templates/practice/v0o0o1/active-user-list.html` を取得
+    #                                    -------------------------------------
 
     @staticmethod
     def render(request):
         """描画"""
 
         # 以下のファイルはあとで作ります
-        from .v_render import render_user_list
-        #    ---------        ----------------
+        from .v_render import render_active_user_list
+        #    ---------        ------------------------
         #    1                2
-        # 1. `host1/apps1/portal/views/v0o0o1/user_list/v_render.py`
+        # 1. `host1/apps1/practice/views/v0o0o1/session/v_render.py`
         #                                               --------
         # 2. `1.` に含まれる関数
 
-        return render_user_list(request, UserListV._path_of_this_page)
+        return render_active_user_list(request, SessionV._path_of_this_page)
 ```
 
-# Step 5. ビュー モジュール作成 - user_list/v_render.py ファイル
+# Step 6. ビュー モジュール作成 - session/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -275,48 +328,44 @@ class UserListV():
         └── 📂apps1
             └── 📂practice                  # アプリケーション
                 ├── 📂models_helper
-                │   └── 📂mh_user
-                │       └── 📄__init__.py
+                │   └── 📂mh_session
+                │       ├── 📄__init__.py
+                │       └── 📄v_get_all_logged_in_users.py
                 ├── 📂templates
                 │   └── 📂practice
                 │       └── 📂v0o0o1
-                │           └── 📄user_list.html
+                │           └── active-user-list.html
                 └── 📂views
                     └── 📂v0o0o1
-                        └── 📂user_list
+                        └── 📂session
                             ├── 📄__init__.py
-👉                          └── 📄v_render.py       # 頭の `v_` は、これはビューだと分かるよう目印に付けているだけなので、無くてもいい
+👉                          └── 📄v_render.py
 ```
 
 ```py
 import json
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render
 
-from apps1.practice.models_helper.mh_user import MhUser
-#    ----- -------- ------------- -------        ------
-#    1     2        3             4              5
+from apps1.practice.models_helper.mh_session import MhSession
+#    ----- -------- ------------------------        ---------
+#    1     2        3                               4
 # 1,3. ディレクトリー名
 # 2. アプリケーション フォルダー名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
+# 4. クラス名
 
 
-def render_user_list(request, path_of_this_page):
-    """描画 - 会員一覧"""
-
-    template = loader.get_template(path_of_this_page)
+def render_active_user_list(request, path_of_this_page):
+    """描画 - アクティブ ユーザー一覧"""
 
     context = {
         # * `dj_` - 「Djangoがレンダーに埋め込む変数」 の目印
         # * Vue に渡すときは、 JSON オブジェクトではなく、 JSON 文字列
-        'dj_user_dic': json.dumps(MhUser.get_user_dic())
+        'dj_users': json.dumps(MhSession.get_all_logged_in_users())
     }
-
-    return HttpResponse(template.render(context, request))
+    return render(request, path_of_this_page, context)
 ```
 
-# Step 6. ルート編集 - urls_practice.py ファイル
+# Step 7. ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -325,17 +374,18 @@ def render_user_list(request, path_of_this_page):
         ├── 📂apps1
         │   └── 📂practice                  # アプリケーション
         │       ├── 📂models_helper
-        │       │   └── 📂mh_user
-        │       │       └── 📄__init__.py
+        │       │   └── 📂mh_session
+        │       │       ├── 📄__init__.py
+        │       │       └── 📄v_get_all_logged_in_users.py
         │       ├── 📂templates
         │       │   └── 📂practice
         │       │       └── 📂v0o0o1
-        │       │           └── 📄user_list.html
+        │       │           └── active-user-list.html
         │       └── 📂views
         │           └── 📂v0o0o1
-        │               └── 📂user_list
+        │               └── 📂session
         │                   ├── 📄__init__.py
-        │                   └── 📄v_render.py
+        │                   └── 📄v_render_active_user_list.py
         └── 📂project1                      # プロジェクト
 👉          └── 📄urls_practice.py
 ```
@@ -345,10 +395,10 @@ def render_user_list(request, path_of_this_page):
 
 
 # 会員一覧
-from apps1.practice.views.v0o0o1.user_list import UserListV
-#    ----- -------- ----------------------        ---------
-#    1     2        3                             4
-#    -------------------------------------
+from apps1.practice.views.v0o0o1.session import SessionV
+#    ----- -------- --------------------        --------
+#    1     2        3                           4
+#    -----------------------------------
 #    5
 # 1. 開発者用ディレクトリーの一部
 # 2. アプリケーション フォルダー名
@@ -361,25 +411,25 @@ urlpatterns = [
     # ...略...
 
 
-    # 会員一覧
-    path('practice/user-list/',
-         # ------------------
+    # アクティブユーザー一覧
+    path('practice/active-user-list/',
+         # -------------------------
          # 1
-         UserListV.render, name='practice_user_list'),
-    #    ----------------        ------------------
-    #    2                       3
-    # 1. 例えば `http://example.com/practice/user-list/` のような URL のパスの部分
-    #                              ------------------
+         SessionV.render, name='practice_active_user_list'),
+    #    ---------------        -------------------------
+    #    2                      3
+    # 1. 例えば `http://example.com/practice/active-user-list/` のような URL のパスの部分
+    #                              --------------------------
     # 2. UserListV クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_user_list' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_active_user_list' %} のような形でURLを取得するのに使える
 ]
 ```
 
-# Step 7. Web画面へアクセス
+# Step 8. Web画面へアクセス
 
-📖 [http://localhost:8000/practice/user-list/](http://localhost:8000/practice/user-list/)  
+📖 [http://localhost:8000/practice/active-user-list/](http://localhost:8000/practice/active-user-list/)  
 
-# Step 8. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step 9. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
@@ -391,17 +441,18 @@ urlpatterns = [
 👉      │   │       └── 📄finished-lessons.csv
         │   └── 📂practice                  # アプリケーション
         │       ├── 📂models_helper
-        │       │   └── 📂mh_user
-        │       │       └── 📄__init__.py
+        │       │   └── 📂mh_session
+        │       │       ├── 📄__init__.py
+        │       │       └── 📄v_get_all_logged_in_users.py
         │       ├── 📂templates
         │       │   └── 📂practice
         │       │       └── 📂v0o0o1
-        │       │           └── 📄user_list.html
+        │       │           └── active-user-list.html
         │       └── 📂views
         │           └── 📂v0o0o1
-        │               └── 📂user_list
+        │               └── 📂session
         │                   ├── 📄__init__.py
-        │                   └── 📄v_render.py
+        │                   └── 📄v_render_active_user_list.py
         └── 📂project1                      # プロジェクト
             └── 📄urls_practice.py
 ```
@@ -409,7 +460,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/user-list/,会員一覧
+/practice/active-user-list/,アクティブユーザー一覧
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 
@@ -418,4 +469,10 @@ urlpatterns = [
 
 # 次の記事
 
-📖 [Djangoでアクティブユーザーの一覧を作ろう！](https://qiita.com/muzudho1/items/bea77e8a69c5c805e1d7)  
+📖 [Djangoでモデルを追加しよう！](https://qiita.com/muzudho1/items/2463cc006da69f5ed7b2)  
+
+# 関連する記事
+
+📖 [djangoでログイン状態を判定する機能](https://techpr.info/python/django-login-judge/)  
+📖 [How to get the list of the authenticated users?](https://stackoverflow.com/questions/2723052/how-to-get-the-list-of-the-authenticated-users)  
+📖 [Get List of Current Users](https://www.codingforentrepreneurs.com/blog/django-tutorial-get-list-of-current-users)  
