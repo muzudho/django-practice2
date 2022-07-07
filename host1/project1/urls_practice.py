@@ -91,6 +91,14 @@ from apps1.practice.views.v0o0o1.vuetify import VuetifyV
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
+from apps1.practice.views.v0o0o1.room import RoomV
+#    ----- -------- -----------------        -----
+#    1     2        3                        4
+# 1,3. ディレクトリー名
+# 2. アプリケーション名
+# 4. Python ファイル名。拡張子抜き
+# 5. クラス名
+
 
 urlpatterns = [
 
@@ -363,4 +371,13 @@ urlpatterns = [
     #                              ----------------------------------------------
     # 2. VuetifyV クラスの render_save_result_of_desserts1_from_textarea1 メソッド
     # 3. HTMLテンプレートの中で {% url 'vuetify_save_desserts1_from_textarea1' %} のような形でURLを取得するのに使える
+
+    # 対局部屋の一覧
+    path('practice/room/', RoomV.render_list, name='practice_room_list'),
+    #     --------------   -----------------        ------------------
+    #     1                2                        3
+    # 1. 例えば `http://example.com/practice/room/` のような URL のパスの部分
+    #                              --------------
+    # 2. RoomV クラスの render_list メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_room_list' %} のような形でURLを取得するのに使える
 ]
