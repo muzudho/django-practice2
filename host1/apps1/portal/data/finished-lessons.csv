@@ -25,3 +25,5 @@ path,label
 /tic-tac-toe/v1/match-application/,〇×ゲーム v1
 /tic-tac-toe/v2/engine-manual/,〇×ゲーム v2 思考エンジン手動テスト
 /tic-tac-toe/v2/match-application/,〇×ゲーム v2
+/practice/rooms/,対局部屋の一覧
+/rooms/read/1/,対局部屋の詳細(1)

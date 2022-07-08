@@ -464,7 +464,7 @@ def render_list(request, path_of_list_page):
     return render(request, path_of_list_page, context)
 ```
 
-# Step 7. ルート編集 - urls.py ファイル
+# Step 7. ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -508,11 +508,11 @@ urlpatterns = [
 
 
     # 対局部屋の一覧
-    path('practice/room/', RoomV.render_list, name='practice_room_list'),
-    #     --------------   -----------------        ------------------
-    #     1                2                        3
-    # 1. 例えば `http://example.com/practice/room/` のような URL のパスの部分
-    #                              --------------
+    path('practice/rooms/', RoomV.render_list, name='practice_room_list'),
+    #     ---------------   -----------------        ------------------
+    #     1                 2                        3
+    # 1. 例えば `http://example.com/practice/rooms/` のような URL のパスの部分
+    #                              ---------------
     # 2. RoomV クラスの render_list メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_room_list' %} のような形でURLを取得するのに使える
 ]
@@ -520,7 +520,46 @@ urlpatterns = [
 
 # Step 8. Web画面へアクセス
 
-📖 [http://localhost:8000/practice/room/](http://localhost:8000/practice/room/)  
+📖 [http://localhost:8000/practice/rooms/](http://localhost:8000/practice/rooms/)  
+
+# Step 9. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+
+👇 以下の既存ファイルの最終行に追記してほしい  
+
+```plaintext
+    └── 📂host1
+        ├── 📂apps1
+        │   ├── 📂portal                        # アプリケーション
+        │   │   └── 📂data
+👉      │   │       └── 📄finished-lessons.csv
+        │   └── 📂practice                      # アプリケーション
+        │       ├── 📂models_helper
+        │       │   └── 📂mh_user
+        │       │       ├── 📄__init__.py
+        │       │       └── 📄mh_get_name_by_pk.py
+        │       ├── 📂templates
+        │       │   └── 📂practice
+        │       │       └── 📂v0o0o1
+        │       │           └── 📂room
+        │       │               └── 📄list.html
+        │       └── 📂views
+        │           └── 📂v0o0o1
+        │               └── 📂room
+        │                   ├── 📄__init__.py
+        │                   └── 📄v_list.py
+        └── 📂project1                          # プロジェクト
+            └── 📄urls_practice.py              # こちら
+```
+
+👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
+
+```csv
+/practice/rooms/,対局部屋の一覧
+```
+
+👇 ポータルにリンクが追加されていることを確認してほしい 
+
+📖 [http://localhost:8000/](http://localhost:8000/)  
 
 # 次の記事
 

@@ -373,11 +373,21 @@ urlpatterns = [
     # 3. HTMLテンプレートの中で {% url 'vuetify_save_desserts1_from_textarea1' %} のような形でURLを取得するのに使える
 
     # 対局部屋の一覧
-    path('practice/room/', RoomV.render_list, name='practice_room_list'),
-    #     --------------   -----------------        ------------------
-    #     1                2                        3
-    # 1. 例えば `http://example.com/practice/room/` のような URL のパスの部分
-    #                              --------------
+    path('practice/rooms/', RoomV.render_list, name='practice_room_list'),
+    #     ---------------   -----------------        ------------------
+    #     1                 2                        3
+    # 1. 例えば `http://example.com/practice/rooms/` のような URL のパスの部分
+    #                              ---------------
     # 2. RoomV クラスの render_list メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_room_list' %} のような形でURLを取得するのに使える
+
+    # 対局部屋の詳細
+    path('rooms/read/<int:id>/', RoomV.render_read, name='practice_room_read'),
+    #     --------------------   -----------------        ------------------
+    #     1                      2                        3
+    # 1. 例えば `http://example.com/rooms/read/<数字列>/` のような URL のパスの部分。
+    #                              --------------------
+    #    数字列は `2.` の関数の引数 id で取得できる
+    # 2. RoomV クラスの render_read メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_room_read' %} のような形でURLを取得するのに使える
 ]
