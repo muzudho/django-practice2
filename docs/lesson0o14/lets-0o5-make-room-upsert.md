@@ -1,17 +1,32 @@
 # 目的
 
-（※いわゆる CRUD の D）  
+（※いわゆる CRUD の C と U）  
 
-`http://localhost:8000/rooms/delete/4/` へアクセスすると、  
-id が 4 の部屋を削除したい  
+`http://localhost:8000/rooms/upsert/4/` へアクセスすると、  
+id が 4 の部屋が存在しないときは新規作成を、  
+id が 4 の部屋が既に存在するなら更新をしたい  
 
-表示例:  
+👇 表示例（新規作成のとき）:  
 
 ```plaintext
-部屋の削除
+部屋の作成
 
-「Lion」を削除しました。
+部屋名:                       盤面:                     棋譜:
+       --------------------       --------------------     --------------------
 
+送信
+戻る
+```
+
+👇 表示例（更新のとき）:  
+
+```plaintext
+部屋の更新
+
+部屋名: Lion                  盤面: XOXOXOXOX            年齢: 012345678
+       --------------------       --------------------      --------------------
+
+送信
 戻る
 ```
 
@@ -116,7 +131,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. 画面作成 - delete.html ファイル
+# Step 2. 画面作成 - upsert.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -128,7 +143,7 @@ docker-compose up
                     └── 📂practice          # アプリケーションと同名
                         └── 📂v0o0o1
                             └── 📂room
-👉                              └── 📄delete.html
+👉                              └── 📄upsert.html
 ```
 
 ```html
@@ -139,14 +154,31 @@ docker-compose up
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>部屋削除</title>
+        <title>部屋の作成/更新</title>
         <!-- Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     </head>
     <body>
         <div class="container">
-            <h3>部屋の削除</h3>
-            <div class="card" style="width: 18rem">「{{ room.name }}」を削除しました。</div>
+
+            {% if id %}
+            <h3 class="page-header">部屋の更新</h3>
+            <form action="{% url 'practice_rooms_update' id=id %}" method="post" class="form-horizontal" role="form">
+            {% else %}
+            <h3 class="page-header">部屋の作成</h3>
+            <form action="{% url 'practice_rooms_create' %}" method="post" class="form-horizontal" role="form">
+            {% endif %}
+
+                {% csrf_token %}
+                {{ form }}
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">送信</button>
+                    </div>
+                </div>
+
+            </form>
             <a href="{% url 'practice_rooms_list' %}" class="btn btn-default btn-sm">戻る</a>
         </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -157,7 +189,44 @@ docker-compose up
 </html>
 ```
 
-# Step 3. ビュー モジュール編集 - room フォルダー
+# Step 3. フォーム作成 - f_room.py ファイル
+
+HTMLタグの `<form>～</form>` の子要素を自動生成させよう。  
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice                  # アプリケーション
+                ├── 📂forms
+👉              │   └── 📄f_room.py
+                └── 📂templates
+                    └── 📂practice
+                        └── 📂v0o0o1
+                            └── 📂room
+                                └── 📄upsert.html
+```
+
+```py
+from django.forms import ModelForm
+
+from apps1.practice.models.v0o0o1.m_room import Room
+#    ----- -------- ------------- ------        ----
+#    1     2        3             4             5
+# 1,3. ディレクトリー名
+# 2. アプリケーション名
+# 4. Python ファイル名。拡張子抜き
+# 5. クラス名
+
+
+class RoomForm(ModelForm):
+    class Meta:
+        model = Room  # モデル指定
+        fields = ('name', 'board', 'record',)  # フィールド指定
+```
+
+# Step 4. ビュー モジュール編集 - room フォルダー
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -165,11 +234,13 @@ docker-compose up
     └── 📂host1
         └── 📂apps1
             └── 📂practice                  # アプリケーション
+                ├── 📂forms
+                │   └── 📄f_room.py
                 ├── 📂templates
                 │   └── 📂practice
                 │       └── 📂v0o0o1
                 │           └── 📂room
-                │               └── 📄delete.html
+                │               └── 📄upsert.html
                 └── 📂views
                     └── 📂v0o0o1
                         └── 📂room
@@ -181,11 +252,11 @@ class RoomV():
     # ...略...
 
 
-    # 削除ページ
-    _path_of_delete_page = "practice/v0o0o1/room/delete.html"
+    # 新規作成または更新のページ
+    _path_of_upsert_page = "practice/v0o0o1/room/upsert.html"
     #                       --------------------------------
     #                       1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o1/room/delete.html` を取得
+    # 1. `host1/apps1/practice/templates/practice/v0o0o1/room/upsert.html` を取得
     #                                    --------------------------------
 
 
@@ -193,21 +264,21 @@ class RoomV():
 
 
     @staticmethod
-    def render_delete(request, id):
-        """描画 - 削除"""
+    def render_upsert(request, id=None):
+        """新規作成または更新のページ"""
 
         # 以下のファイルはあとで作ります
-        from .v_delete import render_delete
+        from .v_upsert import render_upsert
         #    ---------        -------------
         #    1                2
-        # 1. `host1/apps1/practice/views/v0o0o1/room/v_delete.py`
+        # 1. `host1/apps1/practice/views/v0o0o1/room/v_upsert.py`
         #                                            --------
         # 2. `1.` に含まれる関数
 
-        return render_delete(request, id, RoomV._path_of_delete_page)
+        return render_upsert(request, id, RoomV._path_of_upsert_page)
 ```
 
-# Step 4. ビュー モジュール作成 - v_delete ファイル
+# Step 5. ビュー モジュール作成 - v_upsert ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -215,21 +286,22 @@ class RoomV():
     └── 📂host1
         └── 📂apps1
             └── 📂practice                  # アプリケーション
+                ├── 📂forms
+                │   └── 📄f_room.py
                 ├── 📂templates
                 │   └── 📂practice
                 │       └── 📂v0o0o1
                 │           └── 📂room
-                │               └── 📄delete.html
+                │               └── 📄upsert.html
                 └── 📂views
                     └── 📂v0o0o1
                         └── 📂room
                             ├── 📄__init__.py
-👉                          └── 📄v_delete.py
+👉                          └── 📄v_upsert.py
 ```
 
 ```py
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render, get_object_or_404, redirect
 
 from apps1.practice.models.v0o0o1.m_room import Room
 #    ----- -------- ------------- ------        ----
@@ -239,32 +311,50 @@ from apps1.practice.models.v0o0o1.m_room import Room
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
+from apps1.practice.forms.f_room import RoomForm
+#    ----- -------- ----- ------        --------
+#    1     2        3     4             5
+# 1,3. ディレクトリー名
+# 2. アプリケーション フォルダー名
+# 4. Python ファイル名。拡張子抜き
+# 5. クラス名
+
 
 @staticmethod
-def render_delete(request, room_pk, path_of_delete_page):
-    """削除ページ"""
+def render_upsert(request, id, path_of_upsert_page):
+    """新規作成または更新のページ"""
 
-    template = loader.get_template(path_of_delete_page)
+    if id:  # idがあるとき（更新の時）
+        # idで検索して、結果を戻すか、404エラー
+        room = get_object_or_404(Room, pk=id)
+    else:  # idが無いとき（作成の時）
+        room = Room()
 
-    room = Room.objects.get(pk=room_pk)  # idを指定してメンバーを１人取得
-    name = room.name  # 名前だけまだ使う
-    room.delete()
-    context = {
-        'room': {
-            'name': name
-        }
-    }
-    return HttpResponse(template.render(context, request))
+    # POSTの時（作成であれ更新であれ送信ボタンが押されたとき）
+    if request.method == 'POST':
+        # フォームを生成
+        form = RoomForm(request.POST, instance=room)
+        if form.is_valid():  # バリデーションがOKなら保存
+            room = form.save(commit=False)
+            room.save()
+            return redirect('practice_rooms_list')
+    else:  # GETの時（フォームを生成）
+        form = RoomForm(instance=room)
+
+    # 作成・更新画面を表示
+    return render(request, path_of_upsert_page, dict(form=form, id=id))
 ```
 
-# Step 5. ルート編集 - urls_practice.py ファイル
+# Step 6. ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
     └── 📂host1
         ├── 📂apps1
-        │   └── 📂practice                  # アプリケーション
+        │   └── 📂practice                      # アプリケーション
+        │       ├── 📂forms
+        │       │   └── 📄f_room.py
         │       ├── 📂templates
         │       │   └── 📂practice
         │       │       └── 📂v0o0o1
@@ -276,7 +366,7 @@ def render_delete(request, room_pk, path_of_delete_page):
         │                   ├── 📄__init__.py
         │                   └── 📄v_delete.py
         └── 📂project1                          # プロジェクト
-👉          └── 📄urls_practice.py              # こちら
+👉          └── 📄urls_practice.py
 ```
 
 ```py
@@ -287,28 +377,44 @@ urlpatterns = [
     # ...略...
 
 
-    # 対局部屋の削除
-    path('rooms/delete/<int:id>/', RoomV.render_delete,
+    # 対局部屋の新規作成
+    path('rooms/create/', RoomV.render_upsert,
+         # ------------   -------------------
+         # 1              2
+         name='practice_rooms_create'),
+    #          ---------------------
+    #          3
+    # 1. 例えば `http://example.com/rooms/create/` のような URL のパスの部分
+    #                              -------------
+    # 2. RoomV クラスの render_upsert メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_rooms_create' %} のような形でURLを取得するのに使える
+
+    # 対局部屋の更新
+    path('rooms/update/<int:id>/', RoomV.render_upsert,
          # ---------------------   -------------------
          # 1                       2
-         name='practice_room_delete'),
-    #          --------------------
+         name='practice_rooms_update'),
+    #          ---------------------
     #          3
-    # 1. 例えば `http://example.com/rooms/delete/<数字列>/` のような URL のパスの部分。
+    # 1. 例えば `http://example.com/rooms/update/<数字列>/` のような URL のパスの部分。
     #                              ----------------------
     #    数字列は `2.` の関数の引数 id で取得できる
-    # 2. RoomV クラスの render_delete メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_room_delete' %} のような形でURLを取得するのに使える
+    # 2. RoomV クラスの render_upsert メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_rooms_update' %} のような形でURLを取得するのに使える
 ]
 ```
 
-# Step 6. Web画面へアクセス
+# Step 7. Web画面へアクセス
 
-👇 部屋の番号は適宜変えてほしい  
+👇 作成するとき、部屋ID は付けるな  
 
-📖 [http://localhost:8000/rooms/delete/1/](http://localhost:8000/rooms/delete/1/)  
+📖 [http://localhost:8000/rooms/create/](http://localhost:8000/rooms/create/)  
 
-# Step 7. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+👇 更新するとき、部屋ID を付けろ。 部屋ID は適宜変えてほしい  
+
+📖 [http://localhost:8000/rooms/update/5/](http://localhost:8000/rooms/update/5/)  
+
+# Step 8. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
@@ -317,8 +423,10 @@ urlpatterns = [
         ├── 📂apps1
         │   ├── 📂portal                        # アプリケーション
         │   │   └── 📂data
-👉      │   │       └── 📄finished-lessons.csv
+        │   │       └── 📄finished-lessons.csv
         │   └── 📂practice                      # アプリケーション
+        │       ├── 📂forms
+        │       │   └── 📄f_room.py
         │       ├── 📂templates
         │       │   └── 📂practice
         │       │       └── 📂v0o0o1
@@ -336,7 +444,8 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/rooms/delete/1/,対局部屋の削除
+/rooms/create/,対局部屋の新規作成
+/rooms/update/5/,対局部屋の更新
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 
@@ -345,4 +454,8 @@ urlpatterns = [
 
 # 次の記事
 
-📖 [Djangoでゲーム対局部屋を作成または更新しよう！](https://qiita.com/muzudho1/items/6eaf6cf90fe5a6519184)  
+📖 [Djangoでゲームポータルページを作ろう！](https://qiita.com/muzudho1/items/0c59f3ce7aa6bef2a91f)  
+
+# 参考にした記事
+
+📖 [DjangoでCRUD](https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92)

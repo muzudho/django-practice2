@@ -373,13 +373,13 @@ urlpatterns = [
     # 3. HTMLテンプレートの中で {% url 'vuetify_save_desserts1_from_textarea1' %} のような形でURLを取得するのに使える
 
     # 対局部屋の一覧
-    path('practice/rooms/', RoomV.render_list, name='practice_room_list'),
-    #     ---------------   -----------------        ------------------
+    path('practice/rooms/', RoomV.render_list, name='practice_rooms_list'),
+    #     ---------------   -----------------        -------------------
     #     1                 2                        3
     # 1. 例えば `http://example.com/practice/rooms/` のような URL のパスの部分
     #                              ---------------
     # 2. RoomV クラスの render_list メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_room_list' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_rooms_list' %} のような形でURLを取得するのに使える
 
     # 対局部屋の詳細
     path('rooms/read/<int:id>/', RoomV.render_read, name='practice_room_read'),
@@ -403,4 +403,29 @@ urlpatterns = [
     #    数字列は `2.` の関数の引数 id で取得できる
     # 2. RoomV クラスの render_delete メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_room_delete' %} のような形でURLを取得するのに使える
+
+    # 対局部屋の新規作成
+    path('rooms/create/', RoomV.render_upsert,
+         # ------------   -------------------
+         # 1              2
+         name='practice_rooms_create'),
+    #          ---------------------
+    #          3
+    # 1. 例えば `http://example.com/rooms/create/` のような URL のパスの部分
+    #                              -------------
+    # 2. RoomV クラスの render_upsert メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_rooms_create' %} のような形でURLを取得するのに使える
+
+    # 対局部屋の更新
+    path('rooms/update/<int:id>/', RoomV.render_upsert,
+         # ---------------------   -------------------
+         # 1                       2
+         name='practice_rooms_update'),
+    #          ---------------------
+    #          3
+    # 1. 例えば `http://example.com/rooms/update/<数字列>/` のような URL のパスの部分。
+    #                              ----------------------
+    #    数字列は `2.` の関数の引数 id で取得できる
+    # 2. RoomV クラスの render_upsert メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_rooms_update' %} のような形でURLを取得するのに使える
 ]

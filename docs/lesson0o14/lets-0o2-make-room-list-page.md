@@ -508,13 +508,13 @@ urlpatterns = [
 
 
     # 対局部屋の一覧
-    path('practice/rooms/', RoomV.render_list, name='practice_room_list'),
-    #     ---------------   -----------------        ------------------
+    path('practice/rooms/', RoomV.render_list, name='practice_rooms_list'),
+    #     ---------------   -----------------        -------------------
     #     1                 2                        3
     # 1. 例えば `http://example.com/practice/rooms/` のような URL のパスの部分
     #                              ---------------
     # 2. RoomV クラスの render_list メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_room_list' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_rooms_list' %} のような形でURLを取得するのに使える
 ]
 ```
 

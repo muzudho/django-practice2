@@ -118,7 +118,7 @@ class RoomView():
             if form.is_valid():  # バリデーションがOKなら保存
                 room = form.save(commit=False)
                 room.save()
-                return redirect('practice_room_list')
+                return redirect('practice_rooms_list')
         else:  # GETの時（フォームを生成）
             form = RoomForm(instance=room)
 

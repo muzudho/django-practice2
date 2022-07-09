@@ -22,6 +22,13 @@ class RoomV():
     # 1. `host1/apps1/practice/templates/practice/v0o0o1/room/delete.html` を取得
     #                                    --------------------------------
 
+    # 新規作成または更新のページ
+    _path_of_upsert_page = "practice/v0o0o1/room/upsert.html"
+    #                       --------------------------------
+    #                       1
+    # 1. `host1/apps1/practice/templates/practice/v0o0o1/room/upsert.html` を取得
+    #                                    --------------------------------
+
     @staticmethod
     def render_list(request):
         """描画 - 一覧"""
@@ -63,3 +70,17 @@ class RoomV():
         # 2. `1.` に含まれる関数
 
         return render_delete(request, id, RoomV._path_of_delete_page)
+
+    @staticmethod
+    def render_upsert(request, id=None):
+        """新規作成または更新のページ"""
+
+        # 以下のファイルはあとで作ります
+        from .v_upsert import render_upsert
+        #    ---------        -------------
+        #    1                2
+        # 1. `host1/apps1/practice/views/v0o0o1/room/v_upsert.py`
+        #                                            --------
+        # 2. `1.` に含まれる関数
+
+        return render_upsert(request, id, RoomV._path_of_upsert_page)

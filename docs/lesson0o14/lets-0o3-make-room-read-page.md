@@ -245,7 +245,7 @@ docker-compose up
                                 </v-card>
                             </div>
                         </div>
-                        <a href="{% url 'practice_room_list' %}" class="btn btn-default btn-sm">戻る</a>
+                        <a href="{% url 'practice_rooms_list' %}" class="btn btn-default btn-sm">戻る</a>
                     </v-container>
                 </v-main>
             </v-app>

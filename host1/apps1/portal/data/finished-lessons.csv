@@ -27,3 +27,5 @@ path,label
 /tic-tac-toe/v2/match-application/,〇×ゲーム v2
 /practice/rooms/,対局部屋の一覧
 /rooms/read/1/,対局部屋の詳細(1)
+/rooms/create/,対局部屋の新規作成
+/rooms/update/5/,対局部屋の更新
