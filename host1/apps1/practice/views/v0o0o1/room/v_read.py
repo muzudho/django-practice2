@@ -20,19 +20,19 @@ from apps1.practice.models_helper.mh_user import MhUser
 
 
 @staticmethod
-def render_read(request, user_pk, path_of_read_page):
+def render_read(request, room_pk, path_of_read_page):
     """読取ページ"""
 
     # ２段階変換: 問合せ結果（QuerySet） ----> JSON文字列 ----> オブジェクト
     # idを指定してメンバーを１人取得
-    room_table_qs = Room.objects.filter(pk=user_pk)  # QuerySet
+    room_table_qs = Room.objects.filter(pk=room_pk)  # QuerySet
     room_table_json = serializers.serialize('json', room_table_qs)
     room_table_doc = json.loads(room_table_json)  # オブジェクト
 
     # 使いやすい形に変換します
     if len(room_table_doc) < 1:
         room_dic = {
-            "pk": user_pk,
+            "pk": room_pk,
             "name": "",
             "sente_id": "",
             "sente_name": "",

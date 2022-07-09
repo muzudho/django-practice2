@@ -227,7 +227,7 @@ docker-compose run --rm web python3 manage.py makemigrations practice --settings
 ```plaintext
     └── 📂host1
         └── 📂apps1
-            └── 📂practice              # アプリケーション
+            └── 📂practice                      # アプリケーション
                 ├── 📂migrations
                 │   ├── 📄...略...
 👉              │   └── 📄0004_room.py          # ファイル名は一例です

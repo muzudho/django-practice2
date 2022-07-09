@@ -371,19 +371,19 @@ from apps1.practice.models_helper.mh_user import MhUser
 
 
 @staticmethod
-def render_read(request, user_pk, path_of_read_page):
+def render_read(request, room_pk, path_of_read_page):
     """読取ページ"""
 
     # ２段階変換: 問合せ結果（QuerySet） ----> JSON文字列 ----> オブジェクト
     # idを指定してメンバーを１人取得
-    room_table_qs = Room.objects.filter(pk=user_pk)  # QuerySet
+    room_table_qs = Room.objects.filter(pk=room_pk)  # QuerySet
     room_table_json = serializers.serialize('json', room_table_qs)
     room_table_doc = json.loads(room_table_json)  # オブジェクト
 
     # 使いやすい形に変換します
     if len(room_table_doc) < 1:
         room_dic = {
-            "pk": user_pk,
+            "pk": room_pk,
             "name": "",
             "sente_id": "",
             "sente_name": "",
@@ -447,14 +447,14 @@ urlpatterns = [
 
 
     # 対局部屋の詳細
-    path('rooms/read/<int:id>/', RoomV.render_read, name='practice_room_read'),
-    #     --------------------   -----------------        ------------------
+    path('rooms/read/<int:id>/', RoomV.render_read, name='practice_rooms_read'),
+    #     --------------------   -----------------        -------------------
     #     1                      2                        3
     # 1. 例えば `http://example.com/rooms/read/<数字列>/` のような URL のパスの部分。
     #                              --------------------
     #    数字列は `2.` の関数の引数 id で取得できる
     # 2. RoomV クラスの render_read メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_room_read' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_rooms_read' %} のような形でURLを取得するのに使える
 ]
 ```
 
