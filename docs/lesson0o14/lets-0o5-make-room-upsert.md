@@ -454,7 +454,7 @@ urlpatterns = [
 
 # 次の記事
 
-📖 [Djangoでゲームポータルページを作ろう！](https://qiita.com/muzudho1/items/0c59f3ce7aa6bef2a91f)  
+📖 [Djangoでユーザーホームを作ろう！](https://qiita.com/muzudho1/items/37532c83235b7f9e60c9)  
 
 # 参考にした記事
 
