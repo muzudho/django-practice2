@@ -99,6 +99,14 @@ from apps1.practice.views.v0o0o1.room import RoomV
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
+from apps1.practice.views.v0o0o1.lobby import LobbyV
+#    ----- -------- ------------------        ------
+#    1     2        3                         4
+# 1,3. ディレクトリー名
+# 2. アプリケーション名
+# 4. Python ファイル名。拡張子抜き
+# 5. クラス名
+
 
 urlpatterns = [
 
@@ -428,4 +436,15 @@ urlpatterns = [
     #    数字列は `2.` の関数の引数 id で取得できる
     # 2. RoomV クラスの render_upsert メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_rooms_update' %} のような形でURLを取得するのに使える
+
+    # ロビー
+    path('practice/lobby/', LobbyV.render_lobby, name='practice_lobby'),
+    #     ---------------   -------------------  ---------------------
+    #     1                 2                    3
+    #
+    # 1. 例えば `http://example.com/practice/lobby/` のような URL のパスの部分
+    #                              ----------------
+    #    数字列は `2.` の関数の引数 id で取得できる
+    # 2. LobbyV クラスの render_lobby メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_lobby' %} のような形でURLを取得するのに使える
 ]
