@@ -29,3 +29,4 @@ path,label
 /rooms/read/1/,対局部屋の詳細(1)
 /rooms/create/,対局部屋の新規作成
 /rooms/update/5/,対局部屋の更新
+/practice/my/,マイ ページ

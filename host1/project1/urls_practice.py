@@ -107,6 +107,14 @@ from apps1.practice.views.v0o0o1.lobby import LobbyV
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
+from apps1.practice.views.v0o0o1.my import MyV
+#    ----- -------- ---------------        ---
+#    1     2        3                      4
+# 1,3. ディレクトリー名
+# 2. アプリケーション名
+# 4. Python ファイル名。拡張子抜き
+# 5. クラス名
+
 
 urlpatterns = [
 
@@ -447,4 +455,14 @@ urlpatterns = [
     #    数字列は `2.` の関数の引数 id で取得できる
     # 2. LobbyV クラスの render_lobby メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_lobby' %} のような形でURLを取得するのに使える
+
+    # マイ ページ
+    path('practice/my/', MyV.render_my, name='practice_my'),
+    #     ------------   -------------        -----------
+    #     1              2                    3
+    #
+    # 1. 例えば `http://example.com/practice/my/` のような URL のパスの部分
+    #                              ------------
+    # 2. MyV クラスの render_my メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_my' %} のような形でURLを取得するのに使える
 ]
