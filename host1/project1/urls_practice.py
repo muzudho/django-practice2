@@ -390,4 +390,17 @@ urlpatterns = [
     #    数字列は `2.` の関数の引数 id で取得できる
     # 2. RoomV クラスの render_read メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_room_read' %} のような形でURLを取得するのに使える
+
+    # 対局部屋の削除
+    path('rooms/delete/<int:id>/', RoomV.render_delete,
+         # ---------------------   -------------------
+         # 1                       2
+         name='practice_room_delete'),
+    #          --------------------
+    #          3
+    # 1. 例えば `http://example.com/rooms/delete/<数字列>/` のような URL のパスの部分。
+    #                              ----------------------
+    #    数字列は `2.` の関数の引数 id で取得できる
+    # 2. RoomV クラスの render_delete メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_room_delete' %} のような形でURLを取得するのに使える
 ]

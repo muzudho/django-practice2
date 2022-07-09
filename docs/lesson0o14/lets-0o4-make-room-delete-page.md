@@ -1,0 +1,348 @@
+# 目的
+
+（※いわゆる CRUD の D）  
+
+`http://localhost:8000/rooms/delete/4/` へアクセスすると、  
+id が 4 の部屋を削除したい  
+
+表示例:  
+
+```plaintext
+部屋の削除
+
+「Lion」を削除しました。
+
+戻る
+```
+
+# はじめに
+
+この記事は Lesson0 から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
+
+この記事のアーキテクチャ:  
+
+| Key              | Value                                     |
+| ---------------- | ----------------------------------------- |
+| OS               | Windows10                                 |
+| Container        | Docker                                    |
+| Database         | Postgresql, (Redis)                       |
+| Program Language | Python 3                                  |
+| Web framework    | Django                                    |
+| Auth             | allauth                                   |
+| Frontend         | Vuetify                                   |
+| Data format      | JSON                                      |
+| Others           | (Socket), Web socket                      |
+| Editor           | Visual Studio Code （以下 VSCode と表記） |
+
+参考にした元記事は 📖[DjangoでCRUD](https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92) だ。  
+わたしの記事は単に **やってみた** ぐらいの位置づけだ  
+
+ディレクトリ構成を抜粋すると 以下のようになっている  
+
+```plaintext
+    ├── 📂host_local1                   # Djangoとは関係ないもの
+    │    ├── 📂sockapp1
+    │    └── 📂websockapp1
+    ├── 📂host1                         # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
+    │   ├── 📂apps1
+    │   │   ├── 📂allauth_customized    # アプリケーション
+    │   │   ├── 📂portal                # アプリケーション
+    │   │   ├── 📂practice              # アプリケーション
+    │   │   │   ├── 📂migrations
+    │   │   │   └── 📂models
+    │   │   │       └── 📂v0o0o1
+    │   │   │           └── 📄m_room.py
+    │   │   ├── 📂tic_tac_toe_v1        # アプリケーション
+    │   │   └── 📂tic_tac_toe_v2        # アプリケーション
+    │   │       ├── 📂migrations
+    │   │       │   └── 📄__init__.py
+    │   │       ├── 📂static
+    │   │       │   └── 📂tic_tac_toe_v2
+    │   │       │       └── 📂o0o1
+    │   │       │           └── 📂think
+    │   │       │               ├── 📄concepts.js
+    │   │       │               ├── 📄engine.js
+    │   │       │               ├── 📄judge_ctrl.js
+    │   │       │               ├── 📄position.js
+    │   │       │               ├── 📄things.js
+    │   │       │               └── 📄user_ctrl.js
+    │   │       ├── 📂templates
+    │   │       │   └── 📂tic_tac_toe_v2
+    │   │       │       └── 📂o0o1
+    │   │       │           └── 📂think
+    │   │       │               └── 📄engine_manual.html
+    │   │       ├── 📂views
+    │   │       │   └── 📂v2o0o1
+    │   │       │       └── 📂think
+    │   │       │           └── 📂engine_manual
+    │   │       │               ├── 📄__init__.py
+    │   │       │               └── 📄v_render.py
+    │   │       ├── 📄__init__.py
+    │   │       ├── 📄admin.py
+    │   │       ├── 📄apps.py
+    │   │       └── 📄tests.py
+    │   ├── 📂data
+    │   ├── 📂project1                  # プロジェクト
+    │   │   ├── 📄__init__.py
+    │   │   ├── 📄asgi.py
+    │   │   ├── 📄settings_secrets_example.txt
+    │   │   ├── 📄settings.py
+    │   │   ├── 📄urls_accounts.py
+    │   │   ├── 📄urls_practice.py
+    │   │   ├── 📄urls_tic_tac_toe_v1.py
+    │   │   ├── 📄urls_tic_tac_toe_v2.py
+    │   │   ├── 📄urls.py
+    │   │   ├── 📄ws_urls_tic_tac_toe_v1.py
+    │   │   └── 📄wsgi.py
+    │   ├── 📂project2                  # プロジェクト
+    │   ├── 🐳docker-compose-project2.yml
+    │   ├── 🐳docker-compose.yml
+    │   ├── 🐳Dockerfile
+    │   ├── 📄manage.py
+    │   └── 📄requirements.txt
+    └── 📄.gitignore
+```
+
+# Step 1. Dockerコンテナの起動
+
+👇 （していなければ） Docker コンテナを起動しておいてほしい  
+
+```shell
+# docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
+cd host1
+
+# Docker コンテナ起動
+docker-compose up
+```
+
+# Step 2. 画面作成 - delete.html ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice                  # アプリケーション
+                └── 📂templates
+                    └── 📂practice          # アプリケーションと同名
+                        └── 📂v0o0o1
+                            └── 📂room
+👉                              └── 📄delete.html
+```
+
+```html
+<!DOCTYPE html>
+<!-- See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92 -->
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>部屋削除</title>
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    </head>
+    <body>
+        <div class="container">
+            <h3>部屋の削除</h3>
+            <div class="card" style="width: 18rem">「{{ room.name }}」を削除しました。</div>
+            <a href="{% url 'practice_room_list' %}" class="btn btn-default btn-sm">戻る</a>
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+</html>
+```
+
+# Step 3. ビュー モジュール編集 - room フォルダー
+
+👇 以下の既存ファイルを編集してほしい  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice                  # アプリケーション
+                ├── 📂templates
+                │   └── 📂practice
+                │       └── 📂v0o0o1
+                │           └── 📂room
+                │               └── 📄delete.html
+                └── 📂views
+                    └── 📂v0o0o1
+                        └── 📂room
+👉                          └── 📄__init__.py
+```
+
+```py
+class RoomV():
+    # ...略...
+
+
+    # 削除ページ
+    _path_of_delete_page = "practice/v0o0o1/room/delete.html"
+    #                       --------------------------------
+    #                       1
+    # 1. `host1/apps1/practice/templates/practice/v0o0o1/room/delete.html` を取得
+    #                                    --------------------------------
+
+
+    # ...略...
+
+
+    @staticmethod
+    def render_delete(request, id):
+        """描画 - 削除"""
+
+        # 以下のファイルはあとで作ります
+        from .v_delete import render_delete
+        #    ---------        -------------
+        #    1                2
+        # 1. `host1/apps1/practice/views/v0o0o1/room/v_delete.py`
+        #                                            --------
+        # 2. `1.` に含まれる関数
+
+        return render_delete(request, id, RoomV._path_of_delete_page)
+```
+
+# Step 4. ビュー モジュール作成 - v_delete ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂host1
+        └── 📂apps1
+            └── 📂practice                  # アプリケーション
+                ├── 📂templates
+                │   └── 📂practice
+                │       └── 📂v0o0o1
+                │           └── 📂room
+                │               └── 📄delete.html
+                └── 📂views
+                    └── 📂v0o0o1
+                        └── 📂room
+                            ├── 📄__init__.py
+👉                          └── 📄v_delete.py
+```
+
+```py
+from django.http import HttpResponse
+from django.template import loader
+
+from apps1.practice.models.v0o0o1.m_room import Room
+#    ----- -------- ------------- ------        ----
+#    1     2        3             4             5
+# 1,3. ディレクトリー名
+# 2. アプリケーション フォルダー名
+# 4. Python ファイル名。拡張子抜き
+# 5. クラス名
+
+
+@staticmethod
+def render_delete(request, room_pk, path_of_delete_page):
+    """削除ページ"""
+
+    template = loader.get_template(path_of_delete_page)
+
+    room = Room.objects.get(pk=room_pk)  # idを指定してメンバーを１人取得
+    name = room.name  # 名前だけまだ使う
+    room.delete()
+    context = {
+        'room': {
+            'name': name
+        }
+    }
+    return HttpResponse(template.render(context, request))
+```
+
+# Step 5. ルート編集 - urls_practice.py ファイル
+
+👇 以下の既存ファイルを編集してほしい  
+
+```plaintext
+    └── 📂host1
+        ├── 📂apps1
+        │   └── 📂practice                  # アプリケーション
+        │       ├── 📂templates
+        │       │   └── 📂practice
+        │       │       └── 📂v0o0o1
+        │       │           └── 📂room
+        │       │               └── 📄delete.html
+        │       └── 📂views
+        │           └── 📂v0o0o1
+        │               └── 📂room
+        │                   ├── 📄__init__.py
+        │                   └── 📄v_delete.py
+        └── 📂project1                          # プロジェクト
+👉          └── 📄urls_practice.py              # こちら
+```
+
+```py
+# ...略...
+
+
+urlpatterns = [
+    # ...略...
+
+
+    # 対局部屋の削除
+    path('rooms/delete/<int:id>/', RoomV.render_delete,
+         # ---------------------   -------------------
+         # 1                       2
+         name='practice_room_delete'),
+    #          --------------------
+    #          3
+    # 1. 例えば `http://example.com/rooms/delete/<数字列>/` のような URL のパスの部分。
+    #                              ----------------------
+    #    数字列は `2.` の関数の引数 id で取得できる
+    # 2. RoomV クラスの render_delete メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_room_delete' %} のような形でURLを取得するのに使える
+]
+```
+
+# Step 6. Web画面へアクセス
+
+👇 部屋の番号は適宜変えてほしい  
+
+📖 [http://localhost:8000/rooms/delete/1/](http://localhost:8000/rooms/delete/1/)  
+
+# Step 7. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+
+👇 以下の既存ファイルの最終行に追記してほしい  
+
+```plaintext
+    └── 📂host1
+        ├── 📂apps1
+        │   ├── 📂portal                        # アプリケーション
+        │   │   └── 📂data
+👉      │   │       └── 📄finished-lessons.csv
+        │   └── 📂practice                      # アプリケーション
+        │       ├── 📂templates
+        │       │   └── 📂practice
+        │       │       └── 📂v0o0o1
+        │       │           └── 📂room
+        │       │               └── 📄delete.html
+        │       └── 📂views
+        │           └── 📂v0o0o1
+        │               └── 📂room
+        │                   ├── 📄__init__.py
+        │                   └── 📄v_delete.py
+        └── 📂project1                          # プロジェクト
+            └── 📄urls_practice.py
+```
+
+👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
+
+```csv
+/rooms/delete/1/,対局部屋の削除
+```
+
+👇 ポータルにリンクが追加されていることを確認してほしい 
+
+📖 [http://localhost:8000/](http://localhost:8000/)  
+
+# 次の記事
+
+📖 [Djangoでゲーム対局部屋を作成または更新しよう！](https://qiita.com/muzudho1/items/6eaf6cf90fe5a6519184)  

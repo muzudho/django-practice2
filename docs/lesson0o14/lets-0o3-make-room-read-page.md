@@ -280,7 +280,7 @@ docker-compose up
 
 # Step 3. ビュー モジュール編集 - room フォルダー
 
-👇 以下のファイルを編集してほしい  
+👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
     └── 📂host1

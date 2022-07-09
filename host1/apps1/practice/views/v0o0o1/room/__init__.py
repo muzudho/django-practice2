@@ -15,6 +15,13 @@ class RoomV():
     # 1. `host1/apps1/practice/templates/practice/v0o0o1/room/read.html` を取得
     #                                    ------------------------------
 
+    # 削除ページ
+    _path_of_delete_page = "practice/v0o0o1/room/delete.html"
+    #                       --------------------------------
+    #                       1
+    # 1. `host1/apps1/practice/templates/practice/v0o0o1/room/delete.html` を取得
+    #                                    --------------------------------
+
     @staticmethod
     def render_list(request):
         """描画 - 一覧"""
@@ -42,3 +49,17 @@ class RoomV():
         # 2. `1.` に含まれる関数
 
         return render_read(request, id, RoomV._path_of_read_page)
+
+    @staticmethod
+    def render_delete(request, id):
+        """描画 - 削除"""
+
+        # 以下のファイルはあとで作ります
+        from .v_delete import render_delete
+        #    ---------        -------------
+        #    1                2
+        # 1. `host1/apps1/practice/views/v0o0o1/room/v_delete.py`
+        #                                            --------
+        # 2. `1.` に含まれる関数
+
+        return render_delete(request, id, RoomV._path_of_delete_page)
