@@ -115,6 +115,14 @@ from apps1.practice.views.v0o0o1.my import MyV
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
+from apps1.practice.views.v0o0o1.reloader import ReloaderV
+#    ----- -------- ---------------------        ---------
+#    1     2        3                            4
+# 1,3. ディレクトリー名
+# 2. アプリケーション名
+# 4. Python ファイル名。拡張子抜き
+# 5. クラス名
+
 
 urlpatterns = [
 
@@ -465,4 +473,17 @@ urlpatterns = [
     #                              ------------
     # 2. MyV クラスの render_my メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_my' %} のような形でURLを取得するのに使える
+
+    # 自動再読込
+    path('practice/reloader/', ReloaderV.render_reloader,
+         # -----------------   -------------------------
+         # 1                            2
+         name='practice_reloader'),
+    #          -----------------
+    #          3
+    #
+    # 1. 例えば `http://example.com/practice/reloader/` のような URL のパスの部分
+    #                              ------------------
+    # 2. ReloaderV クラスの render_reloader メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_reloader' %} のような形でURLを取得するのに使える
 ]
