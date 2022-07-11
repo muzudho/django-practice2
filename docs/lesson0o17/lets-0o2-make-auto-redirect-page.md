@@ -2,7 +2,9 @@
 
 待っていると　対局が付くページがほしい  
 
-いきなり作るのは難しいので、まず 5秒毎に時刻の表示を更新するページ から作る  
+いきなり作るのは難しいので、まず サーバーサイドで時計を見て  
+0分、5分、10分、... のような 分が 5 で割り切れるタイミングで  
+クライアントのページをリダイレクトする  
 
 # はじめに
 
@@ -102,7 +104,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. 機能強化 - clock.js ファイル
+# Step 2. 機能強化 - v0o0o2/reloader.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -112,65 +114,36 @@ docker-compose up
             └── 📂practice                  # アプリケーション
                 └── 📂static
                     └── 📂practice          # アプリケーションと同名
-                        └── 📂v0o0o1
-👉                          └── 📄clock.js
-```
-
-```js
-/**
- *
- * @returns 現在時刻の文字列
- */
-function getTimeStamp() {
-    const weekStr = ["日", "月", "火", "水", "木", "金", "土"];
-
-    // 現在時刻
-    const now = new Date();
-
-    const year = now.getFullYear(); // 年
-    const month = now.getMonth() + 1; // 月
-    const day = now.getDate(); // 日
-    const weekday = weekStr[now.getDay()]; // 曜日
-    const hour = now.getHours(); // 時
-    const minite = now.getMinutes(); // 分
-    const second = now.getSeconds(); // 秒
-    const millisecond = now.getMilliseconds(); // ミリ秒
-
-    const text = `${year}年 ${month}月 ${day}日 （${weekday}） ${hour}時 ${minite}分 ${second}秒 ${millisecond}ミリ秒`;
-
-    console.log(`time stamp=[${text}]`);
-
-    return text;
-}
-```
-
-# Step 3. 機能強化 - reloader.js ファイル
-
-👇 以下のファイルを新規作成してほしい  
-
-```plaintext
-    └── 📂host1
-        └── 📂apps1
-            └── 📂practice                  # アプリケーション
-                └── 📂static
-                    └── 📂practice          # アプリケーションと同名
-                        └── 📂v0o0o1
-                            ├── 📄clock.js
+                        └── 📂v0o0o2        # 0.0.two
 👉                          └── 📄reloader.js
 ```
 
 ```js
 /**
+ * 内部で使用する変数
+ *
+ * * vue1
+ *
  * @param {number} intervalMilliseconds
  */
 function startReloadingAutomatically(intervalMilliseconds) {
     setInterval(() => {
-        location.reload();
+        // setInterval に渡すラムダ関数の中で this を使うのは、正しく理解する知識が難しいので避けます
+        const redirectUrl = vue1.createRedirectUrl();
+
+        if (redirectUrl) {
+            // リダイレクトします
+            window.location.href = redirectUrl;
+        } else {
+            // JavaScript では、空文字列は 偽
+            // リロードします
+            location.reload();
+        }
     }, intervalMilliseconds);
 }
 ```
 
-# Step 4. 画面編集 - v0o0o1/reloader.html ファイル
+# Step 3. テンプレート編集 - reloader_with_redirect.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -181,80 +154,64 @@ function startReloadingAutomatically(intervalMilliseconds) {
                 ├── 📂static
                 │   └── 📂practice
                 │       └── 📂v0o0o1
-                │           ├── 📄clock.js
                 │           └── 📄reloader.js
                 └── 📂templates
                     └── 📂practice          # アプリケーションと同名
-                        └── 📂v0o0o1
-👉                          └── 📄reloader.html
+                        └── 📂v0o0o2        # 0.0.two
+👉                          └── 📄reloader_with_redirect.html.txt
 ```
 
 ```html
+{% extends "practice/v0o0o1/reloader.html" %}
+{#          -----------------------------
+            1
+1. host1/apps1/practice/templates/practice/v0o0o1/reloader.html
+                                  -----------------------------
+#}
+
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
-<!DOCTYPE html>
-<!-- See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92 -->
-<html lang="ja">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>対局待合室</title>
-    </head>
-    <body>
-        <div id="app">
-            <v-app>
-                <!-- v-app-bar に app プロパティを指定しないなら、背景画像を付けてほしい -->
-                <v-app-bar app dense elevation="4">
-                    <v-app-bar-nav-icon></v-app-bar-nav-icon>
-                    <v-toolbar-title>ゲーム対局サーバー</v-toolbar-title>
-                </v-app-bar>
-                <v-main>
-                    <v-container>
-                        <h3>対局待合室</h3>
-                        <!-- ここに時計 -->
-                        {% comment %} Vue で二重波括弧（braces）は変数の展開に使っていることから、 Python のテンプレートに二重波括弧を変数の展開に使わないよう verbatim で指示します。 {% endcomment %}
-                        <!-- -->
-                        {% verbatim %} {{vu_timeStamp}} {% endverbatim %}
-                    </v-container>
-                </v-main>
-            </v-app>
-        </div>
 
-        <script src="{% static 'practice/v0o0o1/clock.js' %}"></script>
-        <script src="{% static 'practice/v0o0o1/reloader.js' %}"></script>
-        <!--                    ===========================
-            `host1/apps1/practice/static/practice/v0o0o1/reloader.js`
-                                         ===========================
-        -->
+{% block script_src %}
+<script src="{% static 'practice/v0o0o1/clock.js' %}"></script>
+<script src="{% static 'practice/v0o0o2/reloader.js' %}"></script>
+<!--                                  ^two
+                        ===========================
+    `host1/apps1/practice/static/practice/v0o0o2/reloader.js`
+                                 ===========================
+-->
+{% endblock script_src %}
 
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-        <script>
-            let vue1 = new Vue({
-                el: "#app",
-                vuetify: new Vuetify(),
-                // page loaded
-                mounted: () => {
-                    // ここで Vue の準備完了後の処理ができる。
-                    // ただし、まだ this は初期化されてない
 
-                    // 5秒毎にリロード
-                    startReloadingAutomatically(5000);
-                },
-                data: {
-                    // "vu_" は 「vue1.dataのメンバー」 の目印
-                    vu_timeStamp: getTimeStamp(),
-                },
-            });
-        </script>
-    </body>
-</html>
+{% block data_trailing %}
+    // "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
+    vu_redirectPath: "{{ dj_redirect_path|escapejs }}",
+{% endblock data_trailing %}
+
+
+{% block methods_trailing %}
+    /**
+        * vue1.createRedirectUrl() のように使えます
+        */
+    createRedirectUrl() {
+        if (!this.vu_redirectPath) {
+            // JavaScript では、空文字列を not すると 真
+            // リダイレクトしたくないときは空文字列を送る、という取り決めをしておきます
+            return "";
+        }
+
+        let url = `${location.protocol}//${location.host}${this.vu_redirectPath}`;
+        //         --------------------  ---------------]-----------------------
+        //         1                     2               3
+        // 1. protocol
+        // 2. host
+        // 3. path
+        console.log(`redirect url=[${url}]`);
+        return url;
+    },
+{% endblock methods_trailing %}
 ```
 
-# Step 5. ビュー モジュール作成 - reloader フォルダー
+# Step 4. ビュー モジュール作成 - redirecter フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -265,45 +222,45 @@ function startReloadingAutomatically(intervalMilliseconds) {
                 ├── 📂static
                 │   └── 📂practice
                 │       └── 📂v0o0o1
-                │           ├── 📄clock.js
                 │           └── 📄reloader.js
                 ├── 📂templates
-                │   └── 📂practice          # アプリケーションと同名
-                │       └── 📂v0o0o1
-                │           └── 📄reloader.html
+                │   └── 📂practice
+                │       └── 📂v0o0o2
+                │           └── 📄reloader_with_redirect.html.txt
                 └── 📂views
-                    └── 📂v0o0o1
-                        └── 📂reloader
+                    └── 📂v0o0o2            # 0.0.two
+                        └── 📂redirecter
 👉                          └── 📄__init__.py
 ```
 
 ```py
-class ReloaderV():
-    """自動再読込ビュー"""
+class RedirecterV():
+    """リダイレクト ビュー"""
 
-    # 自動再読込ページ
-    _path_of_reloader_page = "practice/v0o0o1/reloader.html"
-    #                         -----------------------------
-    #                         1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o1/reloader.html` を取得
-    #                                    -----------------------------
+    # 自動リダイレクト ページ
+    _path_of_redirecter_page = "practice/v0o0o2/reloader_with_redirect.html.txt"
+    #                                         ^two
+    #                           -----------------------------------------------
+    #                           1
+    # 1. `host1/apps1/practice/templates/practice/v0o0o2/reloader_with_redirect.html.txt` を取得
+    #                                    -----------------------------------------------
 
     @staticmethod
-    def render_reloader(request):
-        """描画 - 自動再読込"""
+    def render_redirect(request):
+        """描画 - 自動リダイレクト"""
 
         # 以下のファイルはあとで作ります
-        from .v_reloader import render_reloader
+        from .v_redirect import render_redirect
         #    -----------        ---------------
         #    1                  2
-        # 1. `host1/apps1/practice/views/v0o0o1/reloader/v_reloader.py`
-        #                                                ----------
+        # 1. `host1/apps1/practice/views/v0o0o2/redirecter/v_redirect.py`
+        #                                                  ----------
         # 2. `1.` に含まれる関数
 
-        return render_reloader(request, ReloaderV._path_of_reloader_page)
+        return render_redirect(request, RedirecterV._path_of_redirecter_page)
 ```
 
-# Step 6. ビュー モジュール作成 - v_reloader ファイル
+# Step 5. ビュー モジュール作成 - v_redirect ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -314,33 +271,52 @@ class ReloaderV():
                 ├── 📂static
                 │   └── 📂practice
                 │       └── 📂v0o0o1
-                │           ├── 📄clock.js
                 │           └── 📄reloader.js
                 ├── 📂templates
-                │   └── 📂practice          # アプリケーションと同名
-                │       └── 📂v0o0o1
-                │           └── 📄reloader.html
+                │   └── 📂practice
+                │       └── 📂v0o0o2
+                │           └── 📄reloader_with_redirect.html.txt
                 └── 📂views
-                    └── 📂v0o0o1
-                        └── 📂reloader
+                    └── 📂v0o0o2
+                        └── 📂redirecter
                             ├──📄__init__.py
-👉                          └──📄v_reloader.py
+👉                          └──📄v_redirect.py
 ```
 
 ```py
+import datetime
 from django.shortcuts import render
 
 
-def render_reloader(request, path_of_reloader_page):
-    """描画 - 自動再読込"""
+def render_redirect(request, path_of_redirecter_page):
+    """描画 - 自動リダイレクト ページ"""
+
+    # 現在日時
+    dt_now = datetime.datetime.now()
+
+    # 今何分？
+    dt_minute = dt_now.minute
+
+    # 5 で割り切れる分なら、リダイレクト
+    if dt_minute % 5 == 0:
+        redirect_path = "/tic-tac-toe/v2/match-application/"
+        #                ----------------------------------
+        #                1
+        # 1. `http://example.com/tic-tac-toe/v2/match-application/`
+        #                       ----------------------------------
+    else:
+        # リダイレクトしたくないときは空文字列を送る、と取り決めておきます
+        redirect_path = ""
 
     context = {
+        # FIXME 相対パス。 URL を urls.py で変更したいとき、反映されないがどうするか？
+        "dj_redirect_path": redirect_path,
     }
 
-    return render(request, path_of_reloader_page, context)
+    return render(request, path_of_redirecter_page, context)
 ```
 
-# Step 7. ルート編集 - urls_practice.py ファイル
+# Step 6. ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -351,17 +327,16 @@ def render_reloader(request, path_of_reloader_page):
         │       ├── 📂static
         │       │   └── 📂practice
         │       │       └── 📂v0o0o1
-        │       │           ├── 📄clock.js
         │       │           └── 📄reloader.js
         │       ├── 📂templates
         │       │   └── 📂practice
-        │       │       └── 📂v0o0o1
-        │       │           └── 📄reloader.html
+        │       │       └── 📂v0o0o2
+        │       │           └── 📄reloader_with_redirect.html.txt
         │       └── 📂views
-        │           └── 📂v0o0o1
-        │               └── 📂reloader
+        │           └── 📂v0o0o2
+        │               └── 📂redirecter
         │                   ├──📄__init__.py
-        │                   └──📄v_reloader.py
+        │                   └──📄v_redirect.py
         └── 📂project1                      # プロジェクト
 👉          └── 📄urls_practice.py
 ```
@@ -370,9 +345,10 @@ def render_reloader(request, path_of_reloader_page):
 # ...略...
 
 
-from apps1.practice.views.v0o0o1.reloader import ReloaderV
-#    ----- -------- ---------------------        ---------
-#    1     2        3                            4
+from apps1.practice.views.v0o0o2.redirecter import RedirecterV
+#                              ^two
+#    ----- -------- -----------------------        -----------
+#    1     2        3                              4
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
@@ -383,26 +359,26 @@ urlpatterns = [
     # ...略...
 
 
-    # 自動再読込
-    path('practice/reloader/', ReloaderV.render_reloader,
-         # -----------------   -------------------------
-         # 1                   2
-         name='practice_reloader'),
-    #          -----------------
+    # 自動リダイレクト
+    path('practice/redirecter/', RedirecterV.render_redirect,
+         # -------------------   ---------------------------
+         # 1                     2
+         name='practice_redirecter'),
+    #          -------------------
     #          3
     #
-    # 1. 例えば `http://example.com/practice/reloader/` のような URL のパスの部分
-    #                              ------------------
-    # 2. ReloaderV クラスの render_reloader メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_reloader' %} のような形でURLを取得するのに使える
+    # 1. 例えば `http://example.com/practice/redirecter/` のような URL のパスの部分
+    #                              --------------------
+    # 2. RedirecterV クラスの render_redirect メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_redirecter' %} のような形でURLを取得するのに使える
 ]
 ```
 
-# Step 8. Web画面へアクセス
+# Step 7. Web画面へアクセス
 
-📖 [http://localhost:8000/practice/reloader/](http://localhost:8000/practice/reloader/)  
+📖 [http://localhost:8000/practice/redirecter/](http://localhost:8000/practice/redirecter/)  
 
-# Step 9. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step 8. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
@@ -416,17 +392,16 @@ urlpatterns = [
         │       ├── 📂static
         │       │   └── 📂practice
         │       │       └── 📂v0o0o1
-        │       │           ├── 📄clock.js
         │       │           └── 📄reloader.js
         │       ├── 📂templates
         │       │   └── 📂practice
-        │       │       └── 📂v0o0o1
-        │       │           └── 📄reloader.html
+        │       │       └── 📂v0o0o2
+        │       │           └── 📄reloader_with_redirect.html.txt
         │       └── 📂views
-        │           └── 📂v0o0o1
-        │               └── 📂reloader
+        │           └── 📂v0o0o2
+        │               └── 📂redirecter
         │                   ├──📄__init__.py
-        │                   └──📄v_reloader.py
+        │                   └──📄v_redirect.py
         └── 📂project1                          # プロジェクト
             └── 📄urls_practice.py
 ```
@@ -434,7 +409,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/reloader/,自動再読込
+/practice/redirecter/,自動リダイレクト
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 
@@ -443,4 +418,4 @@ urlpatterns = [
 
 # 次の記事
 
-📖 [Djangoで自動リダイレクトするページを作ろう！](https://qiita.com/muzudho1/items/aea9be36422763f082e9)  
+📖 [Djangoの〇×ゲームのPlayAgainボタンを外そう！](https://qiita.com/muzudho1/items/d4bfde69c1656616f8ce)  

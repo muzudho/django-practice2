@@ -30,3 +30,4 @@ path,label
 /rooms/create/,対局部屋の新規作成
 /rooms/update/5/,対局部屋の更新
 /practice/my/,マイ ページ
+/practice/redirecter/,自動リダイレクト

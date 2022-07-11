@@ -123,6 +123,15 @@ from apps1.practice.views.v0o0o1.reloader import ReloaderV
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
+from apps1.practice.views.v0o0o2.redirecter import RedirecterV
+#                              ^two
+#    ----- -------- -----------------------        -----------
+#    1     2        3                              4
+# 1,3. ディレクトリー名
+# 2. アプリケーション名
+# 4. Python ファイル名。拡張子抜き
+# 5. クラス名
+
 
 urlpatterns = [
 
@@ -486,4 +495,17 @@ urlpatterns = [
     #                              ------------------
     # 2. ReloaderV クラスの render_reloader メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_reloader' %} のような形でURLを取得するのに使える
+
+    # 自動リダイレクト
+    path('practice/redirecter/', RedirecterV.render_redirect,
+         # -------------------   ---------------------------
+         # 1                     2
+         name='practice_redirecter'),
+    #          -------------------
+    #          3
+    #
+    # 1. 例えば `http://example.com/practice/redirecter/` のような URL のパスの部分
+    #                              --------------------
+    # 2. RedirecterV クラスの render_redirect メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_redirecter' %} のような形でURLを取得するのに使える
 ]
