@@ -15,15 +15,15 @@ class Playing():
     #                                    ^ two
     #                      ----------------------------
     #                      1
-    # 1. ws://example.com:8000/tic-tac-toe/v2o0o1/playing/
-    #                         ---------------------------
+    # 1. `ws://example.com:8000/tic-tac-toe/v2o0o1/playing/`
+    #                          ---------------------------
 
     _path_of_html = "tic_tac_toe_v2/o0o1/gui/playing.html.txt"
     #                             ^ two
     #                ----------------------------------------
     #                1
-    # 1. host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o0o1/gui/playing.html.txt
-    #                                         ----------------------------------------
+    # 1. `host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o0o1/gui/playing.html.txt`
+    #                                          ----------------------------------------
 
     @staticmethod
     def render(request, kw_room_name):
