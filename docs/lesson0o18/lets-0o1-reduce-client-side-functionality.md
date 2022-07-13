@@ -309,156 +309,7 @@ class MatchApplicationV():
         return render_page(request, MatchApplicationV._path_of_page)
 ```
 
-# Step 9. 対局申込ビュー モジュール作成 - v_on_sent.py ファイル
-
-👇 以下のファイルを新規作成してほしい  
-
-```plaintext
-    └── 📂host1
-        ├── 📂apps1
-        │   └── 📂tic_tac_toe_v3            # アプリケーション (Ver. Three)
-        │       ├── 📂migrations
-        │       │   └── 📄__init__.py
-        │       ├── 📂templates
-        │       │   └── 📂tic_tac_toe_v3    # アプリケーションと同名
-        │       │       └── 📂o0o1
-        │       │           └── 📄playing.html.txt
-        │       ├── 📂views
-        │       │   └── 📂o0o1              # (v3).0.one
-        │       │       └── 📂match_application
-        │       │           ├── 📄__init__.py
-👉      │       │           └── 📄v_on_sent.py
-        │       ├── 📄__init__.py
-        │       ├── 📄admin.py
-        │       ├── 📄apps.py
-        │       └── 📄tests.py
-        └── 📂project1
-            └── 📄settings.py
-```
-
-```py
-# from django.contrib.auth.models import User # デバッグ用
-
-from apps1.practice.models.v0o0o1.m_room import Room
-#    ----- -------- --------------------        ----
-#    1     2        3                           4
-# 1,3. ディレクトリー名
-# 2. アプリケーション フォルダー名
-# 3. Python ファイル名。拡張子抜き
-# 4. クラス名
-
-from apps1.practice.models.v0o0o1.m_user_profile import Profile
-#    ----- -------- ----------------------------        -------
-#    1     2        3                                   4
-# 1,3. ディレクトリー名
-# 2. アプリケーション フォルダー名
-# 3. Python ファイル名。拡張子抜き
-# 4. クラス名
-
-
-def match_application_on_sent(request):
-    """対局申込 - 送信後
-
-    * ログインしていないユーザーが部屋に入っても 何も記録しません
-    * ログインしているユーザーが部屋に入ってくると、以下のものを記録します（チェックイン）
-    * Room.sente_id または Room.gote_id の空いている方に user.pk を上書き
-    * user.profile.match_state を 3 （対局中）に上書き
-    """
-
-    # `po_` は POST送信するパラメーター名の目印
-    # 部屋名
-    po_room_name = request.POST.get("po_room_name")
-    # 自分の番。 "X" か "O"。 機能拡張も想定
-    my_turn = request.POST.get("po_my_turn")
-
-    # 部屋の取得 または 新規作成
-    #
-    # * ID ではなく、部屋名から行う
-    room_table_qs = Room.objects.filter(name=po_room_name)
-    # print(
-    #     f"[MatchApplication on_sent] po_room_name=[{po_room_name}] len={len(room_table_qs)}")
-
-    if 1 <= len(room_table_qs):
-        # （名前被りがあったなら）先頭の１つを取得
-        room = room_table_qs[0]
-        # print(f"[MatchApplication on_sent] first room=[{room}]")
-        # print(
-        #     f"[MatchApplication on_sent] first room .name=[{room.name}] .sente_id=[{room.sente_id}] .gote_id=[{room.gote_id}] .board=[{room.board}] .record=[{room.record}]")
-    else:
-        # 新規作成
-        room = Room()
-        room.name = po_room_name
-        # print(f"[MatchApplication on_sent] new room=[{room}]")
-
-    # print(f"[MatchApplication on_sent] request.user={request.user}")
-    # print(
-    #     f"[MatchApplication on_sent] request.user.is_authenticated={request.user.is_authenticated}")
-
-    if request.user.is_authenticated:
-        # ログインしたユーザーだった
-
-        user_pk = request.user.pk
-        # print(
-        #     f"[MatchApplication on_sent] user_pk={user_pk} room.sente_id={room.sente_id} room.gote_id={room.gote_id}")
-
-        # デバッグ
-        # user = User.objects.get(pk=user_pk)
-        # print(
-        #     f"[MatchApplication on_sent] user username={user.username}")
-
-        # 自分の Profile レコード 取得
-        profile = Profile.objects.get(user__pk=user_pk)
-        #                             --------
-        #                             1
-        # 1. Profile テーブルと 1対1 で紐づいている親テーブル User の pk フィールド
-
-        # print(f"[MatchApplication on_sent] profile={profile}")
-        # print(
-        #     f"[MatchApplication on_sent] profile.match_state={profile.match_state}")
-
-        if my_turn == "X":
-            # X を取った方は先手とします
-            room.sente_id = user_pk
-            # ユーザーの状態を対局中（3）にします
-            profile.match_state = 3
-
-        elif my_turn == "O":
-            # O を取った方は後手とします
-            #
-            # * 先手と後手が同じユーザーでも構わないものとします
-            room.gote_id = user_pk
-            # ユーザーの状態を対局中（3）にします
-            profile.match_state = 3
-
-        else:
-            # それ以外は観戦者として扱う
-            # ユーザーの状態を観戦中（4）にします
-            profile.match_state = 4
-
-        # 先手と後手の両方が埋まったなら
-        if not(room.sente_id is None or room.sente_id == 0 or room.gote_id is None or room.gote_id == 0):
-            # 盤と棋譜を空っぽにする
-            room.board = ""
-            room.record = ""
-
-        # print(
-        #     f"[MatchApplication on_sent] room .name=[{room.name}] .sente_id=[{room.sente_id}] .gote_id=[{room.gote_id}] .board=[{room.board}] .record=[{room.record}]")
-        # TODO バリデーションチェック
-        room.save()
-
-        # print(
-        #     f"[MatchApplication on_sent] prifile .match_state=[{profile.match_state}]")
-        # TODO バリデーションチェック
-        profile.save()
-
-        # print(f"[MatchApplication on_sent] ★ 更新終わり")
-    else:
-        # ゲストだった
-        # print(f"[MatchApplication on_sent] ★ ゲスト")
-        pass
-```
-
-# Step 10. 対局ビュー モジュール作成 - playing フォルダー
+# Step 9. 対局ビュー モジュール作成 - playing フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -542,7 +393,7 @@ class PlayingV():
         pass
 ```
 
-# Step 11. ルート編集 - urls_practice.py ファイル
+# Step 10. ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -631,13 +482,13 @@ urlpatterns = [
 ]
 ```
 
-# Step 12. Web画面へアクセス
+# Step 11. Web画面へアクセス
 
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでください  
 
 📖 [http://localhost:8000/tic-tac-toe/v3/match-application/](http://localhost:8000/tic-tac-toe/v3/match-application/)  
 
-# Step 13. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step 12. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
