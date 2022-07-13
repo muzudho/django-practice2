@@ -349,10 +349,10 @@ class PlayingV():
     # 1. `ws://example.com:8000/tic-tac-toe/v2o0o1/playing/`
     #                          ---------------------------
 
-    _path_of_html = "tic_tac_toe_v3/o0o1/playing.html.txt"
-    #                             ^ three
-    #                ------------------------------------
-    #                1
+    path_of_html = "tic_tac_toe_v3/o0o1/playing.html.txt"
+    #                            ^ three
+    #               ------------------------------------
+    #               1
     # 1. `host1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o0o1/playing.html.txt`
     #                                          ------------------------------------
 
@@ -382,7 +382,7 @@ class PlayingV():
             request,
             kw_room_name,
             PlayingV._path_of_ws_playing,
-            PlayingV._path_of_html,
+            PlayingV.path_of_html,
             PlayingV.on_update,
             playing_expected_pieces)
 
