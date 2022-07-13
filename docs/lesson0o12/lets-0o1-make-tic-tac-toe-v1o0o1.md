@@ -824,7 +824,7 @@ class MatchApplicationV():
 
     path_of_html = "tic_tac_toe_v1/o0o1/match_application.html"
     #                               ^^^zero.one
-    #               -----------------------------------------
+    #               ------------------------------------------
     #               1
     # 1. host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o0o1/match_application.html
     #                                         ------------------------------------------
