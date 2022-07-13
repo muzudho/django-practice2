@@ -9,10 +9,10 @@ class MatchApplicationV():
     #                           -------------------------------------------
 
     # ページ
-    _path_of_html = "tic_tac_toe_v2/o0o1/gui/match_application.html"
-    #                             ^two
-    #                ----------------------------------------------
-    #                1
+    path_of_html = "tic_tac_toe_v2/o0o1/gui/match_application.html"
+    #                            ^two
+    #               ----------------------------------------------
+    #               1
     # 1. `host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o0o1/gui/match_application.html` を取得
     #                                          ----------------------------------------------
 
@@ -29,7 +29,12 @@ class MatchApplicationV():
         #                                                                   --------
         # 2. `1.` に含まれる関数
 
-        return render_match_application(request, MatchApplicationV._path_of_http_playing, MatchApplicationV._path_of_html, MatchApplicationV.on_sent, MatchApplicationV.open)
+        return render_match_application(
+            request,
+            MatchApplicationV._path_of_http_playing,
+            MatchApplicationV.path_of_html,
+            MatchApplicationV.on_sent,
+            MatchApplicationV.open)
 
     @staticmethod
     def on_sent(request):
