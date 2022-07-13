@@ -2,8 +2,8 @@ class EngineManual():
     """エンジン手動"""
 
     path_of_html = "tic_tac_toe_v2/o0o1/think/engine_manual.html"
-    #                --------------------------------------------
-    #                1
+    #               --------------------------------------------
+    #               1
     # 1. host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o0o1/think/engine_manual.html
     #                                         --------------------------------------------
 
