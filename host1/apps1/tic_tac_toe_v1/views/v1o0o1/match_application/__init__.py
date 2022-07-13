@@ -1,5 +1,5 @@
-class MatchApplication():
-    """対局申込"""
+class MatchApplicationV():
+    """対局申込ビュー"""
 
     _path_of_http_playing = "/tic-tac-toe/v1/playing/{0}/?&mypiece={1}"
     #                                      ^one
@@ -8,10 +8,10 @@ class MatchApplication():
     # 1. http://example.com:8000/tic-tac-toe/v1/playing/Elephant/?&mypiece=X
     #                           --------------------------------------------
 
-    _path_of_html = "tic_tac_toe_v1/o0o1/match_application.html"
-    #                                ^^^zero.one
-    #                ------------------------------------------
-    #                1
+    path_of_html = "tic_tac_toe_v1/o0o1/match_application.html"
+    #                               ^^^zero.one
+    #               ------------------------------------------
+    #               1
     # 1. host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o0o1/match_application.html
     #                                         ------------------------------------------
 
@@ -26,4 +26,7 @@ class MatchApplication():
         #                                                               --------
         # 2. `1.` に含まれる関数
 
-        return render_match_application(request, MatchApplication._path_of_http_playing, MatchApplication._path_of_html)
+        return render_match_application(
+            request,
+            MatchApplicationV._path_of_http_playing,
+            MatchApplicationV.path_of_html)

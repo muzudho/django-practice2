@@ -812,8 +812,8 @@ connect();
 ```
 
 ```py
-class MatchApplication():
-    """対局申込"""
+class MatchApplicationV():
+    """対局申込ビュー"""
 
     _path_of_http_playing = "/tic-tac-toe/v1/playing/{0}/?&mypiece={1}"
     #                                      ^one
@@ -822,10 +822,10 @@ class MatchApplication():
     # 1. http://example.com:8000/tic-tac-toe/v1/playing/Elephant/?&mypiece=X
     #                           --------------------------------------------
 
-    _path_of_html = "tic_tac_toe_v1/o0o1/match_application.html"
-    #                                ^^^zero.one
-    #                -----------------------------------------
-    #                1
+    path_of_html = "tic_tac_toe_v1/o0o1/match_application.html"
+    #                               ^^^zero.one
+    #               -----------------------------------------
+    #               1
     # 1. host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o0o1/match_application.html
     #                                         ------------------------------------------
 
@@ -840,7 +840,10 @@ class MatchApplication():
         #                                                               --------
         # 2. `1.` に含まれる関数
 
-        return render_match_application(request, MatchApplication._path_of_http_playing, MatchApplication._path_of_html)
+        return render_match_application(
+            request,
+            MatchApplicationV._path_of_http_playing,
+            MatchApplicationV.path_of_html)
 ```
 
 
@@ -929,13 +932,13 @@ def render_match_application(request, path_of_http_playing, path_of_html):
 ```
 
 ```py
-class Playing():
-    """対局"""
+class PlayingV():
+    """対局中ビュー"""
 
-    _path_of_html = "tic_tac_toe_v1/o0o1/playing.html"
-    #                                ^^^ zero.one
-    #                --------------------------------
-    #                1
+    path_of_html = "tic_tac_toe_v1/o0o1/playing.html"
+    #                               ^^^ zero.one
+    #               --------------------------------
+    #               1
     # 1. `host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o0o1/playing.html`
     #                                          --------------------------------
 
@@ -950,7 +953,7 @@ class Playing():
         #                                                     --------
         # 2. `1.` に含まれる関数
 
-        return render_playing(request, room_name, Playing._path_of_html)
+        return render_playing(request, room_name, PlayingV.path_of_html)
 ```
 
 # Step 16. ビュー モジュール作成 - playing/v_render.py ファイル
@@ -1047,8 +1050,8 @@ def render_playing(request, room_name, path_of_html):
 ```py
 from django.urls import path
 
-from apps1.tic_tac_toe_v1.views.v1o0o1.match_application import MatchApplication
-#    ----- -------------- ------------------------------        ----------------
+from apps1.tic_tac_toe_v1.views.v1o0o1.match_application import MatchApplicationV
+#    ----- -------------- ------------------------------        -----------------
 #    1     2              3                                     4
 #    ---------------------------------------------------
 #    5
@@ -1058,7 +1061,7 @@ from apps1.tic_tac_toe_v1.views.v1o0o1.match_application import MatchApplication
 # 4. クラス名
 # 5. Pythonモジュール名
 
-from apps1.tic_tac_toe_v1.views.v1o0o1.playing import Playing
+from apps1.tic_tac_toe_v1.views.v1o0o1.playing import PlayingV
 
 
 urlpatterns = [
@@ -1067,24 +1070,24 @@ urlpatterns = [
     path('tic-tac-toe/v1/match-application/',
          # --------------------------------
          # 1
-         MatchApplication.render),
-    #    -----------------------
+         MatchApplicationV.render),
+    #    ------------------------
     #    2
     # 1. 例えば `http://example.com/tic-tac-toe/v1/match-application/` のような URL のパスの部分
     #                              ---------------------------------
-    # 2. MatchApplication クラスの render 静的メソッド
+    # 2. MatchApplicationV クラスの render 静的メソッド
 
     # 対局中
     path('tic-tac-toe/v1/playing/<str:room_name>/',
          # --------------------------------------
          # 1
-         Playing.render),
-    #    --------------
+         PlayingV.render),
+    #    ---------------
     #    2
     # 1. 例えば `http://example.com/tic-tac-toe/v1/playing/<部屋名>/` のような URL のパスの部分。
     #                              --------------------------------
     #    <部屋名> に入った文字列は room_name 変数に渡されます
-    # 2. Playing クラスの render 静的メソッド
+    # 2. PlayingV クラスの render 静的メソッド
 ]
 ```
 
