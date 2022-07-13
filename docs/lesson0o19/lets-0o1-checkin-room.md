@@ -211,35 +211,35 @@ def match_application_on_sent(request):
     # * ID ではなく、部屋名から行う
     room_table_qs = Room.objects.filter(name=po_room_name)
     # print(
-    #     f"[MatchApplication on_sent] po_room_name=[{po_room_name}] len={len(room_table_qs)}")
+    #     f"[match_application_on_sent] po_room_name=[{po_room_name}] len={len(room_table_qs)}")
 
     if 1 <= len(room_table_qs):
         # （名前被りがあったなら）先頭の１つを取得
         room = room_table_qs[0]
-        # print(f"[MatchApplication on_sent] first room=[{room}]")
+        # print(f"[match_application_on_sent] first room=[{room}]")
         # print(
-        #     f"[MatchApplication on_sent] first room .name=[{room.name}] .sente_id=[{room.sente_id}] .gote_id=[{room.gote_id}] .board=[{room.board}] .record=[{room.record}]")
+        #     f"[match_application_on_sent] first room .name=[{room.name}] .sente_id=[{room.sente_id}] .gote_id=[{room.gote_id}] .board=[{room.board}] .record=[{room.record}]")
     else:
         # 新規作成
         room = Room()
         room.name = po_room_name
-        # print(f"[MatchApplication on_sent] new room=[{room}]")
+        # print(f"[match_application_on_sent] new room=[{room}]")
 
-    # print(f"[MatchApplication on_sent] request.user={request.user}")
+    # print(f"[match_application_on_sent] request.user={request.user}")
     # print(
-    #     f"[MatchApplication on_sent] request.user.is_authenticated={request.user.is_authenticated}")
+    #     f"[match_application_on_sent] request.user.is_authenticated={request.user.is_authenticated}")
 
     if request.user.is_authenticated:
         # ログインしたユーザーだった
 
         user_pk = request.user.pk
         # print(
-        #     f"[MatchApplication on_sent] user_pk={user_pk} room.sente_id={room.sente_id} room.gote_id={room.gote_id}")
+        #     f"[match_application_on_sent] user_pk={user_pk} room.sente_id={room.sente_id} room.gote_id={room.gote_id}")
 
         # デバッグ
         # user = User.objects.get(pk=user_pk)
         # print(
-        #     f"[MatchApplication on_sent] user username={user.username}")
+        #     f"[match_application_on_sent] user username={user.username}")
 
         # 自分の Profile レコード 取得
         profile = Profile.objects.get(user__pk=user_pk)
@@ -247,9 +247,9 @@ def match_application_on_sent(request):
         #                             1
         # 1. Profile テーブルと 1対1 で紐づいている親テーブル User の pk フィールド
 
-        # print(f"[MatchApplication on_sent] profile={profile}")
+        # print(f"[match_application_on_sent] profile={profile}")
         # print(
-        #     f"[MatchApplication on_sent] profile.match_state={profile.match_state}")
+        #     f"[match_application_on_sent] profile.match_state={profile.match_state}")
 
         if my_turn == "X":
             # X を取った方は先手とします
@@ -277,19 +277,19 @@ def match_application_on_sent(request):
             room.record = ""
 
         # print(
-        #     f"[MatchApplication on_sent] room .name=[{room.name}] .sente_id=[{room.sente_id}] .gote_id=[{room.gote_id}] .board=[{room.board}] .record=[{room.record}]")
+        #     f"[match_application_on_sent] room .name=[{room.name}] .sente_id=[{room.sente_id}] .gote_id=[{room.gote_id}] .board=[{room.board}] .record=[{room.record}]")
         # TODO バリデーションチェック
         room.save()
 
         # print(
-        #     f"[MatchApplication on_sent] prifile .match_state=[{profile.match_state}]")
+        #     f"[match_application_on_sent] prifile .match_state=[{profile.match_state}]")
         # TODO バリデーションチェック
         profile.save()
 
-        # print(f"[MatchApplication on_sent] ★ 更新終わり")
+        # print(f"[match_application_on_sent] ★ 更新終わり")
     else:
         # ゲストだった
-        # print(f"[MatchApplication on_sent] ★ ゲスト")
+        # print(f"[match_application_on_sent] ★ ゲスト")
         pass
 ```
 
