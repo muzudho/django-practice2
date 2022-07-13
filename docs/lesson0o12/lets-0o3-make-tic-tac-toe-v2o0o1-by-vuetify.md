@@ -1421,8 +1421,8 @@ match_application_open_context = {
 }
 
 
-class MatchApplication():
-    """対局申込"""
+class MatchApplicationV():
+    """対局申込ビュー"""
 
     _path_of_http_playing = "/tic-tac-toe/v2/playing/{0}/?&myturn={1}"
     #                                      ^ two
@@ -1431,10 +1431,10 @@ class MatchApplication():
     # 1. http://example.com:8000/tic-tac-toe/v2/playing/Elephant/?&myturn=X
     #                           -------------------------------------------
 
-    _path_of_html = "tic_tac_toe_v2/o0o1/gui/match_application.html"
-    #                             ^ two
-    #                ---------------------------------------------
-    #                1
+    path_of_html = "tic_tac_toe_v2/o0o1/gui/match_application.html"
+    #                            ^ two
+    #               ----------------------------------------------
+    #               1
     # 1. host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o0o1/gui/match_application.html
     #                                         ----------------------------------------------
 
@@ -1450,7 +1450,12 @@ class MatchApplication():
         #                                                                   --------
         # 2. `1.` に含まれる関数
 
-        return render_match_application(request, MatchApplication._path_of_http_playing, MatchApplication._path_of_html, MatchApplication.on_sent, MatchApplication.open)
+        return render_match_application(
+            request,
+            MatchApplicationV._path_of_http_playing,
+            MatchApplicationV.path_of_html,
+            MatchApplicationV.on_sent,
+            MatchApplicationV.open)
 
     @staticmethod
     def on_sent(request):
@@ -1573,11 +1578,8 @@ def render_match_application(request, path_of_http_playing, path_of_html, on_sen
 playing_expected_pieces = ['X', 'O']
 
 
-# 以下、ロジック
-
-
-class Playing():
-    """対局中"""
+class PlayingV():
+    """対局中ビュー"""
 
     _path_of_ws_playing = "/tic-tac-toe/v2o0o1/playing/"
     #                                    ^ two
@@ -1586,10 +1588,10 @@ class Playing():
     # 1. ws://example.com:8000/tic-tac-toe/v2o0o1/playing/
     #                         ---------------------------
 
-    _path_of_html = "tic_tac_toe_v2/o0o1/gui/playing.html.txt"
-    #                             ^ two
-    #                ----------------------------------------
-    #                1
+    path_of_html = "tic_tac_toe_v2/o0o1/gui/playing.html.txt"
+    #                            ^ two
+    #               ----------------------------------------
+    #               1
     # 1. host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o0o1/gui/playing.html.txt
     #                                         ----------------------------------------
 
@@ -1608,9 +1610,9 @@ class Playing():
         return render_playing(
             request,
             kw_room_name,
-            Playing._path_of_ws_playing,
-            Playing._path_of_html,
-            Playing.on_update,
+            PlayingV._path_of_ws_playing,
+            PlayingV.path_of_html,
+            PlayingV.on_update,
             playing_expected_pieces)
 
     @staticmethod
@@ -1727,8 +1729,8 @@ def render_playing(request, kw_room_name, path_of_ws_playing, path_of_html, on_u
 # ...略...
 
 
-from apps1.tic_tac_toe_v2.views.v2o0o1.gui.match_application import MatchApplication
-#    ----- -------------- ----------------------------------        ----------------
+from apps1.tic_tac_toe_v2.views.v2o0o1.gui.match_application import MatchApplicationV
+#    ----- -------------- ----------------------------------        -----------------
 #    1     2              3                                         4
 #    -------------------------------------------------------
 #    5
@@ -1738,7 +1740,7 @@ from apps1.tic_tac_toe_v2.views.v2o0o1.gui.match_application import MatchApplica
 # 4. クラス名
 # 5. Pythonモジュール名
 
-from apps1.tic_tac_toe_v2.views.v2o0o1.gui.playing import Playing
+from apps1.tic_tac_toe_v2.views.v2o0o1.gui.playing import PlayingV
 
 
 urlpatterns = [
@@ -1749,24 +1751,24 @@ urlpatterns = [
     path('tic-tac-toe/v2/match-application/',
          # --------------------------------
          # 1
-         MatchApplication.render),
-    #    -----------------------
+         MatchApplicationV.render),
+    #    ------------------------
     #    2
     # 1. 例えば `http://example.com/tic-tac-toe/v2/match-application/` のような URL のパスの部分
     #                              ---------------------------------
-    # 2. MatchApplication クラスの render 静的メソッド
+    # 2. MatchApplicationV クラスの render 静的メソッド
 
     # 対局中
     path('tic-tac-toe/v2/playing/<str:kw_room_name>/',
          # -----------------------------------------
          # 1
-         Playing.render),
-    #    --------------
+         PlayingV.render),
+    #    ---------------
     #    2
     # 1. 例えば `http://example.com/tic-tac-toe/v2/playing/<部屋名>/` のような URL のパスの部分。
     #                              --------------------------------
     #    <部屋名> に入った文字列は kw_room_name 変数に渡されます
-    # 2. Playing クラスの render 静的メソッド
+    # 2. PlayingV クラスの render 静的メソッド
 ]
 ```
 

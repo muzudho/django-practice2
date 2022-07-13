@@ -5,11 +5,8 @@
 playing_expected_pieces = ['X', 'O']
 
 
-# 以下、ロジック
-
-
-class Playing():
-    """対局中"""
+class PlayingV():
+    """対局中ビュー"""
 
     _path_of_ws_playing = "/tic-tac-toe/v2o0o1/playing/"
     #                                    ^ two
@@ -18,10 +15,10 @@ class Playing():
     # 1. `ws://example.com:8000/tic-tac-toe/v2o0o1/playing/`
     #                          ---------------------------
 
-    _path_of_html = "tic_tac_toe_v2/o0o1/gui/playing.html.txt"
-    #                             ^ two
-    #                ----------------------------------------
-    #                1
+    path_of_html = "tic_tac_toe_v2/o0o1/gui/playing.html.txt"
+    #                            ^ two
+    #               ----------------------------------------
+    #               1
     # 1. `host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o0o1/gui/playing.html.txt`
     #                                          ----------------------------------------
 
@@ -40,9 +37,9 @@ class Playing():
         return render_playing(
             request,
             kw_room_name,
-            Playing._path_of_ws_playing,
-            Playing._path_of_html,
-            Playing.on_update,
+            PlayingV._path_of_ws_playing,
+            PlayingV.path_of_html,
+            PlayingV.on_update,
             playing_expected_pieces)
 
     @staticmethod
