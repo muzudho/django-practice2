@@ -8,7 +8,7 @@ from django.shortcuts import redirect
 class LoggingIn():
     """ログイン中"""
 
-    _path_of_html = "practice/v0o0o1/login_required.html"
+    path_of_html = "practice/v0o0o1/login_required.html"
     #                -----------------------------------
     #                1
     # 1. host1/apps1/practice/templates/practice/v0o0o1/login_required.html を取得
@@ -20,7 +20,7 @@ class LoggingIn():
     @login_required
     def render(request):
         """描画"""
-        return loggingIn_render(request, LoggingIn._path_of_html)
+        return loggingIn_render(request, LoggingIn.path_of_html)
 
 
 class LoggingOut():
