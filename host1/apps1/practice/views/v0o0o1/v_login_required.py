@@ -9,8 +9,8 @@ class LoggingIn():
     """ログイン中"""
 
     path_of_html = "practice/v0o0o1/login_required.html"
-    #                -----------------------------------
-    #                1
+    #               -----------------------------------
+    #               1
     # 1. host1/apps1/practice/templates/practice/v0o0o1/login_required.html を取得
     #                                   -----------------------------------
 
