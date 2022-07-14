@@ -19,21 +19,21 @@
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂host1
-    │   ├── 📂data
-    │   ├── 📂project1
-    │   │   ├── 📄__init__.py
-    │   │   ├── 📄asgi.py
-    │   │   ├── 📄settings_secrets_example.txt
-    │   │   ├── 📄settings_secrets.py
-    │   │   ├── 📄settings.py
-    │   │   ├── 📄urls.py
-    │   │   └── 📄wsgi.py
-    │   ├── 🐳docker-compose.yml
-    │   ├── 🐳Dockerfile
-    │   ├── 📄manage.py
-    │   └── 📄requirements.txt
-    └── 📄.gitignore
+    ├── 📂 host1
+    │   ├── 📂 data
+    │   ├── 📂 project1
+    │   │   ├── 📄 __init__.py
+    │   │   ├── 📄 asgi.py
+    │   │   ├── 📄 settings_secrets_example.txt
+    │   │   ├── 📄 settings_secrets.py
+    │   │   ├── 📄 settings.py
+    │   │   ├── 📄 urls.py
+    │   │   └── 📄 wsgi.py
+    │   ├── 🐳 docker-compose.yml
+    │   ├── 🐳 Dockerfile
+    │   ├── 📄 manage.py
+    │   └── 📄 requirements.txt
+    └── 📄 .gitignore
 ```
 
 # Step 1. Dockerコンテナの起動
@@ -53,16 +53,16 @@ docker-compose up
 👇 以下のフォルダーをコピー＆ペーストして  
 
 ```plaintext
-    └── 📂host1
-👉      └── 📂project1
+    └── 📂 host1
+👉      └── 📂 project1
 ```
 
 👇 名前を変えたものを作ってほしい  
 
 ```plaintext
-    └── 📂host1
-        ├── 📂project1
-👉      └── 📂project2
+    └── 📂 host1
+        ├── 📂 project1
+👉      └── 📂 project2
 ```
 
 # Step 3. 設定変更 - settings.py ファイル
@@ -70,10 +70,10 @@ docker-compose up
 👇 以下のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂host1
-        ├── 📂project1
-        └── 📂project2
-👉          └── 📄settings.py
+    └── 📂 host1
+        ├── 📂 project1
+        └── 📂 project2
+👉          └── 📄 settings.py
 ```
 
 👇 抜粋  
@@ -92,11 +92,11 @@ DEBUG = False
 👇 以下のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂host1
-        ├── 📂project1
-        └── 📂project2
-👉          ├── 📄settings_secrets.py
-            └── 📄settings.py
+    └── 📂 host1
+        ├── 📂 project1
+        └── 📂 project2
+👉          ├── 📄 settings_secrets.py
+            └── 📄 settings.py
 ```
 
 👇 抜粋  
@@ -120,24 +120,24 @@ ALLOWED_HOSTS = [
 👇 以下のフォルダーをコピー＆ペーストして  
 
 ```plaintext
-    └── 📂host1
-        ├── 📂project1
-        ├── 📂project2
-        │   ├── 📄settings_secrets.py
-        │   └── 📄settings.py
-👉      └── 🐳docker-compose.yml
+    └── 📂 host1
+        ├── 📂 project1
+        ├── 📂 project2
+        │   ├── 📄 settings_secrets.py
+        │   └── 📄 settings.py
+👉      └── 🐳 docker-compose.yml
 ```
 
 👇 名前を変えたものを作ってほしい  
 
 ```plaintext
-    └── 📂host1
-        ├── 📂project1
-        ├── 📂project2
-        │   ├── 📄settings_secrets.py
-        │   └── 📄settings.py
-        ├── 🐳docker-compose.yml
-👉      └── 🐳docker-compose-project2.yml
+    └── 📂 host1
+        ├── 📂 project1
+        ├── 📂 project2
+        │   ├── 📄 settings_secrets.py
+        │   └── 📄 settings.py
+        ├── 🐳 docker-compose.yml
+👉      └── 🐳 docker-compose-project2.yml
 ```
 
 # Step 6. 本番用ドッカーコンポーズ ファイル編集 - docker-compose-project2.yml ファイル
@@ -145,13 +145,13 @@ ALLOWED_HOSTS = [
 👇 以下のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂host1
-        ├── 📂project1
-        ├── 📂project2
-        │   ├── 📄settings_secrets.py
-        │   └── 📄settings.py
-        ├── 🐳docker-compose.yml
-👉      └── 🐳docker-compose-project2.yml
+    └── 📂 host1
+        ├── 📂 project1
+        ├── 📂 project2
+        │   ├── 📄 settings_secrets.py
+        │   └── 📄 settings.py
+        ├── 🐳 docker-compose.yml
+👉      └── 🐳 docker-compose-project2.yml
 ```
 
 👇 抜粋  
