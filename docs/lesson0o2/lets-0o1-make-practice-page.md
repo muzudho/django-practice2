@@ -1,7 +1,7 @@
 # 目的
 
 Webサイトのページを追加したい。  
-以下のようなURLで表示させる。  
+以下のようなURLで表示させる  
 
 ```plain
 http://example.com/practice/page1
@@ -29,22 +29,22 @@ http://example.com/practice/page1
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂host1
-    │   ├── 📂data
-    │   ├── 📂project1
-    │   │   ├── 📄__init__.py
-    │   │   ├── 📄asgi.py
-    │   │   ├── 📄settings_secrets.py
-    │   │   ├── 📄settings.py
-    │   │   ├── 📄urls.py
-    │   │   └── 📄wsgi.py
-    │   ├── 📂project2
-    │   ├── 🐳docker-compose-project2.yml
-    │   ├── 🐳docker-compose.yml
-    │   ├── 🐳Dockerfile
-    │   ├── 📄manage.py
-    │   └── 📄requirements.txt
-    └── 📄.gitignore
+    ├── 📂 host1
+    │   ├── 📂 data
+    │   ├── 📂 project1
+    │   │   ├── 📄 __init__.py
+    │   │   ├── 📄 asgi.py
+    │   │   ├── 📄 settings_secrets.py
+    │   │   ├── 📄 settings.py
+    │   │   ├── 📄 urls.py
+    │   │   └── 📄 wsgi.py
+    │   ├── 📂 project2
+    │   ├── 🐳 docker-compose-project2.yml
+    │   ├── 🐳 docker-compose.yml
+    │   ├── 🐳 Dockerfile
+    │   ├── 📄 manage.py
+    │   └── 📄 requirements.txt
+    └── 📄 .gitignore
 ```
 
 # Step 1. Dockerコンテナの起動
@@ -64,9 +64,9 @@ docker-compose up
 👇 以下のフォルダーを新規作成してほしい  
 
 ```plaintext
-    └── 📂host1
-        └── 📂apps1         # 複数のアプリケーションを入れるフォルダー。末尾の 1 は文字列検索しやすいように付けているだけで特別な意味はない
-            └── 📂practice  # アプリケーション名
+    └── 📂 host1
+        └── 📂 apps1         # 複数のアプリケーションを入れるフォルダー。末尾の 1 は文字列検索しやすいように付けているだけで特別な意味はない
+            └── 📂 practice  # アプリケーション名
 ```
 
 # Step 3. アプリケーション作成
@@ -84,17 +84,17 @@ docker-compose run --rm web python manage.py startapp practice ./apps1/practice
 👇 以下のようなディレクトリー、ファイルが自動生成される  
 
 ```plaintext
-    └── 📂host1
-        └── 📂apps1
-            └── 📂practice              # アプリケーション名
-👉              ├── 📂migrations
-👉              │   └── 📄__init__.py
-👉              ├── 📄__init__.py
-👉              ├── 📄admin.py
-👉              ├── 📄apps.py
-👉              ├── 📄models.py
-👉              ├── 📄tests.py
-👉              └── 📄views.py
+    └── 📂 host1
+        └── 📂 apps1
+            └── 📂 practice              # アプリケーション名
+👉              ├── 📂 migrations
+👉              │   └── 📄 __init__.py
+👉              ├── 📄 __init__.py
+👉              ├── 📄 admin.py
+👉              ├── 📄 apps.py
+👉              ├── 📄 models.py
+👉              ├── 📄 tests.py
+👉              └── 📄 views.py
 ```
 
 # Step 4. 今回使わないファイルの削除
@@ -102,17 +102,17 @@ docker-compose run --rm web python manage.py startapp practice ./apps1/practice
 👇 以下のファイルを削除してほしい  
 
 ```plaintext
-    └── 📂host1
-        └── 📂apps1
-            └── 📂practice              # アプリケーション名
-                ├── 📂migrations
-                │   └── 📄__init__.py
-                ├── 📄__init__.py
-                ├── 📄admin.py
-                ├── 📄apps.py
-👉              ├── 📄models.py
-                ├── 📄tests.py
-👉              └── 📄views.py
+    └── 📂 host1
+        └── 📂 apps1
+            └── 📂 practice              # アプリケーション名
+                ├── 📂 migrations
+                │   └── 📄 __init__.py
+                ├── 📄 __init__.py
+                ├── 📄 admin.py
+                ├── 📄 apps.py
+👉              ├── 📄 models.py
+                ├── 📄 tests.py
+👉              └── 📄 views.py
 ```
 
 # Step 5. アプリケーション設定変更 - apps.py
@@ -120,15 +120,15 @@ docker-compose run --rm web python manage.py startapp practice ./apps1/practice
 👇 以下のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂host1
-        └── 📂apps1
-            └── 📂practice              # アプリケーション名
-                ├── 📂migrations
-                │   └── 📄__init__.py
-                ├── 📄__init__.py
-                ├── 📄admin.py
-👉              ├── 📄apps.py
-                └── 📄tests.py
+    └── 📂 host1
+        └── 📂 apps1
+            └── 📂 practice              # アプリケーション名
+                ├── 📂 migrations
+                │   └── 📄 __init__.py
+                ├── 📄 __init__.py
+                ├── 📄 admin.py
+👉              ├── 📄 apps.py
+                └── 📄 tests.py
 ```
 
 ```py
@@ -152,17 +152,17 @@ class PracticeConfig(AppConfig):
 👇 以下の既存のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂host1
-        ├── 📂apps1
-        │   └── 📂practice              # アプリケーション名
-        │       ├── 📂migrations
-        │       │   └── 📄__init__.py
-        │       ├── 📄__init__.py
-        │       ├── 📄admin.py
-        │       ├── 📄apps.py
-        │       └── 📄tests.py
-        └── 📂project1
-👉          └── 📄settings.py
+    └── 📂 host1
+        ├── 📂 apps1
+        │   └── 📂 practice              # アプリケーション名
+        │       ├── 📂 migrations
+        │       │   └── 📄 __init__.py
+        │       ├── 📄 __init__.py
+        │       ├── 📄 admin.py
+        │       ├── 📄 apps.py
+        │       └── 📄 tests.py
+        └── 📂 project1
+👉          └── 📄 settings.py
 ```
 
 ```py
@@ -199,13 +199,13 @@ INSTALLED_APPS = [
 以下のファイルを作成してほしい。
 
 ```plaintext
-    └── 📂host1
-        └── 📂apps1
-            └── 📂practice              # アプリケーション
-                └── 📂templates
-                    └── 📂practice      # アプリケーションと同名。あなたの Django の支配下のすべてのアプリケーションの静的素材は、実行時メモリの中で、あなたの Django の支配下のすべてのアプリケーションからアクセスできる１つの静的フォルダーに再配置されていると考えてほしい。あとは自分の頭で考えてほしい
-                        └── 📂v0o0o1        # Version 0.0.1 の意味で付けた、ただのフォルダー。無くてもいい。小数を使うと刻みやすい。 0.0 ではなく 0.1 から始めると、それより前方に 0.0.1 を挿入できるメリットがある
-👉                          └── 📄page1.html
+    └── 📂 host1
+        └── 📂 apps1
+            └── 📂 practice              # アプリケーション
+                └── 📂 templates
+                    └── 📂 practice      # アプリケーションと同名。あなたの Django の支配下のすべてのアプリケーションの静的素材は、実行時メモリの中で、あなたの Django の支配下のすべてのアプリケーションからアクセスできる１つの静的フォルダーに再配置されていると考えてほしい。あとは自分の頭で考えてほしい
+                        └── 📂 v0o0o1        # Version 0.0.1 の意味で付けた、ただのフォルダー。無くてもいい。小数を使うと刻みやすい。 0.0 ではなく 0.1 から始めると、それより前方に 0.0.1 を挿入できるメリットがある
+👉                          └── 📄 page1.html
 ```
 
 ```html
@@ -224,15 +224,15 @@ INSTALLED_APPS = [
 👇 以下のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂host1
-        ├── 📂apps1
-        │   └── 📂practice              # アプリケーション
-        │       └── 📂templates
-        │           └── 📂practice
-        │               └── 📂v0o0o1
-        │                   └── 📄page1.html
-        └── 📂project1
-            └── 📄settings.py
+    └── 📂 host1
+        ├── 📂 apps1
+        │   └── 📂 practice              # アプリケーション
+        │       └── 📂 templates
+        │           └── 📂 practice
+        │               └── 📂 v0o0o1
+        │                   └── 📄 page1.html
+        └── 📂 project1
+            └── 📄 settings.py
 ```
 
 👇 変更するのは `TEMPLATES[0]["DIRS"]` 変数  
@@ -274,16 +274,16 @@ TEMPLATES = [
 👇 以下のファイルを作成してほしい  
 
 ```plaintext
-    └── 📂host1
-        └── 📂apps1
-            └── 📂practice              # アプリケーション
-                ├── 📂templates
-                │   └── 📂practice
-                │       └── 📂v0o0o1
-                │           └── 📄page1.html
-                └── 📂views
-                    └── 📂v0o0o1            # Version 0.0.1 の意味で付けた任意の名前
-👉                      └── 📄pages.py
+    └── 📂 host1
+        └── 📂 apps1
+            └── 📂 practice              # アプリケーション
+                ├── 📂 templates
+                │   └── 📂 practice
+                │       └── 📂 v0o0o1
+                │           └── 📄 page1.html
+                └── 📂 views
+                    └── 📂 v0o0o1            # Version 0.0.1 の意味で付けた任意の名前
+👉                      └── 📄 pages.py
 ```
 
 ```py
@@ -317,19 +317,19 @@ class Page1():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂host1
-        ├── 📂apps1
-        │   └── 📂practice              # アプリケーション
-        │       ├── 📂templates
-        │       │   └── 📂practice
-        │       │       └── 📂v0o0o1
-        │       │           └── 📄page1.html
-        │       └── 📂views
-        │           └── 📂v0o0o1
-        │               └── 📄pages.py
-        └── 📂project1
-👉          ├── 📄urls_practice.py          # 新規作成
-❌          └── 📄urls.py                   # これではない
+    └── 📂 host1
+        ├── 📂 apps1
+        │   └── 📂 practice              # アプリケーション
+        │       ├── 📂 templates
+        │       │   └── 📂 practice
+        │       │       └── 📂 v0o0o1
+        │       │           └── 📄 page1.html
+        │       └── 📂 views
+        │           └── 📂 v0o0o1
+        │               └── 📄 pages.py
+        └── 📂 project1
+👉          ├── 📄 urls_practice.py          # 新規作成
+❌          └── 📄 urls.py                   # これではない
 ```
 
 ```py
@@ -360,19 +360,19 @@ urlpatterns = [
 👇 以下のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂host1
-        ├── 📂apps1
-        │   └── 📂practice              # アプリケーション
-        │       ├── 📂templates
-        │       │   └── 📂practice
-        │       │       └── 📂v0o0o1
-        │       │           └── 📄page1.html
-        │       └── 📂views
-        │           └── 📂v0o0o1
-        │               └── 📄pages.py
-        └── 📂project1
-❌          ├── 📄urls_practice.py          # これではない
-👉          └── 📄urls.py                   # こっち
+    └── 📂 host1
+        ├── 📂 apps1
+        │   └── 📂 practice              # アプリケーション
+        │       ├── 📂 templates
+        │       │   └── 📂 practice
+        │       │       └── 📂 v0o0o1
+        │       │           └── 📄 page1.html
+        │       └── 📂 views
+        │           └── 📂 v0o0o1
+        │               └── 📄 pages.py
+        └── 📂 project1
+❌          ├── 📄 urls_practice.py          # これではない
+👉          └── 📄 urls.py                   # こっち
 ```
 
 ```py
