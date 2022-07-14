@@ -70,8 +70,8 @@ python -m pip install --upgrade pip
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂host1                   # あなたの開発用ディレクトリー。任意の名前
-👉      └── 📄requirements.txt
+    └── 📂 host1                   # あなたの開発用ディレクトリー。任意の名前
+👉      └── 📄 requirements.txt
 ```
 
 ```plaintext
@@ -87,9 +87,9 @@ psycopg2>=2.8
 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂host1
-👉      ├── 🐳Dockerfile
-        └── 📄requirements.txt
+    └── 📂 host1
+👉      ├── 🐳 Dockerfile
+        └── 📄 requirements.txt
 ```
 
 ```Dockerfile
@@ -121,7 +121,7 @@ COPY . /code/
 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂host1
+    └── 📂 host1
 👉      ├── 🐳docker-compose.yml
         ├── 🐳Dockerfile
         └── 📄requirements.txt
@@ -202,14 +202,14 @@ Creating host1_web_run ... done
 👇 すると、あなたの開発用ディレクトリーの下に、プロジェクト フォルダーと、 manage.py ファイルが自動生成される  
 
 ```plaintext
-    └── 📂host1
-        ├── 📂project1
-        │   ├── 📄__init__.py
-        │   ├── 📄asgi.py
-        │   ├── 📄settings.py
-        │   ├── 📄urls.py
-        │   └── 📄wsgi.py
-        └── 📄manage.py
+    └── 📂 host1
+        ├── 📂 project1
+        │   ├── 📄 __init__.py
+        │   ├── 📄 asgi.py
+        │   ├── 📄 settings.py
+        │   ├── 📄 urls.py
+        │   └── 📄 wsgi.py
+        └── 📄 manage.py
 ```
 
 # Step 9. セキュリティ対策 - SECRET_KEY 変数
@@ -219,35 +219,35 @@ Creating host1_web_run ... done
 👇 以下のファイルを作成してほしい  
 
 ```plaintext
-    └── 📂host1
-        ├── 📂project1
-        │   ├── 📄__init__.py
-        │   ├── 📄asgi.py
-👉      │   ├── 📄settings_secrets.py
-        │   ├── 📄settings.py
-        │   ├── 📄urls.py
-        │   └── 📄wsgi.py
-        ├── 🐳docker-compose.yml
-        ├── 🐳Dockerfile
-        ├── 📄manage.py
-        └── 📄requirements.txt
+    └── 📂 host1
+        ├── 📂 project1
+        │   ├── 📄 __init__.py
+        │   ├── 📄 asgi.py
+👉      │   ├── 📄 settings_secrets.py
+        │   ├── 📄 settings.py
+        │   ├── 📄 urls.py
+        │   └── 📄 wsgi.py
+        ├── 🐳 docker-compose.yml
+        ├── 🐳 Dockerfile
+        ├── 📄 manage.py
+        └── 📄 requirements.txt
 ```
 
-👇 次に、 `📄settings.py` から２つの変数を探してテキストを切り取り、`📄settings_secrets.py` へ貼り付けてほしい  
+👇 次に、 `📄 settings.py` から２つの変数を探してテキストを切り取り、`📄 settings_secrets.py` へ貼り付けてほしい  
 
 ```plaintext
-    └── 📂host1
-        ├── 📂project1
-        │   ├── 📄__init__.py
-        │   ├── 📄asgi.py
-👉      │   ├── 📄settings_secrets.py   # こっちへ貼り付ける
-👉      │   ├── 📄settings.py           # こっちから切り取る
-        │   ├── 📄urls.py
-        │   └── 📄wsgi.py
-        ├── 🐳docker-compose.yml
-        ├── 🐳Dockerfile
-        ├── 📄manage.py
-        └── 📄requirements.txt
+    └── 📂 host1
+        ├── 📂 project1
+        │   ├── 📄 __init__.py
+        │   ├── 📄 asgi.py
+👉      │   ├── 📄 settings_secrets.py   # こっちへ貼り付ける
+👉      │   ├── 📄 settings.py           # こっちから切り取る
+        │   ├── 📄 urls.py
+        │   └── 📄 wsgi.py
+        ├── 🐳 docker-compose.yml
+        ├── 🐳 Dockerfile
+        ├── 📄 manage.py
+        └── 📄 requirements.txt
 ```
 
 ```py
@@ -262,22 +262,22 @@ ALLOWED_HOSTS = []
 👇 以下のファイルが無ければ新規作成、あれば編集してほしい  
 
 ```plaintext
-    ├── 📂host1
-    │   ├── 📂project1
-    │   │   ├── 📄__init__.py
-    │   │   ├── 📄asgi.py
-    │   │   ├── 📄settings_secrets.py
-    │   │   ├── 📄settings.py
-    │   │   ├── 📄urls.py
-    │   │   └── 📄wsgi.py
-    │   ├── 🐳docker-compose.yml
-    │   ├── 🐳Dockerfile
-    │   ├── 📄manage.py
-    │   └── 📄requirements.txt
-👉  └── 📄.gitignore
+    ├── 📂 host1
+    │   ├── 📂 project1
+    │   │   ├── 📄 __init__.py
+    │   │   ├── 📄 asgi.py
+    │   │   ├── 📄 settings_secrets.py
+    │   │   ├── 📄 settings.py
+    │   │   ├── 📄 urls.py
+    │   │   └── 📄 wsgi.py
+    │   ├── 🐳 docker-compose.yml
+    │   ├── 🐳 Dockerfile
+    │   ├── 📄 manage.py
+    │   └── 📄 requirements.txt
+👉  └── 📄 .gitignore
 ```
 
-👇 例えば、 `📄.gitignore` の冒頭あたりにでも 追加してほしい  
+👇 例えば、 `📄 .gitignore` の冒頭あたりにでも 追加してほしい  
 
 ```plaintext
 # Django practice
@@ -290,19 +290,19 @@ host1/project2/settings_secrets.py
 👇 以下のファイルを編集してほしい  
 
 ```plaintext
-    ├── 📂host1
-    │   ├── 📂project1
-    │   │   ├── 📄__init__.py
-    │   │   ├── 📄asgi.py
-    │   │   ├── 📄settings_secrets.py
-👉  │   │   ├── 📄settings.py
-    │   │   ├── 📄urls.py
-    │   │   └── 📄wsgi.py
-    │   ├── 🐳docker-compose.yml
-    │   ├── 🐳Dockerfile
-    │   ├── 📄manage.py
-    │   └── 📄requirements.txt
-    └── 📄.gitignore
+    ├── 📂 host1
+    │   ├── 📂 project1
+    │   │   ├── 📄 __init__.py
+    │   │   ├── 📄 asgi.py
+    │   │   ├── 📄 settings_secrets.py
+👉  │   │   ├── 📄 settings.py
+    │   │   ├── 📄 urls.py
+    │   │   └── 📄 wsgi.py
+    │   ├── 🐳 docker-compose.yml
+    │   ├── 🐳 Dockerfile
+    │   ├── 📄 manage.py
+    │   └── 📄 requirements.txt
+    └── 📄 .gitignore
 ```
 
 👇 冒頭のあたりにでも追加してほしい  
@@ -319,20 +319,20 @@ from .settings_secrets import SECRET_KEY, ALLOWED_HOSTS
 👇 以下のファイルを新規作成してほしい
 
 ```plaintext
-    ├── 📂host1
-    │   ├── 📂project1
-    │   │   ├── 📄__init__.py
-    │   │   ├── 📄asgi.py
-👉  │   │   ├── 📄settings_secrets_example.txt
-    │   │   ├── 📄settings_secrets.py
-    │   │   ├── 📄settings.py
-    │   │   ├── 📄urls.py
-    │   │   └── 📄wsgi.py
-    │   ├── 🐳docker-compose.yml
-    │   ├── 🐳Dockerfile
-    │   ├── 📄manage.py
-    │   └── 📄requirements.txt
-    └── 📄.gitignore
+    ├── 📂 host1
+    │   ├── 📂 project1
+    │   │   ├── 📄 __init__.py
+    │   │   ├── 📄 asgi.py
+👉  │   │   ├── 📄 settings_secrets_example.txt
+    │   │   ├── 📄 settings_secrets.py
+    │   │   ├── 📄 settings.py
+    │   │   ├── 📄 urls.py
+    │   │   └── 📄 wsgi.py
+    │   ├── 🐳 docker-compose.yml
+    │   ├── 🐳 Dockerfile
+    │   ├── 📄 manage.py
+    │   └── 📄 requirements.txt
+    └── 📄 .gitignore
 ```
 
 ```plaintxt
@@ -350,20 +350,20 @@ ALLOWED_HOSTS = []
 👇 以下のファイルに、コメントを書き入れてもいいし、書き入れなくてもよい  
 
 ```plaintext
-    ├── 📂host1
-    │   ├── 📂project1
-    │   │   ├── 📄__init__.py
-    │   │   ├── 📄asgi.py
-    │   │   ├── 📄settings_secrets_example.txt
-    │   │   ├── 📄settings_secrets.py
-    │   │   ├── 📄settings.py
-    │   │   ├── 📄urls.py
-    │   │   └── 📄wsgi.py
-    │   ├── 🐳docker-compose.yml
-    │   ├── 🐳Dockerfile
-👉  │   ├── 📄manage.py
-    │   └── 📄requirements.txt
-    └── 📄.gitignore
+    ├── 📂 host1
+    │   ├── 📂 project1
+    │   │   ├── 📄 __init__.py
+    │   │   ├── 📄 asgi.py
+    │   │   ├── 📄 settings_secrets_example.txt
+    │   │   ├── 📄 settings_secrets.py
+    │   │   ├── 📄 settings.py
+    │   │   ├── 📄 urls.py
+    │   │   └── 📄 wsgi.py
+    │   ├── 🐳 docker-compose.yml
+    │   ├── 🐳 Dockerfile
+👉  │   ├── 📄 manage.py
+    │   └── 📄 requirements.txt
+    └── 📄 .gitignore
 ```
 
 ```py
@@ -403,20 +403,20 @@ if __name__ == '__main__':
 👇 以下のファイルに、コメントを書き入れてもいいし、書き入れなくてもよい  
 
 ```plaintext
-    ├── 📂host1
-    │   ├── 📂project1
-    │   │   ├── 📄__init__.py
-    │   │   ├── 📄asgi.py
-    │   │   ├── 📄settings_secrets_example.txt
-    │   │   ├── 📄settings_secrets.py
-    │   │   ├── 📄settings.py
-👉  │   │   ├── 📄urls.py
-    │   │   └── 📄wsgi.py
-    │   ├── 🐳docker-compose.yml
-    │   ├── 🐳Dockerfile
-    │   ├── 📄manage.py
-    │   └── 📄requirements.txt
-    └── 📄.gitignore
+    ├── 📂 host1
+    │   ├── 📂 project1
+    │   │   ├── 📄 __init__.py
+    │   │   ├── 📄 asgi.py
+    │   │   ├── 📄 settings_secrets_example.txt
+    │   │   ├── 📄 settings_secrets.py
+    │   │   ├── 📄 settings.py
+👉  │   │   ├── 📄 urls.py
+    │   │   └── 📄 wsgi.py
+    │   ├── 🐳 docker-compose.yml
+    │   ├── 🐳 Dockerfile
+    │   ├── 📄 manage.py
+    │   └── 📄 requirements.txt
+    └── 📄 .gitignore
 ```
 
 ```py
@@ -463,20 +463,20 @@ urlpatterns = [
 👇 以下のファイルを編集してほしい  
 
 ```plaintext
-    ├── 📂host1
-    │   ├── 📂project1
-    │   │   ├── 📄__init__.py
-    │   │   ├── 📄asgi.py
-    │   │   ├── 📄settings_secrets_example.txt
-    │   │   ├── 📄settings_secrets.py
-👉  │   │   ├── 📄settings.py
-    │   │   ├── 📄urls.py
-    │   │   └── 📄wsgi.py
-    │   ├── 🐳docker-compose.yml
-    │   ├── 🐳Dockerfile
-    │   ├── 📄manage.py
-    │   └── 📄requirements.txt
-    └── 📄.gitignore
+    ├── 📂 host1
+    │   ├── 📂 project1
+    │   │   ├── 📄 __init__.py
+    │   │   ├── 📄 asgi.py
+    │   │   ├── 📄 settings_secrets_example.txt
+    │   │   ├── 📄 settings_secrets.py
+👉  │   │   ├── 📄 settings.py
+    │   │   ├── 📄 urls.py
+    │   │   └── 📄 wsgi.py
+    │   ├── 🐳 docker-compose.yml
+    │   ├── 🐳 Dockerfile
+    │   ├── 📄 manage.py
+    │   └── 📄 requirements.txt
+    └── 📄 .gitignore
 ```
 
 👇 冒頭のあたりに追加
@@ -525,11 +525,11 @@ DATABASES = {
 👉  │   │   ├── 📄settings.py
     │   │   ├── 📄urls.py
     │   │   └── 📄wsgi.py
-    │   ├── 🐳docker-compose.yml
-    │   ├── 🐳Dockerfile
-    │   ├── 📄manage.py
-    │   └── 📄requirements.txt
-    └── 📄.gitignore
+    │   ├── 🐳 docker-compose.yml
+    │   ├── 🐳 Dockerfile
+    │   ├── 📄 manage.py
+    │   └── 📄 requirements.txt
+    └── 📄 .gitignore
 ```
 
 👇 抜粋  
@@ -569,20 +569,20 @@ WSGI_APPLICATION = 'project1.wsgi.application'
 👇 以下のファイルに、コメントを書き入れてもいいし、書き入れなくてもよい  
 
 ```plaintext
-    ├── 📂host1
-    │   ├── 📂project1
-    │   │   ├── 📄__init__.py
-    │   │   ├── 📄asgi.py
-    │   │   ├── 📄settings_secrets_example.txt
-👉  │   │   ├── 📄settings_secrets.py
-    │   │   ├── 📄settings.py
-    │   │   ├── 📄urls.py
-    │   │   └── 📄wsgi.py
-    │   ├── 🐳docker-compose.yml
-    │   ├── 🐳Dockerfile
-    │   ├── 📄manage.py
-    │   └── 📄requirements.txt
-    └── 📄.gitignore
+    ├── 📂 host1
+    │   ├── 📂 project1
+    │   │   ├── 📄 __init__.py
+    │   │   ├── 📄 asgi.py
+    │   │   ├── 📄 settings_secrets_example.txt
+👉  │   │   ├── 📄 settings_secrets.py
+    │   │   ├── 📄 settings.py
+    │   │   ├── 📄 urls.py
+    │   │   └── 📄 wsgi.py
+    │   ├── 🐳 docker-compose.yml
+    │   ├── 🐳 Dockerfile
+    │   ├── 📄 manage.py
+    │   └── 📄 requirements.txt
+    └── 📄 .gitignore
 ```
 
 ```py
@@ -597,20 +597,20 @@ ALLOWED_HOSTS = []
 👇 （もしgitを使っているなら）以下のファイルを編集してほしい  
 
 ```plaintext
-    ├── 📂host1
-    │   ├── 📂project1
-    │   │   ├── 📄__init__.py
-    │   │   ├── 📄asgi.py
-    │   │   ├── 📄settings_secrets_example.txt
-    │   │   ├── 📄settings_secrets.py
-    │   │   ├── 📄settings.py
-    │   │   ├── 📄urls.py
-    │   │   └── 📄wsgi.py
-    │   ├── 🐳docker-compose.yml
-    │   ├── 🐳Dockerfile
-    │   ├── 📄manage.py
-    │   └── 📄requirements.txt
-👉  └── 📄.gitignore
+    ├── 📂 host1
+    │   ├── 📂 project1
+    │   │   ├── 📄 __init__.py
+    │   │   ├── 📄 asgi.py
+    │   │   ├── 📄 settings_secrets_example.txt
+    │   │   ├── 📄 settings_secrets.py
+    │   │   ├── 📄 settings.py
+    │   │   ├── 📄 urls.py
+    │   │   └── 📄 wsgi.py
+    │   ├── 🐳 docker-compose.yml
+    │   ├── 🐳 Dockerfile
+    │   ├── 📄 manage.py
+    │   └── 📄 requirements.txt
+👉  └── 📄 .gitignore
 ```
 
 👇 例えば、冒頭あたりにでも 追加してほしい  
@@ -636,23 +636,23 @@ docker-compose up
 👇 このとき、以下の巨大なフォルダーが作成される  
 
 ```plaintext
-    ├── 📂host1
-    │   ├── 📂data
-    │   │   └── 📂db
+    ├── 📂 host1
+    │   ├── 📂 data
+    │   │   └── 📂 db
 👉  │   │       └── （たくさんのもの）
-    │   ├── 📂project1
-    │   │   ├── 📄__init__.py
-    │   │   ├── 📄asgi.py
-    │   │   ├── 📄settings_secrets_example.txt
-    │   │   ├── 📄settings_secrets.py
-    │   │   ├── 📄settings.py
-    │   │   ├── 📄urls.py
-    │   │   └── 📄wsgi.py
-    │   ├── 🐳docker-compose.yml
-    │   ├── 🐳Dockerfile
-    │   ├── 📄manage.py
-    │   └── 📄requirements.txt
-    └── 📄.gitignore
+    │   ├── 📂 project1
+    │   │   ├── 📄 __init__.py
+    │   │   ├── 📄 asgi.py
+    │   │   ├── 📄 settings_secrets_example.txt
+    │   │   ├── 📄 settings_secrets.py
+    │   │   ├── 📄 settings.py
+    │   │   ├── 📄 urls.py
+    │   │   └── 📄 wsgi.py
+    │   ├── 🐳 docker-compose.yml
+    │   ├── 🐳 Dockerfile
+    │   ├── 📄 manage.py
+    │   └── 📄 requirements.txt
+    └── 📄 .gitignore
 ```
 
 # Step 17. Webページへアクセス
