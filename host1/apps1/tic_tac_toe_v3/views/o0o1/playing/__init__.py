@@ -1,10 +1,10 @@
 class PlayingV():
     """対局中ビュー"""
 
-    _path_of_ws_playing = "/tic-tac-toe/v2o0o1/playing/"
-    #                                    ^ two
-    #                      ----------------------------
-    #                      1
+    path_of_ws_playing = "/tic-tac-toe/v2o0o1/playing/"
+    #                                   ^ two
+    #                     ----------------------------
+    #                     1
     # 1. `ws://example.com:8000/tic-tac-toe/v2o0o1/playing/`
     #                          ---------------------------
 
@@ -40,7 +40,7 @@ class PlayingV():
         return render_playing(
             request,
             kw_room_name,
-            PlayingV._path_of_ws_playing,
+            PlayingV.path_of_ws_playing,
             PlayingV.path_of_html,
             PlayingV.on_update,
             playing_expected_pieces)
