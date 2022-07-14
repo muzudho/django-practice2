@@ -494,10 +494,10 @@ from apps1.tic_tac_toe_v3.views.o0o1.playing import PlayingV as V3o0o1PlayingV
 class PlayingV():
     """対局中ビュー"""
 
-    _path_of_ws_playing = "/tic-tac-toe/v3o0o3/playing/"
-    #                                    ^^^^^ three.zero.three
-    #                      ----------------------------
-    #                      1
+    path_of_ws_playing = "/tic-tac-toe/v3o0o3/playing/"
+    #                                   ^^^^^ three.zero.three
+    #                     ----------------------------
+    #                     1
     # 1. `ws://example.com/tic-tac-toe/v3o0o3/playing/Elephant/`
     #                     ----------------------------
 
@@ -526,7 +526,7 @@ class PlayingV():
         return render_playing(
             request,
             kw_room_name,
-            PlayingV._path_of_ws_playing,
+            PlayingV.path_of_ws_playing,
             V3o0o1PlayingV.path_of_html,
             V3o0o1PlayingV.on_update,
             playing_expected_pieces)
@@ -628,6 +628,43 @@ urlpatterns = [
 部屋、ユーザーを確認するには、管理画面を使うのが確実です:  
 
 📖 [http://localhost:8000/admin](http://localhost:8000/admin)  
+
+# Step 10. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+
+👇 以下の既存ファイルの最終行に追記してほしい  
+
+```plaintext
+    └── 📂host1
+        ├── 📂apps1
+        │   ├── 📂portal                        # アプリケーション
+        │   │   └── 📂data
+👉      │   │       └── 📄finished-lessons.csv
+        │   └── 📂tic_tac_toe_v3                # アプリケーション Ver Three
+        │       ├── 📂views
+        │       │   └── 📂o0o3                  # (Ver Three).Zero.Three
+        │       │       ├── 📂match_application
+        │       │       │   └── 📄__init__.py
+        │       │       └── 📂playing
+        │       │           └── 📄__init__.py
+        │       └── 📂websocks
+        │           └── 📂o0o1
+        │               ├── 📄consumer_custom.py
+        │               └── 📄message_converter.py
+        └── 📂project1                          # プロジェクト
+            ├── 📄asgi.py
+            ├── 📄urls_practice.py
+            └── 📄ws_urls_tic_tac_toe_v3.py     # Ver. Three
+```
+
+👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
+
+```csv
+/tic-tac-toe/v3o0o3/match-application/,〇×ゲーム v3.0.3 対局申込中
+```
+
+👇 ポータルにリンクが追加されていることを確認してほしい 
+
+📖 [http://localhost:8000/](http://localhost:8000/)  
 
 # 次の記事
 

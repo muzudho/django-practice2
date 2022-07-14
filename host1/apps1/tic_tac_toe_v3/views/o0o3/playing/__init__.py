@@ -11,10 +11,10 @@ from apps1.tic_tac_toe_v3.views.o0o1.playing import PlayingV as V3o0o1PlayingV
 class PlayingV():
     """対局中ビュー"""
 
-    _path_of_ws_playing = "/tic-tac-toe/v3o0o3/playing/"
-    #                                    ^^^^^ three.zero.three
-    #                      ----------------------------
-    #                      1
+    path_of_ws_playing = "/tic-tac-toe/v3o0o3/playing/"
+    #                                   ^^^^^ three.zero.three
+    #                     ----------------------------
+    #                     1
     # 1. `ws://example.com/tic-tac-toe/v3o0o3/playing/Elephant/`
     #                     ----------------------------
 
@@ -43,7 +43,7 @@ class PlayingV():
         return render_playing(
             request,
             kw_room_name,
-            PlayingV._path_of_ws_playing,
+            PlayingV.path_of_ws_playing,
             V3o0o1PlayingV.path_of_html,
             V3o0o1PlayingV.on_update,
             playing_expected_pieces)
