@@ -421,20 +421,20 @@ urlpatterns = [
     #          3
     # 1. 例えば `http://example.com/practice/v1/vuetify/hello1` のような URL のパスの部分
     #                              --------------------------
-    # 2. VuetifyV クラスの render_hello1 メソッド
+    # 2. VuetifyV クラスの render_hello1 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_hello1' %} のような形でURLを取得するのに使える
 
     # ビューティファイでデータテーブル１
-    path('practice/vuetify/data-table1',
-         # ---------------------------
+    path('practice/v1/vuetify/data-table1',
+         # ------------------------------
          # 1
-         VuetifyV.render_data_table1, name='vuetify_data_table1'),
-    #    ---------------------------        -------------------
+         VuetifyV.render_data_table1, name='practice_v1_vuetify_data_table1'),
+    #    ---------------------------        -------------------------------
     #    2                                  3
-    # 1. 例えば `http://example.com/practice/vuetify/data-table1` のような URL のパスの部分
-    #                              ----------------------------
-    # 2. VuetifyV クラスの render_data_table1 メソッド
-    # 3. HTMLテンプレートの中で {% url 'vuetify_data_table1' %} のような形でURLを取得するのに使える
+    # 1. 例えば `http://example.com/practice/v1/vuetify/data-table1` のような URL のパスの部分
+    #                              -------------------------------
+    # 2. VuetifyV クラスの render_data_table1 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_data_table1' %} のような形でURLを取得するのに使える
 
     # ビューティファイでバリデーション１
     path('practice/vuetify/validation1',

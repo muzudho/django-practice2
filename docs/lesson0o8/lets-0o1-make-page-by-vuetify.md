@@ -266,7 +266,7 @@ urlpatterns = [
     #          3
     # 1. 例えば `http://example.com/practice/v1/vuetify/hello1` のような URL のパスの部分
     #                              --------------------------
-    # 2. VuetifyV クラスの render_hello1 メソッド
+    # 2. VuetifyV クラスの render_hello1 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_hello1' %} のような形でURLを取得するのに使える
 ]
 ```

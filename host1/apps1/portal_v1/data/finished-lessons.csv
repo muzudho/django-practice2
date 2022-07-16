@@ -20,7 +20,7 @@ path,label
 /practice/v1/prefectures/create/,都道府県の新規作成
 /practice/v1/prefectures/update/4/,都道府県(4)の更新
 /practice/v1/vuetify/hello1,ビューティファイでハロー
-/practice/vuetify/data-table1,ビューティファイでデータテーブル１
+/practice/v1/vuetify/data-table1,ビューティファイでデータテーブル１
 /practice/vuetify/validation1,ビューティファイでバリデーション１
 /practice/vuetify/desserts1,ビューティファイでデザート１
 /practice/vuetify/textarea1,ビューティファイでテキストエリア１
