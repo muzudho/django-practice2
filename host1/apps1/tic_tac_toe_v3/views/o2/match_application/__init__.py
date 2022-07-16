@@ -1,13 +1,12 @@
 class MatchApplicationV():
     """対局申込ビュー"""
 
-    # 〇×ゲーム v3o1
-    _path_of_http_playing = "/tic-tac-toe/v3o1/playing/{0}/?&myturn={1}"
-    #                                      ^^^three.one
-    #                        ------------------------------------------
+    _path_of_http_playing = "/tic-tac-toe/v3/playing/{0}/?&myturn={1}"
+    #                                      ^ three
+    #                        ----------------------------------------
     #                        1
-    # 1. http://example.com:8000/tic-tac-toe/v3o1/playing/Elephant/?&myturn=X
-    #                           ---------------------------------------------
+    # 1. http://example.com:8000/tic-tac-toe/v3/playing/Elephant/?&myturn=X
+    #                           -------------------------------------------
 
     # 〇×ゲーム v2
     path_of_html = "tic_tac_toe_v2/o1/gui/match_application.html"
@@ -41,8 +40,15 @@ class MatchApplicationV():
     def on_sent(request):
         """送信後"""
 
-        # 何もしません
-        pass
+        # 以下のファイルはあとで作ります
+        from ...o2.match_application.v_on_sent import match_application_on_sent
+        #    ----------        -------------------------
+        #    1                 2
+        # 1. `host1/apps1/tic_tac_toe_v3/views/o1/match_application/v_on_sent.py`
+        #                                                           ---------
+        # 2. `1.` に含まれる関数
+
+        return match_application_on_sent(request)
 
     @staticmethod
     def open(request):

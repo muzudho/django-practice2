@@ -7,7 +7,7 @@ class TicTacToeV3Config(AppConfig):
     # name = 'tic_tac_toe_v3'
     # * 変更後
     name = 'apps1.tic_tac_toe_v3'
-    #       ------------
+    #       --------------------
     #       1
     # 1. `host1/apps1/tic_tac_toe_v3/apps.py`
     #           --------------------

@@ -10,10 +10,10 @@ class PlayingV():
 
     path_of_html = "tic_tac_toe_v3/o1/playing.html.txt"
     #                            ^ three
-    #               ------------------------------------
+    #               ----------------------------------
     #               1
     # 1. `host1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o1/playing.html.txt`
-    #                                          ------------------------------------
+    #                                          ----------------------------------
 
     @staticmethod
     def render(request, kw_room_name):
@@ -48,5 +48,5 @@ class PlayingV():
     @staticmethod
     def on_update(request):
         """訪問後または送信後"""
-        # 拡張したい挙動があれば、ここに書く
+        # 何もしません
         pass
