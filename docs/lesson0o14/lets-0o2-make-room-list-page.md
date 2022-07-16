@@ -377,7 +377,6 @@ class RoomV():
 
 ```py
 import json
-from django.core import serializers
 from django.shortcuts import render
 
 from apps1.practice.models.v0o0o1.m_room import Room
@@ -402,12 +401,7 @@ def render_list(request, path_of_list_page):
     """一覧ページ"""
 
     # ２段階変換: roomテーブルid順 ----> JSON文字列 ----> オブジェクト
-    room_table_qs = Room.objects.all().order_by('id')  # Query Set
-    room_table_json = serializers.serialize(
-        'json', room_table_qs)  # JSON 文字列
-    # print(f"room_table_json={room_table_json}")
-
-    room_table_doc = json.loads(room_table_json)  # オブジェクト
+    room_resultset = Room.objects.all().order_by('id')
     # print(f"room_table_doc={json.dumps(room_table_doc, indent=4)}")
     """
     # Example
@@ -431,26 +425,22 @@ def render_list(request, path_of_list_page):
     # 使いやすい形に変換します
     room_list = []
 
-    for room_rec in room_table_doc:  # Room record
-        # print(f"room_rec= --> {room_rec} <--")
-
-        sente_id = room_rec["fields"]["sente_id"]
-        gote_id = room_rec["fields"]["gote_id"]
+    for room in room_resultset:
+        sente_id = room.sente_id
+        gote_id = room.gote_id
 
         room_list.append(
             {
-                "id": room_rec["pk"],
-                "name": room_rec["fields"]["name"],
+                "id": room.pk,
+                "name": room.name,
                 "sente_id": sente_id,
                 "sente_name": MhUser.get_name_by_pk(sente_id),
                 "gote_id": gote_id,
                 "gote_name": MhUser.get_name_by_pk(gote_id),
-                "board": room_rec["fields"]["board"],
-                "record": room_rec["fields"]["record"],
+                "board": room.board,
+                "record": room.record,
             }
         )
-
-    # print(f'room_list={room_list}')
 
     context = {
         # "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
