@@ -1,5 +1,6 @@
 path,label
 /,ポータル
+/admin,管理画面
 /practice/v1/page1,ページ１
 /practice/v1/page2_patch1,ページ２ パッチ１
 /practice/v1/page2_patch2,ページ２ パッチ２

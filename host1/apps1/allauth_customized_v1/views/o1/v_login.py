@@ -7,12 +7,12 @@ class AccountsV1LoginView(LoginView):
     📖[views.py](https://github.com/pennersr/django-allauth/blob/master/allauth/account/views.py)
     """
 
-    # ファイルパス
-    template_name = "allauth-customized/templates/account/login.html"
-    #                -----------------------------------------------
+    # ファイルパス（使ってるか分からない）
+    template_name = "allauth_customized_v1/templates/account/login.html"
+    #                --------------------------------------------------
     #                1
-    # 1. host1/apps1/allauth-customized/templates/account/login.html を取得
-    #                -----------------------------------------------
+    # 1. host1/apps1/allauth_customized_v1/templates/account/login.html を取得
+    #                --------------------------------------------------
 
 
 # グローバル変数

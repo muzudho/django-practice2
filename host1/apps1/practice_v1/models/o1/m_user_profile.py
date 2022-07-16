@@ -44,6 +44,8 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     """保存"""
+
+    # * この行がエラーを起こして 管理画面 に入れないことがあれば、いったん コメントアウト するのもあり
     instance.profile.save()
 
 

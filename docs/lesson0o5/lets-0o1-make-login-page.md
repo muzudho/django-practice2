@@ -20,7 +20,7 @@
 ```plaintext
     ├── 📂 host1
     │   ├── 📂 apps1
-    │   │   ├── 📂 portal                # アプリケーション名
+    │   │   ├── 📂 portal_v1                # アプリケーション名
     │   │   │   ├── 📂 data
     │   │   │   │   └── 📄 finished-lesson.csv
     │   │   │   ├── 📂 migrations
@@ -28,13 +28,13 @@
     │   │   │   ├── 📂 static
     │   │   │   │   └── 🚀 favicon.ico
     │   │   │   ├── 📂 templates
-    │   │   │   │   └── 📂 portal
-    │   │   │   │       └── 📂 v0o0o1
+    │   │   │   │   └── 📂 portal_v1
+    │   │   │   │       └── 📂 o1
     │   │   │   │           └── 📄 portal_base.html
     │   │   │   └── 📂 views
-    │   │   │       └── 📂 v0o0o1
+    │   │   │       └── 📂 o1
     │   │   │           └── 📄 pages.py
-    │   │   └── 📂 practice
+    │   │   └── 📂 practice_v1
     │   ├── 📂 data
     │   ├── 📂 project1                  # プロジェクト名
     │   │   ├── 📄 __init__.py
@@ -69,11 +69,11 @@ docker-compose up
 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1                   # あなたの開発用ディレクトリー。任意の名前
+    └── 📂 host1                            # あなたの開発用ディレクトリー。任意の名前
         └── 📂 apps1
-            └── 📂 allauth-customized    # アプリケーション
+            └── 📂 allauth_customized_v1    # アプリケーション
                 └── 📂 templates
-                    └── 📂 account           # allauth のディレクトリー構成を真似ます
+                    └── 📂 account          # allauth のディレクトリー構成を真似ます
 👉                      └── 📄 login.html
 ```
 
@@ -97,11 +97,16 @@ docker-compose up
 <html lang="ja">
     <head>
         <meta charset="utf-8" />
-        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+        <!--                                                ===================
+                                                            1
+            1. Example: `http://example.com/static/favicon.ico`
+                                            ==================
+        -->
         <title>サインイン</title>
     </head>
     <body>
@@ -181,11 +186,11 @@ docker-compose up
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 
-        <script src="{% static 'allauth_customized/v0o0o1/form-html-parser.js' %}"></script>
-        <!--            =====================================================
+        <script src="{% static 'allauth_customized_v1/o1/form-html-parser.js' %}"></script>
+        <!--            ====================================================
                         1
-            1. host1/apps1/allauth_customized/static/allauth_customized/v0o0o1/form-html-parser.js
-                                             =====================================================
+            1. `host1/apps1/allauth_customized_v1/static/allauth_customized_v1/o1/form-html-parser.js`
+                                                  ===================================================
         -->
 
         <script>
@@ -260,12 +265,12 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 allauth-customized    # アプリケーション
+            └── 📂 allauth_customized_v1    # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 account
                 │       └── 📄 login.html
                 └── 📂 views
-                    └── 📂 v0o0o1
+                    └── 📂 o1
 👉                      └── 📄 v_login.py
 ```
 
@@ -279,12 +284,12 @@ class AccountsV1LoginView(LoginView):
     📖[views.py](https://github.com/pennersr/django-allauth/blob/master/allauth/account/views.py)
     """
 
-    # ファイルパス
-    template_name = "allauth-customized/templates/account/login.html"
-    #                -----------------------------------------------
+    # ファイルパス（使ってるか分からない）
+    template_name = "allauth_customized_v1/templates/account/login.html"
+    #                --------------------------------------------------
     #                1
-    # 1. host1/apps1/allauth-customized/templates/account/login.html を取得
-    #                -----------------------------------------------
+    # 1. host1/apps1/allauth_customized_v1/templates/account/login.html を取得
+    #                --------------------------------------------------
 
 
 # グローバル変数
@@ -296,12 +301,12 @@ accounts_v1_login_view = AccountsV1LoginView.as_view()
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 allauth-customized    # アプリケーション
+        │   └── 📂 allauth_customized_v1    # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 account
         │       │       └── 📄 login.html
         │       └── 📂 views
-        │           └── 📂 v0o0o1
+        │           └── 📂 o1
         │               └── 📄 v_login.py
         └── 📂 project1
 👉          ├── 📄 urls_accounts.py          # こちら
@@ -312,9 +317,9 @@ accounts_v1_login_view = AccountsV1LoginView.as_view()
 # ...略...
 
 
-from apps1.allauth_customized.views.v0o0o1 import v_login
-#    -------------------------------------        -------
-#    1                                            2
+from apps1.allauth_customized_v1.views.o1 import v_login
+#    ------------------------------------        -------
+#    1                                           2
 # 1. Pythonモジュール名（ディレクトリー名）
 # 2. Python ファイル名。拡張子抜き
 
@@ -358,15 +363,15 @@ urlpatterns = [
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   ├── 📂 portal
+        │   ├── 📂 portal_v1
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 allauth-customized    # アプリケーション
+        │   └── 📂 allauth_customized_v1    # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 account
         │       │       └── 📄 login.html
         │       └── 📂 views
-        │           └── 📂 v0o0o1
+        │           └── 📂 o1
         │               └── 📄 v_login.py
         └── 📂 project1
             ├── 📄 urls_accounts.py
@@ -400,3 +405,8 @@ urlpatterns = [
 📖 [Anyone know how to use vuetify with django form?](https://forum.djangoproject.com/t/anyone-know-how-to-use-vuetify-with-django-form/4807)  
 📖 [Source code for django.forms.boundfield](https://docs.djangoproject.com/en/2.2/_modules/django/forms/boundfield/)  
 📖 [DjangoのFormクラスを使う](https://qiita.com/taumu/items/4587a91c4d7d2db165b3)  
+
+## User関連
+
+📖 [RelatedObjectDoesNotExist: User has no userprofile](https://stackoverflow.com/questions/36317816/relatedobjectdoesnotexist-user-has-no-userprofile)  
+📖 [How to resolve the "psycopg2.errors.UndefinedTable: relation "auth_user" does not exist" when running django unittests on Travis](https://stackoverflow.com/questions/56355516/how-to-resolve-the-psycopg2-errors-undefinedtable-relation-auth-user-does-no) - `migrations/__init__.py` は消してはダメ？  
