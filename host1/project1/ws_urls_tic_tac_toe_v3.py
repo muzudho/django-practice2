@@ -2,7 +2,7 @@
 from django.conf.urls import url
 
 # 〇×ゲームの練習３．０．１
-from apps1.tic_tac_toe_v3.websocks.o0o1.consumer_custom import TicTacToeV3o0o1ConsumerCustom
+from apps1.tic_tac_toe_v3.websocks.o1o0.consumer_custom import TicTacToeV3o0o1ConsumerCustom
 #                       ^three                                           ^^^^^ three.zero.one
 #    ----- -------------- ------------- ---------------        -----------------------------
 #    1     2              3             4                      5

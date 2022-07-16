@@ -1,29 +1,28 @@
 from django.urls import path
 
 # 〇×ゲーム v2.0.1
-from apps1.tic_tac_toe_v2.views.v2o0o1.think.engine_manual import EngineManual
-#    ----- -------------- --------------------------------        ------------
-#    1     2              3                                       4
+from apps1.tic_tac_toe_v2.views.o1o0.think.engine_manual import EngineManual
+#    ----- -------------- ------------------------------        ------------
+#    1     2              3                                     4
+#    ---------------------------------------------------
+#    5
+# 1. 開発者用ディレクトリーの一部
+# 2. アプリケーション フォルダー名
+# 3. ディレクトリー名
+# 4. クラス名
+# 5. Pythonモジュール名
+
+# 対局申込ページ v2.0.1
+from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicationV
+#          --------------                -----------------        -----------------
+#          1.1                           1.2                      2
 #    -----------------------------------------------------
-#    5
-# 1. 開発者用ディレクトリーの一部
-# 2. アプリケーション フォルダー名
-# 3. ディレクトリー名
-# 4. クラス名
-# 5. Pythonモジュール名
+#    1
+# 1, 1.2 ディレクトリー
+# 1.1 アプリケーション
+# 2. `1.2` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-from apps1.tic_tac_toe_v2.views.v2o0o1.gui.match_application import MatchApplicationV
-#    ----- -------------- ----------------------------------        -----------------
-#    1     2              3                                         4
-#    -------------------------------------------------------
-#    5
-# 1. 開発者用ディレクトリーの一部
-# 2. アプリケーション フォルダー名
-# 3. ディレクトリー名
-# 4. クラス名
-# 5. Pythonモジュール名
-
-from apps1.tic_tac_toe_v2.views.v2o0o1.gui.playing import PlayingV
+from apps1.tic_tac_toe_v2.views.o1o0.gui.playing import PlayingV
 
 
 urlpatterns = [

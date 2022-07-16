@@ -41,9 +41,9 @@ DEBUG = True
 
 INSTALLED_APPS = [
     # あなたが追加したアプリケーション
-    'apps1.allauth_customized',
-    'apps1.portal',
-    'apps1.practice',
+    'apps1.practice_v1',
+    'apps1.allauth_customized_v1',
+    'apps1.portal_v1',
     'apps1.tic_tac_toe_v1',
     'apps1.tic_tac_toe_v2',
     'apps1.tic_tac_toe_v3',
@@ -90,25 +90,30 @@ TEMPLATES = [
         # 'DIRS': [],
         # * 変更後
         'DIRS': [
-            os.path.join(BASE_DIR, 'apps1/practice/templates'),
-            #            --------   ------------------------
-            #            1          2
+            os.path.join(BASE_DIR, 'apps1/practice_v1/templates'),
+            #                       ---------------------------
+            #                       1
             #
-            # Example: /host1/apps1/practice/templates/practice/v0o0o1/page1.html
-            #          ------ ------------------------
-            #          1      2
+            # Example: /host1/apps1/practice_v1/templates/practice_v1/o1o0/page1.html
+            #                       -----------           -----------
+            #                       1.1                   2.1
+            #          ---------------------------------]------------
+            #          1                                 2
             #
-            # 1. あなたの開発用ディレクトリー相当
-            # 2. テンプレートへのパス
+            # 1. テンプレート ディレクトリーへのパス
+            # 1.1 アプリケーション
+            # 2. まるで `http://example.com/practice_v1` という素材フォルダーがあるかのように扱われる
+            #                             ------------
+            # 2.1 ただのディレクトリー
 
 
             # * 追加
-            os.path.join(BASE_DIR, 'apps1/portal/templates'),
-            #            --------   ----------------------
+            os.path.join(BASE_DIR, 'apps1/portal_v1/templates'),
+            #            --------   -------------------------
             #            1          2
             #
-            # Example: /host1/apps1/portal/templates/portal/v0o0o1/portal_base.html
-            #          ------ ----------------------
+            # Example: /host1/apps1/portal_v1/templates/portal_v1/o1o0/portal_base.html
+            #          ------ -------------------------
             #          1      2
             #
             # 1. あなたの開発用ディレクトリー相当
@@ -133,7 +138,7 @@ TEMPLATES = [
             #            --------   ------------------------------
             #            1          2
             #
-            # Example: /host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o0o1/match_application.html
+            # Example: /host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o1o0/match_application.html
             #          ------ ------------------------------
             #          1      2
             #

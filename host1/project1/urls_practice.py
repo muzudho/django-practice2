@@ -1,36 +1,47 @@
 from django.urls import path
 
-from apps1.practice.views.v0o0o1.pages import Page1
-#    --------------------------- -----        -----
-#    1                           2            3
+# 練習ページ１
+from apps1.practice_v1.views.o1o0.page1 import Page1
+#          -----------            -----        -----
+#          1.1                    1.2          2
+#    ----------------------------------
+#    1
+# 1, 1.2 ディレクトリー
+# 1.1 アプリケーション
+# 2. `1.2` に含まれる __init__.py ファイルにさらに含まれるクラス
+
+# 練習ページ２
+from apps1.practice_v1.views.o1o0.pages import Page2Patch1
+#          -----------            -----        -----------
+#          1.1                    1.2          2
+#    ----------------------------------
+#    1
+# 1, 1.2 ディレクトリー
+# 1.1 アプリケーション
+# 2. `1.2` に含まれる __init__.py ファイルにさらに含まれるクラス
+
+# 練習ページ２ パッチ２
+from apps1.practice_v1.views.o1o0.pages import Page2Patch2
+#                                                        ^two
+#          -----------            -----        -----------
+#          1.1                    1.2          2
+#    ----------------------------------
+#    1
+# 1, 1.2 ディレクトリー
+# 1.1 アプリケーション
+# 2. `1.2` に含まれる __init__.py ファイルにさらに含まれるクラス
+
+# ログイン必須ページ
+from apps1.practice_v1.views.o1o0 import v_login_required
+#    ----------------------------        ----------------
+#    1                                   2
 # 1. ディレクトリー名
 # 2. Python ファイル名。拡張子抜き
-# 3. クラス名
 
-from apps1.practice.views.v0o0o1.pages import Page2Patch1
-#    --------------------------- -----        -----------
-#    1                           2            3
-# 1. ディレクトリー名
-# 2. Python ファイル名。拡張子抜き
-# 3. クラス名
-
-from apps1.practice.views.v0o0o1.pages import Page2Patch2
-#                                                       ^two
-#    --------------------------- -----        -----------
-#    1                           2            3
-# 1. ディレクトリー名
-# 2. Python ファイル名。拡張子抜き
-# 3. クラス名
-
-from apps1.practice.views.v0o0o1 import v_login_required
-#    ---------------------------        ----------------
-#    1                                  2
-# 1. ディレクトリー名
-# 2. Python ファイル名。拡張子抜き
-
-from apps1.practice.views.v0o0o1.button_for_member import ButtonForMember
-#    ----- -------- ------------------------------        ---------------
-#    1     2        3                                     4
+# 会員用ボタン
+from apps1.practice_v1.views.o1o0.button_for_member import ButtonForMember
+#    ----- ----------- ----------------------------        ---------------
+#    1     2           3                                   4
 #    ---------------------------------------------
 #    5
 # 1. 開発者用ディレクトリーの一部
@@ -40,9 +51,9 @@ from apps1.practice.views.v0o0o1.button_for_member import ButtonForMember
 # 5. Pythonモジュール名
 
 # 会員一覧
-from apps1.practice.views.v0o0o1.user_list import UserListV
-#    ----- -------- ----------------------        ---------
-#    1     2        3                             4
+from apps1.practice_v1.views.o1o0.user_list import UserListV
+#    ----- ----------- --------------------        ---------
+#    1     2           3                           4
 #    -------------------------------------
 #    5
 # 1. 開発者用ディレクトリーの一部
@@ -52,9 +63,9 @@ from apps1.practice.views.v0o0o1.user_list import UserListV
 # 5. Pythonモジュール名
 
 # （拡張済）会員一覧
-from apps1.practice.views.v0o0o1.extends_user_list import ExtendsUserListV
-#    ----- -------- ------------------------------        ----------------
-#    1     2        3                                     4
+from apps1.practice_v1.views.o1o0.extends_user_list import ExtendsUserListV
+#    ----- ----------- ----------------------------        ----------------
+#    1     2           3                                   4
 #    ---------------------------------------------
 #    5
 # 1. 開発者用ディレクトリーの一部
@@ -64,9 +75,9 @@ from apps1.practice.views.v0o0o1.extends_user_list import ExtendsUserListV
 # 5. Pythonモジュール名
 
 # アクティブユーザー一覧
-from apps1.practice.views.v0o0o1.session import SessionV
-#    ----- -------- --------------------        --------
-#    1     2        3                           4
+from apps1.practice_v1.views.o1o0.session import SessionV
+#    ----- ----------- ------------------        --------
+#    1     2           3                         4
 #    -----------------------------------
 #    5
 # 1. 開発者用ディレクトリーの一部
@@ -75,76 +86,83 @@ from apps1.practice.views.v0o0o1.session import SessionV
 # 4. クラス名
 # 5. Pythonモジュール名
 
-from apps1.practice.views.v0o0o1.prefecture import PrefectureV
-#    ----- -------- -----------------------        -----------
-#    1     2        3                              4
+# 都道府県
+from apps1.practice_v1.views.o1o0.prefecture import PrefectureV
+#    ----- ----------- ---------------------        -----------
+#    1     2           3                            4
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
 # デバッグ用。モデルをダンプ出力
-from apps1.practice.views.v0o0o1.debug import DebugV
-#          --------              -----        ------
-#          1.1                   1.2          2
-#    ---------------------------------
+from apps1.practice_v1.views.o1o0.debug import DebugV
+#          -----------            -----        ------
+#          1.1                    1.2          2
+#    ----------------------------------
 #    1
 # 1. ディレクトリー
 # 1.1 アプリケーション
 # 1.2 ディレクトリー
 # 2. `1.2` に含まれる __init__.py ファイルにさらに含まれる クラス名
 
-from apps1.practice.views.v0o0o1.vuetify import VuetifyV
-#    ----- -------- --------------------        --------
-#    1     2        3                           4
+# 都道府県ビュー
+from apps1.practice_v1.views.o1o0.vuetify import VuetifyV
+#    ----- ----------- ------------------        --------
+#    1     2           3                         4
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
-from apps1.practice.views.v0o0o1.room import RoomV
-#    ----- -------- -----------------        -----
-#    1     2        3                        4
+# 部屋ビュー
+from apps1.practice_v1.views.o1o0.room import RoomV
+#    ----- ----------- ---------------        -----
+#    1     2           3                      4
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
-from apps1.practice.views.v0o0o1.lobby import LobbyV
-#    ----- -------- ------------------        ------
-#    1     2        3                         4
+# ロビー ビュー
+from apps1.practice_v1.views.o1o0.lobby import LobbyV
+#    ----- ----------- ----------------        ------
+#    1     2           3                       4
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
-from apps1.practice.views.v0o0o1.my import MyV
-#    ----- -------- ---------------        ---
-#    1     2        3                      4
+# マイページ ビュー
+from apps1.practice_v1.views.o1o0.my import MyV
+#    ----- ----------- -------------        ---
+#    1     2           3                    4
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
-from apps1.practice.views.v0o0o1.reloader import ReloaderV
-#    ----- -------- ---------------------        ---------
-#    1     2        3                            4
+# 自動リロード ビュー
+from apps1.practice_v1.views.o1o0.reloader import ReloaderV
+#    ----- ----------- -------------------        ---------
+#    1     2           3                          4
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
-from apps1.practice.views.v0o0o2.redirecter import RedirecterV
-#                              ^two
-#    ----- -------- -----------------------        -----------
-#    1     2        3                              4
+# 自動リダイレクト ビュー
+from apps1.practice_v1.views.o2o0.redirecter import RedirecterV
+#                            ^^^^.two.zero
+#    ----- ----------- ---------------------        -----------
+#    1     2        3                               4
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
 # 〇×ゲーム v3 対局申込中
-from apps1.tic_tac_toe_v3.views.o0o1.match_application import MatchApplicationV as TicTacToeV3o0o1MatchApplicationV
+from apps1.tic_tac_toe_v3.views.o1o0.match_application import MatchApplicationV as TicTacToeV3o0o1MatchApplicationV
 #                       ^three
 #    ----- -------------- ----------------------------        -----------------    --------------------------------
 #    1     2              3                                   4                    5
@@ -154,7 +172,7 @@ from apps1.tic_tac_toe_v3.views.o0o1.match_application import MatchApplicationV 
 # 5. '4.' の別名
 
 # 〇×ゲーム v3 対局中
-from apps1.tic_tac_toe_v3.views.o0o1.playing import PlayingV as TicTacToeV3o0o1PlayingV
+from apps1.tic_tac_toe_v3.views.o1o0.playing import PlayingV as TicTacToeV3o0o1PlayingV
 #                       ^three
 #    ----- -------------- ------------------        --------    -----------------------
 #    1     2              3                         4           5
@@ -164,8 +182,8 @@ from apps1.tic_tac_toe_v3.views.o0o1.playing import PlayingV as TicTacToeV3o0o1P
 # 5. '4.' の別名
 
 # 〇×ゲーム v3.0.3 対局申込中
-from apps1.tic_tac_toe_v3.views.o0o3.match_application import MatchApplicationV as TicTacToeV3o0o3MatchApplicationV
-#                       ^three     ^three                                                    ^^^^^ three.zero.three
+from apps1.tic_tac_toe_v3.views.o3o0.match_application import MatchApplicationV as TicTacToeV3o0o3MatchApplicationV
+#                       ^three  ^^^^.three.zero                                              ^^^^^ three.zero.three
 #    ----- -------------- ----------------------------        -----------------    --------------------------------
 #    1     2              3                                   4                    5
 # 1,3. ディレクトリー名
@@ -174,8 +192,8 @@ from apps1.tic_tac_toe_v3.views.o0o3.match_application import MatchApplicationV 
 # 5. '4.' の別名
 
 # 〇×ゲーム v3.0.3 対局中
-from apps1.tic_tac_toe_v3.views.o0o3.playing import PlayingV as TicTacToeV3o0o3PlayingV
-#                       ^three     ^three                                 ^^^^^ three.zero.three
+from apps1.tic_tac_toe_v3.views.o3o0.playing import PlayingV as TicTacToeV3o0o3PlayingV
+#                       ^three  ^^^^.three.zero                           ^^^^^three.zero.three
 #    ----- -------------- ------------------        --------    -----------------------
 #    1     2              3                         4           5
 # 1,3. ディレクトリー名
@@ -184,8 +202,8 @@ from apps1.tic_tac_toe_v3.views.o0o3.playing import PlayingV as TicTacToeV3o0o3P
 # 5. '4.' の別名
 
 # 〇×ゲーム v3.0.4 対局申込中
-from apps1.tic_tac_toe_v3.views.o0o4.match_application import MatchApplicationV as TicTacToeV3o0o4MatchApplicationV
-#                       ^three     ^four                                                     ^^^^^ three.zero.four
+from apps1.tic_tac_toe_v3.views.o4o0.match_application import MatchApplicationV as TicTacToeV3o0o4MatchApplicationV
+#                       ^three  ^^^^.four.zero                                               ^^^^^three.zero.four
 #    ----- -------------- ----------------------------        -----------------    --------------------------------
 #    1     2              3                                   4                    5
 # 1,3. ディレクトリー名
@@ -194,8 +212,8 @@ from apps1.tic_tac_toe_v3.views.o0o4.match_application import MatchApplicationV 
 # 5. '4.' の別名
 
 # 〇×ゲーム v3.0.4 対局中
-from apps1.tic_tac_toe_v3.views.o0o4.playing import PlayingV as TicTacToeV3o0o4PlayingV
-#                       ^three     ^four                                  ^^^^^ three.zero.four
+from apps1.tic_tac_toe_v3.views.o4o0.playing import PlayingV as TicTacToeV3o0o4PlayingV
+#                       ^three  ^^^^.four.zero                            ^^^^^three.zero.four
 #    ----- -------------- ------------------        --------    -----------------------
 #    1     2              3                         4           5
 # 1,3. ディレクトリー名
@@ -206,11 +224,11 @@ from apps1.tic_tac_toe_v3.views.o0o4.playing import PlayingV as TicTacToeV3o0o4P
 
 urlpatterns = [
 
-    path('practice/page1', Page1.render, name='page1'),
-    #     --------------   ------------        -----
-    #     1                2                   3
-    # 1. 例えば `http://example.com/practice/page1` のようなURLのパスの部分
-    #                              --------------
+    path('practice/v1/page1', Page1.render, name='page1'),
+    #     -----------------   ------------        -----
+    #     1                   2                   3
+    # 1. 例えば `http://example.com/practice/v1/page1` のようなURLのパスの部分
+    #                              -----------------
     # 2. Page1 クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'page1' %} のような形でURLを取得するのに使える
 
