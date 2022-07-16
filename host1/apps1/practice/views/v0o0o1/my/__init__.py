@@ -1,7 +1,3 @@
-from django.http import HttpResponse
-from django.template import loader
-
-
 class MyV():
     """マイ ページ ビュー"""
 

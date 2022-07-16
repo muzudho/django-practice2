@@ -206,7 +206,7 @@ Prefectures ラベルの右横の `➕ Add` リンクをクリックしてほし
 
 # 次の記事
 
-📖 [Djangoでモデルのインスタンスの一覧表示をしよう！](https://qiita.com/muzudho1/items/77668130b6d941596327)  
+📖 [Djangoでモデルの中身をダンプ出力しよう！](https://qiita.com/muzudho1/items/5db218ed0f12bae43d18)  
 
 # 参考にした記事
 

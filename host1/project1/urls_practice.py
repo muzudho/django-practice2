@@ -83,6 +83,17 @@ from apps1.practice.views.v0o0o1.prefecture import PrefectureV
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
+# デバッグ用。モデルをダンプ出力
+from apps1.practice.views.v0o0o1.debug import DebugV
+#          --------              -----        ------
+#          1.1                   1.2          2
+#    ---------------------------------
+#    1
+# 1. ディレクトリー
+# 1.1 アプリケーション
+# 1.2 ディレクトリー
+# 2. `1.2` に含まれる __init__.py ファイルにさらに含まれる クラス名
+
 from apps1.practice.views.v0o0o1.vuetify import VuetifyV
 #    ----- -------- --------------------        --------
 #    1     2        3                           4
@@ -294,6 +305,18 @@ urlpatterns = [
     #                              --------------------------
     # 2. UserListV クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_active_user_list' %} のような形でURLを取得するのに使える
+
+    # デバッグ用。モデルをダンプ出力
+    path('practice/from-object-to-json-str/',
+         # --------------------------------
+         # 1
+         DebugV.render_model_as_json, name='practice_from_object_to_json_str'),
+    #    ---------------------------        --------------------------------
+    #    2                                  3
+    # 1. 例えば `http://example.com/practice/from-object-to-json-str/` のような URL のパスの部分
+    #                              ---------------------------------
+    # 2. DebugV クラスの render_model_as_json 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_from_object_to_json_str' %} のような形でURLを取得するのに使える
 
     # 都道府県の一覧
     path('practice/prefectures/', PrefectureV.render_list, name='prefecture_list'),
