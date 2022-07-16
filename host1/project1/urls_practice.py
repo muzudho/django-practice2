@@ -413,13 +413,16 @@ urlpatterns = [
     # 3. HTMLテンプレートの中で {% url 'practice_v1_refectures_update' %} のような形でURLを取得するのに使える
 
     # ビューティファイでハロー
-    path('practice/vuetify/hello1', VuetifyV.render_hello1, name='vuetify_hello1'),
-    #     -----------------------   ----------------------        --------------
-    #     1                         2                             3
-    # 1. 例えば `http://example.com/practice/vuetify/hello1` のような URL のパスの部分
-    #                              -----------------------
+    path('practice/v1/vuetify/hello1', VuetifyV.render_hello1,
+         # -------------------------   ----------------------
+         # 1                           2
+         name='practice_v1_vuetify_hello1'),
+    #          --------------------------
+    #          3
+    # 1. 例えば `http://example.com/practice/v1/vuetify/hello1` のような URL のパスの部分
+    #                              --------------------------
     # 2. VuetifyV クラスの render_hello1 メソッド
-    # 3. HTMLテンプレートの中で {% url 'vuetify_hello1' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_hello1' %} のような形でURLを取得するのに使える
 
     # ビューティファイでデータテーブル１
     path('practice/vuetify/data-table1',

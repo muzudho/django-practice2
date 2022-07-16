@@ -7,10 +7,10 @@ def render_hello1(request):
 
     template = loader.get_template(
         'practice_v1/o1/vuetify/hello1.html')
-    #    -----------------------------------
+    #    ----------------------------------
     #    1
     # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/vuetify/hello1.html` を取得
-    #                                    -----------------------------------
+    #                                       ----------------------------------
 
     context = {
     }
