@@ -122,29 +122,30 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'apps1/allauth_customized_v1/templates'),
             #                       -------------------------------------
             #                       10
-            #
             # Example: `/host1/apps1/allauth_customized_v1/templates/account/signup.html`
-            #                        ------------------          --------
-            #                        11                          2
-            #                  ----------------------------------
+            #                        ---------------------          --------
+            #                        11                             2
+            #                  -------------------------------------
             #                  10
             # 10. テンプレート ディレクトリーへのパス
             # 11. アプリケーション
             # 2. まるで `http://example.com/account` という素材フォルダーがあるかのように扱われる
             #                             --------
 
-
-            # 〇×ゲーム v1.0.1
+            # 〇×ゲーム v1
             os.path.join(BASE_DIR, 'apps1/tic_tac_toe_v1/templates'),
-            #            --------   ------------------------------
-            #            1          2
+            #                       ------------------------------
+            #                       10
             #
-            # Example: /host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o1o0/match_application.html
-            #          ------ ------------------------------
-            #          1      2
-            #
-            # 1. あなたの開発用ディレクトリー（例えば host1）が code に差し替わっています
-            # 2. テンプレートへのパス
+            # Example: `/host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o1o0/match_application.html`
+            #                        --------------          ---------------
+            #                        11                      2
+            #                  ------------------------------
+            #                  10
+            # 10. テンプレート ディレクトリーへのパス
+            # 11. アプリケーション
+            # 2. まるで `http://example.com/tic_tac_toe_v1` という素材フォルダーがあるかのように扱われる
+            #                             ---------------
         ],
         'APP_DIRS': True,
         'OPTIONS': {

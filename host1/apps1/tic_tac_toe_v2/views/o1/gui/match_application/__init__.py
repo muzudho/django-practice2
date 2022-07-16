@@ -27,11 +27,11 @@ class MatchApplicationV():
     # 1. http://example.com:8000/tic-tac-toe/v2/playing/Elephant/?&myturn=X
     #                           -------------------------------------------
 
-    path_of_html = "tic_tac_toe_v2/o0o1/gui/match_application.html"
+    path_of_html = "tic_tac_toe_v2/o1/gui/match_application.html"
     #                            ^ two
     #               ----------------------------------------------
     #               1
-    # 1. host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o0o1/gui/match_application.html
+    # 1. host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1/gui/match_application.html
     #                                         ----------------------------------------------
 
     @staticmethod

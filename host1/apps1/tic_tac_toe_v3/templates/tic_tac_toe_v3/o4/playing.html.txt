@@ -1,8 +1,8 @@
-{% extends "tic_tac_toe_v3/o0o1/playing.html.txt" %}
+{% extends "tic_tac_toe_v3/o1/playing.html.txt" %}
 {#                       ^^^^^^ three.zero.one
             ------------------------------------
             1
-1. host1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o0o1/playing.html.txt
+1. host1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o1/playing.html.txt
                                         ------------------------------------
 
     自動フォーマットしないでください

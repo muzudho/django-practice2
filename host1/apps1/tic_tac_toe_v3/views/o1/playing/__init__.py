@@ -8,11 +8,11 @@ class PlayingV():
     # 1. `ws://example.com:8000/tic-tac-toe/v2o0o1/playing/`
     #                          ---------------------------
 
-    path_of_html = "tic_tac_toe_v3/o0o1/playing.html.txt"
+    path_of_html = "tic_tac_toe_v3/o1/playing.html.txt"
     #                            ^ three
     #               ------------------------------------
     #               1
-    # 1. `host1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o0o1/playing.html.txt`
+    # 1. `host1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o1/playing.html.txt`
     #                                          ------------------------------------
 
     @staticmethod

@@ -8,12 +8,12 @@ class MatchApplicationV():
     # 1. http://example.com:8000/tic-tac-toe/v1/playing/Elephant/?&mypiece=X
     #                           --------------------------------------------
 
-    path_of_html = "tic_tac_toe_v1/o0o1/match_application.html"
-    #                               ^^^zero.one
-    #               ------------------------------------------
+    path_of_html = "tic_tac_toe_v1/o1/match_application.html"
+    #                            ^one
+    #               ----------------------------------------
     #               1
-    # 1. host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o0o1/match_application.html
-    #                                         ------------------------------------------
+    # 1. host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o1/match_application.html
+    #                                         ----------------------------------------
 
     def render(request):
         """描画"""
@@ -22,8 +22,8 @@ class MatchApplicationV():
         from .v_render import render_match_application
         #    ---------        ------------------------
         #    1                2
-        # 1. `host1/apps1/tic_tac_toe_v1/views/v1o0o1/match_application/v_render.py`
-        #                                                               --------
+        # 1. `host1/apps1/tic_tac_toe_v1/views/o1/match_application/v_render.py`
+        #                                                           --------
         # 2. `1.` に含まれる関数
 
         return render_match_application(

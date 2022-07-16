@@ -1,8 +1,8 @@
-{% extends "tic_tac_toe_v2/o0o1/gui/playing_base.html" %}
+{% extends "tic_tac_toe_v2/o1/gui/playing_base.html" %}
 {#                       ^ two
             -----------------------------------------
             1
-1. `host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o0o1/gui/playing_base.html`
+1. `host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1/gui/playing_base.html`
                                          -----------------------------------------
 
     自動フォーマットしないでください

@@ -9,11 +9,11 @@ class MatchApplicationV():
     #                           -------------------------------------------
 
     # ページ
-    path_of_html = "tic_tac_toe_v2/o0o1/gui/match_application.html"
+    path_of_html = "tic_tac_toe_v2/o1/gui/match_application.html"
     #                            ^two
     #               ----------------------------------------------
     #               1
-    # 1. `host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o0o1/gui/match_application.html` を取得
+    # 1. `host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1/gui/match_application.html` を取得
     #                                          ----------------------------------------------
 
     @staticmethod
@@ -44,7 +44,7 @@ class MatchApplicationV():
         from .v_on_sent import match_application_on_sent
         #    ----------        -------------------------
         #    1                 2
-        # 1. `host1/apps1/tic_tac_toe_v3/views/o0o1/match_application/v_on_sent.py`
+        # 1. `host1/apps1/tic_tac_toe_v3/views/o1/match_application/v_on_sent.py`
         #                                                             ---------
         # 2. `1.` に含まれる関数
 
