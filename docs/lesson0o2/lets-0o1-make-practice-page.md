@@ -72,6 +72,35 @@ docker-compose up
 * `apps1` - 末尾の `1` は文字列検索しやすいように付けているだけで特別な意味はない
 * `practice_v1` - 末尾の `_v1` はレッスンの都合で付けているだけで特別な意味はない
 
+## この連載でのバージョン番号の付け方
+
+この連載では `セマンティック バージョニング` とは異なる法則でバージョン番号を付ける  
+
+メジャー番号は アプリケーション名に付ける  
+
+Example: `practice_v1`  
+
+URLでは、アプリケーション名とメジャー番号は分ける  
+
+Example: `http://example.com/practice/v1/`  
+
+この連載では、マイナー番号を以下のように表記することがある  
+
+Example: `o1o1`  
+
+この表記の名前は仮に **ビーズ記数法** とでも呼ぶことにする  
+
+📖 [数珠玉記数法](https://qiita.com/muzudho1/items/7aafcf17fc4bb8fe551b)  
+
+`o` は単に数を区切っている。基本的に先頭に `o` は置かないが、置くこともできる。特に意図がないなら、末尾を `o0` にすることを避ける。  
+`o1o1` の次は `o2o1` でも `o1o2` でも `o1o1o1` でも いずれでも構わない  
+
+メジャー番号とマイナー番号をつなげて使う例は以下の通り  
+
+Example: `ws://example.com/practice/v1o1o1/`  
+
+レッスンでは パッチ番号 のようなものは使わない  
+
 # Step 3. アプリケーション作成
 
 👇 以下のコマンドを打鍵してほしい  
@@ -209,7 +238,7 @@ INSTALLED_APPS = [
             └── 📂 practice_v1              # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1      # アプリケーションと同名
-                        └── 📂 o1o0
+                        └── 📂 o1
 👉                          └── 📄 page1.html
 ```
 
@@ -237,7 +266,7 @@ INSTALLED_APPS = [
         │   └── 📂 practice_v1                  # アプリケーション
         │       └── 📂 templates
         │           └── 📂 practice_v1
-        │               └── 📂 o1o0
+        │               └── 📂 o1
         │                   └── 📄 page1.html
         └── 📂 project1
 👉          └── 📄 settings.py
@@ -257,7 +286,7 @@ TEMPLATES = [
             #                       ---------------------------
             #                       1
             #
-            # Example: /host1/apps1/practice_v1/templates/practice_v1/o1o0/page1.html
+            # Example: /host1/apps1/practice_v1/templates/practice_v1/o1/page1.html
             #                       -----------           -----------
             #                       1.1                   2.1
             #          ---------------------------------]------------
@@ -292,7 +321,7 @@ TEMPLATES = [
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
+        │       │       └── 📂 o1
         │       │           └── 📄 page1.html
         │       └── 📂 views
         │           └── 📂 o1o0
@@ -314,11 +343,11 @@ class Page1():
     def render(request):
         """描画"""
 
-        template = loader.get_template('practice_v1/o1o0/page1.html')
-        #                               ---------------------------
+        template = loader.get_template('practice_v1/o1/page1.html')
+        #                               -------------------------
         #                               1
-        # 1. host1/apps1/practice_v1/templates/practice_v1/o1o0/page1.html を取得
-        #                                      ---------------------------
+        # 1. host1/apps1/practice_v1/templates/practice_v1/o1/page1.html を取得
+        #                                      -------------------------
 
         context = {}
         return HttpResponse(template.render(context, request))
@@ -338,10 +367,10 @@ class Page1():
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
+        │       │       └── 📂 o1
         │       │           └── 📄 page1.html
         │       └── 📂 views
-        │           └── 📂 o1o0
+        │           └── 📂 o1
         │               └── 📂 page1
         │                   └── 📄 __init__.py
         └── 📂 project1
@@ -353,14 +382,14 @@ class Page1():
 from django.urls import path
 
 # 練習ページ１
-from apps1.practice_v1.views.o1o0.page1 import Page1
-#          -----------            -----        -----
-#          1.1                    1.2          2
-#    ----------------------------------
-#    1
-# 1, 1.2 ディレクトリー
-# 1.1 アプリケーション
-# 2. `1.2` に含まれる __init__.py ファイルにさらに含まれるクラス
+from apps1.practice_v1.views.o1.page1 import Page1
+#          -----------          -----        -----
+#          11                   12           2
+#    --------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 urlpatterns = [

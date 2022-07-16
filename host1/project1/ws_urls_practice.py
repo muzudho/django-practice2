@@ -2,18 +2,18 @@
 from django.conf.urls import url
 
 # Webソケットの練習１
-from apps1.practice_v1.websocks.o0o1.consumer import WebsockPractice1V1Consumer
-#    ------------------------------- --------        --------------------------
-#    1                               2               3
+from apps1.practice_v1.websocks.o1.consumer import WebsockPractice1V1Consumer
+#    ----------------------------- --------        --------------------------
+#    1                             2               3
 # 1. ディレクトリー名
 # 2. Python ファイル名。拡張子抜き
 # 3. クラス名
 
 # Webソケットの練習２
-from apps1.practice_v1.websocks.o0o1.consumer_as_json import WebsockPractice2V1Consumer
-#                                                                           ^two
-#    ------------------------------- ----------------        --------------------------
-#    1                               2                       3
+from apps1.practice_v1.websocks.o1.consumer_as_json import WebsockPractice2V1Consumer
+#                                                                         ^two
+#    ----------------------------- ----------------        --------------------------
+#    1                             2                       3
 # 1. ディレクトリー名
 # 2. Python ファイル名。拡張子抜き
 # 3. クラス名

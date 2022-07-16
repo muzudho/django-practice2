@@ -94,7 +94,7 @@ TEMPLATES = [
             #                       ---------------------------
             #                       1
             #
-            # Example: /host1/apps1/practice_v1/templates/practice_v1/o1o0/page1.html
+            # Example: /host1/apps1/practice_v1/templates/practice_v1/o1/page1.html
             #                       -----------           -----------
             #                       1.1                   2.1
             #          ---------------------------------]------------

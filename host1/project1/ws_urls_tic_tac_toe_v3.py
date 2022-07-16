@@ -2,10 +2,10 @@
 from django.conf.urls import url
 
 # 〇×ゲームの練習３．０．１
-from apps1.tic_tac_toe_v3.websocks.o1o0.consumer_custom import TicTacToeV3o0o1ConsumerCustom
-#                       ^three                                           ^^^^^ three.zero.one
-#    ----- -------------- ------------- ---------------        -----------------------------
-#    1     2              3             4                      5
+from apps1.tic_tac_toe_v3.websocks.o1.consumer_custom import TicTacToeV3o0o1ConsumerCustom
+#                       ^three                                         ^^^^^ three.zero.one
+#    ----- -------------- ----------- ---------------        -----------------------------
+#    1     2              3           4                      5
 # 1,3 ディレクトリー名
 # 1. アプリケーション フォルダー名
 # 4. Python ファイル名。拡張子抜き

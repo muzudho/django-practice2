@@ -1,10 +1,10 @@
 from django.forms import ModelForm
 
 # 都道府県モデル
-from apps1.practice_v1.models.o1o0.m_prefecture import Prefecture
-#          -----------             ------------        ----------
-#          1.1                     2                   3
-#    ------------------------------------------
+from apps1.practice_v1.models.o1.m_prefecture import Prefecture
+#          -----------           ------------        ----------
+#          1.1                   2                   3
+#    ----------------------------------------
 #    1
 # 1. ディレクトリー
 # 1.1 アプリケーション

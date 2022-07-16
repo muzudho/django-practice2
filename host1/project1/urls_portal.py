@@ -1,12 +1,12 @@
 from django.urls import path
 
 # * 変更前
-#from apps1.portal_v1.views.o1o0.pages import Portal
+#from apps1.portal_v1.views.o1.pages import Portal
 # * 変更後
-from apps1.portal_v1.views.o2o0.pages import Portal
+from apps1.portal_v1.views.o2.pages import Portal
 #                           ^two
-#    -------------------------- -----        ------
-#    1                          2            3
+#    ------------------------ -----        ------
+#    1                        2            3
 # 1. ディレクトリー名
 # 2. Python ファイル名。拡張子抜き
 # 3. クラス名
