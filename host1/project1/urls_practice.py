@@ -265,28 +265,28 @@ urlpatterns = [
     # 3. HTMLテンプレートの中で {% url 'page2_patch2' %} のような形でURLを取得するのに使える
 
     # ログイン中
-    path('practice/login-required', v_login_required.LoggingIn.render,
-         # ----------------------   ---------------------------------
-         # 1                        2
-         name='practiceLoginRequired'),
-    #          ---------------------
+    path('practice/v1/login-required', v_login_required.LoggingIn.render,
+         # -------------------------   ---------------------------------
+         # 1                           2
+         name='practice_v1_login_required'),
+    #          --------------------------
     #          3
-    # 1. 例えば `http://example.com/practice/login-required` のような URL のパスの部分
-    #                              -----------------------
+    # 1. 例えば `http://example.com/practice/v1/login-required` のような URL のパスの部分
+    #                              --------------------------
     # 2. v_login_required.py ファイルの LoggingIn クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practiceLoginRequired' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_login_required' %} のような形でURLを取得するのに使える
 
     # ログアウト中
-    path('practice/logout', v_login_required.LoggingOut.render,
-         # --------------   ----------------------------------
-         # 1                2
-         name='practiceLogout'),
-    #          --------------
+    path('practice/v1/logout', v_login_required.LoggingOut.render,
+         # -----------------   ----------------------------------
+         # 1                   2
+         name='practice_v1_logout'),
+    #          ------------------
     #          3
-    # 1. 例えば `http://example.com/practice/logout` のような URL のパスの部分
-    #                              ---------------
+    # 1. 例えば `http://example.com/practice/v1/logout` のような URL のパスの部分
+    #                              ------------------
     # 2. v_login_required.py ファイルの LoggingOut クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practiceLogout' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_logout' %} のような形でURLを取得するのに使える
 
     # 会員にだけ見えるボタンを説明するページ
     path('practice/buttom_for_member/',

@@ -37,8 +37,8 @@ allauth アプリケーションの機能を使う　　
 ```plaintext
     ├── 📂 host1
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized    # アプリケーション名
-    │   │   ├── 📂 portal                # アプリケーション名
+    │   │   ├── 📂 allauth_customized_v1    # アプリケーション名
+    │   │   ├── 📂 portal_v1                # アプリケーション名
     │   │   │   ├── 📂 data
     │   │   │   │   └── 📄 finished-lesson.csv
     │   │   │   ├── 📂 migrations
@@ -46,13 +46,13 @@ allauth アプリケーションの機能を使う　　
     │   │   │   ├── 📂 static
     │   │   │   │   └── 🚀 favicon.ico
     │   │   │   ├── 📂 templates
-    │   │   │   │   └── 📂 portal
-    │   │   │   │       └── 📂 v0o0o1
+    │   │   │   │   └── 📂 portal_v1
+    │   │   │   │       └── 📂 o1
     │   │   │   │           └── 📄 portal_base.html
     │   │   │   └── 📂 views
-    │   │   │       └── 📂 v0o0o1
+    │   │   │       └── 📂 o1
     │   │   │           └── 📄 pages.py
-    │   │   └── 📂 practice              # アプリケーション名
+    │   │   └── 📂 practice_v1              # アプリケーション名
     │   ├── 📂 data
     │   ├── 📂 project1                  # プロジェクト名
     │   │   ├── 📄 __init__.py
@@ -91,10 +91,10 @@ docker-compose up
 ```plaintext
     └── 📂 host1                 # あなたの開発用ディレクトリー。任意の名前
         └── 📂 apps1
-            └── 📂 practice              # アプリケーション
+            └── 📂 practice_v1              # アプリケーション
                 └── 📂 templates
-                    └── 📂 practice              # アプリケーションと同名
-                        └── 📂 v0o0o1
+                    └── 📂 practice_v1              # アプリケーションと同名
+                        └── 📂 o1
 👉                          └── 📄 login_required.html
 ```
 
@@ -118,13 +118,14 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice              # アプリケーション
+            └── 📂 practice_v1              # アプリケーション
                 └── 📂 templates
-                    ├── 📂 practice
-                    │   └── 📂 v0o0o1
+                    ├── 📂 practice_v1
+                    │   └── 📂 o1
                     │       └── 📄 login_required.html
                     └── 📂 views
-👉                      └── 📄 v_login_required.py
+                        └── 📂 o1
+👉                          └── 📄 v_login_required.py
 ```
 
 ```py
@@ -138,11 +139,11 @@ from django.shortcuts import redirect
 class LoggingIn():
     """ログイン中"""
 
-    path_of_html = "practice/v0o0o1/login_required.html"
-    #               -----------------------------------
+    path_of_html = "practice_v1/o1/login_required.html"
+    #               ----------------------------------
     #               1
-    # 1. host1/apps1/practice/templates/practice/v0o0o1/login_required.html を取得
-    #                                   -----------------------------------
+    # 1. host1/apps1/practice_v1/templates/practice_v1/o1/login_required.html を取得
+    #                                      ----------------------------------
 
     # 👇 このデコレーターを付けると、ログインしていないなら、 settings.py の LOGIN_URL で指定した URL に飛ばします。
     # インスタンスのメソッドや、クラスメソッドには付けられません。
@@ -190,13 +191,14 @@ def loggingOut_render(request):
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 practice              # アプリケーション
+        │   └── 📂 practice_v1              # アプリケーション
         │       └── 📂 templates
-        │           ├── 📂 practice
-        │           │   └── 📂 v0o0o1
+        │           ├── 📂 practice_v1
+        │           │   └── 📂 o1
         │           │       └── 📄 login_required.html
         │           └── 📂 views
-        │               └── 📄 v_login_required.py
+        │               └── 📂 o1
+        │                   └── 📄 v_login_required.py
         └── 📂 project1
 👉          ├── 📄 urls_practice.py          # こちら
 ❌          └── 📄 urls.py                   # これではない
@@ -206,9 +208,10 @@ def loggingOut_render(request):
 # ...略...
 
 
-from apps1.practice.views.v0o0o1 import v_login_required
-#    ---------------------------        ----------------
-#    1                                  2
+# ログイン必須ページ
+from apps1.practice_v1.views.o1 import v_login_required
+#    --------------------------        ----------------
+#    1                                 2
 # 1. ディレクトリー名
 # 2. Python ファイル名。拡張子抜き
 
@@ -221,28 +224,28 @@ urlpatterns = [
 
 
     # ログイン中
-    path('practice/login-required', v_login_required.LoggingIn.render,
-         # ----------------------   ---------------------------------
-         # 1                        2
-         name='practiceLoginRequired'),
-    #          ---------------------
+    path('practice/v1/login-required', v_login_required.LoggingIn.render,
+         # -------------------------   ---------------------------------
+         # 1                           2
+         name='practice_v1_login_required'),
+    #          --------------------------
     #          3
-    # 1. 例えば `http://example.com/practice/login-required` のような URL のパスの部分
-    #                              -----------------------
+    # 1. 例えば `http://example.com/practice/v1/login-required` のような URL のパスの部分
+    #                              --------------------------
     # 2. v_login_required.py ファイルの LoggingIn クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practiceLoginRequired' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_login_required' %} のような形でURLを取得するのに使える
 
     # ログアウト中
-    path('practice/logout', v_login_required.LoggingOut.render,
-         # --------------   ----------------------------------
-         # 1                2
-         name='practiceLogout'),
-    #          --------------
+    path('practice/v1/logout', v_login_required.LoggingOut.render,
+         # -----------------   ----------------------------------
+         # 1                   2
+         name='practice_v1_logout'),
+    #          ------------------
     #          3
-    # 1. 例えば `http://example.com/practice/logout` のような URL のパスの部分
-    #                              ---------------
+    # 1. 例えば `http://example.com/practice/v1/logout` のような URL のパスの部分
+    #                              ------------------
     # 2. v_login_required.py ファイルの LoggingOut クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practiceLogout' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_logout' %} のような形でURLを取得するのに使える
 ]
 ```
 
@@ -251,11 +254,11 @@ urlpatterns = [
 👇　ログインしているときは、ログイン情報が見えます。  
 　　ログインしていないときは、ログイン画面が出ます
 
-📖 [http://localhost:8000/practice/login-required](http://localhost:8000/practice/login-required)  
+📖 [http://localhost:8000/practice/v1/login-required](http://localhost:8000/practice/v1/login-required)  
 
 👇 ログアウトするにはこちら  
 
-📖 [http://localhost:8000/practice/logout](http://localhost:8000/practice/logout)  
+📖 [http://localhost:8000/practice/v1/logout](http://localhost:8000/practice/v1/logout)  
 
 # Step 6. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -264,16 +267,17 @@ urlpatterns = [
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   ├── 📂 portal                # アプリケーション
+        │   ├── 📂 portal_v1                # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 practice              # アプリケーション
+        │   └── 📂 practice_v1              # アプリケーション
         │       └── 📂 templates
-        │           ├── 📂 practice
-        │           │   └── 📂 v0o0o1
+        │           ├── 📂 practice_v1
+        │           │   └── 📂 o1
         │           │       └── 📄 login_required.html
         │           └── 📂 views
-        │               └── 📄 v_login_required.py
+        │               └── 📂 o1
+        │                   └── 📄 v_login_required.py
         └── 📂 project1
             ├── 📄 urls_practice.py
             └── 📄 urls.py
@@ -282,8 +286,8 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/login-required,ログイン必須
-/practice/logout,ログアウト
+/practice/v1/login-required,ログイン必須
+/practice/v1/logout,ログアウト
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 
@@ -298,3 +302,7 @@ urlpatterns = [
 
 📖 [Using the Django authentication system](https://docs.djangoproject.com/en/3.1/topics/auth/default/)  
 📖 [Djangoメモ(25) : login_requiredデコレータでビューをログイン済みユーザーのみに制限](https://wonderwall.hatenablog.com/entry/2018/03/25/180000)  
+
+## User関連
+
+📖 [Django check if a related object exists error: RelatedObjectDoesNotExist](https://stackoverflow.com/questions/27064206/django-check-if-a-related-object-exists-error-relatedobjectdoesnotexist)  

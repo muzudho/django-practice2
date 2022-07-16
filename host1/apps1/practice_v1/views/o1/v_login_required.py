@@ -9,10 +9,10 @@ class LoggingIn():
     """ログイン中"""
 
     path_of_html = "practice_v1/o1/login_required.html"
-    #               -----------------------------------
+    #               ----------------------------------
     #               1
     # 1. host1/apps1/practice_v1/templates/practice_v1/o1/login_required.html を取得
-    #                                   -----------------------------------
+    #                                      ----------------------------------
 
     # 👇 このデコレーターを付けると、ログインしていないなら、 settings.py の LOGIN_URL で指定した URL に飛ばします。
     # インスタンスのメソッドや、クラスメソッドには付けられません。

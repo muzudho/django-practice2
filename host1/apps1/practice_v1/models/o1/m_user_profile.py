@@ -45,8 +45,12 @@ def create_user_profile(sender, instance, created, **kwargs):
 def save_user_profile(sender, instance, **kwargs):
     """保存"""
 
-    # * この行がエラーを起こして 管理画面 に入れないことがあれば、いったん コメントアウト するのもあり
-    instance.profile.save()
+    if hasattr(instance, 'profile'):
+        # * ここを通らないといけない
+        instance.profile.save()
+    else:
+        # * ここに来るようならおかしい
+        print("Userオブジェクトがprofile属性を持っていなかった。ここに来るようならおかしい(^～^)")
 
 
 # この行が何をやっているか分からないが、分からないからサンプルの真似をしておく（＾～＾）
