@@ -17,10 +17,10 @@ class RoomV():
 
     # 削除ページ
     _path_of_delete_page = "practice_v1/o1/room/delete.html"
-    #                       --------------------------------
+    #                       -------------------------------
     #                       1
     # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/room/delete.html` を取得
-    #                                    --------------------------------
+    #                                       -------------------------------
 
     # 新規作成または更新のページ
     _path_of_upsert_page = "practice_v1/o1/room/upsert.html"
