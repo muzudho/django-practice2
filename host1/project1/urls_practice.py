@@ -584,25 +584,24 @@ urlpatterns = [
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_update' %} のような形でURLを取得するのに使える
 
     # ロビー
-    path('practice/lobby/', LobbyV.render_lobby, name='practice_lobby'),
-    #     ---------------   -------------------  ---------------------
-    #     1                 2                    3
-    #
-    # 1. 例えば `http://example.com/practice/lobby/` のような URL のパスの部分
-    #                              ----------------
+    path('practice/v1/lobby/', LobbyV.render_lobby, name='practice_v1_lobby'),
+    #     ------------------   -------------------        -----------------
+    #     1                    2                          3
+    # 1. 例えば `http://example.com/practice/v1/lobby/` のような URL のパスの部分
+    #                              ------------------
     #    数字列は `2.` の関数の引数 id で取得できる
     # 2. LobbyV クラスの render_lobby メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_lobby' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_lobby' %} のような形でURLを取得するのに使える
 
     # マイ ページ
-    path('practice/my/', MyV.render_my, name='practice_my'),
-    #     ------------   -------------        -----------
-    #     1              2                    3
+    path('practice/v1/my/', MyV.render_my, name='practice_v1_my'),
+    #     ---------------   -------------        --------------
+    #     1                 2                    3
     #
-    # 1. 例えば `http://example.com/practice/my/` のような URL のパスの部分
-    #                              ------------
+    # 1. 例えば `http://example.com/practice/v1/my/` のような URL のパスの部分
+    #                              ---------------
     # 2. MyV クラスの render_my メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_my' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_my' %} のような形でURLを取得するのに使える
 
     # 自動再読込
     path('practice/reloader/', ReloaderV.render_reloader,

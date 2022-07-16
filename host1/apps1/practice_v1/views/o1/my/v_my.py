@@ -10,11 +10,11 @@ def render_my(request, path_of_my_page):
         # "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
         'dj_user': request.user,
 
-        'dj_lobbyPath': '/practice/lobby/',
-        #                ----------------
+        'dj_lobbyPath': '/practice/v1/lobby/',
+        #                -------------------
         #                1
-        # 1. http://example.com/practice/lobby/
-        #                      ----------------
+        # 1. http://example.com/practice/v1/lobby/
+        #                      -------------------
 
         'dj_ticTacToePath': '/tic-tac-toe/v2/match-application/',
         #                    ----------------------------------

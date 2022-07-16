@@ -3,10 +3,10 @@ class MyV():
 
     # マイ ページ
     _path_of_my_page = "practice_v1/o1/my.html"
-    #                   ----------------------------
+    #                   ----------------------
     #                   1
     # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/my.html` を取得
-    #                                    -----------------------
+    #                                       ----------------------
 
     @staticmethod
     def render_my(request):

@@ -33,7 +33,8 @@ path,label
 /practice/v1/rooms/read/1/,対局部屋の詳細(1)
 /practice/v1/rooms/upsert/,対局部屋の新規作成
 /practice/v1/rooms/upsert/5/,対局部屋の更新
-/practice/my/,マイ ページ
+/practice/v1/my/,マイ ページ
+/practice/v1/lobby/,ロビー
 /practice/redirecter/,自動リダイレクト
 /tic-tac-toe/v3/match-application/,〇×ゲーム v3 対局申込中
 /tic-tac-toe/v3o0o3/match-application/,〇×ゲーム v3.0.3 対局申込中
