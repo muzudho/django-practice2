@@ -30,7 +30,7 @@ class PlayingV():
         from .v_render import render_playing
         #    ---------        --------------
         #    1                2
-        # 1. `host1/apps1/tic_tac_toe_v2/views/v2o0o1/gui/playing/v_render.py`
+        # 1. `host1/apps1/tic_tac_toe_v2/views/o1/gui/playing/v_render.py`
         #                                                         --------
         # 2. `1.` に含まれる関数
 

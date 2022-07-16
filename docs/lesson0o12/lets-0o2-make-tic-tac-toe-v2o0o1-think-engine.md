@@ -36,24 +36,24 @@
     │    └── 📂 websockapp1
     ├── 📂 host1                         # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized    # アプリケーション
-    │   │   ├── 📂 portal                # アプリケーション
-    │   │   ├── 📂 practice              # アプリケーション
+    │   │   ├── 📂 allauth_customized_v1    # アプリケーション
+    │   │   ├── 📂 portal_v1                # アプリケーション
+    │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   └── 📂 tic_tac_toe_v1        # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
     │   │       │   └── 📂 tic_tac_toe_v1
-    │   │       │       └── 📂 o0o1
+    │   │       │       └── 📂 o1
     │   │       │           ├── 📄 main.css
     │   │       │           └── 📄 play.js
     │   │       ├── 📂 templates
     │   │       │   └── 📂 tic_tac_toe_v1
-    │   │       │       └── 📂 o0o1
+    │   │       │       └── 📂 o1
     │   │       │           ├── 📄 match_application.html
     │   │       │           └── 📄 playing.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 v1o0o1
+    │   │       │   └── 📂 o1
     │   │       │       ├── 📂 match_application
     │   │       │       │   ├── 📄 __init__.py
     │   │       │       │   └── 📄 v_render.py
@@ -61,7 +61,7 @@
     │   │       │           ├── 📄 __init__.py
     │   │       │           └── 📄 v_render.py
     │   │       ├── 📂 websocks
-    │   │       │   └── 📂 v1o0o1
+    │   │       │   └── 📂 o1
     │   │       │       └── 📄 consumer.py
     │   │       ├── 📄 __init__.py
     │   │       ├── 📄 admin.py
@@ -238,7 +238,7 @@ INSTALLED_APPS = [
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-        │       │       └── 📂 o0o1
+        │       │       └── 📂 o1
         │       │           └── 📂 think
 👉      │       │               └── 📄 things.js
         │       ├── 📄 __init__.py
@@ -492,7 +492,7 @@ ${indent}_squares:${this._squares}`;
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o0o1
+        │       │       └── 📂 o1
         │       │           └── 📂 think
 👉      │       │               ├── 📄 concepts.js
         │       │               └── 📄 things.js
@@ -790,7 +790,7 @@ function flipTurn(piece) {
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o0o1
+        │       │       └── 📂 o1
         │       │           └── 📂 think
         │       │               ├── 📄 concepts.js
 👉      │       │               ├── 📄 position.js
@@ -919,7 +919,7 @@ ${indent}${this._turn.dump(indent + "    ")}`;
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o0o1
+        │       │       └── 📂 o1
         │       │           └── 📂 think
         │       │               ├── 📄 concepts.js
         │       │               ├── 📄 position.js
@@ -1025,7 +1025,7 @@ class UserCtrl {
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o0o1
+        │       │       └── 📂 o1
         │       │           └── 📂 think
         │       │               ├── 📄 concepts.js
 👉      │       │               ├── 📄 judge_ctrl.js
@@ -1132,7 +1132,7 @@ class JudgeCtrl {
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o0o1
+        │       │       └── 📂 o1
         │       │           └── 📂 think
         │       │               ├── 📄 concepts.js
 👉      │       │               ├── 📄 engine.js
@@ -1348,7 +1348,7 @@ ${indent}${this._position.dump(indent + "    ")}`;
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o0o1
+        │       │       └── 📂 o1
         │       │           └── 📂 think
         │       │               ├── 📄 concepts.js
         │       │               ├── 📄 engine.js
@@ -1358,7 +1358,7 @@ ${indent}${this._position.dump(indent + "    ")}`;
         │       │               └── 📄 user_ctrl.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-        │       │       └── 📂 o0o1
+        │       │       └── 📂 o1
         │       │           └── 📂 think
 👉      │       │               └── 📄 engine_manual.html
         │       ├── 📄 __init__.py
@@ -1410,16 +1410,16 @@ ${indent}${this._position.dump(indent + "    ")}`;
             </v-app>
         </div>
 
-        <script src="{% static 'tic_tac_toe_v2/o0o1/think/things.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o0o1/think/concepts.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o0o1/think/position.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o0o1/think/user_ctrl.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o0o1/think/judge_ctrl.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o0o1/think/engine.js' %}"></script>
-        <!--                    ==================================
-                                1
-        1. host1/apps1/tic_tac_toe_v2/static/tic-ta-toe_v2/o0o1/think/engine.js
-                                             =================================
+        <script src="{% static 'tic_tac_toe_v2/o1/think/things.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/o1/think/concepts.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/o1/think/position.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/o1/think/user_ctrl.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/o1/think/judge_ctrl.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/o1/think/engine.js' %}"></script>
+        <!--            =========================================
+                        1
+        1. host1/apps1/tic_tac_toe_v2/static/tic-ta-toe_v2/o1/think/engine.js
+                                      =======================================
         -->
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
@@ -1556,7 +1556,7 @@ board
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o0o1
+        │       │       └── 📂 o1
         │       │           └── 📂 think
         │       │               ├── 📄 concepts.js
         │       │               ├── 📄 engine.js
@@ -1566,11 +1566,11 @@ board
         │       │               └── 📄 user_ctrl.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-        │       │       └── 📂 o0o1
+        │       │       └── 📂 o1
         │       │           └── 📂 think
         │       │               └── 📄 engine_manual.html
         │       ├── 📂 views
-        │       │   └── 📂 v2o0o1
+        │       │   └── 📂 o1
         │       │       └── 📂 think
         │       │           └── 📂 engine_manual
 👉      │       │               └── 📄 __init__.py
@@ -1586,11 +1586,11 @@ board
 class EngineManual():
     """エンジン手動"""
 
-    path_of_html = "tic_tac_toe_v2/o0o1/think/engine_manual.html"
-    #               --------------------------------------------
+    path_of_html = "tic_tac_toe_v2/o1/think/engine_manual.html"
+    #               ------------------------------------------
     #               1
-    # 1. host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o0o1/think/engine_manual.html
-    #                                         --------------------------------------------
+    # 1. host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1/think/engine_manual.html
+    #                                         ------------------------------------------
 
     @staticmethod
     def render(request):
@@ -1600,8 +1600,8 @@ class EngineManual():
         from .v_render import render_engine_manual
         #    ---------        --------------------
         #    1                2
-        # 1. `host1/apps1/tic_tac_toe_v2/views/v2o0o1/think/engine_manual/v_render.py`
-        #                                                                 --------
+        # 1. `host1/apps1/tic_tac_toe_v2/views/o1/engine_manual/v_render.py`
+        #                                                       --------
         # 2. `1.` に含まれる関数
 
         return render_engine_manual(request, EngineManual.path_of_html)
@@ -1619,7 +1619,7 @@ class EngineManual():
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o0o1
+        │       │       └── 📂 o1
         │       │           └── 📂 think
         │       │               ├── 📄 concepts.js
         │       │               ├── 📄 engine.js
@@ -1629,11 +1629,11 @@ class EngineManual():
         │       │               └── 📄 user_ctrl.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-        │       │       └── 📂 o0o1
+        │       │       └── 📂 o1
         │       │           └── 📂 think
         │       │               └── 📄 engine_manual.html
         │       ├── 📂 views
-        │       │   └── 📂 v2o0o1
+        │       │   └── 📂 o1
         │       │       └── 📂 think
         │       │           └── 📂 engine_manual
         │       │               ├── 📄 __init__.py
@@ -1670,7 +1670,7 @@ def render_engine_manual(request, path_of_html):
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o0o1
+        │       │       └── 📂 o1
         │       │           └── 📂 think
         │       │               ├── 📄 concepts.js
         │       │               ├── 📄 engine.js
@@ -1680,11 +1680,11 @@ def render_engine_manual(request, path_of_html):
         │       │               └── 📄 user_ctrl.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o0o1
+        │       │       └── 📂 o1
         │       │           └── 📂 think
         │       │               └── 📄 engine_manual.html
         │       ├── 📂 views
-        │       │   └── 📂 v2o0o1
+        │       │   └── 📂 o1
         │       │       └── 📂 think
         │       │           └── 📂 engine_manual
         │       │               ├── 📄 __init__.py
@@ -1702,10 +1702,10 @@ def render_engine_manual(request, path_of_html):
 from django.urls import path
 
 # 〇×ゲーム v2.0.1
-from apps1.tic_tac_toe_v2.views.v2o0o1.think.engine_manual import EngineManual
-#    ----- -------------- --------------------------------        ------------
-#    1     2              3                                       4
-#    -----------------------------------------------------
+from apps1.tic_tac_toe_v2.views.o1.think.engine_manual import EngineManual
+#    ----- -------------- ----------------------------        ------------
+#    1     2              3                                   4
+#    -------------------------------------------------
 #    5
 # 1. 開発者用ディレクトリーの一部
 # 2. アプリケーション フォルダー名
@@ -1741,7 +1741,7 @@ urlpatterns = [
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o0o1
+        │       │       └── 📂 o1
         │       │           └── 📂 think
         │       │               ├── 📄 concepts.js
         │       │               ├── 📄 engine.js
@@ -1751,11 +1751,11 @@ urlpatterns = [
         │       │               └── 📄 user_ctrl.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o0o1
+        │       │       └── 📂 o1
         │       │           └── 📂 think
         │       │               └── 📄 engine_manual.html
         │       ├── 📂 views
-        │       │   └── 📂 v2o0o1
+        │       │   └── 📂 o1
         │       │       └── 📂 think
         │       │           └── 📂 engine_manual
         │       │               ├── 📄 __init__.py
@@ -1804,7 +1804,7 @@ urlpatterns = [
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   ├── 📂 portal                        # アプリケーション
+        │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
         │   └── 📂 tic_tac_toe_v2                # アプリケーション
@@ -1812,7 +1812,7 @@ urlpatterns = [
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o0o1
+        │       │       └── 📂 o1
         │       │           └── 📂 think
         │       │               ├── 📄 concepts.js
         │       │               ├── 📄 engine.js
@@ -1822,11 +1822,11 @@ urlpatterns = [
         │       │               └── 📄 user_ctrl.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o0o1
+        │       │       └── 📂 o1
         │       │           └── 📂 think
         │       │               └── 📄 engine_manual.html
         │       ├── 📂 views
-        │       │   └── 📂 v2o0o1
+        │       │   └── 📂 o1
         │       │       └── 📂 think
         │       │           └── 📂 engine_manual
         │       │               ├── 📄 __init__.py
