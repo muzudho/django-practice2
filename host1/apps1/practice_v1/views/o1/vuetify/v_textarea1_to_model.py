@@ -19,13 +19,13 @@ def render_textarea1_to_model(request):
     #    ---------------------------------------------------
     #    1
     # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/vuetify/textarea1_to_model.html.txt` を取得
-    #                                    ---------------------------------------------------
+    #                                       --------------------------------------------------
 
     with open('apps1/practice_v1/static/practice_v1/o1/data/desserts1-placeholder.json', mode='r', encoding='utf-8') as f:
-        #      ---------------------------------------------------------------------
+        #      -----------------------------------------------------------------------
         #      1
         # 1. `host1/apps1/practice_v1/static/practice_v1/o1/data/desserts1-placeholder.json` を取得
-        #           ---------------------------------------------------------------------
+        #           -----------------------------------------------------------------------
         doc = json.load(f)
 
     context = {

@@ -23,26 +23,26 @@
 ```plaintext
     ├── 📂 host1
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized    # アプリケーション
-    │   │   ├── 📂 portal                # アプリケーション
-    │   │   └── 📂 practice              # アプリケーション
+    │   │   ├── 📂 allauth_customized_v1    # アプリケーション
+    │   │   ├── 📂 portal_v1                # アプリケーション
+    │   │   └── 📂 practice_v1              # アプリケーション
     │   │       ├── 📂 management
     │   │       ├── 📂 migrations
     │   │       ├── 📂 models
     │   │       ├── 📂 static
-    │   │       │   └── 📂 practice
-    │   │       │       └── 📂 v0o0o1
+    │   │       │   └── 📂 practice_v1
+    │   │       │       └── 📂 o1
     │   │       │           └── 📂 data
     │   │       │               └── 📄 desserts1.json
     │   │       ├── 📂 templates
-    │   │       │   └── 📂 practice          # アプリケーションと同名
-    │   │       │       └── 📂 v0o0o1
+    │   │       │   └── 📂 practice_v1          # アプリケーションと同名
+    │   │       │       └── 📂 o1
     │   │       │           ├── 📂 prefecture
     │   │       │           └── 📂 vuetify
     │   │       │               ├── 📄 textarea1_base.html
     │   │       │               └── 📄 desserts1.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 v0o0o1
+    │   │       │   └── 📂 o1
     │   │       │       ├── 📂 prefecture
     │   │       │       └── 📂 vuetify
     │   │       │           ├── 📄 __init__.py
@@ -104,9 +104,9 @@ JSONのデータを受け入れられる形をサーバー側で定義してお�
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 └── 📂 models
-                    └── 📂 v0o0o1
+                    └── 📂 o1
 👉                      └── 📄 m_dessert.py
 ```
 
@@ -139,9 +139,9 @@ class Dessert(models.Model):
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models
-                │   └── 📂 v0o0o1
+                │   └── 📂 o1
                 │       └── 📄 m_dessert.py
 👉              └── admin.py
 ```
@@ -150,12 +150,12 @@ class Dessert(models.Model):
 # See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92
 from django.contrib import admin
 
-from .models.v0o0o1.m_dessert import Dessert
-#    ------------------------        -------
-#    1                               2
+from .models.o1.m_dessert import Dessert
+#    --------------------        -------
+#    1                           2
 #
-# 1. このファイルと同じディレクトリにある `models/v0o0o1/m_dessert.py` ファイルの拡張子抜き
-#                                      --------------------------
+# 1. このファイルと同じディレクトリにある `models/o1/m_dessert.py` ファイルの拡張子抜き
+#                                      ----------------------
 # 2. クラス名
 
 # Register your models here.
@@ -176,10 +176,10 @@ admin.site.register(Dessert)
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
 # cd host1
 
-docker-compose run --rm web python3 manage.py makemigrations practice --settings project1.settings
-#                                                            --------            -----------------
-#                                                            1                   2
-# 1. アプリケーション名
+docker-compose run --rm web python3 manage.py makemigrations practice_v1 --settings project1.settings
+#                                                            -----------            -----------------
+#                                                            1                      2
+# 1. アプリケーション
 # 2. `host1/project1/settings.py`
 #           -----------------
 ```
@@ -189,13 +189,13 @@ docker-compose run --rm web python3 manage.py makemigrations practice --settings
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice
+            └── 📂 practice_v1
                 ├── 📂 migrations
                 │   ├── 📄 __init__.py
                 │   ├── ...略...
 👉              │   └── 📄 0002_dessert.py       # 名前は異なることがある
                 ├── 📂 models
-                │   └── 📂 v0o0o1
+                │   └── 📂 o1
                 │       └── 📄 m_dessert.py
                 └── admin.py
 ```
@@ -274,17 +274,17 @@ Iron (%):
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice          # アプリケーション
+            └── 📂 practice_v1          # アプリケーション
                 ├── 📂 migrations
                 │   ├── 📄 __init__.py
                 │   ├── ...略...
                 │   └── 📄 0002_dessert.py
                 ├── 📂 models
-                │   └── 📂 v0o0o1
+                │   └── 📂 o1
                 │       └── 📄 m_dessert.py
                 ├── 📂 static
-                │   └── 📂 practice      # アプリケーションと同名
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1      # アプリケーションと同名
+                │       └── 📂 o1
                 │           └── 📂 data
 👉              │               └── 📄 desserts1-placeholder.json
                 └── admin.py
@@ -310,33 +310,33 @@ Iron (%):
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice          # アプリケーション
+            └── 📂 practice_v1          # アプリケーション
                 ├── 📂 migrations
                 │   ├── 📄 __init__.py
                 │   ├── ...略...
                 │   └── 📄 0002_dessert.py
                 ├── 📂 models
-                │   └── 📂 v0o0o1
+                │   └── 📂 o1
                 │       └── 📄 m_dessert.py
                 ├── 📂 static
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
                 │           └── 📂 data
                 │               └── 📄 desserts1-placeholder.json
                 ├── 📂 templates
-                │   └── 📂 practice      # アプリケーションと同名
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1      # アプリケーションと同名
+                │       └── 📂 o1
                 │           └── 📂 vuetify
 👉              │               └── 📄 textarea1_to_model.html.txt
                 └── admin.py
 ```
 
 ```html
-{% extends "practice/v0o0o1/vuetify/textarea1_base.html" %}
-{#          -------------------------------------------
+{% extends "practice_v1/o1/vuetify/textarea1_base.html" %}
+{#          ------------------------------------------
             1
-1. host1/apps1/practice/templates/practice/v0o0o1/vuetify/textarea1_base.html
-                                  -------------------------------------------
+1. host1/apps1/practice_v1/templates/practice_v1/o1/vuetify/textarea1_base.html
+                                     ------------------------------------------
 #}
 
 {% block form_signature %}
@@ -345,7 +345,7 @@ Iron (%):
                                 1
         1. 宛先を間違えないように
             `http://example.com/practice/vuetify/save-desserts1-from-textarea1`
-                                                =============================
+                                                 =============================
         -->
 {% endblock form_signature %}
 ```
@@ -357,26 +357,26 @@ Iron (%):
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice          # アプリケーション
+            └── 📂 practice_v1          # アプリケーション
                 ├── 📂 migrations
                 │   ├── 📄 __init__.py
                 │   ├── ...略...
                 │   └── 📄 0002_dessert.py
                 ├── 📂 models
-                │   └── 📂 v0o0o1
+                │   └── 📂 o1
                 │       └── 📄 m_dessert.py
                 ├── 📂 static
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
                 │           └── 📂 data
                 │               └── 📄 desserts1-placeholder.json
                 ├── 📂 templates
-                │   └── 📂 practice      # アプリケーションと同名
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1      # アプリケーションと同名
+                │       └── 📂 o1
                 │           └── 📂 vuetify
                 │               └── 📄 textarea2.html
                 ├── 📂 views
-                │   └── 📂 v0o0o1
+                │   └── 📂 o1
                 │       └── 📂 vuetify
 👉              │           └── 📄 v_textarea1_to_model.py
                 └── admin.py
@@ -387,9 +387,10 @@ import json
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
 
-from apps1.practice.models.v0o0o1.m_dessert import Dessert
-#    ---------------------------- ---------        -----
-#    1                            2                3
+# デザート
+from apps1.practice_v1.models.o1.m_dessert import Dessert
+#    --------------------------- ---------        -------
+#    1                           2                3
 # 1. ディレクトリー名
 # 2. Python ファイル名。拡張子抜き
 # 3. クラス名
@@ -399,17 +400,17 @@ def render_textarea1_to_model(request):
     """ビューティファイのテキストエリア１ to model"""
 
     template = loader.get_template(
-        'practice/v0o0o1/vuetify/textarea1_to_model.html.txt')
+        'practice_v1/o1/vuetify/textarea1_to_model.html.txt')
     #    ---------------------------------------------------
     #    1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o1/vuetify/textarea1_to_model.html.txt` を取得
-    #                                    ---------------------------------------------------
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/vuetify/textarea1_to_model.html.txt` を取得
+    #                                       --------------------------------------------------
 
-    with open('apps1/practice/static/practice/v0o0o1/data/desserts1-placeholder.json', mode='r', encoding='utf-8') as f:
-        #      ---------------------------------------------------------------------
+    with open('apps1/practice_v1/static/practice_v1/o1/data/desserts1-placeholder.json', mode='r', encoding='utf-8') as f:
+        #      -----------------------------------------------------------------------
         #      1
-        # 1. `host1/apps1/practice/static/practice/v0o0o1/data/desserts1-placeholder.json` を取得
-        #           ---------------------------------------------------------------------
+        # 1. `host1/apps1/practice_v1/static/practice_v1/o1/data/desserts1-placeholder.json` を取得
+        #           -----------------------------------------------------------------------
         doc = json.load(f)
 
     context = {
@@ -446,26 +447,26 @@ def render_save_result_of_desserts1_from_textarea1(request):
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice          # アプリケーション
+            └── 📂 practice_v1          # アプリケーション
                 ├── 📂 migrations
                 │   ├── 📄 __init__.py
                 │   ├── ...略...
                 │   └── 📄 0002_dessert.py
                 ├── 📂 models
-                │   └── 📂 v0o0o1
+                │   └── 📂 o1
                 │       └── 📄 m_dessert.py
                 ├── 📂 static
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
                 │           └── 📂 data
                 │               └── 📄 desserts1-placeholder.json
                 ├── 📂 templates
-                │   └── 📂 practice      # アプリケーションと同名
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1      # アプリケーションと同名
+                │       └── 📂 o1
                 │           └── 📂 vuetify
                 │               └── 📄 textarea2.html
                 ├── 📂 views
-                │   └── 📂 v0o0o1
+                │   └── 📂 o1
                 │       └── 📂 vuetify
 👉              │           ├── 📄 __init__.py
                 │           └── 📄 v_textarea1_to_model.py
@@ -490,26 +491,26 @@ class VuetifyV(object):
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 practice          # アプリケーション
+        │   └── 📂 practice_v1          # アプリケーション
         │       ├── 📂 migrations
         │       │   ├── 📄 __init__.py
         │       │   ├── ...略...
         │       │   └── 📄 0002_dessert.py
         │       ├── 📂 models
-        │       │   └── 📂 v0o0o1
+        │       │   └── 📂 o1
         │       │       └── 📄 m_dessert.py
         │       ├── 📂 static
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           └── 📂 data
         │       │               └── 📄 desserts1-placeholder.json
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           └── 📂 vuetify
         │       │               └── 📄 textarea2.html
         │       ├── 📂 views
-        │       │   └── 📂 v0o0o1
+        │       │   └── 📂 o1
         │       │       └── 📂 vuetify
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 v_textarea1_to_model.py
@@ -526,13 +527,15 @@ from django.urls import path
 # ...略...
 
 
-from apps1.practice.views.v0o0o1.vuetify import VuetifyV
-#    ----- -------- --------------------        --------
-#    1     2        3                           4
-# 1,3. ディレクトリー名
-# 2. アプリケーション名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
+# 都道府県ビュー
+from apps1.practice_v1.views.o1.vuetify import VuetifyV
+#          -----------          -------        --------
+#          11                   12             2
+#    ----------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 urlpatterns = [
@@ -542,20 +545,20 @@ urlpatterns = [
 
 
     # ビューティファイでテキストエリア１ . 保存用
-    path('practice/vuetify/textarea1-to-model',
-         # ----------------------------------
+    path('practice/v1/vuetify/textarea1-to-model',
+         # -------------------------------------
          # 1
-         VuetifyV.render_textarea1_to_model, name='vuetify_textarea1_to_model'),
-    #    ----------------------------------        --------------------------
+         VuetifyV.render_textarea1_to_model, name='practice_v1_vuetify_textarea1_to_model'),
+    #    ----------------------------------        --------------------------------------
     #    2                                         3
-    # 1. 例えば `http://example.com/practice/vuetify/textarea1-to-model` のような URL のパスの部分
-    #                              -----------------------------------
+    # 1. 例えば `http://example.com/practice/v1/vuetify/textarea1-to-model` のような URL のパスの部分
+    #                              --------------------------------------
     # 2. VuetifyV クラスの render_textarea1_to_model メソッド
-    # 3. HTMLテンプレートの中で {% url 'vuetify_textarea1_to_model' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_textarea1_to_model' %} のような形でURLを取得するのに使える
 
     # ビューティファイでデザート１ . テキストエリア１から . 保存付き
-    path('practice/vuetify/save-desserts1-from-textarea1',
-         # ---------------------------------------------
+    path('practice/v1/vuetify/save-desserts1-from-textarea1',
+         # ------------------------------------------------
          # 1
          VuetifyV.render_save_result_of_desserts1_from_textarea1,
          # -----------------------------------------------------
@@ -563,8 +566,8 @@ urlpatterns = [
          name='vuetify_save_desserts1_from_textarea1'),
     #          -------------------------------------
     #          3
-    # 1. 例えば `http://example.com/practice/vuetify/save-desserts1-from-textarea1` のような URL のパスの部分
-    #                              ----------------------------------------------
+    # 1. 例えば `http://example.com/practice/v1/vuetify/save-desserts1-from-textarea1` のような URL のパスの部分
+    #                              -------------------------------------------------
     # 2. VuetifyV クラスの render_save_result_of_desserts1_from_textarea1 メソッド
     # 3. HTMLテンプレートの中で {% url 'vuetify_save_desserts1_from_textarea1' %} のような形でURLを取得するのに使える
 ]
@@ -574,7 +577,7 @@ urlpatterns = [
 
 👇 1件送信してほしい  
 
-📖 [http://localhost:8000/practice/vuetify/textarea1-to-model](http://localhost:8000/practice/vuetify/textarea1-to-model)  
+📖 [http://localhost:8000/practice/v1/vuetify/textarea1-to-model](http://localhost:8000/practice/v1/vuetify/textarea1-to-model)  
 
 # Step 13. スーパーユーザーでWebの管理画面へアクセス
 
@@ -601,29 +604,29 @@ urlpatterns = [
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   ├── 📂 portal                        # アプリケーション
+        │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 practice                      # アプリケーション
+        │   └── 📂 practice_v1                   # アプリケーション
         │       ├── 📂 migrations
         │       │   ├── 📄 __init__.py
         │       │   ├── ...略...
         │       │   └── 📄 0002_dessert.py
         │       ├── 📂 models
-        │       │   └── 📂 v0o0o1
+        │       │   └── 📂 o1
         │       │       └── 📄 m_dessert.py
         │       ├── 📂 static
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           └── 📂 data
         │       │               └── 📄 desserts1-placeholder.json
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           └── 📂 vuetify
         │       │               └── 📄 textarea2.html
         │       ├── 📂 views
-        │       │   └── 📂 v0o0o1
+        │       │   └── 📂 o1
         │       │       └── 📂 vuetify
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 v_textarea1_to_model.py
@@ -636,7 +639,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/vuetify/textarea1-to-model,ビューティファイでテキストエリア１ . 保存用
+/practice/v1/vuetify/textarea1-to-model,ビューティファイでテキストエリア１ . 保存用
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 
