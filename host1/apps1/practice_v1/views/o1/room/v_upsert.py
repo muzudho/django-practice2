@@ -36,7 +36,7 @@ def render_upsert(request, id, path_of_upsert_page):
         if form.is_valid():  # バリデーションがOKなら保存
             room = form.save(commit=False)
             room.save()
-            return redirect('practice_rooms_list')
+            return redirect('practice_v1_rooms')
     else:  # GETの時（フォームを生成）
         form = RoomForm(instance=room)
 

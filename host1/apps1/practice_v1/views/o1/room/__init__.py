@@ -3,10 +3,10 @@ class RoomV():
 
     # 一覧ページ
     _path_of_list_page = "practice_v1/o1/room/list.html"
-    #                     ------------------------------
+    #                     -----------------------------
     #                     1
     # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/room/list.html` を取得
-    #                                    ------------------------------
+    #                                       -----------------------------
 
     # 詳細ページ
     _path_of_read_page = "practice_v1/o1/room/read.html"
