@@ -97,6 +97,8 @@ class MhJson():
     # 1. `host1/apps1/practice/model_helper/mh_json/m_from_model_to_json_str.py`
     #                                               ------------------------
     # 2. `1.` に含まれる関数
+
+    from .m_from_model_to_json_str import from_model_to_json_str_with_indent
 ```
 
 # Step 3. モデルヘルパー モジュール作成 - m_from_model_to_json_str フォルダー
@@ -114,12 +116,20 @@ class MhJson():
 ```
 
 ```py
+import json
 from django.core import serializers
 
 
-def from_model_to_json_str(model):
+def from_model_to_json_str(any_object):
     """モデルをJSON文字列に変換する"""
-    return serializers.serialize('json', model)
+    return serializers.serialize('json', any_object)
+
+
+def from_model_to_json_str_with_indent(any_object):
+    """モデルをインデント付きでJSON文字列に変換する"""
+    json_str = from_model_to_json_str(any_object)
+    doc = json.loads(json_str)
+    return json.dumps(doc, indent=4)
 ```
 
 # Step 4. ビュー モジュール作成 - debug フォルダー
@@ -169,8 +179,16 @@ class DebugV():
         """描画 - モデルをダンプ出力する"""
 
         prefecture_resultset = Prefecture.objects.all()
-        json_str = MhJson.from_model_to_json_str(prefecture_resultset)
-        return HttpResponse(json_str)
+
+        # * これだと１行で表示されて見づらい
+        # json_str = MhJson.from_model_to_json_str(prefecture_resultset)
+        # return HttpResponse(json_str)
+
+        # * インデントを付けて、<pre>タグで挟む
+        # * Unicode文字 が数字になって見づらいという副作用はある
+        json_str = MhJson.from_model_to_json_str_with_indent(
+            prefecture_resultset)
+        return HttpResponse(f"<pre>{json_str}</pre>")
 ```
 
 # Step 5. ルート編集 - urls_practice.py ファイル
@@ -217,13 +235,13 @@ urlpatterns = [
     path('practice/from-object-to-json-str/',
          # -------------------------------
          # 1
-         DebugV.render_model_as_json, name='practice_from_model_to_json_str'),
-    #    ---------------------------        -------------------------------
+         DebugV.render_model_as_json, name='practice_from_object_to_json_str'),
+    #    ---------------------------        --------------------------------
     #    2                                  3
     # 1. 例えば `http://example.com/practice/from-object-to-json-str/` のような URL のパスの部分
     #                              --------------------------------
     # 2. DebugV クラスの render_model_as_json 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_from_model_to_json_str' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_from_object_to_json_str' %} のような形でURLを取得するのに使える
 ]
 ```
 

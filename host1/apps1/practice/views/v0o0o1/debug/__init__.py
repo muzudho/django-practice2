@@ -26,5 +26,13 @@ class DebugV():
         """描画 - モデルをダンプ出力する"""
 
         prefecture_resultset = Prefecture.objects.all()
-        json_str = MhJson.from_model_to_json_str(prefecture_resultset)
-        return HttpResponse(json_str)
+
+        # * これだと１行で表示されて見づらい
+        # json_str = MhJson.from_model_to_json_str(prefecture_resultset)
+        # return HttpResponse(json_str)
+
+        # * インデントを付けて、<pre>タグで挟む
+        # * Unicode文字 が数字になって見づらいという副作用はある
+        json_str = MhJson.from_model_to_json_str_with_indent(
+            prefecture_resultset)
+        return HttpResponse(f"<pre>{json_str}</pre>")
