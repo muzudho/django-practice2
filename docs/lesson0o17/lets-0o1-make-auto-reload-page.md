@@ -32,12 +32,12 @@
     │    └── 📂 websockapp1
     ├── 📂 host1                         # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized    # アプリケーション
-    │   │   ├── 📂 portal                # アプリケーション
-    │   │   ├── 📂 practice              # アプリケーション
+    │   │   ├── 📂 allauth_customized_v1    # アプリケーション
+    │   │   ├── 📂 portal_v1                # アプリケーション
+    │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
-    │   │   │       └── 📂 v0o0o1
+    │   │   │       └── 📂 o1
     │   │   │           └── 📄 m_room.py
     │   │   ├── 📂 tic_tac_toe_v1        # アプリケーション
     │   │   └── 📂 tic_tac_toe_v2        # アプリケーション
@@ -45,7 +45,7 @@
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o0o1
+    │   │       │       └── 📂 o1
     │   │       │           └── 📂 think
     │   │       │               ├── 📄 concepts.js
     │   │       │               ├── 📄 engine.js
@@ -55,11 +55,11 @@
     │   │       │               └── 📄 user_ctrl.js
     │   │       ├── 📂 templates
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o0o1
+    │   │       │       └── 📂 o1
     │   │       │           └── 📂 think
     │   │       │               └── 📄 engine_manual.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 v2o0o1
+    │   │       │   └── 📂 o1
     │   │       │       └── 📂 think
     │   │       │           └── 📂 engine_manual
     │   │       │               ├── 📄 __init__.py
@@ -109,10 +109,10 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 └── 📂 static
-                    └── 📂 practice          # アプリケーションと同名
-                        └── 📂 v0o0o1
+                    └── 📂 practice_v1          # アプリケーションと同名
+                        └── 📂 o1
 👉                          └── 📄 clock.js
 ```
 
@@ -144,19 +144,19 @@ function getTimeStamp() {
 }
 ```
 
-# Step 3. 機能強化 - reloader.js ファイル
+# Step 3. 機能強化 - auto_reload.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 └── 📂 static
-                    └── 📂 practice          # アプリケーションと同名
-                        └── 📂 v0o0o1
+                    └── 📂 practice_v1          # アプリケーションと同名
+                        └── 📂 o1
                             ├── 📄 clock.js
-👉                          └── 📄 reloader.js
+👉                          └── 📄 auto_reload.js
 ```
 
 ```js
@@ -170,23 +170,23 @@ function startReloadingAutomatically(intervalMilliseconds) {
 }
 ```
 
-# Step 4. 画面編集 - v0o0o1/reloader.html ファイル
+# Step 4. 画面編集 - v0o0o1/auto_reload.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
                 │           ├── 📄 clock.js
-                │           └── 📄 reloader.js
+                │           └── 📄 auto_reload.js
                 └── 📂 templates
-                    └── 📂 practice          # アプリケーションと同名
-                        └── 📂 v0o0o1
-👉                          └── 📄 reloader.html
+                    └── 📂 practice_v1          # アプリケーションと同名
+                        └── 📂 o1
+👉                          └── 📄 auto_reload.html
 ```
 
 ```html
@@ -223,12 +223,14 @@ function startReloadingAutomatically(intervalMilliseconds) {
             </v-app>
         </div>
 
-        <script src="{% static 'practice/v0o0o1/clock.js' %}"></script>
-        <script src="{% static 'practice/v0o0o1/reloader.js' %}"></script>
-        <!--                    ===========================
-            `host1/apps1/practice/static/practice/v0o0o1/reloader.js`
-                                         ===========================
+        {% block script_src %}
+        <script src="{% static 'practice_v1/o1/clock.js' %}"></script>
+        <script src="{% static 'practice_v1/o1/auto_reload.js' %}"></script>
+        <!--            =====================================
+            `host1/apps1/practice_v1/static/practice_v1/o1/auto_reload.js`
+                                     ====================================
         -->
+        {% endblock script_src %}
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
@@ -247,6 +249,12 @@ function startReloadingAutomatically(intervalMilliseconds) {
                 data: {
                     // "vu_" は 「vue1.dataのメンバー」 の目印
                     vu_timeStamp: getTimeStamp(),
+                    {% block data_trailing %}
+                    {% endblock data_trailing %}
+                },
+                methods: {
+                    {% block methods_trailing %}
+                    {% endblock methods_trailing %}
                 },
             });
         </script>
@@ -261,77 +269,77 @@ function startReloadingAutomatically(intervalMilliseconds) {
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
                 │           ├── 📄 clock.js
-                │           └── 📄 reloader.js
+                │           └── 📄 auto_reload.js
                 ├── 📂 templates
-                │   └── 📂 practice          # アプリケーションと同名
-                │       └── 📂 v0o0o1
-                │           └── 📄 reloader.html
+                │   └── 📂 practice_v1          # アプリケーションと同名
+                │       └── 📂 o1
+                │           └── 📄 auto_reload.html
                 └── 📂 views
-                    └── 📂 v0o0o1
-                        └── 📂 reloader
+                    └── 📂 o1
+                        └── 📂 auto_reload
 👉                          └── 📄 __init__.py
 ```
 
 ```py
-class ReloaderV():
+class AutoReloadV():
     """自動再読込ビュー"""
 
     # 自動再読込ページ
-    _path_of_reloader_page = "practice/v0o0o1/reloader.html"
-    #                         -----------------------------
-    #                         1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o1/reloader.html` を取得
-    #                                    -----------------------------
+    _path_of_auto_reload_page = "practice_v1/o1/auto_reload.html"
+    #                            -------------------------------
+    #                            1
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/auto_reload.html` を取得
+    #                                       -------------------------------
 
     @staticmethod
-    def render_reloader(request):
+    def render_auto_reload(request):
         """描画 - 自動再読込"""
 
         # 以下のファイルはあとで作ります
-        from .v_reloader import render_reloader
-        #    -----------        ---------------
-        #    1                  2
-        # 1. `host1/apps1/practice/views/v0o0o1/reloader/v_reloader.py`
-        #                                                ----------
+        from .v_auto_reload import render_auto_reload
+        #    --------------        ------------------
+        #    1                     2
+        # 1. `host1/apps1/practice_v1/views/o1/auto_reload/v_auto_reload.py`
+        #                                                  -------------
         # 2. `1.` に含まれる関数
 
-        return render_reloader(request, ReloaderV._path_of_reloader_page)
+        return render_auto_reload(request, AutoReloadV._path_of_auto_reload_page)
 ```
 
-# Step 6. ビュー モジュール作成 - v_reloader ファイル
+# Step 6. ビュー モジュール作成 - v_auto_reload ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
                 │           ├── 📄 clock.js
-                │           └── 📄 reloader.js
+                │           └── 📄 auto_reload.js
                 ├── 📂 templates
-                │   └── 📂 practice          # アプリケーションと同名
-                │       └── 📂 v0o0o1
-                │           └── 📄 reloader.html
+                │   └── 📂 practice_v1          # アプリケーションと同名
+                │       └── 📂 o1
+                │           └── 📄 auto_reload.html
                 └── 📂 views
-                    └── 📂 v0o0o1
-                        └── 📂 reloader
+                    └── 📂 o1
+                        └── 📂 auto_reload
                             ├──📄 __init__.py
-👉                          └──📄 v_reloader.py
+👉                          └──📄 v_auto_reload.py
 ```
 
 ```py
 from django.shortcuts import render
 
 
-def render_reloader(request, path_of_reloader_page):
+def render_auto_reload(request, path_of_reloader_page):
     """描画 - 自動再読込"""
 
     context = {
@@ -347,21 +355,21 @@ def render_reloader(request, path_of_reloader_page):
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 practice                  # アプリケーション
+        │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 static
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           ├── 📄 clock.js
-        │       │           └── 📄 reloader.js
+        │       │           └── 📄 auto_reload.js
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
-        │       │           └── 📄 reloader.html
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
+        │       │           └── 📄 auto_reload.html
         │       └── 📂 views
-        │           └── 📂 v0o0o1
-        │               └── 📂 reloader
+        │           └── 📂 o1
+        │               └── 📂 auto_reload
         │                   ├──📄 __init__.py
-        │                   └──📄 v_reloader.py
+        │                   └──📄 v_auto_reload.py
         └── 📂 project1                      # プロジェクト
 👉          └── 📄 urls_practice.py
 ```
@@ -370,13 +378,15 @@ def render_reloader(request, path_of_reloader_page):
 # ...略...
 
 
-from apps1.practice.views.v0o0o1.reloader import ReloaderV
-#    ----- -------- ---------------------        ---------
-#    1     2        3                            4
-# 1,3. ディレクトリー名
-# 2. アプリケーション名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
+# 自動リロード ビュー
+from apps1.practice_v1.views.o1.auto_reload import AutoReloadV
+#          -----------          -----------        -----------
+#          11                   12                 2
+#    --------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 urlpatterns = [
@@ -384,23 +394,23 @@ urlpatterns = [
 
 
     # 自動再読込
-    path('practice/reloader/', ReloaderV.render_reloader,
-         # -----------------   -------------------------
-         # 1                   2
-         name='practice_reloader'),
-    #          -----------------
+    path('practice/v1/auto_reload/', AutoReloadV.render_auto_reload,
+         # -----------------------   ------------------------------
+         # 1                         2
+         name='practice_v1_auto_reload'),
+    #          -----------------------
     #          3
     #
-    # 1. 例えば `http://example.com/practice/reloader/` のような URL のパスの部分
-    #                              ------------------
-    # 2. ReloaderV クラスの render_reloader メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_reloader' %} のような形でURLを取得するのに使える
+    # 1. 例えば `http://example.com/practice/v1/auto_reload/` のような URL のパスの部分
+    #                              ------------------------
+    # 2. AutoReloadV クラスの render_auto_reload 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_auto_reload' %} のような形でURLを取得するのに使える
 ]
 ```
 
 # Step 8. Web画面へアクセス
 
-📖 [http://localhost:8000/practice/reloader/](http://localhost:8000/practice/reloader/)  
+📖 [http://localhost:8000/practice/v1/auto_reload/](http://localhost:8000/practice/v1/auto_reload/)  
 
 # Step 9. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -409,24 +419,24 @@ urlpatterns = [
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   ├── 📂 portal                        # アプリケーション
+        │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 practice                      # アプリケーション
+        │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 static
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           ├── 📄 clock.js
-        │       │           └── 📄 reloader.js
+        │       │           └── 📄 auto_reload.js
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
-        │       │           └── 📄 reloader.html
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
+        │       │           └── 📄 auto_reload.html
         │       └── 📂 views
-        │           └── 📂 v0o0o1
-        │               └── 📂 reloader
+        │           └── 📂 o1
+        │               └── 📂 auto_reload
         │                   ├──📄 __init__.py
-        │                   └──📄 v_reloader.py
+        │                   └──📄 v_auto_reload.py
         └── 📂 project1                          # プロジェクト
             └── 📄 urls_practice.py
 ```
@@ -434,7 +444,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/reloader/,自動再読込
+/practice/v1/auto_reload/,自動再読込
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

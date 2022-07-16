@@ -35,6 +35,7 @@ path,label
 /practice/v1/rooms/upsert/5/,対局部屋の更新
 /practice/v1/my/,マイ ページ
 /practice/v1/lobby/,ロビー
+/practice/v1/auto_reload/,自動再読込
 /practice/redirecter/,自動リダイレクト
 /tic-tac-toe/v3/match-application/,〇×ゲーム v3 対局申込中
 /tic-tac-toe/v3o0o3/match-application/,〇×ゲーム v3.0.3 対局申込中

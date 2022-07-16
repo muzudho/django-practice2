@@ -1,7 +1,7 @@
-{% extends "practice_v1/o1/reloader.html" %}
+{% extends "practice_v1/o1/auto_reload.html" %}
 {#          ----------------------------
             1
-1. host1/apps1/practice_v1/templates/practice_v1/o1/reloader.html
+1. host1/apps1/practice_v1/templates/practice_v1/o1/auto_reload.html
                                      ----------------------------
 #}
 
@@ -9,10 +9,10 @@
 
 {% block script_src %}
 <script src="{% static 'practice_v1/o1/clock.js' %}"></script>
-<script src="{% static 'practice_v1/o2/reloader.js' %}"></script>
+<script src="{% static 'practice_v1/o2/auto_reload.js' %}"></script>
 <!--                                 ^two
                 ==================================
-    `host1/apps1/practice_v1/static/practice_v1/o2/reloader.js`
+    `host1/apps1/practice_v1/static/practice_v1/o2/auto_reload.js`
                              =================================
 -->
 {% endblock script_src %}

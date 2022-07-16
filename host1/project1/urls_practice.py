@@ -139,10 +139,10 @@ from apps1.practice_v1.views.o1.my import MyV
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # 自動リロード ビュー
-from apps1.practice_v1.views.o1.reloader import ReloaderV
-#          -----------          --------        ---------
-#          11                   12              2
-#    -----------------------------------
+from apps1.practice_v1.views.o1.auto_reload import AutoReloadV
+#          -----------          -----------        -----------
+#          11                   12                 2
+#    --------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -481,7 +481,7 @@ urlpatterns = [
     #    2                                               3
     # 1. 例えば `http://example.com/practice/v1/vuetify/desserts1-from-textarea1` のような URL のパスの部分
     #                              ---------------------------------------------
-    # 2. VuetifyV クラスの render_desserts1_from_textarea1 メソッド
+    # 2. VuetifyV クラスの render_desserts1_from_textarea1 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_desserts1_from_textarea1' %} のような形でURLを取得するのに使える
 
     # ビューティファイでJSON形式のデザート１
@@ -505,7 +505,7 @@ urlpatterns = [
     #    2                                         3
     # 1. 例えば `http://example.com/practice/v1/vuetify/textarea1-to-model` のような URL のパスの部分
     #                              --------------------------------------
-    # 2. VuetifyV クラスの render_textarea1_to_model メソッド
+    # 2. VuetifyV クラスの render_textarea1_to_model 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_textarea1_to_model' %} のような形でURLを取得するのに使える
 
     # ビューティファイでデザート１ . テキストエリア１から . 保存付き
@@ -520,7 +520,7 @@ urlpatterns = [
     #          3
     # 1. 例えば `http://example.com/practice/v1/vuetify/save-desserts1-from-textarea1` のような URL のパスの部分
     #                              -------------------------------------------------
-    # 2. VuetifyV クラスの render_save_result_of_desserts1_from_textarea1 メソッド
+    # 2. VuetifyV クラスの render_save_result_of_desserts1_from_textarea1 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'vuetify_save_desserts1_from_textarea1' %} のような形でURLを取得するのに使える
 
     # 対局部屋の一覧
@@ -529,7 +529,7 @@ urlpatterns = [
     #     1                    2                        3
     # 1. 例えば `http://example.com/practice/v1/rooms/` のような URL のパスの部分
     #                              ------------------
-    # 2. RoomV クラスの render_list メソッド
+    # 2. RoomV クラスの render_list 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms' %} のような形でURLを取得するのに使える
 
     # 対局部屋の詳細
@@ -542,7 +542,7 @@ urlpatterns = [
     # 1. 例えば `http://example.com/practice/v1/rooms/read/<数字列>/` のような URL のパスの部分。
     #                              --------------------------------
     #    数字列は `2.` の関数の引数 id で取得できる
-    # 2. RoomV クラスの render_read メソッド
+    # 2. RoomV クラスの render_read 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_read' %} のような形でURLを取得するのに使える
 
     # 対局部屋の削除
@@ -555,7 +555,7 @@ urlpatterns = [
     # 1. 例えば `http://example.com/practice/v1/rooms/delete/<数字列>/` のような URL のパスの部分。
     #                              ----------------------------------
     #    数字列は `2.` の関数の引数 id で取得できる
-    # 2. RoomV クラスの render_delete メソッド
+    # 2. RoomV クラスの render_delete 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_delete' %} のような形でURLを取得するのに使える
 
     # 対局部屋の新規作成
@@ -567,7 +567,7 @@ urlpatterns = [
     #          3
     # 1. 例えば `http://example.com/practice/v1/rooms/upsert/` のような URL のパスの部分
     #                              -------------------------
-    # 2. RoomV クラスの render_upsert メソッド
+    # 2. RoomV クラスの render_upsert 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_create' %} のような形でURLを取得するのに使える
 
     # 対局部屋の更新
@@ -580,7 +580,7 @@ urlpatterns = [
     # 1. 例えば `http://example.com/practice/v1/rooms/upsert/<数字列>/` のような URL のパスの部分
     #                              ----------------------------------
     #    数字列は `2.` の関数の引数 id で取得できる
-    # 2. RoomV クラスの render_upsert メソッド
+    # 2. RoomV クラスの render_upsert 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_update' %} のような形でURLを取得するのに使える
 
     # ロビー
@@ -590,7 +590,7 @@ urlpatterns = [
     # 1. 例えば `http://example.com/practice/v1/lobby/` のような URL のパスの部分
     #                              ------------------
     #    数字列は `2.` の関数の引数 id で取得できる
-    # 2. LobbyV クラスの render_lobby メソッド
+    # 2. LobbyV クラスの render_lobby 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_lobby' %} のような形でURLを取得するのに使える
 
     # マイ ページ
@@ -600,21 +600,21 @@ urlpatterns = [
     #
     # 1. 例えば `http://example.com/practice/v1/my/` のような URL のパスの部分
     #                              ---------------
-    # 2. MyV クラスの render_my メソッド
+    # 2. MyV クラスの render_my 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_my' %} のような形でURLを取得するのに使える
 
     # 自動再読込
-    path('practice/reloader/', ReloaderV.render_reloader,
-         # -----------------   -------------------------
-         # 1                            2
-         name='practice_reloader'),
-    #          -----------------
+    path('practice/v1/auto_reload/', AutoReloadV.render_auto_reload,
+         # -----------------------   ------------------------------
+         # 1                         2
+         name='practice_v1_auto_reload'),
+    #          -----------------------
     #          3
     #
-    # 1. 例えば `http://example.com/practice/reloader/` のような URL のパスの部分
-    #                              ------------------
-    # 2. ReloaderV クラスの render_reloader メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_reloader' %} のような形でURLを取得するのに使える
+    # 1. 例えば `http://example.com/practice/v1/auto_reload/` のような URL のパスの部分
+    #                              ------------------------
+    # 2. AutoReloadV クラスの render_auto_reload 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_auto_reload' %} のような形でURLを取得するのに使える
 
     # 自動リダイレクト
     path('practice/redirecter/', RedirecterV.render_redirect,
