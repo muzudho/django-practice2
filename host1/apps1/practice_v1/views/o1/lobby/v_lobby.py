@@ -36,7 +36,7 @@ def render_lobby(request, path_of_lobby_page):
         'dj_user_dic': json.dumps(user_dic),
         # FIXME URL を urls.py で変更しても、こちらに反映されないが、どうするか？
         "dj_path_of_home": "/home/v1/",
-        "dj_path_of_rooms_read": "/rooms/read/",
+        "dj_path_of_rooms_read": "/practice/v1/rooms/read/",
     }
 
     return HttpResponse(template.render(context, request))

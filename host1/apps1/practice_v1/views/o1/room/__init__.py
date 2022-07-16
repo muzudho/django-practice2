@@ -10,10 +10,10 @@ class RoomV():
 
     # 詳細ページ
     _path_of_read_page = "practice_v1/o1/room/read.html"
-    #                     ------------------------------
+    #                     -----------------------------
     #                     1
     # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/room/read.html` を取得
-    #                                    ------------------------------
+    #                                       -----------------------------
 
     # 削除ページ
     _path_of_delete_page = "practice_v1/o1/room/delete.html"

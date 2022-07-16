@@ -16,7 +16,6 @@ def get_all_logged_in_users():
         data = session.get_decoded()
         uid_list.append(data.get('_auth_user_id', None))
 
-    # ２段階変換: 問合せ結果（QuerySet）id絞りこみ ----> JSON文字列 ----> オブジェクト
     user_resultset = User.objects.filter(id__in=uid_list)
     """
 web_1  | user_table_doc=[

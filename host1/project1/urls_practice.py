@@ -533,14 +533,17 @@ urlpatterns = [
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms' %} のような形でURLを取得するのに使える
 
     # 対局部屋の詳細
-    path('rooms/read/<int:id>/', RoomV.render_read, name='practice_rooms_read'),
-    #     --------------------   -----------------        -------------------
-    #     1                      2                        3
-    # 1. 例えば `http://example.com/rooms/read/<数字列>/` のような URL のパスの部分。
-    #                              --------------------
+    path('practice/v1/rooms/read/<int:id>/',
+         # -------------------------------
+         # 1
+         RoomV.render_read, name='practice_v1_rooms_read'),
+    #    -----------------        ----------------------
+    #    2                        3
+    # 1. 例えば `http://example.com/practice/v1/rooms/read/<数字列>/` のような URL のパスの部分。
+    #                              --------------------------------
     #    数字列は `2.` の関数の引数 id で取得できる
     # 2. RoomV クラスの render_read メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_rooms_read' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_read' %} のような形でURLを取得するのに使える
 
     # 対局部屋の削除
     path('rooms/delete/<int:id>/', RoomV.render_delete,

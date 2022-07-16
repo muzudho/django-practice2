@@ -8,7 +8,6 @@ def get_user_dic():
     User = get_user_model()
 
     # 会員登録ユーザー一覧
-    # ２段階変換: 問合せ結果（QuerySet） ----> JSON文字列 ----> オブジェクト
     user_resultset = User.objects.all()
 
     # 使いやすい形に変換します

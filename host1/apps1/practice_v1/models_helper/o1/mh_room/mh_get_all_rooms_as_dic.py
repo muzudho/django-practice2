@@ -10,8 +10,7 @@ from apps1.practice_v1.models.o1.m_room import Room
 
 @staticmethod
 def get_all_rooms_as_dic():
-    # ２段階変換: 問合せ結果（QuerySet）id順 ----> JSON文字列 ----> オブジェクト
-    room_resultset = Room.objects.all().order_by('id')  # QuerySet
+    room_resultset = Room.objects.all().order_by('id')
 
     # 使いやすい形に変換します
     room_dic = dict()

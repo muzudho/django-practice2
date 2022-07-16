@@ -24,7 +24,6 @@ from apps1.practice_v1.models_helper.o1.mh_user import MhUser
 def render_read(request, room_pk, path_of_read_page):
     """読取ページ"""
 
-    # ２段階変換: 問合せ結果（QuerySet） ----> JSON文字列 ----> オブジェクト
     # idを指定してメンバーを１人取得
     room_resultset = Room.objects.filter(pk=room_pk)
 
