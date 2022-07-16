@@ -11,8 +11,8 @@ class AccountsV1SignupView(SignupView):
     template_name = "account/signup.html"
     #                -------------------
     #                1
-    # 1. `host1/apps1/allauth_customized/templates/account/signup.html` を取得
-    #                                              -------------------
+    # 1. `host1/apps1/allauth_customized_v1/templates/account/signup.html` を取得
+    #                                                 -------------------
 
     # You can also override some other methods of SignupView
     # Like below:

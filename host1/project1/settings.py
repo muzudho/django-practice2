@@ -119,16 +119,19 @@ TEMPLATES = [
             #                             ------------
 
             # allauth
-            os.path.join(BASE_DIR, 'apps1/allauth_customized/templates'),
-            #            --------   ----------------------------------
-            #            1          2
+            os.path.join(BASE_DIR, 'apps1/allauth_customized_v1/templates'),
+            #                       -------------------------------------
+            #                       10
             #
-            # Example: /host1/apps1/allauth_customized/templates/account/signup.html
-            #          ------ ----------------------------------
-            #          1      2
-            #
-            # 1. あなたの開発用ディレクトリー相当
-            # 2. テンプレートへのパス
+            # Example: `/host1/apps1/allauth_customized_v1/templates/account/signup.html`
+            #                        ------------------          --------
+            #                        11                          2
+            #                  ----------------------------------
+            #                  10
+            # 10. テンプレート ディレクトリーへのパス
+            # 11. アプリケーション
+            # 2. まるで `http://example.com/account` という素材フォルダーがあるかのように扱われる
+            #                             --------
 
 
             # 〇×ゲーム v1.0.1
