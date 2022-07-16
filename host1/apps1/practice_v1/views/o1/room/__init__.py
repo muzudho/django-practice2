@@ -51,8 +51,8 @@ class RoomV():
         from .v_read import render_read
         #    -------        -----------
         #    1              2
-        # 1. `host1/apps1/practice_v1/views/v0o0o1/room/v_read.py`
-        #                                            ------
+        # 1. `host1/apps1/practice_v1/views/o1/room/v_read.py`
+        #                                           ------
         # 2. `1.` に含まれる関数
 
         return render_read(request, id, RoomV._path_of_read_page)
@@ -65,8 +65,8 @@ class RoomV():
         from .v_delete import render_delete
         #    ---------        -------------
         #    1                2
-        # 1. `host1/apps1/practice_v1/views/v0o0o1/room/v_delete.py`
-        #                                            --------
+        # 1. `host1/apps1/practice_v1/views/o1/room/v_delete.py`
+        #                                           --------
         # 2. `1.` に含まれる関数
 
         return render_delete(request, id, RoomV._path_of_delete_page)
@@ -79,8 +79,8 @@ class RoomV():
         from .v_upsert import render_upsert
         #    ---------        -------------
         #    1                2
-        # 1. `host1/apps1/practice_v1/views/v0o0o1/room/v_upsert.py`
-        #                                            --------
+        # 1. `host1/apps1/practice_v1/views/o1/room/v_upsert.py`
+        #                                           --------
         # 2. `1.` に含まれる関数
 
         return render_upsert(request, id, RoomV._path_of_upsert_page)

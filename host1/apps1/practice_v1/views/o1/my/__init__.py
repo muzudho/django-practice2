@@ -16,8 +16,8 @@ class MyV():
         from .v_my import render_my
         #    -----        ---------
         #    1            2
-        # 1. `host1/apps1/practice_v1/views/v0o0o1/my/v_my.py`
-        #                                          ----
+        # 1. `host1/apps1/practice_v1/views/o1/my/v_my.py`
+        #                                         ----
         # 2. `1.` に含まれる関数
 
         return render_my(request, MyV._path_of_my_page)

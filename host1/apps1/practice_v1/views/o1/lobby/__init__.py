@@ -16,8 +16,8 @@ class LobbyV():
         from .v_lobby import render_lobby
         #    --------        ------------
         #    1               2
-        # 1. `host1/apps1/practice_v1/views/v0o0o1/lobby/v_lobby.py`
-        #                                             -------
+        # 1. `host1/apps1/practice_v1/views/o1/lobby/v_lobby.py`
+        #                                            -------
         # 2. `1.` に含まれる関数
 
         return render_lobby(request, LobbyV._path_of_lobby_page)

@@ -16,8 +16,8 @@ class ReloaderV():
         from .v_reloader import render_reloader
         #    -----------        ---------------
         #    1                  2
-        # 1. `host1/apps1/practice_v1/views/v0o0o1/reloader/v_reloader.py`
-        #                                                ----------
+        # 1. `host1/apps1/practice_v1/views/o1/reloader/v_reloader.py`
+        #                                               ----------
         # 2. `1.` に含まれる関数
 
         return render_reloader(request, ReloaderV._path_of_reloader_page)
