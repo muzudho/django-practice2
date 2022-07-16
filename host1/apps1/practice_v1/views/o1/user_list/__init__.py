@@ -5,7 +5,7 @@ class UserListV():
     _path_of_this_page = "practice_v1/o1/user_list.html"
     #                     ------------------------------
     #                     1
-    # 1. host1/apps1/portal/templates/practice_v1/o1/user_list.html を取得
+    # 1. host1/apps1/portal_v1/templates/practice_v1/o1/user_list.html を取得
     #                                 ------------------------------
 
     @staticmethod
@@ -16,7 +16,7 @@ class UserListV():
         from .v_render import render_user_list
         #    ---------        ----------------
         #    1                2
-        # 1. `host1/apps1/portal/views/v0o0o1/user_list/v_render.py`
+        # 1. `host1/apps1/portal_v1/views/v0o0o1/user_list/v_render.py`
         #                                               --------
         # 2. `1.` に含まれる関数
 

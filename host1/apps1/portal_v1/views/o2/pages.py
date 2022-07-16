@@ -17,20 +17,20 @@ class Portal():
         # 1. host1/apps1/practice_v1/templates/portal/v0o0o2/portal_base.html を取得
         #                                   ------------------------------
 
-        df = pd.read_csv('apps1/portal/data/finished-lessons.csv')
+        df = pd.read_csv('apps1/portal_v1/data/finished-lessons.csv')
         #                 --------------------------------------
         #                 1
-        # 1. `host1/apps1/portal/data/finished-lessons.csv` を読取
+        # 1. `host1/apps1/portal_v1/data/finished-lessons.csv` を読取
         #           --------------------------------------
 
         print(df)
         #
         # Example
         # -------
-        #                      path      label
-        # 0      /practice/v1/page1       ページ１
-        # 1  /practice/page2_patch1  ページ２ パッチ１
-        # 2  /practice/page2_patch2  ページ２ パッチ２
+        #                         path      label
+        # 0         /practice/v1/page1     ページ１
+        # 1  /practice/v1/page2_patch1  ページ２ パッチ１
+        # 2  /practice/v1/page2_patch2  ページ２ パッチ２
 
         print(df.columns)
         #
@@ -53,8 +53,8 @@ class Portal():
         # Example
         # -------
         # /practice/v1/page1 , ページ１
-        # /practice/page2_patch1 , ページ２ パッチ１
-        # /practice/page2_patch2 , ページ２ パッチ２
+        # /practice/v1/page2_patch1 , ページ２ パッチ１
+        # /practice/v1/page2_patch2 , ページ２ パッチ２
 
         # "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
         context = {

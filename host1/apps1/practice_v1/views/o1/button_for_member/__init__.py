@@ -5,7 +5,7 @@ class ButtonForMember():
     _path_of_this_page = "practice_v1/o1/button_for_member.html"
     #                     --------------------------------------
     #                     1
-    # 1. host1/apps1/portal/templates/practice_v1/o1/button_for_member.html を取得
+    # 1. host1/apps1/portal_v1/templates/practice_v1/o1/button_for_member.html を取得
     #                                 --------------------------------------
 
     # 既存のポータルページ
@@ -44,7 +44,7 @@ class ButtonForMember():
         from .v_render import render_button_for_member
         #    ---------        ------------------------
         #    1                2
-        # 1. `host1/apps1/portal/views/v0o0o1/button_for_member/v_render.py`
+        # 1. `host1/apps1/portal_v1/views/v0o0o1/button_for_member/v_render.py`
         #                                                       --------
         # 2. `1.` に含まれる関数
 

@@ -90,35 +90,33 @@ TEMPLATES = [
         # 'DIRS': [],
         # * 変更後
         'DIRS': [
+            # 練習
             os.path.join(BASE_DIR, 'apps1/practice_v1/templates'),
             #                       ---------------------------
-            #                       1
-            #
+            #                       10
             # Example: /host1/apps1/practice_v1/templates/practice_v1/o1/page1.html
-            #                       -----------           -----------
-            #                       1.1                   2.1
-            #          ---------------------------------]------------
-            #          1                                 2
-            #
-            # 1. テンプレート ディレクトリーへのパス
-            # 1.1 アプリケーション
+            #                       -----------          ------------
+            #                       11                   2
+            #                 ---------------------------
+            #                 10
+            # 10. テンプレート ディレクトリーへのパス
+            # 11. アプリケーション
             # 2. まるで `http://example.com/practice_v1` という素材フォルダーがあるかのように扱われる
             #                             ------------
-            # 2.1 ただのディレクトリー
 
-
-            # * 追加
+            # ポータル
             os.path.join(BASE_DIR, 'apps1/portal_v1/templates'),
-            #            --------   -------------------------
-            #            1          2
-            #
-            # Example: /host1/apps1/portal_v1/templates/portal_v1/o1o0/portal_base.html
-            #          ------ -------------------------
-            #          1      2
-            #
-            # 1. あなたの開発用ディレクトリー相当
-            # 2. テンプレートへのパス
-
+            #                       -------------------------
+            #                       10
+            # Example: /host1/apps1/portal_v1/templates/portal_v1/o1/portal_base.html
+            #                       ---------          ----------
+            #                       11                 2
+            #                 -------------------------
+            #                 10
+            # 10. テンプレート ディレクトリーへのパス
+            # 11. アプリケーション
+            # 2. まるで `http://example.com/practice_v1` という素材フォルダーがあるかのように扱われる
+            #                             ------------
 
             # allauth
             os.path.join(BASE_DIR, 'apps1/allauth_customized/templates'),
