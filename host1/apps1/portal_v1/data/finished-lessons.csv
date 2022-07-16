@@ -23,8 +23,8 @@ path,label
 /practice/v1/vuetify/data-table1,ビューティファイでデータテーブル１
 /practice/v1/vuetify/validation1,ビューティファイでバリデーション１
 /practice/v1/vuetify/desserts1,ビューティファイでデザート１
-/practice/vuetify/textarea1,ビューティファイでテキストエリア１
-/practice/vuetify/desserts1-as-json,ビューティファイでJSON形式のデザート１
+/practice/v1/vuetify/textarea1,ビューティファイでテキストエリア１
+/practice/v1/vuetify/desserts1-as-json,ビューティファイでJSON形式のデザート１
 /practice/vuetify/textarea1-to-model,ビューティファイでテキストエリア１ . 保存用
 /tic-tac-toe/v1/match-application/,〇×ゲーム v1
 /tic-tac-toe/v2/engine-manual/,〇×ゲーム v2 思考エンジン手動テスト

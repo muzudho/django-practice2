@@ -33,7 +33,7 @@ def render_desserts1_from_textarea1(request):
 
     template = loader.get_template(
         'practice_v1/o1/vuetify/desserts1.html')
-    #    --------------------------------------
+    #    -------------------------------------
     #    1
     # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/vuetify/desserts1.html` を取得
     #                                       -------------------------------------
