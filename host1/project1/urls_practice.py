@@ -312,16 +312,16 @@ urlpatterns = [
     # 3. HTMLテンプレートの中で {% url 'practice_v1_user_list' %} のような形でURLを取得するのに使える
 
     # （拡張済）会員一覧
-    path('practice/extends-user-list/',
-         # --------------------------
+    path('practice/v1/extends-user-list/',
+         # -----------------------------
          # 1
-         ExtendsUserListV.render, name='practice_extends_user_list'),
-    #    -----------------------        ------------------
+         ExtendsUserListV.render, name='practice_v1_extends_user_list'),
+    #    -----------------------        -----------------------------
     #    2                              3
-    # 1. 例えば `http://example.com/practice/extends-user-list/` のような URL のパスの部分
-    #                              ---------------------------
+    # 1. 例えば `http://example.com/practice/v1/extends-user-list/` のような URL のパスの部分
+    #                              ------------------------------
     # 2. ExtendsUserListV クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_extends_user_list' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_extends_user_list' %} のような形でURLを取得するのに使える
 
     # アクティブユーザー一覧
     path('practice/active-user-list/',

@@ -25,8 +25,8 @@ Django に最初から付いている User モデルを拡張したい
 ```plaintext
     ├── 📂 host1
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized    # アプリケーション
-    │   │   ├── 📂 portal                # アプリケーション
+    │   │   ├── 📂 allauth_customized_v1    # アプリケーション
+    │   │   ├── 📂 portal_v1                # アプリケーション
     │   │   │   ├── 📂 data
     │   │   │   │   └── 📄 finished-lesson.csv
     │   │   │   ├── 📂 migrations
@@ -34,16 +34,16 @@ Django に最初から付いている User モデルを拡張したい
     │   │   │   ├── 📂 static
     │   │   │   │   └── 🚀 favicon.ico
     │   │   │   ├── 📂 templates
-    │   │   │   │   └── 📂 portal
-    │   │   │   │       └── 📂 v0o0o1
+    │   │   │   │   └── 📂 portal_v1
+    │   │   │   │       └── 📂 o1
     │   │   │   │           └── 📄 portal_base.html
     │   │   │   └── 📂 views
-    │   │   │       └── 📂 v0o0o1
+    │   │   │       └── 📂 o1
     │   │   │           └── 📄 pages.py
-    │   │   └── 📂 practice              # アプリケーション
+    │   │   └── 📂 practice_v1              # アプリケーション
     │   │       └── 📂 templates
-    │   │           ├── 📂 practice
-    │   │           │   └── 📂 v0o0o1
+    │   │           ├── 📂 practice_v1
+    │   │           │   └── 📂 o1
     │   │           │       └── 📄 login_required.html
     │   │           └── 📂 views
     │   │               └── 📄 v_login_required.py
@@ -85,9 +85,9 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 └── 📂 models
-                    └── 📂 v0o0o1
+                    └── 📂 o1
 👉                      └── 📄 m_user_profile.py
 ```
 
@@ -138,7 +138,13 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     """保存"""
-    instance.profile.save()
+
+    if hasattr(instance, 'profile'):
+        # * ここを通らないといけない
+        instance.profile.save()
+    else:
+        # * ここに来るようならおかしい。管理画面から Profile モデルを追加し、User に紐づけるステップをやっていないのではないか？
+        print("Userオブジェクトがprofile属性を持っていなかった。ここに来るようならおかしい。管理画面から Profile モデルを追加し、User に紐づけるステップをやっていないのではないか？(^～^)")
 
 
 # この行が何をやっているか分からないが、分からないからサンプルの真似をしておく（＾～＾）
@@ -154,10 +160,10 @@ post_save.connect(create_user_profile, sender=User)
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
 # cd host1
 
-docker-compose run --rm web python3 manage.py makemigrations practice --settings project1.settings
-#                                                            --------            -----------------
-#                                                            1                   2
-# 1. アプリケーション名
+docker-compose run --rm web python3 manage.py makemigrations practice_v1 --settings project1.settings
+#                                                            -----------            -----------------
+#                                                            1                      2
+# 1. アプリケーション
 # 2. host1/project1/settings.py
 #          -----------------
 ```
@@ -168,13 +174,13 @@ docker-compose run --rm web python3 manage.py makemigrations practice --settings
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 migrations
                 │   ├── 📄 __init__.py
                 │   ├── ...略...
 👉              │   └── 📄 0003_profile.py       # 名前は異なることがある
                 └── 📂 models
-                    └── 📂 v0o0o1
+                    └── 📂 o1
                         └── 📄 m_user_profile.py
 ```
 
@@ -230,13 +236,14 @@ docker-compose run --rm web python3 manage.py showmigrations --settings project1
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models
-                │   └── 📂 v0o0o1
+                │   └── 📂 o1
                 │       └── 📄 m_user_profile.py
                 └── 📂 models_helper
-                    └── 📂 mh_user
-👉                      └── 📄 __init__.py
+                    └── 📂 o1
+                        └── 📂 mh_user
+👉                          └── 📄 __init__.py
 ```
 
 ```py
@@ -247,12 +254,13 @@ class MhUser():
     # ...略...
 
 
+    # * 以下を追加
     # 以下のファイルはあとで作ります
     from .mh_get_extends_user_dic import get_extends_user_dic
     #    ------------------------        --------------------
     #    1                               2
-    # 1. `host1/apps1/practice/model_helper/mh_user/mh_get_extends_user_dic.py`
-    #                                               -----------------------
+    # 1. `host1/apps1/practice_v1/model_helper/o1/mh_user/mh_get_extends_user_dic.py`
+    #                                                     -----------------------
     # 2. `1.` に含まれる関数
 ```
 
@@ -263,14 +271,15 @@ class MhUser():
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models
-                │   └── 📂 v0o0o1
+                │   └── 📂 o1
                 │       └── 📄 m_user_profile.py
                 └── 📂 models_helper
-                    └── 📂 mh_user
-                        ├── 📄 __init__.py
-👉                      └── 📄 mh_get_extends_user_dic.py
+                    └── 📂 o1
+                        └── 📂 mh_user
+                            ├── 📄 __init__.py
+👉                          └── 📄 mh_get_extends_user_dic.py
 ```
 
 ```py
@@ -284,14 +293,13 @@ def get_extends_user_dic():
     User = get_user_model()
 
     # 会員登録ユーザー一覧
-    # ２段階変換: 問合せ結果（QuerySet） ----> JSON文字列 ----> オブジェクト
-    user_resultset = User.objects.all().select_related('profile')  # QuerySet
-    #                                 --------------------------
-    #                                 1
+    user_resultset = User.objects.all().select_related('profile')
+    #                                  --------------------------
+    #                                  1
     # 1. これを付けて何が起こっているか分からないが、サンプルでよく付けているのを見かけるので真似する。外しても動く。
-    #    User クラスを拡張して作った Profile クラスの OneToOneField フィールドの名前を指しています
+    #    User クラスを拡張して作った Profile クラスの OneToOneField フィールドの名前を指している
 
-    # 使いやすい形に変換します
+    # 使いやすい形に変換する
     user_dic = dict()
 
     for user in user_resultset:
@@ -315,17 +323,18 @@ def get_extends_user_dic():
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models
-                │   └── 📂 v0o0o1
+                │   └── 📂 o1
                 │       └── 📄 m_user_profile.py
                 ├── 📂 models_helper
-                │   └── 📂 mh_user
-                │       ├── 📄 __init__.py
-                │       └── 📄 mh_get_extends_user_dic.py
+                │   └── 📂 o1
+                │       └── 📂 mh_user
+                │           ├── 📄 __init__.py
+                │           └── 📄 mh_get_extends_user_dic.py
                 └── 📂 templates
-                    └── 📂 practice          # アプリケーションと同名
-                        └── 📂 v0o0o1
+                    └── 📂 practice_v1          # アプリケーションと同名
+                        └── 📂 o1
 👉                          └── 📄 extends_user_list.html
 ```
 
@@ -406,20 +415,21 @@ def get_extends_user_dic():
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models
-                │   └── 📂 v0o0o1
+                │   └── 📂 o1
                 │       └── 📄 m_user_profile.py
                 ├── 📂 models_helper
-                │   └── 📂 mh_user
-                │       ├── 📄 __init__.py
-                │       └── 📄 mh_get_extends_user_dic.py
+                │   └── 📂 o1
+                │       └── 📂 mh_user
+                │           ├── 📄 __init__.py
+                │           └── 📄 mh_get_extends_user_dic.py
                 ├── 📂 templates
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
                 │           └── 📄 extends_user_list.html
                 └── 📂 views
-                    └── 📂 v0o0o1
+                    └── 📂 o1
                         └── 📂 extends_user_list
 👉                          └── 📄 __init__.py
 ```
@@ -429,11 +439,11 @@ class ExtendsUserListV():
     """（拡張済）会員一覧ビュー"""
 
     # そのページ
-    _path_of_this_page = "practice/v0o0o1/extends_user_list.html"
-    #                     --------------------------------------
+    _path_of_this_page = "practice_v1/o1/extends_user_list.html"
+    #                     -------------------------------------
     #                     1
-    # 1. `host1/apps1/portal/templates/practice/v0o0o1/extends_user_list.html` を取得
-    #                                  --------------------------------------
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/extends_user_list.html` を取得
+    #                                       -------------------------------------
 
     @staticmethod
     def render(request):
@@ -443,8 +453,8 @@ class ExtendsUserListV():
         from .v_render import render_extends_user_list
         #    ---------        ------------------------
         #    1                2
-        # 1. `host1/apps1/portal/views/v0o0o1/extends_user_list/v_render.py`
-        #                                                       --------
+        # 1. `host1/apps1/practice_v1/views/o1/extends_user_list/v_render.py`
+        #                                                        --------
         # 2. `1.` に含まれる関数
 
         return render_extends_user_list(request, ExtendsUserListV._path_of_this_page)
@@ -457,20 +467,21 @@ class ExtendsUserListV():
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models
-                │   └── 📂 v0o0o1
+                │   └── 📂 o1
                 │       └── 📄 m_user_profile.py
                 ├── 📂 models_helper
-                │   └── 📂 mh_user
-                │       ├── 📄 __init__.py
-                │       └── 📄 mh_get_extends_user_dic.py
+                │   └── 📂 o1
+                │       └── 📂 mh_user
+                │           ├── 📄 __init__.py
+                │           └── 📄 mh_get_extends_user_dic.py
                 ├── 📂 templates
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
                 │           └── 📄 extends_user_list.html
                 └── 📂 views
-                    └── 📂 v0o0o1
+                    └── 📂 o1
                         └── 📂 extends_user_list
                             ├── 📄 __init__.py
 👉                          └── 📄 v_render.py
@@ -481,13 +492,15 @@ import json
 from django.http import HttpResponse
 from django.template import loader
 
-from apps1.practice.models_helper.mh_user import MhUser
-#    ----- -------- ---------------------        ------
-#    1     2        3                            4
-# 1,3. ディレクトリー名
-# 2. アプリケーション フォルダー名
-# 3. Python ファイル名。拡張子抜き
-# 4. クラス名
+# ユーザー モデルヘルパー
+from apps1.practice_v1.models_helper.o1.mh_user import MhUser
+#          -----------                  -------        ------
+#          11                           12             2
+#    ------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 def render_extends_user_list(request, path_of_this_page):
@@ -512,20 +525,21 @@ def render_extends_user_list(request, path_of_this_page):
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 practice                  # アプリケーション
+        │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 models
-        │       │   └── 📂 v0o0o1
+        │       │   └── 📂 o1
         │       │       └── 📄 m_user_profile.py
         │       ├── 📂 models_helper
-        │       │   └── 📂 mh_user
-        │       │       ├── 📄 __init__.py
-        │       │       └── 📄 mh_get_extends_user_dic.py
+        │       │   └── 📂 o1
+        │       │       └── 📂 mh_user
+        │       │           ├── 📄 __init__.py
+        │       │           └── 📄 mh_get_extends_user_dic.py
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           └── 📄 extends_user_list.html
         │       └── 📂 views
-        │           └── 📂 v0o0o1
+        │           └── 📂 o1
         │               └── 📂 extends_user_list
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_render.py
@@ -538,16 +552,14 @@ def render_extends_user_list(request, path_of_this_page):
 
 
 # （拡張済）会員一覧
-from apps1.practice.views.v0o0o1.extends_user_list import ExtendsUserListV
-#    ----- -------- ------------------------------        ----------------
-#    1     2        3                                     4
-#    ---------------------------------------------
-#    5
-# 1. 開発者用ディレクトリーの一部
-# 2. アプリケーション フォルダー名
-# 3. ディレクトリー名
-# 4. クラス名
-# 5. Pythonモジュール名
+from apps1.practice_v1.views.o1.extends_user_list import ExtendsUserListV
+#          -----------          -----------------        ----------------
+#          11                   12                       2
+#    --------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 urlpatterns = [
@@ -555,16 +567,16 @@ urlpatterns = [
 
 
     # （拡張済）会員一覧
-    path('practice/extends-user-list/',
-         # --------------------------
+    path('practice/v1/extends-user-list/',
+         # -----------------------------
          # 1
-         ExtendsUserListV.render, name='practice_extends_user_list'),
-    #    -----------------------        ------------------
+         ExtendsUserListV.render, name='practice_v1_extends_user_list'),
+    #    -----------------------        -----------------------------
     #    2                              3
-    # 1. 例えば `http://example.com/practice/extends-user-list/` のような URL のパスの部分
-    #                              ---------------------------
+    # 1. 例えば `http://example.com/practice/v1/extends-user-list/` のような URL のパスの部分
+    #                              ------------------------------
     # 2. ExtendsUserListV クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_extends_user_list' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_extends_user_list' %} のような形でURLを取得するのに使える
 ]
 ```
 
@@ -575,20 +587,21 @@ urlpatterns = [
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 practice                  # アプリケーション
+        │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 models
-        │       │   └── 📂 v0o0o1
+        │       │   └── 📂 o1
         │       │       └── 📄 m_user_profile.py
         │       ├── 📂 models_helper
-        │       │   └── 📂 mh_user
-        │       │       ├── 📄 __init__.py
-        │       │       └── 📄 mh_get_extends_user_dic.py
+        │       │   └── 📂 o1
+        │       │       └── 📂 mh_user
+        │       │           ├── 📄 __init__.py
+        │       │           └── 📄 mh_get_extends_user_dic.py
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           └── 📄 extends_user_list.html
         │       ├── 📂 views
-        │       │   └── 📂 v0o0o1
+        │       │   └── 📂 o1
         │       │       └── 📂 extends_user_list
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 v_render.py
@@ -602,12 +615,12 @@ urlpatterns = [
 
 
 # Userの拡張
-from .models.v0o0o1.m_user_profile import Profile
-#    -----------------------------        -------
-#    1                               2
+from .models.o1.m_user_profile import Profile
+#    -------------------------        -------
+#    1                                2
 #
-# 1. このファイルと同じディレクトリにある `models/v0o0o1/m_user_profile.py` ファイルの拡張子抜き
-#                                      ----------------------------
+# 1. このファイルと同じディレクトリにある `models/o1/m_user_profile.py` ファイルの拡張子抜き
+#                                      ------------------------
 # 2. クラス名
 
 
@@ -664,7 +677,7 @@ User: [あなたの名前]▽ 🖊 ➕
 
 # Step 15. Web画面へアクセス
 
-📖 [http://localhost:8000/practice/extends-user-list/](http://localhost:8000/practice/extends-user-list/)  
+📖 [http://localhost:8000/practice/v1/extends-user-list/](http://localhost:8000/practice/v1/extends-user-list/)  
 
 # Step 16. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -673,23 +686,24 @@ User: [あなたの名前]▽ 🖊 ➕
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   ├── 📂 portal                    # アプリケーション
+        │   ├── 📂 portal_v1                    # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 practice                  # アプリケーション
+        │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 models
-        │       │   └── 📂 v0o0o1
+        │       │   └── 📂 o1
         │       │       └── 📄 m_user_profile.py
         │       ├── 📂 models_helper
-        │       │   └── 📂 mh_user
-        │       │       ├── 📄 __init__.py
-        │       │       └── 📄 mh_get_extends_user_dic.py
+        │       │   └── 📂 o1
+        │       │       └── 📂 mh_user
+        │       │           ├── 📄 __init__.py
+        │       │           └── 📄 mh_get_extends_user_dic.py
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           └── 📄 extends_user_list.html
         │       ├── 📂 views
-        │       │   └── 📂 v0o0o1
+        │       │   └── 📂 o1
         │       │       └── 📂 extends_user_list
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 v_render.py
@@ -701,7 +715,7 @@ User: [あなたの名前]▽ 🖊 ➕
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/extends-user-list/,（拡張済）会員一覧
+/practice/v1/extends-user-list/,（拡張済）会員一覧
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

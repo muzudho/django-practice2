@@ -8,14 +8,13 @@ def get_extends_user_dic():
     User = get_user_model()
 
     # 会員登録ユーザー一覧
-    # ２段階変換: 問合せ結果（QuerySet） ----> JSON文字列 ----> オブジェクト
-    user_resultset = User.objects.all().select_related('profile')  # QuerySet
-    #                                 --------------------------
-    #                                 1
+    user_resultset = User.objects.all().select_related('profile')
+    #                                  --------------------------
+    #                                  1
     # 1. これを付けて何が起こっているか分からないが、サンプルでよく付けているのを見かけるので真似する。外しても動く。
-    #    User クラスを拡張して作った Profile クラスの OneToOneField フィールドの名前を指しています
+    #    User クラスを拡張して作った Profile クラスの OneToOneField フィールドの名前を指している
 
-    # 使いやすい形に変換します
+    # 使いやすい形に変換する
     user_dic = dict()
 
     for user in user_resultset:
