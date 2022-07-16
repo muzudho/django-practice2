@@ -300,16 +300,16 @@ urlpatterns = [
     # 2. ButtonForMember クラスの render 静的メソッド
 
     # 会員一覧
-    path('practice/user-list/',
-         # -----------------
+    path('practice/v1/user-list/',
+         # ---------------------
          # 1
-         UserListV.render, name='practice_user_list'),
-    #    ----------------        ------------------
+         UserListV.render, name='practice_v1_user_list'),
+    #    ----------------        ---------------------
     #    2                       3
-    # 1. 例えば `http://example.com/practice/user-list/` のような URL のパスの部分
-    #                              ------------------
+    # 1. 例えば `http://example.com/practice/v1/user-list/` のような URL のパスの部分
+    #                              ----------------------
     # 2. UserListV クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_user_list' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_user_list' %} のような形でURLを取得するのに使える
 
     # （拡張済）会員一覧
     path('practice/extends-user-list/',

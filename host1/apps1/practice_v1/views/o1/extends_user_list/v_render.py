@@ -3,14 +3,14 @@ from django.http import HttpResponse
 from django.template import loader
 
 # ユーザー モデルヘルパー
-from apps1.practice_v1.models_helper.mh_user import MhUser
-#          -----------               -------        ------
-#          1.1                       1.2            2
-#    ---------------------------------------
-#    1
-# 1, 1.2 ディレクトリー
-# 1.1 アプリケーション
-# 2. `1.2` に含まれる __init__.py ファイルにさらに含まれるクラス
+from apps1.practice_v1.models_helper.o1.mh_user import MhUser
+#          -----------                  -------        ------
+#          11                           12             2
+#    ------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 def render_extends_user_list(request, path_of_this_page):

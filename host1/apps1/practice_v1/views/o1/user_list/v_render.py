@@ -3,13 +3,14 @@ from django.http import HttpResponse
 from django.template import loader
 
 # ユーザー モデルヘルパー
-from apps1.practice_v1.models_helper.mh_user import MhUser
-#    ----- ----------- ------------- -------        ------
-#    1     2           3             4              5
-# 1,3. ディレクトリー名
-# 2. アプリケーション フォルダー名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
+from apps1.practice_v1.models_helper.o1.mh_user import MhUser
+#          -----------                  -------        ------
+#          11                           12             2
+#    ------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 def render_user_list(request, path_of_this_page):
