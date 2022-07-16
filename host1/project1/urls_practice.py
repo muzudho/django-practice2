@@ -336,16 +336,16 @@ urlpatterns = [
     # 3. HTMLテンプレートの中で {% url 'practice_v1_active_user_list' %} のような形でURLを取得するのに使える
 
     # デバッグ用。モデルをダンプ出力
-    path('practice/from-object-to-json-str/',
-         # --------------------------------
+    path('practice/v1/from-object-to-json-str/',
+         # -----------------------------------
          # 1
-         DebugV.render_model_as_json, name='practice_from_object_to_json_str'),
-    #    ---------------------------        --------------------------------
+         DebugV.render_model_as_json, name='practice_v1_from_object_to_json_str'),
+    #    ---------------------------        -----------------------------------
     #    2                                  3
-    # 1. 例えば `http://example.com/practice/from-object-to-json-str/` のような URL のパスの部分
-    #                              ---------------------------------
+    # 1. 例えば `http://example.com/practice/v1/from-object-to-json-str/` のような URL のパスの部分
+    #                              ------------------------------------
     # 2. DebugV クラスの render_model_as_json 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_from_object_to_json_str' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_from_object_to_json_str' %} のような形でURLを取得するのに使える
 
     # 都道府県の一覧
     path('practice/prefectures/', PrefectureV.render_list, name='prefecture_list'),
