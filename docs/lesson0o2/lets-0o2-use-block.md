@@ -194,9 +194,10 @@ class Page2Patch1():
     def render(request):
         """描画"""
 
-        template = loader.get_template('practice_v1/o1/page2_patch1.html.txt')
-        #                               -------------------------------------
-        #                               1
+        template = loader.get_template(
+            'practice_v1/o1/page2_patch1.html.txt')
+        #    ------------------------------------
+        #    1
         # 1. host1/apps1/practice_v1/templates/practice_v1/o1/page2_patch1.html.txt を取得
         #                                      ------------------------------------
 
@@ -252,10 +253,10 @@ urlpatterns = [
     # ...中略...
 
 
-    # ページ２ パッチ１
+    # 練習ページ２ パッチ１
     path('practice/v1/page2_patch1', Page2Patch1.render, name='page2_patch1'),
     #     ------------------------   ------------------        ------------
-    #     1                       2                         3
+    #     1                          2                         3
     #
     # 1. 例えば `http://example.com/practice/v1/page2_patch1` のようなURLのパスの部分
     #                              ------------------------
