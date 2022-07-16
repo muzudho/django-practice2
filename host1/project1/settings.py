@@ -42,8 +42,8 @@ DEBUG = True
 INSTALLED_APPS = [
     # あなたが追加したアプリケーション
     'apps1.practice_v1',
-    'apps1.allauth_customized_v1',
     'apps1.portal_v1',
+    'apps1.allauth_customized_v1',
     'apps1.tic_tac_toe_v1',
     'apps1.tic_tac_toe_v2',
     'apps1.tic_tac_toe_v3',
