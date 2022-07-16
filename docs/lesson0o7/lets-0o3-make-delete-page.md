@@ -37,21 +37,21 @@ id が 2 のメンバーを削除したい。
 ```plaintext
     ├── 📂 host1
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized    # アプリケーション
-    │   │   ├── 📂 portal                # アプリケーション
-    │   │   └── 📂 practice              # アプリケーション
+    │   │   ├── 📂 allauth_customized_v1    # アプリケーション
+    │   │   ├── 📂 portal_v1                # アプリケーション
+    │   │   └── 📂 practice_v1              # アプリケーション
     │   │       ├── 📂 management
     │   │       ├── 📂 migrations
     │   │       ├── 📂 models
     │   │       ├── 📂 static
     │   │       ├── 📂 templates
-    │   │       │   └── 📂 practice          # アプリケーションと同名
-    │   │       │       └── 📂 v0o0o1
+    │   │       │   └── 📂 practice_v1          # アプリケーションと同名
+    │   │       │       └── 📂 o1
     │   │       │           └── 📂 prefecture
     │   │       │               ├── 📄 list.html
     │   │       │               └── 📄 read.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 v0o0o1
+    │   │       │   └── 📂 o1
     │   │       │       └── 📂 prefecture
     │   │       │           ├── 📄 __init__.py
     │   │       │           ├── 📄 v_list.py
@@ -98,10 +98,10 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                      # アプリケーション
+            └── 📂 practice_v1                      # アプリケーション
                 └── 📂 templates
-                    └── 📂 practice              # アプリケーションと同名
-                        └── 📂 v0o0o1                # ただのフォルダー
+                    └── 📂 practice_v1              # アプリケーションと同名
+                        └── 📂 o1                # ただのフォルダー
                             └── 📂 prefecture            # ただのフォルダー
 👉                              └── 📄 delete.html
 ```
@@ -128,7 +128,7 @@ docker-compose up
         <div class="container">
             <h3>都道府県の削除</h3>
             <div class="card" style="width: 18rem">「{{ prefecture.name }}」を削除しました。</div>
-            <a href="{% url 'prefecture_list' %}" class="btn btn-default btn-sm">戻る</a>
+            <a href="{% url 'practice_v1_prefectures' %}" class="btn btn-default btn-sm">戻る</a>
         </div>
         <!-- 覚えなくていい : jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -145,14 +145,14 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                      # アプリケーション
+            └── 📂 practice_v1                      # アプリケーション
                 ├── 📂 templates
-                │   └── 📂 practice              # アプリケーションと同名
-                │       └── 📂 v0o0o1                # ただのフォルダー
+                │   └── 📂 practice_v1              # アプリケーションと同名
+                │       └── 📂 o1                # ただのフォルダー
                 │           └── 📂 prefecture            # ただのフォルダー
                 │               └── 📄 delete.html
                 └── 📂 views
-                    └── 📂 v0o0o1                # ただのフォルダー
+                    └── 📂 o1                # ただのフォルダー
                         └── 📂 prefecture            # ただのフォルダー
 👉                          └── 📄 v_delete.py
 ```
@@ -161,9 +161,10 @@ docker-compose up
 from django.http import HttpResponse
 from django.template import loader
 
-from apps1.practice.models.v0o0o1.m_prefecture import Prefecture
-#    ----- -------- ------------- ------------        ----------
-#    1     2        3             4                   5
+# 都道府県モデル
+from apps1.practice_v1.models.o1.m_prefecture import Prefecture
+#    ----- ----------- --------- ------------        ----------
+#    1     2           3         4                   5
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
@@ -182,11 +183,11 @@ def render_delete(request, id=id):
     """
 
     template = loader.get_template(
-        'practice/v0o0o1/prefecture/delete.html')
-    #    --------------------------------------
+        'practice_v1/o1/prefecture/delete.html')
+    #    -------------------------------------
     #    1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/delete.html` を取得
-    #                                    --------------------------------------
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/prefecture/delete.html` を取得
+    #                                       -------------------------------------
 
     # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得
     prefecture = Prefecture.objects.get(pk=id)
@@ -208,14 +209,14 @@ def render_delete(request, id=id):
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                      # アプリケーション
+            └── 📂 practice_v1                      # アプリケーション
                 ├── 📂 templates
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
                 │           └── 📂 prefecture
                 │               └── 📄 delete.html
                 └── 📂 views
-                    └── 📂 v0o0o1
+                    └── 📂 o1
                         └── 📂 prefecture
 👉                          ├── 📄 __init__.py
                             └── 📄 v_delete.py
@@ -240,14 +241,14 @@ class PrefectureV(object):
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 practice                      # アプリケーション
+        │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           └── 📂 prefecture
         │       │               └── 📄 delete.html
         │       └── 📂 views
-        │           └── 📂 v0o0o1
+        │           └── 📂 o1
         │               └── 📂 prefecture
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_delete.py
@@ -263,13 +264,15 @@ from django.urls import path
 # ...略...
 
 
-from apps1.practice.views.v0o0o1.prefecture import PrefectureV
-#    ----- -------- -----------------------        -----------
-#    1     2        3                              4
-# 1,3. ディレクトリー名
-# 2. アプリケーション名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
+# 都道府県
+from apps1.practice_v1.views.o1.prefecture import PrefectureV
+#          -----------          ----------        -----------
+#          11                   12                2
+#    -------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 urlpatterns = [
@@ -279,18 +282,18 @@ urlpatterns = [
 
 
     # 都道府県の削除
-    path('practice/prefectures/delete/<int:id>/',
-         # ------------------------------------
+    path('practice/v1/prefectures/delete/<int:id>/',
+         # ---------------------------------------
          # 1
-         PrefectureV.render_delete, name='prefecture_delete'),
-    #    -------------------------        -----------------
+         PrefectureV.render_delete, name='practice_v1_prefectures_delete'),
+    #    -------------------------        ------------------------------
     #    2                                3
     #
-    # 1. 例えば `http://example.com/practice/prefectures/delete/<数字列>/` のような URL のパスの部分
-    #                              -------------------------------------
-    #    数字列は `2.` のメソッドの引数に `=id` と指定することで取得できる
+    # 1. 例えば `http://example.com/practice/v1/prefectures/delete/<数字列>/` のような URL のパスの部分
+    #                              ----------------------------------------
+    #    数字列は `2.` のメソッドの引数 id で取得できる
     # 2. PrefectureV クラスの render_delete メソッド
-    # 3. HTMLテンプレートの中で {% url 'prefecture_delete' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_prefectures_delete' %} のような形でURLを取得するのに使える
 ]
 ```
 
@@ -298,7 +301,7 @@ urlpatterns = [
 
 👇 IDの番号は適宜変えてほしい。  
 
-📖 [http://localhost:8000/practice/prefectures/delete/2/](http://localhost:8000/practice/prefectures/delete/2/)  
+📖 [http://localhost:8000/practice/v1/prefectures/delete/2/](http://localhost:8000/practice/v1/prefectures/delete/2/)  
 
 # Step 7. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -307,17 +310,17 @@ urlpatterns = [
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   ├── 📂 portal                        # アプリケーション
+        │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 practice                      # アプリケーション
+        │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           └── 📂 prefecture
         │       │               └── 📄 delete.html
         │       └── 📂 views
-        │           └── 📂 v0o0o1
+        │           └── 📂 o1
         │               └── 📂 prefecture
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_delete.py
@@ -329,7 +332,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/prefectures/delete/2/,都道府県(2)の削除
+/practice/v1/prefectures/delete/2/,都道府県(2)の削除
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

@@ -374,18 +374,18 @@ urlpatterns = [
     # 3. HTMLテンプレートの中で {% url 'practice_v1_prefectures_read' %} のような形でURLを取得するのに使える
 
     # 都道府県の削除
-    path('practice/prefectures/delete/<int:id>/',
-         # ------------------------------------
+    path('practice/v1/prefectures/delete/<int:id>/',
+         # ---------------------------------------
          # 1
-         PrefectureV.render_delete, name='prefecture_delete'),
-    #    -------------------------        -----------------
+         PrefectureV.render_delete, name='practice_v1_prefectures_delete'),
+    #    -------------------------        ------------------------------
     #    2                                3
     #
-    # 1. 例えば `http://example.com/practice/prefectures/delete/<数字列>/` のような URL のパスの部分
-    #                              -------------------------------------
-    #    数字列は `2.` のメソッドの引数に `=id` と指定することで取得できる
+    # 1. 例えば `http://example.com/practice/v1/prefectures/delete/<数字列>/` のような URL のパスの部分
+    #                              ----------------------------------------
+    #    数字列は `2.` のメソッドの引数 id で取得できる
     # 2. PrefectureV クラスの render_delete メソッド
-    # 3. HTMLテンプレートの中で {% url 'prefecture_delete' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_prefectures_delete' %} のような形でURLを取得するのに使える
 
     # 都道府県の新規作成
     path('practice/prefecture/create/',

@@ -336,7 +336,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/prefectures/read/1/,都道府県(1)の詳細
+/practice/v1/prefectures/read/1/,都道府県(1)の詳細
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 
