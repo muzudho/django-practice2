@@ -52,22 +52,22 @@
 ```plaintext
     ├── 📂 host1
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized    # アプリケーション
-    │   │   ├── 📂 portal                # アプリケーション
-    │   │   └── 📂 practice              # アプリケーション
+    │   │   ├── 📂 allauth_customized_v1    # アプリケーション
+    │   │   ├── 📂 portal_v1                # アプリケーション
+    │   │   └── 📂 practice_v1              # アプリケーション
     │   │       ├── 📂 management
     │   │       ├── 📂 migrations
     │   │       ├── 📂 models
     │   │       ├── 📂 static
     │   │       ├── 📂 templates
-    │   │       │   └── 📂 practice          # アプリケーションと同名
-    │   │       │       └── 📂 v0o0o1
+    │   │       │   └── 📂 practice_v1          # アプリケーションと同名
+    │   │       │       └── 📂 o1
     │   │       │           └── 📂 prefecture
     │   │       │               ├── 📄 delete.html
     │   │       │               ├── 📄 list.html
     │   │       │               └── 📄 read.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 v0o0o1
+    │   │       │   └── 📂 o1
     │   │       │       └── 📂 prefecture
     │   │       │           ├── 📄 __init__.py
     │   │       │           ├── 📄 v_delete.py
@@ -115,10 +115,10 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                      # アプリケーション
+            └── 📂 practice_v1                      # アプリケーション
                 └── 📂 templates
-                    └── 📂 practice              # アプリケーションと同名
-                        └── 📂 v0o0o1                # ただのフォルダー
+                    └── 📂 practice_v1              # アプリケーションと同名
+                        └── 📂 o1                # ただのフォルダー
                             └── 📂 prefecture            # ただのフォルダー
 👉                              └── 📄 upsert.html
 ```
@@ -146,10 +146,10 @@ docker-compose up
 
             {% if id %}
             <h3 class="page-header">都道府県の更新</h3>
-            <form action="{% url 'prefecture_update' id=id %}" method="post" class="form-horizontal" role="form">
+            <form action="{% url 'practice_v1_refectures_update' id=id %}" method="post" class="form-horizontal" role="form">
             {% else %}
             <h3 class="page-header">都道府県の新規作成</h3>
-            <form action="{% url 'prefecture_create' %}" method="post" class="form-horizontal" role="form">
+            <form action="{% url 'practice_v1_prefectures_create' %}" method="post" class="form-horizontal" role="form">
             {% endif %}
 
                 {% csrf_token %}
@@ -162,7 +162,7 @@ docker-compose up
                 </div>
 
             </form>
-            <a href="{% url 'prefecture_list' %}" class="btn btn-default btn-sm">戻る</a>
+            <a href="{% url 'practice_v1_prefectures' %}" class="btn btn-default btn-sm">戻る</a>
         </div>
         <!-- 覚えなくていい : jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -179,26 +179,29 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                      # アプリケーション
-                ├── 📂 forms                         # ただのフォルダー
+            └── 📂 practice_v1                      # アプリケーション
+                ├── 📂 forms                        # ただのフォルダー
 👉              │   └── 📄 f_prefecture.py
                 └── 📂 templates
-                    └── 📂 practice              # アプリケーションと同名
-                        └── 📂 v0o0o1                # ただのフォルダー
-                            └── 📂 prefecture            # ただのフォルダー
+                    └── 📂 practice_v1              # アプリケーションと同名
+                        └── 📂 o1                   # ただのフォルダー
+                            └── 📂 prefecture       # ただのフォルダー
                                 └── 📄 upsert.html
 ```
 
 ```py
 from django.forms import ModelForm
 
-from apps1.practice.models.m_prefecture import Prefecture
-#    ----- -------- ------ ------------        ----------
-#    1     2        3      4                   5
-# 1,3. ディレクトリー名
-# 2. アプリケーション名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
+# 都道府県モデル
+from apps1.practice_v1.models.o1.m_prefecture import Prefecture
+#          -----------           ------------        ----------
+#          1.1                   2                   3
+#    ----------------------------------------
+#    1
+# 1. ディレクトリー
+# 1.1 アプリケーション
+# 2. Pythonファイル名 拡張子抜き
+# 3. クラス名
 
 
 class PrefectureForm(ModelForm):
@@ -216,16 +219,16 @@ class PrefectureForm(ModelForm):
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                      # アプリケーション
+            └── 📂 practice_v1                      # アプリケーション
                 ├── 📂 forms                         # ただのフォルダー
                 │   └── 📄 f_prefecture.py
                 ├── 📂 templates
-                │   └── 📂 practice              # アプリケーションと同名
-                │       └── 📂 v0o0o1                # ただのフォルダー
+                │   └── 📂 practice_v1              # アプリケーションと同名
+                │       └── 📂 o1                # ただのフォルダー
                 │           └── 📂 prefecture            # ただのフォルダー
                 │               └── 📄 upsert.html
                 └── 📂 views
-                    └── 📂 v0o0o1                # ただのフォルダー
+                    └── 📂 o1                # ただのフォルダー
                         └── 📂 prefecture            # ただのフォルダー
 👉                          └── 📄 v_upsert.py
 ```
@@ -233,17 +236,19 @@ class PrefectureForm(ModelForm):
 ```py
 from django.shortcuts import render, get_object_or_404, redirect
 
-from apps1.practice.models.v0o0o1.m_prefecture import Prefecture
-#    ----- -------- ------------- ------------        ----------
-#    1     2        3             4                   5
+# 都道府県モデル
+from apps1.practice_v1.models.o1.m_prefecture import Prefecture
+#    ----- ----------- --------- ------------        ----------
+#    1     2           3         4                   5
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
-from apps1.practice.forms.f_prefecture import PrefectureForm
-#    ----- -------- ----- ------------        --------------
-#    1     2        3     4                   5
+# 都道府県フォーム
+from apps1.practice_v1.forms.f_prefecture import PrefectureForm
+#    ----- ----------- ----- ------------        --------------
+#    1     2           3     4                   5
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
@@ -266,16 +271,16 @@ def render_upsert(request, id=None):
         if form.is_valid():  # バリデーションがOKなら保存
             prefecture = form.save(commit=False)
             prefecture.save()
-            return redirect('prefecture_list')
+            return redirect('practice_v1_prefectures')
     else:  # GETの時（フォームを生成）
         form = PrefectureForm(instance=prefecture)
 
     # 作成・更新画面を表示
-    return render(request, 'practice/v0o0o1/prefecture/upsert.html', dict(form=form, id=id))
-    #                       --------------------------------------
+    return render(request, 'practice_v1/o1/prefecture/upsert.html', dict(form=form, id=id))
+    #                       -------------------------------------
     #                       1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/upsert.html` を取得
-    #                                    --------------------------------------
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/prefecture/upsert.html` を取得
+    #                                       -------------------------------------
 ```
 
 # Step 5. ビュー編集 - prefecture モジュール
@@ -285,14 +290,14 @@ def render_upsert(request, id=None):
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                      # アプリケーション
+            └── 📂 practice_v1                      # アプリケーション
                 ├── 📂 templates
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
                 │           └── 📂 prefecture
                 │               └── 📄 upsert.html
                 └── 📂 views
-                    └── 📂 v0o0o1
+                    └── 📂 o1
                         └── 📂 prefecture
 👉                          ├── 📄 __init__.py
                             └── 📄 v_upsert.py
@@ -317,16 +322,16 @@ class PrefectureV(object):
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 practice                      # アプリケーション
+        │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 forms
         │       │   └── 📄 f_prefecture.py
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           └── 📂 prefecture
         │       │               └── 📄 delete.html
         │       └── 📂 views
-        │           └── 📂 v0o0o1
+        │           └── 📂 o1
         │               └── 📂 prefecture
         │                   └── 📄 v_delete.py
         └── 📂 project1                          # プロジェクト
@@ -341,13 +346,15 @@ from django.urls import path
 # ...略...
 
 
-from apps1.practice.views.v0o0o1.prefecture import PrefectureV
-#    ----- -------- -----------------------        -----------
-#    1     2        3                              4
-# 1,3. ディレクトリー名
-# 2. アプリケーション名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
+# 都道府県
+from apps1.practice_v1.views.o1.prefecture import PrefectureV
+#          -----------          ----------        -----------
+#          11                   12                2
+#    -------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 urlpatterns = [
@@ -357,29 +364,29 @@ urlpatterns = [
 
 
     # 都道府県の新規作成
-    path('practice/prefecture/create/',
-         # --------------------------
+    path('practice/v1/prefectures/create/',
+         # ------------------------------
          # 1
-         PrefectureV.render_upsert, name='prefecture_create'),
-    #    -------------------------        -----------------
+         PrefectureV.render_upsert, name='practice_v1_prefectures_create'),
+    #    -------------------------        ------------------------------
     #    2                                3
-    # 1. 例えば `http://example.com/practice/prefecture/create/` のような URL のパスの部分
-    #                              ----------------------------
-    # 2. PrefectureV クラスの render_upsert メソッド
-    # 3. HTMLテンプレートの中で {% url 'prefecture_create' %} のような形でURLを取得するのに使える
+    # 1. 例えば `http://example.com/practice/v1/prefectures/create/` のような URL のパスの部分
+    #                              -------------------------------
+    # 2. PrefectureV クラスの render_upsert 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_prefectures_create' %} のような形でURLを取得するのに使える
 
     # 都道府県の更新
-    path('practice/prefecture/update/<int:id>/',
-         # -----------------------------------
+    path('practice/v1/prefectures/update/<int:id>/',
+         # ---------------------------------------
          # 1
-         PrefectureV.render_upsert, name='prefecture_update'),
-    #    -------------------------        -----------------
+         PrefectureV.render_upsert, name='practice_v1_refectures_update'),
+    #    -------------------------        -----------------------------
     #    2                                3
-    # 1. 例えば `http://example.com/practice/prefecture/update/<数字列>/` のような URL のパスの部分
-    #                              ------------------------------------
-    #    数字列は `2.` のメソッドの引数に `=id` と指定することで取得できる
-    # 2. PrefectureV クラスの render_upsert メソッド
-    # 3. HTMLテンプレートの中で {% url 'prefecture_update' %} のような形でURLを取得するのに使える
+    # 1. 例えば `http://example.com/practice/v1/prefectures/update/<数字列>/` のような URL のパスの部分
+    #                              ----------------------------------------
+    #    数字列は `2.` のメソッドの引数 id で取得できる
+    # 2. PrefectureV クラスの render_upsert 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_refectures_update' %} のような形でURLを取得するのに使える
 ]
 ```
 
@@ -387,11 +394,11 @@ urlpatterns = [
 
 👇 作成するとき、IDは付けるな  
 
-📖 [http://localhost:8000/practice/prefecture/create/](http://localhost:8000/practice/prefecture/create/)  
+📖 [http://localhost:8000/practice/v1/prefectures/create/](http://localhost:8000/practice/v1/prefectures/create/)  
 
 👇 更新するとき、IDを付けろ。 IDは適宜変えてほしい  
 
-📖 [http://localhost:8000/practice/prefecture/update/4/](http://localhost:8000/practice/prefecture/update/4/)  
+📖 [http://localhost:8000/practice/v1/prefectures/update/4/](http://localhost:8000/practice/v1/prefectures/update/4/)  
 
 # Step 8. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -400,19 +407,19 @@ urlpatterns = [
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   ├── 📂 portal                        # アプリケーション
+        │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 practice                      # アプリケーション
+        │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 forms
         │       │   └── 📄 f_prefecture.py
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           └── 📂 prefecture
         │       │               └── 📄 delete.html
         │       └── 📂 views
-        │           └── 📂 v0o0o1
+        │           └── 📂 o1
         │               └── 📂 prefecture
         │                   └── 📄 v_delete.py
         └── 📂 project1                          # プロジェクト
@@ -423,8 +430,8 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/prefecture/create/,都道府県の新規作成
-/practice/prefecture/update/4/,都道府県(4)の更新
+/practice/v1/prefectures/create/,都道府県の新規作成
+/practice/v1/prefectures/update/4/,都道府県(4)の更新
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

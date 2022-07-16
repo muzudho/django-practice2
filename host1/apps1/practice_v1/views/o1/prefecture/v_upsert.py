@@ -41,7 +41,7 @@ def render_upsert(request, id=None):
 
     # 作成・更新画面を表示
     return render(request, 'practice_v1/o1/prefecture/upsert.html', dict(form=form, id=id))
-    #                       --------------------------------------
+    #                       -------------------------------------
     #                       1
     # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/prefecture/upsert.html` を取得
-    #                                    --------------------------------------
+    #                                       -------------------------------------

@@ -20,10 +20,10 @@
 
             {% if id %}
             <h3 class="page-header">都道府県の更新</h3>
-            <form action="{% url 'prefecture_update' id=id %}" method="post" class="form-horizontal" role="form">
+            <form action="{% url 'practice_v1_refectures_update' id=id %}" method="post" class="form-horizontal" role="form">
             {% else %}
             <h3 class="page-header">都道府県の新規作成</h3>
-            <form action="{% url 'prefecture_create' %}" method="post" class="form-horizontal" role="form">
+            <form action="{% url 'practice_v1_prefectures_create' %}" method="post" class="form-horizontal" role="form">
             {% endif %}
 
                 {% csrf_token %}

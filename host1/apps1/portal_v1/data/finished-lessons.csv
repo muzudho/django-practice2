@@ -17,8 +17,8 @@ path,label
 /practice/v1/prefectures/,都道府県の一覧
 /practice/v1/prefectures/read/1/,都道府県(1)の詳細
 /practice/v1/prefectures/delete/2/,都道府県(2)の削除
-/practice/prefecture/create/,都道府県の新規作成
-/practice/prefecture/update/4/,都道府県(4)の更新
+/practice/v1/prefectures/create/,都道府県の新規作成
+/practice/v1/prefectures/update/4/,都道府県(4)の更新
 /practice/vuetify/hello1,ビューティファイでハロー
 /practice/vuetify/data-table1,ビューティファイでデータテーブル１
 /practice/vuetify/validation1,ビューティファイでバリデーション１

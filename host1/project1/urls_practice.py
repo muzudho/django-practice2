@@ -388,29 +388,29 @@ urlpatterns = [
     # 3. HTMLテンプレートの中で {% url 'practice_v1_prefectures_delete' %} のような形でURLを取得するのに使える
 
     # 都道府県の新規作成
-    path('practice/prefecture/create/',
-         # --------------------------
+    path('practice/v1/prefectures/create/',
+         # ------------------------------
          # 1
-         PrefectureV.render_upsert, name='prefecture_create'),
-    #    -------------------------        -----------------
+         PrefectureV.render_upsert, name='practice_v1_prefectures_create'),
+    #    -------------------------        ------------------------------
     #    2                                3
-    # 1. 例えば `http://example.com/practice/prefecture/create/` のような URL のパスの部分
-    #                              ----------------------------
-    # 2. PrefectureV クラスの render_upsert メソッド
-    # 3. HTMLテンプレートの中で {% url 'prefecture_create' %} のような形でURLを取得するのに使える
+    # 1. 例えば `http://example.com/practice/v1/prefectures/create/` のような URL のパスの部分
+    #                              -------------------------------
+    # 2. PrefectureV クラスの render_upsert 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_prefectures_create' %} のような形でURLを取得するのに使える
 
     # 都道府県の更新
-    path('practice/prefecture/update/<int:id>/',
-         # -----------------------------------
+    path('practice/v1/prefectures/update/<int:id>/',
+         # ---------------------------------------
          # 1
-         PrefectureV.render_upsert, name='prefecture_update'),
-    #    -------------------------        -----------------
+         PrefectureV.render_upsert, name='practice_v1_refectures_update'),
+    #    -------------------------        -----------------------------
     #    2                                3
-    # 1. 例えば `http://example.com/practice/prefecture/update/<数字列>/` のような URL のパスの部分
-    #                              ------------------------------------
-    #    数字列は `2.` のメソッドの引数に `=id` と指定することで取得できる
-    # 2. PrefectureV クラスの render_upsert メソッド
-    # 3. HTMLテンプレートの中で {% url 'prefecture_update' %} のような形でURLを取得するのに使える
+    # 1. 例えば `http://example.com/practice/v1/prefectures/update/<数字列>/` のような URL のパスの部分
+    #                              ----------------------------------------
+    #    数字列は `2.` のメソッドの引数 id で取得できる
+    # 2. PrefectureV クラスの render_upsert 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_refectures_update' %} のような形でURLを取得するのに使える
 
     # ビューティファイでハロー
     path('practice/vuetify/hello1', VuetifyV.render_hello1, name='vuetify_hello1'),
