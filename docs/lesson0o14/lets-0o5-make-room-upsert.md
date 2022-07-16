@@ -2,9 +2,8 @@
 
 （※いわゆる CRUD の C と U）  
 
-`http://localhost:8000/rooms/upsert/4/` へアクセスすると、  
-id が 4 の部屋が存在しないときは新規作成を、  
-id が 4 の部屋が既に存在するなら更新をしたい  
+`http://localhost:8000/practice/v1/rooms/upsert/` へアクセスすると、部屋の新規作成を、  
+`http://localhost:8000/practice/v1/rooms/upsert/4/` へアクセスすると、主キーが 4 の部屋の更新をしたい  
 
 👇 表示例（新規作成のとき）:  
 
@@ -61,12 +60,12 @@ id が 4 の部屋が既に存在するなら更新をしたい
     │    └── 📂 websockapp1
     ├── 📂 host1                         # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized    # アプリケーション
-    │   │   ├── 📂 portal                # アプリケーション
-    │   │   ├── 📂 practice              # アプリケーション
+    │   │   ├── 📂 allauth_customized_v1    # アプリケーション
+    │   │   ├── 📂 portal_v1                # アプリケーション
+    │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
-    │   │   │       └── 📂 v0o0o1
+    │   │   │       └── 📂 o1
     │   │   │           └── 📄 m_room.py
     │   │   ├── 📂 tic_tac_toe_v1        # アプリケーション
     │   │   └── 📂 tic_tac_toe_v2        # アプリケーション
@@ -74,7 +73,7 @@ id が 4 の部屋が既に存在するなら更新をしたい
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o0o1
+    │   │       │       └── 📂 o1
     │   │       │           └── 📂 think
     │   │       │               ├── 📄 concepts.js
     │   │       │               ├── 📄 engine.js
@@ -84,11 +83,11 @@ id が 4 の部屋が既に存在するなら更新をしたい
     │   │       │               └── 📄 user_ctrl.js
     │   │       ├── 📂 templates
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o0o1
+    │   │       │       └── 📂 o1
     │   │       │           └── 📂 think
     │   │       │               └── 📄 engine_manual.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 v2o0o1
+    │   │       │   └── 📂 o1
     │   │       │       └── 📂 think
     │   │       │           └── 📂 engine_manual
     │   │       │               ├── 📄 __init__.py
@@ -138,10 +137,10 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 └── 📂 templates
-                    └── 📂 practice          # アプリケーションと同名
-                        └── 📂 v0o0o1
+                    └── 📂 practice_v1          # アプリケーションと同名
+                        └── 📂 o1
                             └── 📂 room
 👉                              └── 📄 upsert.html
 ```
@@ -163,10 +162,10 @@ docker-compose up
 
             {% if id %}
             <h3 class="page-header">部屋の更新</h3>
-            <form action="{% url 'practice_rooms_update' id=id %}" method="post" class="form-horizontal" role="form">
+            <form action="{% url 'practice_v1_rooms_update' id=id %}" method="post" class="form-horizontal" role="form">
             {% else %}
             <h3 class="page-header">部屋の作成</h3>
-            <form action="{% url 'practice_rooms_create' %}" method="post" class="form-horizontal" role="form">
+            <form action="{% url 'practice_v1_rooms_create' %}" method="post" class="form-horizontal" role="form">
             {% endif %}
 
                 {% csrf_token %}
@@ -179,7 +178,7 @@ docker-compose up
                 </div>
 
             </form>
-            <a href="{% url 'practice_rooms_list' %}" class="btn btn-default btn-sm">戻る</a>
+            <a href="{% url 'practice_v1_rooms' %}" class="btn btn-default btn-sm">戻る</a>
         </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -198,12 +197,12 @@ HTMLタグの `<form>～</form>` の子要素を自動生成させよう。
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 forms
 👉              │   └── 📄 f_room.py
                 └── 📂 templates
-                    └── 📂 practice
-                        └── 📂 v0o0o1
+                    └── 📂 practice_v1
+                        └── 📂 o1
                             └── 📂 room
                                 └── 📄 upsert.html
 ```
@@ -211,13 +210,14 @@ HTMLタグの `<form>～</form>` の子要素を自動生成させよう。
 ```py
 from django.forms import ModelForm
 
-from apps1.practice.models.v0o0o1.m_room import Room
-#    ----- -------- ------------- ------        ----
-#    1     2        3             4             5
-# 1,3. ディレクトリー名
-# 2. アプリケーション名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
+from apps1.practice_v1.models.o1.m_room import Room
+#          -----------           ------        ----
+#          1.1                   1.2           2
+#    ----------------------------------
+#    1
+# 1, 1.2 ディレクトリー
+# 1.1 アプリケーション
+# 2. `1.2` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 class RoomForm(ModelForm):
@@ -233,16 +233,16 @@ class RoomForm(ModelForm):
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 forms
                 │   └── 📄 f_room.py
                 ├── 📂 templates
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
                 │           └── 📂 room
                 │               └── 📄 upsert.html
                 └── 📂 views
-                    └── 📂 v0o0o1
+                    └── 📂 o1
                         └── 📂 room
 👉                          └── 📄 __init__.py
 ```
@@ -253,11 +253,11 @@ class RoomV():
 
 
     # 新規作成または更新のページ
-    _path_of_upsert_page = "practice/v0o0o1/room/upsert.html"
-    #                       --------------------------------
+    _path_of_upsert_page = "practice_v1/o1/room/upsert.html"
+    #                       -------------------------------
     #                       1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o1/room/upsert.html` を取得
-    #                                    --------------------------------
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/room/upsert.html` を取得
+    #                                       -------------------------------
 
 
     # ...略...
@@ -271,8 +271,8 @@ class RoomV():
         from .v_upsert import render_upsert
         #    ---------        -------------
         #    1                2
-        # 1. `host1/apps1/practice/views/v0o0o1/room/v_upsert.py`
-        #                                            --------
+        # 1. `host1/apps1/practice_v1/views/o1/room/v_upsert.py`
+        #                                           --------
         # 2. `1.` に含まれる関数
 
         return render_upsert(request, id, RoomV._path_of_upsert_page)
@@ -285,16 +285,16 @@ class RoomV():
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 forms
                 │   └── 📄 f_room.py
                 ├── 📂 templates
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
                 │           └── 📂 room
                 │               └── 📄 upsert.html
                 └── 📂 views
-                    └── 📂 v0o0o1
+                    └── 📂 o1
                         └── 📂 room
                             ├── 📄 __init__.py
 👉                          └── 📄 v_upsert.py
@@ -303,17 +303,19 @@ class RoomV():
 ```py
 from django.shortcuts import render, get_object_or_404, redirect
 
-from apps1.practice.models.v0o0o1.m_room import Room
-#    ----- -------- ------------- ------        ----
-#    1     2        3             4             5
-# 1,3. ディレクトリー名
-# 2. アプリケーション フォルダー名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
+from apps1.practice_v1.models.o1.m_room import Room
+#          -----------           ------        ----
+#          1.1                   1.2           2
+#    ----------------------------------
+#    1
+# 1, 1.2 ディレクトリー
+# 1.1 アプリケーション
+# 2. `1.2` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-from apps1.practice.forms.f_room import RoomForm
-#    ----- -------- ----- ------        --------
-#    1     2        3     4             5
+# 部屋フォーム
+from apps1.practice_v1.forms.f_room import RoomForm
+#    ----- ----------- ----- ------        --------
+#    1     2           3     4             5
 # 1,3. ディレクトリー名
 # 2. アプリケーション フォルダー名
 # 4. Python ファイル名。拡張子抜き
@@ -337,7 +339,7 @@ def render_upsert(request, id, path_of_upsert_page):
         if form.is_valid():  # バリデーションがOKなら保存
             room = form.save(commit=False)
             room.save()
-            return redirect('practice_rooms_list')
+            return redirect('practice_v1_rooms')
     else:  # GETの時（フォームを生成）
         form = RoomForm(instance=room)
 
@@ -352,16 +354,16 @@ def render_upsert(request, id, path_of_upsert_page):
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 practice                      # アプリケーション
+        │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 forms
         │       │   └── 📄 f_room.py
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           └── 📂 room
         │       │               └── 📄 delete.html
         │       └── 📂 views
-        │           └── 📂 v0o0o1
+        │           └── 📂 o1
         │               └── 📂 room
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_delete.py
@@ -378,29 +380,29 @@ urlpatterns = [
 
 
     # 対局部屋の新規作成
-    path('rooms/create/', RoomV.render_upsert,
-         # ------------   -------------------
-         # 1              2
-         name='practice_rooms_create'),
-    #          ---------------------
+    path('practice/v1/rooms/upsert/', RoomV.render_upsert,
+         # ------------------------   -------------------
+         # 1                          2
+         name='practice_v1_rooms_create'),
+    #          ------------------------
     #          3
-    # 1. 例えば `http://example.com/rooms/create/` のような URL のパスの部分
-    #                              -------------
+    # 1. 例えば `http://example.com/practice/v1/rooms/upsert/` のような URL のパスの部分
+    #                              -------------------------
     # 2. RoomV クラスの render_upsert メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_rooms_create' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_create' %} のような形でURLを取得するのに使える
 
     # 対局部屋の更新
-    path('rooms/update/<int:id>/', RoomV.render_upsert,
-         # ---------------------   -------------------
-         # 1                       2
-         name='practice_rooms_update'),
-    #          ---------------------
+    path('practice/v1/rooms/upsert/<int:id>/', RoomV.render_upsert,
+         # ---------------------------------   -------------------
+         # 1                                   2
+         name='practice_v1_rooms_update'),
+    #          ------------------------
     #          3
-    # 1. 例えば `http://example.com/rooms/update/<数字列>/` のような URL のパスの部分。
-    #                              ----------------------
+    # 1. 例えば `http://example.com/practice/v1/rooms/upsert/<数字列>/` のような URL のパスの部分
+    #                              ----------------------------------
     #    数字列は `2.` の関数の引数 id で取得できる
     # 2. RoomV クラスの render_upsert メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_rooms_update' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_update' %} のような形でURLを取得するのに使える
 ]
 ```
 
@@ -408,11 +410,11 @@ urlpatterns = [
 
 👇 作成するとき、部屋ID は付けるな  
 
-📖 [http://localhost:8000/rooms/create/](http://localhost:8000/rooms/create/)  
+📖 [http://localhost:8000/practice/v1/rooms/upsert/](http://localhost:8000/practice/v1/rooms/upsert/)  
 
 👇 更新するとき、部屋ID を付けろ。 部屋ID は適宜変えてほしい  
 
-📖 [http://localhost:8000/rooms/update/5/](http://localhost:8000/rooms/update/5/)  
+📖 [http://localhost:8000/practice/v1/rooms/upsert/5/](http://localhost:8000/practice/v1/rooms/upsert/5/)  
 
 # Step 8. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -421,19 +423,19 @@ urlpatterns = [
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   ├── 📂 portal                        # アプリケーション
+        │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data
         │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 practice                      # アプリケーション
+        │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 forms
         │       │   └── 📄 f_room.py
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           └── 📂 room
         │       │               └── 📄 delete.html
         │       └── 📂 views
-        │           └── 📂 v0o0o1
+        │           └── 📂 o1
         │               └── 📂 room
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_delete.py
@@ -444,8 +446,8 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/rooms/create/,対局部屋の新規作成
-/rooms/update/5/,対局部屋の更新
+/practice/v1/rooms/upsert/,対局部屋の新規作成
+/practice/v1/rooms/upsert/5/,対局部屋の更新
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

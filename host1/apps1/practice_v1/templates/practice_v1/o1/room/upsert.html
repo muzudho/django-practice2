@@ -14,10 +14,10 @@
 
             {% if id %}
             <h3 class="page-header">部屋の更新</h3>
-            <form action="{% url 'practice_rooms_update' id=id %}" method="post" class="form-horizontal" role="form">
+            <form action="{% url 'practice_v1_rooms_update' id=id %}" method="post" class="form-horizontal" role="form">
             {% else %}
             <h3 class="page-header">部屋の作成</h3>
-            <form action="{% url 'practice_rooms_create' %}" method="post" class="form-horizontal" role="form">
+            <form action="{% url 'practice_v1_rooms_create' %}" method="post" class="form-horizontal" role="form">
             {% endif %}
 
                 {% csrf_token %}

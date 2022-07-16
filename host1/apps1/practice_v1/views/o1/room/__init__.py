@@ -24,10 +24,10 @@ class RoomV():
 
     # 新規作成または更新のページ
     _path_of_upsert_page = "practice_v1/o1/room/upsert.html"
-    #                       --------------------------------
+    #                       -------------------------------
     #                       1
     # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/room/upsert.html` を取得
-    #                                    --------------------------------
+    #                                       -------------------------------
 
     @staticmethod
     def render_list(request):

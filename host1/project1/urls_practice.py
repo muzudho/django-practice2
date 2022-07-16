@@ -559,29 +559,29 @@ urlpatterns = [
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_delete' %} のような形でURLを取得するのに使える
 
     # 対局部屋の新規作成
-    path('rooms/create/', RoomV.render_upsert,
-         # ------------   -------------------
-         # 1              2
-         name='practice_rooms_create'),
-    #          ---------------------
+    path('practice/v1/rooms/upsert/', RoomV.render_upsert,
+         # ------------------------   -------------------
+         # 1                          2
+         name='practice_v1_rooms_create'),
+    #          ------------------------
     #          3
-    # 1. 例えば `http://example.com/rooms/create/` のような URL のパスの部分
-    #                              -------------
+    # 1. 例えば `http://example.com/practice/v1/rooms/upsert/` のような URL のパスの部分
+    #                              -------------------------
     # 2. RoomV クラスの render_upsert メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_rooms_create' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_create' %} のような形でURLを取得するのに使える
 
     # 対局部屋の更新
-    path('rooms/update/<int:id>/', RoomV.render_upsert,
-         # ---------------------   -------------------
-         # 1                       2
-         name='practice_rooms_update'),
-    #          ---------------------
+    path('practice/v1/rooms/upsert/<int:id>/', RoomV.render_upsert,
+         # ---------------------------------   -------------------
+         # 1                                   2
+         name='practice_v1_rooms_update'),
+    #          ------------------------
     #          3
-    # 1. 例えば `http://example.com/rooms/update/<数字列>/` のような URL のパスの部分。
-    #                              ----------------------
+    # 1. 例えば `http://example.com/practice/v1/rooms/upsert/<数字列>/` のような URL のパスの部分
+    #                              ----------------------------------
     #    数字列は `2.` の関数の引数 id で取得できる
     # 2. RoomV クラスの render_upsert メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_rooms_update' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_update' %} のような形でURLを取得するのに使える
 
     # ロビー
     path('practice/lobby/', LobbyV.render_lobby, name='practice_lobby'),
