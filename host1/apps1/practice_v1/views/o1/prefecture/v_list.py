@@ -15,10 +15,10 @@ def render_list(request):
     """一覧画面の描画"""
 
     template = loader.get_template('practice_v1/o1/prefecture/list.html')
-    #                               ------------------------------------
+    #                               -----------------------------------
     #                               1
     # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/prefecture/list.html` を取得
-    #                                    ------------------------------------
+    #                                       -----------------------------------
 
     context = {
         'prefectures': Prefecture.objects.all().order_by('pk'),  # pk順にメンバーを全部取得

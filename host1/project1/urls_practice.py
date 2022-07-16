@@ -348,13 +348,16 @@ urlpatterns = [
     # 3. HTMLテンプレートの中で {% url 'practice_v1_from_object_to_json_str' %} のような形でURLを取得するのに使える
 
     # 都道府県の一覧
-    path('practice/prefectures/', PrefectureV.render_list, name='prefecture_list'),
-    #     ---------------------   -----------------------        ---------------
-    #     1                       2                              3
-    # 1. 例えば `http://example.com/practice/prefectures/` のような URL のパスの部分
-    #                              ----------------------
-    # 2. PrefectureV クラスの render_list メソッド
-    # 3. HTMLテンプレートの中で {% url 'prefecture_list' %} のような形でURLを取得するのに使える
+    path('practice/v1/prefectures/',
+         # -----------------------
+         # 1
+         PrefectureV.render_list, name='practice_v1_prefectures'),
+    #    -----------------------        -----------------------
+    #    2                              3
+    # 1. 例えば `http://example.com/practice/v1/prefectures/` のような URL のパスの部分
+    #                              ------------------------
+    # 2. PrefectureV クラスの render_list 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_prefectures' %} のような形でURLを取得するのに使える
 
     # 都道府県の詳細
     path('practice/prefectures/read/<int:id>/',

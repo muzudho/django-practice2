@@ -37,8 +37,8 @@ class RoomV():
         from .v_list import render_list
         #    -------        -----------
         #    1              2
-        # 1. `host1/apps1/practice_v1/views/v0o0o1/room/v_list.py`
-        #                                            ------
+        # 1. `host1/apps1/practice_v1/views/o1/room/v_list.py`
+        #                                           ------
         # 2. `1.` に含まれる関数
 
         return render_list(request, RoomV._path_of_list_page)

@@ -35,14 +35,14 @@
 ```plaintext
     ├── 📂 host1
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized    # アプリケーション名
-    │   │   ├── 📂 portal                # アプリケーション名
+    │   │   ├── 📂 allauth_customized_v1    # アプリケーション名
+    │   │   ├── 📂 portal_v1                # アプリケーション名
     │   │   │   ├── 📂 data
     │   │   │   ├── 📂 migrations
     │   │   │   ├── 📂 static
     │   │   │   ├── 📂 templates
     │   │   │   └── 📂 views
-    │   │   └── 📂 practice              # アプリケーション名
+    │   │   └── 📂 practice_v1              # アプリケーション名
     │   │       ├── 📂 management
     │   │       ├── 📂 migrations
     │   │       ├── 📂 models
@@ -91,10 +91,10 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                      # アプリケーション
+            └── 📂 practice_v1                      # アプリケーション
                 └── 📂 templates
-                    └── 📂 practice              # アプリケーションと同名
-                        └── 📂 v0o0o1                # ただのフォルダー
+                    └── 📂 practice_v1              # アプリケーションと同名
+                        └── 📂 o1                # ただのフォルダー
                             └── 📂 prefecture            # ただのフォルダー
 👉                              └── 📄 list.html
 ```
@@ -156,14 +156,14 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                      # アプリケーション
+            └── 📂 practice_v1                      # アプリケーション
                 ├── 📂 templates
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
                 │           └── 📂 prefecture
                 │               └── 📄 list.html
                 └── 📂 views
-                    └── 📂 v0o0o1                # ただのフォルダー
+                    └── 📂 o1                # ただのフォルダー
                         └── 📂 prefecture            # ただのフォルダー
 👉                          └── 📄 v_list.py
 ```
@@ -172,9 +172,10 @@ docker-compose up
 from django.http import HttpResponse
 from django.template import loader
 
-from apps1.practice.models.v0o0o1.m_prefecture import Prefecture
-#    ----- -------- ------------- ------------        ----------
-#    1     2        3             4                   5
+# 都道府県モデル
+from apps1.practice_v1.models.o1.m_prefecture import Prefecture
+#    ----- ----------- --------- ------------        ----------
+#    1     2           3         4                   5
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
@@ -184,11 +185,11 @@ from apps1.practice.models.v0o0o1.m_prefecture import Prefecture
 def render_list(request):
     """一覧画面の描画"""
 
-    template = loader.get_template('practice/v0o0o1/prefecture/list.html')
-    #                               ------------------------------------
+    template = loader.get_template('practice_v1/o1/prefecture/list.html')
+    #                               -----------------------------------
     #                               1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/list.html` を取得
-    #                                    ------------------------------------
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/prefecture/list.html` を取得
+    #                                       -----------------------------------
 
     context = {
         'prefectures': Prefecture.objects.all().order_by('pk'),  # pk順にメンバーを全部取得
@@ -203,14 +204,14 @@ def render_list(request):
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                      # アプリケーション
+            └── 📂 practice_v1                      # アプリケーション
                 ├── 📂 templates
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
                 │           └── 📂 prefecture
                 │               └── 📄 list.html
                 └── 📂 views
-                    └── 📂 v0o0o1
+                    └── 📂 o1
                         └── 📂 prefecture
 👉                          ├── 📄 __init__.py
                             └── 📄 v_list.py
@@ -230,14 +231,14 @@ class PrefectureV(object):
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 practice                      # アプリケーション
+        │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           └── 📂 prefecture
         │       │               └── 📄 list.html
         │       └── 📂 views
-        │           └── 📂 v0o0o1
+        │           └── 📂 o1
         │               └── 📂 prefecture
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_list.py
@@ -253,13 +254,15 @@ from django.urls import path
 # ...略...
 
 
-from apps1.practice.views.v0o0o1.prefecture import PrefectureV
-#    ----- -------- -----------------------        -----------
-#    1     2        3                              4
-# 1,3. ディレクトリー名
-# 2. アプリケーション名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
+# 都道府県
+from apps1.practice_v1.views.o1.prefecture import PrefectureV
+#          -----------          ----------        -----------
+#          11                   12                2
+#    -------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 urlpatterns = [
@@ -269,19 +272,22 @@ urlpatterns = [
 
 
     # 都道府県の一覧
-    path('practice/prefectures/', PrefectureV.render_list, name='prefecture_list'),
-    #     ---------------------   -----------------------        ---------------
-    #     1                       2                              3
-    # 1. 例えば `http://example.com/practice/prefectures/` のような URL のパスの部分
-    #                              ----------------------
-    # 2. PrefectureV クラスの render_list メソッド
-    # 3. HTMLテンプレートの中で {% url 'prefecture_list' %} のような形でURLを取得するのに使える
+    path('practice/v1/prefectures/',
+         # -----------------------
+         # 1
+         PrefectureV.render_list, name='practice_v1_prefectures'),
+    #    -----------------------        -----------------------
+    #    2                              3
+    # 1. 例えば `http://example.com/practice/v1/prefectures/` のような URL のパスの部分
+    #                              ------------------------
+    # 2. PrefectureV クラスの render_list 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_prefectures' %} のような形でURLを取得するのに使える
 ]
 ```
 
 # Step 6. Web画面へアクセス
 
-📖 [http://localhost:8000/practice/prefectures/](http://localhost:8000/practice/prefectures/)  
+📖 [http://localhost:8000/practice/v1/prefectures/](http://localhost:8000/practice/v1/prefectures/)  
 
 # Step 7. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -290,17 +296,17 @@ urlpatterns = [
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   ├── 📂 portal                        # アプリケーション
+        │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 practice                      # アプリケーション
+        │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           └── 📂 prefecture
         │       │               └── 📄 list.html
         │       └── 📂 views
-        │           └── 📂 v0o0o1
+        │           └── 📂 o1
         │               └── 📂 prefecture
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_list.py
@@ -312,7 +318,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/prefectures/,都道府県の一覧
+/practice/v1/prefectures/,都道府県の一覧
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 
