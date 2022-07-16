@@ -324,16 +324,16 @@ urlpatterns = [
     # 3. HTMLテンプレートの中で {% url 'practice_v1_extends_user_list' %} のような形でURLを取得するのに使える
 
     # アクティブユーザー一覧
-    path('practice/active-user-list/',
-         # -------------------------
+    path('practice/v1/active-user-list/',
+         # ----------------------------
          # 1
-         SessionV.render, name='practice_active_user_list'),
-    #    ---------------        -------------------------
+         SessionV.render, name='practice_v1_active_user_list'),
+    #    ---------------        ----------------------------
     #    2                      3
-    # 1. 例えば `http://example.com/practice/active-user-list/` のような URL のパスの部分
-    #                              --------------------------
+    # 1. 例えば `http://example.com/practice/v1/active-user-list/` のような URL のパスの部分
+    #                              -----------------------------
     # 2. UserListV クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_active_user_list' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_active_user_list' %} のような形でURLを取得するのに使える
 
     # デバッグ用。モデルをダンプ出力
     path('practice/from-object-to-json-str/',

@@ -23,8 +23,8 @@
 ```plaintext
     ├── 📂 host1
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized    # アプリケーション
-    │   │   ├── 📂 portal                # アプリケーション
+    │   │   ├── 📂 allauth_customized_v1    # アプリケーション
+    │   │   ├── 📂 portal_v1                # アプリケーション
     │   │   │   ├── 📂 data
     │   │   │   │   └── 📄 finished-lesson.csv
     │   │   │   ├── 📂 migrations
@@ -32,16 +32,16 @@
     │   │   │   ├── 📂 static
     │   │   │   │   └── 🚀 favicon.ico
     │   │   │   ├── 📂 templates
-    │   │   │   │   └── 📂 portal
-    │   │   │   │       └── 📂 v0o0o1
+    │   │   │   │   └── 📂 portal_v1
+    │   │   │   │       └── 📂 o1
     │   │   │   │           └── 📄 portal_base.html
     │   │   │   └── 📂 views
-    │   │   │       └── 📂 v0o0o1
+    │   │   │       └── 📂 o1
     │   │   │           └── 📄 pages.py
-    │   │   └── 📂 practice              # アプリケーション
+    │   │   └── 📂 practice_v1              # アプリケーション
     │   │       └── 📂 templates
-    │   │           ├── 📂 practice
-    │   │           │   └── 📂 v0o0o1
+    │   │           ├── 📂 practice_v1
+    │   │           │   └── 📂 o1
     │   │           │       └── 📄 login_required.html
     │   │           └── 📂 views
     │   │               └── 📄 v_login_required.py
@@ -83,10 +83,10 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 └── 📂 templates
-                    └── 📂 practice          # アプリケーションと同名
-                        └── 📂 v0o0o1
+                    └── 📂 practice_v1          # アプリケーションと同名
+                        └── 📂 o1
 👉                          └── 📄 active-user-list.html
 ```
 
@@ -167,13 +167,14 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 mh_session
-👉              │       └── 📄 __init__.py
+                │   └── 📂 o1
+                │       └── 📂 mh_session
+👉              │           └── 📄 __init__.py
                 └── 📂 templates
-                    └── 📂 practice          # アプリケーションと同名
-                        └── 📂 v0o0o1
+                    └── 📂 practice_v1          # アプリケーションと同名
+                        └── 📂 o1
                             └── 📄 active-user-list.html
 ```
 
@@ -185,8 +186,8 @@ class MhSession():
     from .v_get_all_logged_in_users import get_all_logged_in_users
     #    --------------------------        -----------------------
     #    1                                 2
-    # 1. `host1/apps1/practice/model_helper/mh_sesion/v_get_all_logged_in_users.py`
-    #                                                 -------------------------
+    # 1. `host1/apps1/practice_v1/model_helper/o1/mh_sesion/v_get_all_logged_in_users.py`
+    #                                                       -------------------------
     # 2. `1.` に含まれる関数
 ```
 
@@ -197,14 +198,15 @@ class MhSession():
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 mh_session
-                │       ├── 📄 __init__.py
-👉              │       └── 📄 v_get_all_logged_in_users.py
+                │   └── 📂 o1
+                │       └── 📂 mh_session
+                │           ├── 📄 __init__.py
+👉              │           └── 📄 v_get_all_logged_in_users.py
                 └── 📂 templates
-                    └── 📂 practice          # アプリケーションと同名
-                        └── 📂 v0o0o1
+                    └── 📂 practice_v1          # アプリケーションと同名
+                        └── 📂 o1
                             └── 📄 active-user-list.html
 ```
 
@@ -274,30 +276,32 @@ web_1  | ]
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 mh_session
-                │       ├── 📄 __init__.py
-                │       └── 📄 v_get_all_logged_in_users.py
+                │   └── 📂 o1
+                │       └── 📂 mh_session
+                │           ├── 📄 __init__.py
+                │           └── 📄 v_get_all_logged_in_users.py
                 ├── 📂 templates
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
                 │           └── 📄 active-user-list.html
                 └── 📂 views
-                    └── 📂 v0o0o1
+                    └── 📂 o1
                         └── 📂 session
 👉                          └── 📄 __init__.py
 ```
 
 ```py
 class SessionV():
+    """セッション ビュー"""
 
     # そのページ
-    _path_of_this_page = "practice/v0o0o1/active-user-list.html"
-    #                     -------------------------------------
+    _path_of_this_page = "practice_v1/o1/active-user-list.html"
+    #                     ------------------------------------
     #                     1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o1/active-user-list.html` を取得
-    #                                    -------------------------------------
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/active-user-list.html` を取得
+    #                                       ------------------------------------
 
     @staticmethod
     def render(request):
@@ -305,10 +309,10 @@ class SessionV():
 
         # 以下のファイルはあとで作ります
         from .v_render import render_active_user_list
-        #    ---------        ------------------------
+        #    ---------        -----------------------
         #    1                2
-        # 1. `host1/apps1/practice/views/v0o0o1/session/v_render.py`
-        #                                               --------
+        # 1. `host1/apps1/practice_v1/views/o1/session/v_render.py`
+        #                                              --------
         # 2. `1.` に含まれる関数
 
         return render_active_user_list(request, SessionV._path_of_this_page)
@@ -321,17 +325,18 @@ class SessionV():
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
                 │   └── 📂 mh_session
-                │       ├── 📄 __init__.py
-                │       └── 📄 v_get_all_logged_in_users.py
+                │       └── 📂 o1
+                │           ├── 📄 __init__.py
+                │           └── 📄 v_get_all_logged_in_users.py
                 ├── 📂 templates
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
                 │           └── 📄 active-user-list.html
                 └── 📂 views
-                    └── 📂 v0o0o1
+                    └── 📂 o1
                         └── 📂 session
                             ├── 📄 __init__.py
 👉                          └── 📄 v_render.py
@@ -341,9 +346,10 @@ class SessionV():
 import json
 from django.shortcuts import render
 
-from apps1.practice.models_helper.mh_session import MhSession
-#    ----- -------- ------------------------        ---------
-#    1     2        3                               4
+# セッション モデルヘルパー
+from apps1.practice_v1.models_helper.o1.mh_session import MhSession
+#    ----- ----------- ---------------------------        ---------
+#    1     2           3                                  4
 # 1,3. ディレクトリー名
 # 2. アプリケーション フォルダー名
 # 4. クラス名
@@ -367,17 +373,18 @@ def render_active_user_list(request, path_of_this_page):
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 practice                  # アプリケーション
+        │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 models_helper
-        │       │   └── 📂 mh_session
-        │       │       ├── 📄 __init__.py
-        │       │       └── 📄 v_get_all_logged_in_users.py
+        │       │   └── 📂 o1
+        │       │       └── 📂 mh_session
+        │       │           ├── 📄 __init__.py
+        │       │           └── 📄 v_get_all_logged_in_users.py
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           └── 📄 active-user-list.html
         │       └── 📂 views
-        │           └── 📂 v0o0o1
+        │           └── 📂 o1
         │               └── 📂 session
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_render_active_user_list.py
@@ -390,16 +397,14 @@ def render_active_user_list(request, path_of_this_page):
 
 
 # アクティブユーザー一覧
-from apps1.practice.views.v0o0o1.session import SessionV
-#    ----- -------- --------------------        --------
-#    1     2        3                           4
-#    -----------------------------------
-#    5
-# 1. 開発者用ディレクトリーの一部
-# 2. アプリケーション フォルダー名
-# 3. ディレクトリー名
-# 4. クラス名
-# 5. Pythonモジュール名
+from apps1.practice_v1.views.o1.session import SessionV
+#          -----------          -------        --------
+#          11                   12             2
+#    ----------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 urlpatterns = [
@@ -407,22 +412,22 @@ urlpatterns = [
 
 
     # アクティブユーザー一覧
-    path('practice/active-user-list/',
-         # -------------------------
+    path('practice/v1/active-user-list/',
+         # ----------------------------
          # 1
-         SessionV.render, name='practice_active_user_list'),
-    #    ---------------        -------------------------
+         SessionV.render, name='practice_v1_active_user_list'),
+    #    ---------------        ----------------------------
     #    2                      3
-    # 1. 例えば `http://example.com/practice/active-user-list/` のような URL のパスの部分
-    #                              --------------------------
+    # 1. 例えば `http://example.com/practice/v1/active-user-list/` のような URL のパスの部分
+    #                              -----------------------------
     # 2. UserListV クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_active_user_list' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_active_user_list' %} のような形でURLを取得するのに使える
 ]
 ```
 
 # Step 8. Web画面へアクセス
 
-📖 [http://localhost:8000/practice/active-user-list/](http://localhost:8000/practice/active-user-list/)  
+📖 [http://localhost:8000/practice/v1/active-user-list/](http://localhost:8000/practice/v1/active-user-list/)  
 
 # Step 9. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -431,20 +436,21 @@ urlpatterns = [
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   ├── 📂 portal                    # アプリケーション
+        │   ├── 📂 portal_v1                    # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 practice                  # アプリケーション
+        │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 models_helper
-        │       │   └── 📂 mh_session
-        │       │       ├── 📄 __init__.py
-        │       │       └── 📄 v_get_all_logged_in_users.py
+        │       │   └── 📂 o1
+        │       │       └── 📂 mh_session
+        │       │           ├── 📄 __init__.py
+        │       │           └── 📄 v_get_all_logged_in_users.py
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           └── 📄 active-user-list.html
         │       └── 📂 views
-        │           └── 📂 v0o0o1
+        │           └── 📂 o1
         │               └── 📂 session
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_render_active_user_list.py
@@ -455,7 +461,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/active-user-list/,アクティブユーザー一覧
+/practice/v1/active-user-list/,アクティブユーザー一覧
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

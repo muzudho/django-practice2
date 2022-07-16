@@ -3,9 +3,9 @@ from django.http import HttpResponse
 from django.template import loader
 
 # セッション モデルヘルパー
-from apps1.practice_v1.models_helper.mh_session import MhSession
-#    ----- ----------- ------------------------        ---------
-#    1     2           3                               4
+from apps1.practice_v1.models_helper.o1.mh_session import MhSession
+#    ----- ----------- ---------------------------        ---------
+#    1     2           3                                  4
 # 1,3. ディレクトリー名
 # 2. アプリケーション フォルダー名
 # 4. クラス名

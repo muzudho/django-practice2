@@ -724,7 +724,7 @@ User: [あなたの名前]▽ 🖊 ➕
 
 # 次の記事
 
-📖 [Djangoで自動リロードするページを作ろう！](https://qiita.com/muzudho1/items/8df599dc0e0acb25f649)  
+📖 [Djangoでアクティブユーザーの一覧を作ろう！](https://qiita.com/muzudho1/items/bea77e8a69c5c805e1d7)  
 
 # 参考にした記事
 
