@@ -5,6 +5,6 @@ class MhSession():
     from .v_get_all_logged_in_users import get_all_logged_in_users
     #    --------------------------        -----------------------
     #    1                                 2
-    # 1. `host1/apps1/practice/model_helper/mh_sesion/v_get_all_logged_in_users.py`
+    # 1. `host1/apps1/practice_v1/model_helper/mh_sesion/v_get_all_logged_in_users.py`
     #                                                 -------------------------
     # 2. `1.` に含まれる関数

@@ -6,10 +6,10 @@ def render_hello1(request):
     """ハローの描画"""
 
     template = loader.get_template(
-        'practice/v0o0o1/vuetify/hello1.html')
+        'practice_v1/o1/vuetify/hello1.html')
     #    -----------------------------------
     #    1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o1/vuetify/hello1.html` を取得
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/vuetify/hello1.html` を取得
     #                                    -----------------------------------
 
     context = {

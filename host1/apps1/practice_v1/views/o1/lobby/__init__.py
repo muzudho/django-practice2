@@ -2,10 +2,10 @@ class LobbyV():
     """ロビー ビュー"""
 
     # 一覧ページ
-    _path_of_lobby_page = "practice/v0o0o1/lobby.html"
+    _path_of_lobby_page = "practice_v1/o1/lobby.html"
     #                      --------------------------
     #                      1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o1/lobby.html` を取得
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/lobby.html` を取得
     #                                    --------------------------
 
     @staticmethod
@@ -16,7 +16,7 @@ class LobbyV():
         from .v_lobby import render_lobby
         #    --------        ------------
         #    1               2
-        # 1. `host1/apps1/practice/views/v0o0o1/lobby/v_lobby.py`
+        # 1. `host1/apps1/practice_v1/views/v0o0o1/lobby/v_lobby.py`
         #                                             -------
         # 2. `1.` に含まれる関数
 

@@ -5,7 +5,7 @@ class MhUser():
     from .mh_get_user_dic import get_user_dic
     #    ----------------        ------------
     #    1                       2
-    # 1. `host1/apps1/practice/model_helper/mh_user/mh_get_user_dic.py`
+    # 1. `host1/apps1/practice_v1/model_helper/mh_user/mh_get_user_dic.py`
     #                                               ---------------
     # 2. `1.` に含まれる関数
 
@@ -13,7 +13,7 @@ class MhUser():
     from .mh_get_extends_user_dic import get_extends_user_dic
     #    ------------------------        --------------------
     #    1                               2
-    # 1. `host1/apps1/practice/model_helper/mh_user/mh_get_extends_user_dic.py`
+    # 1. `host1/apps1/practice_v1/model_helper/mh_user/mh_get_extends_user_dic.py`
     #                                               -----------------------
     # 2. `1.` に含まれる関数
 
@@ -21,6 +21,6 @@ class MhUser():
     from .mh_get_name_by_pk import get_name_by_pk
     #    ------------------        --------------
     #    1                         2
-    # 1. `host1/apps1/practice/model_helper/mh_user/mh_get_name_by_pk.py`
+    # 1. `host1/apps1/practice_v1/model_helper/mh_user/mh_get_name_by_pk.py`
     #                                               -----------------
     # 2. `1.` に含まれる関数

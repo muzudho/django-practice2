@@ -234,6 +234,7 @@ from apps1.tic_tac_toe_v3.views.o4.playing import PlayingV as TicTacToeV3o0o4Pla
 
 urlpatterns = [
 
+    # 練習ページ１
     path('practice/v1/page1', Page1.render, name='page1'),
     #     -----------------   ------------        -----
     #     1                   2                   3
@@ -243,9 +244,9 @@ urlpatterns = [
     # 3. HTMLテンプレートの中で {% url 'page1' %} のような形でURLを取得するのに使える
 
     # ページ２ パッチ１
-    path('practice/page2_patch1', Page2Patch1.render, name='page2_patch1'),
-    #     ---------------------   ------------------        ------------
-    #     1                       2                         3
+    path('practice/v1/page2_patch1', Page2Patch1.render, name='page2_patch1'),
+    #     ------------------------   ------------------        ------------
+    #     1                          2                         3
     #
     # 1. 例えば `http://example.com/practice/page2_patch1` のようなURLのパスの部分
     #                              ----------------------

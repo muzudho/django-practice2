@@ -14,10 +14,10 @@ from apps1.practice_v1.models.o1.m_prefecture import Prefecture
 def render_list(request):
     """一覧画面の描画"""
 
-    template = loader.get_template('practice/v0o0o1/prefecture/list.html')
+    template = loader.get_template('practice_v1/o1/prefecture/list.html')
     #                               ------------------------------------
     #                               1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/list.html` を取得
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/prefecture/list.html` を取得
     #                                    ------------------------------------
 
     context = {

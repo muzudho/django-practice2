@@ -23,10 +23,10 @@ def render_delete(request, id=id):
     """
 
     template = loader.get_template(
-        'practice/v0o0o1/prefecture/delete.html')
+        'practice_v1/o1/prefecture/delete.html')
     #    --------------------------------------
     #    1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o1/prefecture/delete.html` を取得
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/prefecture/delete.html` を取得
     #                                    --------------------------------------
 
     # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得

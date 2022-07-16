@@ -14,7 +14,7 @@ class Portal():
         #                                           ^two
         #                               ------------------------------
         #                               1
-        # 1. host1/apps1/practice/templates/portal/v0o0o2/portal_base.html を取得
+        # 1. host1/apps1/practice_v1/templates/portal/v0o0o2/portal_base.html を取得
         #                                   ------------------------------
 
         df = pd.read_csv('apps1/portal/data/finished-lessons.csv')

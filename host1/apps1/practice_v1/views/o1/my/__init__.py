@@ -2,10 +2,10 @@ class MyV():
     """マイ ページ ビュー"""
 
     # マイ ページ
-    _path_of_my_page = "practice/v0o0o1/my.html"
+    _path_of_my_page = "practice_v1/o1/my.html"
     #                   ----------------------------
     #                   1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o1/my.html` を取得
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/my.html` を取得
     #                                    -----------------------
 
     @staticmethod
@@ -16,7 +16,7 @@ class MyV():
         from .v_my import render_my
         #    -----        ---------
         #    1            2
-        # 1. `host1/apps1/practice/views/v0o0o1/my/v_my.py`
+        # 1. `host1/apps1/practice_v1/views/v0o0o1/my/v_my.py`
         #                                          ----
         # 2. `1.` に含まれる関数
 

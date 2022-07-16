@@ -8,10 +8,11 @@ class Page2Patch1():
     def render(request):
         """描画"""
 
-        template = loader.get_template('practice/v0o0o1/page2_patch1.html.txt')
+        template = loader.get_template(
+            'practice_v1/o1/page2_patch1.html.txt')
         #                               -------------------------------------
         #                               1
-        # 1. host1/apps1/practice/templates/practice/v0o0o1/page2_patch1.html.txt を取得
+        # 1. host1/apps1/practice_v1/templates/practice_v1/o1/page2_patch1.html.txt を取得
         #                                   -------------------------------------
 
         context = {}
@@ -24,11 +25,12 @@ class Page2Patch2():
     def render(request):
         """描画"""
 
-        template = loader.get_template('practice/v0o0o1/page2_patch2.html.txt')
+        template = loader.get_template(
+            'practice_v1/o1/page2_patch2.html.txt')
         #                                                          ^two
         #                               -------------------------------------
         #                               1
-        # 1. host1/apps1/practice/templates/practice/v0o0o1/page2_patch2.html.txt を取得
+        # 1. host1/apps1/practice_v1/templates/practice_v1/o1/page2_patch2.html.txt を取得
         #                                   -------------------------------------
 
         context = {}

@@ -2,10 +2,10 @@ class UserListV():
     """会員一覧ビュー"""
 
     # そのページ
-    _path_of_this_page = "practice/v0o0o1/user_list.html"
+    _path_of_this_page = "practice_v1/o1/user_list.html"
     #                     ------------------------------
     #                     1
-    # 1. host1/apps1/portal/templates/practice/v0o0o1/user_list.html を取得
+    # 1. host1/apps1/portal/templates/practice_v1/o1/user_list.html を取得
     #                                 ------------------------------
 
     @staticmethod

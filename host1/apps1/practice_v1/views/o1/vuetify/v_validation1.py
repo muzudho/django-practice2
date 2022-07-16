@@ -6,11 +6,11 @@ def render_validation1(request):
     """バリデーション１の描画"""
 
     template = loader.get_template(
-        'practice/v0o0o1/vuetify/validation1.html')
-    #    ----------------------------------------
+        'practice_v1/o1/vuetify/validation1.html')
+    #    ---------------------------------------
     #    1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o1/vuetify/validation1.html` を取得
-    #                                    ----------------------------------------
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/vuetify/validation1.html` を取得
+    #                                       ---------------------------------------
 
     context = {
     }

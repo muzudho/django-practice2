@@ -1,7 +1,7 @@
-{% extends "practice/v0o0o1/vuetify/textarea1_base.html" %}
+{% extends "practice_v1/o1/vuetify/textarea1_base.html" %}
 {#          -------------------------------------------
             1
-1. host1/apps1/practice/templates/practice/v0o0o1/vuetify/textarea1_base.html
+1. host1/apps1/practice_v1/templates/practice_v1/o1/vuetify/textarea1_base.html
                                   -------------------------------------------
 #}
 

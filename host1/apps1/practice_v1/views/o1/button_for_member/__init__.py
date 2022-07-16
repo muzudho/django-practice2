@@ -2,10 +2,10 @@ class ButtonForMember():
     """会員にだけ見えるボタンを説明するページ"""
 
     # そのページ
-    _path_of_this_page = "practice/v0o0o1/button_for_member.html"
+    _path_of_this_page = "practice_v1/o1/button_for_member.html"
     #                     --------------------------------------
     #                     1
-    # 1. host1/apps1/portal/templates/practice/v0o0o1/button_for_member.html を取得
+    # 1. host1/apps1/portal/templates/practice_v1/o1/button_for_member.html を取得
     #                                 --------------------------------------
 
     # 既存のポータルページ

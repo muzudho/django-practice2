@@ -1,10 +1,10 @@
 class SessionV():
 
     # そのページ
-    _path_of_this_page = "practice/v0o0o1/active-user-list.html"
+    _path_of_this_page = "practice_v1/o1/active-user-list.html"
     #                     -------------------------------------
     #                     1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o1/active-user-list.html` を取得
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/active-user-list.html` を取得
     #                                    -------------------------------------
 
     @staticmethod
@@ -15,7 +15,7 @@ class SessionV():
         from .v_render import render_active_user_list
         #    ---------        ------------------------
         #    1                2
-        # 1. `host1/apps1/practice/views/v0o0o1/session/v_render.py`
+        # 1. `host1/apps1/practice_v1/views/v0o0o1/session/v_render.py`
         #                                               --------
         # 2. `1.` に含まれる関数
 

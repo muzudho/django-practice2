@@ -1,8 +1,8 @@
-{% extends "practice/v0o0o1/page2_patch1.html.txt" %}
+{% extends "practice_v1/o1/page2_patch1.html.txt" %}
 <!-- -->
 {#          -------------------------------------
             1
-1. host1/apps1/practice/templates/practice/v0o0o1/page2_patch1.html.txt
+1. host1/apps1/practice_v1/templates/practice_v1/o1/page2_patch1.html.txt
                                   -------------------------------------
 #}
 

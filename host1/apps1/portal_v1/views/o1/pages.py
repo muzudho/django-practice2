@@ -11,7 +11,7 @@ class Portal():
         template = loader.get_template('portal/v0o0o1/portal_base.html')
         #                               ------------------------------
         #                               1
-        # 1. host1/apps1/practice/templates/portal/v0o0o1/portal_base.html を取得
+        # 1. host1/apps1/practice_v1/templates/portal/v0o0o1/portal_base.html を取得
         #                                   ------------------------------
 
         context = {

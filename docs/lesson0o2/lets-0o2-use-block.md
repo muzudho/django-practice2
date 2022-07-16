@@ -20,13 +20,13 @@
 ```plaintext
     ├── 📂 host1
     │   ├── 📂 apps1
-    │   │   └── 📂 practice              # アプリケーション名
+    │   │   └── 📂 practice_v1              # アプリケーション名
     │   │       ├── 📂 templates
-    │   │       │   └── 📂 practice
-    │   │       │       └── 📂 v0o0o1
+    │   │       │   └── 📂 practice_v1
+    │   │       │       └── 📂 o1
     │   │       │           └── 📄 page1.html
     │   │       └── 📂 views
-    │   │           └── 📂 v0o0o1
+    │   │           └── 📂 o1
     │   │               └── 📄 pages.py
     │   ├── 📂 data
     │   ├── 📂 project1                  # プロジェクト名
@@ -65,10 +65,10 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice
+            └── 📂 practice_v1
                 └── 📂 templates
-                    └── 📂 practice
-                        └── 📂 v0o0o1
+                    └── 📂 practice_v1
+                        └── 📂 o1
 👉                          └── 📄 page2_base.html
 ```
 
@@ -119,19 +119,19 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice
+            └── 📂 practice_v1
                 └── 📂 templates
-                    └── 📂 practice
-                        └── 📂 v0o0o1
+                    └── 📂 practice_v1
+                        └── 📂 o1
                             ├── 📄 page2_base.html
 👉                          └── 📄 page2_patch1.html.txt
 ```
 
 ```html
-{% extends "practice/v0o0o1/page2_base.html" %}
+{% extends "practice_v1/o1/page2_base.html" %}
 {#          -------------------------------
             1
-1. host1/apps1/practice/templates/practice/v0o0o1/page2_base.html
+1. host1/apps1/practice_v1/templates/practice_v1/o1/page2_base.html
                                   -------------------------------
 #}
 
@@ -169,14 +169,14 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice
+            └── 📂 practice_v1
                 ├── 📂 templates
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
                 │           ├── 📄 page2_base.html
                 │           └── 📄 page2_patch1.html.txt
                 └── 📂 views
-                    └── 📂 v0o0o1
+                    └── 📂 o1
 👉                      └── 📄 pages.py
 ```
 
@@ -194,11 +194,11 @@ class Page2Patch1():
     def render(request):
         """描画"""
 
-        template = loader.get_template('practice/v0o0o1/page2_patch1.html.txt')
+        template = loader.get_template('practice_v1/o1/page2_patch1.html.txt')
         #                               -------------------------------------
         #                               1
-        # 1. host1/apps1/practice/templates/practice/v0o0o1/page2_patch1.html.txt を取得
-        #                                   -------------------------------------
+        # 1. host1/apps1/practice_v1/templates/practice_v1/o1/page2_patch1.html.txt を取得
+        #                                      ------------------------------------
 
         context = {}
         return HttpResponse(template.render(context, request))
@@ -211,14 +211,14 @@ class Page2Patch1():
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 practice              # アプリケーション名
+        │   └── 📂 practice_v1              # アプリケーション名
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           ├── 📄 page2_base.html
         │       │           └── 📄 page2_patch1.html.txt
         │       └── 📂 views
-        │           └── 📂 v0o0o1
+        │           └── 📂 o1
         │               └── 📄 pages.py
         └── 📂 project1
 👉          ├── 📄 urls_practice.py          # こちら
@@ -232,12 +232,15 @@ from django.urls import path
 # ...中略...
 
 
-from apps1.practice.views.v0o0o1.pages import Page2Patch1
-#    --------------------------- -----        -----------
-#    1                           2            3
-# 1. ディレクトリー名
-# 2. Python ファイル名。拡張子抜き
-# 3. クラス名
+# 練習ページ２
+from apps1.practice_v1.views.o1.pages import Page2Patch1
+#          -----------          -----        -----------
+#          11                   12           2
+#    --------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 # ...中略...
@@ -250,12 +253,12 @@ urlpatterns = [
 
 
     # ページ２ パッチ１
-    path('practice/page2_patch1', Page2Patch1.render, name='page2_patch1'),
-    #     ---------------------   ------------------        ------------
+    path('practice/v1/page2_patch1', Page2Patch1.render, name='page2_patch1'),
+    #     ------------------------   ------------------        ------------
     #     1                       2                         3
     #
-    # 1. 例えば `http://example.com/practice/page2_patch1` のようなURLのパスの部分
-    #                              ----------------------
+    # 1. 例えば `http://example.com/practice/v1/page2_patch1` のようなURLのパスの部分
+    #                              ------------------------
     # 2. Page2Patch1 クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'page2_patch1' %} のような形でURLを取得するのに使える
 ]
@@ -263,7 +266,7 @@ urlpatterns = [
 
 # Step 6. Webページにアクセスする
 
-📖 [http://localhost:8000/practice/page2_patch1](http://localhost:8000/practice/page2_patch1)  
+📖 [http://localhost:8000/practice/v1/page2_patch1](http://localhost:8000/practice/v1/page2_patch1)  
 
 # 次の記事
 
