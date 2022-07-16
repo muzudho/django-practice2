@@ -24,19 +24,19 @@ CSV と pandas を使う
 ```plaintext
     ├── 📂 host1
     │   ├── 📂 apps1
-    │   │   ├── 📂 portal                # アプリケーション名
+    │   │   ├── 📂 portal_v1                # アプリケーション名
     │   │   │   ├── 📂 migrations
     │   │   │   │   └── 📄 __init__.py
     │   │   │   ├── 📂 static
     │   │   │   │   └── 🚀 favicon.ico
     │   │   │   ├── 📂 templates
-    │   │   │   │   └── 📂 portal
-    │   │   │   │       └── 📂 v0o0o1
+    │   │   │   │   └── 📂 portal_v1
+    │   │   │   │       └── 📂 o1
     │   │   │   │           └── 📄 portal_base.html
     │   │   │   └── 📂 views
-    │   │   │       └── 📂 v0o0o1
+    │   │   │       └── 📂 o1
     │   │   │           └── 📄 pages.py
-    │   │   └── 📂 practice
+    │   │   └── 📂 practice_v1
     │   ├── 📂 data
     │   ├── 📂 project1                  # プロジェクト名
     │   │   ├── 📄 __init__.py
@@ -135,7 +135,7 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 portal
+        │   └── 📂 portal_v1
         │       └── 📂 data
         │           └── 📄 finished-lessons.csv
         └── 📄 requirements.txt
@@ -145,9 +145,10 @@ docker-compose up
 
 ```csv
 path,label
-/practice/page1,ページ１
-/practice/page2_patch1,ページ２ パッチ１
-/practice/page2_patch2,ページ２ パッチ２
+/,ポータル
+/practice/v1/page1,ページ１
+/practice/v1/page2_patch1,ページ２ パッチ１
+/practice/v1/page2_patch2,ページ２ パッチ２
 ```
 
 # Step 6. 画面作成 - portal_base.html ファイル
@@ -157,13 +158,13 @@ path,label
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 portal            # アプリケーション名
+        │   └── 📂 portal_v1            # アプリケーション名
         │       ├── 📂 data
         │       │   └── 📄 finished-lesson.csv
         │       └── 📂 templates
-        │           └── 📂 portal    # アプリケーション名と同名
-❌      │               ├── 📂 v0o0o1            # これではない
-        │               └── 📂 v0o0o2            # こちら
+        │           └── 📂 portal_v1    # アプリケーション名と同名
+❌      │               ├── 📂 o1            # これではない
+        │               └── 📂 o2            # こちら
 👉      │                   └── 📄 portal_base.html
         └── 📄 requirements.txt
 ```
@@ -236,16 +237,16 @@ path,label
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 portal            # アプリケーション名
+        │   └── 📂 portal_v1            # アプリケーション名
         │       ├── 📂 data
         │       │   └── 📄 finished-lesson.csv
         │       ├── 📂 templates
-        │       │   └── 📂 portal    # アプリケーション名と同名
-        │       │       └── 📂 v0o0o2
+        │       │   └── 📂 portal_v1    # アプリケーション名と同名
+        │       │       └── 📂 o2
         │       │           └── 📄 portal_base.html
         │       └── 📂 views
-❌      │           ├── 📂 v0o0o1            # これではない
-        │           └── 📂 v0o0o2            # こちら
+❌      │           ├── 📂 o1            # これではない
+        │           └── 📂 o2            # こちら
 👉      │               └── 📄 pages.py
         └── 📄 requirements.txt
 ```
@@ -263,27 +264,27 @@ class Portal():
     def render(request):
         """描画"""
 
-        template = loader.get_template('portal/v0o0o2/portal_base.html')
-        #                                           ^two
+        template = loader.get_template('portal_v1/o2/portal_base.html')
+        #                                          ^two
         #                               ------------------------------
         #                               1
-        # 1. host1/apps1/practice/templates/portal/v0o0o2/portal_base.html を取得
-        #                                   ------------------------------
+        # 1. host1/apps1/portal_v1/templates/portal_v1/o2/portal_base.html を取得
+        #                                    -----------------------------
 
-        df = pd.read_csv('apps1/portal/data/finished-lessons.csv')
-        #                 --------------------------------------
+        df = pd.read_csv('apps1/portal_v1/data/finished-lessons.csv')
+        #                 -----------------------------------------
         #                 1
-        # 1. `host1/apps1/portal/data/finished-lessons.csv` を読取
-        #           --------------------------------------
+        # 1. `host1/apps1/portal_v1/data/finished-lessons.csv` を読取
+        #           -----------------------------------------
 
         print(df)
         #
         # Example
         # -------
-        #                      path      label
-        # 0         /practice/page1       ページ１
-        # 1  /practice/page2_patch1  ページ２ パッチ１
-        # 2  /practice/page2_patch2  ページ２ パッチ２
+        #                         path      label
+        # 0         /practice/v1/page1     ページ１
+        # 1  /practice/v1/page2_patch1  ページ２ パッチ１
+        # 2  /practice/v1/page2_patch2  ページ２ パッチ２
 
         print(df.columns)
         #
@@ -305,9 +306,9 @@ class Portal():
         #
         # Example
         # -------
-        # /practice/page1 , ページ１
-        # /practice/page2_patch1 , ページ２ パッチ１
-        # /practice/page2_patch2 , ページ２ パッチ２
+        # /practice/v1/page1 , ページ１
+        # /practice/v1/page2_patch1 , ページ２ パッチ１
+        # /practice/v1/page2_patch2 , ページ２ パッチ２
 
         # "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
         context = {
@@ -324,29 +325,29 @@ class Portal():
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 portal
+        │   └── 📂 portal_v1                # アプリケーション
         │       ├── 📂 data
         │       │   └── 📄 finished-lesson.csv
         │       ├── 📂 templates
-        │       │   └── 📂 portal    # アプリケーション名と同名
-        │       │       └── 📂 v0o0o2
+        │       │   └── 📂 portal_v1        # アプリケーションと同名
+        │       │       └── 📂 o2
         │       │           └── 📄 portal_base.html
         │       └── 📂 views
-        │           ├── 📂 v0o0o1            # これではない
-        │           └── 📂 v0o0o2            # こちら
+        │           ├── 📂 o1
+        │           └── 📂 o2
         │               └── 📄 pages.py
         ├── 📂 project1
-👉      │   ├── 📄 urls_portal.py            # こちら
-❌      │   └── 📄 urls.py                   # これではない
+👉      │   ├── 📄 urls_portal.py           # こちら
+❌      │   └── 📄 urls.py                  # これではない
         └── 📄 requirements.txt
 ```
 
 ```py
 # * 変更前
-#from apps1.portal.views.v0o0o1.pages import Portal
+#from apps1.portal_v1.views.o1.pages import Portal
 # * 変更後
-from apps1.portal.views.v0o0o2.pages import Portal
-#                            ^two
+from apps1.portal_v1.views.o2.pages import Portal
+#                           ^two
 ```
 
 # Step 9. Webページにアクセスする

@@ -10,18 +10,18 @@ class Portal():
     def render(request):
         """描画"""
 
-        template = loader.get_template('portal/v0o0o2/portal_base.html')
-        #                                           ^two
+        template = loader.get_template('portal_v1/o2/portal_base.html')
+        #                                          ^two
         #                               ------------------------------
         #                               1
-        # 1. host1/apps1/practice_v1/templates/portal/v0o0o2/portal_base.html を取得
-        #                                   ------------------------------
+        # 1. host1/apps1/portal_v1/templates/portal_v1/o2/portal_base.html を取得
+        #                                    -----------------------------
 
         df = pd.read_csv('apps1/portal_v1/data/finished-lessons.csv')
-        #                 --------------------------------------
+        #                 -----------------------------------------
         #                 1
         # 1. `host1/apps1/portal_v1/data/finished-lessons.csv` を読取
-        #           --------------------------------------
+        #           -----------------------------------------
 
         print(df)
         #
