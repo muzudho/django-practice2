@@ -210,10 +210,8 @@ class MhSession():
 
 ```py
 # See also: 📖[How to get the list of the authenticated users?](https://stackoverflow.com/questions/2723052/how-to-get-the-list-of-the-authenticated-users)
-import json
 from django.contrib.auth.models import User
 from django.contrib.sessions.models import Session
-from django.core import serializers
 from django.utils import timezone
 
 
@@ -230,11 +228,7 @@ def get_all_logged_in_users():
         uid_list.append(data.get('_auth_user_id', None))
 
     # ２段階変換: 問合せ結果（QuerySet）id絞りこみ ----> JSON文字列 ----> オブジェクト
-    user_table_qs = User.objects.filter(id__in=uid_list)  # QuerySet
-    # users=<QuerySet [<User: kifuwarabe>]>
-    # print(f"user_table_qs={user_table_qs}")
-    user_table_json = serializers.serialize('json', user_table_qs)
-    user_table_doc = json.loads(user_table_json)  # オブジェクトに変換
+    user_resultset = User.objects.filter(id__in=uid_list)
     """
 web_1  | user_table_doc=[
 web_1  |     {
@@ -261,12 +255,13 @@ web_1  | ]
 
     # 使いやすい形に変換します
     user_dic = dict()
-    for user_rec in user_table_doc:  # User Record
-        user_dic[user_rec["pk"]] = {
-            "pk": user_rec["pk"],
-            "last_login": user_rec["fields"]["last_login"],
-            "username": user_rec["fields"]["username"],
-            "is_active": user_rec["fields"]["is_active"],
+    for user in user_resultset:
+        user_dic[user.pk] = {
+            "pk": user.pk,
+            # 日付型はJSONに変換できないので、先に文字列に変換しておく
+            "last_login": user.last_login.strftime("%Y-%m-%d %H:%M:%S"),
+            "username": user.username,
+            "is_active": user.is_active,
         }
 
     return user_dic
