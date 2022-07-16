@@ -24,8 +24,8 @@
 ```plaintext
     ├── 📂 host1
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized    # アプリケーション名
-    │   │   ├── 📂 portal                # アプリケーション名
+    │   │   ├── 📂 allauth_customized_v1    # アプリケーション名
+    │   │   ├── 📂 portal_v1                # アプリケーション名
     │   │   │   ├── 📂 data
     │   │   │   │   └── 📄 finished-lesson.csv
     │   │   │   ├── 📂 migrations
@@ -33,13 +33,13 @@
     │   │   │   ├── 📂 static
     │   │   │   │   └── 🚀 favicon.ico
     │   │   │   ├── 📂 templates
-    │   │   │   │   └── 📂 portal
-    │   │   │   │       └── 📂 v0o0o1
+    │   │   │   │   └── 📂 portal_v1
+    │   │   │   │       └── 📂 o1
     │   │   │   │           └── 📄 portal_base.html
     │   │   │   └── 📂 views
-    │   │   │       └── 📂 v0o0o1
+    │   │   │       └── 📂 o1
     │   │   │           └── 📄 pages.py
-    │   │   └── 📂 practice              # アプリケーション名
+    │   │   └── 📂 practice_v1              # アプリケーション名
     │   ├── 📂 data
     │   ├── 📂 project1                  # プロジェクト名
     │   │   ├── 📄 __init__.py
@@ -78,9 +78,9 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice          # アプリケーション フォルダー
+            └── 📂 practice_v1          # アプリケーション フォルダー
                 └── 📂 models
-                    └── 📂 v0o0o1
+                    └── 📂 o1
 👉                      └── 📄 m_prefecture.py
 ```
 
@@ -111,16 +111,16 @@ class Prefecture(models.Model):
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice          # アプリケーション
+            └── 📂 practice_v1          # アプリケーション
 👉              └── 📄 admin.py
 ```
 
 ```py
 from django.contrib import admin
 
-from .models.v0o0o1.m_prefecture import Prefecture
-#    ---------------------------        ----------
-#    1                                  2
+from .models.o1.m_prefecture import Prefecture
+#    -----------------------        ----------
+#    1                              2
 #
 # 1. このファイルと同じディレクトリにある `models/v0o0o1/m_prefecture.py` ファイルの拡張子抜き
 #                                      --------------------------
@@ -140,11 +140,11 @@ admin.site.register(Prefecture)
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
 # cd host1
 
-docker-compose run --rm web python3 manage.py makemigrations practice
-#                                                            --------
+docker-compose run --rm web python3 manage.py makemigrations practice_v1
+#                                                            -----------
 #                                                            1
 # 1. アプリケーション名
-#    settings.py に `apps1.practice` と 書いていても、ここには `practice` と書く
+#    settings.py に `apps1.practice_v1` と 書いていても、ここには `practice_v1` と書く
 ```
 
 以下のディレクトリーとファイルが生成される  
@@ -152,7 +152,7 @@ docker-compose run --rm web python3 manage.py makemigrations practice
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice          # アプリケーション
+            └── 📂 practice_v1          # アプリケーション
                 └── 📂 migrations
                     ├── 📄 __init__.py
                     └── 📄 0001_initial.py
