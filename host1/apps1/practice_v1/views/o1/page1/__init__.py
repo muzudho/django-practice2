@@ -20,4 +20,4 @@ class Page1():
 
         # テンプレートを使わず、HTMLをハードコーディングすることもできる
         # return HttpResponse("""Hello, world.<br/>
-        #                    <a href="home/v1/">ホーム</a>""")
+        #                    <a href="http://example.com/">ホーム</a>""")

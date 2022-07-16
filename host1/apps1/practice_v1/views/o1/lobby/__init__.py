@@ -3,10 +3,10 @@ class LobbyV():
 
     # 一覧ページ
     _path_of_lobby_page = "practice_v1/o1/lobby.html"
-    #                      --------------------------
+    #                      -------------------------
     #                      1
     # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/lobby.html` を取得
-    #                                    --------------------------
+    #                                       -------------------------
 
     @staticmethod
     def render_lobby(request):
