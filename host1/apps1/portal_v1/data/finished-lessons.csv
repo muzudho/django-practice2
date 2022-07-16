@@ -9,7 +9,7 @@ path,label
 /accounts/v1/login/,ログイン（ユーザー認証）
 /practice/v1/login-required,ログイン必須
 /practice/v1/logout,ログアウト
-/practice/buttom_for_member/,会員にだけ見えるボタンを説明するページ
+/practice/v1/buttom_for_member/,会員にだけ見えるボタンを説明するページ
 /practice/user-list/,会員一覧
 /practice/extends-user-list/,（拡張済）会員一覧
 /practice/active-user-list/,アクティブユーザー一覧

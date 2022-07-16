@@ -26,8 +26,8 @@
 ```plaintext
     ├── 📂 host1
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized    # アプリケーション
-    │   │   ├── 📂 portal                # アプリケーション
+    │   │   ├── 📂 allauth_customized_v1    # アプリケーション
+    │   │   ├── 📂 portal_v1                # アプリケーション
     │   │   │   ├── 📂 data
     │   │   │   │   └── 📄 finished-lesson.csv
     │   │   │   ├── 📂 migrations
@@ -35,16 +35,16 @@
     │   │   │   ├── 📂 static
     │   │   │   │   └── 🚀 favicon.ico
     │   │   │   ├── 📂 templates
-    │   │   │   │   └── 📂 portal
-    │   │   │   │       └── 📂 v0o0o1
+    │   │   │   │   └── 📂 portal_v1
+    │   │   │   │       └── 📂 o1
     │   │   │   │           └── 📄 portal_base.html
     │   │   │   └── 📂 views
-    │   │   │       └── 📂 v0o0o1
+    │   │   │       └── 📂 o1
     │   │   │           └── 📄 pages.py
-    │   │   └── 📂 practice              # アプリケーション
+    │   │   └── 📂 practice_v1              # アプリケーション
     │   │       └── 📂 templates
-    │   │           ├── 📂 practice
-    │   │           │   └── 📂 v0o0o1
+    │   │           ├── 📂 practice_v1
+    │   │           │   └── 📂 o1
     │   │           │       └── 📄 login_required.html
     │   │           └── 📂 views
     │   │               └── 📄 v_login_required.py
@@ -86,10 +86,10 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 └── 📂 templates
-                    └── 📂 practice          # アプリケーションと同名
-                        └── 📂 v0o0o1
+                    └── 📂 practice_v1          # アプリケーションと同名
+                        └── 📂 o1
 👉                          └── 📄 button_for_member.html
 ```
 
@@ -155,8 +155,8 @@ docker-compose up
                 methods: {
                     createPortalUrl() {
                         let url = `${location.protocol}//${location.host}${this.vu_pathOfPortal}`;
-                        //          --------------------  --------------]----------------------
-                        //          1                     2              3
+                        //         --------------------  ---------------]-----------------------
+                        //         1                     2               3
                         // 1. protocol
                         // 2. host
                         // 3. path
@@ -192,13 +192,13 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 templates
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
                 │           └── 📄 button_for_member.html
                 └── 📂 views
-                    └── 📂 v0o0o1
+                    └── 📂 o1
                         └── 📂 button_for_member
 👉                          └── 📄 __init__.py
 ```
@@ -208,11 +208,11 @@ class ButtonForMember():
     """会員にだけ見えるボタンを説明するページ"""
 
     # そのページ
-    _path_of_this_page = "practice/v0o0o1/button_for_member.html"
-    #                     --------------------------------------
+    _path_of_this_page = "practice_v1/o1/button_for_member.html"
+    #                     -------------------------------------
     #                     1
-    # 1. host1/apps1/portal/templates/practice/v0o0o1/button_for_member.html を取得
-    #                                 --------------------------------------
+    # 1. host1/apps1/practice_v1/templates/practice_v1/o1/button_for_member.html を取得
+    #                                      -------------------------------------
 
     # 既存のポータルページ
     _path_of_portal = "/"
@@ -222,16 +222,16 @@ class ButtonForMember():
     #                           -
 
     # 既存のログイン必須ページ
-    _path_of_login_required = "/practice/login-required"
-    #                          ------------------------
+    _path_of_login_required = "/practice/v1/login-required"
+    #                          ---------------------------
     #                          1
-    # 1. http://example.com/practice/login-required
-    #                      ------------------------
+    # 1. http://example.com/practice/v1/login-required
+    #                      ---------------------------
 
     # 既存のログイン ページ
     _path_of_login = "/accounts/v1/login/"
-    #                  -------------------
-    #                  1
+    #                 -------------------
+    #                 1
     # 1. http://example.com/accounts/v1/login/
     #                      -------------------
 
@@ -240,7 +240,7 @@ class ButtonForMember():
     #                  --------------------
     #                  1
     # 1. http://example.com/accounts/v1/logout/
-    #                      -------------------
+    #                      --------------------
 
     @staticmethod
     def render(request):
@@ -250,8 +250,8 @@ class ButtonForMember():
         from .v_render import render_button_for_member
         #    ---------        ------------------------
         #    1                2
-        # 1. `host1/apps1/portal/views/v0o0o1/button_for_member/v_render.py`
-        #                                                       --------
+        # 1. `host1/apps1/practice_v1/views/o1/button_for_member/v_render.py`
+        #                                                        --------
         # 2. `1.` に含まれる関数
 
         return render_button_for_member(request, ButtonForMember._path_of_this_page, ButtonForMember._path_of_portal, ButtonForMember._path_of_login_required, ButtonForMember._path_of_login, ButtonForMember._path_of_logout)
@@ -264,13 +264,13 @@ class ButtonForMember():
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 templates
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
                 │           └── 📄 button_for_member.html
                 └── 📂 views
-                    └── 📂 v0o0o1
+                    └── 📂 o1
                         └── 📂 button_for_member
                             ├── 📄 __init__.py
 👉                          └── 📄 v_render.py       # 頭の `v_` は、これはビューだと分かるよう目印に付けているだけなので、無くてもいい
@@ -304,13 +304,13 @@ def render_button_for_member(request, path_of_this_page, path_of_portal, path_of
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 practice                  # アプリケーション
+        │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           └── 📄 button_for_member.html
         │       └── 📂 views
-        │           └── 📂 v0o0o1
+        │           └── 📂 o1
         │               └── 📂 button_for_member
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_render.py
@@ -322,16 +322,15 @@ def render_button_for_member(request, path_of_this_page, path_of_portal, path_of
 # ...略...
 
 
-from apps1.practice.views.v0o0o1.button_for_member import ButtonForMember
-#    ----- -------- ------------------------------        ---------------
-#    1     2        3                                     4
-#    ---------------------------------------------
-#    5
-# 1. 開発者用ディレクトリーの一部
-# 2. アプリケーション フォルダー名
-# 3. ディレクトリー名
-# 4. クラス名
-# 5. Pythonモジュール名
+# 会員用ボタン
+from apps1.practice_v1.views.o1.button_for_member import ButtonForMember
+#          -----------          -----------------        ---------------
+#          11                   12                       2
+#    --------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 urlpatterns = [
@@ -339,21 +338,21 @@ urlpatterns = [
 
 
     # 会員にだけ見えるボタンを説明するページ
-    path('practice/buttom_for_member/',
-         # --------------------------
+    path('practice/v1/buttom_for_member/',
+         # -----------------------------
          # 1
          ButtonForMember.render),
     #    ----------------------
     #    2
-    # 1. 例えば `http://example.com/practice/buttom_for_member/` のような URL のパスの部分
-    #                              ----------------------------
+    # 1. 例えば `http://example.com/practice/v1/buttom_for_member/` のような URL のパスの部分
+    #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
 ]
 ```
 
 # Step 6. Web画面へアクセス
 
-📖 [http://localhost:8000/practice/buttom_for_member/](http://localhost:8000/practice/buttom_for_member/)  
+📖 [http://localhost:8000/practice/v1/buttom_for_member/](http://localhost:8000/practice/v1/buttom_for_member/)  
 
 # Step 7. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -362,16 +361,16 @@ urlpatterns = [
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   ├── 📂 portal                    # アプリケーション
+        │   ├── 📂 portal_v1                    # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 practice                  # アプリケーション
+        │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
         │       │           └── 📄 button_for_member.html
         │       └── 📂 views
-        │           └── 📂 v0o0o1
+        │           └── 📂 o1
         │               └── 📂 button_for_member
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_render.py
@@ -382,7 +381,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/buttom_for_member/,会員にだけ見えるボタンを説明するページ
+/practice/v1/buttom_for_member/,会員にだけ見えるボタンを説明するページ
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

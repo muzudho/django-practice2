@@ -289,14 +289,14 @@ urlpatterns = [
     # 3. HTMLテンプレートの中で {% url 'practice_v1_logout' %} のような形でURLを取得するのに使える
 
     # 会員にだけ見えるボタンを説明するページ
-    path('practice/buttom_for_member/',
-         # --------------------------
+    path('practice/v1/buttom_for_member/',
+         # -----------------------------
          # 1
          ButtonForMember.render),
     #    ----------------------
     #    2
-    # 1. 例えば `http://example.com/practice/buttom_for_member/` のような URL のパスの部分
-    #                              ----------------------------
+    # 1. 例えば `http://example.com/practice/v1/buttom_for_member/` のような URL のパスの部分
+    #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
 
     # 会員一覧
