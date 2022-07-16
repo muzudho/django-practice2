@@ -1,24 +1,24 @@
-class RedirecterV():
+class AutoRedirectV():
     """リダイレクト ビュー"""
 
     # 自動リダイレクト ページ
-    _path_of_redirecter_page = "practice_v1/o2/reloader_with_redirect.html.txt"
+    _path_of_redirecter_page = "practice_v1/o2/auto_reload_with_redirect.html.txt"
     #                                        ^two
     #                           ----------------------------------------------
     #                           1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o2/reloader_with_redirect.html.txt` を取得
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o2/auto_reload_with_redirect.html.txt` を取得
     #                                       ----------------------------------------------
 
     @staticmethod
-    def render_redirect(request):
+    def render_auto_redirect(request):
         """描画 - 自動リダイレクト"""
 
         # 以下のファイルはあとで作ります
-        from .v_redirect import render_redirect
+        from .v_redirect import render_auto_redirect
         #    -----------        ---------------
         #    1                  2
-        # 1. `host1/apps1/practice_v1/views/o2/redirecter/v_redirect.py`
+        # 1. `host1/apps1/practice_v1/views/o2/auto_redirect/v_redirect.py`
         #                                                 ----------
         # 2. `1.` に含まれる関数
 
-        return render_redirect(request, RedirecterV._path_of_redirecter_page)
+        return render_auto_redirect(request, AutoRedirectV._path_of_redirecter_page)

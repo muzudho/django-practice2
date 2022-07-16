@@ -149,7 +149,7 @@ from apps1.practice_v1.views.o1.auto_reload import AutoReloadV
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # 自動リダイレクト ビュー
-from apps1.practice_v1.views.o2.redirecter import RedirecterV
+from apps1.practice_v1.views.o2.auto_redirect import AutoRedirectV
 #                            ^^.two
 #          -----------          ----------        -----------
 #          11                   12                2
@@ -617,17 +617,17 @@ urlpatterns = [
     # 3. HTMLテンプレートの中で {% url 'practice_v1_auto_reload' %} のような形でURLを取得するのに使える
 
     # 自動リダイレクト
-    path('practice/redirecter/', RedirecterV.render_redirect,
-         # -------------------   ---------------------------
-         # 1                     2
-         name='practice_redirecter'),
-    #          -------------------
+    path('practice/v1/auto_redirect/', AutoRedirectV.render_auto_redirect,
+         # -------------------------   ----------------------------------
+         # 1                           2
+         name='practice_v1_auto_redirect'),
+    #          -------------------------
     #          3
     #
-    # 1. 例えば `http://example.com/practice/redirecter/` のような URL のパスの部分
-    #                              --------------------
-    # 2. RedirecterV クラスの render_redirect メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_redirecter' %} のような形でURLを取得するのに使える
+    # 1. 例えば `http://example.com/practice/v1/auto_redirect/` のような URL のパスの部分
+    #                              --------------------------
+    # 2. AutoRedirectV クラスの render_auto_redirect メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_auto_redirect' %} のような形でURLを取得するのに使える
 
     # 〇×ゲーム v3 対局申込中
     path('tic-tac-toe/v3/match-application/', TicTacToeV3o0o1MatchApplicationV.render,

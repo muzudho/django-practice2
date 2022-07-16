@@ -36,7 +36,7 @@ path,label
 /practice/v1/my/,マイ ページ
 /practice/v1/lobby/,ロビー
 /practice/v1/auto_reload/,自動再読込
-/practice/redirecter/,自動リダイレクト
+/practice/v1/auto_redirect/,自動リダイレクト
 /tic-tac-toe/v3/match-application/,〇×ゲーム v3 対局申込中
 /tic-tac-toe/v3o0o3/match-application/,〇×ゲーム v3.0.3 対局申込中
 /tic-tac-toe/v3o0o4/match-application/,〇×ゲーム v3.0.4 対局申込中

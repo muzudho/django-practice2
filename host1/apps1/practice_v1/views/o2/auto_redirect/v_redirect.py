@@ -2,7 +2,7 @@ import datetime
 from django.shortcuts import render
 
 
-def render_redirect(request, path_of_redirecter_page):
+def render_auto_redirect(request, path_of_redirecter_page):
     """描画 - 自動リダイレクト ページ"""
 
     # 現在日時

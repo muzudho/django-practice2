@@ -34,12 +34,12 @@
     │    └── 📂 websockapp1
     ├── 📂 host1                         # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized    # アプリケーション
-    │   │   ├── 📂 portal                # アプリケーション
-    │   │   ├── 📂 practice              # アプリケーション
+    │   │   ├── 📂 allauth_customized_v1    # アプリケーション
+    │   │   ├── 📂 portal_v1                # アプリケーション
+    │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
-    │   │   │       └── 📂 v0o0o1
+    │   │   │       └── 📂 o1
     │   │   │           └── 📄 m_room.py
     │   │   ├── 📂 tic_tac_toe_v1        # アプリケーション
     │   │   └── 📂 tic_tac_toe_v2        # アプリケーション
@@ -47,7 +47,7 @@
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o0o1
+    │   │       │       └── 📂 o1
     │   │       │           └── 📂 think
     │   │       │               ├── 📄 concepts.js
     │   │       │               ├── 📄 engine.js
@@ -57,11 +57,11 @@
     │   │       │               └── 📄 user_ctrl.js
     │   │       ├── 📂 templates
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o0o1
+    │   │       │       └── 📂 o1
     │   │       │           └── 📂 think
     │   │       │               └── 📄 engine_manual.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 v2o0o1
+    │   │       │   └── 📂 o1
     │   │       │       └── 📂 think
     │   │       │           └── 📂 engine_manual
     │   │       │               ├── 📄 __init__.py
@@ -104,18 +104,18 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. 機能強化 - v0o0o2/reloader.js ファイル
+# Step 2. 機能強化 - o2/auto_reload.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 └── 📂 static
-                    └── 📂 practice          # アプリケーションと同名
-                        └── 📂 v0o0o2        # 0.0.two
-👉                          └── 📄 reloader.js
+                    └── 📂 practice_v1          # アプリケーションと同名
+                        └── 📂 o2               # .two
+👉                          └── 📄 auto_reload.js
 ```
 
 ```js
@@ -143,41 +143,41 @@ function startReloadingAutomatically(intervalMilliseconds) {
 }
 ```
 
-# Step 3. テンプレート編集 - reloader_with_redirect.html ファイル
+# Step 3. テンプレート編集 - auto_reload_with_redirect.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
-                │           └── 📄 reloader.js
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
+                │           └── 📄 auto_reload.js
                 └── 📂 templates
-                    └── 📂 practice          # アプリケーションと同名
-                        └── 📂 v0o0o2        # 0.0.two
-👉                          └── 📄 reloader_with_redirect.html.txt
+                    └── 📂 practice_v1          # アプリケーションと同名
+                        └── 📂 o2        # 0.0.two
+👉                          └── 📄 auto_reload_with_redirect.html.txt
 ```
 
 ```html
-{% extends "practice/v0o0o1/reloader.html" %}
-{#          -----------------------------
+{% extends "practice_v1/o1/auto_reload.html" %}
+{#          -------------------------------
             1
-1. host1/apps1/practice/templates/practice/v0o0o1/reloader.html
-                                  -----------------------------
+1. host1/apps1/practice_v1/templates/practice_v1/o1/auto_reload.html
+                                     -------------------------------
 #}
 
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 
 {% block script_src %}
-<script src="{% static 'practice/v0o0o1/clock.js' %}"></script>
-<script src="{% static 'practice/v0o0o2/reloader.js' %}"></script>
-<!--                                  ^two
-                        ===========================
-    `host1/apps1/practice/static/practice/v0o0o2/reloader.js`
-                                 ===========================
+<script src="{% static 'practice_v1/o1/clock.js' %}"></script>
+<script src="{% static 'practice_v1/o2/auto_reload.js' %}"></script>
+<!--                                 ^two
+                =====================================
+    `host1/apps1/practice_v1/static/practice_v1/o2/auto_reload.js`
+                             ====================================
 -->
 {% endblock script_src %}
 
@@ -211,53 +211,53 @@ function startReloadingAutomatically(intervalMilliseconds) {
 {% endblock methods_trailing %}
 ```
 
-# Step 4. ビュー モジュール作成 - redirecter フォルダー
+# Step 4. ビュー モジュール作成 - auto_redirect フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
-                │           └── 📄 reloader.js
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
+                │           └── 📄 auto_reload.js
                 ├── 📂 templates
-                │   └── 📂 practice
-                │       └── 📂 v0o0o2
-                │           └── 📄 reloader_with_redirect.html.txt
+                │   └── 📂 practice_v1
+                │       └── 📂 o2
+                │           └── 📄 auto_reload_with_redirect.html.txt
                 └── 📂 views
-                    └── 📂 v0o0o2            # 0.0.two
-                        └── 📂 redirecter
+                    └── 📂 o2            # 0.0.two
+                        └── 📂 auto_redirect
 👉                          └── 📄 __init__.py
 ```
 
 ```py
-class RedirecterV():
+class AutoRedirectV():
     """リダイレクト ビュー"""
 
     # 自動リダイレクト ページ
-    _path_of_redirecter_page = "practice/v0o0o2/reloader_with_redirect.html.txt"
-    #                                         ^two
-    #                           -----------------------------------------------
+    _path_of_redirecter_page = "practice_v1/o2/auto_reload_with_redirect.html.txt"
+    #                                        ^two
+    #                           -------------------------------------------------
     #                           1
-    # 1. `host1/apps1/practice/templates/practice/v0o0o2/reloader_with_redirect.html.txt` を取得
-    #                                    -----------------------------------------------
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o2/auto_reload_with_redirect.html.txt` を取得
+    #                                       -------------------------------------------------
 
     @staticmethod
-    def render_redirect(request):
+    def render_auto_redirect(request):
         """描画 - 自動リダイレクト"""
 
         # 以下のファイルはあとで作ります
-        from .v_redirect import render_redirect
+        from .v_redirect import render_auto_redirect
         #    -----------        ---------------
         #    1                  2
-        # 1. `host1/apps1/practice/views/v0o0o2/redirecter/v_redirect.py`
-        #                                                  ----------
+        # 1. `host1/apps1/practice_v1/views/o2/auto_redirect/v_redirect.py`
+        #                                                    ----------
         # 2. `1.` に含まれる関数
 
-        return render_redirect(request, RedirecterV._path_of_redirecter_page)
+        return render_auto_redirect(request, AutoRedirectV._path_of_redirecter_page)
 ```
 
 # Step 5. ビュー モジュール作成 - v_redirect ファイル
@@ -267,18 +267,18 @@ class RedirecterV():
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 practice                  # アプリケーション
+            └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
-                │   └── 📂 practice
-                │       └── 📂 v0o0o1
-                │           └── 📄 reloader.js
+                │   └── 📂 practice_v1
+                │       └── 📂 o1
+                │           └── 📄 auto_reload.js
                 ├── 📂 templates
-                │   └── 📂 practice
-                │       └── 📂 v0o0o2
-                │           └── 📄 reloader_with_redirect.html.txt
+                │   └── 📂 practice_v1
+                │       └── 📂 o2
+                │           └── 📄 auto_reload_with_redirect.html.txt
                 └── 📂 views
-                    └── 📂 v0o0o2
-                        └── 📂 redirecter
+                    └── 📂 o2
+                        └── 📂 auto_redirect
                             ├──📄 __init__.py
 👉                          └──📄 v_redirect.py
 ```
@@ -288,7 +288,7 @@ import datetime
 from django.shortcuts import render
 
 
-def render_redirect(request, path_of_redirecter_page):
+def render_auto_redirect(request, path_of_redirecter_page):
     """描画 - 自動リダイレクト ページ"""
 
     # 現在日時
@@ -323,18 +323,18 @@ def render_redirect(request, path_of_redirecter_page):
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 practice                  # アプリケーション
+        │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 static
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
-        │       │           └── 📄 reloader.js
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
+        │       │           └── 📄 auto_reload.js
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o2
-        │       │           └── 📄 reloader_with_redirect.html.txt
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o2
+        │       │           └── 📄 auto_reload_with_redirect.html.txt
         │       └── 📂 views
-        │           └── 📂 v0o0o2
-        │               └── 📂 redirecter
+        │           └── 📂 o2
+        │               └── 📂 auto_redirect
         │                   ├──📄 __init__.py
         │                   └──📄 v_redirect.py
         └── 📂 project1                      # プロジェクト
@@ -345,14 +345,16 @@ def render_redirect(request, path_of_redirecter_page):
 # ...略...
 
 
-from apps1.practice.views.v0o0o2.redirecter import RedirecterV
-#                              ^two
-#    ----- -------- -----------------------        -----------
-#    1     2        3                              4
-# 1,3. ディレクトリー名
-# 2. アプリケーション名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
+# 自動リダイレクト ビュー
+from apps1.practice_v1.views.o2.auto_redirect import AutoRedirectV
+#                            ^^.two
+#          -----------          ----------        -----------
+#          11                   12                2
+#    -------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 urlpatterns = [
@@ -360,23 +362,23 @@ urlpatterns = [
 
 
     # 自動リダイレクト
-    path('practice/redirecter/', RedirecterV.render_redirect,
-         # -------------------   ---------------------------
-         # 1                     2
-         name='practice_redirecter'),
-    #          -------------------
+    path('practice/v1/auto_redirect/', AutoRedirectV.render_auto_redirect,
+         # -------------------------   ----------------------------------
+         # 1                           2
+         name='practice_v1_auto_redirect'),
+    #          -------------------------
     #          3
     #
-    # 1. 例えば `http://example.com/practice/redirecter/` のような URL のパスの部分
-    #                              --------------------
-    # 2. RedirecterV クラスの render_redirect メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_redirecter' %} のような形でURLを取得するのに使える
+    # 1. 例えば `http://example.com/practice/v1/auto_redirect/` のような URL のパスの部分
+    #                              --------------------------
+    # 2. AutoRedirectV クラスの render_auto_redirect メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_auto_redirect' %} のような形でURLを取得するのに使える
 ]
 ```
 
 # Step 7. Web画面へアクセス
 
-📖 [http://localhost:8000/practice/redirecter/](http://localhost:8000/practice/redirecter/)  
+📖 [http://localhost:8000/practice/v1/auto_redirect/](http://localhost:8000/practice/v1/auto_redirect/)  
 
 # Step 8. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -385,21 +387,21 @@ urlpatterns = [
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   ├── 📂 portal                        # アプリケーション
+        │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 practice                      # アプリケーション
+        │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 static
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o1
-        │       │           └── 📄 reloader.js
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o1
+        │       │           └── 📄 auto_reload.js
         │       ├── 📂 templates
-        │       │   └── 📂 practice
-        │       │       └── 📂 v0o0o2
-        │       │           └── 📄 reloader_with_redirect.html.txt
+        │       │   └── 📂 practice_v1
+        │       │       └── 📂 o2
+        │       │           └── 📄 auto_reload_with_redirect.html.txt
         │       └── 📂 views
-        │           └── 📂 v0o0o2
-        │               └── 📂 redirecter
+        │           └── 📂 o2
+        │               └── 📂 auto_redirect
         │                   ├──📄 __init__.py
         │                   └──📄 v_redirect.py
         └── 📂 project1                          # プロジェクト
@@ -409,7 +411,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/redirecter/,自動リダイレクト
+/practice/v1/auto_redirect/,自動リダイレクト
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 
