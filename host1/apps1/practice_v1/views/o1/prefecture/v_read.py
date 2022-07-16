@@ -23,10 +23,10 @@ def render_read(request, id=id):
     """
 
     template = loader.get_template('practice_v1/o1/prefecture/read.html')
-    #                               ------------------------------------
+    #                               -----------------------------------
     #                               1
     # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/prefecture/read.html` を取得
-    #                                    ------------------------------------
+    #                                       -----------------------------------
 
     context = {
         # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得

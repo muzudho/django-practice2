@@ -35,7 +35,7 @@ def render_upsert(request, id=None):
         if form.is_valid():  # バリデーションがOKなら保存
             prefecture = form.save(commit=False)
             prefecture.save()
-            return redirect('prefecture_list')
+            return redirect('practice_v1_prefectures')
     else:  # GETの時（フォームを生成）
         form = PrefectureForm(instance=prefecture)
 
