@@ -3,21 +3,29 @@ import json
 # 以前のバージョン
 from apps1.tic_tac_toe_v2.views.o1.gui.match_application import MatchApplicationV as MatchApplicationVV2o1
 #                       ^two
-#    ---------------------------------------------------        -----------------    ---------------------
-#    1                                                          2                    3
-# 1. `host1/apps1/tic_tac_toe_v2/views/o1/gui/match_application/__init__.py`
-#           ---------------------------------------------------
-# 2. `1.` の __init__.py ファイルに含まれるクラス
+#          --------------              -----------------        -----------------    ---------------------
+#          11                          12                       2                    3
+#    ---------------------------------------------------
+#    10
+# 10. `host1/apps1/tic_tac_toe_v2/views/o1/gui/match_application/__init__.py`
+#            ---------------------------------------------------
+# 11. アプリケーション
+# 12. ただのディレクトリー
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 # 3. '2.' の別名
 
 # 以前のバージョン
 from apps1.tic_tac_toe_v3.views.o1.match_application import MatchApplicationV as MatchApplicationVV3o1
 #                       ^three
-#    -----------------------------------------------        -----------------    ---------------------
-#    1                                                      2                    3
-# 1. `host1/apps1/tic_tac_toe_v3/views/o1/match_application/__init__.py`
-#           -----------------------------------------------
-# 2. `1.` の __init__.py ファイルに含まれるクラス
+#          --------------          -----------------        -----------------    ---------------------
+#          11                      12                       2                    3
+#    -----------------------------------------------
+#    10
+# 10. `host1/apps1/tic_tac_toe_v3/views/o1/match_application/__init__.py`
+#            -----------------------------------------------
+# 11. アプリケーション
+# 12. ただのディレクトリー
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 # 3. '2.' の別名
 
 
@@ -38,11 +46,11 @@ class MatchApplicationV():
     }
 
     path_of_http_playing = "/tic-tac-toe/v3o4/playing/{0}/?&myturn={1}"
-    #                                      ^^^three.four
+    #                                     ^^^three.four
     #                       ------------------------------------------
     #                       1
-    # 1. http://example.com:8000/tic-tac-toe/v3o4/playing/Elephant/?&myturn=X
-    #                           -----------------------------------------------
+    # 1. `http://example.com:8000/tic-tac-toe/v3o4/playing/Elephant/?&myturn=X`
+    #                            ---------------------------------------------
 
     @staticmethod
     def render(request):
@@ -68,4 +76,3 @@ class MatchApplicationV():
     def open(request):
         """訪問後"""
         return MatchApplicationV.open_context
-        #      ^ Located in this file

@@ -4,7 +4,8 @@ from apps1.tic_tac_toe_v3.views.o1.playing import PlayingV as PlayingVV3o1
 #          11                      12             2           3
 #    -------------------------------------
 #    10
-# 10. ディレクトリー
+# 10. `host1/apps1/tic_tac_toe_v3/views/o1/playing/__init__.py`
+#            -------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
@@ -16,7 +17,8 @@ from apps1.tic_tac_toe_v3.views.o3.playing import PlayingV as PlayingVV3o3
 #          11                      12             2           3
 #    -------------------------------------
 #    10
-# 10. ディレクトリー
+# 10. `host1/apps1/tic_tac_toe_v3/views/o3/playing/__init__.py`
+#            -------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス

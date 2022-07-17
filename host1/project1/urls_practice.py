@@ -712,13 +712,13 @@ urlpatterns = [
     # 〇×ゲーム v3o4 対局申込中
     path('tic-tac-toe/v3o4/match-application/', TicTacToeV3o4MatchApplicationV.render,
          # ----------------------------------   -------------------------------------
-         # 1                                      2
+         # 1                                    2
          name='tic_tac_toe_v3o4_match_application'),
     #          ----------------------------------
     #          3
     #
     # 1. 例えば `http://example.com/tic-tac-toe/v3o4/match-application/` のような URL のパスの部分
-    #                              -------------------------------------
+    #                              -----------------------------------
     # 2. TicTacToeV3o4MatchApplicationV （別名）クラスの render メソッド
     # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3o4_match_application' %} のような形でURLを取得するのに使える
 
