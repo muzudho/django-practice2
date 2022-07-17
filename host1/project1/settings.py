@@ -14,7 +14,7 @@ import os
 from pathlib import Path
 from .settings_secrets import SECRET_KEY, ALLOWED_HOSTS
 #    -----------------        -------------------------
-#    1
+#    1                        2
 # 1. `host1/project1/settings_secrets.py` を指しています
 #                    ----------------
 # 2. このファイル内では使われていませんが、このファイルを使う側から使われます
