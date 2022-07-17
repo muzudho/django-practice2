@@ -576,7 +576,7 @@ urlpatterns = [
 
 # 次の記事
 
-📖 [Djangoで会員登録ユーザーを一覧しよう！](https://qiita.com/muzudho1/items/13c15be5b9070dab1770)  
+📖 [Djangoで自動リロードするページを作ろう！](https://qiita.com/muzudho1/items/8df599dc0e0acb25f649)  
 
 # 関連する記事
 
