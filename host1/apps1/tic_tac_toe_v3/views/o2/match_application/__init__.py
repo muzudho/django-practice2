@@ -8,16 +8,19 @@ from apps1.tic_tac_toe_v2.views.o1.gui.match_application import MatchApplication
 # 2. `1.` の __init__.py ファイルに含まれるクラス
 # 3. '2.' の別名
 
+# 以前のバージョン
+from apps1.tic_tac_toe_v3.views.o1.match_application import MatchApplicationV as MatchApplicationVV3o1
+#                       ^three
+#    -----------------------------------------------        -----------------    ---------------------
+#    1                                                      2                    3
+# 1. `host1/apps1/tic_tac_toe_v3/views/o1/match_application/__init__.py`
+#           -----------------------------------------------
+# 2. `1.` の __init__.py ファイルに含まれるクラス
+# 3. '2.' の別名
+
 
 class MatchApplicationV():
     """対局申込ビュー"""
-
-    _path_of_http_playing = "/tic-tac-toe/v3o2/playing/{0}/?&myturn={1}"
-    #                                      ^^^three.two
-    #                        -------------------------------------------
-    #                        1
-    # 1. http://example.com:8000/tic-tac-toe/v3o2/playing/Elephant/?&myturn=X
-    #                           ---------------------------------------------
 
     @staticmethod
     def render(request):
@@ -34,7 +37,7 @@ class MatchApplicationV():
 
         return render_match_application(
             request,
-            MatchApplicationV._path_of_http_playing,
+            MatchApplicationVV3o1.path_of_http_playing,
             MatchApplicationVV2o1.path_of_html,
             MatchApplicationV.on_sent,
             MatchApplicationV.open)
