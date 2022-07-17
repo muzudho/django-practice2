@@ -47,7 +47,7 @@ http://example.com/practice/v1/page1
     └── 📄 .gitignore
 ```
 
-# Step 1. Dockerコンテナの起動
+# Step O1 Dockerコンテナの起動
 
 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -59,7 +59,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. フォルダー作成 - apps1/practice_v1 フォルダー
+# Step O2o1 フォルダー作成 - apps1/practice_v1 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -108,7 +108,7 @@ Example: `ws://example.com/practice/v1o1o1/`
 
 この連載では パッチ番号 のようなものは使わない  
 
-# Step 3. アプリケーション作成
+# Step O3o1 アプリケーション作成
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -138,7 +138,7 @@ docker-compose run --rm web python manage.py startapp practice_v1 ./apps1/practi
 👉              └── 📄 views.py
 ```
 
-# Step 4. 今回使わないファイルの削除
+# Step O4o1 今回使わないファイルの削除
 
 👇 以下のファイルを削除してほしい  
 
@@ -156,7 +156,7 @@ docker-compose run --rm web python manage.py startapp practice_v1 ./apps1/practi
 👉              └── 📄 views.py
 ```
 
-# Step 5. アプリケーション設定変更 - apps.py
+# Step O5o1 アプリケーション設定変更 - apps.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -188,7 +188,7 @@ class PracticeConfig(AppConfig):
     #           -----------------
 ```
 
-# Step 6. アプリケーション登録 - settings.py ファイル＜その２＞
+# Step O6o1 アプリケーション登録 - settings.py ファイル＜その２＞
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -235,7 +235,7 @@ INSTALLED_APPS = [
 これで、 `host1/apps1/practice_v1` フォルダーは practice_v1 アプリケーションとして認識される。  
 そのメリットは　今後のレッスンで触れる  
 
-# Step 7. 画面作成 - page1.html ファイル
+# Step O7o1 画面作成 - page1.html ファイル
 
 以下のファイルを作成してほしい。
 
@@ -263,7 +263,7 @@ INSTALLED_APPS = [
 </html>
 ```
 
-# Step 8. 設定変更 - settings.py ファイル
+# Step O8o1 設定変更 - settings.py ファイル
 
 👇 以下のファイルを編集してほしい  
 
@@ -316,7 +316,7 @@ TEMPLATES = [
 ]
 ```
 
-# Step 9. ビュー モジュール作成 - page1 フォルダー
+# Step O9o1 ビュー モジュール作成 - page1 フォルダー
 
 👇 以下のファイルを新規作成してほしい
 
@@ -362,7 +362,7 @@ class Page1():
         #                    <a href="http://example.com/">ホーム</a>""")
 ```
 
-# Step 10. サブ ルート作成 - urls_practice.py
+# Step OA10o1 サブ ルート作成 - urls_practice.py
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -409,7 +409,7 @@ urlpatterns = [
 ]
 ```
 
-# Step 11. 総合ルート編集 - urls.py
+# Step OA11o1 総合ルート編集 - urls.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -453,7 +453,7 @@ urlpatterns = [
 ]
 ```
 
-# Step 12. Webページにアクセスする
+# Step OA12o1 Webページにアクセスする
 
 📖 [http://localhost:8000/practice/v1/page1](http://localhost:8000/practice/v1/page1)  
 
