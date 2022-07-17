@@ -1,4 +1,4 @@
-# tic-tac-toe v2o0o1
+# tic-tac-toe v2o1
 
 ```plaintext
                     Vue

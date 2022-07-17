@@ -19,14 +19,6 @@ class MatchApplicationV():
     # 1. http://example.com:8000/tic-tac-toe/v3/playing/Elephant/?&myturn=X
     #                           -------------------------------------------
 
-    # 〇×ゲーム v2
-    path_of_html = "tic_tac_toe_v2/o1/gui/match_application.html"
-    #                            ^two
-    #               --------------------------------------------
-    #               1
-    # 1. `host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1/gui/match_application.html` を取得
-    #                                          --------------------------------------------
-
     @staticmethod
     def render(request):
         """描画"""
@@ -43,7 +35,7 @@ class MatchApplicationV():
         return render_match_application(
             request,
             MatchApplicationV._path_of_http_playing,
-            MatchApplicationV.path_of_html,
+            MatchApplicationVV2o1.path_of_html,
             MatchApplicationV.on_sent,
             MatchApplicationV.open)
 

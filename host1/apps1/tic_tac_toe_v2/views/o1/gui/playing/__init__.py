@@ -8,12 +8,12 @@ playing_expected_pieces = ['X', 'O']
 class PlayingV():
     """対局中ビュー"""
 
-    path_of_ws_playing = "/tic-tac-toe/v2o0o1/playing/"
+    path_of_ws_playing = "/tic-tac-toe/v2o1/playing/"
     #                                   ^ two
-    #                     ----------------------------
+    #                     --------------------------
     #                     1
-    # 1. `ws://example.com:8000/tic-tac-toe/v2o0o1/playing/`
-    #                          ---------------------------
+    # 1. `ws://example.com:8000/tic-tac-toe/v2o1/playing/`
+    #                          --------------------------
 
     path_of_html = "tic_tac_toe_v2/o1/gui/playing.html.txt"
     #                            ^ two

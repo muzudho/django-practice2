@@ -17,17 +17,17 @@ websocket_urlpatterns = [
 
     # ...中略...
 
-    # 〇×ゲームの練習３．０．３
-    url(r'^tic-tac-toe/v3o0o3/playing/(?P<kw_room_name>\w+)/$',
-        #               ^^^^^ three.zero.three
+    # 〇×ゲームの練習 v3.3
+    url(r'^tic-tac-toe/v3o3/playing/(?P<kw_room_name>\w+)/$',
+        #               ^^^three.three
         # -------------------------------------------------
         # 1
         TicTacToeV3o0o1ConsumerCustom.as_asgi()),
     #             ^^^^^ three.zero.one
     #   ---------------------------------------
     #   2
-    # 1. 例えば `ws://example.com/tic-tac-toe/v3o0o3/playing/Elephant/` のようなURLのパスの部分
-    #                            ------------------------------------
+    # 1. 例えば `ws://example.com/tic-tac-toe/v3o3/playing/Elephant/` のようなURLのパスの部分
+    #                            ----------------------------------
     #    kw_room_name は変数として渡される
     # 2. クラス名とメソッド。 URL を ASGI形式にする
 ]

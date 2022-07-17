@@ -22,12 +22,12 @@ from apps1.tic_tac_toe_v3.views.o1.match_application import MatchApplicationV as
 class MatchApplicationV():
     """対局申込ビュー"""
 
-    _path_of_http_playing = "/tic-tac-toe/v3o0o3/playing/{0}/?&myturn={1}"
-    #                                      ^^^^^ three.zero.three
+    _path_of_http_playing = "/tic-tac-toe/v3o3/playing/{0}/?&myturn={1}"
+    #                                      ^^^ three.three
     #                        ------------------------------------------
     #                        1
-    # 1. http://example.com:8000/tic-tac-toe/v3o0o3/playing/Elephant/?&myturn=X
-    #                           -----------------------------------------------
+    # 1. http://example.com:8000/tic-tac-toe/v3o3/playing/Elephant/?&myturn=X
+    #                           ---------------------------------------------
 
     @staticmethod
     def render(request):

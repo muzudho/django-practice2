@@ -1574,12 +1574,12 @@ playing_expected_pieces = ['X', 'O']
 class PlayingV():
     """対局中ビュー"""
 
-    path_of_ws_playing = "/tic-tac-toe/v2o0o1/playing/"
+    path_of_ws_playing = "/tic-tac-toe/v2o1/playing/"
     #                                   ^ two
-    #                     ----------------------------
+    #                     --------------------------
     #                     1
-    # 1. `ws://example.com:8000/tic-tac-toe/v2o0o1/playing/`
-    #                          ---------------------------
+    # 1. `ws://example.com:8000/tic-tac-toe/v2o1/playing/`
+    #                          --------------------------
 
     path_of_html = "tic_tac_toe_v2/o1/gui/playing.html.txt"
     #                            ^ two
@@ -1722,7 +1722,7 @@ def render_playing(request, kw_room_name, path_of_ws_playing, path_of_html, on_u
 # ...略...
 
 
-# 対局申込ページ v2.0.1
+# 対局申込ページ v2.1
 from apps1.tic_tac_toe_v2.views.o1.gui.match_application import MatchApplicationV
 #          --------------              -----------------        -----------------
 #          1.1                         1.2                      2
@@ -1732,7 +1732,7 @@ from apps1.tic_tac_toe_v2.views.o1.gui.match_application import MatchApplication
 # 1.1 アプリケーション
 # 2. `1.2` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-from apps1.tic_tac_toe_v2.views.v2o0o1.gui.playing import PlayingV
+from apps1.tic_tac_toe_v2.views.v2o1.gui.playing import PlayingV
 
 
 urlpatterns = [
@@ -1826,15 +1826,15 @@ from apps1.tic_tac_toe_v2.websocks.o1.gui.consumer_custom import TicTacToeV2Cons
 
 websocket_urlpatterns = [
 
-    # 〇×ゲーム v2.0.1
-    url(r'^tic-tac-toe/v2o0o1/playing/(?P<kw_room_name>\w+)/$',
-        # ---------------------------------------------------
+    # 〇×ゲーム v2.1
+    url(r'^tic-tac-toe/v2o1/playing/(?P<kw_room_name>\w+)/$',
+        # -------------------------------------------------
         # 1
         TicTacToeV2ConsumerCustom.as_asgi()),
     #   -----------------------------------
     #   2
-    # 1. 例えば `ws://example.com/tic-tac-toe/v2o0o1/playing/Elephant/` のようなURLのパスの部分
-    #                            ------------------------------------
+    # 1. 例えば `ws://example.com/tic-tac-toe/v2o1/playing/Elephant/` のようなURLのパスの部分
+    #                            ----------------------------------
     #    kw_room_name は変数として渡される
     # 2. クラス名とメソッド。 URL を ASGI形式にする
 ]
