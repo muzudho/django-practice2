@@ -24,7 +24,7 @@ Lesson O0o1 Table of Contents
 
 * 📖 `DjangoとDockerでゲーム対局サーバーを作ろう！` (この記事)  
 
-Lesson O1o1 Install  
+Lesson O1 Install  
 
 * 📖 [DjangoをDockerコンテナへインストールしよう！](https://qiita.com/muzudho1/items/48e69ed17d70a8f171a7)
 * 📖 [Djangoの本番環境のプロジェクトの作り方を予習しよう！](https://qiita.com/muzudho1/items/e9b8c1cefa5ddaa21ab2)
