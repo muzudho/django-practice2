@@ -39,25 +39,25 @@
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host_local1                   # Djangoとは関係ないもの
+    ├── 📂 host_local1                      # Djangoとは関係ないもの
     │    ├── 📂 sockapp1
     │    └── 📂 websockapp1
-    ├── 📂 host1                         # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
+    ├── 📂 host1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized    # アプリケーション
-    │   │   ├── 📂 portal                # アプリケーション
-    │   │   ├── 📂 practice              # アプリケーション
+    │   │   ├── 📂 allauth_customized_v1    # アプリケーション
+    │   │   ├── 📂 portal_v1                # アプリケーション
+    │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
-    │   │   │       └── 📂 v0o0o1
+    │   │   │       └── 📂 o1
     │   │   │           └── 📄 m_room.py
-    │   │   ├── 📂 tic_tac_toe_v1        # アプリケーション
-    │   │   └── 📂 tic_tac_toe_v2        # アプリケーション
+    │   │   ├── 📂 tic_tac_toe_v1           # アプリケーション
+    │   │   └── 📂 tic_tac_toe_v2           # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o0o1
+    │   │       │       └── 📂 o1
     │   │       │           └── 📂 think
     │   │       │               ├── 📄 concepts.js
     │   │       │               ├── 📄 engine.js
@@ -67,11 +67,11 @@
     │   │       │               └── 📄 user_ctrl.js
     │   │       ├── 📂 templates
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o0o1
+    │   │       │       └── 📂 o1
     │   │       │           └── 📂 think
     │   │       │               └── 📄 engine_manual.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 v2o0o1
+    │   │       │   └── 📂 o1
     │   │       │       └── 📂 think
     │   │       │           └── 📂 engine_manual
     │   │       │               ├── 📄 __init__.py
@@ -81,7 +81,7 @@
     │   │       ├── 📄 apps.py
     │   │       └── 📄 tests.py
     │   ├── 📂 data
-    │   ├── 📂 project1                  # プロジェクト
+    │   ├── 📂 project1                     # プロジェクト
     │   │   ├── 📄 __init__.py
     │   │   ├── 📄 asgi.py
     │   │   ├── 📄 settings_secrets_example.txt
@@ -93,7 +93,7 @@
     │   │   ├── 📄 urls.py
     │   │   ├── 📄 ws_urls_tic_tac_toe_v1.py
     │   │   └── 📄 wsgi.py
-    │   ├── 📂 project2                  # プロジェクト
+    │   ├── 📂 project2                     # プロジェクト
     │   ├── 🐳 docker-compose-project2.yml
     │   ├── 🐳 docker-compose.yml
     │   ├── 🐳 Dockerfile
@@ -121,26 +121,58 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v3            # アプリケーション (Ver. Three)
+            └── 📂 tic_tac_toe_v3                   # アプリケーション Three
                 └── 📂 views
-                    └── 📂 o0o1              # (v3).0.one
+                    └── 📂 o2                       # .Two
                         └── 📂 match_application
 👉                          └── 📄 __init__.py
 ```
 
 ```py
+# 以前のバージョン
+from apps1.tic_tac_toe_v2.views.o1.gui.match_application import MatchApplicationV as MatchApplicationVV2o1
+#                       ^two
+#    ---------------------------------------------------        -----------------    ---------------------
+#    1                                                          2                    3
+# 1. `host1/apps1/tic_tac_toe_v2/views/o1/gui/match_application/__init__.py`
+#           ---------------------------------------------------
+# 2. `1.` の __init__.py ファイルに含まれるクラス
+# 3. '2.' の別名
+
+# 以前のバージョン
+from apps1.tic_tac_toe_v3.views.o1.match_application import MatchApplicationV as MatchApplicationVV3o1
+#                       ^three
+#    -----------------------------------------------        -----------------    ---------------------
+#    1                                                      2                    3
+# 1. `host1/apps1/tic_tac_toe_v3/views/o1/match_application/__init__.py`
+#           -----------------------------------------------
+# 2. `1.` の __init__.py ファイルに含まれるクラス
+# 3. '2.' の別名
+
+
 class MatchApplicationV():
-    # ...略...
+    """対局申込ビュー"""
 
+    @staticmethod
+    def render(request):
+        """描画"""
 
-    # * 以下を削除
-    # @staticmethod
-    # def on_sent(request):
-    #     """送信後"""
-    #     # 拡張したい挙動があれば、ここに書く
-    #     pass
+        # 以下のファイルは既存です
+        from apps1.tic_tac_toe_v2.views.o1.gui.match_application.v_render import render_match_application
+        #                       ^two
+        #    ------------------------------------------------------------        ------------------------
+        #    1                                                                   2
+        # 1. `host1/apps1/tic_tac_toe_v2/views/o1/gui/match_application/v_render.py`
+        #                                                               --------
+        # 2. `1.` に含まれる静的関数
 
-    # * 以下を追加
+        return render_match_application(
+            request,
+            MatchApplicationVV3o1.path_of_http_playing,
+            MatchApplicationVV2o1.path_of_html,
+            MatchApplicationV.on_sent,
+            MatchApplicationV.open)
+
     @staticmethod
     def on_sent(request):
         """送信後"""
@@ -149,11 +181,16 @@ class MatchApplicationV():
         from .v_on_sent import match_application_on_sent
         #    ----------        -------------------------
         #    1                 2
-        # 1. `host1/apps1/tic_tac_toe_v3/views/o0o1/match_application/v_on_sent.py`
-        #                                                             ---------
+        # 1. `host1/apps1/tic_tac_toe_v3/views/o2/match_application/v_on_sent.py`
+        #                                                           ---------
         # 2. `1.` に含まれる関数
 
         return match_application_on_sent(request)
+
+    @staticmethod
+    def open(request):
+        """訪問後"""
+        return MatchApplicationVV2o1.open_context
 ```
 
 # Step 3. 対局申込ビュー モジュール作成 - v_on_sent.py ファイル
@@ -163,28 +200,28 @@ class MatchApplicationV():
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v3            # アプリケーション (Ver. Three)
+            └── 📂 tic_tac_toe_v3                   # アプリケーション Three
                 └── 📂 views
-                    └── 📂 o0o1              # (v3).0.one
+                    └── 📂 o2                       # .Two
                         └── 📂 match_application
                             ├── 📄 __init__.py
 👉                          └── 📄 v_on_sent.py
 ```
 
 ```py
-# from django.contrib.auth.models import User # デバッグ用
-
-from apps1.practice.models.v0o0o1.m_room import Room
-#    ----- -------- --------------------        ----
-#    1     2        3                           4
+# 部屋モデル
+from apps1.practice_v1.models.o1.m_room import Room
+#    ----- ----------- --------- ------        ----
+#    1     2           3         4             5
 # 1,3. ディレクトリー名
-# 2. アプリケーション フォルダー名
-# 3. Python ファイル名。拡張子抜き
-# 4. クラス名
+# 2. アプリケーション名
+# 4. Python ファイル名。拡張子抜き
+# 5. クラス名
 
-from apps1.practice.models.v0o0o1.m_user_profile import Profile
-#    ----- -------- ----------------------------        -------
-#    1     2        3                                   4
+# ユーザー拡張
+from apps1.practice_v1.models.o1.m_user_profile import Profile
+#    ----- ----------- ------------------------        -------
+#    1     2           3                               4
 # 1,3. ディレクトリー名
 # 2. アプリケーション フォルダー名
 # 3. Python ファイル名。拡張子抜き
@@ -210,46 +247,26 @@ def match_application_on_sent(request):
     #
     # * ID ではなく、部屋名から行う
     room_table_qs = Room.objects.filter(name=po_room_name)
-    # print(
-    #     f"[match_application_on_sent] po_room_name=[{po_room_name}] len={len(room_table_qs)}")
 
     if 1 <= len(room_table_qs):
         # （名前被りがあったなら）先頭の１つを取得
         room = room_table_qs[0]
-        # print(f"[match_application_on_sent] first room=[{room}]")
-        # print(
-        #     f"[match_application_on_sent] first room .name=[{room.name}] .sente_id=[{room.sente_id}] .gote_id=[{room.gote_id}] .board=[{room.board}] .record=[{room.record}]")
     else:
         # 新規作成
         room = Room()
         room.name = po_room_name
-        # print(f"[match_application_on_sent] new room=[{room}]")
 
-    # print(f"[match_application_on_sent] request.user={request.user}")
-    # print(
-    #     f"[match_application_on_sent] request.user.is_authenticated={request.user.is_authenticated}")
 
     if request.user.is_authenticated:
         # ログインしたユーザーだった
 
         user_pk = request.user.pk
-        # print(
-        #     f"[match_application_on_sent] user_pk={user_pk} room.sente_id={room.sente_id} room.gote_id={room.gote_id}")
-
-        # デバッグ
-        # user = User.objects.get(pk=user_pk)
-        # print(
-        #     f"[match_application_on_sent] user username={user.username}")
 
         # 自分の Profile レコード 取得
         profile = Profile.objects.get(user__pk=user_pk)
         #                             --------
         #                             1
         # 1. Profile テーブルと 1対1 で紐づいている親テーブル User の pk フィールド
-
-        # print(f"[match_application_on_sent] profile={profile}")
-        # print(
-        #     f"[match_application_on_sent] profile.match_state={profile.match_state}")
 
         if my_turn == "X":
             # X を取った方は先手とします
@@ -276,13 +293,9 @@ def match_application_on_sent(request):
             room.board = ""
             room.record = ""
 
-        # print(
-        #     f"[match_application_on_sent] room .name=[{room.name}] .sente_id=[{room.sente_id}] .gote_id=[{room.gote_id}] .board=[{room.board}] .record=[{room.record}]")
         # TODO バリデーションチェック
         room.save()
 
-        # print(
-        #     f"[match_application_on_sent] prifile .match_state=[{profile.match_state}]")
         # TODO バリデーションチェック
         profile.save()
 
@@ -293,7 +306,60 @@ def match_application_on_sent(request):
         pass
 ```
 
-# Step 4. Web画面へアクセス
+# Step 4. ルート編集 - urls_practice.py ファイル
+
+👇 以下の既存ファイルを編集してほしい  
+
+```plaintext
+    └── 📂 host1
+        ├── 📂 apps1
+        │   └── 📂 tic_tac_toe_v3                   # アプリケーション Three
+        │       └── 📂 views
+        │           └── 📂 o2                       # .Two
+        │               └── 📂 match_application
+        │                   ├── 📄 __init__.py
+        │                   └── 📄 v_on_sent.py
+        └── 📂 project1                             # プロジェクト
+👉          └── 📄 urls_practice.py
+```
+
+```py
+# ...略...
+
+
+# 〇×ゲーム v3.2 対局申込中
+from apps1.tic_tac_toe_v3.views.o2.match_application import MatchApplicationV as TicTacToeV3o2MatchApplicationV
+#                       ^three   ^two                                                      ^^^three.two
+#          --------------          -----------------        -----------------    ------------------------------
+#          11                      12                       2                    3
+#    -----------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
+# 3. `2.` の別名
+
+
+urlpatterns = [
+    # ...略...
+
+
+    # 〇×ゲーム v3o2 対局申込中
+    path('tic-tac-toe/v3o2/match-application/', TicTacToeV3o2MatchApplicationV.render,
+         # ----------------------------------   -------------------------------------
+         # 1                                    2
+         name='tic_tac_toe_v3o2_match_application'),
+    #          ----------------------------------
+    #          3
+    #
+    # 1. 例えば `http://example.com/tic-tac-toe/v3o2/match-application/` のような URL のパスの部分
+    #                              -----------------------------------
+    # 2. TicTacToeV3o2MatchApplicationV （別名）クラスの render メソッド
+    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3o2_match_application' %} のような形でURLを取得するのに使える
+]
+```
+
+# Step 5. Web画面へアクセス
 
 先手と後手で、２人分のプレイヤーのアカウントがほしい。  
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでほしい  
@@ -311,11 +377,11 @@ def match_application_on_sent(request):
 
 👇 そして `Elephant` 部屋に `X` 番として入ってほしい  
 
-📖 [http://localhost:8000/tic-tac-toe/v3/match-application/](http://localhost:8000/tic-tac-toe/v3/match-application/)  
+📖 [http://localhost:8000/tic-tac-toe/v3o2/match-application/](http://localhost:8000/tic-tac-toe/v3o2/match-application/)  
 
 ここで、ログアウトしたなら対局部屋を追い出されるべきだが、まだそこまで作っていない。  
 
-👇 そこで、対局部屋のブラウザ画面を残したまま 今のユーザーをログアウトしてほしい  
+👇 それをいいことに、対局部屋のブラウザ画面を残したまま 今のユーザーをログアウトしてほしい  
 
 📖 [http://localhost:8000/accounts/v1/login/](http://localhost:8000/accounts/v1/logout/)  
 
@@ -325,7 +391,7 @@ def match_application_on_sent(request):
 
 👇 `Elephant` 部屋に `O` 番として入ってほしい  
 
-📖 [http://localhost:8000/tic-tac-toe/v3/match-application/](http://localhost:8000/tic-tac-toe/v3/match-application/)  
+📖 [http://localhost:8000/tic-tac-toe/v3o2/match-application/](http://localhost:8000/tic-tac-toe/v3o2/match-application/)  
 
 👇 部屋、ユーザーを確認するには、管理画面を使うのが確実だ。  
 スーパーユーザーのまま、管理画面に入っていてほしい  
@@ -335,6 +401,34 @@ def match_application_on_sent(request):
 部屋に入っているユーザーの主キーが記録されていることを確認してほしい  
 
 また、既存でない部屋名でも ちゃんとユーザーの主キーが記録されることを確認してほしい  
+
+# Step 6. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+
+👇 以下の既存ファイルの最終行に追記してほしい  
+
+```plaintext
+    └── 📂 host1
+        └── 📂 apps1
+            ├── 📂 portal_v1                        # アプリケーション
+            │   └── 📂 data
+👉          │       └── 📄 finished-lessons.csv
+            └── 📂 tic_tac_toe_v3                   # アプリケーション Three
+                └── 📂 views
+                    └── 📂 o2                       # .Two
+                        └── 📂 match_application
+                            ├── 📄 __init__.py
+                            └── 📄 v_on_sent.py
+```
+
+👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
+
+```csv
+/tic-tac-toe/v3o2/match-application/,〇×ゲーム v3.2 対局申込中
+```
+
+👇 ポータルにリンクが追加されていることを確認してほしい 
+
+📖 [http://localhost:8000/](http://localhost:8000/)  
 
 # 次の記事
 
