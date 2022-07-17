@@ -1,13 +1,10 @@
-# 以下、よく使う定型データ
-
-
-# 対局中 - 駒
-playing_expected_pieces = ['X', 'O']
-
-
 class PlayingV():
     """対局中ビュー"""
 
+    # 駒
+    expected_pieces = ['X', 'O']
+
+    # Webソケット
     path_of_ws_playing = "/tic-tac-toe/v2o1/playing/"
     #                                   ^ two
     #                     --------------------------
@@ -15,6 +12,7 @@ class PlayingV():
     # 1. `ws://example.com:8000/tic-tac-toe/v2o1/playing/`
     #                          --------------------------
 
+    # HTML
     path_of_html = "tic_tac_toe_v2/o1/gui/playing.html.txt"
     #                            ^ two
     #               --------------------------------------
@@ -40,7 +38,7 @@ class PlayingV():
             PlayingV.path_of_ws_playing,
             PlayingV.path_of_html,
             PlayingV.on_update,
-            playing_expected_pieces)
+            PlayingV.expected_pieces)
 
     @staticmethod
     def on_update(request):

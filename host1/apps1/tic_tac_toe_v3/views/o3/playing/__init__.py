@@ -1,11 +1,30 @@
 # 以前のバージョン
+from apps1.tic_tac_toe_v2.views.o1.gui.playing import PlayingV as PlayingVV2o1
+#                       ^two
+#          --------------              -------        --------    ------------
+#          11                          12             2           3
+#    -----------------------------------------
+#    10
+# 10. `host1/apps1/tic_tac_toe_v2/views/o1/gui/playing/__init__.py`
+#            -----------------------------------------
+# 11. アプリケーション
+# 12. ただのディレクトリー
+# 2. `12.` に含まれる `__init__.py` ファイルにさらに含まれるクラス
+# 3. `2.` の別名
+
+# 以前のバージョン
 from apps1.tic_tac_toe_v3.views.o1.playing import PlayingV as PlayingVV3o1
-#    ----- -------------- ----------------        --------    --------------
-#    1     2              3                       4           5
-# 1,3. ディレクトリー名
-# 2. アプリケーション フォルダー名
-# 4. __init__.py ファイルに含まれるクラス名
-# 5. '4.' の別名
+#                       ^three
+#          --------------          -------        --------    ------------
+#          11                      12             2           3
+#    -------------------------------------
+#    10
+# 10. `host1/apps1/tic_tac_toe_v3/views/o1/playing/__init__.py`
+#            -------------------------------------
+# 11. アプリケーション
+# 12. ただのディレクトリー
+# 2. `12.` に含まれる `__init__.py` ファイルにさらに含まれるクラス
+# 3. `2.` の別名
 
 
 class PlayingV():
@@ -23,15 +42,6 @@ class PlayingV():
         """描画"""
 
         # 以下のファイルは既存です
-        from apps1.tic_tac_toe_v2.views.o1.gui.playing import playing_expected_pieces
-        #                       ^two
-        #    -----------------------------------------        -----------------------
-        #    1                                                2
-        # 1. `host1/apps1/tic_tac_toe_v2/views/o1/gui/playing/__init__.py`
-        #           -----------------------------------------
-        # 2. `1.` の `__init__.py` ファイルに含まれる playing_expected_pieces 変数
-
-        # 以下のファイルは既存です
         from apps1.tic_tac_toe_v2.views.o1.gui.playing.v_render import render_playing
         #                       ^two
         #    --------------------------------------------------        --------------
@@ -46,4 +56,4 @@ class PlayingV():
             PlayingV.path_of_ws_playing,
             PlayingVV3o1.path_of_html,
             PlayingVV3o1.on_update,
-            playing_expected_pieces)
+            PlayingVV2o1.expected_pieces)

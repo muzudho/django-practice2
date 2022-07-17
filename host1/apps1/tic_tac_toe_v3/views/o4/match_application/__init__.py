@@ -21,13 +21,6 @@ from apps1.tic_tac_toe_v3.views.o1.match_application import MatchApplicationV as
 # 3. '2.' の別名
 
 
-# 以下、よく使う定型データ
-
-
-# 対局中 - 駒
-playing_expected_pieces = ['X', 'O', '_']
-
-
 class MatchApplicationV():
     """対局申込ビュー"""
 

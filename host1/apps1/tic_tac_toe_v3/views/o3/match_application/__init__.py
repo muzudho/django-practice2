@@ -11,7 +11,7 @@ from apps1.tic_tac_toe_v2.views.o1.gui.match_application import MatchApplication
 # 以前のバージョン
 from apps1.tic_tac_toe_v3.views.o1.match_application import MatchApplicationV as MatchApplicationVV3o1
 #                       ^three
-#    -----------------------------------------------        -----------------    -----------------------
+#    -----------------------------------------------        -----------------    ---------------------
 #    1                                                      2                    3
 # 1. `host1/apps1/tic_tac_toe_v3/views/o1/match_application/__init__.py`
 #           -----------------------------------------------
