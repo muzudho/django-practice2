@@ -1,7 +1,7 @@
 # 以前のバージョン
-from apps1.tic_tac_toe_v2.views.o1.gui.match_application import MatchApplicationV as V2o0o1MatchApplicationV
+from apps1.tic_tac_toe_v2.views.o1.gui.match_application import MatchApplicationV as MatchApplicationVV2o1
 #                       ^two
-#    ---------------------------------------------------        -----------------    -----------------------
+#    ---------------------------------------------------        -----------------    ---------------------
 #    1                                                          2                    3
 # 1. `host1/apps1/tic_tac_toe_v2/views/o1/gui/match_application/__init__.py`
 #           ---------------------------------------------------
@@ -9,7 +9,7 @@ from apps1.tic_tac_toe_v2.views.o1.gui.match_application import MatchApplication
 # 3. '2.' の別名
 
 # 以前のバージョン
-from apps1.tic_tac_toe_v3.views.o1.match_application import MatchApplicationV as V3o0o1MatchApplicationV
+from apps1.tic_tac_toe_v3.views.o1.match_application import MatchApplicationV as MatchApplicationVV3o1
 #                       ^three
 #    -----------------------------------------------        -----------------    -----------------------
 #    1                                                      2                    3
@@ -45,6 +45,6 @@ class MatchApplicationV():
         return render_match_application(
             request,
             MatchApplicationV._path_of_http_playing,
-            V2o0o1MatchApplicationV.path_of_html,
-            V3o0o1MatchApplicationV.on_sent,
-            V2o0o1MatchApplicationV.open)
+            MatchApplicationVV2o1.path_of_html,
+            MatchApplicationVV3o1.on_sent,
+            MatchApplicationVV2o1.open)

@@ -1,3 +1,14 @@
+# 以前のバージョン
+from apps1.tic_tac_toe_v2.views.o1.gui.match_application import MatchApplicationV as MatchApplicationVV2o1
+#                       ^two
+#    ---------------------------------------------------        -----------------    ---------------------
+#    1                                                          2                    3
+# 1. `host1/apps1/tic_tac_toe_v2/views/o1/gui/match_application/__init__.py`
+#           ---------------------------------------------------
+# 2. `1.` の __init__.py ファイルに含まれるクラス
+# 3. '2.' の別名
+
+
 class MatchApplicationV():
     """対局申込ビュー"""
 
@@ -47,14 +58,4 @@ class MatchApplicationV():
     @staticmethod
     def open(request):
         """訪問後"""
-
-        # 以下のファイルは既存です
-        from apps1.tic_tac_toe_v2.views.o1.gui.match_application import match_application_open_context
-        #                       ^two
-        #    ---------------------------------------------------        ------------------------------
-        #    1                                                          2
-        # 1. `host1/apps1/tic_tac_toe_v2/views/o1/gui/match_application/__init__.py`
-        #           ---------------------------------------------------
-        # 2. `1.` の `__init__.py` ファイルに含まれる match_application_open_context 変数
-
-        return match_application_open_context
+        return MatchApplicationVV2o1.open_context

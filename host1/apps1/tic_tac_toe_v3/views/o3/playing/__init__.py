@@ -1,5 +1,5 @@
 # 以前のバージョン
-from apps1.tic_tac_toe_v3.views.o1.playing import PlayingV as V3o0o1PlayingV
+from apps1.tic_tac_toe_v3.views.o1.playing import PlayingV as PlayingVV3o1
 #    ----- -------------- ----------------        --------    --------------
 #    1     2              3                       4           5
 # 1,3. ディレクトリー名
@@ -44,6 +44,6 @@ class PlayingV():
             request,
             kw_room_name,
             PlayingV.path_of_ws_playing,
-            V3o0o1PlayingV.path_of_html,
-            V3o0o1PlayingV.on_update,
+            PlayingVV3o1.path_of_html,
+            PlayingVV3o1.on_update,
             playing_expected_pieces)

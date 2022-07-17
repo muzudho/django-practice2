@@ -1,9 +1,9 @@
 import json
 
 # 以前のバージョン
-from apps1.tic_tac_toe_v2.views.o1.gui.match_application import MatchApplicationV as V2o0o1MatchApplicationV
+from apps1.tic_tac_toe_v2.views.o1.gui.match_application import MatchApplicationV as MatchApplicationVV2o1
 #                       ^two
-#    ---------------------------------------------------        -----------------    -----------------------
+#    ---------------------------------------------------        -----------------    ---------------------
 #    1                                                          2                    3
 # 1. `host1/apps1/tic_tac_toe_v2/views/o1/gui/match_application/__init__.py`
 #           ---------------------------------------------------
@@ -11,9 +11,9 @@ from apps1.tic_tac_toe_v2.views.o1.gui.match_application import MatchApplication
 # 3. '2.' の別名
 
 # 以前のバージョン
-from apps1.tic_tac_toe_v3.views.o1.match_application import MatchApplicationV as V3o0o1MatchApplicationV
+from apps1.tic_tac_toe_v3.views.o1.match_application import MatchApplicationV as MatchApplicationVV3o1
 #                       ^three
-#    -----------------------------------------------        -----------------    -----------------------
+#    -----------------------------------------------        -----------------    ---------------------
 #    1                                                      2                    3
 # 1. `host1/apps1/tic_tac_toe_v3/views/o1/match_application/__init__.py`
 #           -----------------------------------------------
@@ -24,20 +24,6 @@ from apps1.tic_tac_toe_v3.views.o1.match_application import MatchApplicationV as
 # 以下、よく使う定型データ
 
 
-# 対局申込 - 訪問後
-match_application_open_context = {
-    # `dj_` は Djangoでレンダーするパラメーター名の目印
-    # 入場者データ
-    "dj_visitor_value": "X",
-    # Python と JavaScript 間で配列データを渡すために JSON 文字列形式にします
-    "dj_visitor_select": json.dumps([
-        {"text": "X", "value": "X"},
-        {"text": "O", "value": "O"},
-        {"text": "WatchingGame", "value": "_"},  # add
-    ]),
-}
-
-
 # 対局中 - 駒
 playing_expected_pieces = ['X', 'O', '_']
 
@@ -45,11 +31,24 @@ playing_expected_pieces = ['X', 'O', '_']
 class MatchApplicationV():
     """対局申込ビュー"""
 
-    _path_of_http_playing = "/tic-tac-toe/v3o0o4/playing/{0}/?&myturn={1}"
-    #                                      ^^^^^ three.zero.four
+    # 対局申込 - 訪問後
+    open_context = {
+        # `dj_` は Djangoでレンダーするパラメーター名の目印
+        # 入場者データ
+        "dj_visitor_value": "X",
+        # Python と JavaScript 間で配列データを渡すために JSON 文字列形式にします
+        "dj_visitor_select": json.dumps([
+            {"text": "X", "value": "X"},
+            {"text": "O", "value": "O"},
+            {"text": "WatchingGame", "value": "_"},  # add
+        ]),
+    }
+
+    _path_of_http_playing = "/tic-tac-toe/v3o4/playing/{0}/?&myturn={1}"
+    #                                      ^^^three.four
     #                        ------------------------------------------
     #                        1
-    # 1. http://example.com:8000/tic-tac-toe/v3o0o4/playing/Elephant/?&myturn=X
+    # 1. http://example.com:8000/tic-tac-toe/v3o4/playing/Elephant/?&myturn=X
     #                           -----------------------------------------------
 
     @staticmethod
@@ -68,14 +67,12 @@ class MatchApplicationV():
         return render_match_application(
             request,
             MatchApplicationV._path_of_http_playing,
-            V2o0o1MatchApplicationV.path_of_html,
-            V3o0o1MatchApplicationV.on_sent,
+            MatchApplicationVV2o1.path_of_html,
+            MatchApplicationVV3o1.on_sent,
             MatchApplicationV.open)
 
     @staticmethod
     def open(request):
         """訪問後"""
-        # 拡張したい挙動があれば、ここに書く
-
-        return match_application_open_context
+        return MatchApplicationV.open_context
         #      ^ Located in this file

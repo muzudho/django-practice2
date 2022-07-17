@@ -1,24 +1,20 @@
 import json
 
 
-# 以下、よく使う定型データ
-
-
-# 対局申込 - 訪問後
-match_application_open_context = {
-    # `dj_` は Djangoでレンダーするパラメーター名の目印
-    # 入場者データ
-    "dj_visitor_value": "X",
-    # Python と JavaScript 間で配列データを渡すために JSON 文字列形式にします
-    "dj_visitor_select": json.dumps([
-        {"text": "X", "value": "X"},
-        {"text": "O", "value": "O"},
-    ]),
-}
-
-
 class MatchApplicationV():
     """対局申込ビュー"""
+
+    # 対局申込 - 訪問後
+    open_context = {
+        # `dj_` は Djangoでレンダーするパラメーター名の目印
+        # 入場者データ
+        "dj_visitor_value": "X",
+        # Python と JavaScript 間で配列データを渡すために JSON 文字列形式にします
+        "dj_visitor_select": json.dumps([
+            {"text": "X", "value": "X"},
+            {"text": "O", "value": "O"},
+        ]),
+    }
 
     _path_of_http_playing = "/tic-tac-toe/v2/playing/{0}/?&myturn={1}"
     #                                      ^ two
@@ -56,12 +52,9 @@ class MatchApplicationV():
     @staticmethod
     def on_sent(request):
         """送信後"""
-        # 拡張したい挙動があれば、ここに書く
         pass
 
     @staticmethod
     def open(request):
         """訪問後"""
-        # 拡張したい挙動があれば、ここに書く
-
-        return match_application_open_context
+        return MatchApplicationV.open_context
