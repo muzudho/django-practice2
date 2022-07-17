@@ -108,7 +108,7 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v3            # アプリケーション (Ver. Three)
+            └── 📂 tic_tac_toe_v3                   # アプリケーション .Three
 ```
 
 # Step 3. アプリケーション作成
@@ -130,7 +130,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v3 ./apps1/tic
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v3            # アプリケーション (Ver. Three)
+            └── 📂 tic_tac_toe_v3                   # アプリケーション .Three
                 ├── 📂 migrations
                 │   └── 📄 __init__.py
                 ├── 📄 __init__.py
@@ -148,7 +148,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v3 ./apps1/tic
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v3            # アプリケーション (Ver. Three)
+            └── 📂 tic_tac_toe_v3                   # アプリケーション .Three
                 ├── 📂 migrations
                 │   └── 📄 __init__.py
                 ├── 📄 __init__.py
@@ -180,7 +180,7 @@ class TicTacToeV3Config(AppConfig):
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v3            # アプリケーション (Ver. Three)
+        │   └── 📂 tic_tac_toe_v3                   # アプリケーション .Three
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📄 __init__.py
@@ -218,11 +218,11 @@ INSTALLED_APPS = [
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v3            # アプリケーション (Ver. Three)
+        │   └── 📂 tic_tac_toe_v3                   # アプリケーション .Three
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v3    # アプリケーションと同名
+        │       │   └── 📂 tic_tac_toe_v3           # アプリケーションと同名
         │       │       └── 📂 o1
 👉      │       │           └── 📄 playing.html.txt
         │       ├── 📄 __init__.py
@@ -263,15 +263,15 @@ INSTALLED_APPS = [
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v3           # アプリケーション (Ver. Three)
+        │   └── 📂 tic_tac_toe_v3                   # アプリケーション .Three
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v3   # アプリケーションと同名
+        │       │   └── 📂 tic_tac_toe_v3           # アプリケーションと同名
         │       │       └── 📂 o1
         │       │           └── 📄 playing.html.txt
         │       ├── 📂 views
-        │       │   └── 📂 o1               # .one
+        │       │   └── 📂 o1                       # .one
         │       │       └── 📂 match_application
 👉      │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
@@ -283,6 +283,17 @@ INSTALLED_APPS = [
 ```
 
 ```py
+# 以前のバージョン
+from apps1.tic_tac_toe_v2.views.o1.gui.match_application import MatchApplicationV as MatchApplicationVV2o1
+#                       ^two
+#    ---------------------------------------------------        -----------------    ---------------------
+#    1                                                          2                    3
+# 1. `host1/apps1/tic_tac_toe_v2/views/o1/gui/match_application/__init__.py`
+#           ---------------------------------------------------
+# 2. `1.` の __init__.py ファイルに含まれるクラス
+# 3. '2.' の別名
+
+
 class MatchApplicationV():
     """対局申込ビュー"""
 
@@ -293,14 +304,6 @@ class MatchApplicationV():
     #                        1
     # 1. http://example.com:8000/tic-tac-toe/v3o1/playing/Elephant/?&myturn=X
     #                           ---------------------------------------------
-
-    # 〇×ゲーム v2
-    path_of_html = "tic_tac_toe_v2/o1/gui/match_application.html"
-    #                            ^two
-    #               --------------------------------------------
-    #               1
-    # 1. `host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1/gui/match_application.html` を取得
-    #                                          --------------------------------------------
 
     @staticmethod
     def render(request):
@@ -318,7 +321,7 @@ class MatchApplicationV():
         return render_match_application(
             request,
             MatchApplicationV._path_of_http_playing,
-            MatchApplicationV.path_of_html,
+            MatchApplicationVV2o1.path_of_html,
             MatchApplicationV.on_sent,
             MatchApplicationV.open)
 
@@ -332,17 +335,7 @@ class MatchApplicationV():
     @staticmethod
     def open(request):
         """訪問後"""
-
-        # 以下のファイルは既存です
-        from apps1.tic_tac_toe_v2.views.o1.gui.match_application import match_application_open_context
-        #                       ^two
-        #    ---------------------------------------------------        ------------------------------
-        #    1                                                          2
-        # 1. `host1/apps1/tic_tac_toe_v2/views/o1/gui/match_application/__init__.py`
-        #           ---------------------------------------------------
-        # 2. `1.` の `__init__.py` ファイルに含まれる match_application_open_context 変数
-
-        return match_application_open_context
+        return MatchApplicationVV2o1.open_context
 ```
 
 # Step 9. 対局ビュー モジュール作成 - playing フォルダー
@@ -352,15 +345,15 @@ class MatchApplicationV():
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v3            # アプリケーション (Ver. Three)
+        │   └── 📂 tic_tac_toe_v3                   # アプリケーション .Three
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v3    # アプリケーションと同名
+        │       │   └── 📂 tic_tac_toe_v3           # アプリケーションと同名
         │       │       └── 📂 o1
         │       │           └── 📄 playing.html.txt
         │       ├── 📂 views
-        │       │   └── 📂 o1              # (v3).0.one
+        │       │   └── 📂 o1                       # .one
         │       │       ├── 📂 match_application
         │       │       │   └── 📄 __init__.py
         │       │       └── 📂 playing
@@ -377,12 +370,12 @@ class MatchApplicationV():
 class PlayingV():
     """対局中ビュー"""
 
-    path_of_ws_playing = "/tic-tac-toe/v2o0o1/playing/"
+    path_of_ws_playing = "/tic-tac-toe/v2o1/playing/"
     #                                   ^ two
-    #                     ----------------------------
+    #                     --------------------------
     #                     1
-    # 1. `ws://example.com:8000/tic-tac-toe/v2o0o1/playing/`
-    #                          ---------------------------
+    # 1. `ws://example.com:8000/tic-tac-toe/v2o1/playing/`
+    #                          --------------------------
 
     path_of_html = "tic_tac_toe_v3/o1/playing.html.txt"
     #                            ^ three
@@ -435,15 +428,15 @@ class PlayingV():
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v3            # アプリケーション (Ver. Three)
+        │   └── 📂 tic_tac_toe_v3                   # アプリケーション .Three
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v3    # アプリケーションと同名
+        │       │   └── 📂 tic_tac_toe_v3           # アプリケーションと同名
         │       │       └── 📂 o1
         │       │           └── 📄 playing.html.txt
         │       ├── 📂 views
-        │       │   └── 📂 o1              # (v3).0.one
+        │       │   └── 📂 o1                       # .One
         │       │       ├── 📂 match_application
         │       │       │   └── 📄 __init__.py
         │       │       └── 📂 playing
@@ -452,7 +445,7 @@ class PlayingV():
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
         │       └── 📄 tests.py
-        └── 📂 project1                      # プロジェクト
+        └── 📂 project1                             # プロジェクト
             ├── 📄 settings.py
 👉          └── 📄 urls_practice.py
 ```
@@ -535,15 +528,15 @@ urlpatterns = [
         │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 tic_tac_toe_v3                # アプリケーション (Ver. Three)
+        │   └── 📂 tic_tac_toe_v3                   # アプリケーション .Three
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v3        # アプリケーションと同名
+        │       │   └── 📂 tic_tac_toe_v3           # アプリケーションと同名
         │       │       └── 📂 o1
         │       │           └── 📄 playing.html.txt
         │       ├── 📂 views
-        │       │   └── 📂 o1                  # (v3).0.one
+        │       │   └── 📂 o1                       # .One
         │       │       ├── 📂 match_application
         │       │       │   └── 📄 __init__.py
         │       │       └── 📂 playing
@@ -552,7 +545,7 @@ urlpatterns = [
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
         │       └── 📄 tests.py
-        └── 📂 project1                          # プロジェクト
+        └── 📂 project1                             # プロジェクト
             ├── 📄 settings.py
             └── 📄 urls_practice.py
 ```
