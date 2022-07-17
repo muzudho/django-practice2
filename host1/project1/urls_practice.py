@@ -159,7 +159,7 @@ from apps1.practice_v1.views.o2.auto_redirect import AutoRedirectV
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# 〇×ゲーム v3 対局申込中
+# 〇×ゲーム v3.1 対局申込中
 from apps1.tic_tac_toe_v3.views.o1.match_application import MatchApplicationV as TicTacToeV3o1MatchApplicationV
 #                       ^three
 #          --------------          -----------------        -----------------    ------------------------------
@@ -171,7 +171,7 @@ from apps1.tic_tac_toe_v3.views.o1.match_application import MatchApplicationV as
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 # 3. `2.` の別名
 
-# 〇×ゲーム v3 対局中
+# 〇×ゲーム v3.1 対局中
 from apps1.tic_tac_toe_v3.views.o1.playing import PlayingV as TicTacToeV3o1PlayingV
 #                       ^three
 #          --------------          -------        --------    ---------------------
