@@ -88,7 +88,7 @@
     └── 📄 .gitignore
 ```
 
-# Step 1. Dockerコンテナの起動
+# Step O1 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -100,17 +100,17 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. 対局画面作成 - playing.html.txt ファイル
+# Step O2o1 対局画面作成 - playing.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v3                # アプリケーション Ver Three
+            └── 📂 tic_tac_toe_v3                # アプリケーション Three
                 └── 📂 templates
                     └── 📂 tic_tac_toe_v3        # アプリケーションと同名
-                        └── 📂 o4
+                        └── 📂 o5o1
 👉                          └── 📄 playing.html.txt
 ```
 
@@ -156,21 +156,21 @@ docker-compose up
 {% endblock create_gameover_message %}
 ```
 
-# Step 3. 対局申込ビュー モジュール作成 - o4/match_application フォルダー
+# Step O3o1 対局申込ビュー モジュール作成 - o5o1/match_application フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v3                # アプリケーション Ver Three
+            └── 📂 tic_tac_toe_v3                # アプリケーション Three
                 ├── 📂 views
-                │   └── 📂 o4                  # (Ver Three).Zero.Four
+                │   └── 📂 o5o1                  # .Five.One
                 │       └── 📂 match_application
 👉              │           └── 📄 __init__.py
                 └── 📂 templates
                     └── 📂 tic_tac_toe_v3        # アプリケーションと同名
-                        └── 📂 o4
+                        └── 📂 o5o1
                             └── 📄 playing.html.txt
 ```
 
@@ -222,12 +222,12 @@ class MatchApplicationV():
         ]),
     }
 
-    path_of_http_playing = "/tic-tac-toe/v3o4/playing/{0}/?&myturn={1}"
-    #                                     ^^^three.four
-    #                       ------------------------------------------
+    path_of_http_playing = "/tic-tac-toe/v3o5o1/playing/{0}/?&myturn={1}"
+    #                                       ^five
+    #                       --------------------------------------------
     #                       1
-    # 1. `http://example.com:8000/tic-tac-toe/v3o4/playing/Elephant/?&myturn=X`
-    #                            ---------------------------------------------
+    # 1. `http://example.com:8000/tic-tac-toe/v3o5o1/playing/Elephant/?&myturn=X`
+    #                            -----------------------------------------------
 
     @staticmethod
     def render(request):
@@ -255,7 +255,7 @@ class MatchApplicationV():
         return MatchApplicationV.open_context
 ```
 
-# Step 4. 対局申込ビュー モジュール作成 - o4/playing フォルダー
+# Step O4o1 対局申込ビュー モジュール作成 - o5o1/playing フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -264,14 +264,14 @@ class MatchApplicationV():
         └── 📂 apps1
             └── 📂 tic_tac_toe_v3                   # アプリケーション Three
                 ├── 📂 views
-                │   └── 📂 o4                       # .Four
+                │   └── 📂 o5o1
                 │       ├── 📂 match_application
                 │       │   └── 📄 __init__.py
                 │       └── 📂 playing
 👉              │           └── 📄 __init__.py
                 └── 📂 templates
                     └── 📂 tic_tac_toe_v3
-                        └── 📂 o4
+                        └── 📂 o5o1
                             └── 📄 playing.html.txt
 ```
 
@@ -309,12 +309,12 @@ class PlayingV():
     # 駒
     expected_pieces = ['X', 'O', '_']
 
-    path_of_html = "tic_tac_toe_v3/o4/playing.html.txt"
-    #                            ^^^^three.four
-    #               ----------------------------------
+    path_of_html = "tic_tac_toe_v3/o5o1/playing.html.txt"
+    #                               ^five
+    #               ------------------------------------
     #               1
-    # 1. `host1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o4/playing.html.txt`
-    #                                          ----------------------------------
+    # 1. `host1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o5o1/playing.html.txt`
+    #                                          ------------------------------------
 
     @staticmethod
     def render(request, kw_room_name):
@@ -338,7 +338,7 @@ class PlayingV():
             PlayingV.expected_pieces)
 ```
 
-# Step 5. ルート編集 - urls_practice.py ファイル
+# Step O5o1 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -347,14 +347,14 @@ class PlayingV():
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v3                   # アプリケーション Three
         │       ├── 📂 views
-        │       │   └── 📂 o4                       # .Four
+        │       │   └── 📂 o5o1
         │       │       ├── 📂 match_application
         │       │       │   └── 📄 __init__.py
         │       │       └── 📂 playing
         │       │           └── 📄 __init__.py
         │       └── 📂 templates
         │           └── 📂 tic_tac_toe_v3
-        │               └── 📂 o4
+        │               └── 📂 o5o1
         │                   └── 📄 playing.html.txt
         └── 📂 project1                             # プロジェクト
 👉          └── 📄 urls_practice.py
@@ -364,24 +364,24 @@ class PlayingV():
 # ...略...
 
 
-# 〇×ゲーム v3o4 対局申込中
-from apps1.tic_tac_toe_v3.views.o4.match_application import MatchApplicationV as TicTacToeV3o4MatchApplicationV
-#                       ^three  ^^.four                                                    ^^^three.four
-#          --------------          -----------------        -----------------    ------------------------------
-#          11                      12                       2                    3
-#    -----------------------------------------------
+# 〇×ゲーム v3o5o1 対局申込中
+from apps1.tic_tac_toe_v3.views.o5o1.match_application import MatchApplicationV as TicTacToeV3o5o1MatchApplicationV
+#                                ^.five                                                        ^five
+#          --------------            -----------------        -----------------    --------------------------------
+#          11                        12                       2                    3
+#    -------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 # 3. `2.` の別名
 
-# 〇×ゲーム v3o4 対局中
-from apps1.tic_tac_toe_v3.views.o4.playing import PlayingV as TicTacToeV3o4PlayingV
-#                       ^three  ^^.four                                 ^^^three.four
-#          --------------          -------        --------    ---------------------
-#          11                      12             2           3
-#    -------------------------------------
+# 〇×ゲーム v3o5o1 対局中
+from apps1.tic_tac_toe_v3.views.o5o1.playing import PlayingV as TicTacToeV3o5o1PlayingV
+#                                ^five                                      ^five
+#          --------------            -------        --------    -----------------------
+#          11                        12             2           3
+#    ---------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -393,36 +393,34 @@ urlpatterns = [
     # ...略...
 
 
-    # 〇×ゲーム v3o4 対局申込中
-    path('tic-tac-toe/v3o4/match-application/', TicTacToeV3o4MatchApplicationV.render,
-         # ----------------------------------   -------------------------------------
-         # 1                                    2
-         name='tic_tac_toe_v3o4_match_application'),
-    #          ----------------------------------
+    # 〇×ゲーム v3o5o1 対局申込中
+    path('tic-tac-toe/v3o5o1/match-application/', TicTacToeV3o5o1MatchApplicationV.render,
+         # ------------------------------------   ---------------------------------------
+         # 1                                      2
+         name='tic_tac_toe_v3o5o1_match_application'),
+    #          ------------------------------------
     #          3
-    #
-    # 1. 例えば `http://example.com/tic-tac-toe/v3o4/match-application/` のような URL のパスの部分
-    #                              -----------------------------------
-    # 2. TicTacToeV3o4MatchApplicationV （別名）クラスの render メソッド
-    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3o4_match_application' %} のような形でURLを取得するのに使える
+    # 1. 例えば `http://example.com/tic-tac-toe/v3o5o1/match-application/` のような URL のパスの部分
+    #                              -------------------------------------
+    # 2. TicTacToeV3o5o1MatchApplicationV （別名）クラスの render メソッド
+    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3o5o1_match_application' %} のような形でURLを取得するのに使える
 
-    # 〇×ゲーム v3o4 対局中
-    path('tic-tac-toe/v3o4/playing/<str:kw_room_name>/', TicTacToeV3o4PlayingV.render,
-         # -------------------------------------------   ----------------------------
-         # 1                                             2
-         name='tic_tac_toe_v3o4_playing'),
-    #          ------------------------
+    # 〇×ゲーム v3o5o1 対局中
+    path('tic-tac-toe/v3o5o1/playing/<str:kw_room_name>/', TicTacToeV3o5o1PlayingV.render,
+         # ---------------------------------------------   ------------------------------
+         # 1                                               2
+         name='tic_tac_toe_v3o5o1_playing'),
+    #          --------------------------
     #          3
-    #
-    # 1. 例えば `http://example.com/tic-tac-toe/v3o4/playing/<部屋名>/` のような URL のパスの部分
-    #                              ----------------------------------
+    # 1. 例えば `http://example.com/tic-tac-toe/v3o5o1/playing/<部屋名>/` のような URL のパスの部分
+    #                              ------------------------------------
     #    <部屋名> に入った文字列は `2.` のメソッドの kw_room_name 引数に渡されます
-    # 2. TicTacToeV3o4PlayingV （別名）クラスの render メソッド
-    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3o4_playing' %} のような形でURLを取得するのに使える
+    # 2. TicTacToeV3o5o1PlayingV （別名）クラスの render メソッド
+    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3o5o1_playing' %} のような形でURLを取得するのに使える
 ]
 ```
 
-# Step 6. Web画面へアクセス
+# Step O6o1 Web画面へアクセス
 
 * 観戦モードのテストをするので、Webページを３窓で開き、一方が X プレイヤー、もう一方が O プレイヤー、もう一方は WatchingGame を選んでください
 * テストするためには `サインアップ` してアカウントを作ってから、 `ログイン` してください
@@ -430,13 +428,13 @@ urlpatterns = [
 
 📖 [http://localhost:8000/accounts/v1/signup/](http://localhost:8000/accounts/v1/signup/)  
 📖 [http://localhost:8000/accounts/v1/login/](http://localhost:8000/accounts/v1/login/)  
-📖 [http://localhost:8000/tic-tac-toe/v3o4/match-application/](http://localhost:8000/tic-tac-toe/v3o4/match-application/)  
+📖 [http://localhost:8000/tic-tac-toe/v3o5o1/match-application/](http://localhost:8000/tic-tac-toe/v3o5o1/match-application/)  
 
 部屋、ユーザーを確認するには、管理画面を使うのが確実です:  
 
 📖 [http://localhost:8000/admin](http://localhost:8000/admin)  
 
-# Step 7. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step O7o1 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
@@ -448,14 +446,14 @@ urlpatterns = [
 👉      │   │       └── 📄 finished-lessons.csv
         │   └── 📂 tic_tac_toe_v3                   # アプリケーション Three
         │       ├── 📂 views
-        │       │   └── 📂 o4                       # .Four
+        │       │   └── 📂 o5o1
         │       │       ├── 📂 match_application
         │       │       │   └── 📄 __init__.py
         │       │       └── 📂 playing
         │       │           └── 📄 __init__.py
         │       └── 📂 templates
         │           └── 📂 tic_tac_toe_v3           # アプリケーションと同名
-        │               └── 📂 o4
+        │               └── 📂 o5o1
         │                   └── 📄 playing.html.txt
         └── 📂 project1                             # プロジェクト
             └── 📄 urls_practice.py
@@ -464,7 +462,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/tic-tac-toe/v3o4/match-application/,〇×ゲーム v3.4 対局申込中
+/tic-tac-toe/v3o5o1/match-application/,〇×ゲーム v3.5 対局申込中
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

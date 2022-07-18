@@ -31,12 +31,12 @@ class PlayingV():
     # 駒
     expected_pieces = ['X', 'O', '_']
 
-    path_of_html = "tic_tac_toe_v3/o4/playing.html.txt"
-    #                            ^^^^three.four
-    #               ----------------------------------
+    path_of_html = "tic_tac_toe_v3/o5o1/playing.html.txt"
+    #                               ^five
+    #               ------------------------------------
     #               1
-    # 1. `host1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o4/playing.html.txt`
-    #                                          ----------------------------------
+    # 1. `host1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o5o1/playing.html.txt`
+    #                                          ------------------------------------
 
     @staticmethod
     def render(request, kw_room_name):

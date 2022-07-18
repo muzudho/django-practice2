@@ -45,12 +45,12 @@ class MatchApplicationV():
         ]),
     }
 
-    path_of_http_playing = "/tic-tac-toe/v3o4/playing/{0}/?&myturn={1}"
-    #                                     ^^^three.four
-    #                       ------------------------------------------
+    path_of_http_playing = "/tic-tac-toe/v3o5o1/playing/{0}/?&myturn={1}"
+    #                                       ^five
+    #                       --------------------------------------------
     #                       1
-    # 1. `http://example.com:8000/tic-tac-toe/v3o4/playing/Elephant/?&myturn=X`
-    #                            ---------------------------------------------
+    # 1. `http://example.com:8000/tic-tac-toe/v3o5o1/playing/Elephant/?&myturn=X`
+    #                            -----------------------------------------------
 
     @staticmethod
     def render(request):
