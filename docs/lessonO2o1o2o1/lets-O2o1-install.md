@@ -18,13 +18,13 @@
 
 この連載の最初のページ: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
-# Step O1 エディターのインストール - Visual Studio Code
+# Step O2o1 エディターのインストール - Visual Studio Code
 
 👇 以下のリンクから、がんばって Visual Studio Code をインストールしてほしい  
 
 📖 [Visual Studio Code](https://code.visualstudio.com/)  
 
-# Step O2o1 リポジトリの用意 - Git
+# Step O2o2o1 リポジトリの用意 - Git
 
 がんばって Git を使ったソース管理を覚えてきてほしい  
 
