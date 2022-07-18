@@ -36,7 +36,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O1 Dockerコンテナの起動
+# Step O2o1 Dockerコンテナの起動
 
 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -48,7 +48,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o1 プロジェクトのコピー - project2 フォルダー
+# Step O2o2o1 プロジェクトのコピー - project2 フォルダー
 
 👇 以下のフォルダーをコピー＆ペーストして  
 
