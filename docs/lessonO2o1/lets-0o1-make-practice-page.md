@@ -15,7 +15,7 @@ http://example.com/practice/v1/page1
 
 # はじめに
 
-この記事は Lesson0 から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson O1 から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 この記事のアーキテクチャ:  
@@ -93,18 +93,18 @@ Example: `http://example.com/practice/v1/`
 
 👇 マイナー番号は、この連載では以下のように表記したり、しなかったりすることがある  
 
-Example: `o1o1`  
+Example: `o2o1`  
 
-この表記の名前は仮に **ビーズ記数法** とでも呼ぶことにする  
+この表記の名前は **電脳記数法** と呼ぶことにする  
 
-📖 [数珠玉記数法](https://qiita.com/muzudho1/items/7aafcf17fc4bb8fe551b)  
+📖 [電脳記数法 (Cyber Number Notation)](https://crieit.net/posts/Cyber-Number-Notation)  
 
-`o` は単に数を区切っている。基本的に先頭に `o` は置かないが、置くこともできる。特に意図がないなら、末尾を `o0` にすることを避ける。  
-`o1o1` の次は `o2o1` でも `o1o2` でも `o1o1o1` でも いずれでも構わない  
+`o` は単に数を区切っている。慣例的に先頭に `O` を置くが、置かないこともできる。末尾は必ず `o1` にする。  
+`1` の後ろに `o1` を付けてはいけない。 `o1` の次は `o2o1` でも `o1o2o1` でも どちらでも構わない  
 
 メジャー番号とマイナー番号をつなげて使う例は以下の通り  
 
-Example: `ws://example.com/practice/v1o1o1/`  
+Example: `ws://example.com/practice/v1o2o1/`  
 
 この連載では パッチ番号 のようなものは使わない  
 
