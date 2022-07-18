@@ -19,16 +19,16 @@
 学習コストが低くなるように並べている。  
 数字の小さな Lesson から　上から下へ１つずつ、飛ばさず全部　読み進めてほしい。  
 
-Lesson O0o1 Table of Contents  
+Lesson O2o1 Table of Contents  
 
 * 📖 `DjangoとDockerでゲーム対局サーバーを作ろう！` (この記事)  
 
-Lesson O1 Install  
+Lesson O2o1o2o1 Install  
 
 * 📖 [DjangoをDockerコンテナへインストールしよう！](https://qiita.com/muzudho1/items/48e69ed17d70a8f171a7)
 * 📖 [Djangoの本番環境のプロジェクトの作り方を予習しよう！](https://qiita.com/muzudho1/items/e9b8c1cefa5ddaa21ab2)
 
-Lesson O2o1 Web page  
+Lesson O2o1o3o1 Web page  
 
 * 📖 [DjangoでWebページを追加しよう！](https://qiita.com/muzudho1/items/06fe071c1147b4b8f062)
 * 📖 [DjangoのHTMLのボイラープレートを減らすテンプレートを使おう！](https://qiita.com/muzudho1/items/7dcfc068e0bec009d371)
