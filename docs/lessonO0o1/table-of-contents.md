@@ -4,7 +4,6 @@
 最重要の要件は次の１点。  
 
 * なるべく多くの人がコード編集に参加できるようにしたい
-
 # 手段
 
 関わる人は 人工知能分野で、機械学習をしている人が多い。  
@@ -35,7 +34,7 @@ Lesson O2o1 Web page
 * 📖 [DjangoのHTMLのボイラープレートを減らすテンプレートを使おう！](https://qiita.com/muzudho1/items/7dcfc068e0bec009d371)
 * 📖 [DjangoのHTMLのボイラープレートを減らすテンプレートを作るのも減らそう！](https://qiita.com/muzudho1/items/606d314c01543666c51b)
 
-Lesson O2o2 Super-user  
+Lesson O2o2o1 Super-user  
 
 * 📖 [Djangoでスーパーユーザーを追加しよう！](https://qiita.com/muzudho1/items/cf21fa75e23e1f987153)
 
@@ -62,7 +61,7 @@ Lesson O5o1 Auth, Log in/out
 * 📖 [Djangoでログインしていないと見れないページ，およびログアウト機能を付けよう！](https://qiita.com/muzudho1/items/9f1ae4d0debc0b8aa4b1)
 * 📖 [Djangoでログインしていない人には見えず、ログインしている人には見えるボタンを作ろう！](https://qiita.com/muzudho1/items/0c59f3ce7aa6bef2a91f)
 
-Lesson O5o2 User, Extends User, and Active User  
+Lesson O5o2o1 User, Extends User, and Active User  
 
 * 📖 [Djangoで会員登録ユーザーを一覧しよう！](https://qiita.com/muzudho1/items/13c15be5b9070dab1770)
 * 📖 [DjangoでUserモデルを拡張しよう！](https://qiita.com/muzudho1/items/2d182729f625234f0eff)
