@@ -47,7 +47,7 @@ http://example.com/practice/v1/page1
     └── 📄 .gitignore
 ```
 
-# Step O1 Dockerコンテナの起動
+# Step O2o1 Dockerコンテナの起動
 
 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -59,7 +59,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o1 フォルダー作成 - apps1/practice_v1 フォルダー
+# Step O2o2o1 フォルダー作成 - apps1/practice_v1 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
