@@ -13,7 +13,7 @@
 | Editor    | Visual Studio Code （以下 VSCode と表記） |
 | Database  | PostgreSQL                                |
 
-この記事は LessonO1 から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は LessonO2o1 から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 この連載の最初のページ: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 ディレクトリ構成を抜粋すると 以下のようになっている  
