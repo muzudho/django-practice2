@@ -33,15 +33,15 @@
     │   │   │   │   └── 🚀 favicon.ico
     │   │   │   ├── 📂 templates
     │   │   │   │   └── 📂 portal_v1
-    │   │   │   │       └── 📂 o1
+    │   │   │   │       └── 📂 o2o1
     │   │   │   │           └── 📄 portal_base.html
     │   │   │   └── 📂 views
-    │   │   │       └── 📂 o1
+    │   │   │       └── 📂 o2o1
     │   │   │           └── 📄 pages.py
     │   │   └── 📂 practice_v1              # アプリケーション
     │   │       └── 📂 templates
     │   │           ├── 📂 practice_v1
-    │   │           │   └── 📂 o1
+    │   │           │   └── 📂 o2o1
     │   │           │       └── 📄 login_required.html
     │   │           └── 📂 views
     │   │               └── 📄 v_login_required.py
@@ -86,7 +86,7 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1          # アプリケーションと同名
-                        └── 📂 o1
+                        └── 📂 o2o1
 👉                          └── 📄 active-user-list.html
 ```
 
@@ -169,12 +169,12 @@ docker-compose up
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o1
+                │   └── 📂 o2o1
                 │       └── 📂 mh_session
 👉              │           └── 📄 __init__.py
                 └── 📂 templates
                     └── 📂 practice_v1          # アプリケーションと同名
-                        └── 📂 o1
+                        └── 📂 o2o1
                             └── 📄 active-user-list.html
 ```
 
@@ -186,8 +186,8 @@ class MhSession():
     from .v_get_all_logged_in_users import get_all_logged_in_users
     #    --------------------------        -----------------------
     #    1                                 2
-    # 1. `host1/apps1/practice_v1/model_helper/o1/mh_sesion/v_get_all_logged_in_users.py`
-    #                                                       -------------------------
+    # 1. `host1/apps1/practice_v1/model_helper/o2o1/mh_sesion/v_get_all_logged_in_users.py`
+    #                                                         -------------------------
     # 2. `1.` に含まれる関数
 ```
 
@@ -200,13 +200,13 @@ class MhSession():
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o1
+                │   └── 📂 o2o1
                 │       └── 📂 mh_session
                 │           ├── 📄 __init__.py
 👉              │           └── 📄 v_get_all_logged_in_users.py
                 └── 📂 templates
                     └── 📂 practice_v1          # アプリケーションと同名
-                        └── 📂 o1
+                        └── 📂 o2o1
                             └── 📄 active-user-list.html
 ```
 
@@ -277,16 +277,16 @@ web_1  | ]
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o1
+                │   └── 📂 o2o1
                 │       └── 📂 mh_session
                 │           ├── 📄 __init__.py
                 │           └── 📄 v_get_all_logged_in_users.py
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o1
+                │       └── 📂 o2o1
                 │           └── 📄 active-user-list.html
                 └── 📂 views
-                    └── 📂 o1
+                    └── 📂 o2o1
                         └── 📂 session
 👉                          └── 📄 __init__.py
 ```
@@ -296,11 +296,11 @@ class SessionV():
     """セッション ビュー"""
 
     # そのページ
-    _path_of_this_page = "practice_v1/o1/active-user-list.html"
-    #                     ------------------------------------
+    _path_of_this_page = "practice_v1/o2o1/active-user-list.html"
+    #                     --------------------------------------
     #                     1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/active-user-list.html` を取得
-    #                                       ------------------------------------
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o2o1/active-user-list.html` を取得
+    #                                       --------------------------------------
 
     @staticmethod
     def render(request):
@@ -310,8 +310,8 @@ class SessionV():
         from .v_render import render_active_user_list
         #    ---------        -----------------------
         #    1                2
-        # 1. `host1/apps1/practice_v1/views/o1/session/v_render.py`
-        #                                              --------
+        # 1. `host1/apps1/practice_v1/views/o2o1/session/v_render.py`
+        #                                                --------
         # 2. `1.` に含まれる関数
 
         return render_active_user_list(request, SessionV._path_of_this_page)
@@ -327,15 +327,15 @@ class SessionV():
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
                 │   └── 📂 mh_session
-                │       └── 📂 o1
+                │       └── 📂 o2o1
                 │           ├── 📄 __init__.py
                 │           └── 📄 v_get_all_logged_in_users.py
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o1
+                │       └── 📂 o2o1
                 │           └── 📄 active-user-list.html
                 └── 📂 views
-                    └── 📂 o1
+                    └── 📂 o2o1
                         └── 📂 session
                             ├── 📄 __init__.py
 👉                          └── 📄 v_render.py
@@ -346,9 +346,9 @@ import json
 from django.shortcuts import render
 
 # セッション モデルヘルパー
-from apps1.practice_v1.models_helper.o1.mh_session import MhSession
-#    ----- ----------- ---------------------------        ---------
-#    1     2           3                                  4
+from apps1.practice_v1.models_helper.o2o1.mh_session import MhSession
+#    ----- ----------- -----------------------------        ---------
+#    1     2           3                                    4
 # 1,3. ディレクトリー名
 # 2. アプリケーション フォルダー名
 # 4. クラス名
@@ -374,16 +374,16 @@ def render_active_user_list(request, path_of_this_page):
         ├── 📂 apps1
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 models_helper
-        │       │   └── 📂 o1
+        │       │   └── 📂 o2o1
         │       │       └── 📂 mh_session
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 v_get_all_logged_in_users.py
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
         │       │           └── 📄 active-user-list.html
         │       └── 📂 views
-        │           └── 📂 o1
+        │           └── 📂 o2o1
         │               └── 📂 session
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_render_active_user_list.py
@@ -396,10 +396,10 @@ def render_active_user_list(request, path_of_this_page):
 
 
 # アクティブユーザー一覧
-from apps1.practice_v1.views.o1.session import SessionV
-#          -----------          -------        --------
-#          11                   12             2
-#    ----------------------------------
+from apps1.practice_v1.views.o2o1.session import SessionV
+#          -----------            -------        --------
+#          11                     12             2
+#    ------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -440,16 +440,16 @@ urlpatterns = [
 👉      │   │       └── 📄 finished-lessons.csv
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 models_helper
-        │       │   └── 📂 o1
+        │       │   └── 📂 o2o1
         │       │       └── 📂 mh_session
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 v_get_all_logged_in_users.py
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
         │       │           └── 📄 active-user-list.html
         │       └── 📂 views
-        │           └── 📂 o1
+        │           └── 📂 o2o1
         │               └── 📂 session
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_render_active_user_list.py

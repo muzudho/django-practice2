@@ -1,11 +1,11 @@
 # 以前のバージョン
-from apps1.tic_tac_toe_v3.views.o1.playing import PlayingV as PlayingVV3o1
-#          --------------          -------        --------    ------------
-#          11                      12             2           3
-#    -------------------------------------
+from apps1.tic_tac_toe_v3.views.o2o1.playing import PlayingV as PlayingVV3o2o1
+#          --------------            -------        --------    --------------
+#          11                        12             2           3
+#    ---------------------------------------
 #    10
-# 10. `host1/apps1/tic_tac_toe_v3/views/o1/playing/__init__.py`
-#            -------------------------------------
+# 10. `host1/apps1/tic_tac_toe_v3/views/o2o1/playing/__init__.py`
+#            ---------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
@@ -43,12 +43,12 @@ class PlayingV():
         """描画"""
 
         # 以下のファイルは既存です
-        from apps1.tic_tac_toe_v2.views.o1.gui.playing.v_render import render_playing
+        from apps1.tic_tac_toe_v2.views.o2o1.gui.playing.v_render import render_playing
         #                       ^two
-        #    --------------------------------------------------        --------------
-        #    1                                                         2
-        # 1. `host1/apps1/tic_tac_toe_v2/views/o1/gui/playing/v_render.py`
-        #           --------------------------------------------------
+        #    ----------------------------------------------------        --------------
+        #    1                                                           2
+        # 1. `host1/apps1/tic_tac_toe_v2/views/o2o1/gui/playing/v_render.py`
+        #           ----------------------------------------------------
         # 2. `1.` のファイルに含まれる render_playing 関数
 
         return render_playing(
@@ -56,5 +56,5 @@ class PlayingV():
             kw_room_name,
             PlayingVV3o4o1.path_of_ws_playing,
             PlayingV.path_of_html,
-            PlayingVV3o1.on_update,
+            PlayingVV3o2o1.on_update,
             PlayingV.expected_pieces)

@@ -1,10 +1,10 @@
 from django.urls import path
 
-# 〇×ゲーム v2.0.1
-from apps1.tic_tac_toe_v2.views.o1.think.engine_manual import EngineManual
-#    ----- -------------- ----------------------------        ------------
-#    1     2              3                                   4
-#    -------------------------------------------------
+# 〇×ゲーム v2o2o1
+from apps1.tic_tac_toe_v2.views.o2o1.think.engine_manual import EngineManual
+#    ----- -------------- ------------------------------        ------------
+#    1     2              3                                     4
+#    ---------------------------------------------------
 #    5
 # 1. 開発者用ディレクトリーの一部
 # 2. アプリケーション フォルダー名
@@ -12,17 +12,17 @@ from apps1.tic_tac_toe_v2.views.o1.think.engine_manual import EngineManual
 # 4. クラス名
 # 5. Pythonモジュール名
 
-# 対局申込ページ v2.0.1
-from apps1.tic_tac_toe_v2.views.o1.gui.match_application import MatchApplicationV
-#          --------------              -----------------        -----------------
-#          1.1                         1.2                      2
-#    ---------------------------------------------------
+# 対局申込ページ v2o2o1
+from apps1.tic_tac_toe_v2.views.o2o1.gui.match_application import MatchApplicationV
+#          --------------                -----------------        -----------------
+#          1.1                           1.2                      2
+#    -----------------------------------------------------
 #    1
 # 1, 1.2 ディレクトリー
 # 1.1 アプリケーション
 # 2. `1.2` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-from apps1.tic_tac_toe_v2.views.o1.gui.playing import PlayingV
+from apps1.tic_tac_toe_v2.views.o2o1.gui.playing import PlayingV
 
 
 urlpatterns = [

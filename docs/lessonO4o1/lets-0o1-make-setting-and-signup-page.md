@@ -39,10 +39,10 @@
     │   │   │   │   └── 🚀 favicon.ico
     │   │   │   ├── 📂 templates
     │   │   │   │   └── 📂 portal_v1
-    │   │   │   │       └── 📂 o1
+    │   │   │   │       └── 📂 o2o1
     │   │   │   │           └── 📄 portal_base.html
     │   │   │   └── 📂 views
-    │   │   │       └── 📂 o1
+    │   │   │       └── 📂 o2o1
     │   │   │           └── 📄 pages.py
     │   │   └── 📂 practice_v1
     │   ├── 📂 data
@@ -321,7 +321,7 @@ docker-compose run --rm web python3 manage.py migrate --settings project1.settin
         │   └── 📂 allauth_customized_v1            # アプリケーション
         │       └── 📂 static
         │           └── 📂 allauth_customized_v1    # アプリケーションと同名
-        │               └── 📂 o1
+        │               └── 📂 o2o1
 👉      │                   └── 📄 form-html-parser.js
         ├── 📂 project1
         │   └── 📄 settings.py
@@ -503,7 +503,7 @@ class DjangoAllauthFormParser {
         │   └── 📂 allauth_customized_v1            # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 allauth_customized_v1    # アプリケーションと同名
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
         │       │           └── 📄 form-html-parser.js
         │       └── 📂 templates
         │           └── 📂 account                  # ディレクトリ構成を allauth アプリケーション に合わせる
@@ -598,11 +598,11 @@ class DjangoAllauthFormParser {
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 
-        <script src="{% static 'allauth_customized_v1/o1/form-html-parser.js' %}"></script>
-        <!--            ====================================================
+        <script src="{% static 'allauth_customized_v1/o2o1/form-html-parser.js' %}"></script>
+        <!--            ======================================================
                         1
-            1. host1/apps1/allauth_customized_v1/static/allauth_customized_v1/o1/form-html-parser.js
-                                                ====================================================
+            1. host1/apps1/allauth_customized_v1/static/allauth_customized_v1/o2o1/form-html-parser.js
+                                                ======================================================
         -->
 
         <script>
@@ -682,13 +682,13 @@ class DjangoAllauthFormParser {
         │   └── 📂 allauth_customized_v1            # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 allauth_customized_v1        # アプリケーションと同名
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
         │       │           └── 📄 form-html-parser.js
         │       ├── 📂 templates
         │       │   └── 📂 account                   # ディレクトリ構成を allauth アプリケーション に合わせる
         │       │       └── 📄 signup.html
         │       └── 📂 views
-        │           └── 📂 o1
+        │           └── 📂 o2o1
 👉      │               └── 📄 v_accounts.py
         ├── 📂 project1
         │   └── 📄 settings.py
@@ -737,13 +737,13 @@ accounts_v1_signup_view = AccountsV1SignupView.as_view()
         │   └── 📂 allauth_customized_v1            # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 allauth_customized_v1        # アプリケーションと同名
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
         │       │           └── 📄 form-html-parser.js
         │       ├── 📂 templates
         │       │   └── 📂 account                   # ディレクトリ構成を allauth アプリケーション に合わせる
         │       │       └── 📄 signup.html
         │       └── 📂 views
-        │           └── 📂 o1
+        │           └── 📂 o2o1
         │               └── 📄 v_accounts.py
         ├── 📂 project1
         │   ├── 📄 settings.py
@@ -758,9 +758,9 @@ accounts_v1_signup_view = AccountsV1SignupView.as_view()
 from django.urls import include, path # include 追加
 from django.views.generic import TemplateView # 追加
 
-from apps1.allauth_customized_v1.views.o1 import v_accounts
-#    ------------------------------------        ----------
-#    1                                           2
+from apps1.allauth_customized_v1.views.o2o1 import v_accounts
+#    --------------------------------------        ----------
+#    1                                             2
 # 1. アプリケーション フォルダー名
 # 2. Pythonモジュール名（ディレクトリー名）
 # 3. Python ファイル名。拡張子抜き
@@ -816,13 +816,13 @@ urlpatterns = [
         │   └── 📂 allauth_customized_v1                # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 allauth_customized_v1        # アプリケーションと同名
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
         │       │           └── 📄 form-html-parser.js
         │       ├── 📂 templates
         │       │   └── 📂 account                      # ディレクトリ構成を allauth アプリケーション に合わせる
         │       │       └── 📄 signup.html
         │       └── 📂 views
-        │           └── 📂 o1
+        │           └── 📂 o2o1
         │               └── 📄 v_accounts.py
         ├── 📂 project1
         │   ├── 📄 settings.py
@@ -884,13 +884,13 @@ urlpatterns = [
         │   └── 📂 allauth_customized_v1            # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 allauth_customized_v1
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
         │       │           └── 📄 form-html-parser.js
         │       ├── 📂 templates
         │       │   └── 📂 account
         │       │       └── 📄 signup.html
         │       └── 📂 views
-        │           └── 📂 o1
+        │           └── 📂 o2o1
         │               └── 📄 v_accounts.py
         ├── 📂 project1
         │   ├── 📄 settings.py

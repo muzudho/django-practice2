@@ -36,7 +36,7 @@
     │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
-    │   │   │       └── 📂 o1
+    │   │   │       └── 📂 o2o1
     │   │   │           └── 📄 m_room.py
     │   │   ├── 📂 tic_tac_toe_v1        # アプリケーション
     │   │   └── 📂 tic_tac_toe_v2        # アプリケーション
@@ -44,7 +44,7 @@
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o1
+    │   │       │       └── 📂 o2o1
     │   │       │           └── 📂 think
     │   │       │               ├── 📄 concepts.js
     │   │       │               ├── 📄 engine.js
@@ -54,11 +54,11 @@
     │   │       │               └── 📄 user_ctrl.js
     │   │       ├── 📂 templates
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o1
+    │   │       │       └── 📂 o2o1
     │   │       │           └── 📂 think
     │   │       │               └── 📄 engine_manual.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 o1
+    │   │       │   └── 📂 o2o1
     │   │       │       └── 📂 think
     │   │       │           └── 📂 engine_manual
     │   │       │               ├── 📄 __init__.py
@@ -223,7 +223,7 @@ INSTALLED_APPS = [
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v3           # アプリケーションと同名
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
 👉      │       │           └── 📄 playing.html.txt
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -234,12 +234,12 @@ INSTALLED_APPS = [
 ```
 
 ```html
-{% extends "tic_tac_toe_v2/o1/gui/playing_base.html" %}
+{% extends "tic_tac_toe_v2/o2o1/gui/playing_base.html" %}
 {#                       ^ two
-            ---------------------------------------
+            -----------------------------------------
             1
-1. `host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1/gui/playing_base.html`
-                                         ---------------------------------------
+1. `host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o2o1/gui/playing_base.html`
+                                         -----------------------------------------
 
     自動フォーマットしないでください
     Do not auto fomatting
@@ -268,10 +268,10 @@ INSTALLED_APPS = [
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v3           # アプリケーションと同名
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
         │       │           └── 📄 playing.html.txt
         │       ├── 📂 views
-        │       │   └── 📂 o1                       # .one
+        │       │   └── 📂 o2o1                       # .one
         │       │       └── 📂 match_application
 👉      │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
@@ -284,12 +284,12 @@ INSTALLED_APPS = [
 
 ```py
 # 以前のバージョン
-from apps1.tic_tac_toe_v2.views.o1.gui.match_application import MatchApplicationV as MatchApplicationVV2o1
+from apps1.tic_tac_toe_v2.views.o2o1.gui.match_application import MatchApplicationV as MatchApplicationVV2o2o1
 #                       ^two
-#    ---------------------------------------------------        -----------------    ---------------------
-#    1                                                          2                    3
-# 1. `host1/apps1/tic_tac_toe_v2/views/o1/gui/match_application/__init__.py`
-#           ---------------------------------------------------
+#    -----------------------------------------------------        -----------------    -----------------------
+#    1                                                            2                    3
+# 1. `host1/apps1/tic_tac_toe_v2/views/o2o1/gui/match_application/__init__.py`
+#           -----------------------------------------------------
 # 2. `1.` の __init__.py ファイルに含まれるクラス
 # 3. '2.' の別名
 
@@ -310,18 +310,18 @@ class MatchApplicationV():
         """描画"""
 
         # 以下のファイルは既存です
-        from apps1.tic_tac_toe_v2.views.o1.gui.match_application.v_render import render_match_application
+        from apps1.tic_tac_toe_v2.views.o2o1.gui.match_application.v_render import render_match_application
         #                       ^two
-        #    ------------------------------------------------------------        ------------------------
-        #    1                                                                   2
-        # 1. `host1/apps1/tic_tac_toe_v2/views/o1/gui/match_application/v_render.py`
-        #                                                               --------
+        #    --------------------------------------------------------------        ------------------------
+        #    1                                                                     2
+        # 1. `host1/apps1/tic_tac_toe_v2/views/o2o1/gui/match_application/v_render.py`
+        #                                                                 --------
         # 2. `1.` に含まれる関数
 
         return render_match_application(
             request,
             MatchApplicationV.path_of_http_playing,
-            MatchApplicationVV2o1.path_of_html,
+            MatchApplicationVV2o2o1.path_of_html,
             MatchApplicationV.on_sent,
             MatchApplicationV.open)
 
@@ -335,7 +335,7 @@ class MatchApplicationV():
     @staticmethod
     def open(request):
         """訪問後"""
-        return MatchApplicationVV2o1.open_context
+        return MatchApplicationVV2o2o1.open_context
 ```
 
 # Step 9. 対局ビュー モジュール作成 - playing フォルダー
@@ -350,10 +350,10 @@ class MatchApplicationV():
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v3           # アプリケーションと同名
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
         │       │           └── 📄 playing.html.txt
         │       ├── 📂 views
-        │       │   └── 📂 o1                       # .one
+        │       │   └── 📂 o2o1                       # .one
         │       │       ├── 📂 match_application
         │       │       │   └── 📄 __init__.py
         │       │       └── 📂 playing
@@ -368,14 +368,14 @@ class MatchApplicationV():
 
 ```py
 # 以前のバージョン
-from apps1.tic_tac_toe_v2.views.o1.gui.playing import PlayingV as PlayingVV2o1
+from apps1.tic_tac_toe_v2.views.o2o1.gui.playing import PlayingV as PlayingVV2o2o1
 #                       ^two
-#          --------------              -------        --------    ------------
-#          11                          12             2           3
-#    -----------------------------------------
+#          --------------                -------        --------    --------------
+#          11                            12             2           3
+#    -------------------------------------------
 #    10
-# 10. `host1/apps1/tic_tac_toe_v2/views/o1/gui/playing/__init__.py`
-#            -----------------------------------------
+# 10. `host1/apps1/tic_tac_toe_v2/views/o2o1/gui/playing/__init__.py`
+#            -------------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
 # 2. `12.` に含まれる `__init__.py` ファイルにさらに含まれるクラス
@@ -392,24 +392,24 @@ class PlayingV():
     # 1. `ws://example.com:8000/tic-tac-toe/v2o1/playing/`
     #                          --------------------------
 
-    path_of_html = "tic_tac_toe_v3/o1/playing.html.txt"
+    path_of_html = "tic_tac_toe_v3/o2o1/playing.html.txt"
     #                            ^ three
-    #               ----------------------------------
+    #               ------------------------------------
     #               1
-    # 1. `host1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o1/playing.html.txt`
-    #                                          ----------------------------------
+    # 1. `host1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o2o1/playing.html.txt`
+    #                                          ------------------------------------
 
     @staticmethod
     def render(request, kw_room_name):
         """描画"""
 
         # 以下のファイルは既存です
-        from apps1.tic_tac_toe_v2.views.o1.gui.playing.v_render import render_playing
+        from apps1.tic_tac_toe_v2.views.o2o1.gui.playing.v_render import render_playing
         #                       ^two
-        #    --------------------------------------------------        --------------
-        #    1                                                         2
-        # 1. `host1/apps1/tic_tac_toe_v2/views/o1/gui/playing/v_render.py`
-        #           --------------------------------------------------
+        #    ----------------------------------------------------        --------------
+        #    1                                                           2
+        # 1. `host1/apps1/tic_tac_toe_v2/views/o2o1/gui/playing/v_render.py`
+        #           ----------------------------------------------------
         # 2. `1.` のファイルに含まれる render_playing 関数
 
         return render_playing(
@@ -418,7 +418,7 @@ class PlayingV():
             PlayingV.path_of_ws_playing,
             PlayingV.path_of_html,
             PlayingV.on_update,
-            PlayingVV2o1.expected_pieces)
+            PlayingVV2o2o1.expected_pieces)
 
     @staticmethod
     def on_update(request):
@@ -439,10 +439,10 @@ class PlayingV():
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v3           # アプリケーションと同名
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
         │       │           └── 📄 playing.html.txt
         │       ├── 📂 views
-        │       │   └── 📂 o1                       # .One
+        │       │   └── 📂 o2o1                       # .One
         │       │       ├── 📂 match_application
         │       │       │   └── 📄 __init__.py
         │       │       └── 📂 playing
@@ -461,11 +461,11 @@ class PlayingV():
 
 
 # 〇×ゲーム v3o1 対局申込中
-from apps1.tic_tac_toe_v3.views.o1.match_application import MatchApplicationV as TicTacToeV3o1MatchApplicationV
+from apps1.tic_tac_toe_v3.views.o2o1.match_application import MatchApplicationV as TicTacToeV3o1MatchApplicationV
 #                       ^three
-#          --------------          -----------------        -----------------    ------------------------------
-#          11                      12                       2                    3
-#    -----------------------------------------------
+#          --------------            -----------------        -----------------    ------------------------------
+#          11                        12                       2                    3
+#    -------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -473,11 +473,11 @@ from apps1.tic_tac_toe_v3.views.o1.match_application import MatchApplicationV as
 # 3. `2.` の別名
 
 # 〇×ゲーム v3o1 対局中
-from apps1.tic_tac_toe_v3.views.o1.playing import PlayingV as TicTacToeV3o1PlayingV
+from apps1.tic_tac_toe_v3.views.o2o1.playing import PlayingV as TicTacToeV3o1PlayingV
 #                       ^three
-#          --------------          -------        --------    ---------------------
-#          11                      12             2           3
-#    -------------------------------------
+#          --------------            -------        --------    ---------------------
+#          11                        12             2           3
+#    ---------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -539,10 +539,10 @@ urlpatterns = [
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v3           # アプリケーションと同名
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
         │       │           └── 📄 playing.html.txt
         │       ├── 📂 views
-        │       │   └── 📂 o1                       # .One
+        │       │   └── 📂 o2o1                       # .One
         │       │       ├── 📂 match_application
         │       │       │   └── 📄 __init__.py
         │       │       └── 📂 playing

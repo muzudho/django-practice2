@@ -23,10 +23,10 @@
     │   │   └── 📂 practice_v1              # アプリケーション名
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_v1
-    │   │       │       └── 📂 o1
+    │   │       │       └── 📂 o2o1
     │   │       │           └── 📄 page1.html
     │   │       └── 📂 views
-    │   │           └── 📂 o1
+    │   │           └── 📂 o2o1
     │   │               └── 📄 pages.py
     │   ├── 📂 data
     │   ├── 📂 project1                  # プロジェクト名
@@ -68,7 +68,7 @@ docker-compose up
             └── 📂 practice_v1
                 └── 📂 templates
                     └── 📂 practice_v1
-                        └── 📂 o1
+                        └── 📂 o2o1
 👉                          └── 📄 page2_base.html
 ```
 
@@ -122,17 +122,17 @@ docker-compose up
             └── 📂 practice_v1
                 └── 📂 templates
                     └── 📂 practice_v1
-                        └── 📂 o1
+                        └── 📂 o2o1
                             ├── 📄 page2_base.html
 👉                          └── 📄 page2_patch1.html.txt
 ```
 
 ```html
-{% extends "practice_v1/o1/page2_base.html" %}
-{#          -------------------------------
+{% extends "practice_v1/o2o1/page2_base.html" %}
+{#          --------------------------------
             1
-1. host1/apps1/practice_v1/templates/practice_v1/o1/page2_base.html
-                                  -------------------------------
+1. host1/apps1/practice_v1/templates/practice_v1/o2o1/page2_base.html
+                                     --------------------------------
 #}
 
 <!-- -->
@@ -172,11 +172,11 @@ docker-compose up
             └── 📂 practice_v1
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o1
+                │       └── 📂 o2o1
                 │           ├── 📄 page2_base.html
                 │           └── 📄 page2_patch1.html.txt
                 └── 📂 views
-                    └── 📂 o1
+                    └── 📂 o2o1
 👉                      └── 📄 pages.py
 ```
 
@@ -195,11 +195,11 @@ class Page2Patch1():
         """描画"""
 
         template = loader.get_template(
-            'practice_v1/o1/page2_patch1.html.txt')
-        #    ------------------------------------
+            'practice_v1/o2o1/page2_patch1.html.txt')
+        #    --------------------------------------
         #    1
-        # 1. host1/apps1/practice_v1/templates/practice_v1/o1/page2_patch1.html.txt を取得
-        #                                      ------------------------------------
+        # 1. host1/apps1/practice_v1/templates/practice_v1/o2o1/page2_patch1.html.txt を取得
+        #                                      --------------------------------------
 
         context = {}
         return HttpResponse(template.render(context, request))
@@ -215,11 +215,11 @@ class Page2Patch1():
         │   └── 📂 practice_v1              # アプリケーション名
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
         │       │           ├── 📄 page2_base.html
         │       │           └── 📄 page2_patch1.html.txt
         │       └── 📂 views
-        │           └── 📂 o1
+        │           └── 📂 o2o1
         │               └── 📄 pages.py
         └── 📂 project1
 👉          ├── 📄 urls_practice.py          # こちら
@@ -234,10 +234,10 @@ from django.urls import path
 
 
 # 練習ページ２
-from apps1.practice_v1.views.o1.pages import Page2Patch1
-#          -----------          -----        -----------
-#          11                   12           2
-#    --------------------------------
+from apps1.practice_v1.views.o2o1.pages import Page2Patch1
+#          -----------            -----        -----------
+#          11                     12           2
+#    ----------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション

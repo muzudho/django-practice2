@@ -1,16 +1,16 @@
 # 部屋モデル
-from apps1.practice_v1.models.o1.m_room import Room
-#    ----- ----------- --------- ------        ----
-#    1     2           3         4             5
+from apps1.practice_v1.models.o2o1.m_room import Room
+#    ----- ----------- ----------- ------        ----
+#    1     2           3           4             5
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
 # ユーザー拡張
-from apps1.practice_v1.models.o1.m_user_profile import Profile
-#    ----- ----------- ------------------------        -------
-#    1     2           3                               4
+from apps1.practice_v1.models.o2o1.m_user_profile import Profile
+#    ----- ----------- --------------------------        -------
+#    1     2           3                                 4
 # 1,3. ディレクトリー名
 # 2. アプリケーション フォルダー名
 # 3. Python ファイル名。拡張子抜き
@@ -44,7 +44,6 @@ def match_application_on_sent(request):
         # 新規作成
         room = Room()
         room.name = po_room_name
-
 
     if request.user.is_authenticated:
         # ログインしたユーザーだった

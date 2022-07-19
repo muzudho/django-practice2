@@ -1,0 +1,47 @@
+{% extends "practice_v1/o2o1/auto_reload.html" %}
+{#          -------------------------------
+            1
+1. host1/apps1/practice_v1/templates/practice_v1/o2o1/auto_reload.html
+                                     ---------------------------------
+#}
+
+{% load static %} {# 👈あとで static "URL" を使うので load static します #}
+
+{% block script_src %}
+<script src="{% static 'practice_v1/o2o1/clock.js' %}"></script>
+<script src="{% static 'practice_v1/o3o1/auto_reload.js' %}"></script>
+<!--                                 ^three
+                =======================================
+    `host1/apps1/practice_v1/static/practice_v1/o3o1/auto_reload.js`
+                             ======================================
+-->
+{% endblock script_src %}
+
+
+{% block data_trailing %}
+    // "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
+    vu_redirectPath: "{{ dj_redirect_path|escapejs }}",
+{% endblock data_trailing %}
+
+
+{% block methods_trailing %}
+    /**
+        * vue1.createRedirectUrl() のように使えます
+        */
+    createRedirectUrl() {
+        if (!this.vu_redirectPath) {
+            // JavaScript では、空文字列を not すると 真
+            // リダイレクトしたくないときは空文字列を送る、という取り決めをしておきます
+            return "";
+        }
+
+        let url = `${location.protocol}//${location.host}${this.vu_redirectPath}`;
+        //         --------------------  ---------------]-----------------------
+        //         1                     2               3
+        // 1. protocol
+        // 2. host
+        // 3. path
+        console.log(`redirect url=[${url}]`);
+        return url;
+    },
+{% endblock methods_trailing %}

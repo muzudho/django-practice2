@@ -1,7 +1,7 @@
 from django.urls import path
 
 # * 変更前
-# from apps1.portal_v1.views.o1.pages import Portal
+# from apps1.portal_v1.views.o2o1.pages import Portal
 # * 変更後
 from apps1.portal_v1.views.o3o1.pages import Portal
 #                           ^three

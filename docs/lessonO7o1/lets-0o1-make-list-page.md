@@ -94,7 +94,7 @@ docker-compose up
             └── 📂 practice_v1                      # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1              # アプリケーションと同名
-                        └── 📂 o1                # ただのフォルダー
+                        └── 📂 o2o1                # ただのフォルダー
                             └── 📂 prefecture            # ただのフォルダー
 👉                              └── 📄 list.html
 ```
@@ -159,11 +159,11 @@ docker-compose up
             └── 📂 practice_v1                      # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o1
+                │       └── 📂 o2o1
                 │           └── 📂 prefecture
                 │               └── 📄 list.html
                 └── 📂 views
-                    └── 📂 o1                # ただのフォルダー
+                    └── 📂 o2o1                # ただのフォルダー
                         └── 📂 prefecture            # ただのフォルダー
 👉                          └── 📄 v_list.py
 ```
@@ -173,9 +173,9 @@ from django.http import HttpResponse
 from django.template import loader
 
 # 都道府県モデル
-from apps1.practice_v1.models.o1.m_prefecture import Prefecture
-#    ----- ----------- --------- ------------        ----------
-#    1     2           3         4                   5
+from apps1.practice_v1.models.o2o1.m_prefecture import Prefecture
+#    ----- ----------- ----------- ------------        ----------
+#    1     2           3           4                   5
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
@@ -185,11 +185,11 @@ from apps1.practice_v1.models.o1.m_prefecture import Prefecture
 def render_list(request):
     """一覧画面の描画"""
 
-    template = loader.get_template('practice_v1/o1/prefecture/list.html')
-    #                               -----------------------------------
+    template = loader.get_template('practice_v1/o2o1/prefecture/list.html')
+    #                               -------------------------------------
     #                               1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/prefecture/list.html` を取得
-    #                                       -----------------------------------
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o2o1/prefecture/list.html` を取得
+    #                                       -------------------------------------
 
     context = {
         'prefectures': Prefecture.objects.all().order_by('pk'),  # pk順にメンバーを全部取得
@@ -207,11 +207,11 @@ def render_list(request):
             └── 📂 practice_v1                      # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o1
+                │       └── 📂 o2o1
                 │           └── 📂 prefecture
                 │               └── 📄 list.html
                 └── 📂 views
-                    └── 📂 o1
+                    └── 📂 o2o1
                         └── 📂 prefecture
 👉                          ├── 📄 __init__.py
                             └── 📄 v_list.py
@@ -234,11 +234,11 @@ class PrefectureV(object):
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
         │       │           └── 📂 prefecture
         │       │               └── 📄 list.html
         │       └── 📂 views
-        │           └── 📂 o1
+        │           └── 📂 o2o1
         │               └── 📂 prefecture
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_list.py
@@ -255,10 +255,10 @@ from django.urls import path
 
 
 # 都道府県
-from apps1.practice_v1.views.o1.prefecture import PrefectureV
-#          -----------          ----------        -----------
-#          11                   12                2
-#    -------------------------------------
+from apps1.practice_v1.views.o2o1.prefecture import PrefectureV
+#          -----------            ----------        -----------
+#          11                     12                2
+#    ---------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -302,11 +302,11 @@ urlpatterns = [
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
         │       │           └── 📂 prefecture
         │       │               └── 📄 list.html
         │       └── 📂 views
-        │           └── 📂 o1
+        │           └── 📂 o2o1
         │               └── 📂 prefecture
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_list.py

@@ -1,30 +1,30 @@
 from django.urls import path
 
 # 練習ページ１
-from apps1.practice_v1.views.o1.page1 import Page1
-#          -----------          -----        -----
-#          11                   12           2
-#    --------------------------------
+from apps1.practice_v1.views.o2o1.page1 import Page1
+#          -----------            -----        -----
+#          11                     12           2
+#    ----------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # 練習ページ２
-from apps1.practice_v1.views.o1.pages import Page2Patch1
-#          -----------          -----        -----------
-#          11                   12           2
-#    --------------------------------
+from apps1.practice_v1.views.o2o1.pages import Page2Patch1
+#          -----------            -----        -----------
+#          11                     12           2
+#    ----------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # 練習ページ２ パッチ２
-from apps1.practice_v1.views.o1.pages import Page2Patch2
+from apps1.practice_v1.views.o2o1.pages import Page2Patch2
 #                                                      ^two
-#          -----------          -----        -----------
-#          11                   12           2
+#          -----------            -----        -----------
+#          11                     12           2
 #    ----------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -32,117 +32,117 @@ from apps1.practice_v1.views.o1.pages import Page2Patch2
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # ログイン必須ページ
-from apps1.practice_v1.views.o1 import v_login_required
-#    --------------------------        ----------------
-#    1                                 2
+from apps1.practice_v1.views.o2o1 import v_login_required
+#    ----------------------------        ----------------
+#    1                                   2
 # 1. ディレクトリー名
 # 2. Python ファイル名。拡張子抜き
 
 # 会員用ボタン
-from apps1.practice_v1.views.o1.button_for_member import ButtonForMember
-#          -----------          -----------------        ---------------
-#          11                   12                       2
-#    --------------------------------------------
+from apps1.practice_v1.views.o2o1.button_for_member import ButtonForMember
+#          -----------            -----------------        ---------------
+#          11                     12                       2
+#    ----------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # 会員一覧
-from apps1.practice_v1.views.o1.user_list import UserListV
-#          -----------          ---------        ---------
-#          11                   12               2
-#    ------------------------------------
+from apps1.practice_v1.views.o2o1.user_list import UserListV
+#          -----------            ---------        ---------
+#          11                     12               2
+#    --------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # （拡張済）会員一覧
-from apps1.practice_v1.views.o1.extends_user_list import ExtendsUserListV
-#          -----------          -----------------        ----------------
-#          11                   12                       2
-#    --------------------------------------------
+from apps1.practice_v1.views.o2o1.extends_user_list import ExtendsUserListV
+#          -----------            -----------------        ----------------
+#          11                     12                       2
+#    ----------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # アクティブユーザー一覧
-from apps1.practice_v1.views.o1.session import SessionV
-#          -----------          -------        --------
-#          11                   12             2
-#    ----------------------------------
+from apps1.practice_v1.views.o2o1.session import SessionV
+#          -----------            -------        --------
+#          11                     12             2
+#    ------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # 都道府県
-from apps1.practice_v1.views.o1.prefecture import PrefectureV
-#          -----------          ----------        -----------
-#          11                   12                2
-#    -------------------------------------
+from apps1.practice_v1.views.o2o1.prefecture import PrefectureV
+#          -----------            ----------        -----------
+#          11                     12                2
+#    ---------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # デバッグ用。モデルをダンプ出力
-from apps1.practice_v1.views.o1.debug import DebugV
-#          -----------          -----        ------
-#          11                   12           2
-#    --------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-
-# 都道府県ビュー
-from apps1.practice_v1.views.o1.vuetify import VuetifyV
-#          -----------          -------        --------
-#          11                   12             2
+from apps1.practice_v1.views.o2o1.debug import DebugV
+#          -----------            -----        ------
+#          11                     12           2
 #    ----------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
+# 都道府県ビュー
+from apps1.practice_v1.views.o2o1.vuetify import VuetifyV
+#          -----------            -------        --------
+#          11                     12             2
+#    ------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
+
 # 部屋ビュー
-from apps1.practice_v1.views.o1.room import RoomV
-#          -----------          ----        -----
-#          11                   12          2
-#    -------------------------------
+from apps1.practice_v1.views.o2o1.room import RoomV
+#          -----------            ----        -----
+#          11                     12          2
+#    ---------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # ロビー ビュー
-from apps1.practice_v1.views.o1.lobby import LobbyV
-#          -----------          -----        ------
-#          11                   12           2
-#    --------------------------------
+from apps1.practice_v1.views.o2o1.lobby import LobbyV
+#          -----------            -----        ------
+#          11                     12           2
+#    ----------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # マイページ ビュー
-from apps1.practice_v1.views.o1.my import MyV
-#          -----------          --        ---
-#          11                   12        2
-#    -----------------------------
+from apps1.practice_v1.views.o2o1.my import MyV
+#          -----------            --        ---
+#          11                     12        2
+#    -------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # 自動リロード ビュー
-from apps1.practice_v1.views.o1.auto_reload import AutoReloadV
-#          -----------          -----------        -----------
-#          11                   12                 2
-#    --------------------------------------
+from apps1.practice_v1.views.o2o1.auto_reload import AutoReloadV
+#          -----------            -----------        -----------
+#          11                     12                 2
+#    ----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -160,11 +160,11 @@ from apps1.practice_v1.views.o3o1.auto_redirect import AutoRedirectV
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # 〇×ゲーム v3o1 対局申込中
-from apps1.tic_tac_toe_v3.views.o1.match_application import MatchApplicationV as TicTacToeV3o1MatchApplicationV
+from apps1.tic_tac_toe_v3.views.o2o1.match_application import MatchApplicationV as TicTacToeV3o1MatchApplicationV
 #                       ^three
-#          --------------          -----------------        -----------------    ------------------------------
-#          11                      12                       2                    3
-#    -----------------------------------------------
+#          --------------            -----------------        -----------------    ------------------------------
+#          11                        12                       2                    3
+#    -------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -172,11 +172,11 @@ from apps1.tic_tac_toe_v3.views.o1.match_application import MatchApplicationV as
 # 3. `2.` の別名
 
 # 〇×ゲーム v3o1 対局中
-from apps1.tic_tac_toe_v3.views.o1.playing import PlayingV as TicTacToeV3o1PlayingV
+from apps1.tic_tac_toe_v3.views.o2o1.playing import PlayingV as TicTacToeV3o1PlayingV
 #                       ^three
-#          --------------          -------        --------    ---------------------
-#          11                      12             2           3
-#    -------------------------------------
+#          --------------            -------        --------    ---------------------
+#          11                        12             2           3
+#    ---------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション

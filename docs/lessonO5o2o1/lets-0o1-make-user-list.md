@@ -42,15 +42,15 @@ Django では、サインアップした口座を User と呼んでいる。
     │   │   │   │   └── 🚀 favicon.ico
     │   │   │   ├── 📂 templates
     │   │   │   │   └── 📂 portal_v1
-    │   │   │   │       └── 📂 o1
+    │   │   │   │       └── 📂 o2o1
     │   │   │   │           └── 📄 portal_base.html
     │   │   │   └── 📂 views
-    │   │   │       └── 📂 o1
+    │   │   │       └── 📂 o2o1
     │   │   │           └── 📄 pages.py
     │   │   └── 📂 practice_v1              # アプリケーション
     │   │       └── 📂 templates
     │   │           ├── 📂 practice_v1
-    │   │           │   └── 📂 o1
+    │   │           │   └── 📂 o2o1
     │   │           │       └── 📄 login_required.html
     │   │           └── 📂 views
     │   │               └── 📄 v_login_required.py
@@ -95,7 +95,7 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1          # アプリケーションと同名
-                        └── 📂 o1
+                        └── 📂 o2o1
 👉                          └── 📄 user_list.html
 ```
 
@@ -176,12 +176,12 @@ docker-compose up
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o1
+                │   └── 📂 o2o1
                 │       └── 📂 mh_user               # 頭の `mh_` は models helper の頭文字を目印にしたもの。無くてもいい
 👉              │           └── 📄 __init__.py
                 └── 📂 templates
                     └── 📂 practice_v1
-                        └── 📂 o1
+                        └── 📂 o2o1
                             └── 📄 user_list.html
 ```
 
@@ -194,8 +194,8 @@ class MhUser():
     from .mh_get_user_dic import get_user_dic
     #    ----------------        ------------
     #    1                       2
-    # 1. `host1/apps1/practice_v1/model_helper/o1/mh_user/mh_get_user_dic.py`
-    #                                                     ---------------
+    # 1. `host1/apps1/practice_v1/model_helper/o2o1/mh_user/mh_get_user_dic.py`
+    #                                                       ---------------
     # 2. `1.` に含まれる関数
 ```
 
@@ -208,13 +208,13 @@ class MhUser():
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o1
+                │   └── 📂 o2o1
                 │       └── 📂 mh_user
                 │           ├── 📄 __init__.py
 👉              │           └── 📄 mh_get_user_dic.py
                 └── 📂 templates
                     └── 📂 practice_v1
-                        └── 📂 o1
+                        └── 📂 o2o1
                             └── 📄 user_list.html
 ```
 
@@ -254,15 +254,15 @@ def get_user_dic():
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o1
+                │   └── 📂 o2o1
                 │       └── 📂 mh_user
                 │           └── 📄 __init__.py
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o1
+                │       └── 📂 o2o1
                 │           └── 📄 user_list.html
                 └── 📂 views
-                    └── 📂 o1
+                    └── 📂 o2o1
                         └── 📂 user_list
 👉                          └── 📄 __init__.py
 ```
@@ -272,11 +272,11 @@ class UserListV():
     """会員一覧ビュー"""
 
     # そのページ
-    _path_of_this_page = "practice_v1/o1/user_list.html"
-    #                     -----------------------------
+    _path_of_this_page = "practice_v1/o2o1/user_list.html"
+    #                     -------------------------------
     #                     1
-    # 1. host1/apps1/practice_v1/templates/practice_v1/o1/user_list.html を取得
-    #                                      -----------------------------
+    # 1. host1/apps1/practice_v1/templates/practice_v1/o2o1/user_list.html を取得
+    #                                      -------------------------------
 
     @staticmethod
     def render(request):
@@ -286,8 +286,8 @@ class UserListV():
         from .v_render import render_user_list
         #    ---------        ----------------
         #    1                2
-        # 1. `host1/apps1/practice_v1/views/o1/user_list/v_render.py`
-        #                                                --------
+        # 1. `host1/apps1/practice_v1/views/o2o1/user_list/v_render.py`
+        #                                                  --------
         # 2. `1.` に含まれる関数
 
         return render_user_list(request, UserListV._path_of_this_page)
@@ -302,15 +302,15 @@ class UserListV():
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o1
+                │   └── 📂 o2o1
                 │       └── 📂 mh_user
                 │           └── 📄 __init__.py
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o1
+                │       └── 📂 o2o1
                 │           └── 📄 user_list.html
                 └── 📂 views
-                    └── 📂 o1
+                    └── 📂 o2o1
                         └── 📂 user_list
                             ├── 📄 __init__.py
 👉                          └── 📄 v_render.py       # 頭の `v_` は、これはビューだと分かるよう目印に付けているだけなので、無くてもいい
@@ -322,10 +322,10 @@ from django.http import HttpResponse
 from django.template import loader
 
 # ユーザー モデルヘルパー
-from apps1.practice_v1.models_helper.o1.mh_user import MhUser
-#          -----------                  -------        ------
-#          11                           12             2
-#    ------------------------------------------
+from apps1.practice_v1.models_helper.o2o1.mh_user import MhUser
+#          -----------                    -------        ------
+#          11                             12             2
+#    --------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -355,15 +355,15 @@ def render_user_list(request, path_of_this_page):
         ├── 📂 apps1
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 models_helper
-        │       │   └── 📂 o1
+        │       │   └── 📂 o2o1
         │       │       └── 📂 mh_user
         │       │           └── 📄 __init__.py
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
         │       │           └── 📄 user_list.html
         │       └── 📂 views
-        │           └── 📂 o1
+        │           └── 📂 o2o1
         │               └── 📂 user_list
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_render.py
@@ -376,10 +376,10 @@ def render_user_list(request, path_of_this_page):
 
 
 # 会員一覧
-from apps1.practice_v1.views.o1.user_list import UserListV
-#          -----------          ---------        ---------
-#          11                   12               2
-#    ------------------------------------
+from apps1.practice_v1.views.o2o1.user_list import UserListV
+#          -----------            ---------        ---------
+#          11                     12               2
+#    --------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -420,15 +420,15 @@ urlpatterns = [
 👉      │   │       └── 📄 finished-lessons.csv
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 models_helper
-        │       │   └── 📂 o1
+        │       │   └── 📂 o2o1
         │       │       └── 📂 mh_user
         │       │           └── 📄 __init__.py
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
         │       │           └── 📄 user_list.html
         │       └── 📂 views
-        │           └── 📂 o1
+        │           └── 📂 o2o1
         │               └── 📂 user_list
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_render.py

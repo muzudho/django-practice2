@@ -39,7 +39,7 @@
     │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
-    │   │   │       └── 📂 o1
+    │   │   │       └── 📂 o2o1
     │   │   │           └── 📄 m_room.py
     │   │   ├── 📂 tic_tac_toe_v1        # アプリケーション
     │   │   └── 📂 tic_tac_toe_v2        # アプリケーション
@@ -47,7 +47,7 @@
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o1
+    │   │       │       └── 📂 o2o1
     │   │       │           └── 📂 think
     │   │       │               ├── 📄 concepts.js
     │   │       │               ├── 📄 engine.js
@@ -57,11 +57,11 @@
     │   │       │               └── 📄 user_ctrl.js
     │   │       ├── 📂 templates
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o1
+    │   │       │       └── 📂 o2o1
     │   │       │           └── 📂 think
     │   │       │               └── 📄 engine_manual.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 o1
+    │   │       │   └── 📂 o2o1
     │   │       │       └── 📂 think
     │   │       │           └── 📂 engine_manual
     │   │       │               ├── 📄 __init__.py
@@ -153,7 +153,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
                 │   └── 📂 practice_v1
-                │       └── 📂 o1
+                │       └── 📂 o2o1
                 │           └── 📄 auto_reload.js
                 └── 📂 templates
                     └── 📂 practice_v1          # アプリケーションと同名
@@ -162,17 +162,17 @@ function startReloadingAutomatically(intervalMilliseconds) {
 ```
 
 ```html
-{% extends "practice_v1/o1/auto_reload.html" %}
-{#          -------------------------------
+{% extends "practice_v1/o2o1/auto_reload.html" %}
+{#          ---------------------------------
             1
-1. host1/apps1/practice_v1/templates/practice_v1/o1/auto_reload.html
-                                     -------------------------------
+1. host1/apps1/practice_v1/templates/practice_v1/o2o1/auto_reload.html
+                                     ---------------------------------
 #}
 
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 
 {% block script_src %}
-<script src="{% static 'practice_v1/o1/clock.js' %}"></script>
+<script src="{% static 'practice_v1/o2o1/clock.js' %}"></script>
 <script src="{% static 'practice_v1/o3o1/auto_reload.js' %}"></script>
 <!--                                 ^three
                 =====================================
@@ -221,7 +221,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
                 │   └── 📂 practice_v1
-                │       └── 📂 o1
+                │       └── 📂 o2o1
                 │           └── 📄 auto_reload.js
                 ├── 📂 templates
                 │   └── 📂 practice_v1
@@ -270,7 +270,7 @@ class AutoRedirectV():
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
                 │   └── 📂 practice_v1
-                │       └── 📂 o1
+                │       └── 📂 o2o1
                 │           └── 📄 auto_reload.js
                 ├── 📂 templates
                 │   └── 📂 practice_v1
@@ -326,7 +326,7 @@ def render_auto_redirect(request, path_of_redirecter_page):
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
         │       │           └── 📄 auto_reload.js
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
@@ -393,7 +393,7 @@ urlpatterns = [
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
         │       │           └── 📄 auto_reload.js
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1

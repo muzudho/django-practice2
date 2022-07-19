@@ -49,7 +49,7 @@
     │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
-    │   │   │       └── 📂 o1
+    │   │   │       └── 📂 o2o1
     │   │   │           └── 📄 m_room.py
     │   │   ├── 📂 tic_tac_toe_v1           # アプリケーション
     │   │   └── 📂 tic_tac_toe_v2           # アプリケーション
@@ -57,7 +57,7 @@
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o1
+    │   │       │       └── 📂 o2o1
     │   │       │           └── 📂 think
     │   │       │               ├── 📄 concepts.js
     │   │       │               ├── 📄 engine.js
@@ -67,11 +67,11 @@
     │   │       │               └── 📄 user_ctrl.js
     │   │       ├── 📂 templates
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o1
+    │   │       │       └── 📂 o2o1
     │   │       │           └── 📂 think
     │   │       │               └── 📄 engine_manual.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 o1
+    │   │       │   └── 📂 o2o1
     │   │       │       └── 📂 think
     │   │       │           └── 📂 engine_manual
     │   │       │               ├── 📄 __init__.py
@@ -130,22 +130,22 @@ docker-compose up
 
 ```py
 # 以前のバージョン
-from apps1.tic_tac_toe_v2.views.o1.gui.match_application import MatchApplicationV as MatchApplicationVV2o1
+from apps1.tic_tac_toe_v2.views.o2o1.gui.match_application import MatchApplicationV as MatchApplicationVV2o2o1
 #                       ^two
-#    ---------------------------------------------------        -----------------    ---------------------
-#    1                                                          2                    3
-# 1. `host1/apps1/tic_tac_toe_v2/views/o1/gui/match_application/__init__.py`
-#           ---------------------------------------------------
+#    -----------------------------------------------------        -----------------    -----------------------
+#    1                                                            2                    3
+# 1. `host1/apps1/tic_tac_toe_v2/views/o2o1/gui/match_application/__init__.py`
+#           -----------------------------------------------------
 # 2. `1.` の __init__.py ファイルに含まれるクラス
 # 3. '2.' の別名
 
 # 以前のバージョン
-from apps1.tic_tac_toe_v3.views.o1.match_application import MatchApplicationV as MatchApplicationVV3o1
+from apps1.tic_tac_toe_v3.views.o2o1.match_application import MatchApplicationV as MatchApplicationVV3o2o1
 #                       ^three
-#    -----------------------------------------------        -----------------    ---------------------
-#    1                                                      2                    3
-# 1. `host1/apps1/tic_tac_toe_v3/views/o1/match_application/__init__.py`
-#           -----------------------------------------------
+#    -------------------------------------------------        -----------------    -----------------------
+#    1                                                        2                    3
+# 1. `host1/apps1/tic_tac_toe_v3/views/o2o1/match_application/__init__.py`
+#           -------------------------------------------------
 # 2. `1.` の __init__.py ファイルに含まれるクラス
 # 3. '2.' の別名
 
@@ -158,18 +158,18 @@ class MatchApplicationV():
         """描画"""
 
         # 以下のファイルは既存です
-        from apps1.tic_tac_toe_v2.views.o1.gui.match_application.v_render import render_match_application
+        from apps1.tic_tac_toe_v2.views.o2o1.gui.match_application.v_render import render_match_application
         #                       ^two
-        #    ------------------------------------------------------------        ------------------------
-        #    1                                                                   2
-        # 1. `host1/apps1/tic_tac_toe_v2/views/o1/gui/match_application/v_render.py`
-        #                                                               --------
+        #    --------------------------------------------------------------        ------------------------
+        #    1                                                                     2
+        # 1. `host1/apps1/tic_tac_toe_v2/views/o2o1/gui/match_application/v_render.py`
+        #                                                                 --------
         # 2. `1.` に含まれる静的関数
 
         return render_match_application(
             request,
-            MatchApplicationVV3o1.path_of_http_playing,
-            MatchApplicationVV2o1.path_of_html,
+            MatchApplicationVV3o2o1.path_of_http_playing,
+            MatchApplicationVV2o2o1.path_of_html,
             MatchApplicationV.on_sent,
             MatchApplicationV.open)
 
@@ -190,7 +190,7 @@ class MatchApplicationV():
     @staticmethod
     def open(request):
         """訪問後"""
-        return MatchApplicationVV2o1.open_context
+        return MatchApplicationVV2o2o1.open_context
 ```
 
 # Step 3. 対局申込ビュー モジュール作成 - v_on_sent.py ファイル
@@ -210,18 +210,18 @@ class MatchApplicationV():
 
 ```py
 # 部屋モデル
-from apps1.practice_v1.models.o1.m_room import Room
-#    ----- ----------- --------- ------        ----
-#    1     2           3         4             5
+from apps1.practice_v1.models.o2o1.m_room import Room
+#    ----- ----------- ----------- ------        ----
+#    1     2           3           4             5
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
 # ユーザー拡張
-from apps1.practice_v1.models.o1.m_user_profile import Profile
-#    ----- ----------- ------------------------        -------
-#    1     2           3                               4
+from apps1.practice_v1.models.o2o1.m_user_profile import Profile
+#    ----- ----------- --------------------------        -------
+#    1     2           3                                 4
 # 1,3. ディレクトリー名
 # 2. アプリケーション フォルダー名
 # 3. Python ファイル名。拡張子抜き

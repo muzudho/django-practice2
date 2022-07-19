@@ -61,13 +61,13 @@
     │   │       ├── 📂 static
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_v1          # アプリケーションと同名
-    │   │       │       └── 📂 o1
+    │   │       │       └── 📂 o2o1
     │   │       │           └── 📂 prefecture
     │   │       │               ├── 📄 delete.html
     │   │       │               ├── 📄 list.html
     │   │       │               └── 📄 read.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 o1
+    │   │       │   └── 📂 o2o1
     │   │       │       └── 📂 prefecture
     │   │       │           ├── 📄 __init__.py
     │   │       │           ├── 📄 v_delete.py
@@ -118,7 +118,7 @@ docker-compose up
             └── 📂 practice_v1                      # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1              # アプリケーションと同名
-                        └── 📂 o1                # ただのフォルダー
+                        └── 📂 o2o1                # ただのフォルダー
                             └── 📂 prefecture            # ただのフォルダー
 👉                              └── 📄 upsert.html
 ```
@@ -184,7 +184,7 @@ docker-compose up
 👉              │   └── 📄 f_prefecture.py
                 └── 📂 templates
                     └── 📂 practice_v1              # アプリケーションと同名
-                        └── 📂 o1                   # ただのフォルダー
+                        └── 📂 o2o1                   # ただのフォルダー
                             └── 📂 prefecture       # ただのフォルダー
                                 └── 📄 upsert.html
 ```
@@ -193,10 +193,10 @@ docker-compose up
 from django.forms import ModelForm
 
 # 都道府県モデル
-from apps1.practice_v1.models.o1.m_prefecture import Prefecture
-#          -----------           ------------        ----------
-#          1.1                   2                   3
-#    ----------------------------------------
+from apps1.practice_v1.models.o2o1.m_prefecture import Prefecture
+#          -----------             ------------        ----------
+#          1.1                     2                   3
+#    ------------------------------------------
 #    1
 # 1. ディレクトリー
 # 1.1 アプリケーション
@@ -224,11 +224,11 @@ class PrefectureForm(ModelForm):
                 │   └── 📄 f_prefecture.py
                 ├── 📂 templates
                 │   └── 📂 practice_v1              # アプリケーションと同名
-                │       └── 📂 o1                # ただのフォルダー
+                │       └── 📂 o2o1                # ただのフォルダー
                 │           └── 📂 prefecture            # ただのフォルダー
                 │               └── 📄 upsert.html
                 └── 📂 views
-                    └── 📂 o1                # ただのフォルダー
+                    └── 📂 o2o1                # ただのフォルダー
                         └── 📂 prefecture            # ただのフォルダー
 👉                          └── 📄 v_upsert.py
 ```
@@ -237,9 +237,9 @@ class PrefectureForm(ModelForm):
 from django.shortcuts import render, get_object_or_404, redirect
 
 # 都道府県モデル
-from apps1.practice_v1.models.o1.m_prefecture import Prefecture
-#    ----- ----------- --------- ------------        ----------
-#    1     2           3         4                   5
+from apps1.practice_v1.models.o2o1.m_prefecture import Prefecture
+#    ----- ----------- ----------- ------------        ----------
+#    1     2           3           4                   5
 # 1,3. ディレクトリー名
 # 2. アプリケーション名
 # 4. Python ファイル名。拡張子抜き
@@ -276,11 +276,11 @@ def render_upsert(request, id=None):
         form = PrefectureForm(instance=prefecture)
 
     # 作成・更新画面を表示
-    return render(request, 'practice_v1/o1/prefecture/upsert.html', dict(form=form, id=id))
-    #                       -------------------------------------
+    return render(request, 'practice_v1/o2o1/prefecture/upsert.html', dict(form=form, id=id))
+    #                       ---------------------------------------
     #                       1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1/prefecture/upsert.html` を取得
-    #                                       -------------------------------------
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o2o1/prefecture/upsert.html` を取得
+    #                                       ---------------------------------------
 ```
 
 # Step 5. ビュー編集 - prefecture モジュール
@@ -293,11 +293,11 @@ def render_upsert(request, id=None):
             └── 📂 practice_v1                      # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o1
+                │       └── 📂 o2o1
                 │           └── 📂 prefecture
                 │               └── 📄 upsert.html
                 └── 📂 views
-                    └── 📂 o1
+                    └── 📂 o2o1
                         └── 📂 prefecture
 👉                          ├── 📄 __init__.py
                             └── 📄 v_upsert.py
@@ -327,11 +327,11 @@ class PrefectureV(object):
         │       │   └── 📄 f_prefecture.py
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
         │       │           └── 📂 prefecture
         │       │               └── 📄 delete.html
         │       └── 📂 views
-        │           └── 📂 o1
+        │           └── 📂 o2o1
         │               └── 📂 prefecture
         │                   └── 📄 v_delete.py
         └── 📂 project1                          # プロジェクト
@@ -347,10 +347,10 @@ from django.urls import path
 
 
 # 都道府県
-from apps1.practice_v1.views.o1.prefecture import PrefectureV
-#          -----------          ----------        -----------
-#          11                   12                2
-#    -------------------------------------
+from apps1.practice_v1.views.o2o1.prefecture import PrefectureV
+#          -----------            ----------        -----------
+#          11                     12                2
+#    ---------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -415,11 +415,11 @@ urlpatterns = [
         │       │   └── 📄 f_prefecture.py
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1
+        │       │       └── 📂 o2o1
         │       │           └── 📂 prefecture
         │       │               └── 📄 delete.html
         │       └── 📂 views
-        │           └── 📂 o1
+        │           └── 📂 o2o1
         │               └── 📂 prefecture
         │                   └── 📄 v_delete.py
         └── 📂 project1                          # プロジェクト
