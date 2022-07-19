@@ -460,7 +460,7 @@ class PlayingV():
 # ...略...
 
 
-# 〇×ゲーム v3o1 対局申込中
+# 〇×ゲーム v3o2o1 対局申込中
 from apps1.tic_tac_toe_v3.views.o2o1.match_application import MatchApplicationV as TicTacToeV3o2o1MatchApplicationV
 #                       ^three
 #          --------------            -----------------        -----------------    --------------------------------
@@ -497,10 +497,10 @@ urlpatterns = [
     #          ------------------------------------
     #          3
     #
-    # 1. 例えば `http://example.com/tic-tac-toe/v3o1/match-application/` のような URL のパスの部分
-    #                              -----------------------------------
+    # 1. 例えば `http://example.com/tic-tac-toe/v3o2o1/match-application/` のような URL のパスの部分
+    #                              -------------------------------------
     # 2. TicTacToeV3o2o1MatchApplicationV （別名）クラスの render メソッド
-    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3o1_match_application' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3o2o1_match_application' %} のような形でURLを取得するのに使える
 
     # 〇×ゲーム v3o2o1 対局中
     path('tic-tac-toe/v3o2o1/playing/<str:kw_room_name>/', TicTacToeV3o2o1PlayingV.render,
@@ -522,7 +522,7 @@ urlpatterns = [
 
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでください  
 
-📖 [http://localhost:8000/tic-tac-toe/v3o1/match-application/](http://localhost:8000/tic-tac-toe/v3o1/match-application/)  
+📖 [http://localhost:8000/tic-tac-toe/v3o2o1/match-application/](http://localhost:8000/tic-tac-toe/v3o2o1/match-application/)  
 
 # Step 12. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -559,7 +559,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/tic-tac-toe/v3o1/match-application/,〇×ゲーム v3.1 対局申込中
+/tic-tac-toe/v3o2o1/match-application/,〇×ゲーム v3o2o1 対局申込中
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

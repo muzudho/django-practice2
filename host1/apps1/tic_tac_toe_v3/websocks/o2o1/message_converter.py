@@ -18,7 +18,7 @@ from apps1.practice_v1.models.o2o1.m_room import Room
 # 5. クラス名
 
 
-class TicTacToeV3o1MessageConverter(TicTacToeV2MessageConverter):
+class TicTacToeV3o2o1MessageConverter(TicTacToeV2MessageConverter):
     """サーバープロトコル"""
 
     def on_end(self, scope, doc_received):
@@ -31,7 +31,7 @@ class TicTacToeV3o1MessageConverter(TicTacToeV2MessageConverter):
         # ログインしていなければ AnonymousUser
         user = scope["user"]
         print(
-            f"[TicTacToeV3o1MessageConverter on_move] user=[{user}] doc_received={doc_received}")
+            f"[TicTacToeV3o2o1MessageConverter on_move] user=[{user}] doc_received={doc_received}")
         if user.is_anonymous:
             # ログインしていないユーザーの操作は記録しません
             return
@@ -40,7 +40,7 @@ class TicTacToeV3o1MessageConverter(TicTacToeV2MessageConverter):
         #
         # * URLのパスに含まれている
         room_name = scope["url_route"]["kwargs"]["kw_room_name"]
-        # print(f"[TicTacToeV3o1MessageConverter on_move] scope={scope}")
+        # print(f"[TicTacToeV3o2o1MessageConverter on_move] scope={scope}")
 
         # `c2s_` は クライアントからサーバーへ送られてきた変数の目印
         event = doc_received.get("c2s_event", None)
@@ -49,7 +49,7 @@ class TicTacToeV3o1MessageConverter(TicTacToeV2MessageConverter):
         # 駒を置いた方の X か O
         piece_moved = doc_received.get("c2s_pieceMoved", None)
         print(
-            f"[TicTacToeV3o1MessageConverter on_move] クライアントからのメッセージを受信しました room_name=[{room_name}] event=[{event}] piece_moved=[{piece_moved}] sq=[{sq}]")
+            f"[TicTacToeV3o2o1MessageConverter on_move] クライアントからのメッセージを受信しました room_name=[{room_name}] event=[{event}] piece_moved=[{piece_moved}] sq=[{sq}]")
         # クライアントからのメッセージを受信しました room_name=[Elephant] event=[C2S_Moved] piece_moved=[X] sq=[2]
 
         # 部屋取得
@@ -57,20 +57,20 @@ class TicTacToeV3o1MessageConverter(TicTacToeV2MessageConverter):
 
         # （デバッグ）現状を出力
         print(
-            f"[TicTacToeV3o1MessageConverter on_move] room=[{room}]")
+            f"[TicTacToeV3o2o1MessageConverter on_move] room=[{room}]")
         print(
-            f"[TicTacToeV3o1MessageConverter on_move] now room.name=[{room.name}] room.board=[{room.board}] room.record=[{room.record}]")
+            f"[TicTacToeV3o2o1MessageConverter on_move] now room.name=[{room.name}] room.board=[{room.board}] room.record=[{room.record}]")
 
         # 駒を置きます
         #
         # * 盤が9マスになるように右を '.' で埋めます
         room.board = room.board.ljust(9, '.')
         print(
-            f"[TicTacToeV3o1MessageConverter on_move] now2 room.board=[{room.board}]")
+            f"[TicTacToeV3o2o1MessageConverter on_move] now2 room.board=[{room.board}]")
 
         room.board = f"{room.board[:sq]}{piece_moved}{room.board[sq+1:]}"
         print(
-            f"[TicTacToeV3o1MessageConverter on_move] now3 room.board=[{room.board}]")
+            f"[TicTacToeV3o2o1MessageConverter on_move] now3 room.board=[{room.board}]")
 
         # 棋譜を書きます
         #
@@ -78,21 +78,21 @@ class TicTacToeV3o1MessageConverter(TicTacToeV2MessageConverter):
         # * 9文字を超えるようなら、切り捨てます
 
         print(
-            f"[TicTacToeV3o1MessageConverter on_move] now4 room.record=[{room.record}]")
+            f"[TicTacToeV3o2o1MessageConverter on_move] now4 room.record=[{room.record}]")
         room.record = f"{room.record}{sq}"[:9]
         print(
-            f"[TicTacToeV3o1MessageConverter on_move] now5 room.record=[{room.record}]")
+            f"[TicTacToeV3o2o1MessageConverter on_move] now5 room.record=[{room.record}]")
 
         # 部屋を上書きします
         await save_room(room)
 
-        print(f"[TicTacToeV3o1MessageConverter on_move] saved")
+        print(f"[TicTacToeV3o2o1MessageConverter on_move] saved")
 
     def on_start(self, scope, doc_received):
         """対局開始時"""
 
         print(
-            f"[TicTacToeV3o1MessageConverter on_start] ignored. doc_received={doc_received}")
+            f"[TicTacToeV3o2o1MessageConverter on_start] ignored. doc_received={doc_received}")
         pass
 
 

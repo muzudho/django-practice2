@@ -7,9 +7,9 @@ from apps1.tic_tac_toe_v2.websocks.o2o1.gui.consumer_base import TicTacToeV2Cons
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
-from .message_converter import TicTacToeV3o1MessageConverter
-#                                        ^^^ three o one
-#    ]-----------------        -----------------------------
+from .message_converter import TicTacToeV3o2o1MessageConverter
+#                                        ^three
+#    ]-----------------        -------------------------------
 #    12                        3
 # 1. このファイルと同じディレクトリー
 # 2. Python ファイル名。拡張子抜き
@@ -21,8 +21,8 @@ class TicTacToeV3o2o1ConsumerCustom(TicTacToeV2ConsumerBase):
 
     def __init__(self):
         super().__init__()
-        self._messageConverter = TicTacToeV3o1MessageConverter()
-        #                                  ^^^ three o one
+        self._messageConverter = TicTacToeV3o2o1MessageConverter()
+        #                                  ^three
 
     async def on_receive(self, doc_received):
         """クライアントからメッセージを受信したとき
