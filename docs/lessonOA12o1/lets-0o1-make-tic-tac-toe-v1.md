@@ -380,7 +380,7 @@ select {
 var roomName = document.getElementById("board").getAttribute("room_name");
 var myPiece = document.getElementById("board").getAttribute("my_piece");
 
-var connectionString = `ws://${window.location.host}/tic-tac-toe/v1o0o1/playing/${roomName}/`;
+var connectionString = `ws://${window.location.host}/tic-tac-toe/v1o2o1/playing/${roomName}/`;
 //                      ----]----------------------- ---------------------------------------
 //                      1    2                       3
 //                      ------------------------------------------------------------------
@@ -1050,7 +1050,7 @@ def render_playing(request, room_name, path_of_html):
 ```py
 from django.urls import path
 
-from apps1.tic_tac_toe_v1.views.v1o0o1.match_application import MatchApplicationV
+from apps1.tic_tac_toe_v1.views.v1o2o1.match_application import MatchApplicationV
 #    ----- -------------- ------------------------------        -----------------
 #    1     2              3                                     4
 #    ---------------------------------------------------
@@ -1061,7 +1061,7 @@ from apps1.tic_tac_toe_v1.views.v1o0o1.match_application import MatchApplication
 # 4. クラス名
 # 5. Pythonモジュール名
 
-from apps1.tic_tac_toe_v1.views.v1o0o1.playing import PlayingV
+from apps1.tic_tac_toe_v1.views.v1o2o1.playing import PlayingV
 
 
 urlpatterns = [
@@ -1337,7 +1337,7 @@ websocket_urlpatterns = [
         TicTacToeV1o2o1Consumer.as_asgi()),
     #   -----------------------------
     #   2
-    # 1. 例えば `ws://example.com/tic-tac-toe/v1o0o1/playing/Elephant/` のようなURLのパスの部分
+    # 1. 例えば `ws://example.com/tic-tac-toe/v1o2o1/playing/Elephant/` のようなURLのパスの部分
     #                            ------------------------------------
     #    room_name は変数として渡される
     # 2. クラス名とメソッド。 URL を ASGI形式にする

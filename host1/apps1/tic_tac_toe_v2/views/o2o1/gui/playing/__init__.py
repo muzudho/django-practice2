@@ -5,12 +5,12 @@ class PlayingV():
     expected_pieces = ['X', 'O']
 
     # Webソケット
-    path_of_ws_playing = "/tic-tac-toe/v2o1/playing/"
-    #                                   ^ two
-    #                     --------------------------
+    path_of_ws_playing = "/tic-tac-toe/v2o2o1/playing/"
+    #                                   ^two
+    #                     ----------------------------
     #                     1
-    # 1. `ws://example.com:8000/tic-tac-toe/v2o1/playing/`
-    #                          --------------------------
+    # 1. `ws://example.com:8000/tic-tac-toe/v2o2o1/playing/`
+    #                          ----------------------------
 
     # HTML
     path_of_html = "tic_tac_toe_v2/o2o1/gui/playing.html.txt"

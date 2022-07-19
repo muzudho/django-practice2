@@ -12,13 +12,13 @@ from apps1.tic_tac_toe_v2.views.o2o1.gui.match_application import MatchApplicati
 class MatchApplicationV():
     """対局申込ビュー"""
 
-    # 〇×ゲーム v3o1
-    path_of_http_playing = "/tic-tac-toe/v3o1/playing/{0}/?&myturn={1}"
-    #                                     ^^^three.one
-    #                       ------------------------------------------
+    # 〇×ゲーム v3o2o1
+    path_of_http_playing = "/tic-tac-toe/v3o2o1/playing/{0}/?&myturn={1}"
+    #                                     ^three
+    #                       --------------------------------------------
     #                       1
-    # 1. `http://example.com:8000/tic-tac-toe/v3o1/playing/Elephant/?&myturn=X`
-    #                            ---------------------------------------------
+    # 1. `http://example.com:8000/tic-tac-toe/v3o2o1/playing/Elephant/?&myturn=X`
+    #                            -----------------------------------------------
 
     @staticmethod
     def render(request):

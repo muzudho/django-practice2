@@ -3,15 +3,15 @@
 var roomName = document.getElementById("board").getAttribute("room_name");
 var myPiece = document.getElementById("board").getAttribute("my_piece");
 
-var connectionString = `ws://${window.location.host}/tic-tac-toe/v1o0o1/playing/${roomName}/`;
+var connectionString = `ws://${window.location.host}/tic-tac-toe/v1o2o1/playing/${roomName}/`;
 //                      ----]----------------------- ---------------------------------------
-//                      1    2                       3
+//                      11   12                      13
 //                      ------------------------------------------------------------------
-//                      4
-// 1. スキーム : Web Socket
-// 2. ホスト アドレス
-// 3. パス
-// 4. URL
+//                      10
+// 10. URL
+// 11. スキーム : Web Socket
+// 12. ホスト アドレス
+// 13. パス
 
 var webSock1 = new WebSocket(connectionString);
 

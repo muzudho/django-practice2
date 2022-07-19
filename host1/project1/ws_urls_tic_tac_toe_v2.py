@@ -2,8 +2,8 @@
 from django.conf.urls import url
 
 # 〇×ゲーム v2o2o1
-from apps1.tic_tac_toe_v2.websocks.o2o1.gui.consumer_custom import TicTacToeV2ConsumerCustom
-#    ----- -------------- ----------------- ---------------        -------------------------
+from apps1.tic_tac_toe_v2.websocks.o2o1.gui.consumer_custom import TicTacToeV2o2o1ConsumerCustom
+#    ----- -------------- ----------------- ---------------        -----------------------------
 #    1     2              3                 4                      5
 #    ------------------------------------------------------
 #    6
@@ -17,15 +17,15 @@ from apps1.tic_tac_toe_v2.websocks.o2o1.gui.consumer_custom import TicTacToeV2Co
 
 websocket_urlpatterns = [
 
-    # 〇×ゲーム v2.1
-    url(r'^tic-tac-toe/v2o1/playing/(?P<kw_room_name>\w+)/$',
+    # 〇×ゲーム v2o2o1
+    url(r'^tic-tac-toe/v2o2o1/playing/(?P<kw_room_name>\w+)/$',
         # ---------------------------------------------------
         # 1
-        TicTacToeV2ConsumerCustom.as_asgi()),
-    #   -----------------------------------
+        TicTacToeV2o2o1ConsumerCustom.as_asgi()),
+    #   ---------------------------------------
     #   2
-    # 1. 例えば `ws://example.com/tic-tac-toe/v2o1/playing/Elephant/` のようなURLのパスの部分
-    #                            ----------------------------------
+    # 1. 例えば `ws://example.com/tic-tac-toe/v2o2o1/playing/Elephant/` のようなURLのパスの部分
+    #                            ------------------------------------
     #    kw_room_name は変数として渡される
     # 2. クラス名とメソッド。 URL を ASGI形式にする
 ]

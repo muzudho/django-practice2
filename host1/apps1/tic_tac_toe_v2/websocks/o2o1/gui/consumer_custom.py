@@ -15,7 +15,7 @@ from apps1.tic_tac_toe_v2.websocks.o2o1.gui.message_converter import TicTacToeV2
 # 5. クラス名
 
 
-class TicTacToeV2ConsumerCustom(TicTacToeV2ConsumerBase):
+class TicTacToeV2o2o1ConsumerCustom(TicTacToeV2ConsumerBase):
     """Webソケット用コンシューマー"""
 
     def __init__(self):
