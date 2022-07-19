@@ -15,14 +15,14 @@ from apps1.tic_tac_toe_v2.views.o2o1.gui.match_application import MatchApplicati
 # 3. '2.' の別名
 
 # 以前のバージョン
-from apps1.tic_tac_toe_v3.views.o2o1.match_application import MatchApplicationV as MatchApplicationVV3o2o1
-#                       ^three
-#          --------------            -----------------        -----------------    -----------------------
-#          11                        12                       2                    3
-#    -----------------------------------------------
+from apps1.tic_tac_toe_o4o1.views.o2o1.match_application import MatchApplicationV as MatchApplicationVV3o2o1
+#                       ^four
+#          ----------------            -----------------        -----------------    -----------------------
+#          11                          12                       2                    3
+#    ---------------------------------------------------
 #    10
-# 10. `host1/apps1/tic_tac_toe_v3/views/o2o1/match_application/__init__.py`
-#            -------------------------------------------------
+# 10. `host1/apps1/tic_tac_toe_o4o1/views/o2o1/match_application/__init__.py`
+#            ---------------------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
@@ -45,12 +45,12 @@ class MatchApplicationV():
         ]),
     }
 
-    path_of_http_playing = "/tic-tac-toe/v3o5o1/playing/{0}/?&myturn={1}"
-    #                                       ^five
+    path_of_http_playing = "/tic-tac-toe/v3.4/playing/{0}/?&myturn={1}"
+    #                                    ^^^^
     #                       --------------------------------------------
     #                       1
-    # 1. `http://example.com:8000/tic-tac-toe/v3o5o1/playing/Elephant/?&myturn=X`
-    #                            -----------------------------------------------
+    # 1. `http://example.com:8000/tic-tac-toe/v3.4/playing/Elephant/?&myturn=X`
+    #                            ---------------------------------------------
 
     @staticmethod
     def render(request):

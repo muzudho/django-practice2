@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'apps1.allauth_customized_v1',
     'apps1.tic_tac_toe_v1',
     'apps1.tic_tac_toe_v2',
-    'apps1.tic_tac_toe_v3',
+    'apps1.tic_tac_toe_o4o1',
 
     # Djangoの標準アプリケーション
     'django.contrib.admin',

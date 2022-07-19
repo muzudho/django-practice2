@@ -1,24 +1,24 @@
 # 以前のバージョン
-from apps1.tic_tac_toe_v3.views.o2o1.playing import PlayingV as PlayingVV3o2o1
-#          --------------            -------        --------    --------------
-#          11                        12             2           3
-#    ---------------------------------------
+from apps1.tic_tac_toe_o4o1.views.o2o1.playing import PlayingV as PlayingVV3o2o1
+#          ----------------            -------        --------    --------------
+#          11                          12             2           3
+#    -----------------------------------------
 #    10
-# 10. `host1/apps1/tic_tac_toe_v3/views/o2o1/playing/__init__.py`
-#            ---------------------------------------
+# 10. `host1/apps1/tic_tac_toe_o4o1/views/o2o1/playing/__init__.py`
+#            -----------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 # 3. '2.' の別名
 
 # 以前のバージョン
-from apps1.tic_tac_toe_v3.views.o4o1.playing import PlayingV as PlayingVV3o4o1
-#          --------------            -------        --------    --------------
-#          11                        12             2           3
-#    ---------------------------------------
+from apps1.tic_tac_toe_o4o1.views.o4o1.playing import PlayingV as PlayingVV3o4o1
+#          ----------------            -------        --------    --------------
+#          11                          12             2           3
+#    -----------------------------------------
 #    10
-# 10. `host1/apps1/tic_tac_toe_v3/views/o4o1/playing/__init__.py`
-#            ---------------------------------------
+# 10. `host1/apps1/tic_tac_toe_o4o1/views/o4o1/playing/__init__.py`
+#            -----------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
@@ -31,12 +31,12 @@ class PlayingV():
     # 駒
     expected_pieces = ['X', 'O', '_']
 
-    path_of_html = "tic_tac_toe_v3/o5o1/playing.html.txt"
-    #                               ^five
-    #               ------------------------------------
+    path_of_html = "tic_tac_toe_o4o1/o5o1/playing.html.txt"
+    #                                 ^five
+    #               --------------------------------------
     #               1
-    # 1. `host1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o5o1/playing.html.txt`
-    #                                          ------------------------------------
+    # 1. `host1/apps1/tic_tac_toe_o4o1/templates/tic_tac_toe_o4o1/o5o1/playing.html.txt`
+    #                                            --------------------------------------
 
     @staticmethod
     def render(request, kw_room_name):

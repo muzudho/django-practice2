@@ -2,8 +2,8 @@
 from django.conf.urls import url
 
 # 〇×ゲームの練習 v3o2o1
-from apps1.tic_tac_toe_v3.websocks.o2o1.consumer_custom import TicTacToeV3o2o1ConsumerCustom
-#                       ^three                                           ^three
+from apps1.tic_tac_toe_o4o1.websocks.o2o1.consumer_custom import TicTacToeV3o2o1ConsumerCustom
+#                       ^four                                              ^three
 #    ----- -------------- ------------- ---------------        -----------------------------
 #    1     2              3             4                      5
 # 1,3 ディレクトリー名

@@ -37,7 +37,7 @@ path,label
 /practice/v1/lobby/,ロビー
 /practice/v1/auto_reload/,自動再読込
 /practice/v1/auto_redirect/,自動リダイレクト
-/tic-tac-toe/v3o2o1/match-application/,〇×ゲーム v3o2o1 対局申込中
-/tic-tac-toe/v3o3o1/match-application/,〇×ゲーム v3o3o1 対局申込中
-/tic-tac-toe/v3o4o1/match-application/,〇×ゲーム v3o4o1 対局申込中
-/tic-tac-toe/v3o5o1/match-application/,〇×ゲーム v3o5o1 対局申込中
+/tic-tac-toe/v3.1/match-application/,〇×ゲーム v3.1 対局申込中
+/tic-tac-toe/v3.2/match-application/,〇×ゲーム v3.2 対局申込中
+/tic-tac-toe/v3.3/match-application/,〇×ゲーム v3.3 対局申込中
+/tic-tac-toe/v3.4/match-application/,〇×ゲーム v3.4 対局申込中
