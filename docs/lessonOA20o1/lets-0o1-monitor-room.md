@@ -260,7 +260,7 @@ from .message_converter import TicTacToeV3o1MessageConverter
 # 3. クラス名
 
 
-class TicTacToeV3o0o1ConsumerCustom(TicTacToeV2ConsumerBase):
+class TicTacToeV3o2o1ConsumerCustom(TicTacToeV2ConsumerBase):
     """Webソケット用コンシューマー"""
 
     def __init__(self):
@@ -299,9 +299,9 @@ class TicTacToeV3o0o1ConsumerCustom(TicTacToeV2ConsumerBase):
 # See also: 📖 [Channels - Consumers](https://channels.readthedocs.io/en/latest/topics/consumers.html)
 from django.conf.urls import url
 
-# 〇×ゲームの練習３．０．１
-from apps1.tic_tac_toe_v3.websocks.o2o1.consumer_custom import TicTacToeV3o0o1ConsumerCustom
-#                       ^three                                         ^^^^^ three.zero.one
+# 〇×ゲームの練習 v3o2o1
+from apps1.tic_tac_toe_v3.websocks.o2o1.consumer_custom import TicTacToeV3o2o1ConsumerCustom
+#                       ^three                                           ^three
 #    ----- -------------- ------------- ---------------        -----------------------------
 #    1     2              3             4                      5
 # 1,3 ディレクトリー名
@@ -320,8 +320,8 @@ websocket_urlpatterns = [
         #                 ^four
         # -------------------------------------------------
         # 1
-        TicTacToeV3o0o1ConsumerCustom.as_asgi()),
-    #             ^^^^^ three.zero.one
+        TicTacToeV3o2o1ConsumerCustom.as_asgi()),
+    #             ^three
     #   ---------------------------------------
     #   2
     # 1. 例えば `ws://example.com/tic-tac-toe/v3o4o1/playing/Elephant/` のようなURLのパスの部分

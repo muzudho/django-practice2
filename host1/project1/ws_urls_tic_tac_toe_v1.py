@@ -17,8 +17,8 @@ from apps1.tic_tac_toe_v1.websocks.o2o1.consumer import TicTacToeV1o2o1Consumer
 
 websocket_urlpatterns = [
 
-    # 〇×ゲーム v1o0o1
-    url(r'^tic-tac-toe/v1o0o1/playing/(?P<room_name>\w+)/$',
+    # 〇×ゲーム v1o2o1
+    url(r'^tic-tac-toe/v1o2o1/playing/(?P<room_name>\w+)/$',
         # ------------------------------------------------
         # 1
         TicTacToeV1o2o1Consumer.as_asgi()),

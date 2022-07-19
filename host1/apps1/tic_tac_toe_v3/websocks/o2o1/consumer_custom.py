@@ -16,7 +16,7 @@ from .message_converter import TicTacToeV3o1MessageConverter
 # 3. クラス名
 
 
-class TicTacToeV3o0o1ConsumerCustom(TicTacToeV2ConsumerBase):
+class TicTacToeV3o2o1ConsumerCustom(TicTacToeV2ConsumerBase):
     """Webソケット用コンシューマー"""
 
     def __init__(self):

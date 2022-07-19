@@ -3,7 +3,7 @@ import json
 from channels.generic.websocket import AsyncJsonWebsocketConsumer
 
 
-class TicTacToeV1Consumer(AsyncJsonWebsocketConsumer):
+class TicTacToeV1o2o1Consumer(AsyncJsonWebsocketConsumer):
     """非同期のWebソケットのコンシューマー"""
 
     async def connect(self):
