@@ -30,12 +30,12 @@ from apps1.tic_tac_toe_v3.views.o1.playing import PlayingV as PlayingVV3o1
 class PlayingV():
     """対局中ビュー"""
 
-    path_of_ws_playing = "/tic-tac-toe/v3o3/playing/"
-    #                                   ^^^ three.zero.three
-    #                     --------------------------
+    path_of_ws_playing = "/tic-tac-toe/v3o4o1/playing/"
+    #                                     ^four
+    #                     ----------------------------
     #                     1
-    # 1. `ws://example.com/tic-tac-toe/v3o3/playing/Elephant/`
-    #                     --------------------------
+    # 1. `ws://example.com/tic-tac-toe/v3o4o1/playing/Elephant/`
+    #                     ----------------------------
 
     @staticmethod
     def render(request, kw_room_name):

@@ -290,13 +290,13 @@ from apps1.tic_tac_toe_v3.views.o1.playing import PlayingV as PlayingVV3o1
 # 3. '2.' の別名
 
 # 以前のバージョン
-from apps1.tic_tac_toe_v3.views.o3.playing import PlayingV as PlayingVV3o3
-#          --------------          -------        --------    ------------
-#          11                      12             2           3
+from apps1.tic_tac_toe_v3.views.o4o1.playing import PlayingV as PlayingVV3o4o1
+#          --------------            -------        --------    --------------
+#          11                        12             2           3
 #    -------------------------------------
 #    10
-# 10. `host1/apps1/tic_tac_toe_v3/views/o3/playing/__init__.py`
-#            -------------------------------------
+# 10. `host1/apps1/tic_tac_toe_v3/views/o4o1/playing/__init__.py`
+#            ---------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
@@ -332,7 +332,7 @@ class PlayingV():
         return render_playing(
             request,
             kw_room_name,
-            PlayingVV3o3.path_of_ws_playing,
+            PlayingVV3o4o1.path_of_ws_playing,
             PlayingV.path_of_html,
             PlayingVV3o1.on_update,
             PlayingV.expected_pieces)
