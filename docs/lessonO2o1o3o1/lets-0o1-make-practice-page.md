@@ -59,7 +59,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o2o1 フォルダー作成 - apps1/practice_v1 フォルダー
+# Step O2o3o1o1 フォルダー作成 - apps1/practice_v1 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -93,18 +93,18 @@ Example: `http://example.com/practice/v1/`
 
 👇 マイナー番号は、この連載では以下のように表記したり、しなかったりすることがある  
 
-Example: `o2o1`  
+Example: `o3o1o1`  
 
 この表記の名前は **電脳記数法** と呼ぶことにする  
 
 📖 [電脳記数法 (Cyber Number Notation)](https://crieit.net/posts/Cyber-Number-Notation)  
 
 `o` は単に数を区切っている。慣例的に先頭に `O` を置くが、置かないこともできる。末尾は必ず `o1` にする。  
-`1` の後ろに `o1` を付けてはいけない。 `o1` の次は `o2o1` でも `o1o2o1` でも どちらでも構わない  
+`1` の後ろに `o1` を付けてはいけない。 `o1` の次は `o3o1o1` でも `o1o3o1o1` でも どちらでも構わない  
 
 メジャー番号とマイナー番号をつなげて使う例は以下の通り  
 
-Example: `ws://example.com/practice/v1o2o1/`  
+Example: `ws://example.com/practice/v1o3o1o1/`  
 
 この連載では パッチ番号 のようなものは使わない  
 

@@ -50,8 +50,8 @@ class MatchApplicationV():
         from .v_on_sent import match_application_on_sent
         #    ----------        -------------------------
         #    1                 2
-        # 1. `host1/apps1/tic_tac_toe_v3/views/o2/match_application/v_on_sent.py`
-        #                                                           ---------
+        # 1. `host1/apps1/tic_tac_toe_v3/views/o3o1/match_application/v_on_sent.py`
+        #                                                             ---------
         # 2. `1.` に含まれる関数
 
         return match_application_on_sent(request)

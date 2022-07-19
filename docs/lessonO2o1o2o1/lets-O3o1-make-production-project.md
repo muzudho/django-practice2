@@ -48,7 +48,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o2o1 プロジェクトのコピー - project2 フォルダー
+# Step O2o3o1o1 プロジェクトのコピー - project2 フォルダー
 
 👇 以下のフォルダーをコピー＆ペーストして  
 

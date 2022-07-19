@@ -23,7 +23,7 @@ Lesson O2o1 Table of Contents
 
 * 📖 `DjangoとDockerでゲーム対局サーバーを作ろう！` (この記事)  
 
-Lesson O2o1o2o1 Install  
+Lesson O2o1o3o1o1 Install  
 
 * 📖 [DjangoをDockerコンテナへインストールしよう！](https://qiita.com/muzudho1/items/48e69ed17d70a8f171a7)
 * 📖 [Djangoの本番環境のプロジェクトの作り方を予習しよう！](https://qiita.com/muzudho1/items/e9b8c1cefa5ddaa21ab2)
@@ -34,7 +34,7 @@ Lesson O2o1o3o1 Web page
 * 📖 [DjangoのHTMLのボイラープレートを減らすテンプレートを使おう！](https://qiita.com/muzudho1/items/7dcfc068e0bec009d371)
 * 📖 [DjangoのHTMLのボイラープレートを減らすテンプレートを作るのも減らそう！](https://qiita.com/muzudho1/items/606d314c01543666c51b)
 
-Lesson O2o2o1 Super-user  
+Lesson O2o3o1o1 Super-user  
 
 * 📖 [Djangoでスーパーユーザーを追加しよう！](https://qiita.com/muzudho1/items/cf21fa75e23e1f987153)
 
@@ -49,7 +49,7 @@ Lesson O4o1 Auth, Sign up
   * もっと勉強したい人向けの関連記事
     * 📚 [Djangoで、django-allauthのテンプレートを差し替えよう！](https://qiita.com/muzudho1/items/6120055b2a8eb4e28527)
 
-Lesson O4o2 Reset database
+Lesson O4o3o1o1 Reset database
 
 * 📖 [Djangoでdataフォルダーを壊してしまったときのリセット方法を覚えよう！](https://qiita.com/muzudho1/items/1ecaac80568c981fcd59)
 
@@ -61,7 +61,7 @@ Lesson O5o1 Auth, Log in/out
 * 📖 [Djangoでログインしていないと見れないページ，およびログアウト機能を付けよう！](https://qiita.com/muzudho1/items/9f1ae4d0debc0b8aa4b1)
 * 📖 [Djangoでログインしていない人には見えず、ログインしている人には見えるボタンを作ろう！](https://qiita.com/muzudho1/items/0c59f3ce7aa6bef2a91f)
 
-Lesson O5o2o1 User, Extends User, and Active User  
+Lesson O5o3o1o1 User, Extends User, and Active User  
 
 * 📖 [Djangoで会員登録ユーザーを一覧しよう！](https://qiita.com/muzudho1/items/13c15be5b9070dab1770)
 * 📖 [DjangoでUserモデルを拡張しよう！](https://qiita.com/muzudho1/items/2d182729f625234f0eff)

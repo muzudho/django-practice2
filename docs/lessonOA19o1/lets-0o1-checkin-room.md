@@ -123,7 +123,7 @@ docker-compose up
         └── 📂 apps1
             └── 📂 tic_tac_toe_v3                   # アプリケーション Three
                 └── 📂 views
-                    └── 📂 o2                       # .Two
+                    └── 📂 o3o1                     # Three
                         └── 📂 match_application
 👉                          └── 📄 __init__.py
 ```
@@ -181,8 +181,8 @@ class MatchApplicationV():
         from .v_on_sent import match_application_on_sent
         #    ----------        -------------------------
         #    1                 2
-        # 1. `host1/apps1/tic_tac_toe_v3/views/o2/match_application/v_on_sent.py`
-        #                                                           ---------
+        # 1. `host1/apps1/tic_tac_toe_v3/views/o3o1/match_application/v_on_sent.py`
+        #                                                             ---------
         # 2. `1.` に含まれる関数
 
         return match_application_on_sent(request)
@@ -202,7 +202,7 @@ class MatchApplicationV():
         └── 📂 apps1
             └── 📂 tic_tac_toe_v3                   # アプリケーション Three
                 └── 📂 views
-                    └── 📂 o2                       # .Two
+                    └── 📂 o3o1                     # Three
                         └── 📂 match_application
                             ├── 📄 __init__.py
 👉                          └── 📄 v_on_sent.py
@@ -315,7 +315,7 @@ def match_application_on_sent(request):
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v3                   # アプリケーション Three
         │       └── 📂 views
-        │           └── 📂 o2                       # .Two
+        │           └── 📂 o3o1                     # Three
         │               └── 📂 match_application
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_on_sent.py
@@ -327,12 +327,12 @@ def match_application_on_sent(request):
 # ...略...
 
 
-# 〇×ゲーム v3o2 対局申込中
-from apps1.tic_tac_toe_v3.views.o2.match_application import MatchApplicationV as TicTacToeV3o2MatchApplicationV
-#                       ^three   ^two                                                      ^^^three.two
-#          --------------          -----------------        -----------------    ------------------------------
-#          11                      12                       2                    3
-#    -----------------------------------------------
+# 〇×ゲーム v3o3o1 対局申込中
+from apps1.tic_tac_toe_v3.views.o3o1.match_application import MatchApplicationV as TicTacToeV3o3o1MatchApplicationV
+#                       ^three   ^three                                                        ^three
+#          --------------            -----------------        -----------------    --------------------------------
+#          11                        12                       2                    3
+#    -------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -344,18 +344,18 @@ urlpatterns = [
     # ...略...
 
 
-    # 〇×ゲーム v3o2 対局申込中
-    path('tic-tac-toe/v3o2/match-application/', TicTacToeV3o2MatchApplicationV.render,
-         # ----------------------------------   -------------------------------------
-         # 1                                    2
-         name='tic_tac_toe_v3o2_match_application'),
-    #          ----------------------------------
+    # 〇×ゲーム v3o3o1 対局申込中
+    path('tic-tac-toe/v3o3o1/match-application/', TicTacToeV3o3o1MatchApplicationV.render,
+         # ------------------------------------   -------------------------------------
+         # 1                                      2
+         name='tic_tac_toe_v3o3o1_match_application'),
+    #          ------------------------------------
     #          3
     #
-    # 1. 例えば `http://example.com/tic-tac-toe/v3o2/match-application/` のような URL のパスの部分
-    #                              -----------------------------------
-    # 2. TicTacToeV3o2MatchApplicationV （別名）クラスの render メソッド
-    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3o2_match_application' %} のような形でURLを取得するのに使える
+    # 1. 例えば `http://example.com/tic-tac-toe/v3o3o1/match-application/` のような URL のパスの部分
+    #                              -------------------------------------
+    # 2. TicTacToeV3o3o1MatchApplicationV （別名）クラスの render メソッド
+    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3o3o1_match_application' %} のような形でURLを取得するのに使える
 ]
 ```
 
@@ -377,7 +377,7 @@ urlpatterns = [
 
 👇 そして `Elephant` 部屋に `X` 番として入ってほしい  
 
-📖 [http://localhost:8000/tic-tac-toe/v3o2/match-application/](http://localhost:8000/tic-tac-toe/v3o2/match-application/)  
+📖 [http://localhost:8000/tic-tac-toe/v3o3o1/match-application/](http://localhost:8000/tic-tac-toe/v3o3o1/match-application/)  
 
 ここで、ログアウトしたなら対局部屋を追い出されるべきだが、まだそこまで作っていない。  
 
@@ -391,7 +391,7 @@ urlpatterns = [
 
 👇 `Elephant` 部屋に `O` 番として入ってほしい  
 
-📖 [http://localhost:8000/tic-tac-toe/v3o2/match-application/](http://localhost:8000/tic-tac-toe/v3o2/match-application/)  
+📖 [http://localhost:8000/tic-tac-toe/v3o3o1/match-application/](http://localhost:8000/tic-tac-toe/v3o3o1/match-application/)  
 
 👇 部屋、ユーザーを確認するには、管理画面を使うのが確実だ。  
 スーパーユーザーのまま、管理画面に入っていてほしい  
@@ -414,7 +414,7 @@ urlpatterns = [
 👉          │       └── 📄 finished-lessons.csv
             └── 📂 tic_tac_toe_v3                   # アプリケーション Three
                 └── 📂 views
-                    └── 📂 o2                       # .Two
+                    └── 📂 o3o1                     # Three
                         └── 📂 match_application
                             ├── 📄 __init__.py
                             └── 📄 v_on_sent.py
@@ -423,7 +423,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/tic-tac-toe/v3o2/match-application/,〇×ゲーム v3.2 対局申込中
+/tic-tac-toe/v3o3o1/match-application/,〇×ゲーム v3o3o1 対局申込中
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

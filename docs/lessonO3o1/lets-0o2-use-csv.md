@@ -159,13 +159,13 @@ path,label
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 portal_v1            # アプリケーション名
+        │   └── 📂 portal_v1                    # アプリケーション名
         │       ├── 📂 data
         │       │   └── 📄 finished-lesson.csv
         │       └── 📂 templates
-        │           └── 📂 portal_v1    # アプリケーション名と同名
-❌      │               ├── 📂 o1            # これではない
-        │               └── 📂 o2            # こちら
+        │           └── 📂 portal_v1            # アプリケーション名と同名
+❌      │               ├── 📂 o1               # これではない
+        │               └── 📂 o3o1             # こちら
 👉      │                   └── 📄 portal_base.html
         └── 📄 requirements.txt
 ```
@@ -243,11 +243,11 @@ path,label
         │       │   └── 📄 finished-lesson.csv
         │       ├── 📂 templates
         │       │   └── 📂 portal_v1    # アプリケーション名と同名
-        │       │       └── 📂 o2
+        │       │       └── 📂 o3o1
         │       │           └── 📄 portal_base.html
         │       └── 📂 views
-❌      │           ├── 📂 o1            # これではない
-        │           └── 📂 o2            # こちら
+❌      │           ├── 📂 o1           # これではない
+        │           └── 📂 o3o1         # こちら
 👉      │               └── 📄 pages.py
         └── 📄 requirements.txt
 ```
@@ -265,12 +265,12 @@ class Portal():
     def render(request):
         """描画"""
 
-        template = loader.get_template('portal_v1/o2/portal_base.html')
-        #                                          ^two
-        #                               ------------------------------
+        template = loader.get_template('portal_v1/o3o1/portal_base.html')
+        #                                          ^three
+        #                               -------------------------------
         #                               1
-        # 1. host1/apps1/portal_v1/templates/portal_v1/o2/portal_base.html を取得
-        #                                    -----------------------------
+        # 1. host1/apps1/portal_v1/templates/portal_v1/o3o1/portal_base.html を取得
+        #                                    -------------------------------
 
         df = pd.read_csv('apps1/portal_v1/data/finished-lessons.csv')
         #                 -----------------------------------------
@@ -331,11 +331,11 @@ class Portal():
         │       │   └── 📄 finished-lesson.csv
         │       ├── 📂 templates
         │       │   └── 📂 portal_v1        # アプリケーションと同名
-        │       │       └── 📂 o2
+        │       │       └── 📂 o3o1
         │       │           └── 📄 portal_base.html
         │       └── 📂 views
         │           ├── 📂 o1
-        │           └── 📂 o2
+        │           └── 📂 o3o1
         │               └── 📄 pages.py
         ├── 📂 project1
 👉      │   ├── 📄 urls_portal.py           # こちら
@@ -347,8 +347,8 @@ class Portal():
 # * 変更前
 #from apps1.portal_v1.views.o1.pages import Portal
 # * 変更後
-from apps1.portal_v1.views.o2.pages import Portal
-#                           ^two
+from apps1.portal_v1.views.o3o1.pages import Portal
+#                           ^three
 ```
 
 # Step 9. Webページにアクセスする

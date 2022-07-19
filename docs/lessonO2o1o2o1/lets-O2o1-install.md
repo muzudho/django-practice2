@@ -24,7 +24,7 @@
 
 📖 [Visual Studio Code](https://code.visualstudio.com/)  
 
-# Step O2o2o1 リポジトリの用意 - Git
+# Step O2o3o1o1 リポジトリの用意 - Git
 
 がんばって Git を使ったソース管理を覚えてきてほしい  
 
