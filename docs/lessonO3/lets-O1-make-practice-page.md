@@ -47,7 +47,7 @@ http://example.com/practice/v1/page1
     └── 📄 .gitignore
 ```
 
-# Step O2o1 Dockerコンテナの起動
+# Step [1] Dockerコンテナの起動
 
 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -59,7 +59,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o3o1o1 フォルダー作成 - apps1/practice_v1 フォルダー
+# Step [2] フォルダー作成 - apps1/practice_v1 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -93,22 +93,15 @@ Example: `http://example.com/practice/v1/`
 
 👇 マイナー番号は、この連載では以下のように表記したり、しなかったりすることがある  
 
-Example: `o3o1o1`  
+Example: `o3o1`  
 
-この表記の名前は **電脳記数法** と呼ぶことにする  
+この表記の名前は **電脳ベクター表記** と呼ぶことにする  
 
-📖 [電脳記数法 (Cyber Number Notation)](https://crieit.net/posts/Cyber-Number-Notation)  
-
-`o` は単に数を区切っている。慣例的に先頭に `O` を置くが、置かないこともできる。末尾は必ず `o1` にする。  
-`1` の後ろに `o1` を付けてはいけない。 `o1` の次は `o3o1o1` でも `o1o3o1o1` でも どちらでも構わない  
-
-メジャー番号とマイナー番号をつなげて使う例は以下の通り  
-
-Example: `ws://example.com/practice/v1o3o1o1/`  
+📖 [電脳ベクター表記 (Cyber Vector Notation)](https://crieit.net/posts/Cyber-Number-Notation)  
 
 この連載では パッチ番号 のようなものは使わない  
 
-# Step O3o1 アプリケーション作成
+# Step [3] アプリケーション作成
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -138,7 +131,7 @@ docker-compose run --rm web python manage.py startapp practice_v1 ./apps1/practi
 👉              └── 📄 views.py
 ```
 
-# Step O4o1 今回使わないファイルの削除
+# Step [4] 今回使わないファイルの削除
 
 👇 以下のファイルを削除してほしい  
 
@@ -156,7 +149,7 @@ docker-compose run --rm web python manage.py startapp practice_v1 ./apps1/practi
 👉              └── 📄 views.py
 ```
 
-# Step O5o1 アプリケーション設定変更 - apps.py
+# Step [5] アプリケーション設定変更 - apps.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -188,7 +181,7 @@ class PracticeConfig(AppConfig):
     #           -----------------
 ```
 
-# Step O6o1 アプリケーション登録 - settings.py ファイル＜その２＞
+# Step [6] アプリケーション登録 - settings.py ファイル＜その２＞
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -235,7 +228,7 @@ INSTALLED_APPS = [
 これで、 `host1/apps1/practice_v1` フォルダーは practice_v1 アプリケーションとして認識される。  
 そのメリットは　今後のレッスンで触れる  
 
-# Step O7o1 画面作成 - page1.html ファイル
+# Step [7] 画面作成 - page1.html ファイル
 
 以下のファイルを作成してほしい。
 
@@ -263,7 +256,7 @@ INSTALLED_APPS = [
 </html>
 ```
 
-# Step O8o1 設定変更 - settings.py ファイル
+# Step [8] 設定変更 - settings.py ファイル
 
 👇 以下のファイルを編集してほしい  
 
@@ -316,7 +309,7 @@ TEMPLATES = [
 ]
 ```
 
-# Step O9o1 ビュー モジュール作成 - page1 フォルダー
+# Step [9] ビュー モジュール作成 - page1 フォルダー
 
 👇 以下のファイルを新規作成してほしい
 
@@ -362,7 +355,7 @@ class Page1():
         #                    <a href="http://example.com/">ホーム</a>""")
 ```
 
-# Step OA10o1 サブ ルート作成 - urls_practice.py
+# Step [10] サブ ルート作成 - urls_practice.py
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -409,7 +402,7 @@ urlpatterns = [
 ]
 ```
 
-# Step OA11o1 総合ルート編集 - urls.py
+# Step [11] 総合ルート編集 - urls.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -453,7 +446,7 @@ urlpatterns = [
 ]
 ```
 
-# Step OA12o1 Webページにアクセスする
+# Step [12] Webページにアクセスする
 
 📖 [http://localhost:8000/practice/v1/page1](http://localhost:8000/practice/v1/page1)  
 

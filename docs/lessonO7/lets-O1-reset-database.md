@@ -73,18 +73,18 @@ allauthなど、他のDjangoサーバーのアプリケーションを混ぜる�
     └── 📄 .gitignore
 ```
 
-# Step 1. バックアップを残しておけ
+# Step [1] バックアップを残しておけ
 
 関連するすべてのフォルダーまるごと、バックアップを残しておけ  
 
 このレッスンは　異常時からの復旧の練習だ。  
 データを損失するし、復旧できるとも限らない  
 
-# Step 2. Dockerコンテナ停止
+# Step [2] Dockerコンテナ停止
 
 Dockerコンテナが動いていれば、停止させてほしい  
 
-# Step 3. data フォルダーを消そう
+# Step [3] data フォルダーを消そう
 
 👇 以下のフォルダーを消してほしい。 Webサイトのデータが全部飛ぶ  
 
@@ -93,7 +93,7 @@ Dockerコンテナが動いていれば、停止させてほしい
 👉      └── 📂 data
 ```
 
-# Step 4. Dockerコンテナの起動
+# Step [4] Dockerコンテナの起動
 
 👇 Docker コンテナを起動しておいてほしい  
 
@@ -105,7 +105,7 @@ Dockerコンテナが動いていれば、停止させてほしい
 docker-compose up
 ```
 
-# Step 5. コマンドの打鍵 - migrate
+# Step [5] コマンドの打鍵 - migrate
 
 👇 以下のコマンドを打鍵してほしい。何をやっているかは分からない  
 
@@ -116,14 +116,14 @@ docker-compose run --rm web python3 manage.py migrate
 
 （マイグレーションをしているのは分かるが、何でこうなるのか　よく分からない）  
 
-# Step 6. Webページへアクセス
+# Step [6] Webページへアクセス
 
 📖 [http://localhost:8000/accounts/v1/signup/](http://localhost:8000/accounts/v1/signup/)  
 
 👆 allauth など、正常に動いているか　確認してほしい。  
 もし動いていなければ Webサイト は破壊してしまった。 連載を１からやり直してほしい  
 
-# Step 7. やりなおし
+# Step [7] やりなおし
 
 Super-user など 今までにデータベースに登録した内容は消えているので、連載をやり直してほしい  
 

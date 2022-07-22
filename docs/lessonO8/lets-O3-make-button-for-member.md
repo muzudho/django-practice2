@@ -67,7 +67,7 @@
     └── 📄 .gitignore
 ```
 
-# Step 1. Dockerコンテナの起動
+# Step [1] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -79,7 +79,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. HTMLファイルの作成
+# Step [2] HTMLファイルの作成
 
 以下のファイルを作成してほしい。  
 
@@ -185,7 +185,7 @@ docker-compose up
 </html>
 ```
 
-# Step 3. ビュー モジュール作成 - button_for_member フォルダー
+# Step [3] ビュー モジュール作成 - button_for_member フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -257,7 +257,7 @@ class ButtonForMember():
         return render_button_for_member(request, ButtonForMember._path_of_this_page, ButtonForMember._path_of_portal, ButtonForMember._path_of_login_required, ButtonForMember._path_of_login, ButtonForMember._path_of_logout)
 ```
 
-# Step 4. ビュー モジュール作成 - button_for_member/v_render.py ファイル
+# Step [4] ビュー モジュール作成 - button_for_member/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -297,7 +297,7 @@ def render_button_for_member(request, path_of_this_page, path_of_portal, path_of
     return HttpResponse(template.render(context, request))
 ```
 
-# Step 5. ルート編集 - urls_practice.py ファイル
+# Step [5] ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -350,11 +350,11 @@ urlpatterns = [
 ]
 ```
 
-# Step 6. Web画面へアクセス
+# Step [6] Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/buttom_for_member/](http://localhost:8000/practice/v1/buttom_for_member/)  
 
-# Step 7. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step [7] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

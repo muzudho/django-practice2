@@ -72,7 +72,7 @@ allauth アプリケーションの機能を使う　　
     └── 📄 .gitignore
 ```
 
-# Step 1. Dockerコンテナの起動
+# Step [1] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -84,7 +84,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. HTMLファイルを置く
+# Step [2] HTMLファイルを置く
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -111,7 +111,7 @@ docker-compose up
 </html>
 ```
 
-# Step 3. ビュー作成 - v_login_required.py ファイル
+# Step [3] ビュー作成 - v_login_required.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -184,7 +184,7 @@ def loggingOut_render(request):
     return redirect('home')  # ホームに戻る
 ```
 
-# Step 4. ルート編集 - urls_practice.py ファイル
+# Step [4] ルート編集 - urls_practice.py ファイル
 
 👇 以下のファイルの該当箇所を追記してほしい  
 
@@ -249,7 +249,7 @@ urlpatterns = [
 ]
 ```
 
-# Step 5. Webページへアクセス
+# Step [5] Webページへアクセス
 
 👇　ログインしているときは、ログイン情報が見えます。  
 　　ログインしていないときは、ログイン画面が出ます
@@ -260,7 +260,7 @@ urlpatterns = [
 
 📖 [http://localhost:8000/practice/v1/logout](http://localhost:8000/practice/v1/logout)  
 
-# Step 6. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step [6] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
