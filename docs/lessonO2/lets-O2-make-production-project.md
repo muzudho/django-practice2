@@ -36,7 +36,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O2o1 Dockerコンテナの起動
+# Step [1] Dockerコンテナの起動
 
 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -48,7 +48,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o3o1o1 プロジェクトのコピー - project2 フォルダー
+# Step [2] プロジェクトのコピー - project2 フォルダー
 
 👇 以下のフォルダーをコピー＆ペーストして  
 
@@ -65,7 +65,7 @@ docker-compose up
 👉      └── 📂 project2
 ```
 
-# Step O3o1 設定変更 - settings.py ファイル
+# Step [3] 設定変更 - settings.py ファイル
 
 👇 以下のファイルを編集してほしい  
 
@@ -87,7 +87,7 @@ docker-compose up
 DEBUG = False
 ```
 
-# Step O4o1 設定変更 - settings_secrets.py ファイル
+# Step [4] 設定変更 - settings_secrets.py ファイル
 
 👇 以下のファイルを編集してほしい  
 
@@ -115,7 +115,7 @@ ALLOWED_HOSTS = [
 ]
 ```
 
-# Step O5o1 本番用ドッカーコンポーズ ファイル作成 - docker-compose-project2.yml ファイル
+# Step [5] 本番用ドッカーコンポーズ ファイル作成 - docker-compose-project2.yml ファイル
 
 👇 以下のフォルダーをコピー＆ペーストして  
 
@@ -140,7 +140,7 @@ ALLOWED_HOSTS = [
 👉      └── 🐳 docker-compose-project2.yml
 ```
 
-# Step O6o1 本番用ドッカーコンポーズ ファイル編集 - docker-compose-project2.yml ファイル
+# Step [6] 本番用ドッカーコンポーズ ファイル編集 - docker-compose-project2.yml ファイル
 
 👇 以下のファイルを編集してほしい  
 
@@ -171,7 +171,7 @@ ALLOWED_HOSTS = [
     #                                                                  ^two
 ```
 
-# Step O7o1 ドッカーコンテナの停止～起動 - docker-compose コマンド
+# Step [7] ドッカーコンテナの停止～起動 - docker-compose コマンド
 
 👇 以下のコマンドを叩いてほしい  
 
@@ -188,7 +188,7 @@ docker-compose -f docker-compose-project2.yml up
 # 1. ドッカーコンポーズ ファイルを指定
 ```
 
-# Step O8o1 Webページへアクセス
+# Step [8] Webページへアクセス
 
 次に、ブラウザで以下のURLにアクセスしてほしい  
 
