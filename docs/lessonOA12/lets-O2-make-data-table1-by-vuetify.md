@@ -65,7 +65,7 @@ Data table を作れば上がる。だから説明する
     └── 📄 .gitignore
 ```
 
-# Step 1. Dockerコンテナの起動
+# Step [1] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -77,7 +77,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. 画面作成 - data_table1.html ファイル
+# Step [2] 画面作成 - data_table1.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -234,7 +234,7 @@ docker-compose up
 
 👆 `<v-data-table>` の説明は 📖[Vuetify - Data tables - Usage](https://vuetifyjs.com/en/components/data-tables/#dense) のページにある  
 
-# Step 3. ビュー作成 - v_data_table1.py ファイル
+# Step [3] ビュー作成 - v_data_table1.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -274,7 +274,7 @@ def render_data_table1(request):
     return HttpResponse(template.render(context, request))
 ```
 
-# Step 4. ビュー編集 - VuetifyV モジュール
+# Step [4] ビュー編集 - VuetifyV モジュール
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -305,7 +305,7 @@ class VuetifyV(object):
     from .v_data_table1 import render_data_table1
 ```
 
-# Step 5. ルート編集 - urls.py ファイル
+# Step [5] ルート編集 - urls.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -366,11 +366,11 @@ urlpatterns = [
 ]
 ```
 
-# Step 6. Web画面へアクセス
+# Step [6] Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/vuetify/data-table1](http://localhost:8000/practice/v1/vuetify/data-table1)  
 
-# Step 7. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step [7] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
