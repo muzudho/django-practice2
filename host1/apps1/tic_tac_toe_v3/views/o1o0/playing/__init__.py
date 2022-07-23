@@ -1,5 +1,5 @@
 # 以前のバージョン
-from apps1.tic_tac_toe_v2.views.o1o0.gui.playing import PlayingV as PlayingVV2o1o0
+from apps1.tic_tac_toe_v2.views.o1o0.gui.playing import PlayingV as PlayingVV2O1o0
 #                       ^two
 #          --------------                -------        --------    --------------
 #          11                            12             2           3
@@ -16,19 +16,19 @@ from apps1.tic_tac_toe_v2.views.o1o0.gui.playing import PlayingV as PlayingVV2o1
 class PlayingV():
     """対局中ビュー"""
 
-    path_of_ws_playing = "/tic-tac-toe/v2o1/playing/"
-    #                                   ^ two
-    #                     --------------------------
+    path_of_ws_playing = "/tic-tac-toe/v2/playing/"
+    #                                   ^two
+    #                     ------------------------
     #                     1
-    # 1. `ws://example.com:8000/tic-tac-toe/v2o1/playing/`
-    #                          --------------------------
+    # 1. `ws://example.com:8000/tic-tac-toe/v2/playing/`
+    #                          ------------------------
 
     path_of_html = "tic_tac_toe_v3/o1o0/playing.html.txt"
-    #                            ^four
-    #               --------------------------------------
+    #                            ^three
+    #               ------------------------------------
     #               1
     # 1. `host1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o1o0/playing.html.txt`
-    #                                            --------------------------------------
+    #                                          ------------------------------------
 
     @staticmethod
     def render(request, kw_room_name):
@@ -49,7 +49,7 @@ class PlayingV():
             PlayingV.path_of_ws_playing,
             PlayingV.path_of_html,
             PlayingV.on_update,
-            PlayingVV2o1o0.expected_pieces)
+            PlayingVV2O1o0.expected_pieces)
 
     @staticmethod
     def on_update(request):

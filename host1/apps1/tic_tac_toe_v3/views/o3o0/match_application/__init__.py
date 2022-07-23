@@ -1,5 +1,5 @@
 # 以前のバージョン
-from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicationV as MatchApplicationVV2o1o0
+from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicationV as MatchApplicationVV2O1o0
 #                       ^two
 #    -----------------------------------------------------        -----------------    -----------------------
 #    1                                                            2                    3
@@ -45,6 +45,6 @@ class MatchApplicationV():
         return render_match_application(
             request,
             MatchApplicationV.path_of_http_playing,
-            MatchApplicationVV2o1o0.path_of_html,
+            MatchApplicationVV2O1o0.path_of_html,
             MatchApplicationVV3o1o0.on_sent,
-            MatchApplicationVV2o1o0.open)
+            MatchApplicationVV2O1o0.open)

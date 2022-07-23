@@ -1,5 +1,5 @@
 # 以前のバージョン
-from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicationV as MatchApplicationVV2o1o0
+from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicationV as MatchApplicationVV2O1o0
 #                       ^two
 #    -----------------------------------------------------        -----------------    -----------------------
 #    1                                                            2                    3
@@ -12,13 +12,13 @@ from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicati
 class MatchApplicationV():
     """対局申込ビュー"""
 
-    # 〇×ゲーム v3o1o0
-    path_of_http_playing = "/tic-tac-toe/v3o1o0/playing/{0}/?&myturn={1}"
+    # 〇×ゲーム v3.1
+    path_of_http_playing = "/tic-tac-toe/v3.1/playing/{0}/?&myturn={1}"
     #                                     ^three
-    #                       --------------------------------------------
+    #                       ------------------------------------------
     #                       1
-    # 1. `http://example.com:8000/tic-tac-toe/v3o1o0/playing/Elephant/?&myturn=X`
-    #                            -----------------------------------------------
+    # 1. `http://example.com:8000/tic-tac-toe/v3.1/playing/Elephant/?&myturn=X`
+    #                            ---------------------------------------------
 
     @staticmethod
     def render(request):
@@ -36,7 +36,7 @@ class MatchApplicationV():
         return render_match_application(
             request,
             MatchApplicationV.path_of_http_playing,
-            MatchApplicationVV2o1o0.path_of_html,
+            MatchApplicationVV2O1o0.path_of_html,
             MatchApplicationV.on_sent,
             MatchApplicationV.open)
 
@@ -50,4 +50,4 @@ class MatchApplicationV():
     @staticmethod
     def open(request):
         """訪問後"""
-        return MatchApplicationVV2o1o0.open_context
+        return MatchApplicationVV2O1o0.open_context

@@ -1,5 +1,5 @@
 # 以前のバージョン
-from apps1.tic_tac_toe_v2.views.o1o0.gui.playing import PlayingV as PlayingVV2o1o0
+from apps1.tic_tac_toe_v2.views.o1o0.gui.playing import PlayingV as PlayingVV2O1o0
 #                       ^two
 #          --------------                -------        --------    --------------
 #          11                            12             2           3
@@ -56,4 +56,4 @@ class PlayingV():
             PlayingV.path_of_ws_playing,
             PlayingVV3o1o0.path_of_html,
             PlayingVV3o1o0.on_update,
-            PlayingVV2o1o0.expected_pieces)
+            PlayingVV2O1o0.expected_pieces)

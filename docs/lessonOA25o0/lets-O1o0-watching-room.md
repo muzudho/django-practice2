@@ -178,7 +178,7 @@ docker-compose up
 import json
 
 # 以前のバージョン
-from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicationV as MatchApplicationVV2o1o0
+from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicationV as MatchApplicationVV2O1o0
 #                       ^two
 #          --------------                -----------------        -----------------    -----------------------
 #          11                            12                       2                    3
@@ -245,7 +245,7 @@ class MatchApplicationV():
         return render_match_application(
             request,
             MatchApplicationV.path_of_http_playing,
-            MatchApplicationVV2o1o0.path_of_html,
+            MatchApplicationVV2O1o0.path_of_html,
             MatchApplicationVV3o1o0.on_sent,
             MatchApplicationV.open)
 
@@ -364,24 +364,24 @@ class PlayingV():
 # ...略...
 
 
-# 〇×ゲーム o3o0o4o0 対局申込中
-from apps1.tic_tac_toe_v3.views.o4o0.match_application import MatchApplicationV as TicTacToeO4o1o4o0MatchApplicationV
-#                                  ^five
-#          ----------------            -----------------        -----------------    ----------------------------------
-#          11                          12                       2                    3
-#    ---------------------------------------------------
+# 〇×ゲーム v3.4 対局申込中
+from apps1.tic_tac_toe_v3.views.o4o0.match_application import MatchApplicationV as TicTacToeV3g4o0MatchApplicationV
+#                       ^three   ^four
+#          --------------            -----------------        -----------------    --------------------------------
+#          11                        12                       2                    3
+#    -------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 # 3. `2.` の別名
 
-# 〇×ゲーム o3o0o4o0 対局中
-from apps1.tic_tac_toe_v3.views.o4o0.playing import PlayingV as TicTacToeO4o1o4o0PlayingV
-#                                  ^five
-#          ----------------            -------        --------    -------------------------
-#          11                          12             2           3
-#    -----------------------------------------
+# 〇×ゲーム v3.4 対局中
+from apps1.tic_tac_toe_v3.views.o4o0.playing import PlayingV as TicTacToeV3g4o0PlayingV
+#                       ^three   ^four
+#          --------------            -------        --------    -----------------------
+#          11                        12             2           3
+#    ---------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -393,30 +393,30 @@ urlpatterns = [
     # ...略...
 
 
-    # 〇×ゲーム o3o0o4o0 対局申込中
-    path('tic-tac-toe/v3.4/match-application/', TicTacToeO4o1o4o0MatchApplicationV.render,
-         # ----------------------------------   -----------------------------------------
+    # 〇×ゲーム v3.4 対局申込中
+    path('tic-tac-toe/v3.4/match-application/', TicTacToeV3g4o0MatchApplicationV.render,
+         # ----------------------------------   ---------------------------------------
          # 1                                    2
-         name='tic_tac_toe_v4o1o4o0_match_application'),
+         name='tic_tac_toe_v3g4o0_match_application'),
     #          --------------------------------------
     #          3
     # 1. 例えば `http://example.com/tic-tac-toe/v3.4/match-application/` のような URL のパスの部分
     #                              -----------------------------------
-    # 2. TicTacToeO4o1o4o0MatchApplicationV （別名）クラスの render メソッド
-    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3o4o0_match_application' %} のような形でURLを取得するのに使える
+    # 2. TicTacToeV3g4o0MatchApplicationV （別名）クラスの render メソッド
+    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3g4o0_match_application' %} のような形でURLを取得するのに使える
 
-    # 〇×ゲーム o3o0o4o0 対局中
-    path('tic-tac-toe/v3.4/playing/<str:kw_room_name>/', TicTacToeO4o1o4o0PlayingV.render,
-         # -------------------------------------------   --------------------------------
+    # 〇×ゲーム v3.4 対局中
+    path('tic-tac-toe/v3.4/playing/<str:kw_room_name>/', TicTacToeV3g4o0PlayingV.render,
+         # -------------------------------------------   ------------------------------
          # 1                                             2
-         name='tic_tac_toe_v3o4o0_playing'),
+         name='tic_tac_toe_v3g4o0_playing'),
     #          ----------------------------
     #          3
     # 1. 例えば `http://example.com/tic-tac-toe/v3.4/playing/<部屋名>/` のような URL のパスの部分
     #                              ----------------------------------
     #    <部屋名> に入った文字列は `2.` のメソッドの kw_room_name 引数に渡されます
-    # 2. TicTacToeO4o1o4o0PlayingV （別名）クラスの render メソッド
-    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3o4o0_playing' %} のような形でURLを取得するのに使える
+    # 2. TicTacToeV3g4o0PlayingV （別名）クラスの render メソッド
+    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3g4o0_playing' %} のような形でURLを取得するのに使える
 ]
 ```
 
