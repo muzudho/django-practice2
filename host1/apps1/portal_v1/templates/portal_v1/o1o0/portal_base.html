@@ -24,13 +24,13 @@
                             <h3>終わったレッスン</h3>
                         </v-row>
                         <v-row class="my-2">
-                            <v-btn :href="vu_pathOfPage1">おはようページ</v-btn>
+                            <v-btn :href="vu_pathOfPageTheHello">おはようページ</v-btn>
                         </v-row>
                         <v-row class="my-2">
-                            <v-btn :href="vu_pathOfPage2Patch1">１回追加されたページ</v-btn>
+                            <v-btn :href="vu_pathOfPageToBeAdded1">１回追加されたページ</v-btn>
                         </v-row>
                         <v-row class="my-2">
-                            <v-btn :href="vu_pathOfPage2Patch2">２回追加されたページ</v-btn>
+                            <v-btn :href="vu_pathOfPageToBeAdded2">２回追加されたページ</v-btn>
                         </v-row>
                         {% block finished_lesson_footer %}
                         <!-- -->
@@ -49,14 +49,14 @@
                 data: {
                     // "vu_" は 「vue1.dataのメンバー」 の目印
                     // "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
-                    vu_pathOfPage1: `${location.protocol}//${location.host}{{ dj_path_of_page1 }}`,
-                    //               --------------------  ---------------]----------------------
-                    //               1                     2               3
+                    vu_pathOfPageTheHello: `${location.protocol}//${location.host}{{ dj_path_of_page_the_hello }}`,
+                    //                      --------------------  ---------------]-------------------------------
+                    //                      1                     2               3
                     // 1. スキーム（HTTPプロトコル）
                     // 2. ホスト
                     // 3. パス
-                    vu_pathOfPage2Patch1: `${location.protocol}//${location.host}{{ dj_path_of_page2_patch1 }}`,
-                    vu_pathOfPage2Patch2: `${location.protocol}//${location.host}{{ dj_path_of_page2_patch2 }}`,
+                    vu_pathOfPageToBeAdded1: `${location.protocol}//${location.host}{{ dj_path_of_page_to_be_added_1 }}`,
+                    vu_pathOfPageToBeAdded2: `${location.protocol}//${location.host}{{ dj_path_of_page_to_be_added_2 }}`,
                     {% block vue1_data_footer %}
                     <!-- -->
                     {% endblock vue1_data_footer %}

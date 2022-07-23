@@ -13,7 +13,7 @@ MECE に考えると以下の４つ
 
 Webサイトのポータルページを作成する  
 
-ポータルページは以下のようなURLとする  
+ポータルページは以下のようなURLと **したいが**  
 
 ```plain
 http://example.com/
@@ -22,6 +22,12 @@ http://example.com/
 
 1. スキーム（HTTPプロトコル）
 2. ホストの例
+```
+
+まずは練習として以下のURLとする  
+
+```plain
+http://example.com/practice/v1/portal
 ```
 
 # はじめに
@@ -157,7 +163,7 @@ class PortalConfig(AppConfig):
     #name = 'portal_v1'
     # 変更後
     name = 'apps1.portal_v1'
-    #       ------------
+    #       ---------------
     #       1
     # 1. `host1/apps1/portal_v1/apps.py`
     #           ---------------
@@ -275,16 +281,16 @@ favicon.ico を有効にするには HTML で設定する必要があるが、�
 <html lang="ja">
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
         <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
         <!--                                                ===================
                                                             1
             1. Example: `http://example.com/static/favicon.ico`
                                             ==================
         -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>ポータル</title>
     </head>
     <body>
@@ -296,13 +302,13 @@ favicon.ico を有効にするには HTML で設定する必要があるが、�
                             <h3>終わったレッスン</h3>
                         </v-row>
                         <v-row class="my-2">
-                            <v-btn :href="vu_pathOfPage1">おはようページ</v-btn>
+                            <v-btn :href="vu_pathOfPageTheHello">おはようページ</v-btn>
                         </v-row>
                         <v-row class="my-2">
-                            <v-btn :href="vu_pathOfPage2Patch1">１回追加されたページ</v-btn>
+                            <v-btn :href="vu_pathOfPageToBeAdded1">１回追加されたページ</v-btn>
                         </v-row>
                         <v-row class="my-2">
-                            <v-btn :href="vu_pathOfPage2Patch2">２回追加されたページ</v-btn>
+                            <v-btn :href="vu_pathOfPageToBeAdded2">２回追加されたページ</v-btn>
                         </v-row>
                         {% block finished_lesson_footer %}
                         <!-- -->
@@ -321,14 +327,14 @@ favicon.ico を有効にするには HTML で設定する必要があるが、�
                 data: {
                     // "vu_" は 「vue1.dataのメンバー」 の目印
                     // "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
-                    vu_pathOfPage1: `${location.protocol}//${location.host}{{ dj_path_of_page1 }}`,
-                    //               --------------------  ---------------]----------------------
-                    //               1                     2               3
+                    vu_pathOfPageTheHello: `${location.protocol}//${location.host}{{ dj_path_of_page_the_hello }}`,
+                    //                      --------------------  ---------------]-------------------------------
+                    //                      1                     2               3
                     // 1. スキーム（HTTPプロトコル）
                     // 2. ホスト
                     // 3. パス
-                    vu_pathOfPage2Patch1: `${location.protocol}//${location.host}{{ dj_path_of_page2_patch1 }}`,
-                    vu_pathOfPage2Patch2: `${location.protocol}//${location.host}{{ dj_path_of_page2_patch2 }}`,
+                    vu_pathOfPageToBeAdded1: `${location.protocol}//${location.host}{{ dj_path_of_page_to_be_added_1 }}`,
+                    vu_pathOfPageToBeAdded2: `${location.protocol}//${location.host}{{ dj_path_of_page_to_be_added_2 }}`,
                     {% block vue1_data_footer %}
                     <!-- -->
                     {% endblock vue1_data_footer %}
@@ -403,7 +409,7 @@ TEMPLATES = [
 ]
 ```
 
-# Step O[10 0] ビュー作成 - pages.py ファイル
+# Step O[10 0] ビュー モジュール作成 - portal フォルダー
 
 以下のファイルを作成してほしい  
 
@@ -414,14 +420,15 @@ TEMPLATES = [
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 🚀 favicon.ico   # アプリケーション毎にアイコンを作るのがめんどくさいので static の直下に置いた
+        │       │   └── 🚀 favicon.ico      # アプリケーション毎にアイコンを作るのがめんどくさいので static の直下に置いた
         │       ├── 📂 templates
         │       │   └── 📂 portal_v1        # アプリケーションと同名
         │       │       └── 📂 o1o0
         │       │           └── 📄 portal_base.html
         │       ├── 📂 views
         │       │   └── 📂 o1o0
-👉      │       │       └── 📄 pages.py
+        │       │       └── 📂 portal
+👉      │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -445,12 +452,12 @@ class Portal():
         #                               -------------------------------
         #                               1
         # 1. host1/apps1/practice_v1/templates/portal_v1/o1o0/portal_base.html を取得
-        #                                        -------------------------------
+        #                                      -------------------------------
 
         context = {
-            "dj_path_of_page1": "/practice/v1/page1",
-            "dj_path_of_page2_patch1": "/practice/v1/page2_patch1",
-            "dj_path_of_page2_patch2": "/practice/v1/page2_patch2",
+            "dj_path_of_page_the_hello": "/practice/v1/page-the-hello",
+            "dj_path_of_page_to_be_added_1": "/practice/v1/page-to-be-added-1",
+            "dj_path_of_page_to_be_added_2": "/practice/v1/page-to-be-added-2",
         }
 
         return HttpResponse(template.render(context, request))
@@ -474,7 +481,8 @@ class Portal():
         │       │           └── 📄 portal_base.html
         │       ├── 📂 views
         │       │   └── 📂 o1o0
-        │       │       └── 📄 pages.py
+        │       │       └── 📂 portal
+👉      │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -488,23 +496,31 @@ class Portal():
 ```py
 from django.urls import path
 
-from apps1.portal_v1.views.o1o0.pages import Portal
-#    -------------------------- -----        ------
-#    1                          2            3
-# 1. ディレクトリー名
-# 2. Python ファイル名。拡張子抜き
-# 3. クラス名
+# ポータルの練習
+from apps1.portal_v1.views.o1o0.portal import Portal as PortalO1o0
+#          ---------            ------        ------    ----------
+#          11                   12            2         3
+#    ---------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
+# 3. `2.` の別名
 
 
 urlpatterns = [
 
-    # ポータル
-    path('', Portal.render, name='page1'),
-    #    --  -------------        -----
-    #    1   2                    3
-    # 1. 例えば `http://example.com/` のようなURLの直下
-    # 2. Portal クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'page1' %} のような形でURLを取得するのに使える
+    # ポータルの練習
+    path('practice/v1/portal',
+         # -----------------
+         # 1
+         PortalO1o0.render, name='practice_v1_portal'),
+    #    -----------------        ------------------
+    #    2                        3
+    # 1. 例えば `http://example.com/practice/v1/portal` のようなURLのパスの部分
+    #                              -------------------
+    # 2. PortalO1o0 (別名)クラスの render 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_portal' %} のような形でURLを取得するのに使える
 ]
 ```
 
@@ -526,7 +542,8 @@ urlpatterns = [
         │       │           └── 📄 portal_base.html
         │       ├── 📂 views
         │       │   └── 📂 o1o0
-        │       │       └── 📄 pages.py
+        │       │       └── 📂 portal
+👉      │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -562,7 +579,7 @@ urlpatterns = [
 
 # Step O[13 0] Webページにアクセスする
 
-📖 [http://localhost:8000/](http://localhost:8000/)  
+📖 [http://localhost:8000/practice/v1/portal](http://localhost:8000/practice/v1/portal)  
 
 # 次の記事
 

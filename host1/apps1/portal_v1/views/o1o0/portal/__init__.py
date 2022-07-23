@@ -15,9 +15,9 @@ class Portal():
         #                                      -------------------------------
 
         context = {
-            "dj_path_of_page1": "/practice/v1/page1",
-            "dj_path_of_page2_patch1": "/practice/v1/page2_patch1",
-            "dj_path_of_page2_patch2": "/practice/v1/page2_patch2",
+            "dj_path_of_page_the_hello": "/practice/v1/page-the-hello",
+            "dj_path_of_page_to_be_added_1": "/practice/v1/page-to-be-added-1",
+            "dj_path_of_page_to_be_added_2": "/practice/v1/page-to-be-added-2",
         }
 
         return HttpResponse(template.render(context, request))

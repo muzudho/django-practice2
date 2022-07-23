@@ -7,7 +7,7 @@ class PortalConfig(AppConfig):
     #name = 'portal_v1'
     # 変更後
     name = 'apps1.portal_v1'
-    #       ------------
+    #       ---------------
     #       1
     # 1. `host1/apps1/portal_v1/apps.py`
     #           ---------------
