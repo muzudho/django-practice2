@@ -69,7 +69,7 @@ http://example.com/
     └── 📄 .gitignore
 ```
 
-# Step [1] Dockerコンテナの起動
+# Step O[1 0] Dockerコンテナの起動
 
 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -81,7 +81,7 @@ cd host1
 docker-compose up
 ```
 
-# Step [2] フォルダー作成 - apps1/portal_v1 フォルダー
+# Step O[2 0] フォルダー作成 - apps1/portal_v1 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -91,7 +91,7 @@ docker-compose up
             └── 📂 portal_v1        # アプリケーション名
 ```
 
-# Step [3] アプリケーション作成
+# Step O[3 0] アプリケーション作成
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -103,7 +103,7 @@ docker-compose run --rm web python manage.py startapp portal_v1 ./apps1/portal_v
 # 2. パス
 ```
 
-# Step [4] 今回使わないファイルの削除
+# Step O[4 0] 今回使わないファイルの削除
 
 👇 以下のファイルを削除してほしい  
 
@@ -121,7 +121,7 @@ docker-compose run --rm web python manage.py startapp portal_v1 ./apps1/portal_v
 👉              └── 📄 views.py
 ```
 
-# Step [5] アプリケーション設定変更 - apps.py
+# Step O[5 0] アプリケーション設定変更 - apps.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -153,7 +153,7 @@ class PortalConfig(AppConfig):
     #           ---------------
 ```
 
-# Step [6] アプリケーション登録 - settings.py ファイル＜その２＞
+# Step O[6 0] アプリケーション登録 - settings.py ファイル＜その２＞
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -191,7 +191,7 @@ INSTALLED_APPS = [
 これで、 `host1/apps1/portal_v1` フォルダーは portal_v1 アプリケーションとして認識される。  
 例えば、 portal_v1 フォルダーの直下に置いた static フォルダーが Django の静的リソースの検索対象のパスになるといったメリットがある  
 
-# Step [7] アイコンの設定 - favicon.ico ファイル
+# Step O[7 0] アイコンの設定 - favicon.ico ファイル
 
 favicon.ico は、例えば 以下のサイトで作れる。作ってきてほしい  
 
@@ -235,7 +235,7 @@ favicon.ico を有効にするには HTML で設定する必要があるが、�
 以下略
 ```
 
-# Step [8] 画面作成 - portal_base.html ファイル
+# Step O[8 0] 画面作成 - portal_base.html ファイル
 
 以下のファイルを作成してほしい。
 
@@ -329,7 +329,7 @@ favicon.ico を有効にするには HTML で設定する必要があるが、�
 </html>
 ```
 
-# Step [9] 設定変更 - settings.py ファイル＜その２＞
+# Step O[9 0] 設定変更 - settings.py ファイル＜その２＞
 
 👇 以下のファイルを編集してほしい  
 
@@ -393,7 +393,7 @@ TEMPLATES = [
 ]
 ```
 
-# Step [10] ビュー作成 - pages.py ファイル
+# Step O[10 0] ビュー作成 - pages.py ファイル
 
 以下のファイルを作成してほしい  
 
@@ -446,7 +446,7 @@ class Portal():
         return HttpResponse(template.render(context, request))
 ```
 
-# Step [11] サブ ルート作成 - urls_portal.py
+# Step O[11 0] サブ ルート作成 - urls_portal.py
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -498,7 +498,7 @@ urlpatterns = [
 ]
 ```
 
-# Step [12] 総合ルート編集 - urls.py
+# Step O[12 0] 総合ルート編集 - urls.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -550,7 +550,7 @@ urlpatterns = [
 ]
 ```
 
-# Step [13] Webページにアクセスする
+# Step O[13 0] Webページにアクセスする
 
 📖 [http://localhost:8000/](http://localhost:8000/)  
 

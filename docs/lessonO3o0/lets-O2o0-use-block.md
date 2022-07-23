@@ -46,7 +46,7 @@
     └── 📄 .gitignore
 ```
 
-# Step [1] Dockerコンテナの起動
+# Step O[1 0] Dockerコンテナの起動
 
 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -58,7 +58,7 @@ cd host1
 docker-compose up
 ```
 
-# Step [2] 画面作成 - page2_base.html ファイル
+# Step O[2 0] 画面作成 - page2_base.html ファイル
 
 以下のファイルを作成してほしい。
 
@@ -111,7 +111,7 @@ docker-compose up
 </html>
 ```
 
-# Step [3] 画面作成 - page2_patch1.html.txt ファイル
+# Step O[3 0] 画面作成 - page2_patch1.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい。  
 自動フォーマットされてくないので、拡張子をテキストファイルにしておく  
@@ -162,7 +162,7 @@ docker-compose up
 {% endblock section2_footer %}
 ```
 
-# Step [4] ビュー作成 - pages.py ファイル
+# Step O[4 0] ビュー作成 - pages.py ファイル
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -205,7 +205,7 @@ class Page2Patch1():
         return HttpResponse(template.render(context, request))
 ```
 
-# Step [5] サブ ルート編集 - urls_practice.py
+# Step O[5 0] サブ ルート編集 - urls_practice.py
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -265,7 +265,7 @@ urlpatterns = [
 ]
 ```
 
-# Step [6] Webページにアクセスする
+# Step O[6 0] Webページにアクセスする
 
 📖 [http://localhost:8000/practice/v1/page2_patch1](http://localhost:8000/practice/v1/page2_patch1)  
 
