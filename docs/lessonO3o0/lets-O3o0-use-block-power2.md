@@ -60,7 +60,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O[2 0] 画面作成 - page2_patch2.html.txt ファイル
+# Step O[2 0] 画面作成 - o3o0/page_to_be_added.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい。  
 自動フォーマットされてくないので、拡張子をテキストファイルにしておく  
@@ -71,17 +71,17 @@ docker-compose up
             └── 📂 practice_v1
                 └── 📂 templates
                     └── 📂 practice_v1
-                        └── 📂 o1o0
-👉                          └── 📄 page2_patch2.html.txt
+                        └── 📂 o3o0     # Three
+👉                          └── 📄 page_to_be_added.html.txt
 ```
 
 ```html
-{% extends "practice_v1/o1o0/page2_patch1.html.txt" %}
+{% extends "practice_v1/o2o0/page_to_be_added.html.txt" %}
 <!-- -->
-{#          ----------------------------------------
+{#          ------------------------------------------
             1
-1. host1/apps1/practice_v1/templates/practice_v1/o1o0/page2_patch1.html.txt
-                                       ----------------------------------------
+1. host1/apps1/practice_v1/templates/practice_v1/o2o0/page_to_be_added.html.txt
+                                     ------------------------------------------
 #}
 
 <!-- 伸びることを想定したリスト -->
@@ -104,7 +104,7 @@ docker-compose up
 {% endblock section3 %}
 ```
 
-# Step O[3 0] ビュー作成 - pages.py ファイル
+# Step O[3 0] ビュー モジュール作成 - o3o0/page_to_be_added フォルダー
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -117,8 +117,9 @@ docker-compose up
                 │       └── 📂 o1o0
                 │           └── 📄 page2_patch2.html.txt
                 └── 📂 views
-                    └── 📂 o1o0
-👉                      └── 📄 pages.py
+                    └── 📂 o3o0     # Three
+                        └── 📂 page_to_be_added
+👉                          └── 📄 __init__.py
 ```
 
 ```py
@@ -126,22 +127,19 @@ from django.http import HttpResponse
 from django.template import loader
 
 
-# ...中略...
-
-
-class Page2Patch2():
-    """ページ２ パッチ２"""
+class PageToBeAdded():
+    """追加されるページ"""
 
     def render(request):
         """描画"""
 
         template = loader.get_template(
-            'practice_v1/o1o0/page2_patch2.html.txt')
-        #                                  ^two
-        #    ----------------------------------------
+            'practice_v1/o3o0/page_to_be_added.html.txt')
+        #                 ^three
+        #    ------------------------------------------
         #    1
-        # 1. host1/apps1/practice_v1/templates/practice_v1/o1o0/page2_patch2.html.txt を取得
-        #                                        ----------------------------------------
+        # 1. host1/apps1/practice_v1/templates/practice_v1/o3o0/page_to_be_added.html.txt を取得
+        #                                      ------------------------------------------
 
         context = {}
         return HttpResponse(template.render(context, request))
@@ -160,8 +158,9 @@ class Page2Patch2():
         │       │       └── 📂 o1o0
         │       │           └── 📄 page2_patch2.html.txt
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📄 pages.py
+        │           └── 📂 o3o0
+        │               └── 📂 page_to_be_added
+        │                   └── 📄 __init__.py
         └── 📂 project1
 👉          ├── 📄 urls_practice.py          # こちら
 ❌          └── 📄 urls.py                   # これではない
@@ -174,16 +173,17 @@ from django.urls import path
 # ...中略...
 
 
-# 練習ページ２ パッチ２
-from apps1.practice_v1.views.o1o0.pages import Page2Patch2
-#                                                          ^two
-#          -------------            -----        -----------
-#          11                       12           2
-#    ------------------------------------
+# 練習ページ ２回追加されたページ
+from apps1.practice_v1.views.o3o0.page_to_be_added import PageToBeAdded as PageToBeAdded2
+#                             ^three
+#          -----------            ----------------        -------------    --------------
+#          11                     12                      2                3
+#    ---------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
+# 3. `2.` の別名
 
 
 # ...中略...
@@ -195,22 +195,24 @@ urlpatterns = [
     # ...中略...
 
 
-    # 練習ページ２ パッチ２
-    path('practice/v1/page2_patch2', Page2Patch2.render, name='page2_patch2'),
-    #                            ^two          ^two                       ^two
-    #     ------------------------   ------------------        ------------
-    #     1                          2                         3
+    # 練習ページ２ ２回追加されたページ
+    path('practice/v1/page-to-be-added-2',
+         # -----------------------------
+         # 1
+         PageToBeAdded2.render, name='page_to_be_added_2'),
+    #    ---------------------        ------------------
+    #    2                            3
     #
-    # 1. 例えば `http://example.com/practice/v1/page2_patch2` のようなURLのパスの部分
-    #                              -------------------------
-    # 2. Page2Patch2 クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'page2_patch2' %} のような形でURLを取得するのに使える
+    # 1. 例えば `http://example.com/practice/v1/page-to-be-added-2` のようなURLのパスの部分
+    #                              ------------------------------
+    # 2. PageToBeAdded2 (別名)クラスの render 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'page_to_be_added_2' %} のような形でURLを取得するのに使える
 ]
 ```
 
 # Step O[5 0] Webページにアクセスする
 
-📖 [http://localhost:8000/practice/v1/page2_patch2](http://localhost:8000/practice/v1/page2_patch2)  
+📖 [http://localhost:8000/practice/v1/page-to-be-added-2](http://localhost:8000/practice/v1/page-to-be-added-2)  
 
 # 次の記事
 

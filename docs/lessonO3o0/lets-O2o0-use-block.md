@@ -194,6 +194,7 @@ class PageToBeAdded():
 
         template = loader.get_template(
             'practice_v1/o2o0/page_to_be_added.html.txt')
+        #                 ^two
         #    ------------------------------------------
         #    1
         # 1. host1/apps1/practice_v1/templates/practice_v1/o2o0/page_to_be_added.html.txt を取得
@@ -217,8 +218,9 @@ class PageToBeAdded():
         │       │           ├── 📄 page2_base.html
         │       │           └── 📄 page2_patch1.html.txt
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📄 pages.py
+        │           └── 📂 o2o0
+        │               └── 📂 page_to_be_added
+        │                   └── 📄 __init__.py
         └── 📂 project1
 👉          ├── 📄 urls_practice.py          # こちら
 ❌          └── 📄 urls.py                   # これではない
