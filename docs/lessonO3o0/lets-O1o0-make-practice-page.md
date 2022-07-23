@@ -4,8 +4,8 @@ Webサイトのページを追加したい。
 以下のようなURLで表示させる  
 
 ```plain
-http://example.com/practice/v1/page1
-------]----------]------------------
+http://example.com/practice/v1/page-the-hello
+------]----------]---------------------------
 1      2          3
 
 1. スキーム（HTTPプロトコル）
@@ -246,7 +246,7 @@ INSTALLED_APPS = [
                 └── 📂 templates
                     └── 📂 practice_v1      # アプリケーションと同名
                         └── 📂 o1o0
-👉                          └── 📄 page1.html
+👉                          └── 📄 page_the_hello.html
 ```
 
 * `templateの下のpractice_v1` - あなたの Django の支配下のすべてのアプリケーションのテンプレート素材は、まるで実行時メモリの中で、あなたの Django の支配下のすべてのアプリケーションからアクセスできる１つの静的フォルダーに再配置されているかのように扱えると考えてほしい。あとは自分の頭で考えてほしい
@@ -257,7 +257,7 @@ INSTALLED_APPS = [
         <title>ページ１</title>
     </head>
     <body>
-        テストだよ
+        おはよう、世界！
     </body>
 </html>
 ```
@@ -273,7 +273,7 @@ INSTALLED_APPS = [
         │       └── 📂 templates
         │           └── 📂 practice_v1
         │               └── 📂 o1o0
-        │                   └── 📄 page1.html
+        │                   └── 📄 page_the_hello.html
         └── 📂 project1
 👉          └── 📄 settings.py
 ```
@@ -292,7 +292,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'apps1/practice_v1/templates'),
             #                       ---------------------------
             #                       10
-            # Example: /host1/apps1/practice_v1/templates/practice_v1/o1o0/page1.html
+            # Example: /host1/apps1/practice_v1/templates/practice_v1/o1o0/page_the_hello.html
             #                       -----------          ------------
             #                       11                   2
             #                 ---------------------------
@@ -315,7 +315,7 @@ TEMPLATES = [
 ]
 ```
 
-# Step O[9 0] ビュー モジュール作成 - page1 フォルダー
+# Step O[9 0] ビュー モジュール作成 - page_the_hello フォルダー
 
 👇 以下のファイルを新規作成してほしい
 
@@ -326,10 +326,10 @@ TEMPLATES = [
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
         │       │       └── 📂 o1o0
-        │       │           └── 📄 page1.html
+        │       │           └── 📄 page_the_hello.html
         │       └── 📂 views
         │           └── 📂 o1o0
-        │               └── 📂 page1
+        │               └── 📂 page_the_hello
 👉      │                   └── 📄 __init__.py
         └── 📂 project1
             └── 📄 settings.py
@@ -340,18 +340,18 @@ from django.http import HttpResponse
 from django.template import loader
 
 
-class Page1():
-    """ページ１"""
+class PageTheHello():
+    """おはようページ"""
 
     @staticmethod
     def render(request):
         """描画"""
 
-        template = loader.get_template('practice_v1/o1o0/page1.html')
-        #                               ---------------------------
+        template = loader.get_template('practice_v1/o1o0/page_the_hello.html')
+        #                               ------------------------------------
         #                               1
-        # 1. host1/apps1/practice_v1/templates/practice_v1/o1o0/page1.html を取得
-        #                                      ---------------------------
+        # 1. host1/apps1/practice_v1/templates/practice_v1/o1o0/page_the_hello.html を取得
+        #                                      ------------------------------------
 
         context = {}
         return HttpResponse(template.render(context, request))
@@ -372,10 +372,10 @@ class Page1():
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
         │       │       └── 📂 o1o0
-        │       │           └── 📄 page1.html
+        │       │           └── 📄 page_the_hello.html
         │       └── 📂 views
         │           └── 📂 o1o0
-        │               └── 📂 page1
+        │               └── 📂 page_the_hello
         │                   └── 📄 __init__.py
         └── 📂 project1
 👉          ├── 📄 urls_practice.py          # 新規作成
@@ -385,11 +385,11 @@ class Page1():
 ```py
 from django.urls import path
 
-# 練習ページ１
-from apps1.practice_v1.views.o1o0.page1 import Page1
-#          -----------            -----        -----
-#          11                     12           2
-#    ----------------------------------
+# おはようページ
+from apps1.practice_v1.views.o1o0.page_the_hello import PageTheHello
+#          -----------            --------------        ------------
+#          11                     12                    2
+#    -------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -398,13 +398,17 @@ from apps1.practice_v1.views.o1o0.page1 import Page1
 
 urlpatterns = [
 
-    path('practice/v1/page1', Page1.render, name='page1'),
-    #     -----------------   ------------        -----
-    #     1                   2                   3
-    # 1. 例えば `http://example.com/practice/v1/page1` のようなURLのパスの部分
-    #                              -----------------
-    # 2. Page1 クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'page1' %} のような形でURLを取得するのに使える
+    # おはようページ
+    path('practice/v1/page-the-hello',
+         # -------------------------
+         # 1
+         PageTheHello.render, name='page_the_hello'),
+    #    -------------------        --------------
+    #    2                          3
+    # 1. 例えば `http://example.com/practice/v1/page-the-hello` のようなURLのパスの部分
+    #                              --------------------------
+    # 2. PageTheHello クラスの render 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'page_the_hello' %} のような形でURLを取得するのに使える
 ]
 ```
 
@@ -419,10 +423,10 @@ urlpatterns = [
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
         │       │       └── 📂 o1o0
-        │       │           └── 📄 page1.html
+        │       │           └── 📄 page_the_hello.html
         │       └── 📂 views
         │           └── 📂 o1o0
-        │               └── 📂 page1
+        │               └── 📂 page_the_hello
         │                   └── 📄 __init__.py
         └── 📂 project1
 ❌          ├── 📄 urls_practice.py          # これではない
@@ -454,7 +458,7 @@ urlpatterns = [
 
 # Step O[12 0] Webページにアクセスする
 
-📖 [http://localhost:8000/practice/v1/page1](http://localhost:8000/practice/v1/page1)  
+📖 [http://localhost:8000/practice/v1/page-the-hello](http://localhost:8000/practice/v1/page-the-hello)  
 
 # 次の記事
 

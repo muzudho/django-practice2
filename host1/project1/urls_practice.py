@@ -1,10 +1,10 @@
 from django.urls import path
 
-# 練習ページ１
-from apps1.practice_v1.views.o1o0.page1 import Page1
-#          -----------            -----        -----
-#          11                     12           2
-#    ----------------------------------
+# おはようページ
+from apps1.practice_v1.views.o1o0.page_the_hello import PageTheHello
+#          -----------            --------------        ------------
+#          11                     12                    2
+#    -------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -248,14 +248,17 @@ from apps1.tic_tac_toe_v3.views.o4o0.playing import PlayingV as TicTacToeO4o1o4o
 
 urlpatterns = [
 
-    # 練習ページ１
-    path('practice/v1/page1', Page1.render, name='page1'),
-    #     -----------------   ------------        -----
-    #     1                   2                   3
-    # 1. 例えば `http://example.com/practice/v1/page1` のようなURLのパスの部分
-    #                              -----------------
-    # 2. Page1 クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'page1' %} のような形でURLを取得するのに使える
+    # おはようページ
+    path('practice/v1/page-the-hello',
+         # -------------------------
+         # 1
+         PageTheHello.render, name='page_the_hello'),
+    #    -------------------        --------------
+    #    2                          3
+    # 1. 例えば `http://example.com/practice/v1/page-the-hello` のようなURLのパスの部分
+    #                              --------------------------
+    # 2. PageTheHello クラスの render 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'page_the_hello' %} のような形でURLを取得するのに使える
 
     # 練習ページ２ １回追加されたページ
     path('practice/v1/page-to-be-added-1',
