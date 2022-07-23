@@ -29,10 +29,10 @@
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host_local1                   # Djangoとは関係ないもの
+    ├── 📂 host_local1                      # Djangoとは関係ないもの
     │    ├── 📂 sockapp1
     │    └── 📂 websockapp1
-    ├── 📂 host1                         # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
+    ├── 📂 host1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
@@ -41,8 +41,8 @@
     │   │   │   └── 📂 models
     │   │   │       └── 📂 o1o0
     │   │   │           └── 📄 m_room.py
-    │   │   ├── 📂 tic_tac_toe_v1        # アプリケーション
-    │   │   └── 📂 tic_tac_toe_v2        # アプリケーション
+    │   │   ├── 📂 tic_tac_toe_v1           # アプリケーション
+    │   │   └── 📂 tic_tac_toe_v2           # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
@@ -175,7 +175,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 <script src="{% static 'practice_v1/o1o0/clock.js' %}"></script>
 <script src="{% static 'practice_v1/o2o0/auto_reload.js' %}"></script>
 <!--                                 ^three
-                =====================================
+                =======================================
     `host1/apps1/practice_v1/static/practice_v1/o2o0/auto_reload.js`
                              ======================================
 -->
@@ -190,8 +190,8 @@ function startReloadingAutomatically(intervalMilliseconds) {
 
 {% block methods_trailing %}
     /**
-        * vue1.createRedirectUrl() のように使えます
-        */
+     * vue1.createRedirectUrl() のように使えます
+     */
     createRedirectUrl() {
         if (!this.vu_redirectPath) {
             // JavaScript では、空文字列を not すると 真
@@ -347,7 +347,7 @@ def render_auto_redirect(request, path_of_redirecter_page):
 
 # 自動リダイレクト ビュー
 from apps1.practice_v1.views.o2o0.auto_redirect import AutoRedirectV
-#                             ^three
+#                             ^two
 #          -----------            -------------        -------------
 #          11                     12                   2
 #    ------------------------------------------

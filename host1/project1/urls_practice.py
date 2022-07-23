@@ -155,7 +155,7 @@ from apps1.practice_v1.views.o1o0.auto_reload import AutoReloadV
 
 # 自動リダイレクト ビュー
 from apps1.practice_v1.views.o2o0.auto_redirect import AutoRedirectV
-#                             ^three
+#                             ^two
 #          -----------            -------------        -------------
 #          11                     12                   2
 #    ------------------------------------------

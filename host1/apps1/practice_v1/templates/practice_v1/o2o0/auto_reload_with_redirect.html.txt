@@ -1,5 +1,5 @@
 {% extends "practice_v1/o1o0/auto_reload.html" %}
-{#          -------------------------------
+{#          ---------------------------------
             1
 1. host1/apps1/practice_v1/templates/practice_v1/o1o0/auto_reload.html
                                      ---------------------------------
@@ -26,8 +26,8 @@
 
 {% block methods_trailing %}
     /**
-        * vue1.createRedirectUrl() のように使えます
-        */
+     * vue1.createRedirectUrl() のように使えます
+     */
     createRedirectUrl() {
         if (!this.vu_redirectPath) {
             // JavaScript では、空文字列を not すると 真
