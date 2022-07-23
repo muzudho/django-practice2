@@ -59,7 +59,7 @@
     └── 📄 .gitignore
 ```
 
-# Step [1] Dockerコンテナの起動
+# Step O[1 0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -71,7 +71,7 @@ cd host1
 docker-compose up
 ```
 
-# Step [2] モデル作成 - m_prefecture.py ファイル
+# Step O[2 0] モデル作成 - m_prefecture.py ファイル
 
 以下のファイルを作成してほしい
 
@@ -104,7 +104,7 @@ class Prefecture(models.Model):
         return f"{self.name} prefecture"
 ```
 
-# Step [3] モデル登録 - admin.py ファイル
+# Step O[3 0] モデル登録 - admin.py ファイル
 
 👇 以下の既存ファイルに追記してほしい  
 
@@ -134,7 +134,7 @@ admin.site.register(Prefecture)
 
 👆 管理画面に Prefecture オブジェクトが表示されるようにしている  
 
-# Step [4] マイグレーション ファイル生成 - コマンド実行＜その１＞
+# Step O[4 0] マイグレーション ファイル生成 - コマンド実行＜その１＞
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
@@ -162,7 +162,7 @@ docker-compose run --rm web python3 manage.py makemigrations practice_v1
 
 まだ マイグレーション作業は完了していない  
 
-# Step [5] マイグレーション - コマンド実行＜その２＞
+# Step O[5 0] マイグレーション - コマンド実行＜その２＞
 
 ```shell
 docker-compose run --rm web python manage.py migrate
@@ -170,7 +170,7 @@ docker-compose run --rm web python manage.py migrate
 
 👆 ここまでやって マイグレーション という作業が終わるらしい  
 
-# Step [6] スーパーユーザーでWebの管理画面へアクセス
+# Step O[6 0] スーパーユーザーでWebの管理画面へアクセス
 
 👇 スーパーユーザーでログインすること  
 
@@ -186,7 +186,7 @@ docker-compose run --rm web python manage.py migrate
 +-------------+--------+-----------+
 ```
 
-# Step [7] Prefecture を３つほど追加してほしい
+# Step O[7 0] Prefecture を３つほど追加してほしい
 
 Prefectures ラベルの右横の `➕ Add` リンクをクリックしてほしい  
 
@@ -200,7 +200,7 @@ Prefectures ラベルの右横の `➕ Add` リンクをクリックしてほし
 👆 入力フォームが出てくるから、３件ほど適当に追加してほしい。  
 `[SAVE]` が追加ボタンのようだ  
 
-# Step [8] 登録した Prefecture を確認してほしい
+# Step O[8 0] 登録した Prefecture を確認してほしい
 
 `Prefectures` ラベルをクリックすると、一覧画面が出てくる  
 

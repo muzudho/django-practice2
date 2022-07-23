@@ -64,7 +64,7 @@
     └── 📄 .gitignore
 ```
 
-# Step [1] Dockerコンテナの起動
+# Step O[1 0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -76,7 +76,7 @@ cd host1
 docker-compose up
 ```
 
-# Step [2] 画面作成 - active-user-list.html ファイル
+# Step O[2 0] 画面作成 - active-user-list.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -160,7 +160,7 @@ docker-compose up
 </html>
 ```
 
-# Step [3] モデル関連作成 - mh_session フォルダー
+# Step O[3 0] モデル関連作成 - mh_session フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -191,7 +191,7 @@ class MhSession():
     # 2. `1.` に含まれる関数
 ```
 
-# Step [4] ビュー モジュール作成 - mh_session/v_get_all_logged_in_users.py ファイル
+# Step O[4 0] ビュー モジュール作成 - mh_session/v_get_all_logged_in_users.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -268,7 +268,7 @@ web_1  | ]
     return user_dic
 ```
 
-# Step [5] ビュー モジュール作成 - session フォルダー
+# Step O[5 0] ビュー モジュール作成 - session フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -317,7 +317,7 @@ class SessionV():
         return render_active_user_list(request, SessionV._path_of_this_page)
 ```
 
-# Step [6] ビュー モジュール作成 - session/v_render.py ファイル
+# Step O[6 0] ビュー モジュール作成 - session/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -365,7 +365,7 @@ def render_active_user_list(request, path_of_this_page):
     return render(request, path_of_this_page, context)
 ```
 
-# Step [7] ルート編集 - urls_practice.py ファイル
+# Step O[7 0] ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -424,11 +424,11 @@ urlpatterns = [
 ]
 ```
 
-# Step [8] Web画面へアクセス
+# Step O[8 0] Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/active-user-list/](http://localhost:8000/practice/v1/active-user-list/)  
 
-# Step [9] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step O[9 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

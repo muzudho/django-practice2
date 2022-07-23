@@ -88,7 +88,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O1 Dockerコンテナの起動
+# Step O[1 0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -100,7 +100,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o1 対局画面作成 - playing.html.txt ファイル
+# Step O[2 0] 対局画面作成 - playing.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -156,7 +156,7 @@ docker-compose up
 {% endblock create_gameover_message %}
 ```
 
-# Step O3o1 対局申込ビュー モジュール作成 - o5o1/match_application フォルダー
+# Step O[3 0] 対局申込ビュー モジュール作成 - o5o1/match_application フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -255,7 +255,7 @@ class MatchApplicationV():
         return MatchApplicationV.open_context
 ```
 
-# Step O4o1 対局申込ビュー モジュール作成 - o5o1/playing フォルダー
+# Step O[4 0] 対局申込ビュー モジュール作成 - o5o1/playing フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -338,7 +338,7 @@ class PlayingV():
             PlayingV.expected_pieces)
 ```
 
-# Step O5o1 ルート編集 - urls_practice.py ファイル
+# Step O[5 0] ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -420,7 +420,7 @@ urlpatterns = [
 ]
 ```
 
-# Step O6o1 Web画面へアクセス
+# Step O[6 0] Web画面へアクセス
 
 * 観戦モードのテストをするので、Webページを３窓で開き、一方が X プレイヤー、もう一方が O プレイヤー、もう一方は WatchingGame を選んでください
 * テストするためには `サインアップ` してアカウントを作ってから、 `ログイン` してください
@@ -434,7 +434,7 @@ urlpatterns = [
 
 📖 [http://localhost:8000/admin](http://localhost:8000/admin)  
 
-# Step O7o1 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step O[7 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

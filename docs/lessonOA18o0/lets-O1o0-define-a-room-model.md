@@ -87,7 +87,7 @@
     └── 📄 .gitignore
 ```
 
-# Step 1. Dockerコンテナの起動
+# Step O[1 0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -99,7 +99,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. モデル作成 - m_room.py ファイル
+# Step O[2 0] モデル作成 - m_room.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -159,7 +159,7 @@ class Room(models.Model):
         return self.name
 ```
 
-# Step 3. データベースへモデル登録 - admin.py ファイル
+# Step O[3 0] データベースへモデル登録 - admin.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -208,7 +208,7 @@ admin.site.register(Room)
 * 管理画面に Room オブジェクトが表示される
 * マイグレーションの対象になる
 
-# Step 4. マイグレーションファイル作成 - makemigrations コマンド
+# Step O[4 0] マイグレーションファイル作成 - makemigrations コマンド
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
@@ -240,7 +240,7 @@ docker-compose run --rm web python3 manage.py makemigrations practice_v1 --setti
 
 まだ マイグレーション作業は完了していない  
 
-# Step 5. マイグレーション - migrate コマンド
+# Step O[5 0] マイグレーション - migrate コマンド
 
 ```shell
 docker-compose run --rm web python manage.py migrate
@@ -248,7 +248,7 @@ docker-compose run --rm web python manage.py migrate
 
 👆 ここまでやって マイグレーション という作業が終わるらしい  
 
-# Step 6. スーパーユーザーでWebの管理画面へアクセス
+# Step O[6 0] スーパーユーザーでWebの管理画面へアクセス
 
 👇 スーパーユーザーでログインすること  
 
@@ -264,7 +264,7 @@ docker-compose run --rm web python manage.py migrate
 +-------------+--------+-----------+
 ```
 
-# Step 7. Room を３つほど追加してほしい
+# Step O[7 0] Room を３つほど追加してほしい
 
 `➕ Add` をクリックしてほしい  
 
@@ -301,7 +301,7 @@ Lion                    5             6  XOXOXOXOX  012345678
 
 `[SAVE]` が追加ボタンのようだ。  
 
-# Step 8. 登録した Room を確認してほしい
+# Step O[8 0] 登録した Room を確認してほしい
 
 `➕ Add` の左側にある `Rooms` リンクをクリックしてほしい。  
 一覧画面が出てくる  

@@ -66,7 +66,7 @@ Django に最初から付いている User モデルを拡張したい
     └── 📄 .gitignore
 ```
 
-# Step [1] Dockerコンテナの起動
+# Step O[1 0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -78,7 +78,7 @@ cd host1
 docker-compose up
 ```
 
-# Step [2] User モデル拡張 - m_user_profile.py ファイル
+# Step O[2 0] User モデル拡張 - m_user_profile.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -152,7 +152,7 @@ def save_user_profile(sender, instance, **kwargs):
 post_save.connect(create_user_profile, sender=User)
 ```
 
-# Step [3] マイグレーション ファイル作成 - コマンド実行
+# Step O[3 0] マイグレーション ファイル作成 - コマンド実行
 
 （このマイグレーションのステップは今はまだやらなくていいかもしれない）  
 
@@ -188,7 +188,7 @@ docker-compose run --rm web python3 manage.py makemigrations practice_v1 --setti
 
 まだ マイグレーション作業は完了していない  
 
-# Step [4] マイグレーション対象確認 - コマンド実行＜その２＞
+# Step O[4 0] マイグレーション対象確認 - コマンド実行＜その２＞
 
 ```shell
 docker-compose run --rm web python3 manage.py showmigrations --settings project1.settings
@@ -205,7 +205,7 @@ docker-compose run --rm web python3 manage.py showmigrations --settings project1
 [ ] 0002_fuga ... マイグレーションが終わっていない。これからやる
 ```
 
-# Step [5] マイグレーション -  コマンド実行＜その３＞
+# Step O[5 0] マイグレーション -  コマンド実行＜その３＞
 
 ```shell
 docker-compose run --rm web python3 manage.py migrate --settings project1.settings
@@ -217,7 +217,7 @@ docker-compose run --rm web python3 manage.py migrate --settings project1.settin
 
 👆 ここまでやって マイグレーション という作業が終わるらしい  
 
-# Step [6] マイグレーション確認 - コマンド実行＜その４＞
+# Step O[6 0] マイグレーション確認 - コマンド実行＜その４＞
 
 ```shell
 docker-compose run --rm web python3 manage.py showmigrations --settings project1.settings
@@ -229,7 +229,7 @@ docker-compose run --rm web python3 manage.py showmigrations --settings project1
 
 👆 マイグレーションした後に、マイグレーションされたものを確認  
 
-# Step [7] モデルヘルパー編集 - mh_user.py ファイル
+# Step O[7 0] モデルヘルパー編集 - mh_user.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -264,7 +264,7 @@ class MhUser():
     # 2. `1.` に含まれる関数
 ```
 
-# Step [8] モデルヘルパー モジュール作成 - mh_get_extends_user_dic.py ファイル
+# Step O[8 0] モデルヘルパー モジュール作成 - mh_get_extends_user_dic.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -316,7 +316,7 @@ def get_extends_user_dic():
     return user_dic
 ```
 
-# Step [9] 画面編集 - extends_user_list.html ファイル
+# Step O[9 0] 画面編集 - extends_user_list.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -408,7 +408,7 @@ def get_extends_user_dic():
 </html>
 ```
 
-# Step [10] ビュー モジュール作成 - extends_user_list フォルダー
+# Step O[10 0] ビュー モジュール作成 - extends_user_list フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -460,7 +460,7 @@ class ExtendsUserListV():
         return render_extends_user_list(request, ExtendsUserListV._path_of_this_page)
 ```
 
-# Step [11] ビュー モジュール作成 - extends_user_list/v_render.py ファイル
+# Step O[11 0] ビュー モジュール作成 - extends_user_list/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -518,7 +518,7 @@ def render_extends_user_list(request, path_of_this_page):
     return HttpResponse(template.render(context, request))
 ```
 
-# Step [12] ルート編集 - urls_practice.py ファイル
+# Step O[12 0] ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -580,7 +580,7 @@ urlpatterns = [
 ]
 ```
 
-# Step [13] 管理画面へモデル登録 - admin.py ファイル編集
+# Step O[13 0] 管理画面へモデル登録 - admin.py ファイル編集
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -640,7 +640,7 @@ admin.site.register(Profile)
 
 👆 管理画面に Profile オブジェクトが表示されるようにした  
 
-# Step [14] スーパーユーザーでWebの管理画面へアクセス
+# Step O[14 0] スーパーユーザーでWebの管理画面へアクセス
 
 👇 スーパーユーザーでログインすること  
 
@@ -675,11 +675,11 @@ User: [あなたの名前]▽ 🖊 ➕
 
 👆 あなたのプロフィールに、User が紐づいているようにデータを登録（SAVE）しておいてほしい  
 
-# Step [15] Web画面へアクセス
+# Step O[15 0] Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/extends-user-list/](http://localhost:8000/practice/v1/extends-user-list/)  
 
-# Step [16] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step O[16 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

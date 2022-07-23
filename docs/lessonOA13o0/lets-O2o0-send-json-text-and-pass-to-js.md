@@ -67,7 +67,7 @@ Web ページで表示する内容を、JSON形式のテキストで渡したい
     └── 📄 .gitignore
 ```
 
-# Step [1] Dockerコンテナの起動
+# Step O[1 0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -79,7 +79,7 @@ cd host1
 docker-compose up
 ```
 
-# Step [2] データの再利用 - desserts.json ファイル
+# Step O[2 0] データの再利用 - desserts.json ファイル
 
 👇 以下の記事で掲載した JSON ファイルを再利用してほしい  
 
@@ -96,7 +96,7 @@ docker-compose up
 👉                              └── 📄 desserts1.json
 ```
 
-# Step [3] 画面作成 - textarea1_base.html ファイル
+# Step O[3 0] 画面作成 - textarea1_base.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -183,7 +183,7 @@ docker-compose up
 </html>
 ```
 
-# Step [4] HTMLファイルの再利用 - desserts1.html ファイル
+# Step O[4 0] HTMLファイルの再利用 - desserts1.html ファイル
 
 👇 以下の記事で掲載した HTML ファイルを再利用してほしい  
 
@@ -206,7 +206,7 @@ docker-compose up
                                 └── 📄 textarea1_base.html
 ```
 
-# Step [5] ビュー作成 - v_textarea1.py ファイル
+# Step O[5 0] ビュー作成 - v_textarea1.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -278,7 +278,7 @@ def render_desserts1_from_textarea1(request):
     return HttpResponse(template.render(context, request))
 ```
 
-# Step [6] ビュー編集 - VuetifyV モジュール
+# Step O[6 0] ビュー編集 - VuetifyV モジュール
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -315,7 +315,7 @@ class VuetifyV(object):
     from .v_textarea1 import render_textarea1, render_desserts1_from_textarea1
 ```
 
-# Step [7] ルート編集 - urls.py ファイル
+# Step O[7 0] ルート編集 - urls.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -394,11 +394,11 @@ urlpatterns = [
 ]
 ```
 
-# Step [8] Web画面へアクセス
+# Step O[8 0] Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/vuetify/textarea1](http://localhost:8000/practice/v1/vuetify/textarea1)  
 
-# Step [9] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step O[9 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
