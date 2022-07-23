@@ -14,13 +14,13 @@ from apps1.tic_tac_toe_v2.views.o1o0.gui.playing import PlayingV as PlayingVV2g1
 
 # 以前のバージョン
 from apps1.tic_tac_toe_v3.views.o1o0.playing import PlayingV as PlayingVV3o1o0
-#                       ^four
-#          ----------------            -------        --------    --------------
-#          11                          12             2           3
-#    -----------------------------------------
+#                       ^three
+#          --------------            -------        --------    --------------
+#          11                        12             2           3
+#    ---------------------------------------
 #    10
 # 10. `host1/apps1/tic_tac_toe_v3/views/o1o0/playing/__init__.py`
-#            -----------------------------------------
+#            ---------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
 # 2. `12.` に含まれる `__init__.py` ファイルにさらに含まれるクラス
@@ -30,12 +30,12 @@ from apps1.tic_tac_toe_v3.views.o1o0.playing import PlayingV as PlayingVV3o1o0
 class PlayingV():
     """対局中ビュー"""
 
-    path_of_ws_playing = "/tic-tac-toe/v3o3o0/playing/"
-    #                                     ^four
-    #                     ----------------------------
+    path_of_ws_playing = "/tic-tac-toe/v3.3/playing/"
+    #                                     ^three
+    #                     --------------------------
     #                     1
-    # 1. `ws://example.com/tic-tac-toe/v3o3o0/playing/Elephant/`
-    #                     ----------------------------
+    # 1. `ws://example.com/tic-tac-toe/v3.3/playing/Elephant/`
+    #                     --------------------------
 
     @staticmethod
     def render(request, kw_room_name):

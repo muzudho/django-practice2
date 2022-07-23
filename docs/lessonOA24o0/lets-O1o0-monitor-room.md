@@ -121,24 +121,26 @@ docker-compose up
 from asgiref.sync import sync_to_async
 
 from apps1.tic_tac_toe_v2.websocks.o1o0.gui.message_converter import TicTacToeV2MessageConverter
-#    ----- -------------- ----------------- -----------------        ---------------------------
-#    1     2              3                 4                        5
-# 1,3. ディレクトリー名
-# 1. アプリケーション フォルダー名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
+#          --------------                   -----------------        ---------------------------
+#          11                               12                       2
+#    --------------------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
+# 部屋モデル
 from apps1.practice_v1.models.o1o0.m_room import Room
 #          -----------             ------        ----
-#          1.1                     1.2           2
+#          11                      12            2
 #    ------------------------------------
-#    1
-# 1, 1.2 ディレクトリー
-# 1.1 アプリケーション
-# 2. `1.2` に含まれる __init__.py ファイルにさらに含まれるクラス
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
-class TicTacToeV3o1o0MessageConverter(TicTacToeV2MessageConverter):
+class TicTacToeV3g1o0MessageConverter(TicTacToeV2MessageConverter):
     """サーバープロトコル"""
 
     def on_end(self, scope, doc_received):
@@ -151,7 +153,7 @@ class TicTacToeV3o1o0MessageConverter(TicTacToeV2MessageConverter):
         # ログインしていなければ AnonymousUser
         user = scope["user"]
         print(
-            f"[TicTacToeV3o1o0MessageConverter on_move] user=[{user}] doc_received={doc_received}")
+            f"[TicTacToeV3g1o0MessageConverter on_move] user=[{user}] doc_received={doc_received}")
         if user.is_anonymous:
             # ログインしていないユーザーの操作は記録しません
             return
@@ -160,7 +162,7 @@ class TicTacToeV3o1o0MessageConverter(TicTacToeV2MessageConverter):
         #
         # * URLのパスに含まれている
         room_name = scope["url_route"]["kwargs"]["kw_room_name"]
-        # print(f"[TicTacToeV3o1o0MessageConverter on_move] scope={scope}")
+        # print(f"[TicTacToeV3g1o0MessageConverter on_move] scope={scope}")
 
         # `c2s_` は クライアントからサーバーへ送られてきた変数の目印
         event = doc_received.get("c2s_event", None)
@@ -169,7 +171,7 @@ class TicTacToeV3o1o0MessageConverter(TicTacToeV2MessageConverter):
         # 駒を置いた方の X か O
         piece_moved = doc_received.get("c2s_pieceMoved", None)
         print(
-            f"[TicTacToeV3o1o0MessageConverter on_move] クライアントからのメッセージを受信しました room_name=[{room_name}] event=[{event}] piece_moved=[{piece_moved}] sq=[{sq}]")
+            f"[TicTacToeV3g1o0MessageConverter on_move] クライアントからのメッセージを受信しました room_name=[{room_name}] event=[{event}] piece_moved=[{piece_moved}] sq=[{sq}]")
         # クライアントからのメッセージを受信しました room_name=[Elephant] event=[C2S_Moved] piece_moved=[X] sq=[2]
 
         # 部屋取得
@@ -177,20 +179,20 @@ class TicTacToeV3o1o0MessageConverter(TicTacToeV2MessageConverter):
 
         # （デバッグ）現状を出力
         print(
-            f"[TicTacToeV3o1o0MessageConverter on_move] room=[{room}]")
+            f"[TicTacToeV3g1o0MessageConverter on_move] room=[{room}]")
         print(
-            f"[TicTacToeV3o1o0MessageConverter on_move] now room.name=[{room.name}] room.board=[{room.board}] room.record=[{room.record}]")
+            f"[TicTacToeV3g1o0MessageConverter on_move] now room.name=[{room.name}] room.board=[{room.board}] room.record=[{room.record}]")
 
         # 駒を置きます
         #
         # * 盤が9マスになるように右を '.' で埋めます
         room.board = room.board.ljust(9, '.')
         print(
-            f"[TicTacToeV3o1o0MessageConverter on_move] now2 room.board=[{room.board}]")
+            f"[TicTacToeV3g1o0MessageConverter on_move] now2 room.board=[{room.board}]")
 
         room.board = f"{room.board[:sq]}{piece_moved}{room.board[sq+1:]}"
         print(
-            f"[TicTacToeV3o1o0MessageConverter on_move] now3 room.board=[{room.board}]")
+            f"[TicTacToeV3g1o0MessageConverter on_move] now3 room.board=[{room.board}]")
 
         # 棋譜を書きます
         #
@@ -198,21 +200,21 @@ class TicTacToeV3o1o0MessageConverter(TicTacToeV2MessageConverter):
         # * 9文字を超えるようなら、切り捨てます
 
         print(
-            f"[TicTacToeV3o1o0MessageConverter on_move] now4 room.record=[{room.record}]")
+            f"[TicTacToeV3g1o0MessageConverter on_move] now4 room.record=[{room.record}]")
         room.record = f"{room.record}{sq}"[:9]
         print(
-            f"[TicTacToeV3o1o0MessageConverter on_move] now5 room.record=[{room.record}]")
+            f"[TicTacToeV3g1o0MessageConverter on_move] now5 room.record=[{room.record}]")
 
         # 部屋を上書きします
         await save_room(room)
 
-        print(f"[TicTacToeV3o1o0MessageConverter on_move] saved")
+        print(f"[TicTacToeV3g1o0MessageConverter on_move] saved")
 
     def on_start(self, scope, doc_received):
         """対局開始時"""
 
         print(
-            f"[TicTacToeV3o1o0MessageConverter on_start] ignored. doc_received={doc_received}")
+            f"[TicTacToeV3g1o0MessageConverter on_start] ignored. doc_received={doc_received}")
         pass
 
 
@@ -243,21 +245,22 @@ def save_room(room):
 
 ```py
 from apps1.tic_tac_toe_v2.websocks.o1o0.gui.consumer_base import TicTacToeV2ConsumerBase
-#                       ^ two                                            ^ two
-#    ----- -------------- ----------------- -------------        -----------------------
-#    1     2              3                 4                    5
-# 1,3. ディレクトリー名
-# 1. アプリケーション フォルダー名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
+#                       ^two
+#          --------------                   -------------        -----------------------
+#          11                               12                   2
+#    ----------------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれている __init__.py ファイルにさらに含まれるクラス
 
-from .message_converter import TicTacToeV3o1o0MessageConverter
+from .message_converter import TicTacToeV3g1o0MessageConverter
 #                                        ^three
 #    ]-----------------        -------------------------------
 #    12                        3
 # 1. このファイルと同じディレクトリー
-# 2. Python ファイル名。拡張子抜き
-# 3. クラス名
+# 2. Python ファイル。拡張子抜き
+# 3. クラス
 
 
 class TicTacToeV3o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
@@ -265,7 +268,7 @@ class TicTacToeV3o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
 
     def __init__(self):
         super().__init__()
-        self._messageConverter = TicTacToeV3o1o0MessageConverter()
+        self._messageConverter = TicTacToeV3g1o0MessageConverter()
         #                                  ^three
 
     async def on_receive(self, doc_received):
@@ -286,46 +289,49 @@ class TicTacToeV3o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v3              # アプリケーション
+        │   └── 📂 tic_tac_toe_v3               # アプリケーション
         │       └── 📂 websocks
         │           └── 📂 o1o0
         │               ├── 📄 consumer_custom.py
         │               └── 📄 message_converter.py
-        └── 📂 project1                          # プロジェクト
-👉          └── 📄 ws_urls_tic_tac_toe_v3.py   # Four
+        └── 📂 project1                         # プロジェクト
+👉          └── 📄 ws_urls_tic_tac_toe_v3.py    # Three
 ```
 
 ```py
 # See also: 📖 [Channels - Consumers](https://channels.readthedocs.io/en/latest/topics/consumers.html)
 from django.conf.urls import url
 
-# 〇×ゲームの練習 o3o0o1o0
+# 〇×ゲームの練習 v3.1
 from apps1.tic_tac_toe_v3.websocks.o1o0.consumer_custom import TicTacToeV3o1o0ConsumerCustom
-#                       ^four                                              ^three
-#    ----- ---------------- ------------- ---------------        -----------------------------
-#    1     2                3             4                      5
-# 1,3 ディレクトリー名
-# 1. アプリケーション フォルダー名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
+#                       ^three
+#          --------------               ---------------        -----------------------------
+#          11                           12                     2
+#    --------------------------------------------------
+#    10
+# 10. ディレクトリー
+# 11. アプリケーション
+# 12. Python ファイル。拡張子抜き
+# 2. クラス名
 
-# ...中略...
+
+# ...略...
+
 
 websocket_urlpatterns = [
+    # ...略...
 
-    # ...中略...
 
-    # 〇×ゲームの練習 v3o3o0
-    url(r'^tic-tac-toe/v3o3o0/playing/(?P<kw_room_name>\w+)/$',
-        #                 ^four
+    # 〇×ゲームの練習 v3.3
+    url(r'^tic-tac-toe/v3.3/playing/(?P<kw_room_name>\w+)/$',
+        #                 ^three
         # -------------------------------------------------
         # 1
         TicTacToeV3o1o0ConsumerCustom.as_asgi()),
-    #             ^three
     #   ---------------------------------------
     #   2
-    # 1. 例えば `ws://example.com/tic-tac-toe/v3o3o0/playing/Elephant/` のようなURLのパスの部分
-    #                            ------------------------------------
+    # 1. 例えば `ws://example.com/tic-tac-toe/v3.3/playing/Elephant/` のようなURLのパスの部分
+    #                            ----------------------------------
     #    kw_room_name は変数として渡される
     # 2. クラス名とメソッド。 URL を ASGI形式にする
 ]
@@ -338,14 +344,14 @@ websocket_urlpatterns = [
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v3              # アプリケーション
+        │   └── 📂 tic_tac_toe_v3               # アプリケーション
         │       └── 📂 websocks
         │           └── 📂 o1o0
         │               ├── 📄 consumer_custom.py
         │               └── 📄 message_converter.py
-        └── 📂 project1                          # プロジェクト
+        └── 📂 project1                         # プロジェクト
 👉          ├── 📄 asgi.py
-            └── 📄 ws_urls_tic_tac_toe_v3.py   # Four
+            └── 📄 ws_urls_tic_tac_toe_v3.py    # Three
 ```
 
 ```py
@@ -353,13 +359,13 @@ websocket_urlpatterns = [
 
 
 # * 以下を追加
-# 〇×ゲーム o3o0
+# 〇×ゲーム v3
 import project1.ws_urls_tic_tac_toe_v3
-#                                    ^four
-#      ---------------------------------
+#                                    ^three
+#      -------------------------------
 #      1
 # 1. `host1/project1/ws_urls_tic_tac_toe_v3.py`
-#           ---------------------------------
+#           ----------------------------------
 
 
 # ...略...
@@ -378,10 +384,10 @@ import project1.ws_urls_tic_tac_toe_v3
 
 
 # * 以下を追加
-# 〇×ゲーム o3o0
+# 〇×ゲーム v3
 websocket_urlpatterns_merged.extend(
     project1.ws_urls_tic_tac_toe_v3.websocket_urlpatterns)
-#                                 ^four
+#                                 ^three
 ```
 
 # Step O[6 0] 対局申込ビュー モジュール作成 - o3o0/match_application フォルダー
@@ -391,9 +397,9 @@ websocket_urlpatterns_merged.extend(
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v3                 # アプリケーション Four
+        │   └── 📂 tic_tac_toe_v3                   # アプリケーション Three
         │       ├── 📂 views
-        │       │   └── 📂 o3o0                     # Four
+        │       │   └── 📂 o3o0                     # Three
         │       │       └── 📂 match_application
 👉      │       │           └── 📄 __init__.py
         │       └── 📂 websocks
@@ -402,15 +408,17 @@ websocket_urlpatterns_merged.extend(
         │               └── 📄 message_converter.py
         └── 📂 project1                             # プロジェクト
             ├── 📄 asgi.py
-            └── 📄 ws_urls_tic_tac_toe_v3.py      # Four
+            └── 📄 ws_urls_tic_tac_toe_v3.py        # Three
 ```
 
 ```py
 # 以前のバージョン
 from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicationV as MatchApplicationVV2g1o0
 #                       ^two
-#    -----------------------------------------------------        -----------------    -----------------------
-#    1                                                            2                    3
+#          --------------                -----------------        -----------------    -----------------------
+#          11                            12                       2                    3
+#    -----------------------------------------------------
+#    10
 # 1. `host1/apps1/tic_tac_toe_v2/views/o1o0/gui/match_application/__init__.py`
 #           -----------------------------------------------------
 # 2. `1.` の __init__.py ファイルに含まれるクラス
@@ -418,11 +426,13 @@ from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicati
 
 # 以前のバージョン
 from apps1.tic_tac_toe_v3.views.o1o0.match_application import MatchApplicationV as MatchApplicationVV3g1o0
-#                       ^four
-#    ---------------------------------------------------        -----------------    -----------------------
-#    1                                                          2                    3
+#                       ^three
+#          --------------            -----------------        -----------------    -----------------------
+#          11                        12                       2                    3
+#    -------------------------------------------------
+#    10
 # 1. `host1/apps1/tic_tac_toe_v3/views/o1o0/match_application/__init__.py`
-#           ---------------------------------------------------
+#           -------------------------------------------------
 # 2. `1.` の __init__.py ファイルに含まれるクラス
 # 3. '2.' の別名
 
@@ -430,12 +440,12 @@ from apps1.tic_tac_toe_v3.views.o1o0.match_application import MatchApplicationV 
 class MatchApplicationV():
     """対局申込ビュー"""
 
-    path_of_http_playing = "/tic-tac-toe/v3o3o0/playing/{0}/?&myturn={1}"
-    #                                       ^four
-    #                       --------------------------------------------
+    path_of_http_playing = "/tic-tac-toe/v3.3/playing/{0}/?&myturn={1}"
+    #                                       ^three
+    #                       ------------------------------------------
     #                       1
-    # 1. `http://example.com:8000/tic-tac-toe/v3o3o0/playing/Elephant/?&myturn=X`
-    #                            -----------------------------------------------
+    # 1. `http://example.com:8000/tic-tac-toe/v3.3/playing/Elephant/?&myturn=X`
+    #                            ---------------------------------------------
 
     @staticmethod
     def render(request):
@@ -465,9 +475,9 @@ class MatchApplicationV():
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v3                 # アプリケーション Three
+        │   └── 📂 tic_tac_toe_v3                   # アプリケーション Three
         │       ├── 📂 views
-        │       │   └── 📂 o3o0                     # Four
+        │       │   └── 📂 o3o0                     # Three
         │       │       ├── 📂 match_application
         │       │       │   └── 📄 __init__.py
         │       │       └── 📂 playing
@@ -478,7 +488,7 @@ class MatchApplicationV():
         │               └── 📄 message_converter.py
         └── 📂 project1                             # プロジェクト
             ├── 📄 asgi.py
-            └── 📄 ws_urls_tic_tac_toe_v3.py      # Three
+            └── 📄 ws_urls_tic_tac_toe_v3.py        # Three
 ```
 
 ```py
@@ -498,13 +508,13 @@ from apps1.tic_tac_toe_v2.views.o1o0.gui.playing import PlayingV as PlayingVV2g1
 
 # 以前のバージョン
 from apps1.tic_tac_toe_v3.views.o1o0.playing import PlayingV as PlayingVV3o1o0
-#                       ^four
-#          ----------------            -------        --------    --------------
-#          11                          12             2           3
-#    -----------------------------------------
+#                       ^three
+#          --------------            -------        --------    --------------
+#          11                        12             2           3
+#    ---------------------------------------
 #    10
 # 10. `host1/apps1/tic_tac_toe_v3/views/o1o0/playing/__init__.py`
-#            -----------------------------------------
+#            ---------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
 # 2. `12.` に含まれる `__init__.py` ファイルにさらに含まれるクラス
@@ -514,12 +524,12 @@ from apps1.tic_tac_toe_v3.views.o1o0.playing import PlayingV as PlayingVV3o1o0
 class PlayingV():
     """対局中ビュー"""
 
-    path_of_ws_playing = "/tic-tac-toe/v3o3o0/playing/"
-    #                                     ^four
-    #                     ----------------------------
+    path_of_ws_playing = "/tic-tac-toe/v3.3/playing/"
+    #                                     ^three
+    #                     --------------------------
     #                     1
-    # 1. `ws://example.com/tic-tac-toe/v3o3o0/playing/Elephant/`
-    #                     ----------------------------
+    # 1. `ws://example.com/tic-tac-toe/v3.3/playing/Elephant/`
+    #                     --------------------------
 
     @staticmethod
     def render(request, kw_room_name):
@@ -550,9 +560,9 @@ class PlayingV():
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v3                 # アプリケーション Ver Three
+        │   └── 📂 tic_tac_toe_v3                   # アプリケーション Three
         │       ├── 📂 views
-        │       │   └── 📂 o3o0                     # Four
+        │       │   └── 📂 o3o0                     # Three
         │       │       ├── 📂 match_application
         │       │       │   └── 📄 __init__.py
         │       │       └── 📂 playing
@@ -564,7 +574,7 @@ class PlayingV():
         └── 📂 project1                             # プロジェクト
             ├── 📄 asgi.py
 👉          ├── 📄 urls_practice.py
-            └── 📄 ws_urls_tic_tac_toe_v3.py      # Three
+            └── 📄 ws_urls_tic_tac_toe_v3.py        # Three
 ```
 
 ```py
@@ -637,7 +647,7 @@ urlpatterns = [
 
 📖 [http://localhost:8000/accounts/v1/signup/](http://localhost:8000/accounts/v1/signup/)  
 📖 [http://localhost:8000/accounts/v1/login/](http://localhost:8000/accounts/v1/login/)  
-📖 [http://localhost:8000/tic-tac-toe/v3o3o0/match-application/](http://localhost:8000/tic-tac-toe/v3o3o0/match-application/)  
+📖 [http://localhost:8000/tic-tac-toe/v3.3/match-application/](http://localhost:8000/tic-tac-toe/v3.3/match-application/)  
 
 部屋、ユーザーを確認するには、管理画面を使うのが確実です:  
 
@@ -653,9 +663,9 @@ urlpatterns = [
         │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 tic_tac_toe_v3                 # アプリケーション Three
+        │   └── 📂 tic_tac_toe_v3                   # アプリケーション Three
         │       ├── 📂 views
-        │       │   └── 📂 o3o0                     # Four
+        │       │   └── 📂 o3o0                     # Three
         │       │       ├── 📂 match_application
         │       │       │   └── 📄 __init__.py
         │       │       └── 📂 playing
@@ -667,13 +677,13 @@ urlpatterns = [
         └── 📂 project1                             # プロジェクト
             ├── 📄 asgi.py
             ├── 📄 urls_practice.py
-            └── 📄 ws_urls_tic_tac_toe_v3.py      # Three
+            └── 📄 ws_urls_tic_tac_toe_v3.py        # Three
 ```
 
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/tic-tac-toe/v3o3o0/match-application/,〇×ゲーム v3o3o0 対局申込中
+/tic-tac-toe/v3.3/match-application/,〇×ゲーム v3.3 対局申込中
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 
