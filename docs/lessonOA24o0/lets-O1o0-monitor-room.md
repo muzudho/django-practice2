@@ -39,7 +39,7 @@
     │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
-    │   │   │       └── 📂 o2o1
+    │   │   │       └── 📂 o1o0
     │   │   │           └── 📄 m_room.py
     │   │   ├── 📂 tic_tac_toe_v1           # アプリケーション
     │   │   └── 📂 tic_tac_toe_v2           # アプリケーション
@@ -47,7 +47,7 @@
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o2o1
+    │   │       │       └── 📂 o1o0
     │   │       │           └── 📂 think
     │   │       │               ├── 📄 concepts.js
     │   │       │               ├── 📄 engine.js
@@ -57,11 +57,11 @@
     │   │       │               └── 📄 user_ctrl.js
     │   │       ├── 📂 templates
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o2o1
+    │   │       │       └── 📂 o1o0
     │   │       │           └── 📂 think
     │   │       │               └── 📄 engine_manual.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 o2o1
+    │   │       │   └── 📂 o1o0
     │   │       │       └── 📂 think
     │   │       │           └── 📂 engine_manual
     │   │       │               ├── 📄 __init__.py
@@ -113,14 +113,14 @@ docker-compose up
         └── 📂 apps1
             └── 📂 tic_tac_toe_o4o1                 # アプリケーション
                 └── 📂 websocks
-                    └── 📂 o2o1
+                    └── 📂 o1o0
 👉                      └── 📄 message_converter.py
 ```
 
 ```py
 from asgiref.sync import sync_to_async
 
-from apps1.tic_tac_toe_v2.websocks.o2o1.gui.message_converter import TicTacToeV2MessageConverter
+from apps1.tic_tac_toe_v2.websocks.o1o0.gui.message_converter import TicTacToeV2MessageConverter
 #    ----- -------------- ----------------- -----------------        ---------------------------
 #    1     2              3                 4                        5
 # 1,3. ディレクトリー名
@@ -128,7 +128,7 @@ from apps1.tic_tac_toe_v2.websocks.o2o1.gui.message_converter import TicTacToeV2
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
-from apps1.practice_v1.models.o2o1.m_room import Room
+from apps1.practice_v1.models.o1o0.m_room import Room
 #          -----------             ------        ----
 #          1.1                     1.2           2
 #    ------------------------------------
@@ -138,7 +138,7 @@ from apps1.practice_v1.models.o2o1.m_room import Room
 # 2. `1.2` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
-class TicTacToeV3o2o1MessageConverter(TicTacToeV2MessageConverter):
+class TicTacToeV3o1o0MessageConverter(TicTacToeV2MessageConverter):
     """サーバープロトコル"""
 
     def on_end(self, scope, doc_received):
@@ -151,7 +151,7 @@ class TicTacToeV3o2o1MessageConverter(TicTacToeV2MessageConverter):
         # ログインしていなければ AnonymousUser
         user = scope["user"]
         print(
-            f"[TicTacToeV3o2o1MessageConverter on_move] user=[{user}] doc_received={doc_received}")
+            f"[TicTacToeV3o1o0MessageConverter on_move] user=[{user}] doc_received={doc_received}")
         if user.is_anonymous:
             # ログインしていないユーザーの操作は記録しません
             return
@@ -160,7 +160,7 @@ class TicTacToeV3o2o1MessageConverter(TicTacToeV2MessageConverter):
         #
         # * URLのパスに含まれている
         room_name = scope["url_route"]["kwargs"]["kw_room_name"]
-        # print(f"[TicTacToeV3o2o1MessageConverter on_move] scope={scope}")
+        # print(f"[TicTacToeV3o1o0MessageConverter on_move] scope={scope}")
 
         # `c2s_` は クライアントからサーバーへ送られてきた変数の目印
         event = doc_received.get("c2s_event", None)
@@ -169,7 +169,7 @@ class TicTacToeV3o2o1MessageConverter(TicTacToeV2MessageConverter):
         # 駒を置いた方の X か O
         piece_moved = doc_received.get("c2s_pieceMoved", None)
         print(
-            f"[TicTacToeV3o2o1MessageConverter on_move] クライアントからのメッセージを受信しました room_name=[{room_name}] event=[{event}] piece_moved=[{piece_moved}] sq=[{sq}]")
+            f"[TicTacToeV3o1o0MessageConverter on_move] クライアントからのメッセージを受信しました room_name=[{room_name}] event=[{event}] piece_moved=[{piece_moved}] sq=[{sq}]")
         # クライアントからのメッセージを受信しました room_name=[Elephant] event=[C2S_Moved] piece_moved=[X] sq=[2]
 
         # 部屋取得
@@ -177,20 +177,20 @@ class TicTacToeV3o2o1MessageConverter(TicTacToeV2MessageConverter):
 
         # （デバッグ）現状を出力
         print(
-            f"[TicTacToeV3o2o1MessageConverter on_move] room=[{room}]")
+            f"[TicTacToeV3o1o0MessageConverter on_move] room=[{room}]")
         print(
-            f"[TicTacToeV3o2o1MessageConverter on_move] now room.name=[{room.name}] room.board=[{room.board}] room.record=[{room.record}]")
+            f"[TicTacToeV3o1o0MessageConverter on_move] now room.name=[{room.name}] room.board=[{room.board}] room.record=[{room.record}]")
 
         # 駒を置きます
         #
         # * 盤が9マスになるように右を '.' で埋めます
         room.board = room.board.ljust(9, '.')
         print(
-            f"[TicTacToeV3o2o1MessageConverter on_move] now2 room.board=[{room.board}]")
+            f"[TicTacToeV3o1o0MessageConverter on_move] now2 room.board=[{room.board}]")
 
         room.board = f"{room.board[:sq]}{piece_moved}{room.board[sq+1:]}"
         print(
-            f"[TicTacToeV3o2o1MessageConverter on_move] now3 room.board=[{room.board}]")
+            f"[TicTacToeV3o1o0MessageConverter on_move] now3 room.board=[{room.board}]")
 
         # 棋譜を書きます
         #
@@ -198,21 +198,21 @@ class TicTacToeV3o2o1MessageConverter(TicTacToeV2MessageConverter):
         # * 9文字を超えるようなら、切り捨てます
 
         print(
-            f"[TicTacToeV3o2o1MessageConverter on_move] now4 room.record=[{room.record}]")
+            f"[TicTacToeV3o1o0MessageConverter on_move] now4 room.record=[{room.record}]")
         room.record = f"{room.record}{sq}"[:9]
         print(
-            f"[TicTacToeV3o2o1MessageConverter on_move] now5 room.record=[{room.record}]")
+            f"[TicTacToeV3o1o0MessageConverter on_move] now5 room.record=[{room.record}]")
 
         # 部屋を上書きします
         await save_room(room)
 
-        print(f"[TicTacToeV3o2o1MessageConverter on_move] saved")
+        print(f"[TicTacToeV3o1o0MessageConverter on_move] saved")
 
     def on_start(self, scope, doc_received):
         """対局開始時"""
 
         print(
-            f"[TicTacToeV3o2o1MessageConverter on_start] ignored. doc_received={doc_received}")
+            f"[TicTacToeV3o1o0MessageConverter on_start] ignored. doc_received={doc_received}")
         pass
 
 
@@ -236,13 +236,13 @@ def save_room(room):
         └── 📂 apps1
             └── 📂 tic_tac_toe_o4o1                 # アプリケーション
                 └── 📂 websocks
-                    └── 📂 o2o1
+                    └── 📂 o1o0
 👉                      ├── 📄 consumer_custom.py
                         └── 📄 message_converter.py
 ```
 
 ```py
-from apps1.tic_tac_toe_v2.websocks.o2o1.gui.consumer_base import TicTacToeV2ConsumerBase
+from apps1.tic_tac_toe_v2.websocks.o1o0.gui.consumer_base import TicTacToeV2ConsumerBase
 #                       ^ two                                            ^ two
 #    ----- -------------- ----------------- -------------        -----------------------
 #    1     2              3                 4                    5
@@ -251,7 +251,7 @@ from apps1.tic_tac_toe_v2.websocks.o2o1.gui.consumer_base import TicTacToeV2Cons
 # 4. Python ファイル名。拡張子抜き
 # 5. クラス名
 
-from .message_converter import TicTacToeV3o2o1MessageConverter
+from .message_converter import TicTacToeV3o1o0MessageConverter
 #                                        ^three
 #    ]-----------------        -------------------------------
 #    12                        3
@@ -260,12 +260,12 @@ from .message_converter import TicTacToeV3o2o1MessageConverter
 # 3. クラス名
 
 
-class TicTacToeV3o2o1ConsumerCustom(TicTacToeV2ConsumerBase):
+class TicTacToeV3o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
     """Webソケット用コンシューマー"""
 
     def __init__(self):
         super().__init__()
-        self._messageConverter = TicTacToeV3o2o1MessageConverter()
+        self._messageConverter = TicTacToeV3o1o0MessageConverter()
         #                                  ^three
 
     async def on_receive(self, doc_received):
@@ -288,7 +288,7 @@ class TicTacToeV3o2o1ConsumerCustom(TicTacToeV2ConsumerBase):
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_o4o1              # アプリケーション
         │       └── 📂 websocks
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               ├── 📄 consumer_custom.py
         │               └── 📄 message_converter.py
         └── 📂 project1                          # プロジェクト
@@ -299,8 +299,8 @@ class TicTacToeV3o2o1ConsumerCustom(TicTacToeV2ConsumerBase):
 # See also: 📖 [Channels - Consumers](https://channels.readthedocs.io/en/latest/topics/consumers.html)
 from django.conf.urls import url
 
-# 〇×ゲームの練習 o4o1o2o1
-from apps1.tic_tac_toe_o4o1.websocks.o2o1.consumer_custom import TicTacToeV3o2o1ConsumerCustom
+# 〇×ゲームの練習 o4o1o1o0
+from apps1.tic_tac_toe_o4o1.websocks.o1o0.consumer_custom import TicTacToeV3o1o0ConsumerCustom
 #                       ^four                                              ^three
 #    ----- ---------------- ------------- ---------------        -----------------------------
 #    1     2                3             4                      5
@@ -320,7 +320,7 @@ websocket_urlpatterns = [
         #                 ^four
         # -------------------------------------------------
         # 1
-        TicTacToeV3o2o1ConsumerCustom.as_asgi()),
+        TicTacToeV3o1o0ConsumerCustom.as_asgi()),
     #             ^three
     #   ---------------------------------------
     #   2
@@ -340,7 +340,7 @@ websocket_urlpatterns = [
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_o4o1              # アプリケーション
         │       └── 📂 websocks
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               ├── 📄 consumer_custom.py
         │               └── 📄 message_converter.py
         └── 📂 project1                          # プロジェクト
@@ -397,7 +397,7 @@ websocket_urlpatterns_merged.extend(
         │       │       └── 📂 match_application
 👉      │       │           └── 📄 __init__.py
         │       └── 📂 websocks
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               ├── 📄 consumer_custom.py
         │               └── 📄 message_converter.py
         └── 📂 project1                             # プロジェクト
@@ -407,21 +407,21 @@ websocket_urlpatterns_merged.extend(
 
 ```py
 # 以前のバージョン
-from apps1.tic_tac_toe_v2.views.o2o1.gui.match_application import MatchApplicationV as MatchApplicationVV2o2o1
+from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicationV as MatchApplicationVV2o1o0
 #                       ^two
 #    -----------------------------------------------------        -----------------    -----------------------
 #    1                                                            2                    3
-# 1. `host1/apps1/tic_tac_toe_v2/views/o2o1/gui/match_application/__init__.py`
+# 1. `host1/apps1/tic_tac_toe_v2/views/o1o0/gui/match_application/__init__.py`
 #           -----------------------------------------------------
 # 2. `1.` の __init__.py ファイルに含まれるクラス
 # 3. '2.' の別名
 
 # 以前のバージョン
-from apps1.tic_tac_toe_o4o1.views.o2o1.match_application import MatchApplicationV as MatchApplicationVV3o2o1
+from apps1.tic_tac_toe_o4o1.views.o1o0.match_application import MatchApplicationV as MatchApplicationVV3o1o0
 #                       ^four
 #    ---------------------------------------------------        -----------------    -----------------------
 #    1                                                          2                    3
-# 1. `host1/apps1/tic_tac_toe_o4o1/views/o2o1/match_application/__init__.py`
+# 1. `host1/apps1/tic_tac_toe_o4o1/views/o1o0/match_application/__init__.py`
 #           ---------------------------------------------------
 # 2. `1.` の __init__.py ファイルに含まれるクラス
 # 3. '2.' の別名
@@ -442,20 +442,20 @@ class MatchApplicationV():
         """描画"""
 
         # 以下のファイルは既存です
-        from apps1.tic_tac_toe_v2.views.o2o1.gui.match_application.v_render import render_match_application
+        from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application.v_render import render_match_application
         #                       ^two
         #    --------------------------------------------------------------        ------------------------
         #    1                                                                     2
-        # 1. `host1/apps1/tic_tac_toe_v2/views/o2o1/gui/match_application/v_render.py`
+        # 1. `host1/apps1/tic_tac_toe_v2/views/o1o0/gui/match_application/v_render.py`
         #                                                                 --------
         # 2. `1.` に含まれる関数
 
         return render_match_application(
             request,
             MatchApplicationV.path_of_http_playing,
-            MatchApplicationVV2o2o1.path_of_html,
-            MatchApplicationVV3o2o1.on_sent,
-            MatchApplicationVV2o2o1.open)
+            MatchApplicationVV2o1o0.path_of_html,
+            MatchApplicationVV3o1o0.on_sent,
+            MatchApplicationVV2o1o0.open)
 ```
 
 # Step O[7 0] 対局申込ビュー モジュール作成 - o4o1/playing フォルダー
@@ -473,7 +473,7 @@ class MatchApplicationV():
         │       │       └── 📂 playing
 👉      │       │           └── 📄 __init__.py
         │       └── 📂 websocks
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               ├── 📄 consumer_custom.py
         │               └── 📄 message_converter.py
         └── 📂 project1                             # プロジェクト
@@ -483,13 +483,13 @@ class MatchApplicationV():
 
 ```py
 # 以前のバージョン
-from apps1.tic_tac_toe_v2.views.o2o1.gui.playing import PlayingV as PlayingVV2o2o1
+from apps1.tic_tac_toe_v2.views.o1o0.gui.playing import PlayingV as PlayingVV2o1o0
 #                       ^two
 #          --------------                -------        --------    --------------
 #          11                            12             2           3
 #    -------------------------------------------
 #    10
-# 10. `host1/apps1/tic_tac_toe_v2/views/o2o1/gui/playing/__init__.py`
+# 10. `host1/apps1/tic_tac_toe_v2/views/o1o0/gui/playing/__init__.py`
 #            -------------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
@@ -497,13 +497,13 @@ from apps1.tic_tac_toe_v2.views.o2o1.gui.playing import PlayingV as PlayingVV2o2
 # 3. `2.` の別名
 
 # 以前のバージョン
-from apps1.tic_tac_toe_o4o1.views.o2o1.playing import PlayingV as PlayingVV3o2o1
+from apps1.tic_tac_toe_o4o1.views.o1o0.playing import PlayingV as PlayingVV3o1o0
 #                       ^four
 #          ----------------            -------        --------    --------------
 #          11                          12             2           3
 #    -----------------------------------------
 #    10
-# 10. `host1/apps1/tic_tac_toe_o4o1/views/o2o1/playing/__init__.py`
+# 10. `host1/apps1/tic_tac_toe_o4o1/views/o1o0/playing/__init__.py`
 #            -----------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
@@ -526,11 +526,11 @@ class PlayingV():
         """描画"""
 
         # 以下のファイルは既存です
-        from apps1.tic_tac_toe_v2.views.o2o1.gui.playing.v_render import render_playing
+        from apps1.tic_tac_toe_v2.views.o1o0.gui.playing.v_render import render_playing
         #                       ^two
         #    ----------------------------------------------------        --------------
         #    1                                                           2
-        # 1. `host1/apps1/tic_tac_toe_v2/views/o2o1/gui/playing/v_render.py`
+        # 1. `host1/apps1/tic_tac_toe_v2/views/o1o0/gui/playing/v_render.py`
         #           ----------------------------------------------------
         # 2. `1.` のファイルに含まれる render_playing 関数
 
@@ -538,9 +538,9 @@ class PlayingV():
             request,
             kw_room_name,
             PlayingV.path_of_ws_playing,
-            PlayingVV3o2o1.path_of_html,
-            PlayingVV3o2o1.on_update,
-            PlayingVV2o2o1.expected_pieces)
+            PlayingVV3o1o0.path_of_html,
+            PlayingVV3o1o0.on_update,
+            PlayingVV2o1o0.expected_pieces)
 ```
 
 # Step O[8 0] ルート編集 - urls_practice.py ファイル
@@ -558,7 +558,7 @@ class PlayingV():
         │       │       └── 📂 playing
         │       │           └── 📄 __init__.py
         │       └── 📂 websocks
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               ├── 📄 consumer_custom.py
         │               └── 📄 message_converter.py
         └── 📂 project1                             # プロジェクト
@@ -662,7 +662,7 @@ urlpatterns = [
         │       │       └── 📂 playing
         │       │           └── 📄 __init__.py
         │       └── 📂 websocks
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               ├── 📄 consumer_custom.py
         │               └── 📄 message_converter.py
         └── 📂 project1                             # プロジェクト

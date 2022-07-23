@@ -2,7 +2,7 @@
 
 （※いわゆる CRUD の D）  
 
-`http://localhost:8000/practice/v1.0/rooms/delete/4/` へアクセスすると、  
+`http://localhost:8000/practice/v1/rooms/delete/4/` へアクセスすると、  
 id が 4 の部屋を削除したい  
 
 表示例:  
@@ -51,7 +51,7 @@ id が 4 の部屋を削除したい
     │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
-    │   │   │       └── 📂 o2o1
+    │   │   │       └── 📂 o1o0
     │   │   │           └── 📄 m_room.py
     │   │   ├── 📂 tic_tac_toe_v1        # アプリケーション
     │   │   └── 📂 tic_tac_toe_v2        # アプリケーション
@@ -59,7 +59,7 @@ id が 4 の部屋を削除したい
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o2o1
+    │   │       │       └── 📂 o1o0
     │   │       │           └── 📂 think
     │   │       │               ├── 📄 concepts.js
     │   │       │               ├── 📄 engine.js
@@ -69,11 +69,11 @@ id が 4 の部屋を削除したい
     │   │       │               └── 📄 user_ctrl.js
     │   │       ├── 📂 templates
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o2o1
+    │   │       │       └── 📂 o1o0
     │   │       │           └── 📂 think
     │   │       │               └── 📄 engine_manual.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 o2o1
+    │   │       │   └── 📂 o1o0
     │   │       │       └── 📂 think
     │   │       │           └── 📂 engine_manual
     │   │       │               ├── 📄 __init__.py
@@ -126,7 +126,7 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1          # アプリケーションと同名
-                        └── 📂 o2o1
+                        └── 📂 o1o0
                             └── 📂 room
 👉                              └── 📄 delete.html
 ```
@@ -167,11 +167,11 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📂 room
                 │               └── 📄 delete.html
                 └── 📂 views
-                    └── 📂 o2o1
+                    └── 📂 o1o0
                         └── 📂 room
 👉                          └── 📄 __init__.py
 ```
@@ -182,10 +182,10 @@ class RoomV():
 
 
     # 削除ページ
-    _path_of_delete_page = "practice_v1/o2o1/room/delete.html"
+    _path_of_delete_page = "practice_v1/o1o0/room/delete.html"
     #                       ---------------------------------
     #                       1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o2o1/room/delete.html` を取得
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1o0/room/delete.html` を取得
     #                                       ---------------------------------
 
 
@@ -200,7 +200,7 @@ class RoomV():
         from .v_delete import render_delete
         #    ---------        -------------
         #    1                2
-        # 1. `host1/apps1/practice_v1/views/o2o1/room/v_delete.py`
+        # 1. `host1/apps1/practice_v1/views/o1o0/room/v_delete.py`
         #                                             --------
         # 2. `1.` に含まれる関数
 
@@ -217,11 +217,11 @@ class RoomV():
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📂 room
                 │               └── 📄 delete.html
                 └── 📂 views
-                    └── 📂 o2o1
+                    └── 📂 o1o0
                         └── 📂 room
                             ├── 📄 __init__.py
 👉                          └── 📄 v_delete.py
@@ -231,7 +231,7 @@ class RoomV():
 from django.http import HttpResponse
 from django.template import loader
 
-from apps1.practice_v1.models.o2o1.m_room import Room
+from apps1.practice_v1.models.o1o0.m_room import Room
 #          -----------             ------        ----
 #          1.1                     1.2           2
 #    ------------------------------------
@@ -268,11 +268,11 @@ def render_delete(request, room_pk, path_of_delete_page):
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📂 room
         │       │               └── 📄 delete.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 room
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_delete.py
@@ -289,13 +289,13 @@ urlpatterns = [
 
 
     # 対局部屋の削除
-    path('practice/v1.0/rooms/delete/<int:id>/', RoomV.render_delete,
+    path('practice/v1/rooms/delete/<int:id>/', RoomV.render_delete,
          # ---------------------------------   -------------------
          # 1                                   2
          name='practice_v1_rooms_delete'),
     #          ------------------------
     #          3
-    # 1. 例えば `http://example.com/practice/v1.0/rooms/delete/<数字列>/` のような URL のパスの部分。
+    # 1. 例えば `http://example.com/practice/v1/rooms/delete/<数字列>/` のような URL のパスの部分。
     #                              ----------------------------------
     #    数字列は `2.` の関数の引数 id で取得できる
     # 2. RoomV クラスの render_delete メソッド
@@ -307,7 +307,7 @@ urlpatterns = [
 
 👇 部屋の番号は適宜変えてほしい  
 
-📖 [http://localhost:8000/practice/v1.0/rooms/delete/1/](http://localhost:8000/practice/v1.0/rooms/delete/1/)  
+📖 [http://localhost:8000/practice/v1/rooms/delete/1/](http://localhost:8000/practice/v1/rooms/delete/1/)  
 
 # Step O[7 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -322,11 +322,11 @@ urlpatterns = [
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📂 room
         │       │               └── 📄 delete.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 room
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_delete.py
@@ -337,7 +337,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1.0/rooms/delete/1/,対局部屋の削除
+/practice/v1/rooms/delete/1/,対局部屋の削除
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

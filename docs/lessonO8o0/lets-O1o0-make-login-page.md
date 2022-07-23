@@ -29,10 +29,10 @@
     │   │   │   │   └── 🚀 favicon.ico
     │   │   │   ├── 📂 templates
     │   │   │   │   └── 📂 portal_v1
-    │   │   │   │       └── 📂 o2o1
+    │   │   │   │       └── 📂 o1o0
     │   │   │   │           └── 📄 portal_base.html
     │   │   │   └── 📂 views
-    │   │   │       └── 📂 o2o1
+    │   │   │       └── 📂 o1o0
     │   │   │           └── 📄 pages.py
     │   │   └── 📂 practice_v1
     │   ├── 📂 data
@@ -186,10 +186,10 @@ docker-compose up
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 
-        <script src="{% static 'allauth_customized_v1/o2o1/form-html-parser.js' %}"></script>
+        <script src="{% static 'allauth_customized_v1/o1o0/form-html-parser.js' %}"></script>
         <!--            ======================================================
                         1
-            1. `host1/apps1/allauth_customized_v1/static/allauth_customized_v1/o2o1/form-html-parser.js`
+            1. `host1/apps1/allauth_customized_v1/static/allauth_customized_v1/o1o0/form-html-parser.js`
                                                   =====================================================
         -->
 
@@ -270,7 +270,7 @@ docker-compose up
                 │   └── 📂 account
                 │       └── 📄 login.html
                 └── 📂 views
-                    └── 📂 o2o1
+                    └── 📂 o1o0
 👉                      └── 📄 v_login.py
 ```
 
@@ -306,7 +306,7 @@ accounts_v1_login_view = AccountsV1LoginView.as_view()
         │       │   └── 📂 account
         │       │       └── 📄 login.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📄 v_login.py
         └── 📂 project1
 👉          ├── 📄 urls_accounts.py          # こちら
@@ -317,7 +317,7 @@ accounts_v1_login_view = AccountsV1LoginView.as_view()
 # ...略...
 
 
-from apps1.allauth_customized_v1.views.o2o1 import v_login
+from apps1.allauth_customized_v1.views.o1o0 import v_login
 #    --------------------------------------        -------
 #    1                                             2
 # 1. Pythonモジュール名（ディレクトリー名）
@@ -371,7 +371,7 @@ urlpatterns = [
         │       │   └── 📂 account
         │       │       └── 📄 login.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📄 v_login.py
         └── 📂 project1
             ├── 📄 urls_accounts.py

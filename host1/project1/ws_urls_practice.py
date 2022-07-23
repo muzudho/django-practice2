@@ -2,7 +2,7 @@
 from django.conf.urls import url
 
 # Webソケットの練習１
-from apps1.practice_v1.websocks.o2o1.consumer import WebsockPractice1V1Consumer
+from apps1.practice_v1.websocks.o1o0.consumer import WebsockPractice1V1Consumer
 #    ------------------------------- --------        --------------------------
 #    1                               2               3
 # 1. ディレクトリー名
@@ -10,7 +10,7 @@ from apps1.practice_v1.websocks.o2o1.consumer import WebsockPractice1V1Consumer
 # 3. クラス名
 
 # Webソケットの練習２
-from apps1.practice_v1.websocks.o2o1.consumer_as_json import WebsockPractice2V1Consumer
+from apps1.practice_v1.websocks.o1o0.consumer_as_json import WebsockPractice2V1Consumer
 #                                                                         ^two
 #    ------------------------------- ----------------        --------------------------
 #    1                               2                       3

@@ -1,14 +1,14 @@
 from django.urls import include, path  # include 追加
 from django.views.generic import TemplateView  # 追加
 
-from apps1.allauth_customized_v1.views.o2o1 import v_accounts
+from apps1.allauth_customized_v1.views.o1o0 import v_accounts
 #    --------------------------------------        ----------
 #    1                                             2
 # 1. アプリケーション フォルダー名
 # 2. Pythonモジュール名（ディレクトリー名）
 # 3. Python ファイル名。拡張子抜き
 
-from apps1.allauth_customized_v1.views.o2o1 import v_login
+from apps1.allauth_customized_v1.views.o1o0 import v_login
 #    --------------------------------------        -------
 #    1                                             2
 # 1. Pythonモジュール名（ディレクトリー名）

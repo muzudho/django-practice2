@@ -4,7 +4,7 @@ Webサイトのページを追加したい。
 以下のようなURLで表示させる  
 
 ```plain
-http://example.com/practice/v1.0/page1
+http://example.com/practice/v1/page1
 ------]----------]------------------
 1      2          3
 
@@ -82,12 +82,12 @@ docker-compose up
 👇 URLでは、アプリケーション名とバージョン番号は分ける  
 
 Example: `http://example.com/practice/v1/`  
-Example: `http://example.com/practice/v1.1/`  
+Example: `http://example.com/practice/v1.2/`  
 
 SEO対策などで「バージョン番号が異なってもアプリケーションとしては同じとカウントしてほしい」ケースがあるだろう。  
 この連載では、 URL については この方法を採用する  
 
-バージョン番号は メジャー番号 だけを使うか、 `v1` と `v1.1` の両方を残したい場合は マイナー番号 まで含める。  
+バージョン番号は メジャー番号 だけを使うか、 `v1` と `v1.2` の両方を残したい場合は マイナー番号 まで含める。  
 バグ修正のたびに URL が変わるのは ナンセンスなので URL にパッチ番号は含めない  
 
 👇 ローカルPC内では アプリケーションのバージョン番号のメジャー番号は、アプリケーション名の方に含める  
@@ -245,7 +245,7 @@ INSTALLED_APPS = [
             └── 📂 practice_v1              # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1      # アプリケーションと同名
-                        └── 📂 o2o1
+                        └── 📂 o1o0
 👉                          └── 📄 page1.html
 ```
 
@@ -272,7 +272,7 @@ INSTALLED_APPS = [
         │   └── 📂 practice_v1                  # アプリケーション
         │       └── 📂 templates
         │           └── 📂 practice_v1
-        │               └── 📂 o2o1
+        │               └── 📂 o1o0
         │                   └── 📄 page1.html
         └── 📂 project1
 👉          └── 📄 settings.py
@@ -292,7 +292,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'apps1/practice_v1/templates'),
             #                       -----------------------------
             #                       10
-            # Example: /host1/apps1/practice_v1/templates/practice_v1/o2o1/page1.html
+            # Example: /host1/apps1/practice_v1/templates/practice_v1/o1o0/page1.html
             #                       -------------          --------------
             #                       11                     2
             #                 ---------------------------
@@ -325,10 +325,10 @@ TEMPLATES = [
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📄 page1.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 page1
 👉      │                   └── 📄 __init__.py
         └── 📂 project1
@@ -347,10 +347,10 @@ class Page1():
     def render(request):
         """描画"""
 
-        template = loader.get_template('practice_v1/o2o1/page1.html')
+        template = loader.get_template('practice_v1/o1o0/page1.html')
         #                               -----------------------------
         #                               1
-        # 1. host1/apps1/practice_v1/templates/practice_v1/o2o1/page1.html を取得
+        # 1. host1/apps1/practice_v1/templates/practice_v1/o1o0/page1.html を取得
         #                                        -----------------------------
 
         context = {}
@@ -371,10 +371,10 @@ class Page1():
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📄 page1.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 page1
         │                   └── 📄 __init__.py
         └── 📂 project1
@@ -386,7 +386,7 @@ class Page1():
 from django.urls import path
 
 # 練習ページ１
-from apps1.practice_v1.views.o2o1.page1 import Page1
+from apps1.practice_v1.views.o1o0.page1 import Page1
 #          -------------            -----        -----
 #          11                       12           2
 #    ------------------------------------
@@ -398,10 +398,10 @@ from apps1.practice_v1.views.o2o1.page1 import Page1
 
 urlpatterns = [
 
-    path('practice/v1.0/page1', Page1.render, name='page1'),
+    path('practice/v1/page1', Page1.render, name='page1'),
     #     -----------------   ------------        -----
     #     1                   2                   3
-    # 1. 例えば `http://example.com/practice/v1.0/page1` のようなURLのパスの部分
+    # 1. 例えば `http://example.com/practice/v1/page1` のようなURLのパスの部分
     #                              -----------------
     # 2. Page1 クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'page1' %} のような形でURLを取得するのに使える
@@ -418,10 +418,10 @@ urlpatterns = [
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📄 page1.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 page1
         │                   └── 📄 __init__.py
         └── 📂 project1
@@ -454,7 +454,7 @@ urlpatterns = [
 
 # Step O[12 0] Webページにアクセスする
 
-📖 [http://localhost:8000/practice/v1.0/page1](http://localhost:8000/practice/v1.0/page1)  
+📖 [http://localhost:8000/practice/v1/page1](http://localhost:8000/practice/v1/page1)  
 
 # 次の記事
 

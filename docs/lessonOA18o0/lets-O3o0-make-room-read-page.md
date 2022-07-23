@@ -2,7 +2,7 @@
 
 （※いわゆる CRUD の R）  
 
-`http://localhost:8000/practice/v1.0/rooms/read/1/` へアクセスすると、  
+`http://localhost:8000/practice/v1/rooms/read/1/` へアクセスすると、  
 id が 1 の部屋を表示したい  
 
 表示例:  
@@ -78,7 +78,7 @@ Elephant
     │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
-    │   │   │       └── 📂 o2o1
+    │   │   │       └── 📂 o1o0
     │   │   │           └── 📄 m_room.py
     │   │   ├── 📂 tic_tac_toe_v1        # アプリケーション
     │   │   └── 📂 tic_tac_toe_v2        # アプリケーション
@@ -86,7 +86,7 @@ Elephant
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o2o1
+    │   │       │       └── 📂 o1o0
     │   │       │           └── 📂 think
     │   │       │               ├── 📄 concepts.js
     │   │       │               ├── 📄 engine.js
@@ -96,11 +96,11 @@ Elephant
     │   │       │               └── 📄 user_ctrl.js
     │   │       ├── 📂 templates
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o2o1
+    │   │       │       └── 📂 o1o0
     │   │       │           └── 📂 think
     │   │       │               └── 📄 engine_manual.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 o2o1
+    │   │       │   └── 📂 o1o0
     │   │       │       └── 📂 think
     │   │       │           └── 📂 engine_manual
     │   │       │               ├── 📄 __init__.py
@@ -153,7 +153,7 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1          # アプリケーションと同名
-                        └── 📂 o2o1
+                        └── 📂 o1o0
                             └── 📂 room
 👉                              └── 📄 read.html
 ```
@@ -288,11 +288,11 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📂 room
                 │               └── 📄 read.html
                 └── 📂 views
-                    └── 📂 o2o1
+                    └── 📂 o1o0
                         └── 📂 room
 👉                          └── 📄 __init__.py
 ```
@@ -303,10 +303,10 @@ class RoomV():
 
 
     # 詳細ページ
-    _path_of_read_page = "practice_v1/o2o1/room/read.html"
+    _path_of_read_page = "practice_v1/o1o0/room/read.html"
     #                     -------------------------------
     #                     1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o2o1/room/read.html` を取得
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1o0/room/read.html` を取得
     #                                       -------------------------------
 
 
@@ -321,7 +321,7 @@ class RoomV():
         from .v_read import render_read
         #    -------        -----------
         #    1              2
-        # 1. `host1/apps1/practice_v1/views/o2o1/room/v_read.py`
+        # 1. `host1/apps1/practice_v1/views/o1o0/room/v_read.py`
         #                                             ------
         # 2. `1.` に含まれる関数
 
@@ -338,11 +338,11 @@ class RoomV():
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📂 room
                 │               └── 📄 read.html
                 └── 📂 views
-                    └── 📂 o2o1
+                    └── 📂 o1o0
                         └── 📂 room
                             ├── 📄 __init__.py
 👉                          └── 📄 v_read.py
@@ -351,7 +351,7 @@ class RoomV():
 ```py
 from django.shortcuts import render
 
-from apps1.practice_v1.models.o2o1.m_room import Room
+from apps1.practice_v1.models.o1o0.m_room import Room
 #          -----------             ------        ----
 #          1.1                     1.2           2
 #    ------------------------------------
@@ -361,7 +361,7 @@ from apps1.practice_v1.models.o2o1.m_room import Room
 # 2. `1.2` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # ユーザー モデルヘルパー
-from apps1.practice_v1.models_helper.o2o1.mh_user import MhUser
+from apps1.practice_v1.models_helper.o1o0.mh_user import MhUser
 #          -----------                    -------        ------
 #          11                             12             2
 #    --------------------------------------------
@@ -424,11 +424,11 @@ def render_read(request, room_pk, path_of_read_page):
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📂 room
         │       │               └── 📄 read.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 room
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_read.py
@@ -445,13 +445,13 @@ urlpatterns = [
 
 
     # 対局部屋の詳細
-    path('practice/v1.0/rooms/read/<int:id>/',
+    path('practice/v1/rooms/read/<int:id>/',
          # -------------------------------
          # 1
          RoomV.render_read, name='practice_v1_rooms_read'),
     #    -----------------        ----------------------
     #    2                        3
-    # 1. 例えば `http://example.com/practice/v1.0/rooms/read/<数字列>/` のような URL のパスの部分。
+    # 1. 例えば `http://example.com/practice/v1/rooms/read/<数字列>/` のような URL のパスの部分。
     #                              --------------------------------
     #    数字列は `2.` の関数の引数 id で取得できる
     # 2. RoomV クラスの render_read メソッド
@@ -463,7 +463,7 @@ urlpatterns = [
 
 👇 部屋番号は適宜変えてほしい  
 
-📖 [http://localhost:8000/practice/v1.0/rooms/read/1/](http://localhost:8000/practice/v1.0/rooms/read/1/)  
+📖 [http://localhost:8000/practice/v1/rooms/read/1/](http://localhost:8000/practice/v1/rooms/read/1/)  
 
 # Step O[7 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -478,11 +478,11 @@ urlpatterns = [
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📂 room
         │       │               └── 📄 read.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 room
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_read.py
@@ -493,7 +493,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1.0/rooms/read/1/,対局部屋の詳細(1)
+/practice/v1/rooms/read/1/,対局部屋の詳細(1)
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

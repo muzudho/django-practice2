@@ -48,11 +48,11 @@ pk が 1 の都道府県を表示したい
     │   │       ├── 📂 static
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_v1          # アプリケーションと同名
-    │   │       │       └── 📂 o2o1
+    │   │       │       └── 📂 o1o0
     │   │       │           └── 📂 prefecture
     │   │       │               └── 📄 list.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 o2o1
+    │   │       │   └── 📂 o1o0
     │   │       │       └── 📂 prefecture
     │   │       │           ├── 📄 __init__.py
     │   │       │           └── 📄 v_list.py
@@ -101,7 +101,7 @@ docker-compose up
             └── 📂 practice_v1                      # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1              # アプリケーションと同名
-                        └── 📂 o2o1                # ただのフォルダー
+                        └── 📂 o1o0                # ただのフォルダー
                             └── 📂 prefecture            # ただのフォルダー
 👉                              └── 📄 read.html
 ```
@@ -161,11 +161,11 @@ docker-compose up
             └── 📂 practice_v1                      # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1              # アプリケーションと同名
-                │       └── 📂 o2o1                # ただのフォルダー
+                │       └── 📂 o1o0                # ただのフォルダー
                 │           └── 📂 prefecture            # ただのフォルダー
                 │               └── 📄 read.html
                 └── 📂 views
-                    └── 📂 o2o1                # ただのフォルダー
+                    └── 📂 o1o0                # ただのフォルダー
                         └── 📂 prefecture            # ただのフォルダー
 👉                          └── 📄 v_read.py
 ```
@@ -175,7 +175,7 @@ from django.http import HttpResponse
 from django.template import loader
 
 # 都道府県モデル
-from apps1.practice_v1.models.o2o1.m_prefecture import Prefecture
+from apps1.practice_v1.models.o1o0.m_prefecture import Prefecture
 #    ----- ----------- ----------- ------------        ----------
 #    1     2           3           4                   5
 # 1,3. ディレクトリー名
@@ -195,10 +195,10 @@ def render_read(request, id=id):
         URLのGETストリングの ?id= の値
     """
 
-    template = loader.get_template('practice_v1/o2o1/prefecture/read.html')
+    template = loader.get_template('practice_v1/o1o0/prefecture/read.html')
     #                               -------------------------------------
     #                               1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o2o1/prefecture/read.html` を取得
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1o0/prefecture/read.html` を取得
     #                                       -------------------------------------
 
     context = {
@@ -218,11 +218,11 @@ def render_read(request, id=id):
             └── 📂 practice_v1                      # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📂 prefecture
                 │               └── 📄 read.html
                 └── 📂 views
-                    └── 📂 o2o1
+                    └── 📂 o1o0
                         └── 📂 prefecture
 👉                          ├── 📄 __init__.py
                             └── 📄 v_read.py
@@ -250,11 +250,11 @@ class PrefectureV(object):
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📂 prefecture
         │       │               └── 📄 read.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 prefecture
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_read.py
@@ -271,7 +271,7 @@ from django.urls import path
 
 
 # 都道府県
-from apps1.practice_v1.views.o2o1.prefecture import PrefectureV
+from apps1.practice_v1.views.o1o0.prefecture import PrefectureV
 #          -----------            ----------        -----------
 #          11                     12                2
 #    ---------------------------------------
@@ -288,14 +288,14 @@ urlpatterns = [
 
 
     # 都道府県の詳細
-    path('practice/v1.0/prefectures/read/<int:id>/',
+    path('practice/v1/prefectures/read/<int:id>/',
          # -------------------------------------
          # 1
          PrefectureV.render_read, name='practice_v1_prefectures_read'),
     #    -----------------------        ----------------------------
     #    2                              3
     #
-    # 1. 例えば `http://example.com/practice/v1.0/prefectures/read/<数字列>/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1/prefectures/read/<数字列>/` のような URL のパスの部分
     #                              --------------------------------------
     #    数字列は `2.` のメソッドの引数 id で取得できる
     # 2. PrefectureV クラスの render_read 静的メソッド
@@ -305,7 +305,7 @@ urlpatterns = [
 
 # Step O[6 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1.0/prefectures/read/1/](http://localhost:8000/practice/v1.0/prefectures/read/1/)  
+📖 [http://localhost:8000/practice/v1/prefectures/read/1/](http://localhost:8000/practice/v1/prefectures/read/1/)  
 
 # Step O[7 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -320,11 +320,11 @@ urlpatterns = [
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📂 prefecture
         │       │               └── 📄 read.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 prefecture
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_read.py
@@ -336,7 +336,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1.0/prefectures/read/1/,都道府県(1)の詳細
+/practice/v1/prefectures/read/1/,都道府県(1)の詳細
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

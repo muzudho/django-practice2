@@ -39,7 +39,7 @@
     │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
-    │   │   │       └── 📂 o2o1
+    │   │   │       └── 📂 o1o0
     │   │   │           └── 📄 m_room.py
     │   │   ├── 📂 tic_tac_toe_v1        # アプリケーション
     │   │   └── 📂 tic_tac_toe_v2        # アプリケーション
@@ -47,7 +47,7 @@
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o2o1
+    │   │       │       └── 📂 o1o0
     │   │       │           └── 📂 think
     │   │       │               ├── 📄 concepts.js
     │   │       │               ├── 📄 engine.js
@@ -57,11 +57,11 @@
     │   │       │               └── 📄 user_ctrl.js
     │   │       ├── 📂 templates
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o2o1
+    │   │       │       └── 📂 o1o0
     │   │       │           └── 📂 think
     │   │       │               └── 📄 engine_manual.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 o2o1
+    │   │       │   └── 📂 o1o0
     │   │       │       └── 📂 think
     │   │       │           └── 📂 engine_manual
     │   │       │               ├── 📄 __init__.py
@@ -153,7 +153,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📄 auto_reload.js
                 └── 📂 templates
                     └── 📂 practice_v1          # アプリケーションと同名
@@ -162,17 +162,17 @@ function startReloadingAutomatically(intervalMilliseconds) {
 ```
 
 ```html
-{% extends "practice_v1/o2o1/auto_reload.html" %}
+{% extends "practice_v1/o1o0/auto_reload.html" %}
 {#          ---------------------------------
             1
-1. host1/apps1/practice_v1/templates/practice_v1/o2o1/auto_reload.html
+1. host1/apps1/practice_v1/templates/practice_v1/o1o0/auto_reload.html
                                      ---------------------------------
 #}
 
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 
 {% block script_src %}
-<script src="{% static 'practice_v1/o2o1/clock.js' %}"></script>
+<script src="{% static 'practice_v1/o1o0/clock.js' %}"></script>
 <script src="{% static 'practice_v1/o3o1/auto_reload.js' %}"></script>
 <!--                                 ^three
                 =====================================
@@ -221,7 +221,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📄 auto_reload.js
                 ├── 📂 templates
                 │   └── 📂 practice_v1
@@ -270,7 +270,7 @@ class AutoRedirectV():
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📄 auto_reload.js
                 ├── 📂 templates
                 │   └── 📂 practice_v1
@@ -326,7 +326,7 @@ def render_auto_redirect(request, path_of_redirecter_page):
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📄 auto_reload.js
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
@@ -362,14 +362,14 @@ urlpatterns = [
 
 
     # 自動リダイレクト
-    path('practice/v1.0/auto_redirect/', AutoRedirectV.render_auto_redirect,
+    path('practice/v1/auto_redirect/', AutoRedirectV.render_auto_redirect,
          # -------------------------   ----------------------------------
          # 1                           2
          name='practice_v1_auto_redirect'),
     #          -------------------------
     #          3
     #
-    # 1. 例えば `http://example.com/practice/v1.0/auto_redirect/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1/auto_redirect/` のような URL のパスの部分
     #                              --------------------------
     # 2. AutoRedirectV クラスの render_auto_redirect メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_auto_redirect' %} のような形でURLを取得するのに使える
@@ -378,7 +378,7 @@ urlpatterns = [
 
 # Step O[7 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1.0/auto_redirect/](http://localhost:8000/practice/v1.0/auto_redirect/)  
+📖 [http://localhost:8000/practice/v1/auto_redirect/](http://localhost:8000/practice/v1/auto_redirect/)  
 
 # Step O[8 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -393,7 +393,7 @@ urlpatterns = [
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📄 auto_reload.js
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
@@ -411,7 +411,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1.0/auto_redirect/,自動リダイレクト
+/practice/v1/auto_redirect/,自動リダイレクト
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

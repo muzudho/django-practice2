@@ -32,12 +32,12 @@ Data table を作れば上がる。だから説明する
     │   │       ├── 📂 static
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_v1          # アプリケーションと同名
-    │   │       │       └── 📂 o2o1
+    │   │       │       └── 📂 o1o0
     │   │       │           ├── 📂 prefecture
     │   │       │           └── 📂 vuetify
     │   │       │               └── 📄 hello1.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 o2o1
+    │   │       │   └── 📂 o1o0
     │   │       │       ├── 📂 prefecture
     │   │       │       └── 📂 vuetify
     │   │       │           ├── 📄 __init__.py
@@ -87,7 +87,7 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1              # アプリケーションと同名
-                        └── 📂 o2o1
+                        └── 📂 o1o0
                             └── 📂 vuetify
 👉                              └── 📄 data_table1.html
 ```
@@ -244,11 +244,11 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 templates
                 │    └── 📂 practice_v1              # アプリケーションと同名
-                │        └── 📂 o2o1
+                │        └── 📂 o1o0
                 │            └── 📂 vuetify
                 │                └── 📄 data_table1.html
                 └── 📂 views
-                    └── 📂 o2o1
+                    └── 📂 o1o0
                         └── 📂 vuetify
 👉                          └── 📄 v_data_table1.py
 ```
@@ -262,10 +262,10 @@ def render_data_table1(request):
     """描画 - データテーブル１"""
 
     template = loader.get_template(
-        'practice_v1/o2o1/vuetify/data_table1.html')
+        'practice_v1/o1o0/vuetify/data_table1.html')
     #    -----------------------------------------
     #    1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o2o1/vuetify/data_table1.html` を取得
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1o0/vuetify/data_table1.html` を取得
     #                                       -----------------------------------------
 
     context = {
@@ -284,11 +284,11 @@ def render_data_table1(request):
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📂 vuetify
                 │               └── 📄 hello1.html
                 └── 📂 views
-                    └── 📂 o2o1
+                    └── 📂 o1o0
                         └── 📂 vuetify
 👉                          ├── 📄 __init__.py
                             └── 📄 v_data_table1.py
@@ -315,11 +315,11 @@ class VuetifyV(object):
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📂 vuetify
         │       │               └── 📄 data_table1.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 vuetify
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_data_table1.py
@@ -336,7 +336,7 @@ from django.urls import path
 
 
 # 都道府県ビュー
-from apps1.practice_v1.views.o2o1.vuetify import VuetifyV
+from apps1.practice_v1.views.o1o0.vuetify import VuetifyV
 #          -----------            -------        --------
 #          11                     12             2
 #    ------------------------------------
@@ -353,13 +353,13 @@ urlpatterns = [
 
 
     # ビューティファイでデータテーブル１
-    path('practice/v1.0/vuetify/data-table1',
+    path('practice/v1/vuetify/data-table1',
          # ------------------------------
          # 1
          VuetifyV.render_data_table1, name='practice_v1_vuetify_data_table1'),
     #    ---------------------------        -------------------------------
     #    2                                  3
-    # 1. 例えば `http://example.com/practice/v1.0/vuetify/data-table1` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1/vuetify/data-table1` のような URL のパスの部分
     #                              -------------------------------
     # 2. VuetifyV クラスの render_data_table1 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_data_table1' %} のような形でURLを取得するのに使える
@@ -368,7 +368,7 @@ urlpatterns = [
 
 # Step O[6 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1.0/vuetify/data-table1](http://localhost:8000/practice/v1.0/vuetify/data-table1)  
+📖 [http://localhost:8000/practice/v1/vuetify/data-table1](http://localhost:8000/practice/v1/vuetify/data-table1)  
 
 # Step O[7 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -383,11 +383,11 @@ urlpatterns = [
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📂 vuetify
         │       │               └── 📄 data_table1.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 vuetify
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_data_table1.py
@@ -399,7 +399,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1.0/vuetify/data-table1,ビューティファイでデータテーブル１
+/practice/v1/vuetify/data-table1,ビューティファイでデータテーブル１
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

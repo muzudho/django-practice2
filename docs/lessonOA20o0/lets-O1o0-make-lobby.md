@@ -71,7 +71,7 @@
     │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
-    │   │   │       └── 📂 o2o1
+    │   │   │       └── 📂 o1o0
     │   │   │           └── 📄 m_room.py
     │   │   ├── 📂 tic_tac_toe_v1        # アプリケーション
     │   │   └── 📂 tic_tac_toe_v2        # アプリケーション
@@ -79,7 +79,7 @@
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o2o1
+    │   │       │       └── 📂 o1o0
     │   │       │           └── 📂 think
     │   │       │               ├── 📄 concepts.js
     │   │       │               ├── 📄 engine.js
@@ -89,11 +89,11 @@
     │   │       │               └── 📄 user_ctrl.js
     │   │       ├── 📂 templates
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o2o1
+    │   │       │       └── 📂 o1o0
     │   │       │           └── 📂 think
     │   │       │               └── 📄 engine_manual.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 o2o1
+    │   │       │   └── 📂 o1o0
     │   │       │       └── 📂 think
     │   │       │           └── 📂 engine_manual
     │   │       │               ├── 📄 __init__.py
@@ -146,7 +146,7 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1          # アプリケーションと同名
-                        └── 📂 o2o1
+                        └── 📂 o1o0
 👉                          └── 📄 lobby.html
 ```
 
@@ -283,12 +283,12 @@ docker-compose up
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o2o1
+                │   └── 📂 o1o0
                 │       └── 📂 mh_room
 👉              │           └── 📄 __init__.py
                 └── 📂 templates
                     └── 📂 practice_v1
-                        └── 📂 o2o1
+                        └── 📂 o1o0
                             └── 📄 lobby.html
 ```
 
@@ -300,7 +300,7 @@ class MhRoom():
     from .mh_get_all_rooms_as_dic import get_all_rooms_as_dic
     #    ------------------------        --------------------
     #    1                               2
-    # 1. `host1/apps1/practice_v1/model_helper/o2o1/mh_room/mh_get_all_rooms_as_dic.py`
+    # 1. `host1/apps1/practice_v1/model_helper/o1o0/mh_room/mh_get_all_rooms_as_dic.py`
     #                                                       -----------------------
     # 2. `1.` に含まれる関数
 ```
@@ -314,18 +314,18 @@ class MhRoom():
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o2o1
+                │   └── 📂 o1o0
                 │       └── 📂 mh_room
                 │           ├── 📄 __init__.py
 👉              │           └── 📄 mh_get_all_rooms_as_dic.py
                 └── 📂 templates
                     └── 📂 practice_v1
-                        └── 📂 o2o1
+                        └── 📂 o1o0
                             └── 📄 lobby.html
 ```
 
 ```py
-from apps1.practice_v1.models.o2o1.m_room import Room
+from apps1.practice_v1.models.o1o0.m_room import Room
 #          -----------             ------        ----
 #          1.1                     1.2           2
 #    ------------------------------------
@@ -365,16 +365,16 @@ def get_all_rooms_as_dic():
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o2o1
+                │   └── 📂 o1o0
                 │       └── 📂 mh_room
                 │           ├── 📄 __init__.py
                 │           └── 📄 mh_get_user_dic.py
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📄 lobby.html
                 └── 📂 views
-                    └── 📂 o2o1
+                    └── 📂 o1o0
                         └── 📂 lobby
 👉                          └── 📄 __init__.py
 ```
@@ -384,10 +384,10 @@ class LobbyV():
     """ロビー ビュー"""
 
     # 一覧ページ
-    _path_of_lobby_page = "practice_v1/o2o1/lobby.html"
+    _path_of_lobby_page = "practice_v1/o1o0/lobby.html"
     #                      ---------------------------
     #                      1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o2o1/lobby.html` を取得
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1o0/lobby.html` を取得
     #                                       ---------------------------
 
     @staticmethod
@@ -398,7 +398,7 @@ class LobbyV():
         from .v_lobby import render_lobby
         #    --------        ------------
         #    1               2
-        # 1. `host1/apps1/practice_v1/views/o2o1/lobby/v_lobby.py`
+        # 1. `host1/apps1/practice_v1/views/o1o0/lobby/v_lobby.py`
         #                                              -------
         # 2. `1.` に含まれる関数
 
@@ -414,16 +414,16 @@ class LobbyV():
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o2o1
+                │   └── 📂 o1o0
                 │       └── 📂 mh_room
                 │           ├── 📄 __init__.py
                 │           └── 📄 mh_get_user_dic.py
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📄 lobby.html
                 └── 📂 views
-                    └── 📂 o2o1
+                    └── 📂 o1o0
                         └── 📂 lobby
                             ├── 📄 __init__.py
 👉                          └── 📄 v_lobby.py
@@ -435,7 +435,7 @@ from django.http import HttpResponse
 from django.template import loader
 
 # 部屋モデルヘルパー
-from apps1.practice_v1.models_helper.o2o1.mh_room import MhRoom
+from apps1.practice_v1.models_helper.o1o0.mh_room import MhRoom
 #    ----- ----------- --------------------------        ------
 #    1     2           3                                 4
 # 1,3. ディレクトリー名
@@ -444,7 +444,7 @@ from apps1.practice_v1.models_helper.o2o1.mh_room import MhRoom
 
 
 # セッション モデルヘルパー
-from apps1.practice_v1.models_helper.o2o1.mh_session import MhSession
+from apps1.practice_v1.models_helper.o1o0.mh_session import MhSession
 #    ----- ----------- -----------------------------        ---------
 #    1     2           3                                    4
 # 1,3. ディレクトリー名
@@ -467,8 +467,8 @@ def render_lobby(request, path_of_lobby_page):
         'dj_room_dic': json.dumps(room_dic),
         'dj_user_dic': json.dumps(user_dic),
         # FIXME URL を urls.py で変更しても、こちらに反映されないが、どうするか？
-        "dj_path_of_home": "/practice/v1.0/my/",
-        "dj_path_of_rooms_read": "/practice/v1.0/rooms/read/",
+        "dj_path_of_home": "/practice/v1/my/",
+        "dj_path_of_rooms_read": "/practice/v1/rooms/read/",
     }
 
     return HttpResponse(template.render(context, request))
@@ -483,16 +483,16 @@ def render_lobby(request, path_of_lobby_page):
         ├── 📂 apps1
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 models_helper
-        │       │   └── 📂 o2o1
+        │       │   └── 📂 o1o0
         │       │       └── 📂 mh_room
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 mh_get_user_dic.py
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📄 lobby.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 lobby
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_lobby.py
@@ -505,7 +505,7 @@ def render_lobby(request, path_of_lobby_page):
 
 
 # ロビー ビュー
-from apps1.practice_v1.views.o2o1.lobby import LobbyV
+from apps1.practice_v1.views.o1o0.lobby import LobbyV
 #          -----------            -----        ------
 #          11                     12           2
 #    ----------------------------------
@@ -520,10 +520,10 @@ urlpatterns = [
 
 
     # ロビー
-    path('practice/v1.0/lobby/', LobbyV.render_lobby, name='practice_v1_lobby'),
+    path('practice/v1/lobby/', LobbyV.render_lobby, name='practice_v1_lobby'),
     #     ------------------   -------------------        -----------------
     #     1                    2                          3
-    # 1. 例えば `http://example.com/practice/v1.0/lobby/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1/lobby/` のような URL のパスの部分
     #                              ------------------
     #    数字列は `2.` の関数の引数 id で取得できる
     # 2. LobbyV クラスの render_lobby メソッド
@@ -533,7 +533,7 @@ urlpatterns = [
 
 # Step O[8 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1.0/lobby/](http://localhost:8000/practice/v1.0/lobby/)  
+📖 [http://localhost:8000/practice/v1/lobby/](http://localhost:8000/practice/v1/lobby/)  
 
 # Step O[9 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -547,16 +547,16 @@ urlpatterns = [
 👉      │   │       └── 📄 finished-lessons.csv
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 models_helper
-        │       │   └── 📂 o2o1
+        │       │   └── 📂 o1o0
         │       │       └── 📂 mh_room
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 mh_get_user_dic.py
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📄 lobby.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 lobby
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_lobby.py
@@ -567,7 +567,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1.0/lobby/,ロビー
+/practice/v1/lobby/,ロビー
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

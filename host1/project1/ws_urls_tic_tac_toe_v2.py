@@ -1,8 +1,8 @@
 # See also: 📖 [Channels - Consumers](https://channels.readthedocs.io/en/latest/topics/consumers.html)
 from django.conf.urls import url
 
-# 〇×ゲーム v2o2o1
-from apps1.tic_tac_toe_v2.websocks.o2o1.gui.consumer_custom import TicTacToeV2o2o1ConsumerCustom
+# 〇×ゲーム v2o1o0
+from apps1.tic_tac_toe_v2.websocks.o1o0.gui.consumer_custom import TicTacToeV2o1o0ConsumerCustom
 #    ----- -------------- ----------------- ---------------        -----------------------------
 #    1     2              3                 4                      5
 #    ------------------------------------------------------
@@ -21,7 +21,7 @@ websocket_urlpatterns = [
     url(r'^tic-tac-toe/v2/playing/(?P<kw_room_name>\w+)/$',
         # -----------------------------------------------
         # 1
-        TicTacToeV2o2o1ConsumerCustom.as_asgi()),
+        TicTacToeV2o1o0ConsumerCustom.as_asgi()),
     #   ---------------------------------------
     #   2
     # 1. 例えば `ws://example.com/tic-tac-toe/v2/playing/Elephant/` のようなURLのパスの部分

@@ -36,10 +36,10 @@
     │   │   │   │   └── 🚀 favicon.ico
     │   │   │   ├── 📂 templates
     │   │   │   │   └── 📂 portal_v1
-    │   │   │   │       └── 📂 o2o1
+    │   │   │   │       └── 📂 o1o0
     │   │   │   │           └── 📄 portal_base.html
     │   │   │   └── 📂 views
-    │   │   │       └── 📂 o2o1
+    │   │   │       └── 📂 o1o0
     │   │   │           └── 📄 pages.py
     │   │   └── 📂 practice_v1              # アプリケーション
     │   ├── 📂 data
@@ -86,7 +86,7 @@ docker-compose up
         └── 📂 apps1
             └── 📂 practice_v1                 # アプリケーション
                 └── 📂 models_helper
-                    └── 📂 o2o1
+                    └── 📂 o1o0
                         └── 📂 mh_json
 👉                          └── 📄 __init__.py
 ```
@@ -99,7 +99,7 @@ class MhJson():
     from .m_from_model_to_json_str import from_model_to_json_str
     #    -------------------------        ----------------------
     #    1                                2
-    # 1. `host1/apps1/practice_v1/model_helper/o2o1/mh_json/m_from_model_to_json_str.py`
+    # 1. `host1/apps1/practice_v1/model_helper/o1o0/mh_json/m_from_model_to_json_str.py`
     #                                                       ------------------------
     # 2. `1.` に含まれる関数
 
@@ -115,7 +115,7 @@ class MhJson():
         └── 📂 apps1
             └── 📂 practice_v1                 # アプリケーション
                 └── 📂 models_helper
-                    └── 📂 o2o1
+                    └── 📂 o1o0
                         └── 📂 mh_json
                             ├── 📄 __init__.py
 👉                          └── 📄 m_from_model_to_json_str.py
@@ -147,12 +147,12 @@ def from_model_to_json_str_with_indent(any_object):
         └── 📂 apps1
             └── 📂 practice_v1                 # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o2o1
+                │   └── 📂 o1o0
                 │       └── 📂 mh_json
                 │           ├── 📄 __init__.py
                 │           └── 📄 m_from_model_to_doc.py
                 └── 📂 views
-                    └── 📂 o2o1
+                    └── 📂 o1o0
                         └── 📂 debug
 👉                          └── 📄 __init__.py
 ```
@@ -169,7 +169,7 @@ from apps1.practice_v1.models_helper.mh_json import MhJson
 # 4. クラス名
 
 # 都道府県モデル
-from apps1.practice_v1.models.o2o1.m_prefecture import Prefecture
+from apps1.practice_v1.models.o1o0.m_prefecture import Prefecture
 #          -----------             ------------        ----------
 #          1.1                     2                   3
 #    ------------------------------------------
@@ -209,12 +209,12 @@ class DebugV():
         ├── 📂 apps1
         │   └── 📂 practice_v1                 # アプリケーション
         │       ├── 📂 models_helper
-        │       │   └── 📂 o2o1
+        │       │   └── 📂 o1o0
         │       │       └── 📂 mh_json
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 m_from_model_to_doc.py
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 debug
         │                   └── 📄 __init__.py
         └── 📂 project1                      # プロジェクト
@@ -226,7 +226,7 @@ class DebugV():
 
 
 # デバッグ用。モデルをダンプ出力
-from apps1.practice_v1.views.o2o1.debug import DebugV
+from apps1.practice_v1.views.o1o0.debug import DebugV
 #          -----------            -----        ------
 #          11                     12           2
 #    ----------------------------------
@@ -241,13 +241,13 @@ urlpatterns = [
 
 
     # デバッグ用。モデルをダンプ出力
-    path('practice/v1.0/from-object-to-json-str/',
+    path('practice/v1/from-object-to-json-str/',
          # -----------------------------------
          # 1
          DebugV.render_model_as_json, name='practice_v1_from_object_to_json_str'),
     #    ---------------------------        -----------------------------------
     #    2                                  3
-    # 1. 例えば `http://example.com/practice/v1.0/from-object-to-json-str/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1/from-object-to-json-str/` のような URL のパスの部分
     #                              ------------------------------------
     # 2. DebugV クラスの render_model_as_json 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_from_object_to_json_str' %} のような形でURLを取得するのに使える
@@ -256,7 +256,7 @@ urlpatterns = [
 
 # Step O[7 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1.0/from-object-to-json-str/](http://localhost:8000/practice/v1.0/from-object-to-json-str/)  
+📖 [http://localhost:8000/practice/v1/from-object-to-json-str/](http://localhost:8000/practice/v1/from-object-to-json-str/)  
 
 # Step O[8 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -270,12 +270,12 @@ urlpatterns = [
 👉      │   │       └── 📄 finished-lessons.csv
         │   └── 📂 practice_v1
         │       ├── 📂 models_helper
-        │       │   └── 📂 o2o1
+        │       │   └── 📂 o1o0
         │       │       └── 📂 mh_json
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 m_from_model_to_doc.py
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 debug
         │                   └── 📄 __init__.py
         └── 📂 project1                      # プロジェクト
@@ -285,7 +285,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1.0/from-object-to-json-str/,モデルをダンプ出力する
+/practice/v1/from-object-to-json-str/,モデルをダンプ出力する
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

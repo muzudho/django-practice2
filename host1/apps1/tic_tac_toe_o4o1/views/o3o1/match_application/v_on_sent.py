@@ -1,5 +1,5 @@
 # 部屋モデル
-from apps1.practice_v1.models.o2o1.m_room import Room
+from apps1.practice_v1.models.o1o0.m_room import Room
 #    ----- ----------- ----------- ------        ----
 #    1     2           3           4             5
 # 1,3. ディレクトリー名
@@ -8,7 +8,7 @@ from apps1.practice_v1.models.o2o1.m_room import Room
 # 5. クラス名
 
 # ユーザー拡張
-from apps1.practice_v1.models.o2o1.m_user_profile import Profile
+from apps1.practice_v1.models.o1o0.m_user_profile import Profile
 #    ----- ----------- --------------------------        -------
 #    1     2           3                                 4
 # 1,3. ディレクトリー名

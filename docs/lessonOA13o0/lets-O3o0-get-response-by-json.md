@@ -31,18 +31,18 @@
     │   │       ├── 📂 models
     │   │       ├── 📂 static
     │   │       │   └── 📂 practice_v1
-    │   │       │       └── 📂 o2o1
+    │   │       │       └── 📂 o1o0
     │   │       │           └── 📂 data
     │   │       │               └── 📄 desserts1.json
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_v1          # アプリケーションと同名
-    │   │       │       └── 📂 o2o1
+    │   │       │       └── 📂 o1o0
     │   │       │           ├── 📂 prefecture
     │   │       │           └── 📂 vuetify
     │   │       │               ├── 📄 textarea1_base.html
     │   │       │               └── 📄 desserts1.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 o2o1
+    │   │       │   └── 📂 o1o0
     │   │       │       ├── 📂 prefecture
     │   │       │       └── 📂 vuetify
     │   │       │           ├── 📄 __init__.py
@@ -94,7 +94,7 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 static
                     └── 📂 practice_v1              # アプリケーションと同名
-                        └── 📂 o2o1
+                        └── 📂 o1o0
                             └── 📂 data
 👉                              └── 📄 desserts1.json
 ```
@@ -109,11 +109,11 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📂 data
                 │               └── 📄 desserts1.json
                 └── 📂 views
-                    └── 📂 o2o1
+                    └── 📂 o1o0
                         └── 📂 vuetify
 👉                          └── 📄 v_desserts1_as_json.py
 ```
@@ -126,10 +126,10 @@ from django.http import JsonResponse
 def render_desserts1_as_json(request):
     """JSON形式でデザート１描画"""
 
-    with open('apps1/practice_v1/static/practice_v1/o2o1/data/desserts1.json', mode='r', encoding='utf-8') as f:
+    with open('apps1/practice_v1/static/practice_v1/o1o0/data/desserts1.json', mode='r', encoding='utf-8') as f:
         #      -------------------------------------------------------------
         #      1
-        # 1. `host1/apps1/practice_v1/static/practice_v1/o2o1/data/desserts1.json` を取得
+        # 1. `host1/apps1/practice_v1/static/practice_v1/o1o0/data/desserts1.json` を取得
         #           -------------------------------------------------------------
         doc = json.load(f)
 
@@ -146,11 +146,11 @@ def render_desserts1_as_json(request):
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📂 data
                 │               └── 📄 desserts1.json
                 └── 📂 views
-                    └── 📂 o2o1
+                    └── 📂 o1o0
                         └── 📂 vuetify
 👉                          ├── 📄 __init__.py
                             └── 📄 v_desserts1_as_json.py
@@ -177,11 +177,11 @@ class VuetifyV(object):
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📂 data
         │       │               └── 📄 desserts1.json
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 vuetify
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_desserts1_as_json.py
@@ -198,7 +198,7 @@ from django.urls import path
 
 
 # 都道府県ビュー
-from apps1.practice_v1.views.o2o1.vuetify import VuetifyV
+from apps1.practice_v1.views.o1o0.vuetify import VuetifyV
 #          -----------            -------        --------
 #          11                     12             2
 #    ------------------------------------
@@ -215,13 +215,13 @@ urlpatterns = [
 
 
     # ビューティファイでJSON形式のデザート１
-    path('practice/v1.0/vuetify/desserts1-as-json',
+    path('practice/v1/vuetify/desserts1-as-json',
          # ------------------------------------
          # 1
          VuetifyV.render_desserts1_as_json, name='practice_v1_vuetify_desserts1_as_json'),
     #    ---------------------------------        -------------------------------------
     #    2                                        3
-    # 1. 例えば `http://example.com/practice/v1.0/vuetify/desserts1-as-json` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1/vuetify/desserts1-as-json` のような URL のパスの部分
     #                              -------------------------------------
     # 2. VuetifyV クラスの render_desserts1_as_json 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_desserts1_as_json' %} のような形でURLを取得するのに使える
@@ -230,7 +230,7 @@ urlpatterns = [
 
 # Step O[6 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1.0/vuetify/desserts1-as-json](http://localhost:8000/practice/v1.0/vuetify/desserts1-as-json)  
+📖 [http://localhost:8000/practice/v1/vuetify/desserts1-as-json](http://localhost:8000/practice/v1/vuetify/desserts1-as-json)  
 
 # Step O[7 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -245,11 +245,11 @@ urlpatterns = [
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📂 data
         │       │               └── 📄 desserts1.json
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 vuetify
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_desserts1_as_json.py
@@ -261,7 +261,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1.0/vuetify/desserts1-as-json,ビューティファイでJSON形式のデザート１
+/practice/v1/vuetify/desserts1-as-json,ビューティファイでJSON形式のデザート１
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

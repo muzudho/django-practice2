@@ -61,13 +61,13 @@
     │   │       ├── 📂 static
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_v1          # アプリケーションと同名
-    │   │       │       └── 📂 o2o1
+    │   │       │       └── 📂 o1o0
     │   │       │           └── 📂 prefecture
     │   │       │               ├── 📄 delete.html
     │   │       │               ├── 📄 list.html
     │   │       │               └── 📄 read.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 o2o1
+    │   │       │   └── 📂 o1o0
     │   │       │       └── 📂 prefecture
     │   │       │           ├── 📄 __init__.py
     │   │       │           ├── 📄 v_delete.py
@@ -118,7 +118,7 @@ docker-compose up
             └── 📂 practice_v1                      # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1              # アプリケーションと同名
-                        └── 📂 o2o1                # ただのフォルダー
+                        └── 📂 o1o0                # ただのフォルダー
                             └── 📂 prefecture            # ただのフォルダー
 👉                              └── 📄 upsert.html
 ```
@@ -184,7 +184,7 @@ docker-compose up
 👉              │   └── 📄 f_prefecture.py
                 └── 📂 templates
                     └── 📂 practice_v1              # アプリケーションと同名
-                        └── 📂 o2o1                   # ただのフォルダー
+                        └── 📂 o1o0                   # ただのフォルダー
                             └── 📂 prefecture       # ただのフォルダー
                                 └── 📄 upsert.html
 ```
@@ -193,7 +193,7 @@ docker-compose up
 from django.forms import ModelForm
 
 # 都道府県モデル
-from apps1.practice_v1.models.o2o1.m_prefecture import Prefecture
+from apps1.practice_v1.models.o1o0.m_prefecture import Prefecture
 #          -----------             ------------        ----------
 #          1.1                     2                   3
 #    ------------------------------------------
@@ -224,11 +224,11 @@ class PrefectureForm(ModelForm):
                 │   └── 📄 f_prefecture.py
                 ├── 📂 templates
                 │   └── 📂 practice_v1              # アプリケーションと同名
-                │       └── 📂 o2o1                # ただのフォルダー
+                │       └── 📂 o1o0                # ただのフォルダー
                 │           └── 📂 prefecture            # ただのフォルダー
                 │               └── 📄 upsert.html
                 └── 📂 views
-                    └── 📂 o2o1                # ただのフォルダー
+                    └── 📂 o1o0                # ただのフォルダー
                         └── 📂 prefecture            # ただのフォルダー
 👉                          └── 📄 v_upsert.py
 ```
@@ -237,7 +237,7 @@ class PrefectureForm(ModelForm):
 from django.shortcuts import render, get_object_or_404, redirect
 
 # 都道府県モデル
-from apps1.practice_v1.models.o2o1.m_prefecture import Prefecture
+from apps1.practice_v1.models.o1o0.m_prefecture import Prefecture
 #    ----- ----------- ----------- ------------        ----------
 #    1     2           3           4                   5
 # 1,3. ディレクトリー名
@@ -276,10 +276,10 @@ def render_upsert(request, id=None):
         form = PrefectureForm(instance=prefecture)
 
     # 作成・更新画面を表示
-    return render(request, 'practice_v1/o2o1/prefecture/upsert.html', dict(form=form, id=id))
+    return render(request, 'practice_v1/o1o0/prefecture/upsert.html', dict(form=form, id=id))
     #                       ---------------------------------------
     #                       1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o2o1/prefecture/upsert.html` を取得
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1o0/prefecture/upsert.html` を取得
     #                                       ---------------------------------------
 ```
 
@@ -293,11 +293,11 @@ def render_upsert(request, id=None):
             └── 📂 practice_v1                      # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📂 prefecture
                 │               └── 📄 upsert.html
                 └── 📂 views
-                    └── 📂 o2o1
+                    └── 📂 o1o0
                         └── 📂 prefecture
 👉                          ├── 📄 __init__.py
                             └── 📄 v_upsert.py
@@ -327,11 +327,11 @@ class PrefectureV(object):
         │       │   └── 📄 f_prefecture.py
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📂 prefecture
         │       │               └── 📄 delete.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 prefecture
         │                   └── 📄 v_delete.py
         └── 📂 project1                          # プロジェクト
@@ -347,7 +347,7 @@ from django.urls import path
 
 
 # 都道府県
-from apps1.practice_v1.views.o2o1.prefecture import PrefectureV
+from apps1.practice_v1.views.o1o0.prefecture import PrefectureV
 #          -----------            ----------        -----------
 #          11                     12                2
 #    ---------------------------------------
@@ -364,25 +364,25 @@ urlpatterns = [
 
 
     # 都道府県の新規作成
-    path('practice/v1.0/prefectures/create/',
+    path('practice/v1/prefectures/create/',
          # ------------------------------
          # 1
          PrefectureV.render_upsert, name='practice_v1_prefectures_create'),
     #    -------------------------        ------------------------------
     #    2                                3
-    # 1. 例えば `http://example.com/practice/v1.0/prefectures/create/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1/prefectures/create/` のような URL のパスの部分
     #                              -------------------------------
     # 2. PrefectureV クラスの render_upsert 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_prefectures_create' %} のような形でURLを取得するのに使える
 
     # 都道府県の更新
-    path('practice/v1.0/prefectures/update/<int:id>/',
+    path('practice/v1/prefectures/update/<int:id>/',
          # ---------------------------------------
          # 1
          PrefectureV.render_upsert, name='practice_v1_refectures_update'),
     #    -------------------------        -----------------------------
     #    2                                3
-    # 1. 例えば `http://example.com/practice/v1.0/prefectures/update/<数字列>/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1/prefectures/update/<数字列>/` のような URL のパスの部分
     #                              ----------------------------------------
     #    数字列は `2.` のメソッドの引数 id で取得できる
     # 2. PrefectureV クラスの render_upsert 静的メソッド
@@ -394,11 +394,11 @@ urlpatterns = [
 
 👇 作成するとき、IDは付けるな  
 
-📖 [http://localhost:8000/practice/v1.0/prefectures/create/](http://localhost:8000/practice/v1.0/prefectures/create/)  
+📖 [http://localhost:8000/practice/v1/prefectures/create/](http://localhost:8000/practice/v1/prefectures/create/)  
 
 👇 更新するとき、IDを付けろ。 IDは適宜変えてほしい  
 
-📖 [http://localhost:8000/practice/v1.0/prefectures/update/4/](http://localhost:8000/practice/v1.0/prefectures/update/4/)  
+📖 [http://localhost:8000/practice/v1/prefectures/update/4/](http://localhost:8000/practice/v1/prefectures/update/4/)  
 
 # Step O[8 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -415,11 +415,11 @@ urlpatterns = [
         │       │   └── 📄 f_prefecture.py
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📂 prefecture
         │       │               └── 📄 delete.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 prefecture
         │                   └── 📄 v_delete.py
         └── 📂 project1                          # プロジェクト
@@ -430,8 +430,8 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1.0/prefectures/create/,都道府県の新規作成
-/practice/v1.0/prefectures/update/4/,都道府県(4)の更新
+/practice/v1/prefectures/create/,都道府県の新規作成
+/practice/v1/prefectures/update/4/,都道府県(4)の更新
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

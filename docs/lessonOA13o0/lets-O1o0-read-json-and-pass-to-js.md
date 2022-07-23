@@ -36,11 +36,11 @@ Django のビューの Python スクリプトで JSON ファイルを読み込�
     │   │       ├── 📂 static
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_v1          # アプリケーションと同名
-    │   │       │       └── 📂 o2o1
+    │   │       │       └── 📂 o1o0
     │   │       │           ├── 📂 prefecture
     │   │       │           └── 📂 vuetify
     │   │       ├── 📂 views
-    │   │       │   └── 📂 o2o1
+    │   │       │   └── 📂 o1o0
     │   │       │       ├── 📂 prefecture
     │   │       │       └── 📂 vuetify
     │   │       ├── 📄 __init__.py
@@ -88,7 +88,7 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 static
                     └── 📂 practice_v1              # アプリケーションと同名
-                        └── 📂 o2o1
+                        └── 📂 o1o0
                             └── 📂 data
 👉                              └── 📄 desserts1.json
 ```
@@ -205,12 +205,12 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📂 data
                 │               └── 📄 desserts1.json
                 └── 📂 templates
                     └── 📂 practice_v1              # アプリケーションと同名
-                        └── 📂 o2o1
+                        └── 📂 o1o0
                             └── 📂 vuetify
 👉                              └── 📄 desserts1.html
 ```
@@ -271,16 +271,16 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📂 data
                 │               └── 📄 desserts1.json
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📂 vuetify
                 │               └── 📄 desserts1.html
                 └── 📂 views
-                    └── 📂 o2o1
+                    └── 📂 o1o0
                         └── 📂 vuetify
 👉                          └── 📄 v_desserts1.py
 ```
@@ -295,16 +295,16 @@ def render_desserts1(request):
     """ビューティファイのデザート１"""
 
     template = loader.get_template(
-        'practice_v1/o2o1/vuetify/desserts1.html')
+        'practice_v1/o1o0/vuetify/desserts1.html')
     #    ---------------------------------------
     #    1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o2o1/vuetify/desserts1.html` を取得
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1o0/vuetify/desserts1.html` を取得
     #                                       ---------------------------------------
 
-    with open('apps1/practice_v1/static/practice_v1/o2o1/data/desserts1.json', mode='r', encoding='utf-8') as f:
+    with open('apps1/practice_v1/static/practice_v1/o1o0/data/desserts1.json', mode='r', encoding='utf-8') as f:
         #      -------------------------------------------------------------
         #      1
-        # 1. `host1/apps1/practice_v1/static/practice_v1/o2o1/data/desserts1.json` を取得
+        # 1. `host1/apps1/practice_v1/static/practice_v1/o1o0/data/desserts1.json` を取得
         #           -------------------------------------------------------------
         doc = json.load(f)
 
@@ -324,16 +324,16 @@ def render_desserts1(request):
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📂 data
                 │               └── 📄 desserts1.json
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📂 vuetify
                 │               └── 📄 desserts1.html
                 └── 📂 views
-                    └── 📂 o2o1
+                    └── 📂 o1o0
                         └── 📂 vuetify
 👉                          ├── 📄 __init__.py
                             └── 📄 v_desserts1.py
@@ -360,16 +360,16 @@ class VuetifyV(object):
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📂 data
         │       │               └── 📄 desserts1.json
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📂 vuetify
         │       │               └── 📄 desserts1.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 vuetify
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_desserts1.py
@@ -386,7 +386,7 @@ from django.urls import path
 
 
 # 都道府県ビュー
-from apps1.practice_v1.views.o2o1.vuetify import VuetifyV
+from apps1.practice_v1.views.o1o0.vuetify import VuetifyV
 #          -----------            -------        --------
 #          11                     12             2
 #    ------------------------------------
@@ -403,13 +403,13 @@ urlpatterns = [
 
 
     # ビューティファイでデザート１
-    path('practice/v1.0/vuetify/desserts1',
+    path('practice/v1/vuetify/desserts1',
          # ----------------------------
          # 1
          VuetifyV.render_desserts1, name='practice_v1_vuetify_desserts1'),
     #    -------------------------        -----------------------------
     #    2                                3
-    # 1. 例えば `http://example.com/practice/v1.0/vuetify/desserts1` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1/vuetify/desserts1` のような URL のパスの部分
     #                              -----------------------------
     # 2. VuetifyV クラスの render_desserts1 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_desserts1' %} のような形でURLを取得するのに使える
@@ -418,7 +418,7 @@ urlpatterns = [
 
 # Step O[7 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1.0/vuetify/desserts1](http://localhost:8000/practice/v1.0/vuetify/desserts1)  
+📖 [http://localhost:8000/practice/v1/vuetify/desserts1](http://localhost:8000/practice/v1/vuetify/desserts1)  
 
 # Step O[8 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -433,16 +433,16 @@ urlpatterns = [
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📂 data
         │       │               └── 📄 desserts1.json
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📂 vuetify
         │       │               └── 📄 desserts1.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 vuetify
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_desserts1.py
@@ -454,7 +454,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1.0/vuetify/desserts1,ビューティファイでデザート１
+/practice/v1/vuetify/desserts1,ビューティファイでデザート１
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

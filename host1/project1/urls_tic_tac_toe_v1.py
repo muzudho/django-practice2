@@ -1,6 +1,6 @@
 from django.urls import path
 
-from apps1.tic_tac_toe_v1.views.o2o1.match_application import MatchApplicationV
+from apps1.tic_tac_toe_v1.views.o1o0.match_application import MatchApplicationV
 #    ----- -------------- ----------------------------        -----------------
 #    1     2              3                                   4
 #    -------------------------------------------------
@@ -11,7 +11,7 @@ from apps1.tic_tac_toe_v1.views.o2o1.match_application import MatchApplicationV
 # 4. クラス名
 # 5. Pythonモジュール名
 
-from apps1.tic_tac_toe_v1.views.o2o1.playing import PlayingV
+from apps1.tic_tac_toe_v1.views.o1o0.playing import PlayingV
 
 
 urlpatterns = [

@@ -1,11 +1,11 @@
 # 以前のバージョン
-from apps1.tic_tac_toe_v2.views.o2o1.gui.playing import PlayingV as PlayingVV2o2o1
+from apps1.tic_tac_toe_v2.views.o1o0.gui.playing import PlayingV as PlayingVV2o1o0
 #                       ^two
 #          --------------                -------        --------    --------------
 #          11                            12             2           3
 #    -------------------------------------------
 #    10
-# 10. `host1/apps1/tic_tac_toe_v2/views/o2o1/gui/playing/__init__.py`
+# 10. `host1/apps1/tic_tac_toe_v2/views/o1o0/gui/playing/__init__.py`
 #            -------------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
@@ -13,13 +13,13 @@ from apps1.tic_tac_toe_v2.views.o2o1.gui.playing import PlayingV as PlayingVV2o2
 # 3. `2.` の別名
 
 # 以前のバージョン
-from apps1.tic_tac_toe_o4o1.views.o2o1.playing import PlayingV as PlayingVV3o2o1
+from apps1.tic_tac_toe_o4o1.views.o1o0.playing import PlayingV as PlayingVV3o1o0
 #                       ^four
 #          ----------------            -------        --------    --------------
 #          11                          12             2           3
 #    -----------------------------------------
 #    10
-# 10. `host1/apps1/tic_tac_toe_o4o1/views/o2o1/playing/__init__.py`
+# 10. `host1/apps1/tic_tac_toe_o4o1/views/o1o0/playing/__init__.py`
 #            -----------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
@@ -42,11 +42,11 @@ class PlayingV():
         """描画"""
 
         # 以下のファイルは既存です
-        from apps1.tic_tac_toe_v2.views.o2o1.gui.playing.v_render import render_playing
+        from apps1.tic_tac_toe_v2.views.o1o0.gui.playing.v_render import render_playing
         #                       ^two
         #    ----------------------------------------------------        --------------
         #    1                                                           2
-        # 1. `host1/apps1/tic_tac_toe_v2/views/o2o1/gui/playing/v_render.py`
+        # 1. `host1/apps1/tic_tac_toe_v2/views/o1o0/gui/playing/v_render.py`
         #           ----------------------------------------------------
         # 2. `1.` のファイルに含まれる render_playing 関数
 
@@ -54,6 +54,6 @@ class PlayingV():
             request,
             kw_room_name,
             PlayingV.path_of_ws_playing,
-            PlayingVV3o2o1.path_of_html,
-            PlayingVV3o2o1.on_update,
-            PlayingVV2o2o1.expected_pieces)
+            PlayingVV3o1o0.path_of_html,
+            PlayingVV3o1o0.on_update,
+            PlayingVV2o1o0.expected_pieces)

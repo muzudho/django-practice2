@@ -31,10 +31,10 @@ CSV と pandas を使う
     │   │   │   │   └── 🚀 favicon.ico
     │   │   │   ├── 📂 templates
     │   │   │   │   └── 📂 portal_v1
-    │   │   │   │       └── 📂 o2o1
+    │   │   │   │       └── 📂 o1o0
     │   │   │   │           └── 📄 portal_base.html
     │   │   │   └── 📂 views
-    │   │   │       └── 📂 o2o1
+    │   │   │       └── 📂 o1o0
     │   │   │           └── 📄 pages.py
     │   │   └── 📂 practice_v1
     │   ├── 📂 data
@@ -147,9 +147,9 @@ docker-compose up
 path,label
 /,ポータル
 /admin,管理画面
-/practice/v1.0/page1,ページ１
-/practice/v1.0/page2_patch1,ページ２ パッチ１
-/practice/v1.0/page2_patch2,ページ２ パッチ２
+/practice/v1/page1,ページ１
+/practice/v1/page2_patch1,ページ２ パッチ１
+/practice/v1/page2_patch2,ページ２ パッチ２
 ```
 
 # Step O[6 0] 画面作成 - portal_base.html ファイル
@@ -164,7 +164,7 @@ path,label
         │       │   └── 📄 finished-lesson.csv
         │       └── 📂 templates
         │           └── 📂 portal_v1            # アプリケーション名と同名
-❌      │               ├── 📂 o2o1               # これではない
+❌      │               ├── 📂 o1o0               # これではない
         │               └── 📂 o3o1             # こちら
 👉      │                   └── 📄 portal_base.html
         └── 📄 requirements.txt
@@ -246,7 +246,7 @@ path,label
         │       │       └── 📂 o3o1
         │       │           └── 📄 portal_base.html
         │       └── 📂 views
-❌      │           ├── 📂 o2o1           # これではない
+❌      │           ├── 📂 o1o0           # これではない
         │           └── 📂 o3o1         # こちら
 👉      │               └── 📄 pages.py
         └── 📄 requirements.txt
@@ -283,9 +283,9 @@ class Portal():
         # Example
         # -------
         #                         path      label
-        # 0         /practice/v1.0/page1     ページ１
-        # 1  /practice/v1.0/page2_patch1  ページ２ パッチ１
-        # 2  /practice/v1.0/page2_patch2  ページ２ パッチ２
+        # 0         /practice/v1/page1     ページ１
+        # 1  /practice/v1/page2_patch1  ページ２ パッチ１
+        # 2  /practice/v1/page2_patch2  ページ２ パッチ２
 
         print(df.columns)
         #
@@ -307,9 +307,9 @@ class Portal():
         #
         # Example
         # -------
-        # /practice/v1.0/page1 , ページ１
-        # /practice/v1.0/page2_patch1 , ページ２ パッチ１
-        # /practice/v1.0/page2_patch2 , ページ２ パッチ２
+        # /practice/v1/page1 , ページ１
+        # /practice/v1/page2_patch1 , ページ２ パッチ１
+        # /practice/v1/page2_patch2 , ページ２ パッチ２
 
         # "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
         context = {
@@ -334,7 +334,7 @@ class Portal():
         │       │       └── 📂 o3o1
         │       │           └── 📄 portal_base.html
         │       └── 📂 views
-        │           ├── 📂 o2o1
+        │           ├── 📂 o1o0
         │           └── 📂 o3o1
         │               └── 📄 pages.py
         ├── 📂 project1
@@ -345,7 +345,7 @@ class Portal():
 
 ```py
 # * 変更前
-#from apps1.portal_v1.views.o2o1.pages import Portal
+#from apps1.portal_v1.views.o1o0.pages import Portal
 # * 変更後
 from apps1.portal_v1.views.o3o1.pages import Portal
 #                           ^three

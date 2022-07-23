@@ -51,7 +51,7 @@ ID    部屋名        先手Id  先手名  後手Id  後手名  盤面       �
     │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
-    │   │   │       └── 📂 o2o1
+    │   │   │       └── 📂 o1o0
     │   │   │           └── 📄 m_room.py
     │   │   ├── 📂 tic_tac_toe_v1        # アプリケーション
     │   │   └── 📂 tic_tac_toe_v2        # アプリケーション
@@ -59,7 +59,7 @@ ID    部屋名        先手Id  先手名  後手Id  後手名  盤面       �
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o2o1
+    │   │       │       └── 📂 o1o0
     │   │       │           └── 📂 think
     │   │       │               ├── 📄 concepts.js
     │   │       │               ├── 📄 engine.js
@@ -69,11 +69,11 @@ ID    部屋名        先手Id  先手名  後手Id  後手名  盤面       �
     │   │       │               └── 📄 user_ctrl.js
     │   │       ├── 📂 templates
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o2o1
+    │   │       │       └── 📂 o1o0
     │   │       │           └── 📂 think
     │   │       │               └── 📄 engine_manual.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 o2o1
+    │   │       │   └── 📂 o1o0
     │   │       │       └── 📂 think
     │   │       │           └── 📂 engine_manual
     │   │       │               ├── 📄 __init__.py
@@ -126,7 +126,7 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1          # アプリケーションと同名
-                        └── 📂 o2o1
+                        └── 📂 o1o0
                             └── 📂 room
 👉                              └── 📄 list.html
 ```
@@ -239,12 +239,12 @@ endcomment %}
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o2o1
+                │   └── 📂 o1o0
                 │       └── 📂 mh_user
 👉              │           └── 📄 __init__.py
                 └── 📂 templates
                     └── 📂 practice_v1
-                        └── 📂 o2o1
+                        └── 📂 o1o0
                             └── 📂 room
                                 └── 📄 list.html
 ```
@@ -262,7 +262,7 @@ class MhUser():
     from .mh_get_name_by_pk import get_name_by_pk
     #    ------------------        --------------
     #    1                         2
-    # 1. `host1/apps1/practice_v1/model_helper/o2o1/mh_user/mh_get_name_by_pk.py`
+    # 1. `host1/apps1/practice_v1/model_helper/o1o0/mh_user/mh_get_name_by_pk.py`
     #                                                       -----------------
     # 2. `1.` に含まれる関数
 ```
@@ -276,13 +276,13 @@ class MhUser():
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o2o1
+                │   └── 📂 o1o0
                 │       └── 📂 mh_user
                 │           ├── 📄 __init__.py
 👉              │           └── 📄 mh_get_name_by_pk.py
                 └── 📂 templates
                     └── 📂 practice_v1
-                        └── 📂 o2o1
+                        └── 📂 o1o0
                             └── 📂 room
                                 └── 📄 list.html
 ```
@@ -313,17 +313,17 @@ def get_name_by_pk(id):
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o2o1
+                │   └── 📂 o1o0
                 │       └── 📂 mh_user
                 │           ├── 📄 __init__.py
                 │           └── 📄 mh_get_name_by_pk.py
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📂 room
                 │               └── 📄 list.html
                 └── 📂 views
-                    └── 📂 o2o1
+                    └── 📂 o1o0
                         └── 📂 room
 👉                          └── 📄 __init__.py
 ```
@@ -333,10 +333,10 @@ class RoomV():
     """対局部屋ビュー"""
 
     # 一覧ページ
-    _path_of_list_page = "practice_v1/o2o1/room/list.html"
+    _path_of_list_page = "practice_v1/o1o0/room/list.html"
     #                     -------------------------------
     #                     1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o2o1/room/list.html` を取得
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1o0/room/list.html` を取得
     #                                       -------------------------------
 
     @staticmethod
@@ -347,7 +347,7 @@ class RoomV():
         from .v_list import render_list
         #    -------        -----------
         #    1              2
-        # 1. `host1/apps1/practice_v1/views/o2o1/room/v_list.py`
+        # 1. `host1/apps1/practice_v1/views/o1o0/room/v_list.py`
         #                                             ------
         # 2. `1.` に含まれる関数
 
@@ -363,17 +363,17 @@ class RoomV():
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o2o1
+                │   └── 📂 o1o0
                 │       └── 📂 mh_user
                 │           ├── 📄 __init__.py
                 │           └── 📄 mh_get_name_by_pk.py
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📂 room
                 │               └── 📄 list.html
                 └── 📂 views
-                    └── 📂 o2o1
+                    └── 📂 o1o0
                         └── 📂 room
                             ├── 📄 __init__.py
 👉                          └── 📄 v_list.py
@@ -383,7 +383,7 @@ class RoomV():
 import json
 from django.shortcuts import render
 
-from apps1.practice_v1.models.o2o1.m_room import Room
+from apps1.practice_v1.models.o1o0.m_room import Room
 #          -----------             ------        ----
 #          1.1                     1.2           2
 #    ------------------------------------
@@ -393,7 +393,7 @@ from apps1.practice_v1.models.o2o1.m_room import Room
 # 2. `1.2` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # ユーザー モデルヘルパー
-from apps1.practice_v1.models_helper.o2o1.mh_user import MhUser
+from apps1.practice_v1.models_helper.o1o0.mh_user import MhUser
 #          -----------                    -------        ------
 #          11                             12             2
 #    --------------------------------------------
@@ -452,7 +452,7 @@ def render_list(request, path_of_list_page):
         # Vue には、 JSONオブジェクト を渡すのではなく、 JSON文字列 を渡します
         "dj_room_array": json.dumps(room_list),
         # FIXME URL を urls.py で変更しても、こちらに反映されないが、どうするか？
-        "dj_read_room_path": "/practice/v1.0/rooms/read/",
+        "dj_read_room_path": "/practice/v1/rooms/read/",
     }
     # print(f"context={context}")
 
@@ -468,17 +468,17 @@ def render_list(request, path_of_list_page):
         ├── 📂 apps1
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 models_helper
-        │       │   └── 📂 o2o1
+        │       │   └── 📂 o1o0
         │       │       └── 📂 mh_user
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 mh_get_name_by_pk.py
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📂 room
         │       │               └── 📄 list.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 room
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_list.py
@@ -491,7 +491,7 @@ def render_list(request, path_of_list_page):
 
 
 # 部屋ビュー
-from apps1.practice_v1.views.o2o1.room import RoomV
+from apps1.practice_v1.views.o1o0.room import RoomV
 #          -----------            ----        -----
 #          11                     12          2
 #    ---------------------------------
@@ -506,10 +506,10 @@ urlpatterns = [
 
 
     # 対局部屋の一覧
-    path('practice/v1.0/rooms/', RoomV.render_list, name='practice_v1_rooms'),
+    path('practice/v1/rooms/', RoomV.render_list, name='practice_v1_rooms'),
     #     ------------------   -----------------        -----------------
     #     1                    2                        3
-    # 1. 例えば `http://example.com/practice/v1.0/rooms/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1/rooms/` のような URL のパスの部分
     #                              ------------------
     # 2. RoomV クラスの render_list メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms' %} のような形でURLを取得するのに使える
@@ -518,7 +518,7 @@ urlpatterns = [
 
 # Step O[8 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1.0/rooms/](http://localhost:8000/practice/v1.0/rooms/)  
+📖 [http://localhost:8000/practice/v1/rooms/](http://localhost:8000/practice/v1/rooms/)  
 
 # Step O[9 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -532,17 +532,17 @@ urlpatterns = [
 👉      │   │       └── 📄 finished-lessons.csv
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 models_helper
-        │       │   └── 📂 o2o1
+        │       │   └── 📂 o1o0
         │       │       └── 📂 mh_user
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 mh_get_name_by_pk.py
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📂 room
         │       │               └── 📄 list.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 room
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_list.py
@@ -553,7 +553,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1.0/rooms/,対局部屋の一覧
+/practice/v1/rooms/,対局部屋の一覧
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

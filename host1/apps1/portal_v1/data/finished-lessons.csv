@@ -1,42 +1,42 @@
 path,label
 /,ポータル
 /admin,管理画面
-/practice/v1.0/page1,ページ１
-/practice/v1.0/page2_patch1,ページ２ パッチ１
-/practice/v1.0/page2_patch2,ページ２ パッチ２
+/practice/v1/page1,ページ１
+/practice/v1/page2_patch1,ページ２ パッチ１
+/practice/v1/page2_patch2,ページ２ パッチ２
 /accounts/v1/signup/,サインアップ
 /accounts/v1/logout/,サインアウト
 /accounts/v1/login/,ログイン（ユーザー認証）
-/practice/v1.0/login-required,ログイン必須
-/practice/v1.0/logout,ログアウト
-/practice/v1.0/buttom_for_member/,会員にだけ見えるボタンを説明するページ
-/practice/v1.0/user-list/,会員一覧
-/practice/v1.0/extends-user-list/,（拡張済）会員一覧
-/practice/v1.0/active-user-list/,アクティブユーザー一覧
-/practice/v1.0/from-object-to-json-str/,モデルをダンプ出力する
-/practice/v1.0/prefectures/,都道府県の一覧
-/practice/v1.0/prefectures/read/1/,都道府県(1)の詳細
-/practice/v1.0/prefectures/delete/2/,都道府県(2)の削除
-/practice/v1.0/prefectures/create/,都道府県の新規作成
-/practice/v1.0/prefectures/update/4/,都道府県(4)の更新
-/practice/v1.0/vuetify/hello1,ビューティファイでハロー
-/practice/v1.0/vuetify/data-table1,ビューティファイでデータテーブル１
-/practice/v1.0/vuetify/validation1,ビューティファイでバリデーション１
-/practice/v1.0/vuetify/desserts1,ビューティファイでデザート１
-/practice/v1.0/vuetify/textarea1,ビューティファイでテキストエリア１
-/practice/v1.0/vuetify/desserts1-as-json,ビューティファイでJSON形式のデザート１
-/practice/v1.0/vuetify/textarea1-to-model,ビューティファイでテキストエリア１ . 保存用
+/practice/v1/login-required,ログイン必須
+/practice/v1/logout,ログアウト
+/practice/v1/buttom_for_member/,会員にだけ見えるボタンを説明するページ
+/practice/v1/user-list/,会員一覧
+/practice/v1/extends-user-list/,（拡張済）会員一覧
+/practice/v1/active-user-list/,アクティブユーザー一覧
+/practice/v1/from-object-to-json-str/,モデルをダンプ出力する
+/practice/v1/prefectures/,都道府県の一覧
+/practice/v1/prefectures/read/1/,都道府県(1)の詳細
+/practice/v1/prefectures/delete/2/,都道府県(2)の削除
+/practice/v1/prefectures/create/,都道府県の新規作成
+/practice/v1/prefectures/update/4/,都道府県(4)の更新
+/practice/v1/vuetify/hello1,ビューティファイでハロー
+/practice/v1/vuetify/data-table1,ビューティファイでデータテーブル１
+/practice/v1/vuetify/validation1,ビューティファイでバリデーション１
+/practice/v1/vuetify/desserts1,ビューティファイでデザート１
+/practice/v1/vuetify/textarea1,ビューティファイでテキストエリア１
+/practice/v1/vuetify/desserts1-as-json,ビューティファイでJSON形式のデザート１
+/practice/v1/vuetify/textarea1-to-model,ビューティファイでテキストエリア１ . 保存用
 /tic-tac-toe/v1/match-application/,〇×ゲーム v1
 /tic-tac-toe/v2/engine-manual/,〇×ゲーム v2 思考エンジン手動テスト
 /tic-tac-toe/v2/match-application/,〇×ゲーム v2
-/practice/v1.0/rooms/,対局部屋の一覧
-/practice/v1.0/rooms/read/1/,対局部屋の詳細(1)
-/practice/v1.0/rooms/upsert/,対局部屋の新規作成
-/practice/v1.0/rooms/upsert/5/,対局部屋の更新
-/practice/v1.0/my/,マイ ページ
-/practice/v1.0/lobby/,ロビー
-/practice/v1.0/auto_reload/,自動再読込
-/practice/v1.0/auto_redirect/,自動リダイレクト
+/practice/v1/rooms/,対局部屋の一覧
+/practice/v1/rooms/read/1/,対局部屋の詳細(1)
+/practice/v1/rooms/upsert/,対局部屋の新規作成
+/practice/v1/rooms/upsert/5/,対局部屋の更新
+/practice/v1/my/,マイ ページ
+/practice/v1/lobby/,ロビー
+/practice/v1/auto_reload/,自動再読込
+/practice/v1/auto_redirect/,自動リダイレクト
 /tic-tac-toe/v3.1/match-application/,〇×ゲーム v3.1 対局申込中
 /tic-tac-toe/v3.2/match-application/,〇×ゲーム v3.2 対局申込中
 /tic-tac-toe/v3.3/match-application/,〇×ゲーム v3.3 対局申込中

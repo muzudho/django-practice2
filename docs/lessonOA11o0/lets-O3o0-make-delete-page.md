@@ -46,12 +46,12 @@ id が 2 のメンバーを削除したい。
     │   │       ├── 📂 static
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_v1          # アプリケーションと同名
-    │   │       │       └── 📂 o2o1
+    │   │       │       └── 📂 o1o0
     │   │       │           └── 📂 prefecture
     │   │       │               ├── 📄 list.html
     │   │       │               └── 📄 read.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 o2o1
+    │   │       │   └── 📂 o1o0
     │   │       │       └── 📂 prefecture
     │   │       │           ├── 📄 __init__.py
     │   │       │           ├── 📄 v_list.py
@@ -101,7 +101,7 @@ docker-compose up
             └── 📂 practice_v1                      # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1              # アプリケーションと同名
-                        └── 📂 o2o1                # ただのフォルダー
+                        └── 📂 o1o0                # ただのフォルダー
                             └── 📂 prefecture            # ただのフォルダー
 👉                              └── 📄 delete.html
 ```
@@ -148,11 +148,11 @@ docker-compose up
             └── 📂 practice_v1                      # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1              # アプリケーションと同名
-                │       └── 📂 o2o1                # ただのフォルダー
+                │       └── 📂 o1o0                # ただのフォルダー
                 │           └── 📂 prefecture            # ただのフォルダー
                 │               └── 📄 delete.html
                 └── 📂 views
-                    └── 📂 o2o1                # ただのフォルダー
+                    └── 📂 o1o0                # ただのフォルダー
                         └── 📂 prefecture            # ただのフォルダー
 👉                          └── 📄 v_delete.py
 ```
@@ -162,7 +162,7 @@ from django.http import HttpResponse
 from django.template import loader
 
 # 都道府県モデル
-from apps1.practice_v1.models.o2o1.m_prefecture import Prefecture
+from apps1.practice_v1.models.o1o0.m_prefecture import Prefecture
 #    ----- ----------- ----------- ------------        ----------
 #    1     2           3           4                   5
 # 1,3. ディレクトリー名
@@ -183,10 +183,10 @@ def render_delete(request, id=id):
     """
 
     template = loader.get_template(
-        'practice_v1/o2o1/prefecture/delete.html')
+        'practice_v1/o1o0/prefecture/delete.html')
     #    ---------------------------------------
     #    1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o2o1/prefecture/delete.html` を取得
+    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1o0/prefecture/delete.html` を取得
     #                                       ---------------------------------------
 
     # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得
@@ -212,11 +212,11 @@ def render_delete(request, id=id):
             └── 📂 practice_v1                      # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o1
+                │       └── 📂 o1o0
                 │           └── 📂 prefecture
                 │               └── 📄 delete.html
                 └── 📂 views
-                    └── 📂 o2o1
+                    └── 📂 o1o0
                         └── 📂 prefecture
 👉                          ├── 📄 __init__.py
                             └── 📄 v_delete.py
@@ -244,11 +244,11 @@ class PrefectureV(object):
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📂 prefecture
         │       │               └── 📄 delete.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 prefecture
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_delete.py
@@ -265,7 +265,7 @@ from django.urls import path
 
 
 # 都道府県
-from apps1.practice_v1.views.o2o1.prefecture import PrefectureV
+from apps1.practice_v1.views.o1o0.prefecture import PrefectureV
 #          -----------            ----------        -----------
 #          11                     12                2
 #    ---------------------------------------
@@ -282,14 +282,14 @@ urlpatterns = [
 
 
     # 都道府県の削除
-    path('practice/v1.0/prefectures/delete/<int:id>/',
+    path('practice/v1/prefectures/delete/<int:id>/',
          # ---------------------------------------
          # 1
          PrefectureV.render_delete, name='practice_v1_prefectures_delete'),
     #    -------------------------        ------------------------------
     #    2                                3
     #
-    # 1. 例えば `http://example.com/practice/v1.0/prefectures/delete/<数字列>/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1/prefectures/delete/<数字列>/` のような URL のパスの部分
     #                              ----------------------------------------
     #    数字列は `2.` のメソッドの引数 id で取得できる
     # 2. PrefectureV クラスの render_delete メソッド
@@ -301,7 +301,7 @@ urlpatterns = [
 
 👇 IDの番号は適宜変えてほしい。  
 
-📖 [http://localhost:8000/practice/v1.0/prefectures/delete/2/](http://localhost:8000/practice/v1.0/prefectures/delete/2/)  
+📖 [http://localhost:8000/practice/v1/prefectures/delete/2/](http://localhost:8000/practice/v1/prefectures/delete/2/)  
 
 # Step O[7 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -316,11 +316,11 @@ urlpatterns = [
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o1
+        │       │       └── 📂 o1o0
         │       │           └── 📂 prefecture
         │       │               └── 📄 delete.html
         │       └── 📂 views
-        │           └── 📂 o2o1
+        │           └── 📂 o1o0
         │               └── 📂 prefecture
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_delete.py
@@ -332,7 +332,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1.0/prefectures/delete/2/,都道府県(2)の削除
+/practice/v1/prefectures/delete/2/,都道府県(2)の削除
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 
