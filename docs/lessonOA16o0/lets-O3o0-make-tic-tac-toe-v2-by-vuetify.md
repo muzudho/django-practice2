@@ -1808,7 +1808,7 @@ urlpatterns = [
 # See also: 📖 [Channels - Consumers](https://channels.readthedocs.io/en/latest/topics/consumers.html)
 from django.conf.urls import url
 
-# 〇×ゲーム v2.0.1
+# 〇×ゲーム v2
 from apps1.tic_tac_toe_v2.websocks.o1o0.gui.consumer_custom import TicTacToeV2o1o0ConsumerCustom
 #    ----- -------------- ----------------- ---------------        -----------------------------
 #    1     2              3                 4                      5

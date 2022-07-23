@@ -39,7 +39,7 @@
     │   │   ├── 📂 allauth_customized_v1    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
     │   │   ├── 📂 practice_v1              # アプリケーション
-    │   │   └── 📂 tic_tac_toe_v1        # アプリケーション
+    │   │   └── 📂 tic_tac_toe_v1           # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
@@ -1370,7 +1370,7 @@ ${indent}${this._position.dump(indent + "    ")}`;
 ```
 
 ```html
-{% load static %} {% comment %} 👈あとで static "URL" を使うので load static します {% endcomment %}
+{% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <html>
     <head>
@@ -1416,7 +1416,7 @@ ${indent}${this._position.dump(indent + "    ")}`;
         <script src="{% static 'tic_tac_toe_v2/o1o0/think/user_ctrl.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/o1o0/think/judge_ctrl.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/o1o0/think/engine.js' %}"></script>
-        <!--            =========================================
+        <!--            ===========================================
                         1
         1. host1/apps1/tic_tac_toe_v2/static/tic-ta-toe_v2/o1o0/think/engine.js
                                       =========================================
@@ -1701,17 +1701,15 @@ def render_engine_manual(request, path_of_html):
 ```py
 from django.urls import path
 
-# 〇×ゲーム v2.0.1
+# 〇×ゲーム v2 思考エンジン
 from apps1.tic_tac_toe_v2.views.o1o0.think.engine_manual import EngineManual
-#    ----- -------------- ------------------------------        ------------
-#    1     2              3                                     4
+#          --------------                  -------------        ------------
+#          11                              12                   2
 #    ---------------------------------------------------
-#    5
-# 1. 開発者用ディレクトリーの一部
-# 2. アプリケーション フォルダー名
-# 3. ディレクトリー名
-# 4. クラス名
-# 5. Pythonモジュール名
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 urlpatterns = [
@@ -1783,7 +1781,7 @@ urlpatterns = [
     # ...略...
 
 
-    # 〇×ゲーム v2.0.1
+    # 〇×ゲーム v2
     path('', include('project1.urls_tic_tac_toe_v2')),
     #    --           ----------------------------
     #      1          2
