@@ -1,9 +1,9 @@
 {% extends "tic_tac_toe_v3/o1o0/playing.html.txt" %}
-{#                            ^two
-            --------------------------------------
+{#                          ^one
+            ------------------------------------
             1
 1. host1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o1o0/playing.html.txt
-                                          --------------------------------------
+                                        ------------------------------------
 
     自動フォーマットしないでください
     Do not auto fomatting
