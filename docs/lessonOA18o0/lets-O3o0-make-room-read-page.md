@@ -68,10 +68,10 @@ Elephant
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host_local1                   # Djangoとは関係ないもの
+    ├── 📂 host_local1                      # Djangoとは関係ないもの
     │    ├── 📂 sockapp1
     │    └── 📂 websockapp1
-    ├── 📂 host1                         # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
+    ├── 📂 host1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
@@ -80,8 +80,8 @@ Elephant
     │   │   │   └── 📂 models
     │   │   │       └── 📂 o1o0
     │   │   │           └── 📄 m_room.py
-    │   │   ├── 📂 tic_tac_toe_v1        # アプリケーション
-    │   │   └── 📂 tic_tac_toe_v2        # アプリケーション
+    │   │   ├── 📂 tic_tac_toe_v1           # アプリケーション
+    │   │   └── 📂 tic_tac_toe_v2           # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
@@ -353,12 +353,12 @@ from django.shortcuts import render
 
 from apps1.practice_v1.models.o1o0.m_room import Room
 #          -----------             ------        ----
-#          1.1                     1.2           2
+#          11                      12            2
 #    ------------------------------------
-#    1
-# 1, 1.2 ディレクトリー
-# 1.1 アプリケーション
-# 2. `1.2` に含まれる __init__.py ファイルにさらに含まれるクラス
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # ユーザー モデルヘルパー
 from apps1.practice_v1.models_helper.o1o0.mh_user import MhUser
