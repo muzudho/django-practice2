@@ -180,6 +180,10 @@ docker-compose run --rm web python3 manage.py custom_createsuperuser --username 
 
 👆 Django のアプリケーション作成時に自動生成される urls.py ファイルに最初から `/admin` の設定は書かれているので、URLの設定は要らない  
 
+# 次の記事
+
+📖 [Djangoでポータルページを作成しよう！](https://qiita.com/muzudho1/items/ad2299cf94a9a5b1c254)  
+
 # 参考にした記事
 
 📖 [Django 管理画面の利用](https://python.keicode.com/django/admin-site-enabling.php)  
