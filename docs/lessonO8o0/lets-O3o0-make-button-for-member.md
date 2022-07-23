@@ -26,30 +26,11 @@
 ```plaintext
     ├── 📂 host1
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized_v1    # アプリケーション
-    │   │   ├── 📂 portal_v1                # アプリケーション
-    │   │   │   ├── 📂 data
-    │   │   │   │   └── 📄 finished-lesson.csv
-    │   │   │   ├── 📂 migrations
-    │   │   │   │   └── 📄 __init__.py
-    │   │   │   ├── 📂 static
-    │   │   │   │   └── 🚀 favicon.ico
-    │   │   │   ├── 📂 templates
-    │   │   │   │   └── 📂 portal_v1
-    │   │   │   │       └── 📂 o1o0
-    │   │   │   │           └── 📄 portal_base.html
-    │   │   │   └── 📂 views
-    │   │   │       └── 📂 o1o0
-    │   │   │           └── 📄 pages.py
-    │   │   └── 📂 practice_v1              # アプリケーション
-    │   │       └── 📂 templates
-    │   │           ├── 📂 practice_v1
-    │   │           │   └── 📂 o1o0
-    │   │           │       └── 📄 login_required.html
-    │   │           └── 📂 views
-    │   │               └── 📄 v_login_required.py
+    │   │   ├── 📂 allauth_customized_v1        # アプリケーション
+    │   │   ├── 📂 portal_v1                    # アプリケーション
+    │   │   └── 📂 practice_v1                  # アプリケーション
     │   ├── 📂 data
-    │   ├── 📂 project1                  # プロジェクト
+    │   ├── 📂 project1                         # プロジェクト
     │   │   ├── 📄 __init__.py
     │   │   ├── 📄 asgi.py
     │   │   ├── 📄 settings_secrets_example.txt
@@ -81,7 +62,7 @@ docker-compose up
 
 # Step O[2 0] HTMLファイルの作成
 
-以下のファイルを作成してほしい。  
+👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 host1
@@ -209,10 +190,10 @@ class ButtonForMember():
 
     # そのページ
     _path_of_this_page = "practice_v1/o1o0/button_for_member.html"
-    #                     -----------------------------------------
+    #                     ---------------------------------------
     #                     1
     # 1. host1/apps1/practice_v1/templates/practice_v1/o1o0/button_for_member.html を取得
-    #                                        -----------------------------------------
+    #                                      ---------------------------------------
 
     # 既存のポータルページ
     _path_of_portal = "/"
@@ -251,7 +232,7 @@ class ButtonForMember():
         #    ---------        ------------------------
         #    1                2
         # 1. `host1/apps1/practice_v1/views/o1o0/button_for_member/v_render.py`
-        #                                                            --------
+        #                                                          --------
         # 2. `1.` に含まれる関数
 
         return render_button_for_member(request, ButtonForMember._path_of_this_page, ButtonForMember._path_of_portal, ButtonForMember._path_of_login_required, ButtonForMember._path_of_login, ButtonForMember._path_of_logout)
@@ -324,9 +305,9 @@ def render_button_for_member(request, path_of_this_page, path_of_portal, path_of
 
 # 会員用ボタン
 from apps1.practice_v1.views.o1o0.button_for_member import ButtonForMember
-#          -------------            -----------------        ---------------
-#          11                       12                       2
-#    ------------------------------------------------
+#          -----------            -----------------        ---------------
+#          11                     12                       2
+#    ----------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
