@@ -1,5 +1,5 @@
 # 以前のバージョン
-from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicationV as MatchApplicationVV2O1o0
+from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicationV as MatchApplicationVV2g1o0
 #                       ^two
 #    -----------------------------------------------------        -----------------    -----------------------
 #    1                                                            2                    3
@@ -36,7 +36,7 @@ class MatchApplicationV():
         return render_match_application(
             request,
             MatchApplicationV.path_of_http_playing,
-            MatchApplicationVV2O1o0.path_of_html,
+            MatchApplicationVV2g1o0.path_of_html,
             MatchApplicationV.on_sent,
             MatchApplicationV.open)
 
@@ -50,4 +50,4 @@ class MatchApplicationV():
     @staticmethod
     def open(request):
         """訪問後"""
-        return MatchApplicationVV2O1o0.open_context
+        return MatchApplicationVV2g1o0.open_context

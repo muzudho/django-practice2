@@ -1,7 +1,7 @@
 import json
 
 # 以前のバージョン
-from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicationV as MatchApplicationVV2O1o0
+from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicationV as MatchApplicationVV2g1o0
 #                       ^two
 #          --------------                -----------------        -----------------    -----------------------
 #          11                            12                       2                    3
@@ -15,7 +15,7 @@ from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicati
 # 3. '2.' の別名
 
 # 以前のバージョン
-from apps1.tic_tac_toe_v3.views.o1o0.match_application import MatchApplicationV as MatchApplicationVV3o1o0
+from apps1.tic_tac_toe_v3.views.o1o0.match_application import MatchApplicationV as MatchApplicationVV3g1o0
 #                       ^four
 #          ----------------            -----------------        -----------------    -----------------------
 #          11                          12                       2                    3
@@ -68,8 +68,8 @@ class MatchApplicationV():
         return render_match_application(
             request,
             MatchApplicationV.path_of_http_playing,
-            MatchApplicationVV2O1o0.path_of_html,
-            MatchApplicationVV3o1o0.on_sent,
+            MatchApplicationVV2g1o0.path_of_html,
+            MatchApplicationVV3g1o0.on_sent,
             MatchApplicationV.open)
 
     @staticmethod

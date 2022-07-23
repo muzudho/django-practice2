@@ -407,7 +407,7 @@ websocket_urlpatterns_merged.extend(
 
 ```py
 # 以前のバージョン
-from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicationV as MatchApplicationVV2O1o0
+from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicationV as MatchApplicationVV2g1o0
 #                       ^two
 #    -----------------------------------------------------        -----------------    -----------------------
 #    1                                                            2                    3
@@ -417,7 +417,7 @@ from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicati
 # 3. '2.' の別名
 
 # 以前のバージョン
-from apps1.tic_tac_toe_v3.views.o1o0.match_application import MatchApplicationV as MatchApplicationVV3o1o0
+from apps1.tic_tac_toe_v3.views.o1o0.match_application import MatchApplicationV as MatchApplicationVV3g1o0
 #                       ^four
 #    ---------------------------------------------------        -----------------    -----------------------
 #    1                                                          2                    3
@@ -453,9 +453,9 @@ class MatchApplicationV():
         return render_match_application(
             request,
             MatchApplicationV.path_of_http_playing,
-            MatchApplicationVV2O1o0.path_of_html,
-            MatchApplicationVV3o1o0.on_sent,
-            MatchApplicationVV2O1o0.open)
+            MatchApplicationVV2g1o0.path_of_html,
+            MatchApplicationVV3g1o0.on_sent,
+            MatchApplicationVV2g1o0.open)
 ```
 
 # Step O[7 0] 対局申込ビュー モジュール作成 - o3o0/playing フォルダー
@@ -483,7 +483,7 @@ class MatchApplicationV():
 
 ```py
 # 以前のバージョン
-from apps1.tic_tac_toe_v2.views.o1o0.gui.playing import PlayingV as PlayingVV2O1o0
+from apps1.tic_tac_toe_v2.views.o1o0.gui.playing import PlayingV as PlayingVV2g1o0
 #                       ^two
 #          --------------                -------        --------    --------------
 #          11                            12             2           3
@@ -540,7 +540,7 @@ class PlayingV():
             PlayingV.path_of_ws_playing,
             PlayingVV3o1o0.path_of_html,
             PlayingVV3o1o0.on_update,
-            PlayingVV2O1o0.expected_pieces)
+            PlayingVV2g1o0.expected_pieces)
 ```
 
 # Step O[8 0] ルート編集 - urls_practice.py ファイル

@@ -121,16 +121,16 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v3                 # アプリケーション Four
+            └── 📂 tic_tac_toe_v3                 # アプリケーション Three
                 └── 📂 views
-                    └── 📂 o2o0                     # Three
+                    └── 📂 o2o0                     # Two
                         └── 📂 match_application
 👉                          └── 📄 __init__.py
 ```
 
 ```py
 # 以前のバージョン
-from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicationV as MatchApplicationVV2O1o0
+from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicationV as MatchApplicationVV2g1o0
 #                       ^two
 #    -----------------------------------------------------        -----------------    -----------------------
 #    1                                                            2                    3
@@ -140,12 +140,12 @@ from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicati
 # 3. '2.' の別名
 
 # 以前のバージョン
-from apps1.tic_tac_toe_v3.views.o1o0.match_application import MatchApplicationV as MatchApplicationVV3o1o0
-#                       ^four
-#    ---------------------------------------------------        -----------------    -----------------------
-#    1                                                          2                    3
+from apps1.tic_tac_toe_v3.views.o1o0.match_application import MatchApplicationV as MatchApplicationVV3g1o0
+#                       ^three
+#    ---------------------------------------------------      -----------------    -----------------------
+#    1                                                        2                    3
 # 1. `host1/apps1/tic_tac_toe_v3/views/o1o0/match_application/__init__.py`
-#           ---------------------------------------------------
+#           -------------------------------------------------
 # 2. `1.` の __init__.py ファイルに含まれるクラス
 # 3. '2.' の別名
 
@@ -168,8 +168,8 @@ class MatchApplicationV():
 
         return render_match_application(
             request,
-            MatchApplicationVV3o1o0.path_of_http_playing,
-            MatchApplicationVV2O1o0.path_of_html,
+            MatchApplicationVV3g1o0.path_of_http_playing,
+            MatchApplicationVV2g1o0.path_of_html,
             MatchApplicationV.on_sent,
             MatchApplicationV.open)
 
@@ -182,7 +182,7 @@ class MatchApplicationV():
         #    ----------        -------------------------
         #    1                 2
         # 1. `host1/apps1/tic_tac_toe_v3/views/o2o0/match_application/v_on_sent.py`
-        #                                                               ---------
+        #                                                             ---------
         # 2. `1.` に含まれる関数
 
         return match_application_on_sent(request)
@@ -190,7 +190,7 @@ class MatchApplicationV():
     @staticmethod
     def open(request):
         """訪問後"""
-        return MatchApplicationVV2O1o0.open_context
+        return MatchApplicationVV2g1o0.open_context
 ```
 
 # Step O[3 0] 対局申込ビュー モジュール作成 - v_on_sent.py ファイル
@@ -200,9 +200,9 @@ class MatchApplicationV():
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v3                 # アプリケーション Four
+            └── 📂 tic_tac_toe_v3                   # アプリケーション Three
                 └── 📂 views
-                    └── 📂 o2o0                     # Three
+                    └── 📂 o2o0                     # Two
                         └── 📂 match_application
                             ├── 📄 __init__.py
 👉                          └── 📄 v_on_sent.py
@@ -313,9 +313,9 @@ def match_application_on_sent(request):
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v3                 # アプリケーション Four
+        │   └── 📂 tic_tac_toe_v3                   # アプリケーション Three
         │       └── 📂 views
-        │           └── 📂 o2o0                     # Three
+        │           └── 📂 o2o0                     # Two
         │               └── 📂 match_application
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_on_sent.py
@@ -377,7 +377,7 @@ urlpatterns = [
 
 👇 そして `Elephant` 部屋に `X` 番として入ってほしい  
 
-📖 [http://localhost:8000/tic-tac-toe/v3o2o0/match-application/](http://localhost:8000/tic-tac-toe/v3o2o0/match-application/)  
+📖 [http://localhost:8000/tic-tac-toe/v3.2/match-application/](http://localhost:8000/tic-tac-toe/v3.2/match-application/)  
 
 ここで、ログアウトしたなら対局部屋を追い出されるべきだが、まだそこまで作っていない。  
 
@@ -391,7 +391,7 @@ urlpatterns = [
 
 👇 `Elephant` 部屋に `O` 番として入ってほしい  
 
-📖 [http://localhost:8000/tic-tac-toe/v3o2o0/match-application/](http://localhost:8000/tic-tac-toe/v3o2o0/match-application/)  
+📖 [http://localhost:8000/tic-tac-toe/v3.2/match-application/](http://localhost:8000/tic-tac-toe/v3.2/match-application/)  
 
 👇 部屋、ユーザーを確認するには、管理画面を使うのが確実だ。  
 スーパーユーザーのまま、管理画面に入っていてほしい  
@@ -412,9 +412,9 @@ urlpatterns = [
             ├── 📂 portal_v1                        # アプリケーション
             │   └── 📂 data
 👉          │       └── 📄 finished-lessons.csv
-            └── 📂 tic_tac_toe_v3                 # アプリケーション Four
+            └── 📂 tic_tac_toe_v3                   # アプリケーション Three
                 └── 📂 views
-                    └── 📂 o2o0                     # Three
+                    └── 📂 o2o0                     # Two
                         └── 📂 match_application
                             ├── 📄 __init__.py
                             └── 📄 v_on_sent.py
@@ -423,7 +423,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/tic-tac-toe/v3o2o0/match-application/,〇×ゲーム v3o2o0 対局申込中
+/tic-tac-toe/v3.2/match-application/,〇×ゲーム v3.2 対局申込中
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 
