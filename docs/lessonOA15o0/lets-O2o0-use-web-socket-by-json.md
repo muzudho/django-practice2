@@ -339,7 +339,7 @@ if __name__ == "__main__":
 
 ```shell
 # がんばって `host_local1/websockapp1` へ、カレントディレクトリを移動してほしい
-cd host_local1/websockapp1
+# cd host_local1/websockapp1
 
 python.exe -m client_as_json
 #             --------------
