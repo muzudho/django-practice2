@@ -14,8 +14,8 @@ class PlayingV():
 
     # HTML
     path_of_html = "tic_tac_toe_v2/o1o0/gui/playing.html.txt"
-    #                            ^ two
-    #               --------------------------------------
+    #                            ^two
+    #               ----------------------------------------
     #               1
     # 1. `host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1o0/gui/playing.html.txt`
     #                                          ----------------------------------------

@@ -31,16 +31,16 @@
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host_local1                   # Djangoとは関係ないもの
+    ├── 📂 host_local1                      # Djangoとは関係ないもの
     │    ├── 📂 sockapp1
     │    └── 📂 websockapp1
-    ├── 📂 host1                         # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
+    ├── 📂 host1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
     │   │   ├── 📂 practice_v1              # アプリケーション
-    │   │   ├── 📂 tic_tac_toe_v1        # アプリケーション
-    │   │   └── 📂 tic_tac_toe_v2        # アプリケーション
+    │   │   ├── 📂 tic_tac_toe_v1           # アプリケーション
+    │   │   └── 📂 tic_tac_toe_v2           # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
@@ -658,7 +658,7 @@ class Connection {
         <script src="{% static 'tic_tac_toe_v2/o1o0/gui/connection.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/o1o0/gui/incoming_messages.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/o1o0/gui/outgoing_messages.js' %}"></script>
-        <!--            ==================================================
+        <!--            ====================================================
                         1
         1. host1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/o1o0/gui/outgoing_messages.js
                                       ===================================================
@@ -1570,17 +1570,17 @@ class PlayingV():
     # 駒
     expected_pieces = ['X', 'O']
 
-    # Webソケット
-    path_of_ws_playing = "/tic-tac-toe/v2o1/playing/"
-    #                                   ^ two
-    #                     --------------------------
+    # Webソケット v2
+    path_of_ws_playing = "/tic-tac-toe/v2/playing/"
+    #                                   ^two
+    #                     ------------------------
     #                     1
-    # 1. `ws://example.com:8000/tic-tac-toe/v2o1/playing/`
-    #                          --------------------------
+    # 1. `ws://example.com:8000/tic-tac-toe/v2/playing/`
+    #                          ------------------------
 
     # HTML
     path_of_html = "tic_tac_toe_v2/o1o0/gui/playing.html.txt"
-    #                            ^ two
+    #                            ^two
     #               ----------------------------------------
     #               1
     # 1. `host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1o0/gui/playing.html.txt`
@@ -1720,17 +1720,25 @@ def render_playing(request, kw_room_name, path_of_ws_playing, path_of_html, on_u
 # ...略...
 
 
-# 対局申込ページ v2.1
+# 〇×ゲーム v2 対局申込ページ
 from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicationV
-#          --------------                -----------------        -----------------
-#          1.1                           1.2                      2
+#          --------------                  ---------------        -----------------
+#          11                              12                     2
 #    -----------------------------------------------------
-#    1
-# 1, 1.2 ディレクトリー
-# 1.1 アプリケーション
-# 2. `1.2` に含まれる __init__.py ファイルにさらに含まれるクラス
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-from apps1.tic_tac_toe_v2.views.v2o1.gui.playing import PlayingV
+# 〇×ゲーム v2 対局中ページ
+from apps1.tic_tac_toe_v2.views.o1o0.gui.playing import PlayingV
+#          --------------                -------        --------
+#          11                            12             2
+#    -------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 urlpatterns = [
