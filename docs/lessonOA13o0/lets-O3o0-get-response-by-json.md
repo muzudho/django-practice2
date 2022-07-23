@@ -215,13 +215,13 @@ urlpatterns = [
 
 
     # ビューティファイでJSON形式のデザート１
-    path('practice/v1/vuetify/desserts1-as-json',
+    path('practice/v1.0/vuetify/desserts1-as-json',
          # ------------------------------------
          # 1
          VuetifyV.render_desserts1_as_json, name='practice_v1_vuetify_desserts1_as_json'),
     #    ---------------------------------        -------------------------------------
     #    2                                        3
-    # 1. 例えば `http://example.com/practice/v1/vuetify/desserts1-as-json` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/vuetify/desserts1-as-json` のような URL のパスの部分
     #                              -------------------------------------
     # 2. VuetifyV クラスの render_desserts1_as_json 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_desserts1_as_json' %} のような形でURLを取得するのに使える
@@ -230,7 +230,7 @@ urlpatterns = [
 
 # Step O[6 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/vuetify/desserts1-as-json](http://localhost:8000/practice/v1/vuetify/desserts1-as-json)  
+📖 [http://localhost:8000/practice/v1.0/vuetify/desserts1-as-json](http://localhost:8000/practice/v1.0/vuetify/desserts1-as-json)  
 
 # Step O[7 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -261,7 +261,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/vuetify/desserts1-as-json,ビューティファイでJSON形式のデザート１
+/practice/v1.0/vuetify/desserts1-as-json,ビューティファイでJSON形式のデザート１
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

@@ -4,7 +4,7 @@ Webサイトのページを追加したい。
 以下のようなURLで表示させる  
 
 ```plain
-http://example.com/practice/v1/page1
+http://example.com/practice/v1.0/page1
 ------]----------]------------------
 1      2          3
 
@@ -74,32 +74,39 @@ docker-compose up
 
 ## この連載でのバージョン番号の付け方
 
-この連載では `セマンティック バージョニング` とは異なる法則でバージョン番号を付ける  
+一般的には プログラムのパッケージには `1.0.0` のような `セマンティック バージョニング` と呼ばれる法則が利用されていることがある  
 
-👇 メジャー番号は アプリケーション名に付ける  
+この連載は、 `Webサイトのユーザーから見たWebアプリケーションのバージョン` と、 `プログラマーの扱うプログラムのパッケージのバージョン` は異なると考え、  
+`セマンティック バージョニング` とは異なる法則でバージョン番号を付ける  
+
+👇 URLでは、アプリケーション名とバージョン番号は分ける  
+
+Example: `http://example.com/practice/v1/`  
+Example: `http://example.com/practice/v1.1/`  
+
+SEO対策などで「バージョン番号が異なってもアプリケーションとしては同じとカウントしてほしい」ケースがあるだろう。  
+この連載では、 URL については この方法を採用する  
+
+バージョン番号は メジャー番号 だけを使うか、 `v1` と `v1.1` の両方を残したい場合は マイナー番号 まで含める。  
+バグ修正のたびに URL が変わるのは ナンセンスなので URL にパッチ番号は含めない  
+
+👇 ローカルPC内では アプリケーションのバージョン番号のメジャー番号は、アプリケーション名の方に含める  
 
 Example: `practice_v1`  
 
 「バージョン番号はアプリケーション名では無いのだから、アプリケーション名に付けるのはおかしい」という考え方はあるが、  
-「メジャー番号が替われば別アプリケーションだ」と考えれば アプリケーション名にメジャー番号を付けるのが合理的なので、  
-この連載ではこちらを採用する  
+「バージョンのメジャー番号が替われば別アプリケーションだ」と考えれば アプリケーション名にバージョンのメジャー番号を付けるのが合理的なので、  
+この連載の アプリケーション名 ではこちらを採用する  
 
-👇 URLでは、アプリケーション名とメジャー番号は分ける  
+👇 レッスンの都合で付ける章番号には、以下のように表記したり、しなかったりすることがある  
 
-Example: `http://example.com/practice/v1/`  
+Example: `O[1 0]`  
+Example: `O1o0`  
+Example: `o1o0`  
 
-「メジャー番号は異なってもアプリケーションは同じシリーズだ」と主張するのが合理的なので、  
-この連載ではこちらを採用する  
+この表記の名前は **電脳向量表記** と呼ぶことにする  
 
-👇 マイナー番号は、この連載では以下のように表記したり、しなかったりすることがある  
-
-Example: `o3o1`  
-
-この表記の名前は **電脳ベクター表記** と呼ぶことにする  
-
-📖 [電脳ベクター表記 (Cyber Vector Notation)](https://crieit.net/posts/Cyber-Number-Notation)  
-
-この連載では パッチ番号 のようなものは使わない  
+📖 [電脳向量表記 (Cyber Vector Notation)](https://crieit.net/posts/Cyber-Number-Notation)  
 
 # Step O[3 0] アプリケーション作成
 
@@ -108,7 +115,7 @@ Example: `o3o1`
 ```shell
 docker-compose run --rm web python manage.py startapp practice_v1 ./apps1/practice_v1 --settings=project1.settings
 #                                                     ----------- -------------------            -----------------
-#                                                     1           2
+#                                                     1           2                              3
 # 1. 任意のDjangoアプリケーション名
 # 2. アプリケーション フォルダーへのパス
 # 3. `host1/project1/settings.py` 設定ファイルに従う
@@ -243,7 +250,6 @@ INSTALLED_APPS = [
 ```
 
 * `templateの下のpractice_v1` - あなたの Django の支配下のすべてのアプリケーションのテンプレート素材は、まるで実行時メモリの中で、あなたの Django の支配下のすべてのアプリケーションからアクセスできる１つの静的フォルダーに再配置されているかのように扱えると考えてほしい。あとは自分の頭で考えてほしい
-* `o1o0` - Version 1.1.0 の後ろの `.1.0` のつもり。頭の `1` は practice_v1 の後ろに付いている。ただのフォルダー。無くてもいい
 
 ```html
 <html>
@@ -284,17 +290,17 @@ TEMPLATES = [
         'DIRS': [
             # 練習
             os.path.join(BASE_DIR, 'apps1/practice_v1/templates'),
-            #                       ---------------------------
+            #                       -----------------------------
             #                       10
             # Example: /host1/apps1/practice_v1/templates/practice_v1/o2o1/page1.html
-            #                       -----------          ------------
-            #                       11                   2
+            #                       -------------          --------------
+            #                       11                     2
             #                 ---------------------------
             #                 10
             # 10. テンプレート ディレクトリーへのパス
             # 11. アプリケーション
             # 2. まるで `http://example.com/practice_v1` という素材フォルダーがあるかのように扱われる
-            #                             ------------
+            #                             --------------
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -342,10 +348,10 @@ class Page1():
         """描画"""
 
         template = loader.get_template('practice_v1/o2o1/page1.html')
-        #                               ---------------------------
+        #                               -----------------------------
         #                               1
         # 1. host1/apps1/practice_v1/templates/practice_v1/o2o1/page1.html を取得
-        #                                      ---------------------------
+        #                                        -----------------------------
 
         context = {}
         return HttpResponse(template.render(context, request))
@@ -381,9 +387,9 @@ from django.urls import path
 
 # 練習ページ１
 from apps1.practice_v1.views.o2o1.page1 import Page1
-#          -----------            -----        -----
-#          11                     12           2
-#    ----------------------------------
+#          -------------            -----        -----
+#          11                       12           2
+#    ------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -392,10 +398,10 @@ from apps1.practice_v1.views.o2o1.page1 import Page1
 
 urlpatterns = [
 
-    path('practice/v1/page1', Page1.render, name='page1'),
+    path('practice/v1.0/page1', Page1.render, name='page1'),
     #     -----------------   ------------        -----
     #     1                   2                   3
-    # 1. 例えば `http://example.com/practice/v1/page1` のようなURLのパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/page1` のようなURLのパスの部分
     #                              -----------------
     # 2. Page1 クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'page1' %} のような形でURLを取得するのに使える
@@ -448,7 +454,7 @@ urlpatterns = [
 
 # Step O[12 0] Webページにアクセスする
 
-📖 [http://localhost:8000/practice/v1/page1](http://localhost:8000/practice/v1/page1)  
+📖 [http://localhost:8000/practice/v1.0/page1](http://localhost:8000/practice/v1.0/page1)  
 
 # 次の記事
 

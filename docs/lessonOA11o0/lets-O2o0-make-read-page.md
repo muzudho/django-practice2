@@ -288,14 +288,14 @@ urlpatterns = [
 
 
     # 都道府県の詳細
-    path('practice/v1/prefectures/read/<int:id>/',
+    path('practice/v1.0/prefectures/read/<int:id>/',
          # -------------------------------------
          # 1
          PrefectureV.render_read, name='practice_v1_prefectures_read'),
     #    -----------------------        ----------------------------
     #    2                              3
     #
-    # 1. 例えば `http://example.com/practice/v1/prefectures/read/<数字列>/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/prefectures/read/<数字列>/` のような URL のパスの部分
     #                              --------------------------------------
     #    数字列は `2.` のメソッドの引数 id で取得できる
     # 2. PrefectureV クラスの render_read 静的メソッド
@@ -305,7 +305,7 @@ urlpatterns = [
 
 # Step O[6 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/prefectures/read/1/](http://localhost:8000/practice/v1/prefectures/read/1/)  
+📖 [http://localhost:8000/practice/v1.0/prefectures/read/1/](http://localhost:8000/practice/v1.0/prefectures/read/1/)  
 
 # Step O[7 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -336,7 +336,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/prefectures/read/1/,都道府県(1)の詳細
+/practice/v1.0/prefectures/read/1/,都道府県(1)の詳細
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

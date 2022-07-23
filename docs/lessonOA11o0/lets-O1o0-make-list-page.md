@@ -272,13 +272,13 @@ urlpatterns = [
 
 
     # 都道府県の一覧
-    path('practice/v1/prefectures/',
+    path('practice/v1.0/prefectures/',
          # -----------------------
          # 1
          PrefectureV.render_list, name='practice_v1_prefectures'),
     #    -----------------------        -----------------------
     #    2                              3
-    # 1. 例えば `http://example.com/practice/v1/prefectures/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/prefectures/` のような URL のパスの部分
     #                              ------------------------
     # 2. PrefectureV クラスの render_list 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_prefectures' %} のような形でURLを取得するのに使える
@@ -287,7 +287,7 @@ urlpatterns = [
 
 # Step O[6 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/prefectures/](http://localhost:8000/practice/v1/prefectures/)  
+📖 [http://localhost:8000/practice/v1.0/prefectures/](http://localhost:8000/practice/v1.0/prefectures/)  
 
 # Step O[7 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -318,7 +318,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/prefectures/,都道府県の一覧
+/practice/v1.0/prefectures/,都道府県の一覧
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

@@ -258,13 +258,13 @@ urlpatterns = [
 
 
     # ビューティファイでハロー
-    path('practice/v1/vuetify/hello1', VuetifyV.render_hello1,
+    path('practice/v1.0/vuetify/hello1', VuetifyV.render_hello1,
          # -------------------------   ----------------------
          # 1                           2
          name='practice_v1_vuetify_hello1'),
     #          --------------------------
     #          3
-    # 1. 例えば `http://example.com/practice/v1/vuetify/hello1` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/vuetify/hello1` のような URL のパスの部分
     #                              --------------------------
     # 2. VuetifyV クラスの render_hello1 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_hello1' %} のような形でURLを取得するのに使える
@@ -273,7 +273,7 @@ urlpatterns = [
 
 # Step O[6 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/vuetify/hello1](http://localhost:8000/practice/v1/vuetify/hello1)  
+📖 [http://localhost:8000/practice/v1.0/vuetify/hello1](http://localhost:8000/practice/v1.0/vuetify/hello1)  
 
 # Step O[7 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -304,7 +304,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/vuetify/hello1,ビューティファイでハロー
+/practice/v1.0/vuetify/hello1,ビューティファイでハロー
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

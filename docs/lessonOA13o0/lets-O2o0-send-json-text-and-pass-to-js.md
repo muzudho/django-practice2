@@ -146,7 +146,7 @@ docker-compose up
                             <!--                    ========================
                                                     1
                             1. 宛先を間違えないように
-                               `http://example.com/practice/v1/vuetify/desserts1-from-textarea1`
+                               `http://example.com/practice/v1.0/vuetify/desserts1-from-textarea1`
                                                                        ========================
                             -->
                             {% endblock form_signature %}
@@ -369,25 +369,25 @@ urlpatterns = [
 
 
     # ビューティファイでテキストエリア１
-    path('practice/v1/vuetify/textarea1',
+    path('practice/v1.0/vuetify/textarea1',
          # ----------------------------
          # 1
          VuetifyV.render_textarea1, name='practice_v1_vuetify_textarea1'),
     #    -------------------------        -----------------------------
     #    2                                3
-    # 1. 例えば `http://example.com/practice/v1/vuetify/textarea1` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/vuetify/textarea1` のような URL のパスの部分
     #                              -----------------------------
     # 2. VuetifyV クラスの render_textarea1 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_textarea1' %} のような形でURLを取得するのに使える
 
     # ビューティファイでデザート１ . テキストエリア１から
-    path('practice/v1/vuetify/desserts1-from-textarea1',
+    path('practice/v1.0/vuetify/desserts1-from-textarea1',
          # -------------------------------------------
          # 1
          VuetifyV.render_desserts1_from_textarea1, name='practice_v1_vuetify_desserts1_from_textarea1'),
     #    ----------------------------------------        --------------------------------------------
     #    2                                               3
-    # 1. 例えば `http://example.com/practice/v1/vuetify/desserts1-from-textarea1` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/vuetify/desserts1-from-textarea1` のような URL のパスの部分
     #                              ---------------------------------------------
     # 2. VuetifyV クラスの render_desserts1_from_textarea1 メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_desserts1_from_textarea1' %} のような形でURLを取得するのに使える
@@ -396,7 +396,7 @@ urlpatterns = [
 
 # Step O[8 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/vuetify/textarea1](http://localhost:8000/practice/v1/vuetify/textarea1)  
+📖 [http://localhost:8000/practice/v1.0/vuetify/textarea1](http://localhost:8000/practice/v1.0/vuetify/textarea1)  
 
 # Step O[9 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -433,7 +433,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/vuetify/textarea1,ビューティファイでテキストエリア１
+/practice/v1.0/vuetify/textarea1,ビューティファイでテキストエリア１
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

@@ -161,8 +161,8 @@ post_save.connect(create_user_profile, sender=User)
 # cd host1
 
 docker-compose run --rm web python3 manage.py makemigrations practice_v1 --settings project1.settings
-#                                                            -----------            -----------------
-#                                                            1                      2
+#                                                            -------------            -----------------
+#                                                            1                        2
 # 1. アプリケーション
 # 2. host1/project1/settings.py
 #          -----------------
@@ -260,7 +260,7 @@ class MhUser():
     #    ------------------------        --------------------
     #    1                               2
     # 1. `host1/apps1/practice_v1/model_helper/o2o1/mh_user/mh_get_extends_user_dic.py`
-    #                                                       -----------------------
+    #                                                         -----------------------
     # 2. `1.` に含まれる関数
 ```
 
@@ -440,10 +440,10 @@ class ExtendsUserListV():
 
     # そのページ
     _path_of_this_page = "practice_v1/o2o1/extends_user_list.html"
-    #                     ---------------------------------------
+    #                     -----------------------------------------
     #                     1
     # 1. `host1/apps1/practice_v1/templates/practice_v1/o2o1/extends_user_list.html` を取得
-    #                                       ---------------------------------------
+    #                                         -----------------------------------------
 
     @staticmethod
     def render(request):
@@ -454,7 +454,7 @@ class ExtendsUserListV():
         #    ---------        ------------------------
         #    1                2
         # 1. `host1/apps1/practice_v1/views/o2o1/extends_user_list/v_render.py`
-        #                                                          --------
+        #                                                            --------
         # 2. `1.` に含まれる関数
 
         return render_extends_user_list(request, ExtendsUserListV._path_of_this_page)
@@ -494,9 +494,9 @@ from django.template import loader
 
 # ユーザー モデルヘルパー
 from apps1.practice_v1.models_helper.o2o1.mh_user import MhUser
-#          -----------                    -------        ------
-#          11                             12             2
-#    --------------------------------------------
+#          -------------                    -------        ------
+#          11                               12             2
+#    ----------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -553,9 +553,9 @@ def render_extends_user_list(request, path_of_this_page):
 
 # （拡張済）会員一覧
 from apps1.practice_v1.views.o2o1.extends_user_list import ExtendsUserListV
-#          -----------            -----------------        ----------------
-#          11                     12                       2
-#    ----------------------------------------------
+#          -------------            -----------------        ----------------
+#          11                       12                       2
+#    ------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -567,13 +567,13 @@ urlpatterns = [
 
 
     # （拡張済）会員一覧
-    path('practice/v1/extends-user-list/',
+    path('practice/v1.0/extends-user-list/',
          # -----------------------------
          # 1
          ExtendsUserListV.render, name='practice_v1_extends_user_list'),
-    #    -----------------------        -----------------------------
+    #    -----------------------        -------------------------------
     #    2                              3
-    # 1. 例えば `http://example.com/practice/v1/extends-user-list/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/extends-user-list/` のような URL のパスの部分
     #                              ------------------------------
     # 2. ExtendsUserListV クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_extends_user_list' %} のような形でURLを取得するのに使える
@@ -677,7 +677,7 @@ User: [あなたの名前]▽ 🖊 ➕
 
 # Step O[15 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/extends-user-list/](http://localhost:8000/practice/v1/extends-user-list/)  
+📖 [http://localhost:8000/practice/v1.0/extends-user-list/](http://localhost:8000/practice/v1.0/extends-user-list/)  
 
 # Step O[16 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -715,7 +715,7 @@ User: [あなたの名前]▽ 🖊 ➕
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/extends-user-list/,（拡張済）会員一覧
+/practice/v1.0/extends-user-list/,（拡張済）会員一覧
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

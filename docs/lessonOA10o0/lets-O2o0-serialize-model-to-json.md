@@ -241,13 +241,13 @@ urlpatterns = [
 
 
     # デバッグ用。モデルをダンプ出力
-    path('practice/v1/from-object-to-json-str/',
+    path('practice/v1.0/from-object-to-json-str/',
          # -----------------------------------
          # 1
          DebugV.render_model_as_json, name='practice_v1_from_object_to_json_str'),
     #    ---------------------------        -----------------------------------
     #    2                                  3
-    # 1. 例えば `http://example.com/practice/v1/from-object-to-json-str/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/from-object-to-json-str/` のような URL のパスの部分
     #                              ------------------------------------
     # 2. DebugV クラスの render_model_as_json 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_from_object_to_json_str' %} のような形でURLを取得するのに使える
@@ -256,7 +256,7 @@ urlpatterns = [
 
 # Step O[7 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/from-object-to-json-str/](http://localhost:8000/practice/v1/from-object-to-json-str/)  
+📖 [http://localhost:8000/practice/v1.0/from-object-to-json-str/](http://localhost:8000/practice/v1.0/from-object-to-json-str/)  
 
 # Step O[8 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -285,7 +285,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/from-object-to-json-str/,モデルをダンプ出力する
+/practice/v1.0/from-object-to-json-str/,モデルをダンプ出力する
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

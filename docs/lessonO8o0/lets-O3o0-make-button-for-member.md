@@ -209,10 +209,10 @@ class ButtonForMember():
 
     # そのページ
     _path_of_this_page = "practice_v1/o2o1/button_for_member.html"
-    #                     ---------------------------------------
+    #                     -----------------------------------------
     #                     1
     # 1. host1/apps1/practice_v1/templates/practice_v1/o2o1/button_for_member.html を取得
-    #                                      ---------------------------------------
+    #                                        -----------------------------------------
 
     # 既存のポータルページ
     _path_of_portal = "/"
@@ -222,10 +222,10 @@ class ButtonForMember():
     #                           -
 
     # 既存のログイン必須ページ
-    _path_of_login_required = "/practice/v1/login-required"
+    _path_of_login_required = "/practice/v1.0/login-required"
     #                          ---------------------------
     #                          1
-    # 1. http://example.com/practice/v1/login-required
+    # 1. http://example.com/practice/v1.0/login-required
     #                      ---------------------------
 
     # 既存のログイン ページ
@@ -251,7 +251,7 @@ class ButtonForMember():
         #    ---------        ------------------------
         #    1                2
         # 1. `host1/apps1/practice_v1/views/o2o1/button_for_member/v_render.py`
-        #                                                          --------
+        #                                                            --------
         # 2. `1.` に含まれる関数
 
         return render_button_for_member(request, ButtonForMember._path_of_this_page, ButtonForMember._path_of_portal, ButtonForMember._path_of_login_required, ButtonForMember._path_of_login, ButtonForMember._path_of_logout)
@@ -324,9 +324,9 @@ def render_button_for_member(request, path_of_this_page, path_of_portal, path_of
 
 # 会員用ボタン
 from apps1.practice_v1.views.o2o1.button_for_member import ButtonForMember
-#          -----------            -----------------        ---------------
-#          11                     12                       2
-#    ----------------------------------------------
+#          -------------            -----------------        ---------------
+#          11                       12                       2
+#    ------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -338,13 +338,13 @@ urlpatterns = [
 
 
     # 会員にだけ見えるボタンを説明するページ
-    path('practice/v1/buttom_for_member/',
+    path('practice/v1.0/buttom_for_member/',
          # -----------------------------
          # 1
          ButtonForMember.render),
     #    ----------------------
     #    2
-    # 1. 例えば `http://example.com/practice/v1/buttom_for_member/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/buttom_for_member/` のような URL のパスの部分
     #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
 ]
@@ -352,7 +352,7 @@ urlpatterns = [
 
 # Step O[6 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/buttom_for_member/](http://localhost:8000/practice/v1/buttom_for_member/)  
+📖 [http://localhost:8000/practice/v1.0/buttom_for_member/](http://localhost:8000/practice/v1.0/buttom_for_member/)  
 
 # Step O[7 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -381,7 +381,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/buttom_for_member/,会員にだけ見えるボタンを説明するページ
+/practice/v1.0/buttom_for_member/,会員にだけ見えるボタンを説明するページ
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

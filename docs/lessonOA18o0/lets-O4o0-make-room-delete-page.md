@@ -2,7 +2,7 @@
 
 （※いわゆる CRUD の D）  
 
-`http://localhost:8000/practice/v1/rooms/delete/4/` へアクセスすると、  
+`http://localhost:8000/practice/v1.0/rooms/delete/4/` へアクセスすると、  
 id が 4 の部屋を削除したい  
 
 表示例:  
@@ -289,13 +289,13 @@ urlpatterns = [
 
 
     # 対局部屋の削除
-    path('practice/v1/rooms/delete/<int:id>/', RoomV.render_delete,
+    path('practice/v1.0/rooms/delete/<int:id>/', RoomV.render_delete,
          # ---------------------------------   -------------------
          # 1                                   2
          name='practice_v1_rooms_delete'),
     #          ------------------------
     #          3
-    # 1. 例えば `http://example.com/practice/v1/rooms/delete/<数字列>/` のような URL のパスの部分。
+    # 1. 例えば `http://example.com/practice/v1.0/rooms/delete/<数字列>/` のような URL のパスの部分。
     #                              ----------------------------------
     #    数字列は `2.` の関数の引数 id で取得できる
     # 2. RoomV クラスの render_delete メソッド
@@ -307,7 +307,7 @@ urlpatterns = [
 
 👇 部屋の番号は適宜変えてほしい  
 
-📖 [http://localhost:8000/practice/v1/rooms/delete/1/](http://localhost:8000/practice/v1/rooms/delete/1/)  
+📖 [http://localhost:8000/practice/v1.0/rooms/delete/1/](http://localhost:8000/practice/v1.0/rooms/delete/1/)  
 
 # Step O[7 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -337,7 +337,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/rooms/delete/1/,対局部屋の削除
+/practice/v1.0/rooms/delete/1/,対局部屋の削除
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

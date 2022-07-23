@@ -140,10 +140,10 @@ class LoggingIn():
     """ログイン中"""
 
     path_of_html = "practice_v1/o2o1/login_required.html"
-    #               ------------------------------------
+    #               --------------------------------------
     #               1
     # 1. host1/apps1/practice_v1/templates/practice_v1/o2o1/login_required.html を取得
-    #                                      ------------------------------------
+    #                                        --------------------------------------
 
     # 👇 このデコレーターを付けると、ログインしていないなら、 settings.py の LOGIN_URL で指定した URL に飛ばします。
     # インスタンスのメソッドや、クラスメソッドには付けられません。
@@ -210,8 +210,8 @@ def loggingOut_render(request):
 
 # ログイン必須ページ
 from apps1.practice_v1.views.o2o1 import v_login_required
-#    ----------------------------        ----------------
-#    1                                   2
+#    ------------------------------        ----------------
+#    1                                     2
 # 1. ディレクトリー名
 # 2. Python ファイル名。拡張子抜き
 
@@ -224,25 +224,25 @@ urlpatterns = [
 
 
     # ログイン中
-    path('practice/v1/login-required', v_login_required.LoggingIn.render,
+    path('practice/v1.0/login-required', v_login_required.LoggingIn.render,
          # -------------------------   ---------------------------------
          # 1                           2
          name='practice_v1_login_required'),
-    #          --------------------------
+    #          ----------------------------
     #          3
-    # 1. 例えば `http://example.com/practice/v1/login-required` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/login-required` のような URL のパスの部分
     #                              --------------------------
     # 2. v_login_required.py ファイルの LoggingIn クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_login_required' %} のような形でURLを取得するのに使える
 
     # ログアウト中
-    path('practice/v1/logout', v_login_required.LoggingOut.render,
+    path('practice/v1.0/logout', v_login_required.LoggingOut.render,
          # -----------------   ----------------------------------
          # 1                   2
          name='practice_v1_logout'),
-    #          ------------------
+    #          --------------------
     #          3
-    # 1. 例えば `http://example.com/practice/v1/logout` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/logout` のような URL のパスの部分
     #                              ------------------
     # 2. v_login_required.py ファイルの LoggingOut クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_logout' %} のような形でURLを取得するのに使える
@@ -254,11 +254,11 @@ urlpatterns = [
 👇　ログインしているときは、ログイン情報が見えます。  
 　　ログインしていないときは、ログイン画面が出ます
 
-📖 [http://localhost:8000/practice/v1/login-required](http://localhost:8000/practice/v1/login-required)  
+📖 [http://localhost:8000/practice/v1.0/login-required](http://localhost:8000/practice/v1.0/login-required)  
 
 👇 ログアウトするにはこちら  
 
-📖 [http://localhost:8000/practice/v1/logout](http://localhost:8000/practice/v1/logout)  
+📖 [http://localhost:8000/practice/v1.0/logout](http://localhost:8000/practice/v1.0/logout)  
 
 # Step O[6 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -286,8 +286,8 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/login-required,ログイン必須
-/practice/v1/logout,ログアウト
+/practice/v1.0/login-required,ログイン必須
+/practice/v1.0/logout,ログアウト
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

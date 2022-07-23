@@ -71,7 +71,7 @@ def render_list(request, path_of_list_page):
         # Vue には、 JSONオブジェクト を渡すのではなく、 JSON文字列 を渡します
         "dj_room_array": json.dumps(room_list),
         # FIXME URL を urls.py で変更しても、こちらに反映されないが、どうするか？
-        "dj_read_room_path": "/practice/v1/rooms/read/",
+        "dj_read_room_path": "/practice/v1.0/rooms/read/",
     }
     # print(f"context={context}")
 

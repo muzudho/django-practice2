@@ -16,10 +16,10 @@ class ButtonForMember():
     #                           -
 
     # 既存のログイン必須ページ
-    _path_of_login_required = "/practice/v1/login-required"
+    _path_of_login_required = "/practice/v1.0/login-required"
     #                          ---------------------------
     #                          1
-    # 1. http://example.com/practice/v1/login-required
+    # 1. http://example.com/practice/v1.0/login-required
     #                      ---------------------------
 
     # 既存のログイン ページ

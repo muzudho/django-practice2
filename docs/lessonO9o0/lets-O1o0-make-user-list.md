@@ -195,7 +195,7 @@ class MhUser():
     #    ----------------        ------------
     #    1                       2
     # 1. `host1/apps1/practice_v1/model_helper/o2o1/mh_user/mh_get_user_dic.py`
-    #                                                       ---------------
+    #                                                         ---------------
     # 2. `1.` に含まれる関数
 ```
 
@@ -273,10 +273,10 @@ class UserListV():
 
     # そのページ
     _path_of_this_page = "practice_v1/o2o1/user_list.html"
-    #                     -------------------------------
+    #                     ---------------------------------
     #                     1
     # 1. host1/apps1/practice_v1/templates/practice_v1/o2o1/user_list.html を取得
-    #                                      -------------------------------
+    #                                        ---------------------------------
 
     @staticmethod
     def render(request):
@@ -287,7 +287,7 @@ class UserListV():
         #    ---------        ----------------
         #    1                2
         # 1. `host1/apps1/practice_v1/views/o2o1/user_list/v_render.py`
-        #                                                  --------
+        #                                                    --------
         # 2. `1.` に含まれる関数
 
         return render_user_list(request, UserListV._path_of_this_page)
@@ -323,9 +323,9 @@ from django.template import loader
 
 # ユーザー モデルヘルパー
 from apps1.practice_v1.models_helper.o2o1.mh_user import MhUser
-#          -----------                    -------        ------
-#          11                             12             2
-#    --------------------------------------------
+#          -------------                    -------        ------
+#          11                               12             2
+#    ----------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -377,9 +377,9 @@ def render_user_list(request, path_of_this_page):
 
 # 会員一覧
 from apps1.practice_v1.views.o2o1.user_list import UserListV
-#          -----------            ---------        ---------
-#          11                     12               2
-#    --------------------------------------
+#          -------------            ---------        ---------
+#          11                       12               2
+#    ----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -391,13 +391,13 @@ urlpatterns = [
 
 
     # 会員一覧
-    path('practice/v1/user-list/',
+    path('practice/v1.0/user-list/',
          # ---------------------
          # 1
          UserListV.render, name='practice_v1_user_list'),
-    #    ----------------        ---------------------
+    #    ----------------        -----------------------
     #    2                       3
-    # 1. 例えば `http://example.com/practice/v1/user-list/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/user-list/` のような URL のパスの部分
     #                              ----------------------
     # 2. UserListV クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_user_list' %} のような形でURLを取得するのに使える
@@ -406,7 +406,7 @@ urlpatterns = [
 
 # Step O[8 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/user-list/](http://localhost:8000/practice/v1/user-list/)  
+📖 [http://localhost:8000/practice/v1.0/user-list/](http://localhost:8000/practice/v1.0/user-list/)  
 
 # Step O[9 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -439,7 +439,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/user-list/,会員一覧
+/practice/v1.0/user-list/,会員一覧
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

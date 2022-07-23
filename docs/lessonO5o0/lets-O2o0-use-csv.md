@@ -147,9 +147,9 @@ docker-compose up
 path,label
 /,ポータル
 /admin,管理画面
-/practice/v1/page1,ページ１
-/practice/v1/page2_patch1,ページ２ パッチ１
-/practice/v1/page2_patch2,ページ２ パッチ２
+/practice/v1.0/page1,ページ１
+/practice/v1.0/page2_patch1,ページ２ パッチ１
+/practice/v1.0/page2_patch2,ページ２ パッチ２
 ```
 
 # Step O[6 0] 画面作成 - portal_base.html ファイル
@@ -283,9 +283,9 @@ class Portal():
         # Example
         # -------
         #                         path      label
-        # 0         /practice/v1/page1     ページ１
-        # 1  /practice/v1/page2_patch1  ページ２ パッチ１
-        # 2  /practice/v1/page2_patch2  ページ２ パッチ２
+        # 0         /practice/v1.0/page1     ページ１
+        # 1  /practice/v1.0/page2_patch1  ページ２ パッチ１
+        # 2  /practice/v1.0/page2_patch2  ページ２ パッチ２
 
         print(df.columns)
         #
@@ -307,9 +307,9 @@ class Portal():
         #
         # Example
         # -------
-        # /practice/v1/page1 , ページ１
-        # /practice/v1/page2_patch1 , ページ２ パッチ１
-        # /practice/v1/page2_patch2 , ページ２ パッチ２
+        # /practice/v1.0/page1 , ページ１
+        # /practice/v1.0/page2_patch1 , ページ２ パッチ１
+        # /practice/v1.0/page2_patch2 , ページ２ パッチ２
 
         # "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
         context = {

@@ -282,14 +282,14 @@ urlpatterns = [
 
 
     # 都道府県の削除
-    path('practice/v1/prefectures/delete/<int:id>/',
+    path('practice/v1.0/prefectures/delete/<int:id>/',
          # ---------------------------------------
          # 1
          PrefectureV.render_delete, name='practice_v1_prefectures_delete'),
     #    -------------------------        ------------------------------
     #    2                                3
     #
-    # 1. 例えば `http://example.com/practice/v1/prefectures/delete/<数字列>/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/prefectures/delete/<数字列>/` のような URL のパスの部分
     #                              ----------------------------------------
     #    数字列は `2.` のメソッドの引数 id で取得できる
     # 2. PrefectureV クラスの render_delete メソッド
@@ -301,7 +301,7 @@ urlpatterns = [
 
 👇 IDの番号は適宜変えてほしい。  
 
-📖 [http://localhost:8000/practice/v1/prefectures/delete/2/](http://localhost:8000/practice/v1/prefectures/delete/2/)  
+📖 [http://localhost:8000/practice/v1.0/prefectures/delete/2/](http://localhost:8000/practice/v1.0/prefectures/delete/2/)  
 
 # Step O[7 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -332,7 +332,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/prefectures/delete/2/,都道府県(2)の削除
+/practice/v1.0/prefectures/delete/2/,都道府県(2)の削除
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

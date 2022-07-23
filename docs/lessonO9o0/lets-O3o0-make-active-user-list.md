@@ -187,7 +187,7 @@ class MhSession():
     #    --------------------------        -----------------------
     #    1                                 2
     # 1. `host1/apps1/practice_v1/model_helper/o2o1/mh_sesion/v_get_all_logged_in_users.py`
-    #                                                         -------------------------
+    #                                                           -------------------------
     # 2. `1.` に含まれる関数
 ```
 
@@ -411,13 +411,13 @@ urlpatterns = [
 
 
     # アクティブユーザー一覧
-    path('practice/v1/active-user-list/',
+    path('practice/v1.0/active-user-list/',
          # ----------------------------
          # 1
          SessionV.render, name='practice_v1_active_user_list'),
     #    ---------------        ----------------------------
     #    2                      3
-    # 1. 例えば `http://example.com/practice/v1/active-user-list/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/active-user-list/` のような URL のパスの部分
     #                              -----------------------------
     # 2. UserListV クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_active_user_list' %} のような形でURLを取得するのに使える
@@ -426,7 +426,7 @@ urlpatterns = [
 
 # Step O[8 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/active-user-list/](http://localhost:8000/practice/v1/active-user-list/)  
+📖 [http://localhost:8000/practice/v1.0/active-user-list/](http://localhost:8000/practice/v1.0/active-user-list/)  
 
 # Step O[9 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -460,7 +460,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/active-user-list/,アクティブユーザー一覧
+/practice/v1.0/active-user-list/,アクティブユーザー一覧
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

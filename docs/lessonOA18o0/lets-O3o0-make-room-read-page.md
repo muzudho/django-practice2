@@ -2,7 +2,7 @@
 
 （※いわゆる CRUD の R）  
 
-`http://localhost:8000/practice/v1/rooms/read/1/` へアクセスすると、  
+`http://localhost:8000/practice/v1.0/rooms/read/1/` へアクセスすると、  
 id が 1 の部屋を表示したい  
 
 表示例:  
@@ -445,13 +445,13 @@ urlpatterns = [
 
 
     # 対局部屋の詳細
-    path('practice/v1/rooms/read/<int:id>/',
+    path('practice/v1.0/rooms/read/<int:id>/',
          # -------------------------------
          # 1
          RoomV.render_read, name='practice_v1_rooms_read'),
     #    -----------------        ----------------------
     #    2                        3
-    # 1. 例えば `http://example.com/practice/v1/rooms/read/<数字列>/` のような URL のパスの部分。
+    # 1. 例えば `http://example.com/practice/v1.0/rooms/read/<数字列>/` のような URL のパスの部分。
     #                              --------------------------------
     #    数字列は `2.` の関数の引数 id で取得できる
     # 2. RoomV クラスの render_read メソッド
@@ -463,7 +463,7 @@ urlpatterns = [
 
 👇 部屋番号は適宜変えてほしい  
 
-📖 [http://localhost:8000/practice/v1/rooms/read/1/](http://localhost:8000/practice/v1/rooms/read/1/)  
+📖 [http://localhost:8000/practice/v1.0/rooms/read/1/](http://localhost:8000/practice/v1.0/rooms/read/1/)  
 
 # Step O[7 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -493,7 +493,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/rooms/read/1/,対局部屋の詳細(1)
+/practice/v1.0/rooms/read/1/,対局部屋の詳細(1)
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

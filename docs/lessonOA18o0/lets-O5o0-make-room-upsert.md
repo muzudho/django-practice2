@@ -2,8 +2,8 @@
 
 （※いわゆる CRUD の C と U）  
 
-`http://localhost:8000/practice/v1/rooms/upsert/` へアクセスすると、部屋の新規作成を、  
-`http://localhost:8000/practice/v1/rooms/upsert/4/` へアクセスすると、主キーが 4 の部屋の更新をしたい  
+`http://localhost:8000/practice/v1.0/rooms/upsert/` へアクセスすると、部屋の新規作成を、  
+`http://localhost:8000/practice/v1.0/rooms/upsert/4/` へアクセスすると、主キーが 4 の部屋の更新をしたい  
 
 👇 表示例（新規作成のとき）:  
 
@@ -380,25 +380,25 @@ urlpatterns = [
 
 
     # 対局部屋の新規作成
-    path('practice/v1/rooms/upsert/', RoomV.render_upsert,
+    path('practice/v1.0/rooms/upsert/', RoomV.render_upsert,
          # ------------------------   -------------------
          # 1                          2
          name='practice_v1_rooms_create'),
     #          ------------------------
     #          3
-    # 1. 例えば `http://example.com/practice/v1/rooms/upsert/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/rooms/upsert/` のような URL のパスの部分
     #                              -------------------------
     # 2. RoomV クラスの render_upsert メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_create' %} のような形でURLを取得するのに使える
 
     # 対局部屋の更新
-    path('practice/v1/rooms/upsert/<int:id>/', RoomV.render_upsert,
+    path('practice/v1.0/rooms/upsert/<int:id>/', RoomV.render_upsert,
          # ---------------------------------   -------------------
          # 1                                   2
          name='practice_v1_rooms_update'),
     #          ------------------------
     #          3
-    # 1. 例えば `http://example.com/practice/v1/rooms/upsert/<数字列>/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/rooms/upsert/<数字列>/` のような URL のパスの部分
     #                              ----------------------------------
     #    数字列は `2.` の関数の引数 id で取得できる
     # 2. RoomV クラスの render_upsert メソッド
@@ -410,11 +410,11 @@ urlpatterns = [
 
 👇 作成するとき、部屋ID は付けるな  
 
-📖 [http://localhost:8000/practice/v1/rooms/upsert/](http://localhost:8000/practice/v1/rooms/upsert/)  
+📖 [http://localhost:8000/practice/v1.0/rooms/upsert/](http://localhost:8000/practice/v1.0/rooms/upsert/)  
 
 👇 更新するとき、部屋ID を付けろ。 部屋ID は適宜変えてほしい  
 
-📖 [http://localhost:8000/practice/v1/rooms/upsert/5/](http://localhost:8000/practice/v1/rooms/upsert/5/)  
+📖 [http://localhost:8000/practice/v1.0/rooms/upsert/5/](http://localhost:8000/practice/v1.0/rooms/upsert/5/)  
 
 # Step O[8 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -446,8 +446,8 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/rooms/upsert/,対局部屋の新規作成
-/practice/v1/rooms/upsert/5/,対局部屋の更新
+/practice/v1.0/rooms/upsert/,対局部屋の新規作成
+/practice/v1.0/rooms/upsert/5/,対局部屋の更新
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

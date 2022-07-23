@@ -287,10 +287,10 @@ def render_my(request, path_of_my_page):
         # "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
         'dj_user': request.user,
 
-        'dj_lobbyPath': '/practice/v1/lobby/',
+        'dj_lobbyPath': '/practice/v1.0/lobby/',
         #                -------------------
         #                1
-        # 1. http://example.com/practice/v1/lobby/
+        # 1. http://example.com/practice/v1.0/lobby/
         #                      -------------------
 
         'dj_ticTacToePath': '/tic-tac-toe/v2/match-application/',
@@ -356,11 +356,11 @@ urlpatterns = [
 
 
     # マイ ページ
-    path('practice/v1/my/', MyV.render_my, name='practice_v1_my'),
+    path('practice/v1.0/my/', MyV.render_my, name='practice_v1_my'),
     #     ---------------   -------------        --------------
     #     1                 2                    3
     #
-    # 1. 例えば `http://example.com/practice/v1/my/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/my/` のような URL のパスの部分
     #                              ---------------
     # 2. MyV クラスの render_my メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_my' %} のような形でURLを取得するのに使える
@@ -369,7 +369,7 @@ urlpatterns = [
 
 # Step O[6 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/my/](http://localhost:8000/practice/v1/my/)  
+📖 [http://localhost:8000/practice/v1.0/my/](http://localhost:8000/practice/v1.0/my/)  
 
 # Step O[7 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -398,7 +398,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/my/,マイ ページ
+/practice/v1.0/my/,マイ ページ
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

@@ -129,10 +129,10 @@ docker-compose up
 
 ```html
 {% extends "practice_v1/o2o1/page2_base.html" %}
-{#          --------------------------------
+{#          ----------------------------------
             1
 1. host1/apps1/practice_v1/templates/practice_v1/o2o1/page2_base.html
-                                     --------------------------------
+                                       ----------------------------------
 #}
 
 <!-- -->
@@ -196,10 +196,10 @@ class Page2Patch1():
 
         template = loader.get_template(
             'practice_v1/o2o1/page2_patch1.html.txt')
-        #    --------------------------------------
+        #    ----------------------------------------
         #    1
         # 1. host1/apps1/practice_v1/templates/practice_v1/o2o1/page2_patch1.html.txt を取得
-        #                                      --------------------------------------
+        #                                        ----------------------------------------
 
         context = {}
         return HttpResponse(template.render(context, request))
@@ -235,9 +235,9 @@ from django.urls import path
 
 # 練習ページ２
 from apps1.practice_v1.views.o2o1.pages import Page2Patch1
-#          -----------            -----        -----------
-#          11                     12           2
-#    ----------------------------------
+#          -------------            -----        -----------
+#          11                       12           2
+#    ------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -254,11 +254,11 @@ urlpatterns = [
 
 
     # 練習ページ２ パッチ１
-    path('practice/v1/page2_patch1', Page2Patch1.render, name='page2_patch1'),
+    path('practice/v1.0/page2_patch1', Page2Patch1.render, name='page2_patch1'),
     #     ------------------------   ------------------        ------------
     #     1                          2                         3
     #
-    # 1. 例えば `http://example.com/practice/v1/page2_patch1` のようなURLのパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/page2_patch1` のようなURLのパスの部分
     #                              ------------------------
     # 2. Page2Patch1 クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'page2_patch1' %} のような形でURLを取得するのに使える
@@ -267,7 +267,7 @@ urlpatterns = [
 
 # Step O[6 0] Webページにアクセスする
 
-📖 [http://localhost:8000/practice/v1/page2_patch1](http://localhost:8000/practice/v1/page2_patch1)  
+📖 [http://localhost:8000/practice/v1.0/page2_patch1](http://localhost:8000/practice/v1.0/page2_patch1)  
 
 # 次の記事
 

@@ -545,19 +545,19 @@ urlpatterns = [
 
 
     # ビューティファイでテキストエリア１ . 保存用
-    path('practice/v1/vuetify/textarea1-to-model',
+    path('practice/v1.0/vuetify/textarea1-to-model',
          # -------------------------------------
          # 1
          VuetifyV.render_textarea1_to_model, name='practice_v1_vuetify_textarea1_to_model'),
     #    ----------------------------------        --------------------------------------
     #    2                                         3
-    # 1. 例えば `http://example.com/practice/v1/vuetify/textarea1-to-model` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/vuetify/textarea1-to-model` のような URL のパスの部分
     #                              --------------------------------------
     # 2. VuetifyV クラスの render_textarea1_to_model メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_textarea1_to_model' %} のような形でURLを取得するのに使える
 
     # ビューティファイでデザート１ . テキストエリア１から . 保存付き
-    path('practice/v1/vuetify/save-desserts1-from-textarea1',
+    path('practice/v1.0/vuetify/save-desserts1-from-textarea1',
          # ------------------------------------------------
          # 1
          VuetifyV.render_save_result_of_desserts1_from_textarea1,
@@ -566,7 +566,7 @@ urlpatterns = [
          name='vuetify_save_desserts1_from_textarea1'),
     #          -------------------------------------
     #          3
-    # 1. 例えば `http://example.com/practice/v1/vuetify/save-desserts1-from-textarea1` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/vuetify/save-desserts1-from-textarea1` のような URL のパスの部分
     #                              -------------------------------------------------
     # 2. VuetifyV クラスの render_save_result_of_desserts1_from_textarea1 メソッド
     # 3. HTMLテンプレートの中で {% url 'vuetify_save_desserts1_from_textarea1' %} のような形でURLを取得するのに使える
@@ -577,7 +577,7 @@ urlpatterns = [
 
 👇 1件送信してほしい  
 
-📖 [http://localhost:8000/practice/v1/vuetify/textarea1-to-model](http://localhost:8000/practice/v1/vuetify/textarea1-to-model)  
+📖 [http://localhost:8000/practice/v1.0/vuetify/textarea1-to-model](http://localhost:8000/practice/v1.0/vuetify/textarea1-to-model)  
 
 # Step O[15 0] スーパーユーザーでWebの管理画面へアクセス
 
@@ -639,7 +639,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/vuetify/textarea1-to-model,ビューティファイでテキストエリア１ . 保存用
+/practice/v1.0/vuetify/textarea1-to-model,ビューティファイでテキストエリア１ . 保存用
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

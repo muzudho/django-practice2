@@ -452,7 +452,7 @@ def render_list(request, path_of_list_page):
         # Vue には、 JSONオブジェクト を渡すのではなく、 JSON文字列 を渡します
         "dj_room_array": json.dumps(room_list),
         # FIXME URL を urls.py で変更しても、こちらに反映されないが、どうするか？
-        "dj_read_room_path": "/practice/v1/rooms/read/",
+        "dj_read_room_path": "/practice/v1.0/rooms/read/",
     }
     # print(f"context={context}")
 
@@ -506,10 +506,10 @@ urlpatterns = [
 
 
     # 対局部屋の一覧
-    path('practice/v1/rooms/', RoomV.render_list, name='practice_v1_rooms'),
+    path('practice/v1.0/rooms/', RoomV.render_list, name='practice_v1_rooms'),
     #     ------------------   -----------------        -----------------
     #     1                    2                        3
-    # 1. 例えば `http://example.com/practice/v1/rooms/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/rooms/` のような URL のパスの部分
     #                              ------------------
     # 2. RoomV クラスの render_list メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms' %} のような形でURLを取得するのに使える
@@ -518,7 +518,7 @@ urlpatterns = [
 
 # Step O[8 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/rooms/](http://localhost:8000/practice/v1/rooms/)  
+📖 [http://localhost:8000/practice/v1.0/rooms/](http://localhost:8000/practice/v1.0/rooms/)  
 
 # Step O[9 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -553,7 +553,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/rooms/,対局部屋の一覧
+/practice/v1.0/rooms/,対局部屋の一覧
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

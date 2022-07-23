@@ -364,25 +364,25 @@ urlpatterns = [
 
 
     # 都道府県の新規作成
-    path('practice/v1/prefectures/create/',
+    path('practice/v1.0/prefectures/create/',
          # ------------------------------
          # 1
          PrefectureV.render_upsert, name='practice_v1_prefectures_create'),
     #    -------------------------        ------------------------------
     #    2                                3
-    # 1. 例えば `http://example.com/practice/v1/prefectures/create/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/prefectures/create/` のような URL のパスの部分
     #                              -------------------------------
     # 2. PrefectureV クラスの render_upsert 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_prefectures_create' %} のような形でURLを取得するのに使える
 
     # 都道府県の更新
-    path('practice/v1/prefectures/update/<int:id>/',
+    path('practice/v1.0/prefectures/update/<int:id>/',
          # ---------------------------------------
          # 1
          PrefectureV.render_upsert, name='practice_v1_refectures_update'),
     #    -------------------------        -----------------------------
     #    2                                3
-    # 1. 例えば `http://example.com/practice/v1/prefectures/update/<数字列>/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/prefectures/update/<数字列>/` のような URL のパスの部分
     #                              ----------------------------------------
     #    数字列は `2.` のメソッドの引数 id で取得できる
     # 2. PrefectureV クラスの render_upsert 静的メソッド
@@ -394,11 +394,11 @@ urlpatterns = [
 
 👇 作成するとき、IDは付けるな  
 
-📖 [http://localhost:8000/practice/v1/prefectures/create/](http://localhost:8000/practice/v1/prefectures/create/)  
+📖 [http://localhost:8000/practice/v1.0/prefectures/create/](http://localhost:8000/practice/v1.0/prefectures/create/)  
 
 👇 更新するとき、IDを付けろ。 IDは適宜変えてほしい  
 
-📖 [http://localhost:8000/practice/v1/prefectures/update/4/](http://localhost:8000/practice/v1/prefectures/update/4/)  
+📖 [http://localhost:8000/practice/v1.0/prefectures/update/4/](http://localhost:8000/practice/v1.0/prefectures/update/4/)  
 
 # Step O[8 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -430,8 +430,8 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/prefectures/create/,都道府県の新規作成
-/practice/v1/prefectures/update/4/,都道府県(4)の更新
+/practice/v1.0/prefectures/create/,都道府県の新規作成
+/practice/v1.0/prefectures/update/4/,都道府県(4)の更新
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

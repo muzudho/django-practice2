@@ -362,14 +362,14 @@ urlpatterns = [
 
 
     # 自動リダイレクト
-    path('practice/v1/auto_redirect/', AutoRedirectV.render_auto_redirect,
+    path('practice/v1.0/auto_redirect/', AutoRedirectV.render_auto_redirect,
          # -------------------------   ----------------------------------
          # 1                           2
          name='practice_v1_auto_redirect'),
     #          -------------------------
     #          3
     #
-    # 1. 例えば `http://example.com/practice/v1/auto_redirect/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/auto_redirect/` のような URL のパスの部分
     #                              --------------------------
     # 2. AutoRedirectV クラスの render_auto_redirect メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_auto_redirect' %} のような形でURLを取得するのに使える
@@ -378,7 +378,7 @@ urlpatterns = [
 
 # Step O[7 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/auto_redirect/](http://localhost:8000/practice/v1/auto_redirect/)  
+📖 [http://localhost:8000/practice/v1.0/auto_redirect/](http://localhost:8000/practice/v1.0/auto_redirect/)  
 
 # Step O[8 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -411,7 +411,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/auto_redirect/,自動リダイレクト
+/practice/v1.0/auto_redirect/,自動リダイレクト
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

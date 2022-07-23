@@ -467,8 +467,8 @@ def render_lobby(request, path_of_lobby_page):
         'dj_room_dic': json.dumps(room_dic),
         'dj_user_dic': json.dumps(user_dic),
         # FIXME URL を urls.py で変更しても、こちらに反映されないが、どうするか？
-        "dj_path_of_home": "/practice/v1/my/",
-        "dj_path_of_rooms_read": "/practice/v1/rooms/read/",
+        "dj_path_of_home": "/practice/v1.0/my/",
+        "dj_path_of_rooms_read": "/practice/v1.0/rooms/read/",
     }
 
     return HttpResponse(template.render(context, request))
@@ -520,10 +520,10 @@ urlpatterns = [
 
 
     # ロビー
-    path('practice/v1/lobby/', LobbyV.render_lobby, name='practice_v1_lobby'),
+    path('practice/v1.0/lobby/', LobbyV.render_lobby, name='practice_v1_lobby'),
     #     ------------------   -------------------        -----------------
     #     1                    2                          3
-    # 1. 例えば `http://example.com/practice/v1/lobby/` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1.0/lobby/` のような URL のパスの部分
     #                              ------------------
     #    数字列は `2.` の関数の引数 id で取得できる
     # 2. LobbyV クラスの render_lobby メソッド
@@ -533,7 +533,7 @@ urlpatterns = [
 
 # Step O[8 0] Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/lobby/](http://localhost:8000/practice/v1/lobby/)  
+📖 [http://localhost:8000/practice/v1.0/lobby/](http://localhost:8000/practice/v1.0/lobby/)  
 
 # Step O[9 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -567,7 +567,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/lobby/,ロビー
+/practice/v1.0/lobby/,ロビー
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 
