@@ -12,10 +12,10 @@ from apps1.portal_v1.views.o1o0.portal import Portal as PortalO1o0
 # 3. `2.` の別名
 
 # ポータル
-from apps1.portal_v1.views.o2o0.pages import Portal as PortalO2o0
+from apps1.portal_v1.views.o2o0.portal import Portal as PortalO2o0
 #                           ^two
-#          ---------            ------       ------    ----------
-#          11                   12           2         3
+#          ---------            ------        ------    ----------
+#          11                   12            2         3
 #    ---------------------------------
 #    10
 # 10, 12. ディレクトリー

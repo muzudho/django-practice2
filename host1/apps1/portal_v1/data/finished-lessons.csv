@@ -1,9 +1,10 @@
 path,label
+/practice/v1/portal,ポータルの練習
 /,ポータル
 /admin,管理画面
-/practice/v1/page1,ページ１
-/practice/v1/page2_patch1,ページ２ パッチ１
-/practice/v1/page2_patch2,ページ２ パッチ２
+/practice/v1/page-the-hello,おはようページ
+/practice/v1/page-to-be-added-1,１回追加されたページ
+/practice/v1/page-to-be-added-2,２回追加されたページ
 /accounts/v1/signup/,サインアップ
 /accounts/v1/logout/,サインアウト
 /accounts/v1/login/,ログイン（ユーザー認証）

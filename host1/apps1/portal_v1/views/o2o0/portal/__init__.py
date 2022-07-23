@@ -11,7 +11,7 @@ class Portal():
         """描画"""
 
         template = loader.get_template('portal_v1/o2o0/portal_base.html')
-        #                                          ^three
+        #                                          ^two
         #                               -------------------------------
         #                               1
         # 1. host1/apps1/portal_v1/templates/portal_v1/o2o0/portal_base.html を取得
@@ -27,10 +27,10 @@ class Portal():
         #
         # Example
         # -------
-        #                         path      label
-        # 0         /practice/v1/page1     ページ１
-        # 1  /practice/v1/page2_patch1  ページ２ パッチ１
-        # 2  /practice/v1/page2_patch2  ページ２ パッチ２
+        #    path                             label
+        # 0  /practice/v1/page-the-hello      おはようページ
+        # 1  /practice/v1/page-to-be-added-1  １回追加されたページ
+        # 2  /practice/v1/page-to-be-added-2  ２回追加されたページ
 
         print(df.columns)
         #
@@ -49,12 +49,6 @@ class Portal():
 
         for item in finished_lesson_list:
             print(f"{item['path']} , {item['label']}")
-        #
-        # Example
-        # -------
-        # /practice/v1/page1 , ページ１
-        # /practice/v1/page2_patch1 , ページ２ パッチ１
-        # /practice/v1/page2_patch2 , ページ２ パッチ２
 
         # "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
         context = {
