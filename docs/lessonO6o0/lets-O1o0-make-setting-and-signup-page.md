@@ -31,19 +31,6 @@
     ├── 📂 host1
     │   ├── 📂 apps1
     │   │   ├── 📂 portal_v1                # アプリケーション名
-    │   │   │   ├── 📂 data
-    │   │   │   │   └── 📄 finished-lesson.csv
-    │   │   │   ├── 📂 migrations
-    │   │   │   │   └── 📄 __init__.py
-    │   │   │   ├── 📂 static
-    │   │   │   │   └── 🚀 favicon.ico
-    │   │   │   ├── 📂 templates
-    │   │   │   │   └── 📂 portal_v1
-    │   │   │   │       └── 📂 o1o0
-    │   │   │   │           └── 📄 portal_base.html
-    │   │   │   └── 📂 views
-    │   │   │       └── 📂 o1o0
-    │   │   │           └── 📄 pages.py
     │   │   └── 📂 practice_v1
     │   ├── 📂 data
     │   ├── 📂 project1                  # プロジェクト名
@@ -311,7 +298,7 @@ docker-compose run --rm web python3 manage.py migrate --settings project1.settin
 #          -----------------
 ```
 
-# Step O[9 0] 機能強化 - form-html-parser.js ファイル
+# Step O[9 0] 機能強化 - form_html_parser.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -322,7 +309,7 @@ docker-compose run --rm web python3 manage.py migrate --settings project1.settin
         │       └── 📂 static
         │           └── 📂 allauth_customized_v1    # アプリケーションと同名
         │               └── 📂 o1o0
-👉      │                   └── 📄 form-html-parser.js
+👉      │                   └── 📄 form_html_parser.js
         ├── 📂 project1
         │   └── 📄 settings.py
         ├── 📄 .env
@@ -504,7 +491,7 @@ class DjangoAllauthFormParser {
         │       ├── 📂 static
         │       │   └── 📂 allauth_customized_v1    # アプリケーションと同名
         │       │       └── 📂 o1o0
-        │       │           └── 📄 form-html-parser.js
+        │       │           └── 📄 form_html_parser.js
         │       └── 📂 templates
         │           └── 📂 account                  # ディレクトリ構成を allauth アプリケーション に合わせる
 👉      │               └── 📄 signup.html
@@ -598,10 +585,10 @@ class DjangoAllauthFormParser {
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 
-        <script src="{% static 'allauth_customized_v1/o1o0/form-html-parser.js' %}"></script>
+        <script src="{% static 'allauth_customized_v1/o1o0/form_html_parser.js' %}"></script>
         <!--            ======================================================
                         1
-            1. host1/apps1/allauth_customized_v1/static/allauth_customized_v1/o1o0/form-html-parser.js
+            1. host1/apps1/allauth_customized_v1/static/allauth_customized_v1/o1o0/form_html_parser.js
                                                 ======================================================
         -->
 
@@ -683,7 +670,7 @@ class DjangoAllauthFormParser {
         │       ├── 📂 static
         │       │   └── 📂 allauth_customized_v1        # アプリケーションと同名
         │       │       └── 📂 o1o0
-        │       │           └── 📄 form-html-parser.js
+        │       │           └── 📄 form_html_parser.js
         │       ├── 📂 templates
         │       │   └── 📂 account                   # ディレクトリ構成を allauth アプリケーション に合わせる
         │       │       └── 📄 signup.html
@@ -738,7 +725,7 @@ accounts_v1_signup_view = AccountsV1SignupView.as_view()
         │       ├── 📂 static
         │       │   └── 📂 allauth_customized_v1        # アプリケーションと同名
         │       │       └── 📂 o1o0
-        │       │           └── 📄 form-html-parser.js
+        │       │           └── 📄 form_html_parser.js
         │       ├── 📂 templates
         │       │   └── 📂 account                   # ディレクトリ構成を allauth アプリケーション に合わせる
         │       │       └── 📄 signup.html
@@ -817,7 +804,7 @@ urlpatterns = [
         │       ├── 📂 static
         │       │   └── 📂 allauth_customized_v1        # アプリケーションと同名
         │       │       └── 📂 o1o0
-        │       │           └── 📄 form-html-parser.js
+        │       │           └── 📄 form_html_parser.js
         │       ├── 📂 templates
         │       │   └── 📂 account                      # ディレクトリ構成を allauth アプリケーション に合わせる
         │       │       └── 📄 signup.html
@@ -885,7 +872,7 @@ urlpatterns = [
         │       ├── 📂 static
         │       │   └── 📂 allauth_customized_v1
         │       │       └── 📂 o1o0
-        │       │           └── 📄 form-html-parser.js
+        │       │           └── 📄 form_html_parser.js
         │       ├── 📂 templates
         │       │   └── 📂 account
         │       │       └── 📄 signup.html
