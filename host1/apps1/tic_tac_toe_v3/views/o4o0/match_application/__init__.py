@@ -15,13 +15,13 @@ from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicati
 # 3. '2.' の別名
 
 # 以前のバージョン
-from apps1.tic_tac_toe_o4o1.views.o1o0.match_application import MatchApplicationV as MatchApplicationVV3o1o0
+from apps1.tic_tac_toe_v3.views.o1o0.match_application import MatchApplicationV as MatchApplicationVV3o1o0
 #                       ^four
 #          ----------------            -----------------        -----------------    -----------------------
 #          11                          12                       2                    3
 #    ---------------------------------------------------
 #    10
-# 10. `host1/apps1/tic_tac_toe_o4o1/views/o1o0/match_application/__init__.py`
+# 10. `host1/apps1/tic_tac_toe_v3/views/o1o0/match_application/__init__.py`
 #            ---------------------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー

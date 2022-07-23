@@ -32,12 +32,12 @@ import project1.ws_urls_tic_tac_toe_v2
 # 1. `host1/project1/ws_urls_tic_tac_toe_v2.py`
 #           -------------------------------
 
-# 〇×ゲーム o4o1
-import project1.ws_urls_tic_tac_toe_o4o1
+# 〇×ゲーム o3o0
+import project1.ws_urls_tic_tac_toe_v3
 #                                    ^four
 #      ---------------------------------
 #      1
-# 1. `host1/project1/ws_urls_tic_tac_toe_o4o1.py`
+# 1. `host1/project1/ws_urls_tic_tac_toe_v3.py`
 #           ---------------------------------
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project1.settings')
@@ -63,9 +63,9 @@ websocket_urlpatterns_merged.extend(
     project1.ws_urls_tic_tac_toe_v2.websocket_urlpatterns)
 #                                 ^two
 
-# 〇×ゲーム o4o1
+# 〇×ゲーム o3o0
 websocket_urlpatterns_merged.extend(
-    project1.ws_urls_tic_tac_toe_o4o1.websocket_urlpatterns)
+    project1.ws_urls_tic_tac_toe_v3.websocket_urlpatterns)
 #                                 ^four
 
 

@@ -121,7 +121,7 @@ docker-compose up
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_o4o1                 # アプリケーション Four
+            └── 📂 tic_tac_toe_v3                 # アプリケーション Four
                 └── 📂 views
                     └── 📂 o2o0                     # Three
                         └── 📂 match_application
@@ -140,11 +140,11 @@ from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicati
 # 3. '2.' の別名
 
 # 以前のバージョン
-from apps1.tic_tac_toe_o4o1.views.o1o0.match_application import MatchApplicationV as MatchApplicationVV3o1o0
+from apps1.tic_tac_toe_v3.views.o1o0.match_application import MatchApplicationV as MatchApplicationVV3o1o0
 #                       ^four
 #    ---------------------------------------------------        -----------------    -----------------------
 #    1                                                          2                    3
-# 1. `host1/apps1/tic_tac_toe_o4o1/views/o1o0/match_application/__init__.py`
+# 1. `host1/apps1/tic_tac_toe_v3/views/o1o0/match_application/__init__.py`
 #           ---------------------------------------------------
 # 2. `1.` の __init__.py ファイルに含まれるクラス
 # 3. '2.' の別名
@@ -181,7 +181,7 @@ class MatchApplicationV():
         from .v_on_sent import match_application_on_sent
         #    ----------        -------------------------
         #    1                 2
-        # 1. `host1/apps1/tic_tac_toe_o4o1/views/o2o0/match_application/v_on_sent.py`
+        # 1. `host1/apps1/tic_tac_toe_v3/views/o2o0/match_application/v_on_sent.py`
         #                                                               ---------
         # 2. `1.` に含まれる関数
 
@@ -200,7 +200,7 @@ class MatchApplicationV():
 ```plaintext
     └── 📂 host1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_o4o1                 # アプリケーション Four
+            └── 📂 tic_tac_toe_v3                 # アプリケーション Four
                 └── 📂 views
                     └── 📂 o2o0                     # Three
                         └── 📂 match_application
@@ -313,7 +313,7 @@ def match_application_on_sent(request):
 ```plaintext
     └── 📂 host1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_o4o1                 # アプリケーション Four
+        │   └── 📂 tic_tac_toe_v3                 # アプリケーション Four
         │       └── 📂 views
         │           └── 📂 o2o0                     # Three
         │               └── 📂 match_application
@@ -327,8 +327,8 @@ def match_application_on_sent(request):
 # ...略...
 
 
-# 〇×ゲーム o4o1o2o0 対局申込中
-from apps1.tic_tac_toe_o4o1.views.o2o0.match_application import MatchApplicationV as TicTacToeV3o2o0MatchApplicationV
+# 〇×ゲーム o3o0o2o0 対局申込中
+from apps1.tic_tac_toe_v3.views.o2o0.match_application import MatchApplicationV as TicTacToeV3o2o0MatchApplicationV
 #                       ^four      ^three                                                        ^three
 #          --------------            -----------------        -----------------    --------------------------------
 #          11                        12                       2                    3
@@ -344,18 +344,18 @@ urlpatterns = [
     # ...略...
 
 
-    # 〇×ゲーム o4o1o2o0 対局申込中
+    # 〇×ゲーム o3o0o2o0 対局申込中
     path('tic-tac-toe/v3.2/match-application/', TicTacToeV3o2o0MatchApplicationV.render,
          # ------------------------------------   -------------------------------------
          # 1                                      2
-         name='tic_tac_toe_o4o1o2o0_match_application'),
+         name='tic_tac_toe_v3o2o0_match_application'),
     #          --------------------------------------
     #          3
     #
     # 1. 例えば `http://example.com/tic-tac-toe/v3.2/match-application/` のような URL のパスの部分
     #                              -------------------------------------
     # 2. TicTacToeV3o2o0MatchApplicationV （別名）クラスの render メソッド
-    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_o4o1o2o0_match_application' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3o2o0_match_application' %} のような形でURLを取得するのに使える
 ]
 ```
 
@@ -412,7 +412,7 @@ urlpatterns = [
             ├── 📂 portal_v1                        # アプリケーション
             │   └── 📂 data
 👉          │       └── 📄 finished-lessons.csv
-            └── 📂 tic_tac_toe_o4o1                 # アプリケーション Four
+            └── 📂 tic_tac_toe_v3                 # アプリケーション Four
                 └── 📂 views
                     └── 📂 o2o0                     # Three
                         └── 📂 match_application

@@ -13,13 +13,13 @@ from apps1.tic_tac_toe_v2.views.o1o0.gui.playing import PlayingV as PlayingVV2o1
 # 3. `2.` の別名
 
 # 以前のバージョン
-from apps1.tic_tac_toe_o4o1.views.o1o0.playing import PlayingV as PlayingVV3o1o0
+from apps1.tic_tac_toe_v3.views.o1o0.playing import PlayingV as PlayingVV3o1o0
 #                       ^four
 #          ----------------            -------        --------    --------------
 #          11                          12             2           3
 #    -----------------------------------------
 #    10
-# 10. `host1/apps1/tic_tac_toe_o4o1/views/o1o0/playing/__init__.py`
+# 10. `host1/apps1/tic_tac_toe_v3/views/o1o0/playing/__init__.py`
 #            -----------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
@@ -30,11 +30,11 @@ from apps1.tic_tac_toe_o4o1.views.o1o0.playing import PlayingV as PlayingVV3o1o0
 class PlayingV():
     """対局中ビュー"""
 
-    path_of_ws_playing = "/tic-tac-toe/v3o4o1/playing/"
+    path_of_ws_playing = "/tic-tac-toe/v3o3o0/playing/"
     #                                     ^four
     #                     ----------------------------
     #                     1
-    # 1. `ws://example.com/tic-tac-toe/v3o4o1/playing/Elephant/`
+    # 1. `ws://example.com/tic-tac-toe/v3o3o0/playing/Elephant/`
     #                     ----------------------------
 
     @staticmethod

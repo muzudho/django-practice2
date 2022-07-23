@@ -1,10 +1,10 @@
 # 以前のバージョン
-from apps1.tic_tac_toe_o4o1.views.o1o0.playing import PlayingV as PlayingVV3o1o0
+from apps1.tic_tac_toe_v3.views.o1o0.playing import PlayingV as PlayingVV3o1o0
 #          ----------------            -------        --------    --------------
 #          11                          12             2           3
 #    -----------------------------------------
 #    10
-# 10. `host1/apps1/tic_tac_toe_o4o1/views/o1o0/playing/__init__.py`
+# 10. `host1/apps1/tic_tac_toe_v3/views/o1o0/playing/__init__.py`
 #            -----------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
@@ -12,12 +12,12 @@ from apps1.tic_tac_toe_o4o1.views.o1o0.playing import PlayingV as PlayingVV3o1o0
 # 3. '2.' の別名
 
 # 以前のバージョン
-from apps1.tic_tac_toe_o4o1.views.o4o1.playing import PlayingV as PlayingVV3o4o1
+from apps1.tic_tac_toe_v3.views.o3o0.playing import PlayingV as PlayingVV3o3o0
 #          ----------------            -------        --------    --------------
 #          11                          12             2           3
 #    -----------------------------------------
 #    10
-# 10. `host1/apps1/tic_tac_toe_o4o1/views/o4o1/playing/__init__.py`
+# 10. `host1/apps1/tic_tac_toe_v3/views/o3o0/playing/__init__.py`
 #            -----------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
@@ -31,11 +31,11 @@ class PlayingV():
     # 駒
     expected_pieces = ['X', 'O', '_']
 
-    path_of_html = "tic_tac_toe_o4o1/o5o1/playing.html.txt"
+    path_of_html = "tic_tac_toe_v3/o4o0/playing.html.txt"
     #                                 ^five
     #               --------------------------------------
     #               1
-    # 1. `host1/apps1/tic_tac_toe_o4o1/templates/tic_tac_toe_o4o1/o5o1/playing.html.txt`
+    # 1. `host1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o4o0/playing.html.txt`
     #                                            --------------------------------------
 
     @staticmethod
@@ -54,7 +54,7 @@ class PlayingV():
         return render_playing(
             request,
             kw_room_name,
-            PlayingVV3o4o1.path_of_ws_playing,
+            PlayingVV3o3o0.path_of_ws_playing,
             PlayingV.path_of_html,
             PlayingVV3o1o0.on_update,
             PlayingV.expected_pieces)
