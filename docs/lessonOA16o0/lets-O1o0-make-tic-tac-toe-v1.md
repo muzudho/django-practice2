@@ -380,10 +380,10 @@ select {
 var roomName = document.getElementById("board").getAttribute("room_name");
 var myPiece = document.getElementById("board").getAttribute("my_piece");
 
-var connectionString = `ws://${window.location.host}/tic-tac-toe/v1o1o0/playing/${roomName}/`;
-//                      ----]----------------------- ---------------------------------------
+var connectionString = `ws://${window.location.host}/tic-tac-toe/v1/playing/${roomName}/`;
+//                      ----]----------------------- -----------------------------------
 //                      1    2                       3
-//                      ------------------------------------------------------------------
+//                      ----------------------------------------------------------------
 //                      4
 // 1. スキーム : Web Socket
 // 2. ホスト アドレス
@@ -1199,7 +1199,7 @@ import json
 from channels.generic.websocket import AsyncJsonWebsocketConsumer
 
 
-class TicTacToeV1o1o0Consumer(AsyncJsonWebsocketConsumer):
+class TicTacToeV1Consumer(AsyncJsonWebsocketConsumer):
     """非同期のWebソケットのコンシューマー"""
 
     async def connect(self):
@@ -1314,8 +1314,8 @@ class TicTacToeV1o1o0Consumer(AsyncJsonWebsocketConsumer):
 
 
 # 〇×ゲーム v1o1o0
-from apps1.tic_tac_toe_v1.websocks.o1o0.consumer import TicTacToeV1o1o0Consumer
-#    ----- -------------- ------------- --------        -----------------------
+from apps1.tic_tac_toe_v1.websocks.o1o0.consumer import TicTacToeV1Consumer
+#    ----- -------------- ------------- --------        -------------------
 #    1     2              3             4               5
 #    -------------------------------------------
 #    6
@@ -1330,15 +1330,15 @@ websocket_urlpatterns = [
     # ...略...
 
 
-    # 〇×ゲーム v1o1o0
-    url(r'^tic-tac-toe/v1o1o0/playing/(?P<room_name>\w+)/$',
-        # ------------------------------------------------
+    # 〇×ゲーム v1
+    url(r'^tic-tac-toe/v1/playing/(?P<room_name>\w+)/$',
+        # --------------------------------------------
         # 1
-        TicTacToeV1o1o0Consumer.as_asgi()),
+        TicTacToeV1Consumer.as_asgi()),
     #   -----------------------------
     #   2
-    # 1. 例えば `ws://example.com/tic-tac-toe/v1o1o0/playing/Elephant/` のようなURLのパスの部分
-    #                            ------------------------------------
+    # 1. 例えば `ws://example.com/tic-tac-toe/v1/playing/Elephant/` のようなURLのパスの部分
+    #                            --------------------------------
     #    room_name は変数として渡される
     # 2. クラス名とメソッド。 URL を ASGI形式にする
 ]
