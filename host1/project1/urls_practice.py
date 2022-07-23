@@ -34,11 +34,14 @@ from apps1.practice_v1.views.o3o0.page_to_be_added import PageToBeAdded as PageT
 # 3. `2.` の別名
 
 # ログイン必須ページ
-from apps1.practice_v1.views.o1o0 import v_login_required
-#    ----------------------------        ----------------
-#    1                                   2
-# 1. ディレクトリー名
-# 2. Python ファイル名。拡張子抜き
+from apps1.practice_v1.views.o1o0.login_required import LoggingIn, LoggingOut
+#          -----------            --------------        ---------------------
+#          11                     12                    2
+#    -------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # 会員用ボタン
 from apps1.practice_v1.views.o1o0.button_for_member import ButtonForMember
@@ -287,27 +290,27 @@ urlpatterns = [
     # 3. HTMLテンプレートの中で {% url 'page_to_be_added_2' %} のような形でURLを取得するのに使える
 
     # ログイン中
-    path('practice/v1/login-required', v_login_required.LoggingIn.render,
-         # -------------------------   ---------------------------------
+    path('practice/v1/login-required', LoggingIn.render,
+         # -------------------------   ----------------
          # 1                           2
          name='practice_v1_login_required'),
     #          --------------------------
     #          3
     # 1. 例えば `http://example.com/practice/v1/login-required` のような URL のパスの部分
     #                              --------------------------
-    # 2. v_login_required.py ファイルの LoggingIn クラスの render 静的メソッド
+    # 2. LoggingIn クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_login_required' %} のような形でURLを取得するのに使える
 
     # ログアウト中
-    path('practice/v1/logout', v_login_required.LoggingOut.render,
-         # -----------------   ----------------------------------
+    path('practice/v1/logout', LoggingOut.render,
+         # -----------------   -----------------
          # 1                   2
          name='practice_v1_logout'),
     #          ------------------
     #          3
     # 1. 例えば `http://example.com/practice/v1/logout` のような URL のパスの部分
     #                              ------------------
-    # 2. v_login_required.py ファイルの LoggingOut クラスの render 静的メソッド
+    # 2. LoggingOut クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_logout' %} のような形でURLを取得するのに使える
 
     # 会員にだけ見えるボタンを説明するページ
