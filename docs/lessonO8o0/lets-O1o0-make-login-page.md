@@ -1,6 +1,6 @@
 # 目的
 
-見た目がマシな　サインイン（ユーザー認証）のページがほしい  
+見た目がマシな　ログイン（ユーザー認証）のページがほしい  
 
 # はじめに
 
@@ -20,23 +20,10 @@
 ```plaintext
     ├── 📂 host1
     │   ├── 📂 apps1
-    │   │   ├── 📂 portal_v1                # アプリケーション名
-    │   │   │   ├── 📂 data
-    │   │   │   │   └── 📄 finished-lesson.csv
-    │   │   │   ├── 📂 migrations
-    │   │   │   │   └── 📄 __init__.py
-    │   │   │   ├── 📂 static
-    │   │   │   │   └── 🚀 favicon.ico
-    │   │   │   ├── 📂 templates
-    │   │   │   │   └── 📂 portal_v1
-    │   │   │   │       └── 📂 o1o0
-    │   │   │   │           └── 📄 portal_base.html
-    │   │   │   └── 📂 views
-    │   │   │       └── 📂 o1o0
-    │   │   │           └── 📄 pages.py
-    │   │   └── 📂 practice_v1
+    │   │   ├── 📂 portal_v1                # アプリケーション
+    │   │   └── 📂 practice_v1              # アプリケーション
     │   ├── 📂 data
-    │   ├── 📂 project1                  # プロジェクト名
+    │   ├── 📂 project1                     # プロジェクト
     │   │   ├── 📄 __init__.py
     │   │   ├── 📄 asgi.py
     │   │   ├── 📄 settings.py
@@ -54,7 +41,7 @@
 
 # Step O[1 0] Dockerコンテナの起動
 
-（していなければ） Docker コンテナを起動しておいてほしい  
+👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
@@ -66,7 +53,7 @@ docker-compose up
 
 # Step O[2 0] テンプレート作成 - login.html ファイル
 
-以下のファイルを新規作成してほしい  
+👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 host1                            # あなたの開発用ディレクトリー。任意の名前
@@ -258,9 +245,9 @@ docker-compose up
 </html>
 ```
 
-# Step O[3 0] ビュー編集 - v_login.py ファイル
+# Step O[3 0] ビュー モジュール作成 - login フォルダー
 
-以下のファイルを編集してほしい  
+👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 host1
@@ -271,7 +258,8 @@ docker-compose up
                 │       └── 📄 login.html
                 └── 📂 views
                     └── 📂 o1o0
-👉                      └── 📄 v_login.py
+                        └── 📂 login
+👉                          └── 📄 __init__.py
 ```
 
 ```py
@@ -290,10 +278,6 @@ class AccountsV1LoginView(LoginView):
     #                1
     # 1. host1/apps1/allauth_customized_v1/templates/account/login.html を取得
     #                --------------------------------------------------
-
-
-# グローバル変数
-accounts_v1_login_view = AccountsV1LoginView.as_view()
 ```
 
 # Step O[4 0] サブ ルート作成 - urls_accounts.py
@@ -307,7 +291,8 @@ accounts_v1_login_view = AccountsV1LoginView.as_view()
         │       │       └── 📄 login.html
         │       └── 📂 views
         │           └── 📂 o1o0
-        │               └── 📄 v_login.py
+        │               └── 📂 login
+        │                   └── 📄 __init__.py
         └── 📂 project1
 👉          ├── 📄 urls_accounts.py          # こちら
 ❌          └── 📄 urls.py                   # これではない
@@ -317,29 +302,31 @@ accounts_v1_login_view = AccountsV1LoginView.as_view()
 # ...略...
 
 
-from apps1.allauth_customized_v1.views.o1o0 import v_login
-#    --------------------------------------        -------
-#    1                                             2
-# 1. Pythonモジュール名（ディレクトリー名）
-# 2. Python ファイル名。拡張子抜き
+# ログイン（入場）
+from apps1.allauth_customized_v1.views.o1o0.login import AccountsV1LoginView
+#          ---------------------            -----        -------------------
+#          11                               12           2
+#    --------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. クラス
 
 
 urlpatterns = [
-
-
     # ...中略...
 
 
-    # ログイン（ユーザー認証）
-    path("accounts/v1/login/", view=v_login.accounts_v1_login_view,
-         # -----------------        ------------------------------
+    # ログイン（入場）
+    path("accounts/v1/login/", view=AccountsV1LoginView.as_view(),
+         # -----------------        -----------------------------
          # 1                        2
          name="login"),
     #          -----
     #          3
     # 1. 例えば `http://example.com/accounts/v1/login/` のような URL のパスの部分
     #                              -------------------
-    # 2. v_login.py ファイルの accounts_v1_login_view グローバル変数。ビューのオブジェクト
+    # 2. allauth の LoginView をカスタマイズしたオブジェクト
     # 3. HTMLテンプレートの中で {% url 'login' %} のような形でURLを取得するのに使える
 ]
 ```
@@ -381,7 +368,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/accounts/v1/login/,サインイン（ユーザー認証）
+/accounts/v1/login/,ログイン（入場）
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

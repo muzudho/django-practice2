@@ -13,7 +13,3 @@ class AccountsV1LoginView(LoginView):
     #                1
     # 1. host1/apps1/allauth_customized_v1/templates/account/login.html を取得
     #                --------------------------------------------------
-
-
-# グローバル変数
-accounts_v1_login_view = AccountsV1LoginView.as_view()

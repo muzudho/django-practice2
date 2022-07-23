@@ -659,7 +659,7 @@ class DjangoAllauthFormParser {
 </html>
 ```
 
-# Step O[11 0] ビュー編集 - v_accounts.py ファイル
+# Step O[11 0] ビュー モジュール作成 - accounts フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -676,7 +676,8 @@ class DjangoAllauthFormParser {
         │       │       └── 📄 signup.html
         │       └── 📂 views
         │           └── 📂 o1o0
-👉      │               └── 📄 v_accounts.py
+        │               └── 📂 accounts
+👉      │                   └── 📄 __init__.py
         ├── 📂 project1
         │   └── 📄 settings.py
         ├── 📄 .env
@@ -708,10 +709,6 @@ class AccountsV1SignupView(SignupView):
     #
     # def get_context_data(self, **kwargs):
     #     ...
-
-
-# グローバル変数
-accounts_v1_signup_view = AccountsV1SignupView.as_view()
 ```
 
 # Step O[12 0] サブ ルート作成 - urls_accounts.py
@@ -742,23 +739,21 @@ accounts_v1_signup_view = AccountsV1SignupView.as_view()
 ```
 
 ```py
-from django.urls import include, path # include 追加
-from django.views.generic import TemplateView # 追加
+from django.urls import include, path  # include 追加
+from django.views.generic import TemplateView  # 追加
 
-from apps1.allauth_customized_v1.views.o1o0 import v_accounts
-#    --------------------------------------        ----------
-#    1                                             2
-# 1. アプリケーション フォルダー名
-# 2. Pythonモジュール名（ディレクトリー名）
-# 3. Python ファイル名。拡張子抜き
+# サインアップ（会員登録）
+from apps1.allauth_customized_v1.views.o1o0.accounts import AccountsV1SignupView
+#          ---------------------            --------        --------------------
+#          11                               12              2
+#    -----------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. クラス
 
 
 urlpatterns = [
-
-
-    # ...中略...
-
-
     # See also: https://sinyblog.com/django/django-allauth/
 
     # ログイン後に戻ってくるWebページの指定
@@ -780,8 +775,8 @@ urlpatterns = [
     #    例えば `login/` のようなパスを (1.) のパスにぶら下げる形で全てコピーします
 
     # サインアップ（会員登録）
-    path("accounts/v1/signup/", view=v_accounts.accounts_v1_signup_view,
-         # ------------------        ----------------------------------
+    path("accounts/v1/signup/", view=AccountsV1SignupView.as_view(),
+         # ------------------        ------------------------------
          # 1                        2
          name="signup"),
     #          ------

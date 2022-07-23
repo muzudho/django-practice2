@@ -21,7 +21,3 @@ class AccountsV1SignupView(SignupView):
     #
     # def get_context_data(self, **kwargs):
     #     ...
-
-
-# グローバル変数
-accounts_v1_signup_view = AccountsV1SignupView.as_view()

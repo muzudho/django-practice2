@@ -57,7 +57,7 @@ Lesson O[8 0] Auth, Log in/out
 
 ※サインインとログイン、サインアウトとログアウトは、実装としては同じもの  
 
-* 📖 [Djangoでサインイン（ユーザー認証）のページを作ろう！](https://qiita.com/muzudho1/items/1d34d64562ff07f1742a)
+* 📖 [Djangoでログイン（ユーザー認証）のページを作ろう！](https://qiita.com/muzudho1/items/1d34d64562ff07f1742a)
 * 📖 [Djangoでログインしていないと見れないページ，およびログアウト機能を付けよう！](https://qiita.com/muzudho1/items/9f1ae4d0debc0b8aa4b1)
 * 📖 [Djangoでログインしていない人には見えず、ログインしている人には見えるボタンを作ろう！](https://qiita.com/muzudho1/items/0c59f3ce7aa6bef2a91f)
 

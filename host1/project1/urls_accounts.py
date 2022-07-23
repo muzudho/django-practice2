@@ -1,26 +1,28 @@
 from django.urls import include, path  # include 追加
 from django.views.generic import TemplateView  # 追加
 
-from apps1.allauth_customized_v1.views.o1o0 import v_accounts
-#    --------------------------------------        ----------
-#    1                                             2
-# 1. アプリケーション フォルダー名
-# 2. Pythonモジュール名（ディレクトリー名）
-# 3. Python ファイル名。拡張子抜き
+# サインアップ（会員登録）
+from apps1.allauth_customized_v1.views.o1o0.accounts import AccountsV1SignupView
+#          ---------------------            --------        --------------------
+#          11                               12              2
+#    -----------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. クラス
 
-from apps1.allauth_customized_v1.views.o1o0 import v_login
-#    --------------------------------------        -------
-#    1                                             2
-# 1. Pythonモジュール名（ディレクトリー名）
-# 2. Python ファイル名。拡張子抜き
+# ログイン（入場）
+from apps1.allauth_customized_v1.views.o1o0.login import AccountsV1LoginView
+#          ---------------------            -----        -------------------
+#          11                               12           2
+#    --------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. クラス
 
 
 urlpatterns = [
-
-
-    # ...中略...
-
-
     # See also: https://sinyblog.com/django/django-allauth/
 
     # ログイン後に戻ってくるWebページの指定
@@ -42,8 +44,8 @@ urlpatterns = [
     #    例えば `login/` のようなパスを (1.) のパスにぶら下げる形で全てコピーします
 
     # サインアップ（会員登録）
-    path("accounts/v1/signup/", view=v_accounts.accounts_v1_signup_view,
-         # ------------------        ----------------------------------
+    path("accounts/v1/signup/", view=AccountsV1SignupView.as_view(),
+         # ------------------        ------------------------------
          # 1                        2
          name="signup"),
     #          ------
@@ -53,15 +55,15 @@ urlpatterns = [
     # 2. allauth の SignupView をカスタマイズしたオブジェクト
     # 3. HTMLテンプレートの中で {% url 'signup' %} のような形でURLを取得するのに使える
 
-    # ログイン（ユーザー認証）
-    path("accounts/v1/login/", view=v_login.accounts_v1_login_view,
-         # -----------------        ------------------------------
+    # ログイン（入場）
+    path("accounts/v1/login/", view=AccountsV1LoginView.as_view(),
+         # -----------------        -----------------------------
          # 1                        2
          name="login"),
     #          -----
     #          3
     # 1. 例えば `http://example.com/accounts/v1/login/` のような URL のパスの部分
     #                              -------------------
-    # 2. v_login.py ファイルの accounts_v1_login_view グローバル変数。ビューのオブジェクト
+    # 2. allauth の LoginView をカスタマイズしたオブジェクト
     # 3. HTMLテンプレートの中で {% url 'login' %} のような形でURLを取得するのに使える
 ]
