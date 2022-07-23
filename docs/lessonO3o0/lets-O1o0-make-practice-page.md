@@ -290,17 +290,17 @@ TEMPLATES = [
         'DIRS': [
             # 練習
             os.path.join(BASE_DIR, 'apps1/practice_v1/templates'),
-            #                       -----------------------------
+            #                       ---------------------------
             #                       10
             # Example: /host1/apps1/practice_v1/templates/practice_v1/o1o0/page1.html
-            #                       -------------          --------------
-            #                       11                     2
+            #                       -----------          ------------
+            #                       11                   2
             #                 ---------------------------
             #                 10
             # 10. テンプレート ディレクトリーへのパス
             # 11. アプリケーション
             # 2. まるで `http://example.com/practice_v1` という素材フォルダーがあるかのように扱われる
-            #                             --------------
+            #                             ------------
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -348,10 +348,10 @@ class Page1():
         """描画"""
 
         template = loader.get_template('practice_v1/o1o0/page1.html')
-        #                               -----------------------------
+        #                               ---------------------------
         #                               1
         # 1. host1/apps1/practice_v1/templates/practice_v1/o1o0/page1.html を取得
-        #                                        -----------------------------
+        #                                      ---------------------------
 
         context = {}
         return HttpResponse(template.render(context, request))
@@ -387,9 +387,9 @@ from django.urls import path
 
 # 練習ページ１
 from apps1.practice_v1.views.o1o0.page1 import Page1
-#          -------------            -----        -----
-#          11                       12           2
-#    ------------------------------------
+#          -----------            -----        -----
+#          11                     12           2
+#    ----------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
