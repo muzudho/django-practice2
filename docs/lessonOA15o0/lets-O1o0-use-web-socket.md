@@ -284,7 +284,7 @@ docker-compose up
         ├── 📂 apps1
         │   └── 📂 practice_v1              # アプリケーション
         │       └── 📂 websocks             # ただのフォルダー
-        │           └── 📂 o1o0               # ただのフォルダー
+        │           └── 📂 o1o0             # ただのフォルダー
 👉      │               └── 📄 consumer.py
         ├── 📂 project1                     # プロジェクト
         │   ├── 📄 asgi.py
@@ -338,7 +338,7 @@ class WebsockPractice1V1Consumer(AsyncWebsocketConsumer):
         ├── 📂 apps1
         │   └── 📂 practice_v1              # アプリケーション
         │       └── 📂 websocks             # ただのフォルダー
-        │           └── 📂 o1o0               # ただのフォルダー
+        │           └── 📂 o1o0             # ただのフォルダー
         │               └── 📄 consumer.py
         ├── 📂 project1                     # プロジェクト
         │   ├── 📄 asgi.py
