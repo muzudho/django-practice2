@@ -3,7 +3,6 @@ from django.contrib import admin
 from .models.o1o0.m_prefecture import Prefecture
 #    -------------------------        ----------
 #    1                                2
-#
 # 1. このファイルと同じディレクトリにある `models/o1o0/m_prefecture.py` ファイルの拡張子抜き
 #                                      ------------------------
 # 2. クラス名
@@ -11,7 +10,6 @@ from .models.o1o0.m_prefecture import Prefecture
 from .models.o1o0.m_dessert import Dessert
 #    ----------------------        -------
 #    1                             2
-#
 # 1. このファイルと同じディレクトリにある `models/o1o0/m_dessert.py` ファイルの拡張子抜き
 #                                      ----------------------
 # 2. クラス名
@@ -20,7 +18,6 @@ from .models.o1o0.m_dessert import Dessert
 from .models.o1o0.m_user_profile import Profile
 #    ---------------------------        -------
 #    1                                  2
-#
 # 1. このファイルと同じディレクトリにある `models/o1o0/m_user_profile.py` ファイルの拡張子抜き
 #                                      --------------------------
 # 2. クラス名
@@ -29,7 +26,6 @@ from .models.o1o0.m_user_profile import Profile
 from .models.o1o0.m_room import Room
 #    -------------------        ----
 #    1                          2
-#
 # 1. このファイルと同じディレクトリにある `models/o1o0/m_room.py` ファイルの拡張子抜き
 #                                      ------------------
 # 2. クラス名

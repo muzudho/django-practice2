@@ -4,11 +4,13 @@ from django.template import loader
 
 # デザート
 from apps1.practice_v1.models.o1o0.m_dessert import Dessert
-#    ----------------------------- ---------        -------
-#    1                             2                3
-# 1. ディレクトリー名
-# 2. Python ファイル名。拡張子抜き
-# 3. クラス名
+#          -----------             ---------        -------
+#          11                      12               2
+#    ---------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 def render_textarea1_to_model(request):

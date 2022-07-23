@@ -599,7 +599,6 @@ urlpatterns = [
 from .models.o1o0.m_user_profile import Profile
 #    ---------------------------        -------
 #    1                                  2
-#
 # 1. このファイルと同じディレクトリにある `models/o1o0/m_user_profile.py` ファイルの拡張子抜き
 #                                      --------------------------
 # 2. クラス名

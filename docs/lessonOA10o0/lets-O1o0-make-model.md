@@ -108,7 +108,6 @@ from django.contrib import admin
 from .models.o1o0.m_prefecture import Prefecture
 #    -------------------------        ----------
 #    1                                2
-#
 # 1. このファイルと同じディレクトリにある `models/o1o0/m_prefecture.py` ファイルの拡張子抜き
 #                                      ------------------------
 # 2. クラス名
