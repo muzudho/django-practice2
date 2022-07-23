@@ -149,7 +149,7 @@ from apps1.practice_v1.views.o1o0.auto_reload import AutoReloadV
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # 自動リダイレクト ビュー
-from apps1.practice_v1.views.o3o1.auto_redirect import AutoRedirectV
+from apps1.practice_v1.views.o2o0.auto_redirect import AutoRedirectV
 #                             ^three
 #          -----------            -------------        -------------
 #          11                     12                   2
@@ -183,8 +183,8 @@ from apps1.tic_tac_toe_o4o1.views.o1o0.playing import PlayingV as TicTacToeV3o1o
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 # 3. `2.` の別名
 
-# 〇×ゲーム o4o1o3o1 対局申込中
-from apps1.tic_tac_toe_o4o1.views.o3o1.match_application import MatchApplicationV as TicTacToeV3o3o1MatchApplicationV
+# 〇×ゲーム o4o1o2o0 対局申込中
+from apps1.tic_tac_toe_o4o1.views.o2o0.match_application import MatchApplicationV as TicTacToeV3o2o0MatchApplicationV
 #                       ^four      ^three                                                        ^three
 #          ----------------            -----------------        -----------------    --------------------------------
 #          11                          12                       2                    3
@@ -668,18 +668,18 @@ urlpatterns = [
     # 2. TicTacToeV3o1o0PlayingV （別名）クラスの render メソッド
     # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_o4o1o1o0_playing' %} のような形でURLを取得するのに使える
 
-    # 〇×ゲーム o4o1o3o1 対局申込中
-    path('tic-tac-toe/v3.2/match-application/', TicTacToeV3o3o1MatchApplicationV.render,
+    # 〇×ゲーム o4o1o2o0 対局申込中
+    path('tic-tac-toe/v3.2/match-application/', TicTacToeV3o2o0MatchApplicationV.render,
          # ----------------------------------   ---------------------------------------
          # 1                                    2
-         name='tic_tac_toe_v4o1o3o1_match_application'),
+         name='tic_tac_toe_v4o1o2o0_match_application'),
     #          --------------------------------------
     #          3
     #
     # 1. 例えば `http://example.com/tic-tac-toe/v3.2/match-application/` のような URL のパスの部分
     #                              -------------------------------------
-    # 2. TicTacToeV3o3o1MatchApplicationV （別名）クラスの render メソッド
-    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_o4o1o3o1_match_application' %} のような形でURLを取得するのに使える
+    # 2. TicTacToeV3o2o0MatchApplicationV （別名）クラスの render メソッド
+    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_o4o1o2o0_match_application' %} のような形でURLを取得するのに使える
 
     # 〇×ゲーム o4o1o4o1 対局申込中
     path('tic-tac-toe/v3.3/match-application/', TicTacToeV3o4o1MatchApplicationV.render,

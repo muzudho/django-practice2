@@ -9,10 +9,10 @@
 
 {% block script_src %}
 <script src="{% static 'practice_v1/o1o0/clock.js' %}"></script>
-<script src="{% static 'practice_v1/o3o1/auto_reload.js' %}"></script>
+<script src="{% static 'practice_v1/o2o0/auto_reload.js' %}"></script>
 <!--                                 ^three
                 =======================================
-    `host1/apps1/practice_v1/static/practice_v1/o3o1/auto_reload.js`
+    `host1/apps1/practice_v1/static/practice_v1/o2o0/auto_reload.js`
                              ======================================
 -->
 {% endblock script_src %}

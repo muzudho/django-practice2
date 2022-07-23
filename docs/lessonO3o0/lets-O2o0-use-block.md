@@ -129,10 +129,10 @@ docker-compose up
 
 ```html
 {% extends "practice_v1/o1o0/page2_base.html" %}
-{#          ----------------------------------
+{#          --------------------------------
             1
 1. host1/apps1/practice_v1/templates/practice_v1/o1o0/page2_base.html
-                                       ----------------------------------
+                                     --------------------------------
 #}
 
 <!-- -->
