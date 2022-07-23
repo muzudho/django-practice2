@@ -10,15 +10,16 @@ from apps1.practice_v1.views.o1o0.page1 import Page1
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# 練習ページ２
-from apps1.practice_v1.views.o1o0.pages import Page2Patch1
-#          -----------            -----        -----------
-#          11                     12           2
-#    ----------------------------------
+# 練習ページ １回追加されたページ
+from apps1.practice_v1.views.o2o0.page_to_be_added import PageToBeAdded as PageToBeAdded1
+#          -----------            ----------------        -------------    --------------
+#          11                     12                      2                3
+#    ---------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
+# 3. `2.` の別名
 
 # 練習ページ２ パッチ２
 from apps1.practice_v1.views.o1o0.pages import Page2Patch2
@@ -255,15 +256,18 @@ urlpatterns = [
     # 2. Page1 クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'page1' %} のような形でURLを取得するのに使える
 
-    # 練習ページ２ パッチ１
-    path('practice/v1/page2_patch1', Page2Patch1.render, name='page2_patch1'),
-    #     ------------------------   ------------------        ------------
-    #     1                          2                         3
+    # 練習ページ２ １回追加されたページ
+    path('practice/v1/page-to-be-added-1',
+         # -----------------------------
+         # 1
+         PageToBeAdded1.render, name='page_to_be_added_1'),
+    #    ---------------------        ------------------
+    #    2                            3
     #
-    # 1. 例えば `http://example.com/practice/v1/page2_patch1` のようなURLのパスの部分
-    #                              ------------------------
-    # 2. Page2Patch1 クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'page2_patch1' %} のような形でURLを取得するのに使える
+    # 1. 例えば `http://example.com/practice/v1/page-to-be-added-1` のようなURLのパスの部分
+    #                              ------------------------------
+    # 2. PageToBeAdded1 (別名)クラスの render 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'page_to_be_added_1' %} のような形でURLを取得するのに使える
 
     # 練習ページ２ パッチ２
     path('practice/v1/page2_patch2', Page2Patch2.render, name='page2_patch2'),
