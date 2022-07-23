@@ -55,10 +55,10 @@
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host_local1                   # Djangoとは関係ないもの
+    ├── 📂 host_local1                      # Djangoとは関係ないもの
     │    ├── 📂 sockapp1
     │    └── 📂 websockapp1
-    ├── 📂 host1                         # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
+    ├── 📂 host1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
@@ -67,8 +67,8 @@
     │   │   │   └── 📂 models
     │   │   │       └── 📂 o1o0
     │   │   │           └── 📄 m_room.py
-    │   │   ├── 📂 tic_tac_toe_v1        # アプリケーション
-    │   │   └── 📂 tic_tac_toe_v2        # アプリケーション
+    │   │   ├── 📂 tic_tac_toe_v1           # アプリケーション
+    │   │   └── 📂 tic_tac_toe_v2           # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
@@ -212,12 +212,12 @@ from django.forms import ModelForm
 
 from apps1.practice_v1.models.o1o0.m_room import Room
 #          -----------             ------        ----
-#          1.1                     1.2           2
+#          11                      12            2
 #    ------------------------------------
-#    1
-# 1, 1.2 ディレクトリー
-# 1.1 アプリケーション
-# 2. `1.2` に含まれる __init__.py ファイルにさらに含まれるクラス
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 class RoomForm(ModelForm):
@@ -303,23 +303,25 @@ class RoomV():
 ```py
 from django.shortcuts import render, get_object_or_404, redirect
 
+# 部屋モデル
 from apps1.practice_v1.models.o1o0.m_room import Room
 #          -----------             ------        ----
-#          1.1                     1.2           2
+#          11                      12            2
 #    ------------------------------------
-#    1
-# 1, 1.2 ディレクトリー
-# 1.1 アプリケーション
-# 2. `1.2` に含まれる __init__.py ファイルにさらに含まれるクラス
+#    10
+# 10, 12. ディレクトリー名
+# 11. アプリケーション名
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # 部屋フォーム
 from apps1.practice_v1.forms.f_room import RoomForm
-#    ----- ----------- ----- ------        --------
-#    1     2           3     4             5
-# 1,3. ディレクトリー名
-# 2. アプリケーション フォルダー名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
+#          -----------       ------        --------
+#          11                12            2
+#    ------------------------------
+#    10
+# 10, 12. ディレクトリー名
+# 11. アプリケーション名
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 @staticmethod
