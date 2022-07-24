@@ -18,7 +18,7 @@
 
 # はじめに
 
-この記事は LessonO[1 0] から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 この記事のアーキテクチャ:  
@@ -102,7 +102,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O[1 0] Dockerコンテナの起動
+# Step 1. Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -114,7 +114,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O[2 0] 対局申込ビュー モジュール編集 - match_application フォルダー
+# Step 2. 対局申込ビュー モジュール編集 - match_application フォルダー
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -193,7 +193,7 @@ class MatchApplicationV():
         return MatchApplicationVV2g1o0.open_context
 ```
 
-# Step O[3 0] 対局申込ビュー モジュール作成 - v_on_sent.py ファイル
+# Step 3. 対局申込ビュー モジュール作成 - v_on_sent.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -306,7 +306,7 @@ def match_application_on_sent(request):
         pass
 ```
 
-# Step O[4 0] ルート編集 - urls_practice.py ファイル
+# Step 4. ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -359,7 +359,7 @@ urlpatterns = [
 ]
 ```
 
-# Step O[5 0] Web画面へアクセス
+# Step 5. Web画面へアクセス
 
 先手と後手で、２人分のプレイヤーのアカウントがほしい。  
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでほしい  
@@ -402,7 +402,7 @@ urlpatterns = [
 
 また、既存でない部屋名でも ちゃんとユーザーの主キーが記録されることを確認してほしい  
 
-# Step O[6 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step 6. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

@@ -20,7 +20,7 @@ allauth アプリケーションの機能を使う　　
 
 # はじめに
 
-この記事は LessonO[1 0] から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 この記事のアーキテクチャ:  
@@ -59,7 +59,7 @@ allauth アプリケーションの機能を使う　　
     └── 📄 .gitignore
 ```
 
-# Step O[1 0] Dockerコンテナの起動
+# Step 1. Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -71,7 +71,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O[2 0] 画面作成 - login_required.html ファイル
+# Step 2. 画面作成 - login_required.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -98,7 +98,7 @@ docker-compose up
 </html>
 ```
 
-# Step O[3 0] ビュー モジュール作成 - login_required フォルダー
+# Step 3. ビュー モジュール作成 - login_required フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -172,7 +172,7 @@ def loggingOut_render(request):
     return redirect('home')  # ホームに戻る
 ```
 
-# Step O[4 0] ルート編集 - urls_practice.py ファイル
+# Step 4. ルート編集 - urls_practice.py ファイル
 
 👇 以下のファイルの該当箇所を追記してほしい  
 
@@ -241,7 +241,7 @@ urlpatterns = [
 ]
 ```
 
-# Step O[5 0] Webページへアクセス
+# Step 5. Webページへアクセス
 
 👇　ログインしているときは、ログイン情報が見えます。  
 　　ログインしていないときは、ログイン画面が出ます
@@ -252,7 +252,7 @@ urlpatterns = [
 
 📖 [http://localhost:8000/practice/v1/logout](http://localhost:8000/practice/v1/logout)  
 
-# Step O[6 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step 6. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

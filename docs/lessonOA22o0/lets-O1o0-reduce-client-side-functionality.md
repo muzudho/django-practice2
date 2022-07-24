@@ -5,7 +5,7 @@
 
 # はじめに
 
-この記事は LessonO[1 0] から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 この記事のアーキテクチャ:  
@@ -89,7 +89,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O[1 0] Dockerコンテナの起動
+# Step 1. Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -101,7 +101,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O[2 0] フォルダー作成 - apps1/tic_tac_toe_v3 フォルダー
+# Step 2. フォルダー作成 - apps1/tic_tac_toe_v3 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -111,7 +111,7 @@ docker-compose up
             └── 📂 tic_tac_toe_v3                     # アプリケーション Three
 ```
 
-# Step O[3 0] アプリケーション作成
+# Step 3. アプリケーション作成
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -123,7 +123,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v3 ./apps1/tic
 # 2. 既存のディレクトリーへのパス
 ```
 
-# Step O[4 0] 今回使わないファイルの削除
+# Step 4. 今回使わないファイルの削除
 
 👇 以下のファイルを削除してほしい  
 
@@ -141,7 +141,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v3 ./apps1/tic
 👉              └── 📄 views.py
 ```
 
-# Step O[5 0] アプリケーション設定変更 - apps.py
+# Step 5. アプリケーション設定変更 - apps.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -173,7 +173,7 @@ class TicTacToeV3Config(AppConfig):
     #           --------------------
 ```
 
-# Step O[6 0] アプリケーション登録 - settings.py ファイル
+# Step 6. アプリケーション登録 - settings.py ファイル
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -211,7 +211,7 @@ INSTALLED_APPS = [
 これで、 `host1/apps1/tic_tac_toe_v3` フォルダーは tic_tac_toe_v3 アプリケーションとして認識される。  
 例えば、 tic_tac_toe_v3 フォルダーの直下に置いた static フォルダーが Django の静的リソースの検索対象のパスになるといったメリットがある  
 
-# Step O[7 0] 対局画面作成 - playing.html.txt ファイル
+# Step 7. 対局画面作成 - playing.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -256,7 +256,7 @@ INSTALLED_APPS = [
 {% endblock methods_footer %}
 ```
 
-# Step O[8 0] 対局申込ビュー モジュール作成 - match_application フォルダー
+# Step 8. 対局申込ビュー モジュール作成 - match_application フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -338,7 +338,7 @@ class MatchApplicationV():
         return MatchApplicationVV2g1o0.open_context
 ```
 
-# Step O[9 0] 対局ビュー モジュール作成 - playing フォルダー
+# Step 9. 対局ビュー モジュール作成 - playing フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -427,7 +427,7 @@ class PlayingV():
         pass
 ```
 
-# Step O[10 0] ルート編集 - urls_practice.py ファイル
+# Step 10. ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -516,13 +516,13 @@ urlpatterns = [
 ]
 ```
 
-# Step O[11 0] Web画面へアクセス
+# Step 11. Web画面へアクセス
 
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでください  
 
 📖 [http://localhost:8000/tic-tac-toe/v3.1/match-application/](http://localhost:8000/tic-tac-toe/v3.1/match-application/)  
 
-# Step O[12 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step 12. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

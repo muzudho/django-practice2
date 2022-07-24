@@ -32,7 +32,7 @@
 
 # はじめに
 
-この記事は LessonO[1 0] から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 この記事のアーキテクチャ:  
@@ -96,7 +96,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O[1 0] Dockerコンテナの起動
+# Step 1. Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -108,7 +108,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O[2 0] 画面作成 - upsert.html ファイル
+# Step 2. 画面作成 - upsert.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -172,7 +172,7 @@ docker-compose up
 </html>
 ```
 
-# Step O[3 0] 入力フォーム作成 - f_prefecture.py ファイル
+# Step 3. 入力フォーム作成 - f_prefecture.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -212,7 +212,7 @@ class PrefectureForm(ModelForm):
 
 👆 HTMLタグの `<form>～</form>` の子要素を自動的に埋めてくれる  
 
-# Step O[4 0] ビュー編集 - v_upsert.py ファイル
+# Step 4. ビュー編集 - v_upsert.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -285,7 +285,7 @@ def render_upsert(request, id=None):
     #                                       ---------------------------------------
 ```
 
-# Step O[5 0] ビュー編集 - prefecture モジュール
+# Step 5. ビュー編集 - prefecture モジュール
 
 👇 以下のファイルを編集してほしい  
 
@@ -317,7 +317,7 @@ class PrefectureV(object):
     from .v_upsert import render_upsert
 ```
 
-# Step O[6 0] ルート編集 - urls.py ファイル
+# Step 6. ルート編集 - urls.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -392,7 +392,7 @@ urlpatterns = [
 ]
 ```
 
-# Step O[7 0] Web画面へアクセス
+# Step 7. Web画面へアクセス
 
 👇 作成するとき、IDは付けるな  
 
@@ -402,7 +402,7 @@ urlpatterns = [
 
 📖 [http://localhost:8000/practice/v1/prefectures/update/4/](http://localhost:8000/practice/v1/prefectures/update/4/)  
 
-# Step O[8 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step 8. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

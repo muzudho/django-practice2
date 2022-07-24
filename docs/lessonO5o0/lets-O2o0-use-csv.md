@@ -8,7 +8,7 @@ CSV と pandas を使う
 
 # はじめに
 
-この記事は LessonO[1 0] から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 この記事のアーキテクチャ:  
@@ -59,7 +59,7 @@ CSV と pandas を使う
     └── 📄 .gitignore
 ```
 
-# Step O[1 0] Dockerコンテナの起動
+# Step 1. Dockerコンテナの起動
 
 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -71,7 +71,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O[2 0] Pythonパッケージ インストール指定の編集 - requirements.txt ファイル
+# Step 2. Pythonパッケージ インストール指定の編集 - requirements.txt ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -90,7 +90,7 @@ docker-compose up
 pandas
 ```
 
-# Step O[3 0] Visual Studio Code のエラー抑制 - pip コマンド
+# Step 3. Visual Studio Code のエラー抑制 - pip コマンド
 
 Python の pandas パッケージは、 Dockerコンテナにインストールされていればよく、  
 Dockerコンテナの外側のPCにインストールしている必要はないが、  
@@ -109,7 +109,7 @@ Dockerコンテナの外側のPCにも pandas をインストールすれば（�
 pip install pandas
 ```
 
-# Step O[4 0] Dockerコンテナの停止～ビルド～起動
+# Step 4. Dockerコンテナの停止～ビルド～起動
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -133,7 +133,7 @@ docker-compose build
 docker-compose up
 ```
 
-# Step O[5 0] データ作成 - finished-lessons.csv ファイル
+# Step 5. データ作成 - finished-lessons.csv ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -158,7 +158,7 @@ path,label
 /practice/v1/page-to-be-added-2,２回追加されたページ
 ```
 
-# Step O[6 0] 画面作成 - portal_base.html ファイル
+# Step 6. 画面作成 - portal_base.html ファイル
 
 以下のファイルを新規作成してほしい  
 
@@ -237,7 +237,7 @@ path,label
 </html>
 ```
 
-# Step O[7 0] ビュー モジュール作成 - o2o0/portal フォルダー
+# Step 7. ビュー モジュール作成 - o2o0/portal フォルダー
 
 以下のファイルを新規作成してほしい  
 
@@ -320,7 +320,7 @@ class Portal():
         return HttpResponse(template.render(context, request))
 ```
 
-# Step O[8 0] サブ ルート編集 - urls_portal.py
+# Step 8. サブ ルート編集 - urls_portal.py
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -379,7 +379,7 @@ urlpatterns = [
 ]
 ```
 
-# Step O[9 0] Webページにアクセスする
+# Step 9. Webページにアクセスする
 
 📖 [http://localhost:8000/](http://localhost:8000/)  
 

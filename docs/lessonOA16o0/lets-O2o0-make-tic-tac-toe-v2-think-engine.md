@@ -7,7 +7,7 @@
 
 # はじめに
 
-この記事は LessonO[1 0] から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 この記事のアーキテクチャ:  
@@ -88,7 +88,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O[1 0] Dockerコンテナの起動
+# Step 1. Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -100,7 +100,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O[2 0] フォルダー作成 - apps1/tic_tac_toe_v2 フォルダー
+# Step 2. フォルダー作成 - apps1/tic_tac_toe_v2 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -112,7 +112,7 @@ docker-compose up
 
 `tic_tac_toe_v1` と依存関係は無い  
 
-# Step O[3 0] アプリケーション作成
+# Step 3. アプリケーション作成
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -140,7 +140,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v2 ./apps1/tic
 👉              └── 📄 views.py
 ```
 
-# Step O[4 0] 今回使わないファイルの削除
+# Step 4. 今回使わないファイルの削除
 
 👇 以下のファイルを削除してほしい  
 
@@ -158,7 +158,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v2 ./apps1/tic
 👉              └── 📄 views.py
 ```
 
-# Step O[5 0] アプリケーション設定変更 - apps.py
+# Step 5. アプリケーション設定変更 - apps.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -190,7 +190,7 @@ class TicTacToeV2Config(AppConfig):
     #           --------------------
 ```
 
-# Step O[6 0] アプリケーション登録 - settings.py ファイル
+# Step 6. アプリケーション登録 - settings.py ファイル
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -226,7 +226,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-# Step O[7 0] 物の定義 - things.js ファイル
+# Step 7. 物の定義 - things.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -480,7 +480,7 @@ ${indent}_squares:${this._squares}`;
 // +--------
 ```
 
-# Step O[8 0] 概念の定義 - concepts.js ファイル
+# Step 8. 概念の定義 - concepts.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -778,7 +778,7 @@ function flipTurn(piece) {
 }
 ```
 
-# Step O[9 0] 局面作成 - position.js ファイル
+# Step 9. 局面作成 - position.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -907,7 +907,7 @@ ${indent}${this._turn.dump(indent + "    ")}`;
 }
 ```
 
-# Step O[10 0] ユーザーコントロール作成 - user_ctrl.js ファイル
+# Step 10. ユーザーコントロール作成 - user_ctrl.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1013,7 +1013,7 @@ class UserCtrl {
 }
 ```
 
-# Step O[11 0] 審判作成 - judge_ctrl.js ファイル
+# Step 11. 審判作成 - judge_ctrl.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1120,7 +1120,7 @@ class JudgeCtrl {
 }
 ```
 
-# Step O[12 0] 思考エンジン作成 - engine.js ファイル
+# Step 12. 思考エンジン作成 - engine.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1336,7 +1336,7 @@ ${indent}${this._position.dump(indent + "    ")}`;
 }
 ```
 
-# Step O[13 0] エンジン テスト ページ作成 - engine_manual.html ファイル
+# Step 13. エンジン テスト ページ作成 - engine_manual.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1544,7 +1544,7 @@ board
 </html>
 ```
 
-# Step O[14 0] ビュー モジュール作成 - engine_manual フォルダー
+# Step 14. ビュー モジュール作成 - engine_manual フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1607,7 +1607,7 @@ class EngineManual():
         return render_engine_manual(request, EngineManual.path_of_html)
 ```
 
-# Step O[15 0] ビュー モジュール作成 - engine_manual/v_render.py ファイル
+# Step 15. ビュー モジュール作成 - engine_manual/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1658,7 +1658,7 @@ def render_engine_manual(request, path_of_html):
     return render(request, path_of_html, context)
 ```
 
-# Step O[16 0] ルート新規作成 - urls_tic_tac_toe_v2.py ファイル
+# Step 16. ルート新規作成 - urls_tic_tac_toe_v2.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1727,7 +1727,7 @@ urlpatterns = [
 ]
 ```
 
-# Step O[17 0] 総合ルート編集 - urls.py
+# Step 17. 総合ルート編集 - urls.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -1791,11 +1791,11 @@ urlpatterns = [
 ]
 ```
 
-# Step O[18 0] Web画面へアクセス
+# Step 18. Web画面へアクセス
 
 📖 [http://localhost:8000/tic-tac-toe/v2/engine-manual/](http://localhost:8000/tic-tac-toe/v2/engine-manual/)  
 
-# Step O[19 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step 19. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

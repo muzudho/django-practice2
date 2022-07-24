@@ -8,7 +8,7 @@
 
 # はじめに
 
-この記事は LessonO[1 0] から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 この記事のアーキテクチャ:  
@@ -92,7 +92,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O[1 0] Dockerコンテナの起動
+# Step 1. Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -104,7 +104,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O[2 0] 通信プロトコル作成 - message_converter.py ファイル
+# Step 2. 通信プロトコル作成 - message_converter.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -229,7 +229,7 @@ def save_room(room):
     room.save()
 ```
 
-# Step O[3 0] Webソケットの通信プロトコル作成 - consumer_custom.py ファイル
+# Step 3. Webソケットの通信プロトコル作成 - consumer_custom.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -282,7 +282,7 @@ class TicTacToeV3o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
         return await self._messageConverter.on_receive(self.scope, doc_received)
 ```
 
-# Step O[4 0] Webソケット用ルート新規作成 - ws_urls_tic_tac_toe_v3.py ファイル
+# Step 4. Webソケット用ルート新規作成 - ws_urls_tic_tac_toe_v3.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -337,7 +337,7 @@ websocket_urlpatterns = [
 ]
 ```
 
-# Step O[5 0] Webソケット用総合ルート設定 - asgi.py ファイル
+# Step 5. Webソケット用総合ルート設定 - asgi.py ファイル
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -390,7 +390,7 @@ websocket_urlpatterns_merged.extend(
 #                                 ^three
 ```
 
-# Step O[6 0] 対局申込ビュー モジュール作成 - o3o0/match_application フォルダー
+# Step 6. 対局申込ビュー モジュール作成 - o3o0/match_application フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -468,7 +468,7 @@ class MatchApplicationV():
             MatchApplicationVV2g1o0.open)
 ```
 
-# Step O[7 0] 対局申込ビュー モジュール作成 - o3o0/playing フォルダー
+# Step 7. 対局申込ビュー モジュール作成 - o3o0/playing フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -553,7 +553,7 @@ class PlayingV():
             PlayingVV2g1o0.expected_pieces)
 ```
 
-# Step O[8 0] ルート編集 - urls_practice.py ファイル
+# Step 8. ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -639,7 +639,7 @@ urlpatterns = [
 ]
 ```
 
-# Step O[9 0] Web画面へアクセス
+# Step 9. Web画面へアクセス
 
 * このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでください
 * テストするためには `サインアップ` してアカウントを作ってから、 `ログイン` してください
@@ -653,7 +653,7 @@ urlpatterns = [
 
 📖 [http://localhost:8000/admin](http://localhost:8000/admin)  
 
-# Step O[10 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step 10. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

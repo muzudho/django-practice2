@@ -15,7 +15,7 @@ Django では、サインアップした口座を User と呼んでいる。
 
 # はじめに
 
-この記事は LessonO[1 0] から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 この記事のアーキテクチャ:  
@@ -54,7 +54,7 @@ Django では、サインアップした口座を User と呼んでいる。
     └── 📄 .gitignore
 ```
 
-# Step O[1 0] Dockerコンテナの起動
+# Step 1. Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -66,7 +66,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O[2 0] テンプレート編集 - user-list.html ファイル
+# Step 2. テンプレート編集 - user-list.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -148,7 +148,7 @@ docker-compose up
 </html>
 ```
 
-# Step O[3 0] モデルヘルパー モジュール作成 - mh_user フォルダー
+# Step 3. モデルヘルパー モジュール作成 - mh_user フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -180,7 +180,7 @@ class MhUser():
     # 2. `1.` に含まれる関数
 ```
 
-# Step O[4 0] モデルヘルパー モジュール作成 - mh_get_user_dic.py ファイル
+# Step 4. モデルヘルパー モジュール作成 - mh_get_user_dic.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -226,7 +226,7 @@ def get_user_dic():
     return user_dic
 ```
 
-# Step O[5 0] ビュー モジュール作成 - user_list フォルダー
+# Step 5. ビュー モジュール作成 - user_list フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -274,7 +274,7 @@ class UserListV():
         return render_user_list(request, UserListV._path_of_this_page)
 ```
 
-# Step O[6 0] ビュー モジュール作成 - user_list/v_render.py ファイル
+# Step 6. ビュー モジュール作成 - user_list/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -327,7 +327,7 @@ def render_user_list(request, path_of_this_page):
     return HttpResponse(template.render(context, request))
 ```
 
-# Step O[7 0] ルート編集 - urls_practice.py ファイル
+# Step 7. ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -385,11 +385,11 @@ urlpatterns = [
 ]
 ```
 
-# Step O[8 0] Web画面へアクセス
+# Step 8. Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/user-list/](http://localhost:8000/practice/v1/user-list/)  
 
-# Step O[9 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step 9. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

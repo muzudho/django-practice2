@@ -15,7 +15,7 @@
 
 # はじめに
 
-この記事は LessonO[1 0] から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 この記事のアーキテクチャ:  
@@ -72,7 +72,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O[1 0] Dockerコンテナの起動
+# Step 1. Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -84,7 +84,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O[2 0] 画面作成 - list.html ファイル
+# Step 2. 画面作成 - list.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -149,7 +149,7 @@ docker-compose up
 </html>
 ```
 
-# Step O[3 0] ビュー作成 - v_list.py ファイル
+# Step 3. ビュー作成 - v_list.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -198,7 +198,7 @@ def render_list(request):
     return HttpResponse(template.render(context, request))
 ```
 
-# Step O[4 0] ビュー作成 - prefecture モジュール
+# Step 4. ビュー作成 - prefecture モジュール
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -225,7 +225,7 @@ class PrefectureV(object):
     from .v_list import render_list
 ```
 
-# Step O[5 0] ルート編集 - urls.py ファイル
+# Step 5. ルート編集 - urls.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -283,11 +283,11 @@ urlpatterns = [
 ]
 ```
 
-# Step O[6 0] Web画面へアクセス
+# Step 6. Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/prefectures/](http://localhost:8000/practice/v1/prefectures/)  
 
-# Step O[7 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step 7. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

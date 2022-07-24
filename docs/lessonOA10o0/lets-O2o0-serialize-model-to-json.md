@@ -9,7 +9,7 @@
 
 # はじめに
 
-この記事は LessonO[1 0] から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 この記事のアーキテクチャ:  
@@ -48,7 +48,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O[1 0] Dockerコンテナの起動
+# Step 1. Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -60,11 +60,11 @@ cd host1
 docker-compose up
 ```
 
-# Step O[2 0] データ用意 - 管理画面
+# Step 2. データ用意 - 管理画面
 
 管理画面から、都道府県モデルのデータを追加しておいてください  
 
-# Step O[3 0] モデルヘルパー モジュール作成 - mh_json フォルダー
+# Step 3. モデルヘルパー モジュール作成 - mh_json フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -93,7 +93,7 @@ class MhJson():
     from .m_from_model_to_json_str import from_model_to_json_str_with_indent
 ```
 
-# Step O[4 0] モデルヘルパー モジュール作成 - m_from_model_to_json_str フォルダー
+# Step 4. モデルヘルパー モジュール作成 - m_from_model_to_json_str フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -125,7 +125,7 @@ def from_model_to_json_str_with_indent(any_object):
     return json.dumps(doc, indent=4)
 ```
 
-# Step O[5 0] ビュー モジュール作成 - debug フォルダー
+# Step 5. ビュー モジュール作成 - debug フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -188,7 +188,7 @@ class DebugV():
         return HttpResponse(f"<pre>{json_str}</pre>")
 ```
 
-# Step O[6 0] ルート編集 - urls_practice.py ファイル
+# Step 6. ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -242,11 +242,11 @@ urlpatterns = [
 ]
 ```
 
-# Step O[7 0] Web画面へアクセス
+# Step 7. Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/from-object-to-json-str/](http://localhost:8000/practice/v1/from-object-to-json-str/)  
 
-# Step O[8 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step 8. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

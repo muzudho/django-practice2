@@ -17,7 +17,7 @@ ID    部屋名        先手Id  先手名  後手Id  後手名  盤面       �
 
 # はじめに
 
-この記事は LessonO[1 0] から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 この記事のアーキテクチャ:  
@@ -104,7 +104,7 @@ ID    部屋名        先手Id  先手名  後手Id  後手名  盤面       �
     └── 📄 .gitignore
 ```
 
-# Step O[1 0] Dockerコンテナの起動
+# Step 1. Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -116,7 +116,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O[2 0] 画面作成 - list.html ファイル
+# Step 2. 画面作成 - list.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -230,7 +230,7 @@ endcomment %}
 </html>
 ```
 
-# Step O[3 0] モデルヘルパー モジュール編集 - mh_user フォルダー
+# Step 3. モデルヘルパー モジュール編集 - mh_user フォルダー
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -267,7 +267,7 @@ class MhUser():
     # 2. `1.` に含まれる関数
 ```
 
-# Step O[4 0] モデルヘルパー モジュール編集 - mh_get_name_by_pk ファイル
+# Step 4. モデルヘルパー モジュール編集 - mh_get_name_by_pk ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -304,7 +304,7 @@ def get_name_by_pk(id):
     return user.username
 ```
 
-# Step O[5 0] ビュー モジュール作成 - room フォルダー
+# Step 5. ビュー モジュール作成 - room フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -354,7 +354,7 @@ class RoomV():
         return render_list(request, RoomV._path_of_list_page)
 ```
 
-# Step O[6 0] ビュー モジュール作成 - v_list ファイル
+# Step 6. ビュー モジュール作成 - v_list ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -460,7 +460,7 @@ def render_list(request, path_of_list_page):
     return render(request, path_of_list_page, context)
 ```
 
-# Step O[7 0] ルート編集 - urls_practice.py ファイル
+# Step 7. ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -517,11 +517,11 @@ urlpatterns = [
 ]
 ```
 
-# Step O[8 0] Web画面へアクセス
+# Step 8. Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/rooms/](http://localhost:8000/practice/v1/rooms/)  
 
-# Step O[9 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step 9. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

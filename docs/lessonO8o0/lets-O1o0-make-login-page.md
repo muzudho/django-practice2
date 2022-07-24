@@ -4,7 +4,7 @@
 
 # はじめに
 
-この記事は LessonO[1 0] から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 この記事のアーキテクチャ:  
@@ -39,7 +39,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O[1 0] Dockerコンテナの起動
+# Step 1. Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -51,7 +51,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O[2 0] テンプレート作成 - login.html ファイル
+# Step 2. テンプレート作成 - login.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -245,7 +245,7 @@ docker-compose up
 </html>
 ```
 
-# Step O[3 0] ビュー モジュール作成 - login フォルダー
+# Step 3. ビュー モジュール作成 - login フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -280,7 +280,7 @@ class AccountsV1LoginView(LoginView):
     #                --------------------------------------------------
 ```
 
-# Step O[4 0] サブ ルート作成 - urls_accounts.py
+# Step 4. サブ ルート作成 - urls_accounts.py
 
 ```plaintext
     └── 📂 host1
@@ -331,7 +331,7 @@ urlpatterns = [
 ]
 ```
 
-# Step O[5 0] Web画面へアクセス
+# Step 5. Web画面へアクセス
 
 📖 [http://localhost:8000/accounts/v1/login/](http://localhost:8000/accounts/v1/login/)  
 
@@ -343,7 +343,7 @@ urlpatterns = [
 
 👆 ログアウトを試してほしい  
 
-# Step O[6 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step 6. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

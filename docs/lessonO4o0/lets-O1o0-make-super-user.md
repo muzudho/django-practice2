@@ -18,7 +18,7 @@ Djangoサーバー支配下のすべてのアプリケーションを調整で�
 
 # はじめに
 
-この記事は LessonO[1 0] から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 この記事のアーキテクチャ:  
@@ -72,7 +72,7 @@ Djangoサーバー支配下のすべてのアプリケーションを調整で�
     └── 📄 .gitignore
 ```
 
-# Step O[1 0] Dockerコンテナの起動
+# Step 1. Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -84,7 +84,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O[2 0] スーパーユーザーを作るコマンドを用意する
+# Step 2. スーパーユーザーを作るコマンドを用意する
 
 以下のようにディレクトリとファイルを作成してほしい  
 
@@ -137,7 +137,7 @@ class Command(createsuperuser.Command):
                 database).create_superuser(**user_data)
 ```
 
-# Step O[3 0] 名前，E-mailアドレス，パスワードを考えておけ
+# Step 3. 名前，E-mailアドレス，パスワードを考えておけ
 
 スーパーユーザーの名前，スーパーユーザーのE-mailアドレス，スーパーユーザーのパスワードを考えておいてほしい  
 
@@ -164,7 +164,7 @@ class Command(createsuperuser.Command):
 # * `bbbb` - スーパーユーザーのパスワード
 ```
 
-# Step O[4 0] スーパーユーザー作成
+# Step 4. スーパーユーザー作成
 
 👇 以下のコマンドを打鍵してほしい。Dockerコンテナの中で動いているサーバーアプリケーションにスーパーユーザーが追加される。タイプミスしないように注意してほしい  
 
@@ -174,7 +174,7 @@ docker-compose run --rm web python3 manage.py custom_createsuperuser --username 
 
 👆 恐らく `host1/data` フォルダー下のデータベースに格納され永続的に保存されるのかもしれない。このコマンドを実行するのは１回だけでいいと思う  
 
-# Step O[5 0] Webの管理画面へアクセス
+# Step 5. Webの管理画面へアクセス
 
 📖 [http://localhost:8000/admin](http://localhost:8000/admin)  
 

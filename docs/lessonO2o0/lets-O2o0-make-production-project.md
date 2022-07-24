@@ -13,7 +13,7 @@
 | Editor    | Visual Studio Code （以下 VSCode と表記） |
 | Database  | PostgreSQL                                |
 
-この記事は LessonO[1 0] から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 この連載の最初のページ: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 ディレクトリ構成を抜粋すると 以下のようになっている  
@@ -36,7 +36,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O[1 0] Dockerコンテナの起動
+# Step 1. Dockerコンテナの起動
 
 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -48,7 +48,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O[2 0] プロジェクトのコピー - project2 フォルダー
+# Step 2. プロジェクトのコピー - project2 フォルダー
 
 👇 以下のフォルダーをコピー＆ペーストして  
 
@@ -65,7 +65,7 @@ docker-compose up
 👉      └── 📂 project2
 ```
 
-# Step O[3 0] 設定変更 - settings.py ファイル
+# Step 3. 設定変更 - settings.py ファイル
 
 👇 以下のファイルを編集してほしい  
 
@@ -87,7 +87,7 @@ docker-compose up
 DEBUG = False
 ```
 
-# Step O[4 0] 設定変更 - settings_secrets.py ファイル
+# Step 4. 設定変更 - settings_secrets.py ファイル
 
 👇 以下のファイルを編集してほしい  
 
@@ -115,7 +115,7 @@ ALLOWED_HOSTS = [
 ]
 ```
 
-# Step O[5 0] 本番用ドッカーコンポーズ ファイル作成 - docker-compose-project2.yml ファイル
+# Step 5. 本番用ドッカーコンポーズ ファイル作成 - docker-compose-project2.yml ファイル
 
 👇 以下のフォルダーをコピー＆ペーストして  
 
@@ -140,7 +140,7 @@ ALLOWED_HOSTS = [
 👉      └── 🐳 docker-compose-project2.yml
 ```
 
-# Step O[6 0] 本番用ドッカーコンポーズ ファイル編集 - docker-compose-project2.yml ファイル
+# Step 6. 本番用ドッカーコンポーズ ファイル編集 - docker-compose-project2.yml ファイル
 
 👇 以下のファイルを編集してほしい  
 
@@ -171,7 +171,7 @@ ALLOWED_HOSTS = [
     #                                                                  ^two
 ```
 
-# Step O[7 0] ドッカーコンテナの停止～起動 - docker-compose コマンド
+# Step 7. ドッカーコンテナの停止～起動 - docker-compose コマンド
 
 👇 以下のコマンドを叩いてほしい  
 
@@ -188,7 +188,7 @@ docker-compose -f docker-compose-project2.yml up
 # 1. ドッカーコンポーズ ファイルを指定
 ```
 
-# Step O[8 0] Webページへアクセス
+# Step 8. Webページへアクセス
 
 次に、ブラウザで以下のURLにアクセスしてほしい  
 

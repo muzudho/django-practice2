@@ -15,7 +15,7 @@ http://example.com/practice/v1/page-the-hello
 
 # はじめに
 
-この記事は LessonO[1 0] から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 この記事のアーキテクチャ:  
@@ -47,7 +47,7 @@ http://example.com/practice/v1/page-the-hello
     └── 📄 .gitignore
 ```
 
-# Step O[1 0] Dockerコンテナの起動
+# Step 1. Dockerコンテナの起動
 
 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -59,7 +59,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O[2 0] フォルダー作成 - apps1/practice_v1 フォルダー
+# Step 2. フォルダー作成 - apps1/practice_v1 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -108,7 +108,7 @@ Example: `o1o0`
 
 📖 [電脳向量表記 (Cyber Vector Notation)](https://crieit.net/posts/Cyber-Number-Notation)  
 
-# Step O[3 0] アプリケーション作成
+# Step 3. アプリケーション作成
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -138,7 +138,7 @@ docker-compose run --rm web python manage.py startapp practice_v1 ./apps1/practi
 👉              └── 📄 views.py
 ```
 
-# Step O[4 0] 今回使わないファイルの削除
+# Step 4. 今回使わないファイルの削除
 
 👇 以下のファイルを削除してほしい  
 
@@ -156,7 +156,7 @@ docker-compose run --rm web python manage.py startapp practice_v1 ./apps1/practi
 👉              └── 📄 views.py
 ```
 
-# Step O[5 0] アプリケーション設定変更 - apps.py
+# Step 5. アプリケーション設定変更 - apps.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -188,7 +188,7 @@ class PracticeConfig(AppConfig):
     #           -----------------
 ```
 
-# Step O[6 0] アプリケーション登録 - settings.py ファイル＜その２＞
+# Step 6. アプリケーション登録 - settings.py ファイル＜その２＞
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -235,7 +235,7 @@ INSTALLED_APPS = [
 これで、 `host1/apps1/practice_v1` フォルダーは practice_v1 アプリケーションとして認識される。  
 そのメリットは　今後のレッスンで触れる  
 
-# Step O[7 0] 画面作成 - page1.html ファイル
+# Step 7. 画面作成 - page1.html ファイル
 
 以下のファイルを作成してほしい。
 
@@ -262,7 +262,7 @@ INSTALLED_APPS = [
 </html>
 ```
 
-# Step O[8 0] 設定変更 - settings.py ファイル
+# Step 8. 設定変更 - settings.py ファイル
 
 👇 以下のファイルを編集してほしい  
 
@@ -315,7 +315,7 @@ TEMPLATES = [
 ]
 ```
 
-# Step O[9 0] ビュー モジュール作成 - page_the_hello フォルダー
+# Step 9. ビュー モジュール作成 - page_the_hello フォルダー
 
 👇 以下のファイルを新規作成してほしい
 
@@ -361,7 +361,7 @@ class PageTheHello():
         #                    <a href="http://example.com/">ホーム</a>""")
 ```
 
-# Step O[10 0] サブ ルート作成 - urls_practice.py
+# Step 10. サブ ルート作成 - urls_practice.py
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -412,7 +412,7 @@ urlpatterns = [
 ]
 ```
 
-# Step O[11 0] 総合ルート編集 - urls.py
+# Step 11. 総合ルート編集 - urls.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -456,7 +456,7 @@ urlpatterns = [
 ]
 ```
 
-# Step O[12 0] Webページにアクセスする
+# Step 12. Webページにアクセスする
 
 📖 [http://localhost:8000/practice/v1/page-the-hello](http://localhost:8000/practice/v1/page-the-hello)  
 

@@ -11,7 +11,7 @@
 
 # はじめに
 
-この記事は LessonO[1 0] から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 この記事のアーキテクチャ:  
@@ -98,7 +98,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O[1 0] Dockerコンテナの起動
+# Step 1. Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -110,7 +110,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O[2 0] 画面作成 - my.html ファイル
+# Step 2. 画面作成 - my.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -211,7 +211,7 @@ docker-compose up
 </html>
 ```
 
-# Step O[3 0] ビュー モジュール編集 - my フォルダー
+# Step 3. ビュー モジュール編集 - my フォルダー
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -255,7 +255,7 @@ class MyV():
         return render_my(request, MyV._path_of_my_page)
 ```
 
-# Step O[4 0] ビュー モジュール作成 - v_my ファイル
+# Step 4. ビュー モジュール作成 - v_my ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -315,7 +315,7 @@ def render_my(request, path_of_my_page):
     return HttpResponse(template.render(context, request))
 ```
 
-# Step O[5 0] ルート編集 - urls_practice.py ファイル
+# Step 5. ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -367,11 +367,11 @@ urlpatterns = [
 ]
 ```
 
-# Step O[6 0] Web画面へアクセス
+# Step 6. Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/my/](http://localhost:8000/practice/v1/my/)  
 
-# Step O[7 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step 7. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

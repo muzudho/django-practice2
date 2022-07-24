@@ -7,7 +7,7 @@ Webサーバーとクライアント間で通知したい。
 
 # はじめに
 
-この記事は LessonO[1 0] から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 この記事のアーキテクチャ:  
@@ -75,7 +75,7 @@ Webサーバーとクライアント間で通知したい。
     └── 📄 .gitignore
 ```
 
-# Step O[1 0] Dockerコンテナの起動
+# Step 1. Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -87,7 +87,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O[2 0] フォルダー作成
+# Step 2. フォルダー作成
 
 👇 ソケットの練習は Django とは関係ないので、別にフォルダーを作ってほしい  
 
@@ -97,7 +97,7 @@ docker-compose up
     └── 📂 host1                    # 既存
 ```
 
-# Step O[3 0] 機能増強 - main_finally.py ファイル
+# Step 3. 機能増強 - main_finally.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -181,7 +181,7 @@ class MainFinally:
         return return_code
 ```
 
-# Step O[4 0] 練習用通信サーバー作成 - echo_server.py ファイル
+# Step 4. 練習用通信サーバー作成 - echo_server.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -330,7 +330,7 @@ if __name__ == "__main__":
 
 ```
 
-# Step O[5 0] 練習用通信クライアント作成 - client.py ファイル
+# Step 5. 練習用通信クライアント作成 - client.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -476,7 +476,7 @@ if __name__ == "__main__":
     sys.exit(MainFinally.run(Main1()))
 ```
 
-# Step O[6 0] エコーサーバー起動 - コマンド実行
+# Step 6. エコーサーバー起動 - コマンド実行
 
 ```shell
 cd host_local1/sockapp1
@@ -484,7 +484,7 @@ cd host_local1/sockapp1
 python.exe -m echo_server
 ```
 
-# Step O[7 0] クライアント起動～停止 - コマンド実行
+# Step 7. クライアント起動～停止 - コマンド実行
 
 エコーサーバーとは別ターミナルで:  
 
@@ -506,7 +506,7 @@ Echo: hello
 
 これで クライアントを強制終了する  
 
-# Step O[8 0] エコーサーバー停止
+# Step 8. エコーサーバー停止
 
 サーバーは良い止め方がないので、ターミナルごと終了させてほしい  
 

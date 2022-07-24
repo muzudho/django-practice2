@@ -32,7 +32,7 @@ http://example.com/practice/v1/portal
 
 # はじめに
 
-この記事は LessonO[1 0] から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 この記事のアーキテクチャ:  
@@ -85,7 +85,7 @@ http://example.com/practice/v1/portal
     └── 📄 .gitignore
 ```
 
-# Step O[1 0] Dockerコンテナの起動
+# Step 1. Dockerコンテナの起動
 
 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -97,7 +97,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O[2 0] フォルダー作成 - apps1/portal_v1 フォルダー
+# Step 2. フォルダー作成 - apps1/portal_v1 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -107,7 +107,7 @@ docker-compose up
             └── 📂 portal_v1        # アプリケーション名
 ```
 
-# Step O[3 0] アプリケーション作成
+# Step 3. アプリケーション作成
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -119,7 +119,7 @@ docker-compose run --rm web python manage.py startapp portal_v1 ./apps1/portal_v
 # 2. パス
 ```
 
-# Step O[4 0] 今回使わないファイルの削除
+# Step 4. 今回使わないファイルの削除
 
 👇 以下のファイルを削除してほしい  
 
@@ -137,7 +137,7 @@ docker-compose run --rm web python manage.py startapp portal_v1 ./apps1/portal_v
 👉              └── 📄 views.py
 ```
 
-# Step O[5 0] アプリケーション設定変更 - apps.py
+# Step 5. アプリケーション設定変更 - apps.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -169,7 +169,7 @@ class PortalConfig(AppConfig):
     #           ---------------
 ```
 
-# Step O[6 0] アプリケーション登録 - settings.py ファイル＜その２＞
+# Step 6. アプリケーション登録 - settings.py ファイル＜その２＞
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -207,7 +207,7 @@ INSTALLED_APPS = [
 これで、 `host1/apps1/portal_v1` フォルダーは portal_v1 アプリケーションとして認識される。  
 例えば、 portal_v1 フォルダーの直下に置いた static フォルダーが Django の静的リソースの検索対象のパスになるといったメリットがある  
 
-# Step O[7 0] アイコンの設定 - favicon.ico ファイル
+# Step 7. アイコンの設定 - favicon.ico ファイル
 
 favicon.ico は、例えば 以下のサイトで作れる。作ってきてほしい  
 
@@ -251,7 +251,7 @@ favicon.ico を有効にするには HTML で設定する必要があるが、�
 以下略
 ```
 
-# Step O[8 0] 画面作成 - portal_base.html ファイル
+# Step 8. 画面作成 - portal_base.html ファイル
 
 以下のファイルを作成してほしい。
 
@@ -345,7 +345,7 @@ favicon.ico を有効にするには HTML で設定する必要があるが、�
 </html>
 ```
 
-# Step O[9 0] 設定変更 - settings.py ファイル＜その２＞
+# Step 9. 設定変更 - settings.py ファイル＜その２＞
 
 👇 以下のファイルを編集してほしい  
 
@@ -409,7 +409,7 @@ TEMPLATES = [
 ]
 ```
 
-# Step O[10 0] ビュー モジュール作成 - portal フォルダー
+# Step 10. ビュー モジュール作成 - portal フォルダー
 
 以下のファイルを作成してほしい  
 
@@ -463,7 +463,7 @@ class Portal():
         return HttpResponse(template.render(context, request))
 ```
 
-# Step O[11 0] サブ ルート作成 - urls_portal.py
+# Step 11. サブ ルート作成 - urls_portal.py
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -524,7 +524,7 @@ urlpatterns = [
 ]
 ```
 
-# Step O[12 0] 総合ルート編集 - urls.py
+# Step 12. 総合ルート編集 - urls.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -577,7 +577,7 @@ urlpatterns = [
 ]
 ```
 
-# Step O[13 0] Webページにアクセスする
+# Step 13. Webページにアクセスする
 
 📖 [http://localhost:8000/practice/v1/portal](http://localhost:8000/practice/v1/portal)  
 

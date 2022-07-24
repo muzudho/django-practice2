@@ -19,41 +19,41 @@
 学習コストが低くなるように並べている。  
 数字の小さな Lesson から　上から下へ１つずつ、飛ばさず全部　読み進めてほしい。  
 
-Lesson O[1 0] Table of Contents  
+Lesson 1. Table of Contents  
 
 * 📖 `DjangoとDockerでゲーム対局サーバーを作ろう！` (この記事)  
 
-Lesson O[2 0] Install  
+Lesson 2. Install  
 
 * 📖 [DjangoをDockerコンテナへインストールしよう！](https://qiita.com/muzudho1/items/48e69ed17d70a8f171a7)
 * 📖 [Djangoの本番環境のプロジェクトの作り方を予習しよう！](https://qiita.com/muzudho1/items/e9b8c1cefa5ddaa21ab2)
 
-Lesson O[3 0] Web page  
+Lesson 3. Web page  
 
 * 📖 [DjangoでWebページを追加しよう！](https://qiita.com/muzudho1/items/06fe071c1147b4b8f062)
 * 📖 [DjangoのHTMLのボイラープレートを減らすテンプレートを使おう！](https://qiita.com/muzudho1/items/7dcfc068e0bec009d371)
 * 📖 [DjangoのHTMLのボイラープレートを減らすテンプレートを作るのも減らそう！](https://qiita.com/muzudho1/items/606d314c01543666c51b)
 
-Lesson O[4 0] Super-user  
+Lesson 4. Super-user  
 
 * 📖 [Djangoでスーパーユーザーを追加しよう！](https://qiita.com/muzudho1/items/cf21fa75e23e1f987153)
 
-Lesson O[5 0] Portal  
+Lesson 5. Portal  
 
 * 📖 [Djangoでポータルページを作成しよう！](https://qiita.com/muzudho1/items/ad2299cf94a9a5b1c254)
 * 📖 [DjangoでCSVとpandasを使ってPythonコードを編集しなくてもポータルページのリンクを増減できるようにしよう！](https://qiita.com/muzudho1/items/19c44296501c29c41d31)
 
-Lesson O[6 0] Auth, Sign up  
+Lesson 6. Auth, Sign up  
 
 * 📖 [Djangoでユーザー認証を付けよう！](https://qiita.com/muzudho1/items/55cb7ac55299afd51887)
   * もっと勉強したい人向けの関連記事
     * 📚 [Djangoで、django-allauthのテンプレートを差し替えよう！](https://qiita.com/muzudho1/items/6120055b2a8eb4e28527)
 
-Lesson O[7 0] Reset database
+Lesson 7. Reset database
 
 * 📖 [Djangoでdataフォルダーを壊してしまったときのリセット方法を覚えよう！](https://qiita.com/muzudho1/items/1ecaac80568c981fcd59)
 
-Lesson O[8 0] Auth, Log in/out  
+Lesson 8. Auth, Log in/out  
 
 ※サインインとログイン、サインアウトとログアウトは、実装としては同じもの  
 
@@ -61,7 +61,7 @@ Lesson O[8 0] Auth, Log in/out
 * 📖 [Djangoでログインしていないと見れないページ，およびログアウト機能を付けよう！](https://qiita.com/muzudho1/items/9f1ae4d0debc0b8aa4b1)
 * 📖 [Djangoでログインしていない人には見えず、ログインしている人には見えるボタンを作ろう！](https://qiita.com/muzudho1/items/0c59f3ce7aa6bef2a91f)
 
-Lesson O[9 0] User, Extends User, and Active User  
+Lesson 9. User, Extends User, and Active User  
 
 * 📖 [Djangoで会員登録ユーザーを一覧しよう！](https://qiita.com/muzudho1/items/13c15be5b9070dab1770)
 * 📖 [DjangoでUserモデルを拡張しよう！](https://qiita.com/muzudho1/items/2d182729f625234f0eff)

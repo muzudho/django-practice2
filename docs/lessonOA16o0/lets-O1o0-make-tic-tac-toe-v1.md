@@ -6,7 +6,7 @@ Webサーバーと、クライアント側のアプリ間で通信する練習�
 
 # はじめに
 
-この記事は LessonO[1 0] から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
 連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 この記事のアーキテクチャ:  
@@ -85,7 +85,7 @@ Webサーバーと、クライアント側のアプリ間で通信する練習�
     └── 📄 .gitignore
 ```
 
-# Step O[1 0] Dockerコンテナの起動
+# Step 1. Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -97,7 +97,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O[2 0] Pythonパッケージ インストール指定 - requirements.txt ファイル
+# Step 2. Pythonパッケージ インストール指定 - requirements.txt ファイル
 
 👇 以下のファイルを編集してほしい  
 
@@ -115,7 +115,7 @@ docker-compose up
 channels_redis>=3.2
 ```
 
-# Step O[3 0] Dockerコンテナの停止～ビルド～起動
+# Step 3. Dockerコンテナの停止～ビルド～起動
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -141,7 +141,7 @@ docker-compose up
 
 👆 これで Dockerコンテナに channels_redis パッケージをインストールした  
 
-# Step O[4 0] フォルダー作成 - apps1/tic_tac_toe_v1 フォルダー
+# Step 4. フォルダー作成 - apps1/tic_tac_toe_v1 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -155,7 +155,7 @@ docker-compose up
 あとで `tic_tac_toe_v2` を作るので、今回は `v1` とした。  
 `v1` と `v2` との間で依存はさせないので 別のアプリケーションとすることにした  
 
-# Step O[5 0] アプリケーション作成
+# Step 5. アプリケーション作成
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -183,7 +183,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v1 ./apps1/tic
 👉              └── 📄 views.py
 ```
 
-# Step O[6 0] 今回使わないファイルの削除
+# Step 6. 今回使わないファイルの削除
 
 👇 以下のファイルを削除してほしい  
 
@@ -201,7 +201,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v1 ./apps1/tic
 👉              └── 📄 views.py
 ```
 
-# Step O[7 0] アプリケーション設定変更 - apps.py
+# Step 7. アプリケーション設定変更 - apps.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -233,7 +233,7 @@ class TicTacToeV1Config(AppConfig):
     #           --------------------
 ```
 
-# Step O[8 0] アプリケーション登録 - settings.py ファイル
+# Step 8. アプリケーション登録 - settings.py ファイル
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -269,7 +269,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-# Step O[9 0] Web ページのスタイル作成 - main.css ファイル
+# Step 9. Web ページのスタイル作成 - main.css ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -352,7 +352,7 @@ select {
 }
 ```
 
-# Step O[10 0] 機能作成 - play.js ファイル
+# Step 10. 機能作成 - play.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -640,7 +640,7 @@ function connect() {
 connect();
 ```
 
-# Step O[11 0] 対局申込画面作成 - match_application.html ファイル
+# Step 11. 対局申込画面作成 - match_application.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -707,7 +707,7 @@ connect();
 </html>
 ```
 
-# Step O[12 0] 対局画面作成 - playing.html ファイル
+# Step 12. 対局画面作成 - playing.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -780,7 +780,7 @@ connect();
 </html>
 ```
 
-# Step O[13 0] ビュー モジュール作成 - match_application フォルダー
+# Step 13. ビュー モジュール作成 - match_application フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -847,7 +847,7 @@ class MatchApplicationV():
 ```
 
 
-# Step O[14 0] ビュー モジュール作成 - match_application/v_render.py ファイル
+# Step 14. ビュー モジュール作成 - match_application/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -897,7 +897,7 @@ def render_match_application(request, path_of_http_playing, path_of_html):
     return render(request, path_of_html, {})
 ```
 
-# Step O[15 0] ビュー モジュール作成 - playing フォルダー
+# Step 15. ビュー モジュール作成 - playing フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -956,7 +956,7 @@ class PlayingV():
         return render_playing(request, room_name, PlayingV.path_of_html)
 ```
 
-# Step O[16 0] ビュー モジュール作成 - playing/v_render.py ファイル
+# Step 16. ビュー モジュール作成 - playing/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1010,7 +1010,7 @@ def render_playing(request, room_name, path_of_html):
     return render(request, path_of_html, context)
 ```
 
-# Step O[17 0] ルート新規作成 - urls_tic_tac_toe_v1.py ファイル
+# Step 17. ルート新規作成 - urls_tic_tac_toe_v1.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1091,7 +1091,7 @@ urlpatterns = [
 ]
 ```
 
-# Step O[18 0] 総合ルート編集 - urls.py
+# Step 18. 総合ルート編集 - urls.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -1152,7 +1152,7 @@ urlpatterns = [
 ]
 ```
 
-# Step O[19 0] consumer.py ファイルの作成
+# Step 19. consumer.py ファイルの作成
 
 以下のファイルを新規作成してほしい  
 
@@ -1267,7 +1267,7 @@ class TicTacToeV1Consumer(AsyncJsonWebsocketConsumer):
         }))
 ```
 
-# Step O[20 0] Webソケット用ルート新規作成 - ws_urls_tic_tac_toe_v1.py ファイル
+# Step 20. Webソケット用ルート新規作成 - ws_urls_tic_tac_toe_v1.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1344,7 +1344,7 @@ websocket_urlpatterns = [
 ]
 ```
 
-# Step O[21 0] Webソケット用総合ルート設定 - asgi.py ファイル＜その２＞
+# Step 21. Webソケット用総合ルート設定 - asgi.py ファイル＜その２＞
 
 👇以下の既存のファイルを編集してほしい  
 
@@ -1420,7 +1420,7 @@ websocket_urlpatterns_merged.extend(
 
 
 
-# Step O[22 0] Djangoの設定 - settings.py ファイル
+# Step 22. Djangoの設定 - settings.py ファイル
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -1502,13 +1502,13 @@ TEMPLATES = [
 ]
 ```
 
-# Step O[23 0] Web画面へアクセス
+# Step 23. Web画面へアクセス
 
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでください  
 
 📖 [http://localhost:8000/tic-tac-toe/v1/match-application/](http://localhost:8000/tic-tac-toe/v1/match-application/)  
 
-# Step O[24 0] ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step 24. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
