@@ -78,7 +78,7 @@ Webサーバーとクライアント間で双方向の非同期通信をした�
     └── 📄 .gitignore
 ```
 
-# Step 1. Dockerコンテナの起動
+# Step O1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -90,7 +90,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. Pythonパッケージ インストール指定 - requirements.txt ファイル
+# Step O2o0 Pythonパッケージ インストール指定 - requirements.txt ファイル
 
 👇 以下のファイルを編集してほしい  
 
@@ -108,7 +108,7 @@ docker-compose up
 channels>=3.0
 ```
 
-# Step 3. 設定の編集 - settings.py ファイル
+# Step O3o0 設定の編集 - settings.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -180,7 +180,7 @@ CHANNEL_LAYERS = {
 
 👆 `WSGI` から `ASGI` に乗り換えた。 `ASGI` は `WSGI` を兼ねるようだ  
 
-# Step 4. ASGI設定 - asgi.py ファイル＜その１＞
+# Step O4o0 ASGI設定 - asgi.py ファイル＜その１＞
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -229,7 +229,7 @@ application = ProtocolTypeRouter({
 })
 ```
 
-# Step 5. Visual Studio Code のエラー抑制 - pip コマンド
+# Step O5o0 Visual Studio Code のエラー抑制 - pip コマンド
 
 Python の channels パッケージは、 Dockerコンテナにインストールされていればよく、  
 Dockerコンテナの外側のPCにインストールしている必要はないが、  
@@ -249,7 +249,7 @@ Dockerコンテナの外側のPCにも channels をインストールすれば�
 pip install channels
 ```
 
-# Step 6. Dockerコンテナの停止～ビルド～起動
+# Step O6o0 Dockerコンテナの停止～ビルド～起動
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -275,7 +275,7 @@ docker-compose up
 
 👆 これで Dockerコンテナに channels パッケージをインストールした  
 
-# Step 7. Webソケット設定 - consumer.py ファイル
+# Step O7o0 Webソケット設定 - consumer.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -329,7 +329,7 @@ class WebsockPractice1V1Consumer(AsyncWebsocketConsumer):
         await self.send(text_data=res)
 ```
 
-# Step 8. ルート編集 - ws_urls_practice.py ファイル
+# Step O8o0 ルート編集 - ws_urls_practice.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -372,7 +372,7 @@ websocket_urlpatterns = [
 ]
 ```
 
-# Step 9. ASGI設定 - asgi.py ファイル＜その２＞
+# Step O9o0 ASGI設定 - asgi.py ファイル＜その２＞
 
 👇以下の既存のファイルを編集してほしい  
 
@@ -451,12 +451,12 @@ application = ProtocolTypeRouter({
 })
 ```
 
-# Step 10. ローカルPCにPythonのパッケージ websocket-client をインストール
+# Step OA10o0 ローカルPCにPythonのパッケージ websocket-client をインストール
 
-Step 1 ～ 9. は Dockerコンテナの中のサーバーサイドだった。  
+Step O1o0～ 9. は Dockerコンテナの中のサーバーサイドだった。  
 既に Djangoサーバー側では Webソケットで接続されるのを待っている  
 
-Step 9. からは Dockerコンテナの外のクライアントサイドを説明する  
+Step O9o0 からは Dockerコンテナの外のクライアントサイドを説明する  
 
 👇 Dockerコンテナの外側の あなたのPCでコマンドを打鍵してほしい  
 
@@ -467,7 +467,7 @@ Step 9. からは Dockerコンテナの外のクライアントサイドを説�
 pip install websocket-client
 ```
 
-# Step 11. 複製 - main_finally.py ファイル
+# Step OA11o0 複製 - main_finally.py ファイル
 
 👇 以下の記事で掲載した main_finally.py ファイルをコピー＆ペーストしてほしい  
 
@@ -494,7 +494,7 @@ pip install websocket-client
         └── 📄 requirements.txt
 ```
 
-# Step 12. Webソケット クライアント作成 - websock_client.py ファイル
+# Step OA12o0 Webソケット クライアント作成 - websock_client.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -624,7 +624,7 @@ if __name__ == "__main__":
     sys.exit(MainFinally.run(Main1()))
 ```
 
-# Step 13. Webソケット通信 - コマンド実行
+# Step OA13o0 Webソケット通信 - コマンド実行
 
 👇 以下のコマンドを打鍵してほしい  
 

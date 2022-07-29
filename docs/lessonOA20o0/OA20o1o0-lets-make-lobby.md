@@ -124,7 +124,7 @@
     └── 📄 .gitignore
 ```
 
-# Step 1. Dockerコンテナの起動
+# Step O1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -136,7 +136,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. 画面作成 - lobby.html ファイル
+# Step O2o0 画面作成 - lobby.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -274,7 +274,7 @@ docker-compose up
 </html>
 ```
 
-# Step 3. モデルヘルパー モジュール作成 - mh_room フォルダー
+# Step O3o0 モデルヘルパー モジュール作成 - mh_room フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -305,7 +305,7 @@ class MhRoom():
     # 2. `1.` に含まれる関数
 ```
 
-# Step 4. モデルヘルパー モジュール作成 - mh_get_all_rooms_as_dic.py ファイル
+# Step O4o0 モデルヘルパー モジュール作成 - mh_get_all_rooms_as_dic.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -356,7 +356,7 @@ def get_all_rooms_as_dic():
     return room_dic
 ```
 
-# Step 5. ビュー モジュール作成 - lobby フォルダー
+# Step O5o0 ビュー モジュール作成 - lobby フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -405,7 +405,7 @@ class LobbyV():
         return render_lobby(request, LobbyV._path_of_lobby_page)
 ```
 
-# Step 6. ビュー モジュール作成 - v_lobby ファイル
+# Step O6o0 ビュー モジュール作成 - v_lobby ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -478,7 +478,7 @@ def render_lobby(request, path_of_lobby_page):
     return HttpResponse(template.render(context, request))
 ```
 
-# Step 7. ルート編集 - urls_practice.py ファイル
+# Step O7o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -535,11 +535,11 @@ urlpatterns = [
 ]
 ```
 
-# Step 8. Web画面へアクセス
+# Step O8o0 Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/lobby/](http://localhost:8000/practice/v1/lobby/)  
 
-# Step 9. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step O9o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

@@ -39,7 +39,7 @@
     └── 📄 .gitignore
 ```
 
-# Step 1. Dockerコンテナの起動
+# Step O1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -51,7 +51,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. テンプレート作成 - login.html ファイル
+# Step O2o0 テンプレート作成 - login.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -245,7 +245,7 @@ docker-compose up
 </html>
 ```
 
-# Step 3. ビュー モジュール作成 - login フォルダー
+# Step O3o0 ビュー モジュール作成 - login フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -280,7 +280,7 @@ class AccountsV1LoginView(LoginView):
     #                --------------------------------------------------
 ```
 
-# Step 4. サブ ルート作成 - urls_accounts.py
+# Step O4o0 サブ ルート作成 - urls_accounts.py
 
 ```plaintext
     └── 📂 host1
@@ -331,7 +331,7 @@ urlpatterns = [
 ]
 ```
 
-# Step 5. Web画面へアクセス
+# Step O5o0 Web画面へアクセス
 
 📖 [http://localhost:8000/accounts/v1/login/](http://localhost:8000/accounts/v1/login/)  
 
@@ -343,7 +343,7 @@ urlpatterns = [
 
 👆 ログアウトを試してほしい  
 
-# Step 6. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step O6o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

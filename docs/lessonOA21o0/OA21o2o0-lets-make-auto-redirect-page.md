@@ -92,7 +92,7 @@
     └── 📄 .gitignore
 ```
 
-# Step 1. Dockerコンテナの起動
+# Step O1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -104,7 +104,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. 機能強化 - o2o0/auto_reload.js ファイル
+# Step O2o0 機能強化 - o2o0/auto_reload.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -143,7 +143,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 }
 ```
 
-# Step 3. テンプレート編集 - auto_reload_with_redirect.html ファイル
+# Step O3o0 テンプレート編集 - auto_reload_with_redirect.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -211,7 +211,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 {% endblock methods_trailing %}
 ```
 
-# Step 4. ビュー モジュール作成 - auto_redirect フォルダー
+# Step O4o0 ビュー モジュール作成 - auto_redirect フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -260,7 +260,7 @@ class AutoRedirectV():
         return render_auto_redirect(request, AutoRedirectV._path_of_redirecter_page)
 ```
 
-# Step 5. ビュー モジュール作成 - v_redirect ファイル
+# Step O5o0 ビュー モジュール作成 - v_redirect ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -316,7 +316,7 @@ def render_auto_redirect(request, path_of_redirecter_page):
     return render(request, path_of_redirecter_page, context)
 ```
 
-# Step 6. ルート編集 - urls_practice.py ファイル
+# Step O6o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -376,11 +376,11 @@ urlpatterns = [
 ]
 ```
 
-# Step 7. Web画面へアクセス
+# Step O7o0 Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/auto_redirect/](http://localhost:8000/practice/v1/auto_redirect/)  
 
-# Step 8. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step O8o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

@@ -59,7 +59,7 @@ CSV と pandas を使う
     └── 📄 .gitignore
 ```
 
-# Step 1. Dockerコンテナの起動
+# Step O1o0 Dockerコンテナの起動
 
 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -71,7 +71,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. Pythonパッケージ インストール指定の編集 - requirements.txt ファイル
+# Step O2o0 Pythonパッケージ インストール指定の編集 - requirements.txt ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -90,7 +90,7 @@ docker-compose up
 pandas
 ```
 
-# Step 3. Visual Studio Code のエラー抑制 - pip コマンド
+# Step O3o0 Visual Studio Code のエラー抑制 - pip コマンド
 
 Python の pandas パッケージは、 Dockerコンテナにインストールされていればよく、  
 Dockerコンテナの外側のPCにインストールしている必要はないが、  
@@ -109,7 +109,7 @@ Dockerコンテナの外側のPCにも pandas をインストールすれば（�
 pip install pandas
 ```
 
-# Step 4. Dockerコンテナの停止～ビルド～起動
+# Step O4o0 Dockerコンテナの停止～ビルド～起動
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -133,7 +133,7 @@ docker-compose build
 docker-compose up
 ```
 
-# Step 5. データ作成 - finished-lessons.csv ファイル
+# Step O5o0 データ作成 - finished-lessons.csv ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -158,7 +158,7 @@ path,label
 /practice/v1/page-to-be-added-2,２回追加されたページ
 ```
 
-# Step 6. 画面作成 - portal_base.html ファイル
+# Step O6o0 画面作成 - portal_base.html ファイル
 
 以下のファイルを新規作成してほしい  
 
@@ -237,7 +237,7 @@ path,label
 </html>
 ```
 
-# Step 7. ビュー モジュール作成 - o2o0/portal フォルダー
+# Step O7o0 ビュー モジュール作成 - o2o0/portal フォルダー
 
 以下のファイルを新規作成してほしい  
 
@@ -320,7 +320,7 @@ class Portal():
         return HttpResponse(template.render(context, request))
 ```
 
-# Step 8. サブ ルート編集 - urls_portal.py
+# Step O8o0 サブ ルート編集 - urls_portal.py
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -379,7 +379,7 @@ urlpatterns = [
 ]
 ```
 
-# Step 9. Webページにアクセスする
+# Step O9o0 Webページにアクセスする
 
 📖 [http://localhost:8000/](http://localhost:8000/)  
 

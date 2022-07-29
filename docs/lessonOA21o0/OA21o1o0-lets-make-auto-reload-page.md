@@ -90,7 +90,7 @@
     └── 📄 .gitignore
 ```
 
-# Step 1. Dockerコンテナの起動
+# Step O1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -102,7 +102,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. 機能強化 - clock.js ファイル
+# Step O2o0 機能強化 - clock.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -144,7 +144,7 @@ function getTimeStamp() {
 }
 ```
 
-# Step 3. 機能強化 - auto_reload.js ファイル
+# Step O3o0 機能強化 - auto_reload.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -170,7 +170,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 }
 ```
 
-# Step 4. 画面編集 - v0o0o1/auto_reload.html ファイル
+# Step O4o0 画面編集 - v0o0o1/auto_reload.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -262,7 +262,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 </html>
 ```
 
-# Step 5. ビュー モジュール作成 - reloader フォルダー
+# Step O5o0 ビュー モジュール作成 - reloader フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -311,7 +311,7 @@ class AutoReloadV():
         return render_auto_reload(request, AutoReloadV._path_of_auto_reload_page)
 ```
 
-# Step 6. ビュー モジュール作成 - v_auto_reload ファイル
+# Step O6o0 ビュー モジュール作成 - v_auto_reload ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -348,7 +348,7 @@ def render_auto_reload(request, path_of_reloader_page):
     return render(request, path_of_reloader_page, context)
 ```
 
-# Step 7. ルート編集 - urls_practice.py ファイル
+# Step O7o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -408,11 +408,11 @@ urlpatterns = [
 ]
 ```
 
-# Step 8. Web画面へアクセス
+# Step O8o0 Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/auto_reload/](http://localhost:8000/practice/v1/auto_reload/)  
 
-# Step 9. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step O9o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

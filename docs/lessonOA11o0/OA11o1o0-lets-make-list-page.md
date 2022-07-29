@@ -72,7 +72,7 @@
     └── 📄 .gitignore
 ```
 
-# Step 1. Dockerコンテナの起動
+# Step O1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -84,7 +84,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. 画面作成 - list.html ファイル
+# Step O2o0 画面作成 - list.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -149,7 +149,7 @@ docker-compose up
 </html>
 ```
 
-# Step 3. ビュー作成 - v_list.py ファイル
+# Step O3o0 ビュー作成 - v_list.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -198,7 +198,7 @@ def render_list(request):
     return HttpResponse(template.render(context, request))
 ```
 
-# Step 4. ビュー作成 - prefecture モジュール
+# Step O4o0 ビュー作成 - prefecture モジュール
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -225,7 +225,7 @@ class PrefectureV(object):
     from .v_list import render_list
 ```
 
-# Step 5. ルート編集 - urls.py ファイル
+# Step O5o0 ルート編集 - urls.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -283,11 +283,11 @@ urlpatterns = [
 ]
 ```
 
-# Step 6. Web画面へアクセス
+# Step O6o0 Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/prefectures/](http://localhost:8000/practice/v1/prefectures/)  
 
-# Step 7. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step O7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

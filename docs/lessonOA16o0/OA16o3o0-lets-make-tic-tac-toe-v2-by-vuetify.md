@@ -90,7 +90,7 @@
     └── 📄 .gitignore
 ```
 
-# Step 1. Dockerコンテナの起動
+# Step O1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -102,7 +102,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. 送信メッセージ実装 - outgoing_messages.js ファイル
+# Step O2o0 送信メッセージ実装 - outgoing_messages.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -178,7 +178,7 @@ class OutgoingMessages {
 }
 ```
 
-# Step 3. 受信メッセージ実装 - incoming_messages.js ファイル
+# Step O3o0 受信メッセージ実装 - incoming_messages.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -292,7 +292,7 @@ class IncomingMessages {
 }
 ```
 
-# Step 4. Webソケット接続の実装 - connection.js ファイル
+# Step O4o0 Webソケット接続の実装 - connection.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -457,7 +457,7 @@ class Connection {
 }
 ```
 
-# Step 5. 対局申込画面作成 - match_application.html ファイル
+# Step O5o0 対局申込画面作成 - match_application.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -549,7 +549,7 @@ class Connection {
 </html>
 ```
 
-# Step 6. 対局画面作成 - playing_base.html ファイル
+# Step O6o0 対局画面作成 - playing_base.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1032,7 +1032,7 @@ class Connection {
 </html>
 ```
 
-# Step 7. 対局画面作成 - playing.html.txt ファイル
+# Step O7o0 対局画面作成 - playing.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1099,7 +1099,7 @@ class Connection {
 {% endblock methods_footer %}
 ```
 
-# Step 8. 通信プロトコル作成 - message_converter.py ファイル
+# Step O8o0 通信プロトコル作成 - message_converter.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1203,7 +1203,7 @@ class TicTacToeV2MessageConverter():
         pass
 ```
 
-# Step 9. Webソケットの通信プロトコル作成 - consumer_base.py ファイル
+# Step O9o0 Webソケットの通信プロトコル作成 - consumer_base.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1300,7 +1300,7 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
         }))
 ```
 
-# Step 10. Webソケットの通信プロトコル作成 - consumer_custom.py ファイル
+# Step OA10o0 Webソケットの通信プロトコル作成 - consumer_custom.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1366,7 +1366,7 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
         return await self._messageConverter.on_receive(self.scope, doc_received)
 ```
 
-# Step 11. ビュー モジュール作成 - match_application フォルダー
+# Step OA11o0 ビュー モジュール作成 - match_application フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1464,7 +1464,7 @@ class MatchApplicationV():
         return MatchApplicationV.open_context
 ```
 
-# Step 12. ビュー モジュール作成 - match_application/v_render.py ファイル
+# Step OA12o0 ビュー モジュール作成 - match_application/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1525,7 +1525,7 @@ def render_match_application(request, path_of_http_playing, path_of_html, on_sen
     return render(request, path_of_html, context)
 ```
 
-# Step 13. ビュー モジュール作成 - playing フォルダー
+# Step OA13o0 ビュー モジュール作成 - playing フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1613,7 +1613,7 @@ class PlayingV():
         pass
 ```
 
-# Step 14. ビュー モジュール作成 - playing/v_render.py ファイル
+# Step OA14o0 ビュー モジュール作成 - playing/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1675,7 +1675,7 @@ def render_playing(request, kw_room_name, path_of_ws_playing, path_of_html, on_u
     return render(request, path_of_html, context)
 ```
 
-# Step 15. ルート編集 - urls_tic_tac_toe_v2.py ファイル
+# Step OA15o0 ルート編集 - urls_tic_tac_toe_v2.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -1770,7 +1770,7 @@ urlpatterns = [
 ]
 ```
 
-# Step 16. Webソケット用ルート新規作成 - ws_urls_tic_tac_toe_v2.py ファイル
+# Step OA16o0 Webソケット用ルート新規作成 - ws_urls_tic_tac_toe_v2.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1846,7 +1846,7 @@ websocket_urlpatterns = [
 ]
 ```
 
-# Step 17. Webソケット用総合ルート設定 - asgi.py ファイル＜その２＞
+# Step OA17o0 Webソケット用総合ルート設定 - asgi.py ファイル＜その２＞
 
 👇以下の既存のファイルを編集してほしい  
 
@@ -1922,13 +1922,13 @@ websocket_urlpatterns_merged.extend(
 #                                 ^two
 ```
 
-# Step 18. Web画面へアクセス
+# Step OA18o0 Web画面へアクセス
 
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでください  
 
 📖 [http://localhost:8000/tic-tac-toe/v2/match-application/](http://localhost:8000/tic-tac-toe/v2/match-application/)  
 
-# Step 19. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step OA19o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

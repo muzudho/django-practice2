@@ -75,7 +75,7 @@ Webサーバーとクライアント間で通知したい。
     └── 📄 .gitignore
 ```
 
-# Step 1. Dockerコンテナの起動
+# Step O1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -87,7 +87,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. フォルダー作成
+# Step O2o0 フォルダー作成
 
 👇 ソケットの練習は Django とは関係ないので、別にフォルダーを作ってほしい  
 
@@ -97,7 +97,7 @@ docker-compose up
     └── 📂 host1                    # 既存
 ```
 
-# Step 3. 機能増強 - main_finally.py ファイル
+# Step O3o0 機能増強 - main_finally.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -181,7 +181,7 @@ class MainFinally:
         return return_code
 ```
 
-# Step 4. 練習用通信サーバー作成 - echo_server.py ファイル
+# Step O4o0 練習用通信サーバー作成 - echo_server.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -330,7 +330,7 @@ if __name__ == "__main__":
 
 ```
 
-# Step 5. 練習用通信クライアント作成 - client.py ファイル
+# Step O5o0 練習用通信クライアント作成 - client.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -476,7 +476,7 @@ if __name__ == "__main__":
     sys.exit(MainFinally.run(Main1()))
 ```
 
-# Step 6. エコーサーバー起動 - コマンド実行
+# Step O6o0 エコーサーバー起動 - コマンド実行
 
 ```shell
 cd host_local1/sockapp1
@@ -484,7 +484,7 @@ cd host_local1/sockapp1
 python.exe -m echo_server
 ```
 
-# Step 7. クライアント起動～停止 - コマンド実行
+# Step O7o0 クライアント起動～停止 - コマンド実行
 
 エコーサーバーとは別ターミナルで:  
 
@@ -506,7 +506,7 @@ Echo: hello
 
 これで クライアントを強制終了する  
 
-# Step 8. エコーサーバー停止
+# Step O8o0 エコーサーバー停止
 
 サーバーは良い止め方がないので、ターミナルごと終了させてほしい  
 

@@ -70,7 +70,7 @@
     └── 📄 .gitignore
 ```
 
-# Step 1. Dockerコンテナの起動
+# Step O1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -82,7 +82,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. データの再利用 - desserts.json ファイル
+# Step O2o0 データの再利用 - desserts.json ファイル
 
 👇 以下の記事で掲載した JSON ファイルを再利用してほしい  
 
@@ -99,7 +99,7 @@ docker-compose up
 👉                              └── 📄 desserts1.json
 ```
 
-# Step 3. ビュー編集 - v_desserts1_as_json.py ファイル
+# Step O3o0 ビュー編集 - v_desserts1_as_json.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -136,7 +136,7 @@ def render_desserts1_as_json(request):
     return JsonResponse(doc)
 ```
 
-# Step 4. ビュー編集 - VuetifyV モジュール
+# Step O4o0 ビュー編集 - VuetifyV モジュール
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -167,7 +167,7 @@ class VuetifyV(object):
     from .v_desserts1_as_json import render_desserts1_as_json
 ```
 
-# Step 5. ルート編集 - urls.py ファイル
+# Step O5o0 ルート編集 - urls.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -228,11 +228,11 @@ urlpatterns = [
 ]
 ```
 
-# Step 6. Web画面へアクセス
+# Step O6o0 Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/vuetify/desserts1-as-json](http://localhost:8000/practice/v1/vuetify/desserts1-as-json)  
 
-# Step 7. ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step O7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

@@ -53,7 +53,7 @@
     └── 📄 .gitignore
 ```
 
-# Step 1. Dockerコンテナの起動
+# Step O1o0 Dockerコンテナの起動
 
 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -65,7 +65,7 @@ cd host1
 docker-compose up
 ```
 
-# Step 2. 画面作成 - o3o0/page_to_be_added.html.txt ファイル
+# Step O2o0 画面作成 - o3o0/page_to_be_added.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい。  
 自動フォーマットされてくないので、拡張子をテキストファイルにしておく  
@@ -109,7 +109,7 @@ docker-compose up
 {% endblock section3 %}
 ```
 
-# Step 3. ビュー モジュール作成 - o3o0/page_to_be_added フォルダー
+# Step O3o0 ビュー モジュール作成 - o3o0/page_to_be_added フォルダー
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -150,7 +150,7 @@ class PageToBeAdded():
         return HttpResponse(template.render(context, request))
 ```
 
-# Step 4. サブ ルート編集 - urls_practice.py
+# Step O4o0 サブ ルート編集 - urls_practice.py
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -215,7 +215,7 @@ urlpatterns = [
 ]
 ```
 
-# Step 5. Webページにアクセスする
+# Step O5o0 Webページにアクセスする
 
 📖 [http://localhost:8000/practice/v1/page-to-be-added-2](http://localhost:8000/practice/v1/page-to-be-added-2)  
 
