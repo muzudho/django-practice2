@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/practice/v1/page-the-hello](http://tic.warabenture.com:8000/practice/v1/page-the-hello)  
+
 # 目的
 
 Webサイトのページを追加したい。  
