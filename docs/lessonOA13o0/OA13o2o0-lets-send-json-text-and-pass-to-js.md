@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/practice/v1/vuetify/textarea1](http://tic.warabenture.com:8000/practice/v1/vuetify/textarea1)  
+
 # 目的
 
 Web ページで表示する内容を、JSON形式のテキストで渡したい  
