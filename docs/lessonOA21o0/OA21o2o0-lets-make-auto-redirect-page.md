@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/practice/v1/auto_redirect/](http://tic.warabenture.com:8000/practice/v1/auto_redirect/)  
+
 # 目的
 
 待っていると　対局が付くページがほしい  
