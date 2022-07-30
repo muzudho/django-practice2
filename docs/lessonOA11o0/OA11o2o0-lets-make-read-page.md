@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/practice/v1/prefectures/read/1/](http://tic.warabenture.com:8000/practice/v1/prefectures/read/1/)  
+
 # 目的
 
 （※いわゆる CRUD の R）  
