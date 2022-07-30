@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/practice/v1/vuetify/data-table1](http://tic.warabenture.com:8000/practice/v1/vuetify/data-table1)  
+
 # 目的
 
 Vuetify を自由自在に使えるよう、使用スキルを上げたい。  
