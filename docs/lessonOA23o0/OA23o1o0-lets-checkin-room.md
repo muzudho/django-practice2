@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/tic-tac-toe/v3.2/match-application/](http://tic.warabenture.com:8000/tic-tac-toe/v3.2/match-application/)  
+
 # 目的
 
 現在、対局中かどうかを調べられるようにしたい  
