@@ -1,3 +1,8 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/accounts/v1/signup/](http://tic.warabenture.com:8000/accounts/v1/signup/) - サインアップ  
+📖 [http://tic.warabenture.com:8000/accounts/v1/logout/](http://tic.warabenture.com:8000/accounts/v1/logout/) - ログアウト  
+
 # 目的
 
 ゲーム対局サーバーに、参加ユーザーが集まるよう、ユーザー別にライフスタイルにあったサービスを提供したい  
