@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/practice/v1/lobby/](http://tic.warabenture.com:8000/practice/v1/lobby/)  
+
 # 目的
 
 ゲーム対局サーバーに訪問したユーザーの、離脱の原因の１つを防ぐ  
