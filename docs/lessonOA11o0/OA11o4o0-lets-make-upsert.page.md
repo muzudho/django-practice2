@@ -1,3 +1,8 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/practice/v1/prefectures/create/](http://tic.warabenture.com:8000/practice/v1/prefectures/create/) - 作成  
+📖 [http://tic.warabenture.com:8000/practice/v1/prefectures/update/4/](http://tic.warabenture.com:8000/practice/v1/prefectures/update/4/) - 更新。IDは適宜変えてほしい  
+
 # 目的
 
 （※いわゆる CRUD の C と U）  
