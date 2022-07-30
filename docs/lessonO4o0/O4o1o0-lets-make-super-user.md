@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/admin](http://tic.warabenture.com:8000/admin) - 管理画面の先なのでお見せできません  
+
 # 目的
 
 Djangoサーバー支配下のすべてのアプリケーションを調整できるユーザー（*1）を作る  
