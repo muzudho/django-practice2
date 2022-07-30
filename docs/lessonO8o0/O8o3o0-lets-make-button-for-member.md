@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/practice/v1/buttom_for_member/](http://tic.warabenture.com:8000/practice/v1/buttom_for_member/)  
+
 # 目的
 
 会員に特典を与えたい  

@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/practice/v1/extends-user-list/](http://tic.warabenture.com:8000/practice/v1/extends-user-list/)  
+
 # 目的
 
 Django に最初から付いている User モデルを拡張したい  
