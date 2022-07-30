@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/practice/v1/vuetify/desserts1-as-json](http://tic.warabenture.com:8000/practice/v1/vuetify/desserts1-as-json)  
+
 # 目的
 
 サーバーからデータをJSON形式で受信したい  
