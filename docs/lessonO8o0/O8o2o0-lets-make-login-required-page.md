@@ -1,3 +1,8 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/practice/v1/login-required](http://localhost:8000/practice/v1/login-required) - ログインが必要なページ  
+📖 [http://tic.warabenture.com:8000/practice/v1/logout](http://localhost:8000/practice/v1/logout) - ログアウト  
+
 # 目的
 
 ログインしているユーザーには 見え、  
