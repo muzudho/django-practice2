@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/](http://tic.warabenture.com:8000/)  
+
 # 目的
 
 Pythonコードを編集しなくても、ポータルページのリンクを増減できるようにする  
