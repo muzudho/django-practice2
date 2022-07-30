@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/tic-tac-toe/v1/match-application/](http://tic.warabenture.com:8000/tic-tac-toe/v1/match-application/)  
+
 # 目的
 
 Webサーバーと、クライアント側のアプリ間で通信する練習をしたい。  
