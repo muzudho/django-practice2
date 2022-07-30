@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/practice/v1/prefectures/](http://tic.warabenture.com:8000/practice/v1/prefectures/)  
+
 # 目的
 
 サーバー側に記憶したデータを一覧したい  
