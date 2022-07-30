@@ -1,3 +1,8 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/accounts/v1/login/](http://tic.warabenture.com:8000/accounts/v1/login/) - ログイン  
+📖 [http://tic.warabenture.com:8000/accounts/v1/logout/](http://tic.warabenture.com:8000/accounts/v1/logout/) - ログアウト  
+
 # 目的
 
 見た目がマシな　ログイン（ユーザー認証）のページがほしい  
