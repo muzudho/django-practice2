@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/practice/v1/from-object-to-json-str/](http://tic.warabenture.com:8000/practice/v1/from-object-to-json-str/)  
+
 # 目的
 
 モデルの中身を全部見たい。  
