@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/practice/v1/vuetify/textarea1-to-model](http://tic.warabenture.com:8000/practice/v1/vuetify/textarea1-to-model)  
+
 # 目的
 
 データをJSON形式で渡して、サーバーへ記憶させたい  
