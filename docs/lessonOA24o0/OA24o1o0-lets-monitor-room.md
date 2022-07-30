@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/tic-tac-toe/v3.3/match-application/](http://tic.warabenture.com:8000/tic-tac-toe/v3.3/match-application/)  
+
 # 目的
 
 ゲーム対局部屋をモニターしたい  
