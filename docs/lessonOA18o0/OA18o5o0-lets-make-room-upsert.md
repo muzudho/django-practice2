@@ -1,3 +1,8 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/practice/v1/rooms/upsert/](http://tic.warabenture.com:8000/practice/v1/rooms/upsert/) - 作成  
+📖 [http://tic.warabenture.com:8000/practice/v1/rooms/upsert/5/](http://tic.warabenture.com:8000/practice/v1/rooms/upsert/5/) - 更新。部屋ID は適宜変えてほしい  
+
 # 目的
 
 （※いわゆる CRUD の C と U）  
