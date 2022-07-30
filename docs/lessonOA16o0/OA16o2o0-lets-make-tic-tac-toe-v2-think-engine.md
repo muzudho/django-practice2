@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/tic-tac-toe/v2/engine-manual/](http://tic.warabenture.com:8000/tic-tac-toe/v2/engine-manual/)  
+
 # 目的
 
 前の記事で、１人２役で２窓で遊ぶ 〇×ゲーム（Tic tac toe）を作った  
