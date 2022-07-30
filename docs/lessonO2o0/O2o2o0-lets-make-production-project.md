@@ -87,6 +87,8 @@ docker-compose up
 DEBUG = False
 ```
 
+* `📂 project2` の settings.py に `project1` という文字が含まれていれば `project2` に変えてほしい
+
 # Step O4o0 設定変更 - settings_secrets.py ファイル
 
 👇 以下のファイルを編集してほしい  
