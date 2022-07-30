@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/practice/v1/vuetify/validation1](http://tic.warabenture.com:8000/practice/v1/vuetify/validation1)  
+
 # 目的
 
 Vuetify の テキストフィールド の バリデーション を練習したい  
