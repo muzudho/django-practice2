@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/practice/v1/my/](http://tic.warabenture.com:8000/practice/v1/my/)  
+
 # 目的
 
 ゲーム対局サーバーと、ユーザーの間には サインアップを経て承諾した内容があるはずだ。  
