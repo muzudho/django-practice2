@@ -21,7 +21,6 @@ from apps1.practice_v1.forms.f_room import RoomForm
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
-@staticmethod
 def render_upsert(request, id, path_of_upsert_page):
     """新規作成または更新のページ"""
 

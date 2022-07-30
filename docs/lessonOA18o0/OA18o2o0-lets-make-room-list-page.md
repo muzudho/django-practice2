@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/practice/v1/rooms/](http://tic.warabenture.com:8000/practice/v1/rooms/)  
+
 # 目的
 
 ゲームルームを一覧したい  

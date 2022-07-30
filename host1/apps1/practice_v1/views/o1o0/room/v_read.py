@@ -20,7 +20,6 @@ from apps1.practice_v1.models_helper.o1o0.mh_user import MhUser
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
-@staticmethod
 def render_read(request, room_pk, path_of_read_page):
     """読取ページ"""
 

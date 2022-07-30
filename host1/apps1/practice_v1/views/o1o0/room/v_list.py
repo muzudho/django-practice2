@@ -21,7 +21,6 @@ from apps1.practice_v1.models_helper.o1o0.mh_user import MhUser
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
-@staticmethod
 def render_list(request, path_of_list_page):
     """一覧ページ"""
 
