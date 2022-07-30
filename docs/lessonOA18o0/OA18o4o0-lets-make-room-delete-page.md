@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/practice/v1/rooms/delete/1/](http://tic.warabenture.com:8000/practice/v1/rooms/delete/1/) - 部屋IDは適宜変えてほしい  
+
 # 目的
 
 （※いわゆる CRUD の D）  
