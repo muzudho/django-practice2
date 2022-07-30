@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/tic-tac-toe/v3.1/match-application/](http://tic.warabenture.com:8000/tic-tac-toe/v3.1/match-application/)  
+
 # 目的
 
 `Play Again` （再戦）するかどうかは、プレイヤーが選べるのではなく、サーバー側が選ぶようにしたい  
