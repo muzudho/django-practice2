@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/practice/v1/page-to-be-added-2](http://tic.warabenture.com:8000/practice/v1/page-to-be-added-2)  
+
 # 目的
 
 パッチを当てるようにテンプレートを改修したい  
