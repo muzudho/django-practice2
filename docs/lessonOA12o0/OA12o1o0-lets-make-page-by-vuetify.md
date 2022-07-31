@@ -74,7 +74,7 @@ Django に最初から入っている HTMLレンダラー に満足できない�
     └── 📄 .gitignore
 ```
 
-# Step O1o0 Dockerコンテナの起動
+# Step OA12o1o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -86,7 +86,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o0 画面作成 - hello1.html ファイル
+# Step OA12o1o0g2o0 画面作成 - hello1.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -147,7 +147,7 @@ docker-compose up
 
 👆 `<v-alert>` の説明は 📖[Vuetify Alerts Usage](https://vuetifyjs.com/en/components/alerts/#usage) のページにある  
 
-# Step O3o0 ビュー作成 - v_hello1.py ファイル
+# Step OA12o1o0g3o0 ビュー作成 - v_hello1.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -187,7 +187,7 @@ def render_hello1(request):
     return HttpResponse(template.render(context, request))
 ```
 
-# Step O4o0 ビュー作成 - VuetifyV モジュール
+# Step OA12o1o0g4o0 ビュー作成 - VuetifyV モジュール
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -214,7 +214,7 @@ class VuetifyV(object):
     from .v_hello1 import render_hello1
 ```
 
-# Step O5o0 ルート編集 - urls.py ファイル
+# Step OA12o1o0g5o0 ルート編集 - urls.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -275,11 +275,11 @@ urlpatterns = [
 ]
 ```
 
-# Step O6o0 Web画面へアクセス
+# Step OA12o1o0g6o0 Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/vuetify/hello1](http://localhost:8000/practice/v1/vuetify/hello1)  
 
-# Step O7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step OA12o1o0g7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
