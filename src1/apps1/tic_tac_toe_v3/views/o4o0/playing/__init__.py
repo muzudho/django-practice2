@@ -26,7 +26,7 @@ from apps1.tic_tac_toe_v3.views.o3o0.playing import PlayingV as PlayingVV3o3o0
 
 
 class PlayingV():
-    """対局中ビュー"""
+    """OA25o1o0g4o0 対局中ビュー"""
 
     # 駒
     expected_pieces = ['X', 'O', '_']
@@ -54,7 +54,7 @@ class PlayingV():
         return render_playing(
             request,
             kw_room_name,
-            PlayingVV3o3o0.path_of_ws_playing,
+            PlayingVV3o3o0.path_of_web_socket,
             PlayingV.path_of_html,
             PlayingVV3o1o0.on_update,
             PlayingV.expected_pieces)
