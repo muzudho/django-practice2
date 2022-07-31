@@ -135,7 +135,7 @@ Elephant
     └── 📄 .gitignore
 ```
 
-# Step O1o0 Dockerコンテナの起動
+# Step OA18o3o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -147,7 +147,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o0 画面作成 - read.html ファイル
+# Step OA18o3o0g2o0 画面作成 - read.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -282,7 +282,7 @@ docker-compose up
 </html>
 ```
 
-# Step O3o0 ビュー モジュール編集 - room フォルダー
+# Step OA18o3o0g3o0 ビュー モジュール編集 - room フォルダー
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -332,7 +332,7 @@ class RoomV():
         return render_read(request, id, RoomV._path_of_read_page)
 ```
 
-# Step O4o0 ビュー モジュール作成 - v_read ファイル
+# Step OA18o3o0g4o0 ビュー モジュール作成 - v_read ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -418,7 +418,7 @@ def render_read(request, room_pk, path_of_read_page):
     return render(request, path_of_read_page, context)
 ```
 
-# Step O5o0 ルート編集 - urls_practice.py ファイル
+# Step OA18o3o0g5o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -463,13 +463,13 @@ urlpatterns = [
 ]
 ```
 
-# Step O6o0 Web画面へアクセス
+# Step OA18o3o0g6o0 Web画面へアクセス
 
 👇 部屋番号は適宜変えてほしい  
 
 📖 [http://localhost:8000/practice/v1/rooms/read/1/](http://localhost:8000/practice/v1/rooms/read/1/)  
 
-# Step O7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step OA18o3o0g7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
