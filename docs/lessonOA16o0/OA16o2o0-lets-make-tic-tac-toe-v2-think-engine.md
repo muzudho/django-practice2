@@ -1773,9 +1773,6 @@ urlpatterns = [
 ```
 
 ```py
-from django.urls import include, path
-
-
 # ...略...
 
 
@@ -1785,10 +1782,10 @@ urlpatterns = [
     # ...略...
 
 
-    # 〇×ゲーム v2
-    path('', include('project1.urls_tic_tac_toe_v2')),
-    #    --           ----------------------------
-    #      1          2
+    # OA16o2o0 〇×ゲーム v2
+    path('', include(f'{PROJECT_NAME}.urls_tic_tac_toe_v2')),
+    #    --            ----------------------------------
+    #    1             2
     # 1. 例えば `http://example.com/` のような URLの直下
     # 2. `host1/project1/urls_tic_tac_toe_v2.py` の urlpatterns を `1.` にぶら下げる
     #           ----------------------------

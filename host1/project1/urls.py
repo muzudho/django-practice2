@@ -59,8 +59,7 @@ urlpatterns = [
     # 2. `host1/projectN/urls_portal.py` の urlpatterns を `1.` にぶら下げる
     #           --------------------
 
-
-    # 06o1o0 認証
+    # O6o1o0 認証
     path('', include(f'{PROJECT_NAME}.urls_accounts')),
     #    --            ----------------------------
     #    1             2
@@ -68,18 +67,18 @@ urlpatterns = [
     # 2. `host1/projectN/urls_accounts.py` の urlpatterns を `1.` にぶら下げる
     #           ----------------------
 
-    # 〇×ゲーム v1
-    path('', include('project1.urls_tic_tac_toe_v1')),
-    #    --           ----------------------------
-    #      1          2
+    # OA16o1o0 〇×ゲーム v1
+    path('', include(f'{PROJECT_NAME}.urls_tic_tac_toe_v1')),
+    #    --            ----------------------------------
+    #    1             2
     # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `host1/project1/urls_tic_tac_toe_v1.py` の urlpatterns を `1.` にぶら下げる
+    # 2. `host1/projectN/urls_tic_tac_toe_v1.py` の urlpatterns を `1.` にぶら下げる
     #           ----------------------------
 
-    # 〇×ゲーム v2
-    path('', include('project1.urls_tic_tac_toe_v2')),
-    #    --           ----------------------------
-    #      1          2
+    # OA16o2o0 〇×ゲーム v2
+    path('', include(f'{PROJECT_NAME}.urls_tic_tac_toe_v2')),
+    #    --            ----------------------------------
+    #    1             2
     # 1. 例えば `http://example.com/` のような URLの直下
     # 2. `host1/project1/urls_tic_tac_toe_v2.py` の urlpatterns を `1.` にぶら下げる
     #           ----------------------------
