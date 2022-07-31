@@ -23,12 +23,15 @@ from .settings_secrets import SECRET_KEY, ALLOWED_HOSTS
 BASE_DIR = Path(__file__).resolve().parent.parent
 #                        ------------------------
 #                        1
-# 1. 例えば `host1/project1/settings.py` ファイルから見て
-#    .resolve()               は `code/project1/settings.py` （`host1` は見えず `code` に差し変わっている）
-#    .resolve().parent        は `code/project1/`
+# 1. 例えば `host1/projectN/settings.py` ファイルから見て
+#    .resolve()               は `code/projectN/settings.py` （`host1` は見えず `code` に差し変わっている）
+#    .resolve().parent        は `code/projectN/`
 #    .resolve().parent.parent は `code/`
 #    となっていて、つまり BASE_DIR は あなたの開発用ディレクトリーを指している
 
+# プロジェクト名を親ディレクトリー名から取得
+PROJECT_NAME = os.path.basename(Path(__file__).resolve().parent)
+print(f"PROJECT_NAME:{PROJECT_NAME}")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -76,11 +79,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'project1.urls'
-#               -------------
-#               1
+# * 変更前
+# ROOT_URLCONF = 'project1.urls'
+# * 変更後
+ROOT_URLCONF = f'{PROJECT_NAME}.urls'
+#                -------------------
+#                1
 # 1. DjangoのURL設定の大元となるPythonモジュール。
-#    `host1/project1/urls.py` を指している
+#    `host1/projectN/urls.py` を指している
 #           -------------
 
 TEMPLATES = [
@@ -161,19 +167,20 @@ TEMPLATES = [
 
 # * WSGI を ASGI にバージョンアップする
 # ├── * 変更前
-# │ WSGI_APPLICATION = 'project1.wsgi.application'
-# │                     -------------------------
-# │                     1
+# │ // WSGI_APPLICATION = 'project1.wsgi.application'
+# │ WSGI_APPLICATION = f'{PROJECT_NAME}.wsgi.application'
+# │                      -------------------------------
+# │                      1
 # │ 1. DjangoのWSGI設定の大元となるグローバル変数。
-# │    `host1/project1/wsgi.py` ファイルの中の application 変数を指している
+# │    `host1/projectN/wsgi.py` ファイルの中の application 変数を指している
 # │           -------------
 # │
 # └── * 変更後
-ASGI_APPLICATION = "project1.asgi.application"
-#                   -------------------------
-#                   1
+ASGI_APPLICATION = f"{PROJECT_NAME}.asgi.application"
+#                    -------------------------------
+#                    1
 # 1. DjangoのASGI設定の大元となるグローバル変数。
-#    `host1/project1/asgi.py` ファイルの中の application 変数を指している
+#    `host1/projectN/asgi.py` ファイルの中の application 変数を指している
 #           -------------
 
 # See also: 📖 [Django Channels and WebSockets](https://blog.logrocket.com/django-channels-and-websockets/)

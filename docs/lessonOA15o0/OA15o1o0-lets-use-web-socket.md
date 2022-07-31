@@ -142,17 +142,18 @@ INSTALLED_APPS = [
 
 # * WSGI を ASGI にバージョンアップする
 # ├── * 変更前
-# │ WSGI_APPLICATION = 'project1.wsgi.application'
-# │                     -------------------------
-# │                     1
+# │ // WSGI_APPLICATION = 'project1.wsgi.application'
+# │ WSGI_APPLICATION = f'{PROJECT_NAME}.wsgi.application'
+# │                      -------------------------------
+# │                      1
 # │ 1. DjangoのWSGI設定の大元となるグローバル変数。
 # │    `host1/project1/wsgi.py` ファイルの中の application 変数を指している
 # │           -------------
 # │
 # └── * 変更後
-ASGI_APPLICATION = "project1.asgi.application"
-#                   -------------------------
-#                   1
+ASGI_APPLICATION = f"{PROJECT_NAME}.asgi.application"
+#                    -------------------------------
+#                    1
 # 1. DjangoのASGI設定の大元となるグローバル変数。
 #    `host1/project1/asgi.py` ファイルの中の application 変数を指している
 #           -------------

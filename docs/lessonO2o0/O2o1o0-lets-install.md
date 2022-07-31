@@ -479,11 +479,64 @@ urlpatterns = [
     └── 📄 .gitignore
 ```
 
-👇 冒頭のあたりに追加
+### import
+
+👇 冒頭のあたりに追加  
 
 ```py
 import os
+
+
+# ...略...
 ```
+
+### PROJECT_NAME
+
+👇 BASE_DIR の設定の下あたりに追加  
+
+```py
+# ...略...
+
+
+# プロジェクト名を親ディレクトリー名から取得
+PROJECT_NAME = os.path.basename(Path(__file__).resolve().parent)
+print(f"PROJECT_NAME:{PROJECT_NAME}")
+
+
+# ...略...
+```
+
+### ROOT_URLCONF
+
+```py
+# ...略...
+
+
+# * 変更前
+# ROOT_URLCONF = 'project1.urls'
+# * 変更後
+ROOT_URLCONF = f'{PROJECT_NAME}.urls'
+
+
+# ...略...
+```
+
+### WSGI_APPLICATION
+
+```py
+# ...略...
+
+
+# * 変更前
+# WSGI_APPLICATION = 'project1.wsgi.application'
+# * 変更後
+WSGI_APPLICATION = f'{PROJECT_NAME}.wsgi.application'
+
+
+# ...略...
+```
+
+### DATABASES
 
 👇 探して変更してほしい
 
@@ -547,18 +600,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 ```
 
 ```py
-ROOT_URLCONF = 'project1.urls'
-#               -------------
-#               1
+ROOT_URLCONF = f'{PROJECT_NAME}.urls'
+#                -------------------
+#                1
 # 1. DjangoのURL設定の大元となるPythonモジュール。
 #    `host1/project1/urls.py` を指している
 #           -------------
 ```
 
 ```py
-WSGI_APPLICATION = 'project1.wsgi.application'
-#                   -------------------------
-#                   1
+WSGI_APPLICATION = f'{PROJECT_NAME}.wsgi.application'
+#                    -------------------------------
+#                    1
 # 1. DjangoのWSGI設定の大元となるグローバル変数。
 #    `host1/project1/wsgi.py` ファイルの中の application 変数を指している
 #           -------------
