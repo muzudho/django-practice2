@@ -52,7 +52,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O1o0 Dockerコンテナの起動
+# Step OA10o2o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -64,11 +64,11 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o0 データ用意 - 管理画面
+# Step OA10o2o0g2o0 データ用意 - 管理画面
 
 管理画面から、都道府県モデルのデータを追加しておいてください  
 
-# Step O3o0 モデルヘルパー モジュール作成 - mh_json フォルダー
+# Step OA10o2o0g3o0 モデルヘルパー モジュール作成 - mh_json フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -97,7 +97,7 @@ class MhJson():
     from .m_from_model_to_json_str import from_model_to_json_str_with_indent
 ```
 
-# Step O4o0 モデルヘルパー モジュール作成 - m_from_model_to_json_str フォルダー
+# Step OA10o2o0g4o0 モデルヘルパー モジュール作成 - m_from_model_to_json_str フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -129,7 +129,7 @@ def from_model_to_json_str_with_indent(any_object):
     return json.dumps(doc, indent=4)
 ```
 
-# Step O5o0 ビュー モジュール作成 - debug フォルダー
+# Step OA10o2o0g5o0 ビュー モジュール作成 - debug フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -192,7 +192,7 @@ class DebugV():
         return HttpResponse(f"<pre>{json_str}</pre>")
 ```
 
-# Step O6o0 ルート編集 - urls_practice.py ファイル
+# Step OA10o2o0g6o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -246,11 +246,11 @@ urlpatterns = [
 ]
 ```
 
-# Step O7o0 Web画面へアクセス
+# Step OA10o2o0g7o0 Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/from-object-to-json-str/](http://localhost:8000/practice/v1/from-object-to-json-str/)  
 
-# Step O8o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step OA10o2o0g8o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
