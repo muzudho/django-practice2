@@ -435,8 +435,7 @@ class LobbyV():
 
 ```py
 import json
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render
 
 # 部屋モデルヘルパー
 from apps1.practice_v1.models_helper.o1o0.mh_room import MhRoom
@@ -460,9 +459,14 @@ from apps1.practice_v1.models_helper.o1o0.mh_session import MhSession
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
-def render_lobby(request, path_of_lobby_page):
-    """ロビー（待合室）"""
-    template = loader.get_template(path_of_lobby_page)
+def render_lobby(request, lp_lobby):
+    """OA20o1o0g6o0 ロビー（待合室）
+
+    Parameters
+    ----------
+    lp_lobby : str
+        ローカルパス
+    """
 
     # 部屋の一覧
     room_dic = MhRoom.get_all_rooms_as_dic()
@@ -479,7 +483,7 @@ def render_lobby(request, path_of_lobby_page):
         "dj_path_of_rooms_read": "/practice/v1/rooms/read/",
     }
 
-    return HttpResponse(template.render(context, request))
+    return render(request, lp_lobby, context)
 ```
 
 # Step OA20o1o0g7o0 ルート編集 - urls_practice.py ファイル

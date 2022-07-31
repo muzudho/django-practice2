@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 
 def render_my(request, lp_my_page):
-    """描画 - マイ ページ
+    """OA19o1o0g4o0 描画 - マイ ページ
 
     Parameters
     ----------

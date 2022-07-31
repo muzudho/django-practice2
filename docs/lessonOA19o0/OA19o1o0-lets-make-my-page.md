@@ -246,7 +246,7 @@ class MyV():
 
     @staticmethod
     def render_my(request):
-        """描画 - マイ ページ"""
+        """OA19o1o0g3o0 描画 - マイ ページ"""
 
         # 以下のファイルはあとで作ります
         from .v_my import render_my
@@ -283,7 +283,7 @@ from django.shortcuts import render
 
 
 def render_my(request, lp_my_page):
-    """描画 - マイ ページ
+    """OA19o1o0g4o0 描画 - マイ ページ
 
     Parameters
     ----------
