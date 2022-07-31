@@ -128,7 +128,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O1o0 Dockerコンテナの起動
+# Step OA20o1o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -140,7 +140,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o0 画面作成 - lobby.html ファイル
+# Step OA20o1o0g2o0 画面作成 - lobby.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -278,7 +278,7 @@ docker-compose up
 </html>
 ```
 
-# Step O3o0 モデルヘルパー モジュール作成 - mh_room フォルダー
+# Step OA20o1o0g3o0 モデルヘルパー モジュール作成 - mh_room フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -309,7 +309,7 @@ class MhRoom():
     # 2. `1.` に含まれる関数
 ```
 
-# Step O4o0 モデルヘルパー モジュール作成 - mh_get_all_rooms_as_dic.py ファイル
+# Step OA20o1o0g4o0 モデルヘルパー モジュール作成 - mh_get_all_rooms_as_dic.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -360,7 +360,7 @@ def get_all_rooms_as_dic():
     return room_dic
 ```
 
-# Step O5o0 ビュー モジュール作成 - lobby フォルダー
+# Step OA20o1o0g5o0 ビュー モジュール作成 - lobby フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -409,7 +409,7 @@ class LobbyV():
         return render_lobby(request, LobbyV._path_of_lobby_page)
 ```
 
-# Step O6o0 ビュー モジュール作成 - v_lobby ファイル
+# Step OA20o1o0g6o0 ビュー モジュール作成 - v_lobby ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -482,7 +482,7 @@ def render_lobby(request, path_of_lobby_page):
     return HttpResponse(template.render(context, request))
 ```
 
-# Step O7o0 ルート編集 - urls_practice.py ファイル
+# Step OA20o1o0g7o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -539,11 +539,11 @@ urlpatterns = [
 ]
 ```
 
-# Step O8o0 Web画面へアクセス
+# Step OA20o1o0g8o0 Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/lobby/](http://localhost:8000/practice/v1/lobby/)  
 
-# Step O9o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step OA20o1o0g9o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
