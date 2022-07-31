@@ -69,7 +69,7 @@ Data table を作れば上がる。だから説明する
     └── 📄 .gitignore
 ```
 
-# Step O1o0 Dockerコンテナの起動
+# Step OA12o2o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -81,7 +81,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o0 画面作成 - data_table1.html ファイル
+# Step OA12o2o0g2o0 画面作成 - data_table1.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -238,7 +238,7 @@ docker-compose up
 
 👆 `<v-data-table>` の説明は 📖[Vuetify - Data tables - Usage](https://vuetifyjs.com/en/components/data-tables/#dense) のページにある  
 
-# Step O3o0 ビュー作成 - v_data_table1.py ファイル
+# Step OA12o2o0g3o0 ビュー作成 - v_data_table1.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -278,7 +278,7 @@ def render_data_table1(request):
     return HttpResponse(template.render(context, request))
 ```
 
-# Step O4o0 ビュー編集 - VuetifyV モジュール
+# Step OA12o2o0g4o0 ビュー編集 - VuetifyV モジュール
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -309,7 +309,7 @@ class VuetifyV(object):
     from .v_data_table1 import render_data_table1
 ```
 
-# Step O5o0 ルート編集 - urls.py ファイル
+# Step OA12o2o0g5o0 ルート編集 - urls.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -370,11 +370,11 @@ urlpatterns = [
 ]
 ```
 
-# Step O6o0 Web画面へアクセス
+# Step OA12o2o0g6o0 Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/vuetify/data-table1](http://localhost:8000/practice/v1/vuetify/data-table1)  
 
-# Step O7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step OA12o2o0g7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
