@@ -21,8 +21,14 @@ from apps1.practice_v1.models_helper.o1o0.mh_user import MhUser
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
-def render_list(request, path_of_list_page):
-    """一覧ページ"""
+def render_list(request, lp_room_list):
+    """OA18o2o0g6o0 一覧ページ
+
+    Parameters
+    ----------
+    lp_room_list : str
+        ローカルパス
+    """
 
     room_resultset = Room.objects.all().order_by('id')
     # print(f"room_table_doc={json.dumps(room_table_doc, indent=4)}")
@@ -72,6 +78,4 @@ def render_list(request, path_of_list_page):
         # FIXME URL を urls.py で変更しても、こちらに反映されないが、どうするか？
         "dj_read_room_path": "/practice/v1/rooms/read/",
     }
-    # print(f"context={context}")
-
-    return render(request, path_of_list_page, context)
+    return render(request, lp_room_list, context)
