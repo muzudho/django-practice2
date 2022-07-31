@@ -1508,8 +1508,14 @@ class MatchApplicationV():
 from django.shortcuts import render, redirect
 
 
-def render_match_application(request, path_of_http_playing, path_of_html, on_sent, open):
-    """対局申込 - 描画"""
+def render_match_application(request, path_of_http_playing, lp_match_application, on_sent, open):
+    """OA16o3o0gA12o0 対局申込 - 描画
+
+    Parameters
+    ----------
+    lp_match_application : str
+        Local Path
+    """
     if request.method == "POST":
         # 送信後
         on_sent(request)
@@ -1526,7 +1532,7 @@ def render_match_application(request, path_of_http_playing, path_of_html, on_sen
     # 訪問後
     context = open(request)
 
-    return render(request, path_of_html, context)
+    return render(request, lp_match_application, context)
 ```
 
 # Step OA16o3o0gA13o0 ビュー作成 - playing フォルダー
