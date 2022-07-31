@@ -54,6 +54,6 @@ class PlayingV():
             request,
             kw_room_name,
             PlayingV.path_of_web_socket,
-            PlayingVV3o1o0.path_of_html,
+            PlayingVV3o1o0.path_of_local_html,
             PlayingVV3o1o0.on_update,
             PlayingVV2g1o0.expected_pieces)

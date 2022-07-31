@@ -826,10 +826,10 @@ class MatchApplicationV():
     # 1. `http://example.com:8000/tic-tac-toe/v1/playing/Elephant/?&mypiece=X`
     #                            --------------------------------------------
 
-    path_of_html = "tic_tac_toe_v1/o1o0/match_application.html"
-    #                            ^one
-    #               ------------------------------------------
-    #               1
+    path_of_local_html = "tic_tac_toe_v1/o1o0/match_application.html"
+    #                                  ^one
+    #                     ------------------------------------------
+    #                     1
     # 1. src1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o1o0/match_application.html
     #                                        ------------------------------------------
 
@@ -847,7 +847,7 @@ class MatchApplicationV():
         return render_match_application(
             request,
             MatchApplicationV.path_of_http_playing,
-            MatchApplicationV.path_of_html)
+            MatchApplicationV.path_of_local_html)
 ```
 
 
@@ -947,10 +947,10 @@ def render_match_application(request, upf_playing, lp_match_application):
 class PlayingV():
     """対局中ビュー"""
 
-    path_of_html = "tic_tac_toe_v1/o1o0/playing.html"
-    #                               ^two
-    #               --------------------------------
-    #               1
+    path_of_local_html = "tic_tac_toe_v1/o1o0/playing.html"
+    #                                     ^one
+    #                     --------------------------------
+    #                     1
     # 1. `src1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o1o0/playing.html`
     #                                         --------------------------------
 
@@ -965,7 +965,7 @@ class PlayingV():
         #                                                  --------
         # 2. `1.` に含まれる関数
 
-        return render_playing(request, room_name, PlayingV.path_of_html)
+        return render_playing(request, room_name, PlayingV.path_of_local_html)
 ```
 
 # Step OA16o1o0gA16o0 ビュー作成 - playing/v_render.py ファイル

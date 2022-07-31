@@ -1590,9 +1590,9 @@ board
 class EngineManual():
     """エンジン手動"""
 
-    path_of_html = "tic_tac_toe_v2/o1o0/think/engine_manual.html"
-    #               --------------------------------------------
-    #               1
+    path_of_local_html = "tic_tac_toe_v2/o1o0/think/engine_manual.html"
+    #                     --------------------------------------------
+    #                     1
     # 1. src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1o0/think/engine_manual.html
     #                                        --------------------------------------------
 
@@ -1608,7 +1608,7 @@ class EngineManual():
         #                                                        --------
         # 2. `1.` に含まれる関数
 
-        return render_engine_manual(request, EngineManual.path_of_html)
+        return render_engine_manual(request, EngineManual.path_of_local_html)
 ```
 
 # Step OA16o2o0gA15o0 ビュー作成 - engine_manual/v_render.py ファイル

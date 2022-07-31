@@ -468,7 +468,7 @@ class MatchApplicationV():
         return render_match_application(
             request,
             MatchApplicationV.path_of_http_playing,
-            MatchApplicationVV2g1o0.path_of_html,
+            MatchApplicationVV2g1o0.path_of_local_html,
             MatchApplicationVV3g1o0.on_sent,
             MatchApplicationVV2g1o0.open)
 ```
@@ -553,7 +553,7 @@ class PlayingV():
             request,
             kw_room_name,
             PlayingV.path_of_web_socket,
-            PlayingVV3o1o0.path_of_html,
+            PlayingVV3o1o0.path_of_local_html,
             PlayingVV3o1o0.on_update,
             PlayingVV2g1o0.expected_pieces)
 ```

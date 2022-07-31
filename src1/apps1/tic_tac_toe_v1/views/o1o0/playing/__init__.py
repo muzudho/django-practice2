@@ -1,10 +1,10 @@
 class PlayingV():
     """対局中ビュー"""
 
-    path_of_html = "tic_tac_toe_v1/o1o0/playing.html"
-    #                               ^two
-    #               --------------------------------
-    #               1
+    path_of_local_html = "tic_tac_toe_v1/o1o0/playing.html"
+    #                                     ^one
+    #                     --------------------------------
+    #                     1
     # 1. `src1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o1o0/playing.html`
     #                                         --------------------------------
 
@@ -19,4 +19,4 @@ class PlayingV():
         #                                                  --------
         # 2. `1.` に含まれる関数
 
-        return render_playing(request, room_name, PlayingV.path_of_html)
+        return render_playing(request, room_name, PlayingV.path_of_local_html)

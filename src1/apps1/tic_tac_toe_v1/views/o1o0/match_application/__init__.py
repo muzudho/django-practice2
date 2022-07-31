@@ -8,10 +8,10 @@ class MatchApplicationV():
     # 1. `http://example.com:8000/tic-tac-toe/v1/playing/Elephant/?&mypiece=X`
     #                            --------------------------------------------
 
-    path_of_html = "tic_tac_toe_v1/o1o0/match_application.html"
-    #                            ^one
-    #               ------------------------------------------
-    #               1
+    path_of_local_html = "tic_tac_toe_v1/o1o0/match_application.html"
+    #                                  ^one
+    #                     ------------------------------------------
+    #                     1
     # 1. src1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o1o0/match_application.html
     #                                        ------------------------------------------
 
@@ -29,4 +29,4 @@ class MatchApplicationV():
         return render_match_application(
             request,
             MatchApplicationV.path_of_http_playing,
-            MatchApplicationV.path_of_html)
+            MatchApplicationV.path_of_local_html)

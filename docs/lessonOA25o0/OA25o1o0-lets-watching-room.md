@@ -249,7 +249,7 @@ class MatchApplicationV():
         return render_match_application(
             request,
             MatchApplicationV.path_of_http_playing,
-            MatchApplicationVV2g1o0.path_of_html,
+            MatchApplicationVV2g1o0.path_of_local_html,
             MatchApplicationVV3g1o0.on_sent,
             MatchApplicationV.open)
 
@@ -313,10 +313,10 @@ class PlayingV():
     # 駒
     expected_pieces = ['X', 'O', '_']
 
-    path_of_html = "tic_tac_toe_v3/o4o0/playing.html.txt"
-    #                               ^four
-    #               ------------------------------------
-    #               1
+    path_of_local_html = "tic_tac_toe_v3/o4o0/playing.html.txt"
+    #                                     ^four
+    #                     ------------------------------------
+    #                     1
     # 1. `src1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o4o0/playing.html.txt`
     #                                         ------------------------------------
 
@@ -337,7 +337,7 @@ class PlayingV():
             request,
             kw_room_name,
             PlayingVV3o3o0.path_of_web_socket,
-            PlayingV.path_of_html,
+            PlayingV.path_of_local_html,
             PlayingVV3o1o0.on_update,
             PlayingV.expected_pieces)
 ```
