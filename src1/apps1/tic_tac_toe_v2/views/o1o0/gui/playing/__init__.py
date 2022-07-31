@@ -5,7 +5,7 @@ class PlayingV():
     expected_pieces = ['X', 'O']
 
     # Webソケット v2
-    path_of_ws_playing = "/tic-tac-toe/v2/playing/"
+    path_of_web_socket = "/tic-tac-toe/v2/playing/"
     #                                   ^two
     #                     ------------------------
     #                     1
@@ -35,7 +35,7 @@ class PlayingV():
         return render_playing(
             request,
             kw_room_name,
-            PlayingV.path_of_ws_playing,
+            PlayingV.path_of_web_socket,
             PlayingV.path_of_html,
             PlayingV.on_update,
             PlayingV.expected_pieces)
