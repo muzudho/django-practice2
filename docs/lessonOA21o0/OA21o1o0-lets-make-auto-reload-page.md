@@ -343,13 +343,17 @@ class AutoReloadV():
 from django.shortcuts import render
 
 
-def render_auto_reload(request, path_of_reloader_page):
-    """描画 - 自動再読込"""
+def render_auto_reload(request, lp_auto_reload):
+    """OA21o1o0g6o0 描画 - 自動再読込
 
-    context = {
-    }
+    Parameters
+    ----------
+    lp_auto_reload : str
+        ローカルパス
+    """
 
-    return render(request, path_of_reloader_page, context)
+    context = {}
+    return render(request, lp_auto_reload, context)
 ```
 
 # Step OA21o1o0g7o0 ルート編集 - urls_practice.py ファイル
