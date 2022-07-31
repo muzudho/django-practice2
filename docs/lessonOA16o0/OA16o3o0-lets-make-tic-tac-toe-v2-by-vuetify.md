@@ -38,7 +38,7 @@
     ├── 📂 host_local1                      # Djangoとは関係ないもの
     │    ├── 📂 sockapp1
     │    └── 📂 websockapp1
-    ├── 📂 host1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
+    ├── 📂 src1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
@@ -100,7 +100,7 @@
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -111,7 +111,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 └── 📂 static
@@ -187,7 +187,7 @@ class OutgoingMessages {
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 └── 📂 static
@@ -301,7 +301,7 @@ class IncomingMessages {
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 └── 📂 static
@@ -466,7 +466,7 @@ class Connection {
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
@@ -558,7 +558,7 @@ class Connection {
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
@@ -664,8 +664,8 @@ class Connection {
         <script src="{% static 'tic_tac_toe_v2/o1o0/gui/outgoing_messages.js' %}"></script>
         <!--            ====================================================
                         1
-        1. host1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/o1o0/gui/outgoing_messages.js
-                                      ===================================================
+        1. src1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/o1o0/gui/outgoing_messages.js
+                                     ===================================================
         -->
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
@@ -1041,7 +1041,7 @@ class Connection {
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
@@ -1066,8 +1066,8 @@ class Connection {
 {% extends "tic_tac_toe_v2/o1o0/gui/playing_base.html" %}
 {#          -----------------------------------------
             1
-1. host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1o0/gui/playing_base.html
-                                        -----------------------------------------
+1. src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1o0/gui/playing_base.html
+                                       -----------------------------------------
 
     自動フォーマットしないでください
     Do not auto fomatting
@@ -1108,7 +1108,7 @@ class Connection {
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
@@ -1212,7 +1212,7 @@ class TicTacToeV2MessageConverter():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
@@ -1309,7 +1309,7 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
@@ -1375,7 +1375,7 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
@@ -1435,8 +1435,8 @@ class MatchApplicationV():
     #                            ^two
     #               --------------------------------------------
     #               1
-    # 1. host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1o0/gui/match_application.html
-    #                                         ----------------------------------------------
+    # 1. src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1o0/gui/match_application.html
+    #                                        ----------------------------------------------
 
     @staticmethod
     def render(request):
@@ -1446,8 +1446,8 @@ class MatchApplicationV():
         from .v_render import render_match_application
         #    ---------        ------------------------
         #    1                2
-        # 1. `host1/apps1/tic_tac_toe_v2/views/o1o0/gui/match_application/v_render.py`
-        #                                                                 --------
+        # 1. `src1/apps1/tic_tac_toe_v2/views/o1o0/gui/match_application/v_render.py`
+        #                                                                --------
         # 2. `1.` に含まれる関数
 
         return render_match_application(
@@ -1473,7 +1473,7 @@ class MatchApplicationV():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
@@ -1534,7 +1534,7 @@ def render_match_application(request, path_of_http_playing, path_of_html, on_sen
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
@@ -1587,8 +1587,8 @@ class PlayingV():
     #                            ^two
     #               ----------------------------------------
     #               1
-    # 1. `host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1o0/gui/playing.html.txt`
-    #                                          ----------------------------------------
+    # 1. `src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1o0/gui/playing.html.txt`
+    #                                         ----------------------------------------
 
     @staticmethod
     def render(request, kw_room_name):
@@ -1598,8 +1598,8 @@ class PlayingV():
         from .v_render import render_playing
         #    ---------        --------------
         #    1                2
-        # 1. `host1/apps1/tic_tac_toe_v2/views/o1o0/gui/playing/v_render.py`
-        #                                                       --------
+        # 1. `src1/apps1/tic_tac_toe_v2/views/o1o0/gui/playing/v_render.py`
+        #                                                      --------
         # 2. `1.` に含まれる関数
 
         return render_playing(
@@ -1622,7 +1622,7 @@ class PlayingV():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
@@ -1684,7 +1684,7 @@ def render_playing(request, kw_room_name, path_of_ws_playing, path_of_html, on_u
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v2    # アプリケーション
         │       ├── 📂 static
@@ -1779,7 +1779,7 @@ urlpatterns = [
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v2    # アプリケーション
         │       ├── 📂 static
@@ -1855,7 +1855,7 @@ websocket_urlpatterns = [
 👇以下の既存のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v2    # アプリケーション
         │       ├── 📂 static
@@ -1904,8 +1904,8 @@ from . import ws_urls_tic_tac_toe_v2
 #    -        ----------------------
 #    1        2
 # 1. 同じディレクトリー
-# 2. `host1/projectN/ws_urls_tic_tac_toe_v2.py`
-#                    ----------------------
+# 2. `src1/projectN/ws_urls_tic_tac_toe_v2.py`
+#                   ----------------------
 
 
 # ...略...
@@ -1940,7 +1940,7 @@ websocket_urlpatterns_merged.extend(
 👇 以下の既存ファイルの最終行に追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data

@@ -40,7 +40,7 @@ allauth アプリケーションの機能を使う　　
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1        # アプリケーション
     │   │   ├── 📂 portal_v1                    # アプリケーション
@@ -70,7 +70,7 @@ allauth アプリケーションの機能を使う　　
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -81,7 +81,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1                 # あなたの開発用ディレクトリー。任意の名前
+    └── 📂 src1                 # あなたの開発用ディレクトリー。任意の名前
         └── 📂 apps1
             └── 📂 practice_v1              # アプリケーション
                 └── 📂 templates
@@ -108,7 +108,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1              # アプリケーション
                 └── 📂 templates
@@ -135,8 +135,8 @@ class LoggingIn():
     path_of_html = "practice_v1/o1o0/login_required.html"
     #               ------------------------------------
     #               1
-    # 1. host1/apps1/practice_v1/templates/practice_v1/o1o0/login_required.html を取得
-    #                                      ------------------------------------
+    # 1. src1/apps1/practice_v1/templates/practice_v1/o1o0/login_required.html を取得
+    #                                     ------------------------------------
 
     # 👇 このデコレーターを付けると、ログインしていないなら、 settings.py の LOGIN_URL で指定した URL に飛ばします。
     # インスタンスのメソッドや、クラスメソッドには付けられません。
@@ -182,7 +182,7 @@ def loggingOut_render(request):
 👇 以下のファイルの該当箇所を追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1              # アプリケーション
         │       └── 📂 templates
@@ -262,7 +262,7 @@ urlpatterns = [
 👇 以下の既存ファイルの最終行に追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   ├── 📂 portal_v1                # アプリケーション
         │   │   └── 📂 data

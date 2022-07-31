@@ -58,7 +58,7 @@
     └── 📂 home
         └── 📂 ubuntu
             └── 📂 app
-                └── 📂 host1            # ソース
+                └── 📂 src1            # ソース
                     ├── 📂 apps1        # 各種アプリケーション
                     ├── 📂 project2     # 本番用プロジェクト
                     ├── 📄 .env
@@ -75,7 +75,7 @@
 # コマンド
 
 ```shell
-cd /home/ubuntu/app/host1
+cd /home/ubuntu/app/src1
 
 docker-compose -f docker-compose.yml up
 # docker-compose -f docker-compose-project2.yml up

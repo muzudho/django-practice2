@@ -34,7 +34,7 @@
     ├── 📂 host_local1                   # Djangoとは関係ないもの
     │    ├── 📂 sockapp1
     │    └── 📂 websockapp1
-    ├── 📂 host1                         # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
+    ├── 📂 src1                         # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
@@ -100,7 +100,7 @@
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -111,7 +111,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 static
@@ -153,7 +153,7 @@ function getTimeStamp() {
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 static
@@ -179,7 +179,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
@@ -231,8 +231,8 @@ function startReloadingAutomatically(intervalMilliseconds) {
         <script src="{% static 'practice_v1/o1o0/clock.js' %}"></script>
         <script src="{% static 'practice_v1/o1o0/auto_reload.js' %}"></script>
         <!--            =======================================
-            `host1/apps1/practice_v1/static/practice_v1/o1o0/auto_reload.js`
-                                     ======================================
+            `src1/apps1/practice_v1/static/practice_v1/o1o0/auto_reload.js`
+                                    ======================================
         -->
         {% endblock script_src %}
 
@@ -271,7 +271,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
@@ -297,8 +297,8 @@ class AutoReloadV():
     _path_of_auto_reload_page = "practice_v1/o1o0/auto_reload.html"
     #                            ---------------------------------
     #                            1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1o0/auto_reload.html` を取得
-    #                                       ---------------------------------
+    # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/auto_reload.html` を取得
+    #                                      ---------------------------------
 
     @staticmethod
     def render_auto_reload(request):
@@ -308,8 +308,8 @@ class AutoReloadV():
         from .v_auto_reload import render_auto_reload
         #    --------------        ------------------
         #    1                     2
-        # 1. `host1/apps1/practice_v1/views/o1o0/auto_reload/v_auto_reload.py`
-        #                                                    -------------
+        # 1. `src1/apps1/practice_v1/views/o1o0/auto_reload/v_auto_reload.py`
+        #                                                   -------------
         # 2. `1.` に含まれる関数
 
         return render_auto_reload(request, AutoReloadV._path_of_auto_reload_page)
@@ -320,7 +320,7 @@ class AutoReloadV():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
@@ -357,7 +357,7 @@ def render_auto_reload(request, path_of_reloader_page):
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 static
@@ -421,7 +421,7 @@ urlpatterns = [
 👇 以下の既存ファイルの最終行に追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data

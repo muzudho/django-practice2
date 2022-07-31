@@ -70,7 +70,7 @@ python -m pip install --upgrade pip
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1                   # あなたの開発用ディレクトリー。任意の名前
+    └── 📂 src1                   # あなたの開発用ディレクトリー。任意の名前
 👉      └── 📄 requirements.txt
 ```
 
@@ -87,7 +87,7 @@ psycopg2>=2.8
 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
 👉      ├── 🐳 Dockerfile
         └── 📄 requirements.txt
 ```
@@ -121,7 +121,7 @@ COPY . /code/
 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
 👉      ├── 🐳docker-compose.yml
         ├── 🐳Dockerfile
         └── 📄requirements.txt
@@ -149,8 +149,8 @@ services:
     #                                   1       2               3
     # 1. Dockerコンテナ内のサーバーは localhost ではなく 0.0.0.0 と書く
     # 2. Dockerコンテナ内のWebアプリケーションのポート番号
-    # 3. Django設定のPythonモジュール。分からなければ、Djangoの設定ファイル（host1/project1/settings.py）の拡張子抜きのドット区切りと考えればよい
-    #                                                                         -----------------
+    # 3. Django設定のPythonモジュール。分からなければ、Djangoの設定ファイル（src1/project1/settings.py）の拡張子抜きのドット区切りと考えればよい
+    #                                                                        -----------------
     #    例えばレッスンの最初に project1 プロジェクトを作成したなら、
     #    デフォルトでは project1 プロジェクトの --settings=project1.settings を指定するようハードコーディングされる。
     #    この Django設定 を差し替えたくなったら、ここを変えればよい
@@ -178,7 +178,7 @@ Django では 設定ファイルを入れるフォルダーを **プロジェク
 あなたの開発用ディレクトリーへ移動してほしい  
 
 ```shell
-cd host1
+cd src1
 ```
 
 そして、以下のコマンドを１回だけ叩いてほしい  
@@ -194,7 +194,7 @@ docker-compose run web django-admin.py startproject project1 .
 Output:  
 
 ```plaintext
-Creating host1_web_run ... done
+Creating src1_web_run ... done
 /usr/local/bin/django-admin.py:17: RemovedInDjango40Warning: django-admin.py is deprecated in favor of django-admin.
   warnings.warn(
 ```
@@ -202,7 +202,7 @@ Creating host1_web_run ... done
 👇 すると、あなたの開発用ディレクトリーの下に、プロジェクト フォルダーと、 manage.py ファイルが自動生成される  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 project1
         │   ├── 📄 __init__.py
         │   ├── 📄 asgi.py
@@ -219,7 +219,7 @@ Creating host1_web_run ... done
 👇 以下のファイルを作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 project1
         │   ├── 📄 __init__.py
         │   ├── 📄 asgi.py
@@ -236,7 +236,7 @@ Creating host1_web_run ... done
 👇 次に、 `📄 settings.py` から２つの変数を探してテキストを切り取り、`📄 settings_secrets.py` へ貼り付けてほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 project1
         │   ├── 📄 __init__.py
         │   ├── 📄 asgi.py
@@ -262,7 +262,7 @@ ALLOWED_HOSTS = []
 👇 以下のファイルが無ければ新規作成、あれば編集してほしい  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 project1
     │   │   ├── 📄 __init__.py
     │   │   ├── 📄 asgi.py
@@ -283,14 +283,14 @@ ALLOWED_HOSTS = []
 # Django practice
 #   |
 #   +-- Secret
-host1/project1/settings_secrets.py
-host1/project2/settings_secrets.py
+src1/project1/settings_secrets.py
+src1/project2/settings_secrets.py
 ```
 
 👇 以下のファイルを編集してほしい  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 project1
     │   │   ├── 📄 __init__.py
     │   │   ├── 📄 asgi.py
@@ -311,15 +311,15 @@ host1/project2/settings_secrets.py
 from .settings_secrets import SECRET_KEY, ALLOWED_HOSTS
 #    -----------------        -------------------------
 #    1                        2
-# 1. `host1/project1/settings_secrets.py` を指しています
-#                    ----------------
+# 1. `src1/project1/settings_secrets.py` を指しています
+#                   ----------------
 # 2. このファイル内では使われていませんが、このファイルを使う側から使われます
 ```
 
 👇 以下のファイルを新規作成してほしい
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 project1
     │   │   ├── 📄 __init__.py
     │   │   ├── 📄 asgi.py
@@ -352,7 +352,7 @@ ALLOWED_HOSTS = []
 👇 以下のファイルを編集してほしい
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 project1
     │   │   ├── 📄 __init__.py
 👉  │   │   ├── 📄 asgi.py
@@ -378,8 +378,8 @@ from .settings import PROJECT_NAME
 #    ]--------        ------------
 #    12               3
 # 1. 同じディレクトリー
-# 2. `host1/projectN/settings.py`
-#                    --------
+# 2. `src1/projectN/settings.py`
+#                   --------
 # 3. 変数
 
 # * 変更前
@@ -388,8 +388,8 @@ from .settings import PROJECT_NAME
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', f'{PROJECT_NAME}.settings')
 #                                                 -----------------------
 #                                                 1
-# 1. 設定モジュール名 `host1/projectN/settings.py`
-#                          -----------------
+# 1. 設定モジュール名 `src1/projectN/settings.py`
+#                         -----------------
 # ^^^^ 追加ここまで
 
 
@@ -401,7 +401,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', f'{PROJECT_NAME}.settings')
 👇 以下のファイルを編集してほしい
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 project1
     │   │   ├── 📄 __init__.py
     │   │   ├── 📄 asgi.py
@@ -428,8 +428,8 @@ WSGI_APPLICATION = f'{PROJECT_NAME}.wsgi.application'
 #                    -------------------------------
 #                    1
 # 1. DjangoのWSGI設定の大元となるグローバル変数。
-#    `host1/projectN/wsgi.py` ファイルの中の application 変数を指している
-#           -------------
+#    `src1/projectN/wsgi.py` ファイルの中の application 変数を指している
+#          -------------
 
 
 # ...略...
@@ -442,7 +442,7 @@ WSGI_APPLICATION = f'{PROJECT_NAME}.wsgi.application'
 👇 以下のファイルを編集してほしい
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 project1
     │   │   ├── 📄 __init__.py
     │   │   ├── 📄 asgi.py
@@ -467,8 +467,8 @@ from .settings import PROJECT_NAME
 #    ]--------        ------------
 #    12               3
 # 1. 同じディレクトリー
-# 2. `host1/projectN/settings.py`
-#                    --------
+# 2. `src1/projectN/settings.py`
+#                   --------
 # 3. 変数
 
 
@@ -481,8 +481,8 @@ from .settings import PROJECT_NAME
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', f'{PROJECT_NAME}.settings')
 #                                                 -----------------------
 #                                                 1
-# 1. 設定モジュール名 `host1/projectN/settings.py`
-#                          -----------------
+# 1. 設定モジュール名 `src1/projectN/settings.py`
+#                         -----------------
 
 
 # ...略...
@@ -493,7 +493,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', f'{PROJECT_NAME}.settings')
 👇 以下のファイルに、コメントを書き入れてもいいし、書き入れなくてもよい  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 project1
     │   │   ├── 📄 __init__.py
     │   │   ├── 📄 asgi.py
@@ -521,8 +521,8 @@ def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project1.settings')
     #                                                -----------------
     #                                                1
-    # 1. Django設定のPythonモジュール。分からなければ、Djangoの設定ファイル（host1/project1/settings.py）の拡張子抜きのドット区切りと考えればよい
-    #                                                                         -----------------
+    # 1. Django設定のPythonモジュール。分からなければ、Djangoの設定ファイル（src1/project1/settings.py）の拡張子抜きのドット区切りと考えればよい
+    #                                                                        -----------------
     #    例えばレッスンの最初に project1 プロジェクトを作成したなら、
     #    デフォルトでは project1 プロジェクトの settings.py ファイルを指定するようハードコーディングされる。
     #    コマンドライン引数で設定ファイルを指定できるので、ここを編集する必要はない
@@ -546,7 +546,7 @@ if __name__ == '__main__':
 👇 以下のファイルに、コメントを書き入れてもいいし、書き入れなくてもよい  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 project1
     │   │   ├── 📄 __init__.py
     │   │   ├── 📄 asgi.py
@@ -596,8 +596,8 @@ urlpatterns = [
     #      --           ---------
     #      1            2
     # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `host1/app1/urls.py` の urlpatterns を `1.` にぶら下げる
-    #           ---------
+    # 2. `src1/app1/urls.py` の urlpatterns を `1.` にぶら下げる
+    #          ---------
 ]
 ```
 
@@ -606,7 +606,7 @@ urlpatterns = [
 👇 以下のファイルを編集してほしい  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 project1
     │   │   ├── 📄 __init__.py
     │   │   ├── 📄 asgi.py
@@ -697,8 +697,8 @@ DATABASES = {
 👇 以下のファイルに、コメントを書き入れてもいいし、書き入れなくてもよい  
 
 ```plaintext
-    ├── 📂host1
-    │   ├── 📂project1
+    ├── 📂 src1
+    │   ├── 📂 project1
     │   │   ├── 📄__init__.py
     │   │   ├── 📄asgi.py
     │   │   ├── 📄settings_secrets_example.txt
@@ -720,8 +720,8 @@ DATABASES = {
 BASE_DIR = Path(__file__).resolve().parent.parent
 #                        ------------------------
 #                        1
-# 1. 例えば `host1/project1/settings.py` ファイルから見て
-#    .resolve()               は `code/project1/settings.py` （`host1` は見えず `code` に差し変わっている）
+# 1. 例えば `src1/project1/settings.py` ファイルから見て
+#    .resolve()               は `code/project1/settings.py` （`src1` は見えず `code` に差し変わっている）
 #    .resolve().parent        は `code/project1/`
 #    .resolve().parent.parent は `code/`
 #    となっていて、つまり BASE_DIR は あなたの開発用ディレクトリーを指している
@@ -732,8 +732,8 @@ ROOT_URLCONF = f'{PROJECT_NAME}.urls'
 #                -------------------
 #                1
 # 1. DjangoのURL設定の大元となるPythonモジュール。
-#    `host1/project1/urls.py` を指している
-#           -------------
+#    `src1/project1/urls.py` を指している
+#          -------------
 ```
 
 # Step O2o1o0gA14o0 コメント - settings_secrets.py ファイル
@@ -741,7 +741,7 @@ ROOT_URLCONF = f'{PROJECT_NAME}.urls'
 👇 以下のファイルに、コメントを書き入れてもいいし、書き入れなくてもよい  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 project1
     │   │   ├── 📄 __init__.py
     │   │   ├── 📄 asgi.py
@@ -769,7 +769,7 @@ ALLOWED_HOSTS = []
 👇 （もしgitを使っているなら）以下のファイルを編集してほしい  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 project1
     │   │   ├── 📄 __init__.py
     │   │   ├── 📄 asgi.py
@@ -794,7 +794,7 @@ ALLOWED_HOSTS = []
 *.bak
 #   |
 #   +-- Database
-host1/data/db
+src1/data/db
 ```
 
 # Step O2o1o0gA16o0 ドッカーコンテナ起動 - docker-compose コマンド
@@ -808,7 +808,7 @@ docker-compose up
 👇 このとき、以下の巨大なフォルダーが作成される  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 data
     │   │   └── 📂 db
 👉  │   │       └── （たくさんのもの）

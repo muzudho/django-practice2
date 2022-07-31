@@ -37,7 +37,7 @@ Djangoサーバー支配下のすべてのアプリケーションを調整で�
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 apps1
     │   │   └── 📂 practice_v1              # アプリケーション名
     │   │       ├── 📂 templates
@@ -82,7 +82,7 @@ Djangoサーバー支配下のすべてのアプリケーションを調整で�
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -93,7 +93,7 @@ docker-compose up
 以下のようにディレクトリとファイルを作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1          # 既存のアプリケーション
                 └── 📂 management        # ただのフォルダー
@@ -148,7 +148,7 @@ class Command(createsuperuser.Command):
 忘れっぽければ、以下のファイルにメモ書きしておいてもいいが、そのローカルPCにログインされると見えてしまうので パスワードを保管するソフトの使い方をセキュリティに詳しい人から聞いてほしい  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 apps1
     │   │   └── 📂 practice_v1          # 既存のアプリケーション
     │   │       └── 📂 management        # ただのフォルダー
@@ -176,7 +176,7 @@ class Command(createsuperuser.Command):
 docker-compose run --rm web python3 manage.py custom_createsuperuser --username <スーパーユーザー名> --email <スーパーユーザーのEmailアドレス> --password <スーパーユーザーのパスワード>
 ```
 
-👆 恐らく `host1/data` フォルダー下のデータベースに格納され永続的に保存されるのかもしれない。このコマンドを実行するのは１回だけでいいと思う  
+👆 恐らく `src1/data` フォルダー下のデータベースに格納され永続的に保存されるのかもしれない。このコマンドを実行するのは１回だけでいいと思う  
 
 # Step O4o1o0g5o0 Webの管理画面へアクセス
 

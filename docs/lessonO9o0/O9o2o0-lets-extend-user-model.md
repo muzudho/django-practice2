@@ -27,7 +27,7 @@ Django に最初から付いている User モデルを拡張したい
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1        # アプリケーション
     │   │   ├── 📂 portal_v1                    # アプリケーション
@@ -57,7 +57,7 @@ Django に最初から付いている User モデルを拡張したい
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -68,7 +68,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 models
@@ -143,21 +143,21 @@ post_save.connect(create_user_profile, sender=User)
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-# cd host1
+# cd src1
 
 docker-compose run --rm web python3 manage.py makemigrations practice_v1 --settings project1.settings
 #                                                            -----------            -----------------
 #                                                            1                      2
 # 1. アプリケーション
-# 2. host1/project1/settings.py
-#          -----------------
+# 2. src1/project1/settings.py
+#         -----------------
 ```
 
 👇 以下のディレクトリーとファイルが生成される。  
 生成されなかったら、先に進んで、必要になったときにここに戻ってきて やってほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 migrations
@@ -179,8 +179,8 @@ docker-compose run --rm web python3 manage.py makemigrations practice_v1 --setti
 docker-compose run --rm web python3 manage.py showmigrations --settings project1.settings
 #                                                                       -----------------
 #                                                                       1
-# 1. host1/project1/settings.py
-#          -----------------
+# 1. src1/project1/settings.py
+#         -----------------
 ```
 
 👆 マイグレーションする前に、マイグレーションが終わっているもの、マイグレーションがまだ終わっていないものを確認  
@@ -196,8 +196,8 @@ docker-compose run --rm web python3 manage.py showmigrations --settings project1
 docker-compose run --rm web python3 manage.py migrate --settings project1.settings
 #                                                                -----------------
 #                                                                1
-# 1. host1/project1/settings.py
-#          -----------------
+# 1. src1/project1/settings.py
+#         -----------------
 ```
 
 👆 ここまでやって マイグレーション という作業が終わるらしい  
@@ -208,8 +208,8 @@ docker-compose run --rm web python3 manage.py migrate --settings project1.settin
 docker-compose run --rm web python3 manage.py showmigrations --settings project1.settings
 #                                                                       -----------------
 #                                                                       1
-# 1. host1/project1/settings.py
-#          -----------------
+# 1. src1/project1/settings.py
+#         -----------------
 ```
 
 👆 マイグレーションした後に、マイグレーションされたものを確認  
@@ -219,7 +219,7 @@ docker-compose run --rm web python3 manage.py showmigrations --settings project1
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models
@@ -244,8 +244,8 @@ class MhUser():
     from .mh_get_extends_user_dic import get_extends_user_dic
     #    ------------------------        --------------------
     #    1                               2
-    # 1. `host1/apps1/practice_v1/model_helper/o1o0/mh_user/mh_get_extends_user_dic.py`
-    #                                                       -----------------------
+    # 1. `src1/apps1/practice_v1/model_helper/o1o0/mh_user/mh_get_extends_user_dic.py`
+    #                                                      -----------------------
     # 2. `1.` に含まれる関数
 ```
 
@@ -254,7 +254,7 @@ class MhUser():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models
@@ -306,7 +306,7 @@ def get_extends_user_dic():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models
@@ -398,7 +398,7 @@ def get_extends_user_dic():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models
@@ -427,8 +427,8 @@ class ExtendsUserListV():
     _path_of_this_page = "practice_v1/o1o0/extends_user_list.html"
     #                     ---------------------------------------
     #                     1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1o0/extends_user_list.html` を取得
-    #                                       ---------------------------------------
+    # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/extends_user_list.html` を取得
+    #                                      ---------------------------------------
 
     @staticmethod
     def render(request):
@@ -438,8 +438,8 @@ class ExtendsUserListV():
         from .v_render import render_extends_user_list
         #    ---------        ------------------------
         #    1                2
-        # 1. `host1/apps1/practice_v1/views/o1o0/extends_user_list/v_render.py`
-        #                                                          --------
+        # 1. `src1/apps1/practice_v1/views/o1o0/extends_user_list/v_render.py`
+        #                                                         --------
         # 2. `1.` に含まれる関数
 
         return render_extends_user_list(request, ExtendsUserListV._path_of_this_page)
@@ -450,7 +450,7 @@ class ExtendsUserListV():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models
@@ -508,7 +508,7 @@ def render_extends_user_list(request, path_of_this_page):
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 models
@@ -570,7 +570,7 @@ urlpatterns = [
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 models
@@ -668,7 +668,7 @@ User: [あなたの名前]▽ 🖊 ➕
 👇 以下の既存ファイルの最終行に追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   ├── 📂 portal_v1                    # アプリケーション
         │   │   └── 📂 data

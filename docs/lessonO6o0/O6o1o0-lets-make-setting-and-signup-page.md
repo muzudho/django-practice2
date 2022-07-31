@@ -33,7 +33,7 @@
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 apps1
     │   │   ├── 📂 portal_v1                # アプリケーション名
     │   │   └── 📂 practice_v1
@@ -60,7 +60,7 @@
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -87,7 +87,7 @@ Googleのアカウントから、
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
 👉      └── 📄 .env
 ```
 
@@ -103,7 +103,7 @@ EMAIL_HOST_PASSWORD=あなたのGmailアドレスのアプリパスワード
 👇 以下のファイルの該当箇所を追加してほしい
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📄 .env
 👉      └── 🐳 docker-compose.yml
 ```
@@ -147,7 +147,7 @@ services:
 👇 以下の既存ファイルの末尾にでも追加してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📄 .env
         ├── 🐳 docker-compose.yml
 👉      └── 📄 requirements.txt
@@ -177,7 +177,7 @@ docker-compose build
 👇 以下の既存ファイルに該当箇所を追加してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 project1
 👉      │   └── 📄 settings.py
         ├── 📄 .env
@@ -235,11 +235,11 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'apps1/allauth_customized_v1/templates'),
             #                       -------------------------------------
             #                       10
-            # Example: `/host1/apps1/allauth_customized_v1/templates/account/signup.html`
-            #                        ---------------------          --------
-            #                        11                             2
-            #                  -------------------------------------
-            #                  10
+            # Example: `/src1/apps1/allauth_customized_v1/templates/account/signup.html`
+            #                       ---------------------          --------
+            #                       11                             2
+            #                 -------------------------------------
+            #                 10
             # 10. テンプレート ディレクトリーへのパス
             # 11. アプリケーション
             # 2. まるで `http://example.com/account` という素材フォルダーがあるかのように扱われる
@@ -293,14 +293,14 @@ settings.py を編集してアプリケーションを追加したので...
 docker-compose run --rm web python3 manage.py makemigrations --settings project1.settings
 #                                                                       -----------------
 #                                                                       1
-# 1. host1/project1/settings.py
-#          -----------------
+# 1. src1/project1/settings.py
+#         -----------------
 
 docker-compose run --rm web python3 manage.py migrate --settings project1.settings
 #                                                                -----------------
 #                                                                1
-# 1. host1/project1/settings.py
-#          -----------------
+# 1. src1/project1/settings.py
+#         -----------------
 ```
 
 # Step O6o1o0g9o0 機能強化 - form_html_parser.js ファイル
@@ -308,7 +308,7 @@ docker-compose run --rm web python3 manage.py migrate --settings project1.settin
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 allauth_customized_v1            # アプリケーション
         │       └── 📂 static
@@ -490,7 +490,7 @@ class DjangoAllauthFormParser {
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 allauth_customized_v1            # アプリケーション
         │       ├── 📂 static
@@ -593,8 +593,8 @@ class DjangoAllauthFormParser {
         <script src="{% static 'allauth_customized_v1/o1o0/form_html_parser.js' %}"></script>
         <!--            ======================================================
                         1
-            1. host1/apps1/allauth_customized_v1/static/allauth_customized_v1/o1o0/form_html_parser.js
-                                                ======================================================
+            1. src1/apps1/allauth_customized_v1/static/allauth_customized_v1/o1o0/form_html_parser.js
+                                                =====================================================
         -->
 
         <script>
@@ -669,7 +669,7 @@ class DjangoAllauthFormParser {
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 allauth_customized_v1            # アプリケーション
         │       ├── 📂 static
@@ -704,8 +704,8 @@ class AccountsV1SignupView(SignupView):
     template_name = "account/signup.html"
     #                -------------------
     #                1
-    # 1. `host1/apps1/allauth_customized_v1/templates/account/signup.html` を取得
-    #                                                 -------------------
+    # 1. `src1/apps1/allauth_customized_v1/templates/account/signup.html` を取得
+    #                                                -------------------
 
     # You can also override some other methods of SignupView
     # Like below:
@@ -721,7 +721,7 @@ class AccountsV1SignupView(SignupView):
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 allauth_customized_v1            # アプリケーション
         │       ├── 📂 static
@@ -798,7 +798,7 @@ urlpatterns = [
 👇 以下のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 allauth_customized_v1                # アプリケーション
         │       ├── 📂 static
@@ -835,8 +835,8 @@ urlpatterns = [
     #    --            ----------------------------
     #    1             2
     # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `host1/projectN/urls_accounts.py` の urlpatterns を `1.` にぶら下げる
-    #           ----------------------
+    # 2. `src1/projectN/urls_accounts.py` の urlpatterns を `1.` にぶら下げる
+    #          ----------------------
 ]
 ```
 
@@ -860,7 +860,7 @@ urlpatterns = [
 👇 以下の既存ファイルの最終行に追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   ├── 📂 portal_v1
         │   │   └── 📂 data

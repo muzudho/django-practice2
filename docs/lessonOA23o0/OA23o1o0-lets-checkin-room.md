@@ -46,7 +46,7 @@
     ├── 📂 host_local1                      # Djangoとは関係ないもの
     │    ├── 📂 sockapp1
     │    └── 📂 websockapp1
-    ├── 📂 host1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
+    ├── 📂 src1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
@@ -112,7 +112,7 @@
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -123,7 +123,7 @@ docker-compose up
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v3                 # アプリケーション Three
                 └── 📂 views
@@ -138,8 +138,8 @@ from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicati
 #                       ^two
 #    -----------------------------------------------------        -----------------    -----------------------
 #    1                                                            2                    3
-# 1. `host1/apps1/tic_tac_toe_v2/views/o1o0/gui/match_application/__init__.py`
-#           -----------------------------------------------------
+# 1. `src1/apps1/tic_tac_toe_v2/views/o1o0/gui/match_application/__init__.py`
+#          -----------------------------------------------------
 # 2. `1.` の __init__.py ファイルに含まれるクラス
 # 3. '2.' の別名
 
@@ -148,8 +148,8 @@ from apps1.tic_tac_toe_v3.views.o1o0.match_application import MatchApplicationV 
 #                       ^three
 #    ---------------------------------------------------      -----------------    -----------------------
 #    1                                                        2                    3
-# 1. `host1/apps1/tic_tac_toe_v3/views/o1o0/match_application/__init__.py`
-#           -------------------------------------------------
+# 1. `src1/apps1/tic_tac_toe_v3/views/o1o0/match_application/__init__.py`
+#          -------------------------------------------------
 # 2. `1.` の __init__.py ファイルに含まれるクラス
 # 3. '2.' の別名
 
@@ -166,8 +166,8 @@ class MatchApplicationV():
         #                       ^two
         #    --------------------------------------------------------------        ------------------------
         #    1                                                                     2
-        # 1. `host1/apps1/tic_tac_toe_v2/views/o1o0/gui/match_application/v_render.py`
-        #                                                                 --------
+        # 1. `src1/apps1/tic_tac_toe_v2/views/o1o0/gui/match_application/v_render.py`
+        #                                                                --------
         # 2. `1.` に含まれる静的関数
 
         return render_match_application(
@@ -185,8 +185,8 @@ class MatchApplicationV():
         from .v_on_sent import match_application_on_sent
         #    ----------        -------------------------
         #    1                 2
-        # 1. `host1/apps1/tic_tac_toe_v3/views/o2o0/match_application/v_on_sent.py`
-        #                                                             ---------
+        # 1. `src1/apps1/tic_tac_toe_v3/views/o2o0/match_application/v_on_sent.py`
+        #                                                            ---------
         # 2. `1.` に含まれる関数
 
         return match_application_on_sent(request)
@@ -202,7 +202,7 @@ class MatchApplicationV():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v3                   # アプリケーション Three
                 └── 📂 views
@@ -315,7 +315,7 @@ def match_application_on_sent(request):
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v3                   # アプリケーション Three
         │       └── 📂 views
@@ -411,7 +411,7 @@ urlpatterns = [
 👇 以下の既存ファイルの最終行に追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             ├── 📂 portal_v1                        # アプリケーション
             │   └── 📂 data

@@ -25,7 +25,7 @@ Web ページで表示する内容を、JSON形式のテキストで渡したい
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
@@ -77,7 +77,7 @@ Web ページで表示する内容を、JSON形式のテキストで渡したい
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -90,7 +90,7 @@ docker-compose up
 * 📖 [Django のビューの Python スクリプトで JSON ファイルを読み込んで HTML に埋め込んでいる JavaScript にデータを渡そう！](https://qiita.com/muzudho1/items/b3b0c25fc329eb9bc0c1)
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 static
@@ -105,7 +105,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
@@ -194,7 +194,7 @@ docker-compose up
 * 📖 [Django のビューの Python スクリプトで JSON ファイルを読み込んで HTML に埋め込んでいる JavaScript にデータを渡そう！](https://qiita.com/muzudho1/items/b3b0c25fc329eb9bc0c1)
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
@@ -215,7 +215,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
@@ -248,14 +248,14 @@ def render_textarea1(request):
         'practice_v1/o1o0/vuetify/textarea1_base.html')
     #    --------------------------------------------
     #    1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1o0/vuetify/textarea1_base.html` を取得
-    #                                       --------------------------------------------
+    # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/vuetify/textarea1_base.html` を取得
+    #                                      --------------------------------------------
 
     with open('apps1/practice_v1/static/practice_v1/o1o0/data/desserts1.json', mode='r', encoding='utf-8') as f:
         #      -------------------------------------------------------------
         #      1
-        # 1. `host1/apps1/practice_v1/static/practice_v1/o1o0/data/desserts1.json` を取得
-        #           -------------------------------------------------------------
+        # 1. `src1/apps1/practice_v1/static/practice_v1/o1o0/data/desserts1.json` を取得
+        #          -------------------------------------------------------------
         doc = json.load(f)
 
     context = {
@@ -273,8 +273,8 @@ def render_desserts1_from_textarea1(request):
         'practice_v1/o1o0/vuetify/desserts1.html')
     #    ---------------------------------------
     #    1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1o0/vuetify/desserts1.html` を取得
-    #                                       ---------------------------------------
+    # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/vuetify/desserts1.html` を取得
+    #                                      ---------------------------------------
 
     context = {
         'dessertsStr': form1Textarea1
@@ -287,7 +287,7 @@ def render_desserts1_from_textarea1(request):
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
@@ -324,7 +324,7 @@ class VuetifyV(object):
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 static
@@ -407,7 +407,7 @@ urlpatterns = [
 👇 以下の既存ファイルの最終行に追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data

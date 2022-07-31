@@ -33,7 +33,7 @@ http://example.com/practice/v1/page-the-hello
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 data
     │   ├── 📂 project1
     │   │   ├── 📄 __init__.py
@@ -57,7 +57,7 @@ http://example.com/practice/v1/page-the-hello
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -68,7 +68,7 @@ docker-compose up
 👇 以下のフォルダーを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1                # 複数のアプリケーションを入れるフォルダー
             └── 📂 practice_v1      # アプリケーション フォルダー
 ```
@@ -121,14 +121,14 @@ docker-compose run --rm web python manage.py startapp practice_v1 ./apps1/practi
 #                                                     1           2                              3
 # 1. 任意のDjangoアプリケーション名
 # 2. アプリケーション フォルダーへのパス
-# 3. `host1/project1/settings.py` 設定ファイルに従う
-#           -----------------
+# 3. `src1/project1/settings.py` 設定ファイルに従う
+#          -----------------
 ```
 
 👇 以下のようなディレクトリー、ファイルが自動生成される  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1              # アプリケーション名
 👉              ├── 📂 migrations
@@ -146,7 +146,7 @@ docker-compose run --rm web python manage.py startapp practice_v1 ./apps1/practi
 👇 以下のファイルを削除してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1              # アプリケーション名
                 ├── 📂 migrations
@@ -164,7 +164,7 @@ docker-compose run --rm web python manage.py startapp practice_v1 ./apps1/practi
 👇 以下のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1              # アプリケーション名
                 ├── 📂 migrations
@@ -187,8 +187,8 @@ class PracticeConfig(AppConfig):
     name = 'apps1.practice_v1'
     #       -----------------
     #       1
-    # 1. `host1/apps1/practice_v1/apps.py`
-    #           -----------------
+    # 1. `src1/apps1/practice_v1/apps.py`
+    #          -----------------
 ```
 
 # Step O3o1o0g6o0 アプリケーション登録 - settings.py ファイル＜その２＞
@@ -196,7 +196,7 @@ class PracticeConfig(AppConfig):
 👇 以下の既存のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1              # アプリケーション名
         │       ├── 📂 migrations
@@ -235,7 +235,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-これで、 `host1/apps1/practice_v1` フォルダーは practice_v1 アプリケーションとして認識される。  
+これで、 `src1/apps1/practice_v1` フォルダーは practice_v1 アプリケーションとして認識される。  
 そのメリットは　今後のレッスンで触れる  
 
 # Step O3o1o0g7o0 画面作成 - page1.html ファイル
@@ -243,7 +243,7 @@ INSTALLED_APPS = [
 以下のファイルを作成してほしい。
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1              # アプリケーション
                 └── 📂 templates
@@ -270,7 +270,7 @@ INSTALLED_APPS = [
 👇 以下のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1                  # アプリケーション
         │       └── 📂 templates
@@ -295,11 +295,11 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'apps1/practice_v1/templates'),
             #                       ---------------------------
             #                       10
-            # Example: /host1/apps1/practice_v1/templates/practice_v1/o1o0/page_the_hello.html
-            #                       -----------          ------------
-            #                       11                   2
-            #                 ---------------------------
-            #                 10
+            # Example: /src1/apps1/practice_v1/templates/practice_v1/o1o0/page_the_hello.html
+            #                      -----------          ------------
+            #                      11                   2
+            #                ---------------------------
+            #                10
             # 10. テンプレート ディレクトリーへのパス
             # 11. アプリケーション
             # 2. まるで `http://example.com/practice_v1` という素材フォルダーがあるかのように扱われる
@@ -323,7 +323,7 @@ TEMPLATES = [
 👇 以下のファイルを新規作成してほしい
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
@@ -353,8 +353,8 @@ class PageTheHello():
         template = loader.get_template('practice_v1/o1o0/page_the_hello.html')
         #                               ------------------------------------
         #                               1
-        # 1. host1/apps1/practice_v1/templates/practice_v1/o1o0/page_the_hello.html を取得
-        #                                      ------------------------------------
+        # 1. src1/apps1/practice_v1/templates/practice_v1/o1o0/page_the_hello.html を取得
+        #                                     ------------------------------------
 
         context = {}
         return HttpResponse(template.render(context, request))
@@ -369,7 +369,7 @@ class PageTheHello():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
@@ -420,7 +420,7 @@ urlpatterns = [
 👇 以下のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
@@ -447,8 +447,8 @@ from .settings import PROJECT_NAME
 #    ]--------        ------------
 #    12               3
 # 1. 同じディレクトリー
-# 2. `host1/projectN/settings.py`
-#                    --------
+# 2. `src1/projectN/settings.py`
+#                   --------
 # 3. 変数
 
 
@@ -466,8 +466,8 @@ urlpatterns = [
     #    --            ----------------------------
     #    1             2
     # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `host1/projectN/urls_practice.py` の urlpatterns を `1.` にぶら下げる
-    #           ----------------------
+    # 2. `src1/projectN/urls_practice.py` の urlpatterns を `1.` にぶら下げる
+    #          ----------------------
 ]
 ```
 

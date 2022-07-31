@@ -68,7 +68,7 @@
     ├── 📂 host_local1                   # Djangoとは関係ないもの
     │    ├── 📂 sockapp1
     │    └── 📂 websockapp1
-    ├── 📂 host1                         # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
+    ├── 📂 src1                         # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
@@ -134,7 +134,7 @@
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -145,7 +145,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 templates
@@ -283,7 +283,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
@@ -304,8 +304,8 @@ class MhRoom():
     from .mh_get_all_rooms_as_dic import get_all_rooms_as_dic
     #    ------------------------        --------------------
     #    1                               2
-    # 1. `host1/apps1/practice_v1/model_helper/o1o0/mh_room/mh_get_all_rooms_as_dic.py`
-    #                                                       -----------------------
+    # 1. `src1/apps1/practice_v1/model_helper/o1o0/mh_room/mh_get_all_rooms_as_dic.py`
+    #                                                      -----------------------
     # 2. `1.` に含まれる関数
 ```
 
@@ -314,7 +314,7 @@ class MhRoom():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
@@ -365,7 +365,7 @@ def get_all_rooms_as_dic():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
@@ -391,8 +391,8 @@ class LobbyV():
     _path_of_lobby_page = "practice_v1/o1o0/lobby.html"
     #                      ---------------------------
     #                      1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1o0/lobby.html` を取得
-    #                                       ---------------------------
+    # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/lobby.html` を取得
+    #                                      ---------------------------
 
     @staticmethod
     def render_lobby(request):
@@ -402,8 +402,8 @@ class LobbyV():
         from .v_lobby import render_lobby
         #    --------        ------------
         #    1               2
-        # 1. `host1/apps1/practice_v1/views/o1o0/lobby/v_lobby.py`
-        #                                              -------
+        # 1. `src1/apps1/practice_v1/views/o1o0/lobby/v_lobby.py`
+        #                                             -------
         # 2. `1.` に含まれる関数
 
         return render_lobby(request, LobbyV._path_of_lobby_page)
@@ -414,7 +414,7 @@ class LobbyV():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
@@ -487,7 +487,7 @@ def render_lobby(request, path_of_lobby_page):
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 models_helper
@@ -548,7 +548,7 @@ urlpatterns = [
 👇 以下の既存ファイルの最終行に追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data

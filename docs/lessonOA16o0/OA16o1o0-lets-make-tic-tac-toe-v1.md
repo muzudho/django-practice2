@@ -37,7 +37,7 @@ Webサーバーと、クライアント側のアプリ間で通信する練習�
     ├── 📂 host_local1                   # Djangoとは関係ないもの
     │    ├── 📂 sockapp1
     │    └── 📂 websockapp1
-    ├── 📂 host1                         # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
+    ├── 📂 src1                         # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
@@ -95,7 +95,7 @@ Webサーバーと、クライアント側のアプリ間で通信する練習�
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -106,7 +106,7 @@ docker-compose up
 👇 以下のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1                   # あなたの開発用ディレクトリー。任意の名前
+    └── 📂 src1                   # あなたの開発用ディレクトリー。任意の名前
 👉      └── 📄 requirements.txt
 ```
 
@@ -150,7 +150,7 @@ docker-compose up
 👇 以下のフォルダーを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
 👉      │   └── 📂 tic_tac_toe_v1    # アプリケーション
         └── 📄 requirements.txt
@@ -174,7 +174,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v1 ./apps1/tic
 👇 以下のようなディレクトリー、ファイルが自動生成される  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
 👉          └── 📂 tic_tac_toe_v1    # アプリケーション
 👉              ├── 📂 migrations
@@ -192,7 +192,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v1 ./apps1/tic
 👇 以下のファイルを削除してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v1    # アプリケーション
                 ├── 📂 migrations
@@ -210,7 +210,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v1 ./apps1/tic
 👇 以下のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v1    # アプリケーション
                 ├── 📂 migrations
@@ -233,8 +233,8 @@ class TicTacToeV1Config(AppConfig):
     name = 'apps1.tic_tac_toe_v1'
     #       --------------------
     #       1
-    # 1. `host1/apps1/tic_tac_toe_v1/apps.py`
-    #           --------------------
+    # 1. `src1/apps1/tic_tac_toe_v1/apps.py`
+    #          --------------------
 ```
 
 # Step OA16o1o0g8o0 アプリケーション登録 - settings.py ファイル
@@ -242,7 +242,7 @@ class TicTacToeV1Config(AppConfig):
 👇 以下の既存のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v1    # アプリケーション
         │       ├── 📂 migrations
@@ -278,7 +278,7 @@ INSTALLED_APPS = [
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v1            # アプリケーション
         │       ├── 📂 migrations
@@ -361,7 +361,7 @@ select {
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v1            # アプリケーション
         │       ├── 📂 migrations
@@ -649,7 +649,7 @@ connect();
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v1            # アプリケーション
         │       ├── 📂 migrations
@@ -681,8 +681,8 @@ connect();
         <link rel="stylesheet" href='{% static "tic_tac_toe_v1/o1o0/main.css" %}' />
         <!--                            ====================================
                                         1
-        1. `host1/apps1/tic_tac_toe_v1/static/tic_tac_toe_v1/o1o0/main.css`
-                                       ===================================
+        1. `src1/apps1/tic_tac_toe_v1/static/tic_tac_toe_v1/o1o0/main.css`
+                                      ===================================
         -->
     </head>
     <body>
@@ -716,7 +716,7 @@ connect();
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v1            # アプリケーション
         │       ├── 📂 migrations
@@ -749,8 +749,8 @@ connect();
         <link rel="stylesheet" href='{% static "tic_tac_toe_v1/o1o0/main.css" %}' />
         <!--                            ==================================
                                         1
-        1. `host1/apps1/tic_tac_toe/static/tic_tac_toe_v1/o1o0/main.css`
-                                    ===================================
+        1. `src1/apps1/tic_tac_toe/static/tic_tac_toe_v1/o1o0/main.css`
+                                   ===================================
         -->
     </head>
     <body>
@@ -776,8 +776,8 @@ connect();
         <script src="{% static 'tic_tac_toe_v1/o1o0/play.js' %}"></script>
         <!--            ===================================
                         1
-        1. `host1/apps1/tic_tac_toe_v1/static/tic_tac_toe_v1/o1o0/play.js`
-                                       ==================================
+        1. `src1/apps1/tic_tac_toe_v1/static/tic_tac_toe_v1/o1o0/play.js`
+                                      ==================================
         -->
         {% block javascript %} {% endblock javascript %}
     </body>
@@ -789,7 +789,7 @@ connect();
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v1            # アプリケーション
         │       ├── 📂 migrations
@@ -830,8 +830,8 @@ class MatchApplicationV():
     #                            ^one
     #               ------------------------------------------
     #               1
-    # 1. host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o1o0/match_application.html
-    #                                         ------------------------------------------
+    # 1. src1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o1o0/match_application.html
+    #                                        ------------------------------------------
 
     def render(request):
         """描画"""
@@ -840,8 +840,8 @@ class MatchApplicationV():
         from .v_render import render_match_application
         #    ---------        ------------------------
         #    1                2
-        # 1. `host1/apps1/tic_tac_toe_v1/views/o1o0/match_application/v_render.py`
-        #                                                             --------
+        # 1. `src1/apps1/tic_tac_toe_v1/views/o1o0/match_application/v_render.py`
+        #                                                            --------
         # 2. `1.` に含まれる関数
 
         return render_match_application(
@@ -856,7 +856,7 @@ class MatchApplicationV():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v1            # アプリケーション
         │       ├── 📂 migrations
@@ -906,7 +906,7 @@ def render_match_application(request, path_of_http_playing, path_of_html):
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v1            # アプリケーション
         │       ├── 📂 migrations
@@ -943,8 +943,8 @@ class PlayingV():
     #                               ^two
     #               --------------------------------
     #               1
-    # 1. `host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o1o0/playing.html`
-    #                                          --------------------------------
+    # 1. `src1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o1o0/playing.html`
+    #                                         --------------------------------
 
     def render(request, room_name):
         """描画"""
@@ -953,8 +953,8 @@ class PlayingV():
         from .v_render import render_playing
         #    ---------        --------------
         #    1                2
-        # 1. `host1/apps1/tic_tac_toe_v1/views/o1o0/playing/v_render.py`
-        #                                                   --------
+        # 1. `src1/apps1/tic_tac_toe_v1/views/o1o0/playing/v_render.py`
+        #                                                  --------
         # 2. `1.` に含まれる関数
 
         return render_playing(request, room_name, PlayingV.path_of_html)
@@ -965,7 +965,7 @@ class PlayingV():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v1            # アプリケーション
         │       ├── 📂 migrations
@@ -1019,7 +1019,7 @@ def render_playing(request, room_name, path_of_html):
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v1            # アプリケーション
         │       ├── 📂 migrations
@@ -1100,7 +1100,7 @@ urlpatterns = [
 👇 以下のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v1            # アプリケーション
         │       ├── 📂 migrations
@@ -1148,8 +1148,8 @@ urlpatterns = [
     #    --            ----------------------------------
     #    1             2
     # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `host1/projectN/urls_tic_tac_toe_v1.py` の urlpatterns を `1.` にぶら下げる
-    #           ----------------------------
+    # 2. `src1/projectN/urls_tic_tac_toe_v1.py` の urlpatterns を `1.` にぶら下げる
+    #          ----------------------------
 ]
 ```
 
@@ -1158,7 +1158,7 @@ urlpatterns = [
 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v1            # アプリケーション
         │       ├── 📂 migrations
@@ -1273,7 +1273,7 @@ class TicTacToeV1Consumer(AsyncJsonWebsocketConsumer):
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v1            # アプリケーション
         │       ├── 📂 migrations
@@ -1350,7 +1350,7 @@ websocket_urlpatterns = [
 👇以下の既存のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v1            # アプリケーション
         │       ├── 📂 migrations
@@ -1398,8 +1398,8 @@ from . import ws_urls_tic_tac_toe_v1
 #    -        ----------------------
 #    1        2
 # 1. 同じディレクトリー
-# 2. `host1/projectN/ws_urls_tic_tac_toe_v1.py`
-#                    ----------------------
+# 2. `src1/projectN/ws_urls_tic_tac_toe_v1.py`
+#                   ----------------------
 
 
 # ...略...
@@ -1429,7 +1429,7 @@ websocket_urlpatterns_merged.extend(
 👇 以下の既存のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v1            # アプリケーション
         │       ├── 📂 migrations
@@ -1487,11 +1487,11 @@ TEMPLATES = [
             #                       ------------------------------
             #                       10
             #
-            # Example: `/host1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o1o0/match_application.html`
-            #                        --------------          ---------------
-            #                        11                      2
-            #                  ------------------------------
-            #                  10
+            # Example: `/src1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o1o0/match_application.html`
+            #                       --------------          ---------------
+            #                       11                      2
+            #                 ------------------------------
+            #                 10
             # 10. テンプレート ディレクトリーへのパス
             # 11. アプリケーション
             # 2. まるで `http://example.com/tic_tac_toe_v1` という素材フォルダーがあるかのように扱われる
@@ -1517,7 +1517,7 @@ TEMPLATES = [
 👇 以下の既存ファイルの最終行に追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data

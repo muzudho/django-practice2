@@ -23,7 +23,7 @@
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 apps1
     │   │   ├── 📂 portal_v1                # アプリケーション
     │   │   └── 📂 practice_v1              # アプリケーション
@@ -50,7 +50,7 @@
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -61,7 +61,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1                            # あなたの開発用ディレクトリー。任意の名前
+    └── 📂 src1                            # あなたの開発用ディレクトリー。任意の名前
         └── 📂 apps1
             └── 📂 allauth_customized_v1    # アプリケーション
                 └── 📂 templates
@@ -181,8 +181,8 @@ docker-compose up
         <script src="{% static 'allauth_customized_v1/o1o0/form_html_parser.js' %}"></script>
         <!--            ======================================================
                         1
-            1. `host1/apps1/allauth_customized_v1/static/allauth_customized_v1/o1o0/form_html_parser.js`
-                                                  =====================================================
+            1. `src1/apps1/allauth_customized_v1/static/allauth_customized_v1/o1o0/form_html_parser.js`
+                                                 =====================================================
         -->
 
         <script>
@@ -255,7 +255,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 allauth_customized_v1    # アプリケーション
                 ├── 📂 templates
@@ -281,14 +281,14 @@ class AccountsV1LoginView(LoginView):
     template_name = "allauth_customized_v1/templates/account/login.html"
     #                --------------------------------------------------
     #                1
-    # 1. host1/apps1/allauth_customized_v1/templates/account/login.html を取得
-    #                --------------------------------------------------
+    # 1. src1/apps1/allauth_customized_v1/templates/account/login.html を取得
+    #               --------------------------------------------------
 ```
 
 # Step O8o1o0g4o0 サブ ルート作成 - urls_accounts.py
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 allauth_customized_v1    # アプリケーション
         │       ├── 📂 templates
@@ -353,7 +353,7 @@ urlpatterns = [
 👇 以下の既存ファイルの最終行に追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   ├── 📂 portal_v1
         │   │   └── 📂 data

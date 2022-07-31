@@ -43,7 +43,7 @@ allauthなど、他のDjangoサーバーのアプリケーションを混ぜる�
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 apps1
     │   │   ├── 📂 portal_v1                # アプリケーション
     │   │   └── 📂 practice_v1              # アプリケーション
@@ -80,7 +80,7 @@ Dockerコンテナが動いていれば、停止させてほしい
 👇 以下のフォルダーを消してほしい。 Webサイトのデータが全部飛ぶ  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
 👉      └── 📂 data
 ```
 
@@ -90,7 +90,7 @@ Dockerコンテナが動いていれば、停止させてほしい
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-# cd host1
+# cd src1
 
 # Docker コンテナ起動
 docker-compose up

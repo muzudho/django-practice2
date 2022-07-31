@@ -25,7 +25,7 @@
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1        # アプリケーション
     │   │   ├── 📂 portal_v1                    # アプリケーション
@@ -55,7 +55,7 @@
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -66,7 +66,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 templates
@@ -150,7 +150,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
@@ -171,8 +171,8 @@ class MhSession():
     from .v_get_all_logged_in_users import get_all_logged_in_users
     #    --------------------------        -----------------------
     #    1                                 2
-    # 1. `host1/apps1/practice_v1/model_helper/o1o0/mh_sesion/v_get_all_logged_in_users.py`
-    #                                                         -------------------------
+    # 1. `src1/apps1/practice_v1/model_helper/o1o0/mh_sesion/v_get_all_logged_in_users.py`
+    #                                                        -------------------------
     # 2. `1.` に含まれる関数
 ```
 
@@ -181,7 +181,7 @@ class MhSession():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
@@ -258,7 +258,7 @@ web_1  | ]
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
@@ -284,8 +284,8 @@ class SessionV():
     _path_of_this_page = "practice_v1/o1o0/active-user-list.html"
     #                     --------------------------------------
     #                     1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1o0/active-user-list.html` を取得
-    #                                       --------------------------------------
+    # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/active-user-list.html` を取得
+    #                                      --------------------------------------
 
     @staticmethod
     def render(request):
@@ -295,8 +295,8 @@ class SessionV():
         from .v_render import render_active_user_list
         #    ---------        -----------------------
         #    1                2
-        # 1. `host1/apps1/practice_v1/views/o1o0/session/v_render.py`
-        #                                                --------
+        # 1. `src1/apps1/practice_v1/views/o1o0/session/v_render.py`
+        #                                               --------
         # 2. `1.` に含まれる関数
 
         return render_active_user_list(request, SessionV._path_of_this_page)
@@ -307,7 +307,7 @@ class SessionV():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
@@ -358,7 +358,7 @@ def render_active_user_list(request, path_of_this_page):
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 models_helper
@@ -421,7 +421,7 @@ urlpatterns = [
 👇 以下の既存ファイルの最終行に追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   ├── 📂 portal_v1                    # アプリケーション
         │   │   └── 📂 data

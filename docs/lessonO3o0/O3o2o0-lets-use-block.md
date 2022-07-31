@@ -22,7 +22,7 @@
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 apps1
     │   │   └── 📂 practice_v1              # アプリケーション名
     │   │       ├── 📂 templates
@@ -57,7 +57,7 @@
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -68,7 +68,7 @@ docker-compose up
 以下のファイルを作成してほしい。
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1
                 └── 📂 templates
@@ -122,7 +122,7 @@ docker-compose up
 自動フォーマットされてくないので、拡張子をテキストファイルにしておく  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1
                 └── 📂 templates
@@ -137,8 +137,8 @@ docker-compose up
 {% extends "practice_v1/o1o0/page_to_be_added.html" %}
 {#          --------------------------------------
             1
-1. host1/apps1/practice_v1/templates/practice_v1/o1o0/page_to_be_added.html
-                                     --------------------------------------
+1. src1/apps1/practice_v1/templates/practice_v1/o1o0/page_to_be_added.html
+                                    --------------------------------------
 #}
 
 <!-- -->
@@ -173,7 +173,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
@@ -206,8 +206,8 @@ class PageToBeAdded():
         #                 ^two
         #    ------------------------------------------
         #    1
-        # 1. host1/apps1/practice_v1/templates/practice_v1/o2o0/page_to_be_added.html.txt を取得
-        #                                      ------------------------------------------
+        # 1. src1/apps1/practice_v1/templates/practice_v1/o2o0/page_to_be_added.html.txt を取得
+        #                                     ------------------------------------------
 
         context = {}
         return HttpResponse(template.render(context, request))
@@ -218,7 +218,7 @@ class PageToBeAdded():
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1              # アプリケーション名
         │       ├── 📂 templates

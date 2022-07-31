@@ -75,7 +75,7 @@ Elephant
     ├── 📂 host_local1                      # Djangoとは関係ないもの
     │    ├── 📂 sockapp1
     │    └── 📂 websockapp1
-    ├── 📂 host1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
+    ├── 📂 src1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
@@ -141,7 +141,7 @@ Elephant
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -152,7 +152,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 templates
@@ -287,7 +287,7 @@ docker-compose up
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 templates
@@ -310,8 +310,8 @@ class RoomV():
     _path_of_read_page = "practice_v1/o1o0/room/read.html"
     #                     -------------------------------
     #                     1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1o0/room/read.html` を取得
-    #                                       -------------------------------
+    # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/room/read.html` を取得
+    #                                      -------------------------------
 
 
     # ...略...
@@ -325,8 +325,8 @@ class RoomV():
         from .v_read import render_read
         #    -------        -----------
         #    1              2
-        # 1. `host1/apps1/practice_v1/views/o1o0/room/v_read.py`
-        #                                             ------
+        # 1. `src1/apps1/practice_v1/views/o1o0/room/v_read.py`
+        #                                            ------
         # 2. `1.` に含まれる関数
 
         return render_read(request, id, RoomV._path_of_read_page)
@@ -337,7 +337,7 @@ class RoomV():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 templates
@@ -423,7 +423,7 @@ def render_read(request, room_pk, path_of_read_page):
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
@@ -474,7 +474,7 @@ urlpatterns = [
 👇 以下の既存ファイルの最終行に追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data

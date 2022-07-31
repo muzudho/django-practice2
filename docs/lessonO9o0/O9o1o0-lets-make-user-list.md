@@ -34,7 +34,7 @@ Django では、サインアップした口座を User と呼んでいる。
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1        # アプリケーション
     │   │   ├── 📂 portal_v1                    # アプリケーション
@@ -64,7 +64,7 @@ Django では、サインアップした口座を User と呼んでいる。
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -75,7 +75,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 templates
@@ -157,7 +157,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
@@ -179,8 +179,8 @@ class MhUser():
     from .mh_get_user_dic import get_user_dic
     #    ----------------        ------------
     #    1                       2
-    # 1. `host1/apps1/practice_v1/model_helper/o1o0/mh_user/mh_get_user_dic.py`
-    #                                                       ---------------
+    # 1. `src1/apps1/practice_v1/model_helper/o1o0/mh_user/mh_get_user_dic.py`
+    #                                                      ---------------
     # 2. `1.` に含まれる関数
 ```
 
@@ -189,7 +189,7 @@ class MhUser():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
@@ -235,7 +235,7 @@ def get_user_dic():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
@@ -260,8 +260,8 @@ class UserListV():
     _path_of_this_page = "practice_v1/o1o0/user_list.html"
     #                     -------------------------------
     #                     1
-    # 1. host1/apps1/practice_v1/templates/practice_v1/o1o0/user_list.html を取得
-    #                                      -------------------------------
+    # 1. src1/apps1/practice_v1/templates/practice_v1/o1o0/user_list.html を取得
+    #                                     -------------------------------
 
     @staticmethod
     def render(request):
@@ -271,8 +271,8 @@ class UserListV():
         from .v_render import render_user_list
         #    ---------        ----------------
         #    1                2
-        # 1. `host1/apps1/practice_v1/views/o1o0/user_list/v_render.py`
-        #                                                  --------
+        # 1. `src1/apps1/practice_v1/views/o1o0/user_list/v_render.py`
+        #                                                 --------
         # 2. `1.` に含まれる関数
 
         return render_user_list(request, UserListV._path_of_this_page)
@@ -283,7 +283,7 @@ class UserListV():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
@@ -336,7 +336,7 @@ def render_user_list(request, path_of_this_page):
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 models_helper
@@ -398,7 +398,7 @@ urlpatterns = [
 👇 以下の既存ファイルの最終行に追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   ├── 📂 portal_v1                    # アプリケーション
         │   │   └── 📂 data

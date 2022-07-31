@@ -28,7 +28,7 @@
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1        # アプリケーション
     │   │   ├── 📂 portal_v1                    # アプリケーション
@@ -58,7 +58,7 @@
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -73,7 +73,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                 # アプリケーション
                 └── 📂 models_helper
@@ -90,8 +90,8 @@ class MhJson():
     from .m_from_model_to_json_str import from_model_to_json_str
     #    -------------------------        ----------------------
     #    1                                2
-    # 1. `host1/apps1/practice_v1/model_helper/o1o0/mh_json/m_from_model_to_json_str.py`
-    #                                                       ------------------------
+    # 1. `src1/apps1/practice_v1/model_helper/o1o0/mh_json/m_from_model_to_json_str.py`
+    #                                                      ------------------------
     # 2. `1.` に含まれる関数
 
     from .m_from_model_to_json_str import from_model_to_json_str_with_indent
@@ -102,7 +102,7 @@ class MhJson():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                 # アプリケーション
                 └── 📂 models_helper
@@ -134,7 +134,7 @@ def from_model_to_json_str_with_indent(any_object):
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                 # アプリケーション
                 ├── 📂 models_helper
@@ -197,7 +197,7 @@ class DebugV():
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1                 # アプリケーション
         │       ├── 📂 models_helper
@@ -255,7 +255,7 @@ urlpatterns = [
 👇 以下の既存ファイルの最終行に追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   ├── 📂 portal_v1                    # アプリケーション
         │   │   └── 📂 data

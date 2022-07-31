@@ -25,7 +25,7 @@
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
@@ -80,7 +80,7 @@
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -106,7 +106,7 @@ JSONのデータを受け入れられる形をサーバー側で定義してお�
 ファイルは既存だろうから、マージしてほしい。  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 models
@@ -141,7 +141,7 @@ class Dessert(models.Model):
 👇 以下の既存ファイルに追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models
@@ -177,20 +177,20 @@ admin.site.register(Dessert)
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-# cd host1
+# cd src1
 
 docker-compose run --rm web python3 manage.py makemigrations practice_v1 --settings project1.settings
 #                                                            -----------            -----------------
 #                                                            1                      2
 # 1. アプリケーション
-# 2. `host1/project1/settings.py`
-#           -----------------
+# 2. `src1/project1/settings.py`
+#          -----------------
 ```
 
 以下のディレクトリーとファイルが生成される  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1
                 ├── 📂 migrations
@@ -213,8 +213,8 @@ docker-compose run --rm web python3 manage.py makemigrations practice_v1 --setti
 docker-compose run --rm web python manage.py migrate --settings project1.settings
 #                                                               -----------------
 #                                                               1
-# 1. `host1/project1/settings.py`
-#           -----------------
+# 1. `src1/project1/settings.py`
+#          -----------------
 ```
 
 👆 ここまでやって マイグレーション という作業が終わるらしい  
@@ -275,7 +275,7 @@ Iron (%):
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1          # アプリケーション
                 ├── 📂 migrations
@@ -311,7 +311,7 @@ Iron (%):
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1          # アプリケーション
                 ├── 📂 migrations
@@ -338,8 +338,8 @@ Iron (%):
 {% extends "practice_v1/o1o0/vuetify/textarea1_base.html" %}
 {#          --------------------------------------------
             1
-1. host1/apps1/practice_v1/templates/practice_v1/o1o0/vuetify/textarea1_base.html
-                                     --------------------------------------------
+1. src1/apps1/practice_v1/templates/practice_v1/o1o0/vuetify/textarea1_base.html
+                                    --------------------------------------------
 #}
 
 {% block form_signature %}
@@ -358,7 +358,7 @@ Iron (%):
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1          # アプリケーション
                 ├── 📂 migrations
@@ -408,14 +408,14 @@ def render_textarea1_to_model(request):
         'practice_v1/o1o0/vuetify/textarea1_to_model.html.txt')
     #    ----------------------------------------------------
     #    1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o1o0/vuetify/textarea1_to_model.html.txt` を取得
-    #                                       ----------------------------------------------------
+    # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/vuetify/textarea1_to_model.html.txt` を取得
+    #                                      ----------------------------------------------------
 
     with open('apps1/practice_v1/static/practice_v1/o1o0/data/desserts1-placeholder.json', mode='r', encoding='utf-8') as f:
         #      -------------------------------------------------------------------------
         #      1
-        # 1. `host1/apps1/practice_v1/static/practice_v1/o1o0/data/desserts1-placeholder.json` を取得
-        #           -------------------------------------------------------------------------
+        # 1. `src1/apps1/practice_v1/static/practice_v1/o1o0/data/desserts1-placeholder.json` を取得
+        #          -------------------------------------------------------------------------
         doc = json.load(f)
 
     context = {
@@ -450,7 +450,7 @@ def render_save_result_of_desserts1_from_textarea1(request):
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1          # アプリケーション
                 ├── 📂 migrations
@@ -494,7 +494,7 @@ class VuetifyV(object):
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1          # アプリケーション
         │       ├── 📂 migrations
@@ -607,7 +607,7 @@ urlpatterns = [
 👇 以下の既存ファイルの最終行に追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data

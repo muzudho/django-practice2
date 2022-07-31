@@ -32,7 +32,7 @@
     ├── 📂 host_local1                      # Djangoとは関係ないもの
     │    ├── 📂 sockapp1
     │    └── 📂 websockapp1
-    ├── 📂 host1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
+    ├── 📂 src1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
@@ -98,7 +98,7 @@
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -109,7 +109,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v3              # アプリケーション Three
                 └── 📂 templates
@@ -123,8 +123,8 @@ docker-compose up
 {#                          ^one
             ------------------------------------
             1
-1. host1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o1o0/playing.html.txt
-                                        ------------------------------------
+1. src1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o1o0/playing.html.txt
+                                       ------------------------------------
 
     自動フォーマットしないでください
     Do not auto fomatting
@@ -165,7 +165,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v3              # アプリケーション Three
                 ├── 📂 views
@@ -188,8 +188,8 @@ from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicati
 #          11                            12                       2                    3
 #    -----------------------------------------------------
 #    10
-# 10. `host1/apps1/tic_tac_toe_v2/views/o1o0/gui/match_application/__init__.py`
-#            -----------------------------------------------------
+# 10. `src1/apps1/tic_tac_toe_v2/views/o1o0/gui/match_application/__init__.py`
+#           -----------------------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
@@ -202,8 +202,8 @@ from apps1.tic_tac_toe_v3.views.o1o0.match_application import MatchApplicationV 
 #          11                        12                       2                    3
 #    -------------------------------------------------
 #    10
-# 10. `host1/apps1/tic_tac_toe_v3/views/o1o0/match_application/__init__.py`
-#            -------------------------------------------------
+# 10. `src1/apps1/tic_tac_toe_v3/views/o1o0/match_application/__init__.py`
+#           -------------------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
@@ -242,8 +242,8 @@ class MatchApplicationV():
         #                       ^two
         #    --------------------------------------------------------------        ------------------------
         #    1                                                                     2
-        # 1. `host1/apps1/tic_tac_toe_v2/views/o1o0/gui/match_application/v_render.py`
-        #                                                                 --------
+        # 1. `src1/apps1/tic_tac_toe_v2/views/o1o0/gui/match_application/v_render.py`
+        #                                                                --------
         # 2. `1.` に含まれる関数
 
         return render_match_application(
@@ -264,7 +264,7 @@ class MatchApplicationV():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v3                 # アプリケーション Three
                 ├── 📂 views
@@ -286,8 +286,8 @@ from apps1.tic_tac_toe_v3.views.o1o0.playing import PlayingV as PlayingVV3o1o0
 #          11                        12             2           3
 #    ---------------------------------------
 #    10
-# 10. `host1/apps1/tic_tac_toe_v3/views/o1o0/playing/__init__.py`
-#            ---------------------------------------
+# 10. `src1/apps1/tic_tac_toe_v3/views/o1o0/playing/__init__.py`
+#           ---------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
@@ -299,8 +299,8 @@ from apps1.tic_tac_toe_v3.views.o3o0.playing import PlayingV as PlayingVV3o3o0
 #          11                        12             2           3
 #    ---------------------------------------
 #    10
-# 10. `host1/apps1/tic_tac_toe_v3/views/o3o0/playing/__init__.py`
-#            ---------------------------------------
+# 10. `src1/apps1/tic_tac_toe_v3/views/o3o0/playing/__init__.py`
+#           ---------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
@@ -317,8 +317,8 @@ class PlayingV():
     #                               ^four
     #               ------------------------------------
     #               1
-    # 1. `host1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o4o0/playing.html.txt`
-    #                                          ------------------------------------
+    # 1. `src1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o4o0/playing.html.txt`
+    #                                         ------------------------------------
 
     @staticmethod
     def render(request, kw_room_name):
@@ -329,8 +329,8 @@ class PlayingV():
         #                       ^two
         #    ----------------------------------------------------        --------------
         #    1                                                           2
-        # 1. `host1/apps1/tic_tac_toe_v2/views/o1o0/gui/playing/v_render.py`
-        #           ----------------------------------------------------
+        # 1. `src1/apps1/tic_tac_toe_v2/views/o1o0/gui/playing/v_render.py`
+        #          ----------------------------------------------------
         # 2. `1.` のファイルに含まれる render_playing 関数
 
         return render_playing(
@@ -347,7 +347,7 @@ class PlayingV():
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v3                 # アプリケーション Three
         │       ├── 📂 views
@@ -443,7 +443,7 @@ urlpatterns = [
 👇 以下の既存ファイルの最終行に追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data

@@ -33,7 +33,7 @@
     ├── 📂 host_local1                      # Djangoとは関係ないもの
     │    ├── 📂 sockapp1
     │    └── 📂 websockapp1
-    ├── 📂 host1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
+    ├── 📂 src1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
@@ -99,7 +99,7 @@
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -110,7 +110,7 @@ docker-compose up
 👇 以下のフォルダーを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v3                     # アプリケーション Three
 ```
@@ -132,7 +132,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v3 ./apps1/tic
 👇 以下のファイルを削除してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v3                     # アプリケーション Three
                 ├── 📂 migrations
@@ -150,7 +150,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v3 ./apps1/tic
 👇 以下のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 tic_tac_toe_v3                 # アプリケーション Three
                 ├── 📂 migrations
@@ -173,8 +173,8 @@ class TicTacToeV3Config(AppConfig):
     name = 'apps1.tic_tac_toe_v3'
     #       --------------------
     #       1
-    # 1. `host1/apps1/tic_tac_toe_v3/apps.py`
-    #           --------------------
+    # 1. `src1/apps1/tic_tac_toe_v3/apps.py`
+    #          --------------------
 ```
 
 # Step OA22o1o0g6o0 アプリケーション登録 - settings.py ファイル
@@ -182,7 +182,7 @@ class TicTacToeV3Config(AppConfig):
 👇 以下の既存のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v3                     # アプリケーション Three
         │       ├── 📂 migrations
@@ -212,7 +212,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-これで、 `host1/apps1/tic_tac_toe_v3` フォルダーは tic_tac_toe_v3 アプリケーションとして認識される。  
+これで、 `src1/apps1/tic_tac_toe_v3` フォルダーは tic_tac_toe_v3 アプリケーションとして認識される。  
 例えば、 tic_tac_toe_v3 フォルダーの直下に置いた static フォルダーが Django の静的リソースの検索対象のパスになるといったメリットがある  
 
 # Step OA22o1o0g7o0 対局画面作成 - playing.html.txt ファイル
@@ -220,7 +220,7 @@ INSTALLED_APPS = [
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v3                 # アプリケーション Three
         │       ├── 📂 migrations
@@ -242,8 +242,8 @@ INSTALLED_APPS = [
 {#                       ^ two
             -----------------------------------------
             1
-1. `host1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1o0/gui/playing_base.html`
-                                         -----------------------------------------
+1. `src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1o0/gui/playing_base.html`
+                                        -----------------------------------------
 
     自動フォーマットしないでください
     Do not auto fomatting
@@ -265,7 +265,7 @@ INSTALLED_APPS = [
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v3                   # アプリケーション Four
         │       ├── 📂 migrations
@@ -292,8 +292,8 @@ from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicati
 #                       ^two
 #    -----------------------------------------------------        -----------------    -----------------------
 #    1                                                            2                    3
-# 1. `host1/apps1/tic_tac_toe_v2/views/o1o0/gui/match_application/__init__.py`
-#           -----------------------------------------------------
+# 1. `src1/apps1/tic_tac_toe_v2/views/o1o0/gui/match_application/__init__.py`
+#          -----------------------------------------------------
 # 2. `1.` の __init__.py ファイルに含まれるクラス
 # 3. '2.' の別名
 
@@ -318,8 +318,8 @@ class MatchApplicationV():
         #                       ^two
         #    --------------------------------------------------------------        ------------------------
         #    1                                                                     2
-        # 1. `host1/apps1/tic_tac_toe_v2/views/o1o0/gui/match_application/v_render.py`
-        #                                                                 --------
+        # 1. `src1/apps1/tic_tac_toe_v2/views/o1o0/gui/match_application/v_render.py`
+        #                                                                --------
         # 2. `1.` に含まれる関数
 
         return render_match_application(
@@ -347,7 +347,7 @@ class MatchApplicationV():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v3                 # アプリケーション .Three
         │       ├── 📂 migrations
@@ -378,8 +378,8 @@ from apps1.tic_tac_toe_v2.views.o1o0.gui.playing import PlayingV as PlayingVV2g1
 #          11                            12             2           3
 #    -------------------------------------------
 #    10
-# 10. `host1/apps1/tic_tac_toe_v2/views/o1o0/gui/playing/__init__.py`
-#            -------------------------------------------
+# 10. `src1/apps1/tic_tac_toe_v2/views/o1o0/gui/playing/__init__.py`
+#           -------------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
 # 2. `12.` に含まれる `__init__.py` ファイルにさらに含まれるクラス
@@ -400,8 +400,8 @@ class PlayingV():
     #                            ^three
     #               ------------------------------------
     #               1
-    # 1. `host1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o1o0/playing.html.txt`
-    #                                          ------------------------------------
+    # 1. `src1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o1o0/playing.html.txt`
+    #                                         ------------------------------------
 
     @staticmethod
     def render(request, kw_room_name):
@@ -412,8 +412,8 @@ class PlayingV():
         #                       ^two
         #    ----------------------------------------------------        --------------
         #    1                                                           2
-        # 1. `host1/apps1/tic_tac_toe_v2/views/o1o0/gui/playing/v_render.py`
-        #           ----------------------------------------------------
+        # 1. `src1/apps1/tic_tac_toe_v2/views/o1o0/gui/playing/v_render.py`
+        #          ----------------------------------------------------
         # 2. `1.` のファイルに含まれる render_playing 関数
 
         return render_playing(
@@ -436,7 +436,7 @@ class PlayingV():
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v3                 # アプリケーション Four
         │       ├── 📂 migrations
@@ -531,7 +531,7 @@ urlpatterns = [
 👇 以下の既存ファイルの最終行に追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data

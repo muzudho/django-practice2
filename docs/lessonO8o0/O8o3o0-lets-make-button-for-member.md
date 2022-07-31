@@ -28,7 +28,7 @@
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1        # アプリケーション
     │   │   ├── 📂 portal_v1                    # アプリケーション
@@ -58,7 +58,7 @@
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -69,7 +69,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 templates
@@ -175,7 +175,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 templates
@@ -196,8 +196,8 @@ class ButtonForMember():
     _path_of_this_page = "practice_v1/o1o0/button_for_member.html"
     #                     ---------------------------------------
     #                     1
-    # 1. host1/apps1/practice_v1/templates/practice_v1/o1o0/button_for_member.html を取得
-    #                                      ---------------------------------------
+    # 1. src1/apps1/practice_v1/templates/practice_v1/o1o0/button_for_member.html を取得
+    #                                     ---------------------------------------
 
     # 既存のポータルページ
     _path_of_portal = "/"
@@ -235,8 +235,8 @@ class ButtonForMember():
         from .v_render import render_button_for_member
         #    ---------        ------------------------
         #    1                2
-        # 1. `host1/apps1/practice_v1/views/o1o0/button_for_member/v_render.py`
-        #                                                          --------
+        # 1. `src1/apps1/practice_v1/views/o1o0/button_for_member/v_render.py`
+        #                                                         --------
         # 2. `1.` に含まれる関数
 
         return render_button_for_member(request, ButtonForMember._path_of_this_page, ButtonForMember._path_of_portal, ButtonForMember._path_of_login_required, ButtonForMember._path_of_login, ButtonForMember._path_of_logout)
@@ -247,7 +247,7 @@ class ButtonForMember():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 templates
@@ -287,7 +287,7 @@ def render_button_for_member(request, path_of_this_page, path_of_portal, path_of
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
@@ -344,7 +344,7 @@ urlpatterns = [
 👇 以下の既存ファイルの最終行に追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   ├── 📂 portal_v1                    # アプリケーション
         │   │   └── 📂 data

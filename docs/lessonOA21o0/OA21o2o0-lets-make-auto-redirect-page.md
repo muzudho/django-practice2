@@ -36,7 +36,7 @@
     ├── 📂 host_local1                      # Djangoとは関係ないもの
     │    ├── 📂 sockapp1
     │    └── 📂 websockapp1
-    ├── 📂 host1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
+    ├── 📂 src1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
@@ -102,7 +102,7 @@
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -113,7 +113,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 static
@@ -152,7 +152,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
@@ -169,8 +169,8 @@ function startReloadingAutomatically(intervalMilliseconds) {
 {% extends "practice_v1/o1o0/auto_reload.html" %}
 {#          ---------------------------------
             1
-1. host1/apps1/practice_v1/templates/practice_v1/o1o0/auto_reload.html
-                                     ---------------------------------
+1. src1/apps1/practice_v1/templates/practice_v1/o1o0/auto_reload.html
+                                    ---------------------------------
 #}
 
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
@@ -180,8 +180,8 @@ function startReloadingAutomatically(intervalMilliseconds) {
 <script src="{% static 'practice_v1/o2o0/auto_reload.js' %}"></script>
 <!--                                 ^three
                 =======================================
-    `host1/apps1/practice_v1/static/practice_v1/o2o0/auto_reload.js`
-                             ======================================
+    `src1/apps1/practice_v1/static/practice_v1/o2o0/auto_reload.js`
+                            ======================================
 -->
 {% endblock script_src %}
 
@@ -220,7 +220,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
@@ -246,8 +246,8 @@ class AutoRedirectV():
     #                                        ^three
     #                           -------------------------------------------------
     #                           1
-    # 1. `host1/apps1/practice_v1/templates/practice_v1/o2o0/auto_reload_with_redirect.html.txt` を取得
-    #                                       ---------------------------------------------------
+    # 1. `src1/apps1/practice_v1/templates/practice_v1/o2o0/auto_reload_with_redirect.html.txt` を取得
+    #                                      ---------------------------------------------------
 
     @staticmethod
     def render_auto_redirect(request):
@@ -257,8 +257,8 @@ class AutoRedirectV():
         from .v_redirect import render_auto_redirect
         #    -----------        ---------------
         #    1                  2
-        # 1. `host1/apps1/practice_v1/views/o2o0/auto_redirect/v_redirect.py`
-        #                                                      ----------
+        # 1. `src1/apps1/practice_v1/views/o2o0/auto_redirect/v_redirect.py`
+        #                                                     ----------
         # 2. `1.` に含まれる関数
 
         return render_auto_redirect(request, AutoRedirectV._path_of_redirecter_page)
@@ -269,7 +269,7 @@ class AutoRedirectV():
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
@@ -325,7 +325,7 @@ def render_auto_redirect(request, path_of_redirecter_page):
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 static
@@ -389,7 +389,7 @@ urlpatterns = [
 👇 以下の既存ファイルの最終行に追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data

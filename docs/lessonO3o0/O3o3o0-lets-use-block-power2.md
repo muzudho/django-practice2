@@ -22,7 +22,7 @@
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 apps1
     │   │   └── 📂 practice_v1              # アプリケーション名
     │   │       ├── 📂 templates
@@ -63,7 +63,7 @@
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -75,7 +75,7 @@ docker-compose up
 自動フォーマットされてくないので、拡張子をテキストファイルにしておく  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1
                 └── 📂 templates
@@ -89,8 +89,8 @@ docker-compose up
 <!-- -->
 {#          ------------------------------------------
             1
-1. host1/apps1/practice_v1/templates/practice_v1/o2o0/page_to_be_added.html.txt
-                                     ------------------------------------------
+1. src1/apps1/practice_v1/templates/practice_v1/o2o0/page_to_be_added.html.txt
+                                    ------------------------------------------
 #}
 
 <!-- 伸びることを想定したリスト -->
@@ -118,7 +118,7 @@ docker-compose up
 👇 以下の既存のファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1
                 ├── 📂 templates
@@ -147,8 +147,8 @@ class PageToBeAdded():
         #                 ^three
         #    ------------------------------------------
         #    1
-        # 1. host1/apps1/practice_v1/templates/practice_v1/o3o0/page_to_be_added.html.txt を取得
-        #                                      ------------------------------------------
+        # 1. src1/apps1/practice_v1/templates/practice_v1/o3o0/page_to_be_added.html.txt を取得
+        #                                     ------------------------------------------
 
         context = {}
         return HttpResponse(template.render(context, request))
@@ -159,7 +159,7 @@ class PageToBeAdded():
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1              # アプリケーション名
         │       ├── 📂 templates

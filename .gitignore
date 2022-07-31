@@ -1,14 +1,14 @@
 # Django practice
 #   |
 #   +-- Secret
-host1/project1/settings_secrets.py
-host1/project2/settings_secrets.py
+src1/project1/settings_secrets.py
+src1/project2/settings_secrets.py
 #   |
 #   +-- Winmerge
 *.bak
 #   |
 #   +-- Database
-host1/data/db
+src1/data/db
 
 
 # Byte-compiled / optimized / DLL files

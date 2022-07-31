@@ -26,7 +26,7 @@
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host1
+    ├── 📂 src1
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1        # アプリケーション名
     │   │   ├── 📂 portal_v1                    # アプリケーション名
@@ -56,7 +56,7 @@
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -67,7 +67,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1          # アプリケーション フォルダー
                 └── 📂 models
@@ -100,7 +100,7 @@ class Prefecture(models.Model):
 👇 以下の既存ファイルに追記してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1          # アプリケーション
 👉              └── 📄 admin.py
@@ -128,7 +128,7 @@ admin.site.register(Prefecture)
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-# cd host1
+# cd src1
 
 docker-compose run --rm web python3 manage.py makemigrations practice_v1
 #                                                            -----------
@@ -140,7 +140,7 @@ docker-compose run --rm web python3 manage.py makemigrations practice_v1
 以下のディレクトリーとファイルが生成される  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1          # アプリケーション
                 └── 📂 migrations

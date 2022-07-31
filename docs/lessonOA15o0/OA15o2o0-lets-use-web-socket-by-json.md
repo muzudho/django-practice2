@@ -37,7 +37,7 @@ Webサーバーとクライアント間でテキストを双方向の非同期�
     │    └── 📂 websockapp1
     │        ├── 📄 main_finally.py
     │        └── 📄 websock_client.py
-    ├── 📂 host1                         # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
+    ├── 📂 src1                         # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
@@ -95,7 +95,7 @@ Webサーバーとクライアント間でテキストを双方向の非同期�
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
-cd host1
+cd src1
 
 # Docker コンテナ起動
 docker-compose up
@@ -110,7 +110,7 @@ docker-compose up
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         └── 📂 apps1
             └── 📂 practice_v1              # アプリケーション
                 └── 📂 websocks
@@ -162,7 +162,7 @@ class WebsockPractice2V1Consumer(AsyncJsonWebsocketConsumer):
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1              # アプリケーション
         │       └── 📂 websocks
@@ -218,7 +218,7 @@ websocket-client パッケージは以前の記事で既にインストールし
     ├── 📂 host_local1
     │    └── 📂 websockapp1
 👉  │        └── 📄 client_as_json.py
-    └── 📂 host1
+    └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1              # アプリケーション
         │       └── 📂 websocks

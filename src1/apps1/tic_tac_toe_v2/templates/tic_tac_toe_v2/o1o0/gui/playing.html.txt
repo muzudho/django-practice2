@@ -1,0 +1,38 @@
+{% extends "tic_tac_toe_v2/o1o0/gui/playing_base.html" %}
+{#          -----------------------------------------
+            1
+1. src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1o0/gui/playing_base.html
+                                       -----------------------------------------
+
+    自動フォーマットしないでください
+    Do not auto fomatting
+#}
+
+{% block footer_section1 %}
+    <v-container>
+        <v-btn block elevation="2" v-on:click="clickPlayAgain()" :disabled="isDisabledPlayAgainButton()"> Play again </v-btn>
+    </v-container>
+{% endblock footer_section1 %}
+
+{% block methods_footer %}
+    /**
+     *
+     */
+    clickPlayAgain() {
+        console.log(`Play Again`);
+
+        // 対局開始時
+        this.onStart();
+    },
+    /**
+     * Play again ボタンは非表示か
+     */
+    isDisabledPlayAgainButton() {
+        switch (this.roomState.value) {
+            case RoomState.none: // ゲームオーバー中
+                return false; // Enable
+            default:
+                return true; // Disable
+        }
+    },
+{% endblock methods_footer %}
