@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+# O3o1o0gA11o0 総合ルート編集
 from .settings import PROJECT_NAME
 #    ]--------        ------------
 #    12               3
@@ -42,7 +43,7 @@ urlpatterns = [
     # 2. `host1/app1/urls.py` の urlpatterns を `1.` にぶら下げる
     #           ---------
 
-    # O3o1o0 練習
+    # O3o1o0gA11o0 練習
     path('', include(f'{PROJECT_NAME}.urls_practice')),
     #    --            ----------------------------
     #    1             2
