@@ -93,7 +93,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O1o0 Dockerコンテナの起動
+# Step OA22o1o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -105,7 +105,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o0 フォルダー作成 - apps1/tic_tac_toe_v3 フォルダー
+# Step OA22o1o0g2o0 フォルダー作成 - apps1/tic_tac_toe_v3 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -115,7 +115,7 @@ docker-compose up
             └── 📂 tic_tac_toe_v3                     # アプリケーション Three
 ```
 
-# Step O3o0 アプリケーション作成
+# Step OA22o1o0g3o0 アプリケーション作成
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -127,7 +127,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v3 ./apps1/tic
 # 2. 既存のディレクトリーへのパス
 ```
 
-# Step O4o0 今回使わないファイルの削除
+# Step OA22o1o0g4o0 今回使わないファイルの削除
 
 👇 以下のファイルを削除してほしい  
 
@@ -145,7 +145,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v3 ./apps1/tic
 👉              └── 📄 views.py
 ```
 
-# Step O5o0 アプリケーション設定変更 - apps.py
+# Step OA22o1o0g5o0 アプリケーション設定変更 - apps.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -177,7 +177,7 @@ class TicTacToeV3Config(AppConfig):
     #           --------------------
 ```
 
-# Step O6o0 アプリケーション登録 - settings.py ファイル
+# Step OA22o1o0g6o0 アプリケーション登録 - settings.py ファイル
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -215,7 +215,7 @@ INSTALLED_APPS = [
 これで、 `host1/apps1/tic_tac_toe_v3` フォルダーは tic_tac_toe_v3 アプリケーションとして認識される。  
 例えば、 tic_tac_toe_v3 フォルダーの直下に置いた static フォルダーが Django の静的リソースの検索対象のパスになるといったメリットがある  
 
-# Step O7o0 対局画面作成 - playing.html.txt ファイル
+# Step OA22o1o0g7o0 対局画面作成 - playing.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -260,7 +260,7 @@ INSTALLED_APPS = [
 {% endblock methods_footer %}
 ```
 
-# Step O8o0 対局申込ビュー モジュール作成 - match_application フォルダー
+# Step OA22o1o0g8o0 対局申込ビュー モジュール作成 - match_application フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -342,7 +342,7 @@ class MatchApplicationV():
         return MatchApplicationVV2g1o0.open_context
 ```
 
-# Step O9o0 対局ビュー モジュール作成 - playing フォルダー
+# Step OA22o1o0g9o0 対局ビュー モジュール作成 - playing フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -431,7 +431,7 @@ class PlayingV():
         pass
 ```
 
-# Step OA10o0 ルート編集 - urls_practice.py ファイル
+# Step OA22o1o0gA10o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -520,13 +520,13 @@ urlpatterns = [
 ]
 ```
 
-# Step OA11o0 Web画面へアクセス
+# Step OA22o1o0gA11o0 Web画面へアクセス
 
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでください  
 
 📖 [http://localhost:8000/tic-tac-toe/v3.1/match-application/](http://localhost:8000/tic-tac-toe/v3.1/match-application/)  
 
-# Step OA12o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step OA22o1o0gA12o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
