@@ -1,10 +1,14 @@
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render
 
 
-def render_my(request, path_of_my_page):
-    """描画 - マイ ページ"""
-    template = loader.get_template(path_of_my_page)
+def render_my(request, lp_my_page):
+    """描画 - マイ ページ
+
+    Parameters
+    ----------
+    lp_my_page : str
+        ローカルパス
+    """
 
     context = {
         # "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
@@ -35,4 +39,4 @@ def render_my(request, path_of_my_page):
         #                      --------------------
     }
 
-    return HttpResponse(template.render(context, request))
+    return render(request, lp_my_page, context)

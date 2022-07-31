@@ -279,13 +279,17 @@ class MyV():
 ```
 
 ```py
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render
 
 
-def render_my(request, path_of_my_page):
-    """描画 - マイ ページ"""
-    template = loader.get_template(path_of_my_page)
+def render_my(request, lp_my_page):
+    """描画 - マイ ページ
+
+    Parameters
+    ----------
+    lp_my_page : str
+        ローカルパス
+    """
 
     context = {
         # "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
@@ -316,7 +320,7 @@ def render_my(request, path_of_my_page):
         #                      --------------------
     }
 
-    return HttpResponse(template.render(context, request))
+    return render(request, lp_my_page, context)
 ```
 
 # Step OA19o1o0g5o0 ルート編集 - urls_practice.py ファイル
