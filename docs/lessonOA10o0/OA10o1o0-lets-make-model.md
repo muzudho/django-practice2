@@ -50,7 +50,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O1o0 Dockerコンテナの起動
+# Step OA10o1o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -62,7 +62,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o0 モデル作成 - m_prefecture.py ファイル
+# Step OA10o1o0g2o0 モデル作成 - m_prefecture.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -95,7 +95,7 @@ class Prefecture(models.Model):
         return f"{self.name} prefecture"
 ```
 
-# Step O3o0 モデル登録 - admin.py ファイル
+# Step OA10o1o0g3o0 モデル登録 - admin.py ファイル
 
 👇 以下の既存ファイルに追記してほしい  
 
@@ -124,7 +124,7 @@ admin.site.register(Prefecture)
 
 👆 管理画面に Prefecture オブジェクトが表示されるようにしている  
 
-# Step O4o0 マイグレーション ファイル生成 - コマンド実行＜その１＞
+# Step OA10o1o0g4o0 マイグレーション ファイル生成 - コマンド実行＜その１＞
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
@@ -152,7 +152,7 @@ docker-compose run --rm web python3 manage.py makemigrations practice_v1
 
 まだ マイグレーション作業は完了していない  
 
-# Step O5o0 マイグレーション - コマンド実行＜その２＞
+# Step OA10o1o0g5o0 マイグレーション - コマンド実行＜その２＞
 
 ```shell
 docker-compose run --rm web python manage.py migrate
@@ -160,7 +160,7 @@ docker-compose run --rm web python manage.py migrate
 
 👆 ここまでやって マイグレーション という作業が終わるらしい  
 
-# Step O6o0 スーパーユーザーでWebの管理画面へアクセス
+# Step OA10o1o0g6o0 スーパーユーザーでWebの管理画面へアクセス
 
 👇 スーパーユーザーでログインすること  
 
@@ -176,7 +176,7 @@ docker-compose run --rm web python manage.py migrate
 +-------------+--------+-----------+
 ```
 
-# Step O7o0 Prefecture を３つほど追加してほしい
+# Step OA10o1o0g7o0 Prefecture を３つほど追加してほしい
 
 Prefectures ラベルの右横の `➕ Add` リンクをクリックしてほしい  
 
@@ -190,7 +190,7 @@ Prefectures ラベルの右横の `➕ Add` リンクをクリックしてほし
 👆 入力フォームが出てくるから、３件ほど適当に追加してほしい。  
 `[SAVE]` が追加ボタンのようだ  
 
-# Step O8o0 登録した Prefecture を確認してほしい
+# Step OA10o1o0g8o0 登録した Prefecture を確認してほしい
 
 `Prefectures` ラベルをクリックすると、一覧画面が出てくる  
 
