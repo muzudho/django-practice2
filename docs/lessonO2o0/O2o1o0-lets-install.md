@@ -349,6 +349,45 @@ ALLOWED_HOSTS = []
 
 ## Step O2o1o0g9o1o1o0 asgi.py
 
+## Step O2o1o0g9o1o2o_9o0 settings.py
+
+👇 以下のファイルを編集してほしい
+
+```plaintext
+    ├── 📂 host1
+    │   ├── 📂 project1
+    │   │   ├── 📄 __init__.py
+    │   │   ├── 📄 asgi.py
+    │   │   ├── 📄 settings_secrets_example.txt
+    │   │   ├── 📄 settings_secrets.py
+👉  │   │   ├── 📄 settings.py
+    │   │   ├── 📄 urls.py
+    │   │   └── 📄 wsgi.py
+    │   ├── 🐳 docker-compose.yml
+    │   ├── 🐳 Dockerfile
+    │   ├── 📄 manage.py
+    │   └── 📄 requirements.txt
+    └── 📄 .gitignore
+```
+
+```py
+# ...略...
+
+
+# * 変更前
+# WSGI_APPLICATION = 'project1.wsgi.application'
+# * O2o1o0g9o1o2o_9o0 プロジェクト名の一般化
+WSGI_APPLICATION = f'{PROJECT_NAME}.wsgi.application'
+#                    -------------------------------
+#                    1
+# 1. DjangoのWSGI設定の大元となるグローバル変数。
+#    `host1/projectN/wsgi.py` ファイルの中の application 変数を指している
+#           -------------
+
+
+# ...略...
+```
+
 ## Step O2o1o0g9o1o2o0 urls.py
 
 ## Step O2o1o0g9o1o3o0 wsgi.py
@@ -578,21 +617,6 @@ ROOT_URLCONF = f'{PROJECT_NAME}.urls'
 # ...略...
 ```
 
-### WSGI_APPLICATION
-
-```py
-# ...略...
-
-
-# * 変更前
-# WSGI_APPLICATION = 'project1.wsgi.application'
-# * 変更後
-WSGI_APPLICATION = f'{PROJECT_NAME}.wsgi.application'
-
-
-# ...略...
-```
-
 ### DATABASES
 
 👇 探して変更してほしい
@@ -662,15 +686,6 @@ ROOT_URLCONF = f'{PROJECT_NAME}.urls'
 #                1
 # 1. DjangoのURL設定の大元となるPythonモジュール。
 #    `host1/project1/urls.py` を指している
-#           -------------
-```
-
-```py
-WSGI_APPLICATION = f'{PROJECT_NAME}.wsgi.application'
-#                    -------------------------------
-#                    1
-# 1. DjangoのWSGI設定の大元となるグローバル変数。
-#    `host1/project1/wsgi.py` ファイルの中の application 変数を指している
 #           -------------
 ```
 
