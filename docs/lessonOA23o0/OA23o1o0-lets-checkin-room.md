@@ -106,7 +106,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O1o0 Dockerコンテナの起動
+# Step OA23o1o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -118,7 +118,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o0 対局申込ビュー モジュール編集 - match_application フォルダー
+# Step OA23o1o0g2o0 対局申込ビュー モジュール編集 - match_application フォルダー
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -197,7 +197,7 @@ class MatchApplicationV():
         return MatchApplicationVV2g1o0.open_context
 ```
 
-# Step O3o0 対局申込ビュー モジュール作成 - v_on_sent.py ファイル
+# Step OA23o1o0g3o0 対局申込ビュー モジュール作成 - v_on_sent.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -310,7 +310,7 @@ def match_application_on_sent(request):
         pass
 ```
 
-# Step O4o0 ルート編集 - urls_practice.py ファイル
+# Step OA23o1o0g4o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -363,7 +363,7 @@ urlpatterns = [
 ]
 ```
 
-# Step O5o0 Web画面へアクセス
+# Step OA23o1o0g5o0 Web画面へアクセス
 
 先手と後手で、２人分のプレイヤーのアカウントがほしい。  
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでほしい  
@@ -406,7 +406,7 @@ urlpatterns = [
 
 また、既存でない部屋名でも ちゃんとユーザーの主キーが記録されることを確認してほしい  
 
-# Step O6o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step OA23o1o0g6o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
