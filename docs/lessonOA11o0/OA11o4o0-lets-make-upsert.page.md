@@ -253,7 +253,7 @@ from apps1.practice_v1.models.o1o0.m_prefecture import Prefecture
 
 # 都道府県フォーム
 from apps1.practice_v1.forms.f_prefecture import PrefectureForm
-#          -----------       ------------        ----------
+#          -----------       ------------        --------------
 #          11                12                  2
 #    ------------------------------------
 #    10
@@ -263,7 +263,7 @@ from apps1.practice_v1.forms.f_prefecture import PrefectureForm
 
 
 def render_upsert(request, id=None):
-    """新規作成または更新の画面の描画"""
+    """OA11o4o0g4o0 新規作成または更新の画面の描画"""
 
     if id:  # idがあるとき（更新の時）
         # idで検索して、結果を戻すか、404エラー
@@ -275,19 +275,27 @@ def render_upsert(request, id=None):
     if request.method == 'POST':
         # フォームを生成
         form = PrefectureForm(request.POST, instance=prefecture)
-        if form.is_valid():  # バリデーションがOKなら保存
+
+        # Valid なら保存して一覧画面へ
+        if form.is_valid():
             prefecture = form.save(commit=False)
             prefecture.save()
             return redirect('practice_v1_prefectures')
+
+        # Invalid ならフォームを引き継いで再び同じ画面表示へ
+
     else:  # GETの時（フォームを生成）
         form = PrefectureForm(instance=prefecture)
 
     # 作成・更新画面を表示
-    return render(request, 'practice_v1/o1o0/prefecture/upsert.html', dict(form=form, id=id))
+    # * `lp_` - Local path
+    lp_prefecture_upsert = 'practice_v1/o1o0/prefecture/upsert.html'
     #                       ---------------------------------------
     #                       1
     # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/prefecture/upsert.html` を取得
     #                                      ---------------------------------------
+
+    return render(request, lp_prefecture_upsert, dict(form=form, id=id))
 ```
 
 # Step OA11o4o0g5o0 ビュー編集 - prefecture モジュール
