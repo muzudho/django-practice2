@@ -230,7 +230,7 @@ def get_user_dic():
     return user_dic
 ```
 
-# Step O9o1o0g5o0 ビュー モジュール作成 - user_list フォルダー
+# Step O9o1o0g5o0 ビュー作成 - user_list フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -278,7 +278,7 @@ class UserListV():
         return render_user_list(request, UserListV._path_of_this_page)
 ```
 
-# Step O9o1o0g6o0 ビュー モジュール作成 - user_list/v_render.py ファイル
+# Step O9o1o0g6o0 ビュー作成 - user_list/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 

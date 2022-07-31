@@ -250,7 +250,7 @@ docker-compose up
 </html>
 ```
 
-# Step O8o1o0g3o0 ビュー モジュール作成 - login フォルダー
+# Step O8o1o0g3o0 ビュー作成 - login フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 

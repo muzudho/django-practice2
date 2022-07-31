@@ -260,7 +260,7 @@ INSTALLED_APPS = [
 {% endblock methods_footer %}
 ```
 
-# Step OA22o1o0g8o0 対局申込ビュー モジュール作成 - match_application フォルダー
+# Step OA22o1o0g8o0 対局申込ビュー作成 - match_application フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -342,7 +342,7 @@ class MatchApplicationV():
         return MatchApplicationVV2g1o0.open_context
 ```
 
-# Step OA22o1o0g9o0 対局ビュー モジュール作成 - playing フォルダー
+# Step OA22o1o0g9o0 対局ビュー作成 - playing フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 

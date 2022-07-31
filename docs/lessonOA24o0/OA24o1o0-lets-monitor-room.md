@@ -395,7 +395,7 @@ websocket_urlpatterns_merged.extend(
 #                        ^three
 ```
 
-# Step OA24o1o0g6o0 対局申込ビュー モジュール作成 - o3o0/match_application フォルダー
+# Step OA24o1o0g6o0 対局申込ビュー作成 - o3o0/match_application フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -473,7 +473,7 @@ class MatchApplicationV():
             MatchApplicationVV2g1o0.open)
 ```
 
-# Step OA24o1o0g7o0 対局申込ビュー モジュール作成 - o3o0/playing フォルダー
+# Step OA24o1o0g7o0 対局申込ビュー作成 - o3o0/playing フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 

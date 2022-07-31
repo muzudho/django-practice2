@@ -784,7 +784,7 @@ connect();
 </html>
 ```
 
-# Step OA16o1o0gA13o0 ビュー モジュール作成 - match_application フォルダー
+# Step OA16o1o0gA13o0 ビュー作成 - match_application フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -851,7 +851,7 @@ class MatchApplicationV():
 ```
 
 
-# Step OA16o1o0gA14o0 ビュー モジュール作成 - match_application/v_render.py ファイル
+# Step OA16o1o0gA14o0 ビュー作成 - match_application/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -901,7 +901,7 @@ def render_match_application(request, path_of_http_playing, path_of_html):
     return render(request, path_of_html, {})
 ```
 
-# Step OA16o1o0gA15o0 ビュー モジュール作成 - playing フォルダー
+# Step OA16o1o0gA15o0 ビュー作成 - playing フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -960,7 +960,7 @@ class PlayingV():
         return render_playing(request, room_name, PlayingV.path_of_html)
 ```
 
-# Step OA16o1o0gA16o0 ビュー モジュール作成 - playing/v_render.py ファイル
+# Step OA16o1o0gA16o0 ビュー作成 - playing/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 

@@ -1370,7 +1370,7 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
         return await self._messageConverter.on_receive(self.scope, doc_received)
 ```
 
-# Step OA16o3o0gA11o0 ビュー モジュール作成 - match_application フォルダー
+# Step OA16o3o0gA11o0 ビュー作成 - match_application フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1468,7 +1468,7 @@ class MatchApplicationV():
         return MatchApplicationV.open_context
 ```
 
-# Step OA16o3o0gA12o0 ビュー モジュール作成 - match_application/v_render.py ファイル
+# Step OA16o3o0gA12o0 ビュー作成 - match_application/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1529,7 +1529,7 @@ def render_match_application(request, path_of_http_playing, path_of_html, on_sen
     return render(request, path_of_html, context)
 ```
 
-# Step OA16o3o0gA13o0 ビュー モジュール作成 - playing フォルダー
+# Step OA16o3o0gA13o0 ビュー作成 - playing フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1617,7 +1617,7 @@ class PlayingV():
         pass
 ```
 
-# Step OA16o3o0gA14o0 ビュー モジュール作成 - playing/v_render.py ファイル
+# Step OA16o3o0gA14o0 ビュー作成 - playing/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 

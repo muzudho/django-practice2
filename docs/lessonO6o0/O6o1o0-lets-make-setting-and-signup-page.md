@@ -664,7 +664,7 @@ class DjangoAllauthFormParser {
 </html>
 ```
 
-# Step O6o1o0gA11o0 ビュー モジュール作成 - accounts フォルダー
+# Step O6o1o0gA11o0 ビュー作成 - accounts フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 

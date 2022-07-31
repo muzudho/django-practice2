@@ -241,7 +241,7 @@ path,label
 </html>
 ```
 
-# Step O5o2o0g7o0 ビュー モジュール作成 - o2o0/portal フォルダー
+# Step O5o2o0g7o0 ビュー作成 - o2o0/portal フォルダー
 
 以下のファイルを新規作成してほしい  
 

@@ -170,7 +170,7 @@ docker-compose up
 </html>
 ```
 
-# Step O8o3o0g3o0 ビュー モジュール作成 - button_for_member フォルダー
+# Step O8o3o0g3o0 ビュー作成 - button_for_member フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -242,7 +242,7 @@ class ButtonForMember():
         return render_button_for_member(request, ButtonForMember._path_of_this_page, ButtonForMember._path_of_portal, ButtonForMember._path_of_login_required, ButtonForMember._path_of_login, ButtonForMember._path_of_logout)
 ```
 
-# Step O8o3o0g4o0 ビュー モジュール作成 - button_for_member/v_render.py ファイル
+# Step O8o3o0g4o0 ビュー作成 - button_for_member/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 

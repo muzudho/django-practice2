@@ -413,7 +413,7 @@ TEMPLATES = [
 ]
 ```
 
-# Step O5o1o0gA10o0 ビュー モジュール作成 - portal フォルダー
+# Step O5o1o0gA10o0 ビュー作成 - portal フォルダー
 
 以下のファイルを作成してほしい  
 

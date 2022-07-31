@@ -393,7 +393,7 @@ def get_extends_user_dic():
 </html>
 ```
 
-# Step O9o2o0gA10o0 ビュー モジュール作成 - extends_user_list フォルダー
+# Step O9o2o0gA10o0 ビュー作成 - extends_user_list フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -445,7 +445,7 @@ class ExtendsUserListV():
         return render_extends_user_list(request, ExtendsUserListV._path_of_this_page)
 ```
 
-# Step O9o2o0gA11o0 ビュー モジュール作成 - extends_user_list/v_render.py ファイル
+# Step O9o2o0gA11o0 ビュー作成 - extends_user_list/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 

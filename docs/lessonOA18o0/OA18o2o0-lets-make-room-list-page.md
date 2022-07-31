@@ -308,7 +308,7 @@ def get_name_by_pk(id):
     return user.username
 ```
 
-# Step OA18o2o0g5o0 ビュー モジュール作成 - room フォルダー
+# Step OA18o2o0g5o0 ビュー作成 - room フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -358,7 +358,7 @@ class RoomV():
         return render_list(request, RoomV._path_of_list_page)
 ```
 
-# Step OA18o2o0g6o0 ビュー モジュール作成 - v_list ファイル
+# Step OA18o2o0g6o0 ビュー作成 - v_list ファイル
 
 👇 以下のファイルを新規作成してほしい  
 

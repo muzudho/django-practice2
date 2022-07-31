@@ -318,7 +318,7 @@ TEMPLATES = [
 ]
 ```
 
-# Step O3o1o0g9o0 ビュー モジュール作成 - page_the_hello フォルダー
+# Step O3o1o0g9o0 ビュー作成 - page_the_hello フォルダー
 
 👇 以下のファイルを新規作成してほしい
 

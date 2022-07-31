@@ -231,7 +231,7 @@ class RoomForm(ModelForm):
         fields = ('name', 'board', 'record',)  # フィールド指定
 ```
 
-# Step OA18o5o0g4o0 ビュー モジュール編集 - room フォルダー
+# Step OA18o5o0g4o0 ビュー編集 - room フォルダー
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -283,7 +283,7 @@ class RoomV():
         return render_upsert(request, id, RoomV._path_of_upsert_page)
 ```
 
-# Step OA18o5o0g5o0 ビュー モジュール作成 - v_upsert ファイル
+# Step OA18o5o0g5o0 ビュー作成 - v_upsert ファイル
 
 👇 以下のファイルを新規作成してほしい  
 

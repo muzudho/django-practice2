@@ -215,7 +215,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 {% endblock methods_trailing %}
 ```
 
-# Step OA21o2o0g4o0 ビュー モジュール作成 - auto_redirect フォルダー
+# Step OA21o2o0g4o0 ビュー作成 - auto_redirect フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -264,7 +264,7 @@ class AutoRedirectV():
         return render_auto_redirect(request, AutoRedirectV._path_of_redirecter_page)
 ```
 
-# Step OA21o2o0g5o0 ビュー モジュール作成 - v_redirect ファイル
+# Step OA21o2o0g5o0 ビュー作成 - v_redirect ファイル
 
 👇 以下のファイルを新規作成してほしい  
 

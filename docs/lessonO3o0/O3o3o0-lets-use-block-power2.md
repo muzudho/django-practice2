@@ -113,7 +113,7 @@ docker-compose up
 {% endblock section3 %}
 ```
 
-# Step O3o3o0g3o0 ビュー モジュール作成 - o3o0/page_to_be_added フォルダー
+# Step O3o3o0g3o0 ビュー作成 - o3o0/page_to_be_added フォルダー
 
 👇 以下の既存のファイルを編集してほしい  
 

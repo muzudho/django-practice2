@@ -266,7 +266,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 </html>
 ```
 
-# Step OA21o1o0g5o0 ビュー モジュール作成 - reloader フォルダー
+# Step OA21o1o0g5o0 ビュー作成 - reloader フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -315,7 +315,7 @@ class AutoReloadV():
         return render_auto_reload(request, AutoReloadV._path_of_auto_reload_page)
 ```
 
-# Step OA21o1o0g6o0 ビュー モジュール作成 - v_auto_reload ファイル
+# Step OA21o1o0g6o0 ビュー作成 - v_auto_reload ファイル
 
 👇 以下のファイルを新規作成してほしい  
 

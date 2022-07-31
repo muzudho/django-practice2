@@ -160,7 +160,7 @@ docker-compose up
 {% endblock create_gameover_message %}
 ```
 
-# Step OA25o1o0g3o0 対局申込ビュー モジュール作成 - o4o0/match_application フォルダー
+# Step OA25o1o0g3o0 対局申込ビュー作成 - o4o0/match_application フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -259,7 +259,7 @@ class MatchApplicationV():
         return MatchApplicationV.open_context
 ```
 
-# Step OA25o1o0g4o0 対局申込ビュー モジュール作成 - o4o0/playing フォルダー
+# Step OA25o1o0g4o0 対局申込ビュー作成 - o4o0/playing フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 

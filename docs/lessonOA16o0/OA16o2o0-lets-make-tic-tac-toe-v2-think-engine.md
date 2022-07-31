@@ -1548,7 +1548,7 @@ board
 </html>
 ```
 
-# Step OA16o2o0gA14o0 ビュー モジュール作成 - engine_manual フォルダー
+# Step OA16o2o0gA14o0 ビュー作成 - engine_manual フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1611,7 +1611,7 @@ class EngineManual():
         return render_engine_manual(request, EngineManual.path_of_html)
 ```
 
-# Step OA16o2o0gA15o0 ビュー モジュール作成 - engine_manual/v_render.py ファイル
+# Step OA16o2o0gA15o0 ビュー作成 - engine_manual/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 

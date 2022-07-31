@@ -176,7 +176,7 @@ class MhSession():
     # 2. `1.` に含まれる関数
 ```
 
-# Step O9o3o0g4o0 ビュー モジュール作成 - mh_session/v_get_all_logged_in_users.py ファイル
+# Step O9o3o0g4o0 ビュー作成 - mh_session/v_get_all_logged_in_users.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -253,7 +253,7 @@ web_1  | ]
     return user_dic
 ```
 
-# Step O9o3o0g5o0 ビュー モジュール作成 - session フォルダー
+# Step O9o3o0g5o0 ビュー作成 - session フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -302,7 +302,7 @@ class SessionV():
         return render_active_user_list(request, SessionV._path_of_this_page)
 ```
 
-# Step O9o3o0g6o0 ビュー モジュール作成 - session/v_render.py ファイル
+# Step O9o3o0g6o0 ビュー作成 - session/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 

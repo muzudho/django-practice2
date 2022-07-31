@@ -118,7 +118,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA23o1o0g2o0 対局申込ビュー モジュール編集 - match_application フォルダー
+# Step OA23o1o0g2o0 対局申込ビュー編集 - match_application フォルダー
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -197,7 +197,7 @@ class MatchApplicationV():
         return MatchApplicationVV2g1o0.open_context
 ```
 
-# Step OA23o1o0g3o0 対局申込ビュー モジュール作成 - v_on_sent.py ファイル
+# Step OA23o1o0g3o0 対局申込ビュー作成 - v_on_sent.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 

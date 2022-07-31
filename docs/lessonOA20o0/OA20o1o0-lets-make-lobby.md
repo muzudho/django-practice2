@@ -360,7 +360,7 @@ def get_all_rooms_as_dic():
     return room_dic
 ```
 
-# Step OA20o1o0g5o0 ビュー モジュール作成 - lobby フォルダー
+# Step OA20o1o0g5o0 ビュー作成 - lobby フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -409,7 +409,7 @@ class LobbyV():
         return render_lobby(request, LobbyV._path_of_lobby_page)
 ```
 
-# Step OA20o1o0g6o0 ビュー モジュール作成 - v_lobby ファイル
+# Step OA20o1o0g6o0 ビュー作成 - v_lobby ファイル
 
 👇 以下のファイルを新規作成してほしい  
 

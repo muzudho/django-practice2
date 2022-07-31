@@ -129,7 +129,7 @@ def from_model_to_json_str_with_indent(any_object):
     return json.dumps(doc, indent=4)
 ```
 
-# Step OA10o2o0g5o0 ビュー モジュール作成 - debug フォルダー
+# Step OA10o2o0g5o0 ビュー作成 - debug フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
