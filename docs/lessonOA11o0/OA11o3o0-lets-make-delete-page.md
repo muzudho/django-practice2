@@ -152,18 +152,17 @@ docker-compose up
             └── 📂 practice_v1                      # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1              # アプリケーションと同名
-                │       └── 📂 o1o0                # ただのフォルダー
-                │           └── 📂 prefecture            # ただのフォルダー
+                │       └── 📂 o1o0                 # ただのフォルダー
+                │           └── 📂 prefecture       # ただのフォルダー
                 │               └── 📄 delete.html
                 └── 📂 views
-                    └── 📂 o1o0                # ただのフォルダー
-                        └── 📂 prefecture            # ただのフォルダー
+                    └── 📂 o1o0                     # ただのフォルダー
+                        └── 📂 prefecture           # ただのフォルダー
 👉                          └── 📄 v_delete.py
 ```
 
 ```py
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render
 
 # 都道府県モデル
 from apps1.practice_v1.models.o1o0.m_prefecture import Prefecture
@@ -177,7 +176,7 @@ from apps1.practice_v1.models.o1o0.m_prefecture import Prefecture
 
 
 def render_delete(request, id=id):
-    """削除画面の描画
+    """OA11o3o0g3o0 削除画面の描画
 
     Parameters
     ----------
@@ -187,10 +186,10 @@ def render_delete(request, id=id):
         URLのGETストリングの ?id= の値
     """
 
-    template = loader.get_template(
-        'practice_v1/o1o0/prefecture/delete.html')
-    #    ---------------------------------------
-    #    1
+    # * `lp_` - Local path
+    lp_prefecture_delete = 'practice_v1/o1o0/prefecture/delete.html'
+    #                       ---------------------------------------
+    #                       1
     # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/prefecture/delete.html` を取得
     #                                      ---------------------------------------
 
@@ -204,7 +203,7 @@ def render_delete(request, id=id):
             'name': name
         }
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, lp_prefecture_delete, context)
 ```
 
 # Step OA11o3o0g4o0 ビュー編集 - prefecture モジュール
