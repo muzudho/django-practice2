@@ -52,7 +52,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O1o0 Dockerコンテナの起動
+# Step O8o3o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -64,7 +64,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o0 HTMLファイルの作成
+# Step O8o3o0g2o0 HTMLファイルの作成
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -170,7 +170,7 @@ docker-compose up
 </html>
 ```
 
-# Step O3o0 ビュー モジュール作成 - button_for_member フォルダー
+# Step O8o3o0g3o0 ビュー モジュール作成 - button_for_member フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -242,7 +242,7 @@ class ButtonForMember():
         return render_button_for_member(request, ButtonForMember._path_of_this_page, ButtonForMember._path_of_portal, ButtonForMember._path_of_login_required, ButtonForMember._path_of_login, ButtonForMember._path_of_logout)
 ```
 
-# Step O4o0 ビュー モジュール作成 - button_for_member/v_render.py ファイル
+# Step O8o3o0g4o0 ビュー モジュール作成 - button_for_member/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -282,7 +282,7 @@ def render_button_for_member(request, path_of_this_page, path_of_portal, path_of
     return HttpResponse(template.render(context, request))
 ```
 
-# Step O5o0 ルート編集 - urls_practice.py ファイル
+# Step O8o3o0g5o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -335,11 +335,11 @@ urlpatterns = [
 ]
 ```
 
-# Step O6o0 Web画面へアクセス
+# Step O8o3o0g6o0 Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/buttom_for_member/](http://localhost:8000/practice/v1/buttom_for_member/)  
 
-# Step O7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step O8o3o0g7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
