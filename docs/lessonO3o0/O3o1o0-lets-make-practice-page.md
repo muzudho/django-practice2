@@ -460,10 +460,10 @@ urlpatterns = [
     # ...中略...
 
 
-    # 練習
+    # O3o1o0 練習
     path('', include(f'{PROJECT_NAME}.urls_practice')),
     #    --            ----------------------------
-    #      1           2
+    #    1             2
     # 1. 例えば `http://example.com/` のような URLの直下
     # 2. `host1/projectN/urls_practice.py` の urlpatterns を `1.` にぶら下げる
     #           ----------------------

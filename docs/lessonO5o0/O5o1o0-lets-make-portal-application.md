@@ -559,10 +559,7 @@ urlpatterns = [
 ```
 
 ```py
-from django.urls import include, path
-
-
-# ...中略...
+# ...略...
 
 
 urlpatterns = [
@@ -571,12 +568,12 @@ urlpatterns = [
     # ...中略...
 
 
-    # ポータル
-    path('', include('project1.urls_portal')),
-    #    --           --------------------
-    #      1          2
+    # O5o1o0 ポータル
+    path('', include(f'{PROJECT_NAME}.urls_portal')),
+    #    --            --------------------------
+    #    1             2
     # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `host1/project1/urls_portal.py` の urlpatterns を (1.) にぶら下げる
+    # 2. `host1/projectN/urls_portal.py` の urlpatterns を (1.) にぶら下げる
     #           --------------------
 ]
 ```
