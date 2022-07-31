@@ -64,7 +64,7 @@ allauth アプリケーションの機能を使う　　
     └── 📄 .gitignore
 ```
 
-# Step O1o0 Dockerコンテナの起動
+# Step O8o2o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -76,7 +76,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o0 画面作成 - login_required.html ファイル
+# Step O8o2o0g2o0 画面作成 - login_required.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -103,7 +103,7 @@ docker-compose up
 </html>
 ```
 
-# Step O3o0 ビュー モジュール作成 - login_required フォルダー
+# Step O8o2o0g3o0 ビュー モジュール作成 - login_required フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -177,7 +177,7 @@ def loggingOut_render(request):
     return redirect('home')  # ホームに戻る
 ```
 
-# Step O4o0 ルート編集 - urls_practice.py ファイル
+# Step O8o2o0g4o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下のファイルの該当箇所を追記してほしい  
 
@@ -246,7 +246,7 @@ urlpatterns = [
 ]
 ```
 
-# Step O5o0 Webページへアクセス
+# Step O8o2o0g5o0 Webページへアクセス
 
 👇　ログインしているときは、ログイン情報が見えます。  
 　　ログインしていないときは、ログイン画面が出ます
@@ -257,7 +257,7 @@ urlpatterns = [
 
 📖 [http://localhost:8000/practice/v1/logout](http://localhost:8000/practice/v1/logout)  
 
-# Step O6o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step O8o2o0g6o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
