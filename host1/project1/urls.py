@@ -16,6 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from .settings import PROJECT_NAME
+#    ]--------        ------------
+#    12               3
+# 1. 同じディレクトリー
+# 2. `host1/projectN/settings.py`
+#                    --------
+# 3. 変数
+
 urlpatterns = [
     # 最初から Django の管理画面は用意されている
     path('admin/', admin.site.urls),
@@ -35,11 +43,11 @@ urlpatterns = [
     #           ---------
 
     # 練習
-    path('', include('project1.urls_practice')),
-    #    --           ----------------------
-    #      1          2
+    path('', include(f'{PROJECT_NAME}.urls_practice')),
+    #    --            ----------------------------
+    #      1           2
     # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `host1/project1/urls_practice.py` の urlpatterns を (1.) にぶら下げる
+    # 2. `host1/projectN/urls_practice.py` の urlpatterns を `1.` にぶら下げる
     #           ----------------------
 
 

@@ -437,10 +437,21 @@ urlpatterns = [
 ```
 
 ```py
+# ...略...
+
+
 from django.urls import include, path # include を追加
 
+from .settings import PROJECT_NAME
+#    ]--------        ------------
+#    12               3
+# 1. 同じディレクトリー
+# 2. `host1/projectN/settings.py`
+#                    --------
+# 3. 変数
 
-# ...中略...
+
+# ...略...
 
 
 urlpatterns = [
@@ -450,11 +461,11 @@ urlpatterns = [
 
 
     # 練習
-    path('', include('project1.urls_practice')),
-    #    --           ----------------------
-    #      1          2
+    path('', include(f'{PROJECT_NAME}.urls_practice')),
+    #    --            ----------------------------
+    #      1           2
     # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `host1/project1/urls_practice.py` の urlpatterns を (1.) にぶら下げる
+    # 2. `host1/projectN/urls_practice.py` の urlpatterns を `1.` にぶら下げる
     #           ----------------------
 ]
 ```
