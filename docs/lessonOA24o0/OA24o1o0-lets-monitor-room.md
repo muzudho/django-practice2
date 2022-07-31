@@ -364,12 +364,13 @@ websocket_urlpatterns = [
 
 # * 以下を追加
 # 〇×ゲーム v3
-import project1.ws_urls_tic_tac_toe_v3
-#                                    ^three
-#      -------------------------------
-#      1
-# 1. `host1/project1/ws_urls_tic_tac_toe_v3.py`
-#           ----------------------------------
+from . import ws_urls_tic_tac_toe_v3
+#                                  ^three
+#    -        ----------------------
+#    1        2
+# 1. 同じディレクトリー
+# 2. `host1/projectN/ws_urls_tic_tac_toe_v3.py`
+#                    ----------------------
 
 
 # ...略...
@@ -390,8 +391,8 @@ import project1.ws_urls_tic_tac_toe_v3
 # * 以下を追加
 # 〇×ゲーム v3
 websocket_urlpatterns_merged.extend(
-    project1.ws_urls_tic_tac_toe_v3.websocket_urlpatterns)
-#                                 ^three
+    ws_urls_tic_tac_toe_v3.websocket_urlpatterns)
+#                        ^three
 ```
 
 # Step O6o0 対局申込ビュー モジュール作成 - o3o0/match_application フォルダー

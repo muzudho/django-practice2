@@ -1898,6 +1898,7 @@ websocket_urlpatterns = [
 
 
 # * 以下を追加
+# 〇×ゲーム v2
 from . import ws_urls_tic_tac_toe_v2
 #                                  ^two
 #    -        ----------------------
@@ -1922,6 +1923,7 @@ websocket_urlpatterns_merged = []
 
 
 # * 以下を追加
+# 〇×ゲーム v2
 websocket_urlpatterns_merged.extend(
     ws_urls_tic_tac_toe_v2.websocket_urlpatterns)
 #                        ^two

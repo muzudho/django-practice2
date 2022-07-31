@@ -410,6 +410,7 @@ from django.core.asgi import get_asgi_application
 from channels.auth import AuthMiddlewareStack
 from channels.routing import ProtocolTypeRouter, URLRouter
 
+# Webソケット練習
 from . import ws_urls_practice
 #    -        ----------------
 #    1        2
@@ -433,6 +434,8 @@ from . import ws_urls_practice
 # * 以下を追加
 # 複数のアプリケーションの websocket_urlpatterns をマージします
 websocket_urlpatterns_merged = []
+
+# Webソケット練習
 websocket_urlpatterns_merged.extend(
     ws_urls_practice.websocket_urlpatterns)
 
