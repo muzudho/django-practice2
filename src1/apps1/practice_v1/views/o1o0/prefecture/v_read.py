@@ -1,5 +1,4 @@
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render
 
 # 都道府県モデル
 from apps1.practice_v1.models.o1o0.m_prefecture import Prefecture
@@ -13,7 +12,7 @@ from apps1.practice_v1.models.o1o0.m_prefecture import Prefecture
 
 
 def render_read(request, id=id):
-    """詳細画面の描画
+    """OA11o2o0g3o0 詳細画面の描画
 
     Parameters
     ----------
@@ -23,9 +22,10 @@ def render_read(request, id=id):
         URLのGETストリングの ?id= の値
     """
 
-    template = loader.get_template('practice_v1/o1o0/prefecture/read.html')
-    #                               -------------------------------------
-    #                               1
+    # * `lp_` - Local path
+    lp_prefecture_read = 'practice_v1/o1o0/prefecture/read.html'
+    #                     -------------------------------------
+    #                     1
     # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/prefecture/read.html` を取得
     #                                      -------------------------------------
 
@@ -33,4 +33,4 @@ def render_read(request, id=id):
         # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得
         'prefecture': Prefecture.objects.get(pk=id),
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, lp_prefecture_read, context)
