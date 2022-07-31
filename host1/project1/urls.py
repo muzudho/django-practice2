@@ -52,7 +52,7 @@ urlpatterns = [
     #           ----------------------
 
 
-    # O5o1o0 ポータル
+    # O5o1o0gA12o0 ポータル
     path('', include(f'{PROJECT_NAME}.urls_portal')),
     #    --            --------------------------
     #    1             2
@@ -60,7 +60,7 @@ urlpatterns = [
     # 2. `host1/projectN/urls_portal.py` の urlpatterns を `1.` にぶら下げる
     #           --------------------
 
-    # O6o1o0 認証
+    # O6o1o0gA13o0 ユーザー認証
     path('', include(f'{PROJECT_NAME}.urls_accounts')),
     #    --            ----------------------------
     #    1             2
@@ -68,7 +68,7 @@ urlpatterns = [
     # 2. `host1/projectN/urls_accounts.py` の urlpatterns を `1.` にぶら下げる
     #           ----------------------
 
-    # OA16o1o0 〇×ゲーム v1
+    # OA16o1o0gA18o0 〇×ゲーム v1
     path('', include(f'{PROJECT_NAME}.urls_tic_tac_toe_v1')),
     #    --            ----------------------------------
     #    1             2
@@ -76,7 +76,7 @@ urlpatterns = [
     # 2. `host1/projectN/urls_tic_tac_toe_v1.py` の urlpatterns を `1.` にぶら下げる
     #           ----------------------------
 
-    # OA16o2o0 〇×ゲーム v2
+    # OA16o2o0gA17o0 〇×ゲーム v2
     path('', include(f'{PROJECT_NAME}.urls_tic_tac_toe_v2')),
     #    --            ----------------------------------
     #    1             2

@@ -568,7 +568,7 @@ urlpatterns = [
     # ...中略...
 
 
-    # O5o1o0 ポータル
+    # O5o1o0gA12o0 ポータル
     path('', include(f'{PROJECT_NAME}.urls_portal')),
     #    --            --------------------------
     #    1             2

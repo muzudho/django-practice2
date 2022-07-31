@@ -1143,7 +1143,7 @@ urlpatterns = [
     # ...略...
 
 
-    # OA16o1o0 〇×ゲーム v1
+    # OA16o1o0gA18o0 〇×ゲーム v1
     path('', include(f'{PROJECT_NAME}.urls_tic_tac_toe_v1')),
     #    --            ----------------------------------
     #    1             2

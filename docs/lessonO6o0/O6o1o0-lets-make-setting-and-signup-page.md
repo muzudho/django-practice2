@@ -830,7 +830,7 @@ urlpatterns = [
     # ...略...
 
 
-    # 06o1o0 認証
+    # O6o1o0gA13o0 ユーザー認証
     path('', include(f'{PROJECT_NAME}.urls_accounts')),
     #    --            ----------------------------
     #    1             2
