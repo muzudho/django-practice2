@@ -70,7 +70,7 @@ Vuetify の テキストフィールド の バリデーション を練習し�
     └── 📄 .gitignore
 ```
 
-# Step O1o0 Dockerコンテナの起動
+# Step OA12o3o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -82,7 +82,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o0 画面作成 - validation1.html ファイル
+# Step OA12o3o0g2o0 画面作成 - validation1.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -173,7 +173,7 @@ docker-compose up
 </html>
 ```
 
-# Step O3o0 ビュー作成 - v_validation1.py ファイル
+# Step OA12o3o0g3o0 ビュー作成 - v_validation1.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -212,7 +212,7 @@ def render_validation1(request):
     return HttpResponse(template.render(context, request))
 ```
 
-# Step O4o0 ビュー編集 - VuetifyV モジュール
+# Step OA12o3o0g4o0 ビュー編集 - VuetifyV モジュール
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -243,7 +243,7 @@ class VuetifyV(object):
     from .v_validation1 import render_validation1
 ```
 
-# Step O5o0 ルート編集 - urls.py ファイル
+# Step OA12o3o0g5o0 ルート編集 - urls.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -304,11 +304,11 @@ urlpatterns = [
 ]
 ```
 
-# Step O6o0 Web画面へアクセス
+# Step OA12o3o0g6o0 Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/vuetify/validation1](http://localhost:8000/practice/v1/vuetify/validation1)  
 
-# Step O7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step OA12o3o0g7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
