@@ -1661,8 +1661,16 @@ from django.http import Http404
 from django.shortcuts import render
 
 
-def render_playing(request, kw_room_name, path_of_ws_playing, path_of_html, on_update, expected_pieces):
-    """対局中 - 描画"""
+def render_playing(request, kw_room_name, wsp_playing, lp_playing, on_update, expected_pieces):
+    """OA16o3o0gA14o0 対局中 - 描画
+
+    Parameters
+    ----------
+    wsp_playing : str
+        Webソケットパス
+    lp_playing : str
+        ローカルパス
+    """
 
     my_turn = request.GET.get("myturn")
     if my_turn not in expected_pieces:
@@ -1674,9 +1682,9 @@ def render_playing(request, kw_room_name, path_of_ws_playing, path_of_html, on_u
     context = {
         "dj_room_name": kw_room_name,
         "dj_my_turn": my_turn,
-        "dj_path_of_ws_playing": path_of_ws_playing,
+        "dj_path_of_ws_playing": wsp_playing,
     }
-    return render(request, path_of_html, context)
+    return render(request, lp_playing, context)
 ```
 
 # Step OA16o3o0gA15o0 ルート編集 - urls_tic_tac_toe_v2.py ファイル
