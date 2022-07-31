@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 
 # 部屋モデル
 from apps1.practice_v1.models.o1o0.m_room import Room
@@ -21,8 +21,14 @@ from apps1.practice_v1.forms.f_room import RoomForm
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
-def render_upsert(request, id, path_of_upsert_page):
-    """新規作成または更新のページ"""
+def render_upsert(request, id, lp_of_room_upsert):
+    """OA18o5o0g5o0 新規作成または更新のページ
+
+    Parameters
+    ----------
+    lp_of_room_upsert : str
+        ローカルパス
+    """
 
     if id:  # idがあるとき（更新の時）
         # idで検索して、結果を戻すか、404エラー
@@ -34,12 +40,17 @@ def render_upsert(request, id, path_of_upsert_page):
     if request.method == 'POST':
         # フォームを生成
         form = RoomForm(request.POST, instance=room)
-        if form.is_valid():  # バリデーションがOKなら保存
+
+        # Valid なら保存して一覧画面へ
+        if form.is_valid():
             room = form.save(commit=False)
             room.save()
             return redirect('practice_v1_rooms')
+
+        # Invalid ならフォームを引き継いで再び同じ画面表示へ
+
     else:  # GETの時（フォームを生成）
         form = RoomForm(instance=room)
 
     # 作成・更新画面を表示
-    return render(request, path_of_upsert_page, dict(form=form, id=id))
+    return render(request, lp_of_room_upsert, dict(form=form, id=id))
