@@ -20,18 +20,20 @@ from . import ws_urls_practice
 # 2. `host1/projectN/ws_urls_practice.py`
 #                    ----------------
 
-import project1.ws_urls_tic_tac_toe_v1
-#      -------------------------------
-#      1
-# 1. `host1/project1/ws_urls_tic_tac_toe_v1.py`
-#           -------------------------------
+from . import ws_urls_tic_tac_toe_v1
+#    -        ----------------------
+#    1        2
+# 1. 同じディレクトリー
+# 2. `host1/projectN/ws_urls_tic_tac_toe_v1.py`
+#                    ----------------------
 
-import project1.ws_urls_tic_tac_toe_v2
-#                                    ^two
-#      -------------------------------
-#      1
-# 1. `host1/project1/ws_urls_tic_tac_toe_v2.py`
-#           -------------------------------
+from . import ws_urls_tic_tac_toe_v2
+#                                  ^two
+#    -        ----------------------
+#    1        2
+# 1. 同じディレクトリー
+# 2. `host1/projectN/ws_urls_tic_tac_toe_v2.py`
+#                    ----------------------
 
 # 〇×ゲーム v3
 import project1.ws_urls_tic_tac_toe_v3
@@ -59,10 +61,10 @@ websocket_urlpatterns_merged = []
 websocket_urlpatterns_merged.extend(
     ws_urls_practice.websocket_urlpatterns)
 websocket_urlpatterns_merged.extend(
-    project1.ws_urls_tic_tac_toe_v1.websocket_urlpatterns)
+    ws_urls_tic_tac_toe_v1.websocket_urlpatterns)
 websocket_urlpatterns_merged.extend(
-    project1.ws_urls_tic_tac_toe_v2.websocket_urlpatterns)
-#                                 ^two
+    ws_urls_tic_tac_toe_v2.websocket_urlpatterns)
+#                        ^two
 
 # 〇×ゲーム v3
 websocket_urlpatterns_merged.extend(

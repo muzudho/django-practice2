@@ -1396,11 +1396,12 @@ websocket_urlpatterns = [
 
 
 # * 以下を追加
-import project1.ws_urls_tic_tac_toe_v1
-#      -------------------------------
-#      1
-# 1. `host1/project1/ws_urls_tic_tac_toe_v1.py`
-#           -------------------------------
+from . import ws_urls_tic_tac_toe_v1
+#    -        ----------------------
+#    1        2
+# 1. 同じディレクトリー
+# 2. `host1/projectN/ws_urls_tic_tac_toe_v1.py`
+#                    ----------------------
 
 
 # ...略...
@@ -1419,7 +1420,7 @@ websocket_urlpatterns_merged = []
 
 # * 以下を追加
 websocket_urlpatterns_merged.extend(
-    project1.ws_urls_tic_tac_toe_v1.websocket_urlpatterns)
+    ws_urls_tic_tac_toe_v1.websocket_urlpatterns)
 ```
 
 
