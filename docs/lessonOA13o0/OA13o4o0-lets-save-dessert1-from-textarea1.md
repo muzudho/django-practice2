@@ -387,8 +387,8 @@ Iron (%):
 
 ```py
 import json
-from django.http import HttpResponse, JsonResponse
-from django.template import loader
+from django.http import JsonResponse
+from django.shortcuts import render
 
 # デザート
 from apps1.practice_v1.models.o1o0.m_dessert import Dessert
@@ -402,12 +402,12 @@ from apps1.practice_v1.models.o1o0.m_dessert import Dessert
 
 
 def render_textarea1_to_model(request):
-    """ビューティファイのテキストエリア１ to model"""
+    """OA13o4o0gA11o0 ビューティファイのテキストエリア１ to model"""
 
-    template = loader.get_template(
-        'practice_v1/o1o0/vuetify/textarea1_to_model.html.txt')
-    #    ----------------------------------------------------
-    #    1
+    # * `lp_` - Local path
+    lp_textarea1_to_model = 'practice_v1/o1o0/vuetify/textarea1_to_model.html.txt'
+    #               ----------------------------------------------------
+    #               1
     # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/vuetify/textarea1_to_model.html.txt` を取得
     #                                      ----------------------------------------------------
 
@@ -421,11 +421,11 @@ def render_textarea1_to_model(request):
     context = {
         'dessertsStr': json.dumps(doc)
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, lp_textarea1_to_model, context)
 
 
 def render_save_result_of_desserts1_from_textarea1(request):
-    """ビューティファイのデザート１ . テキストエリア１から . 保存結果"""
+    """OA13o4o0gA11o0 ビューティファイのデザート１ . テキストエリア１から . 保存結果"""
 
     form1Textarea1 = request.POST["textarea1"]
     doc = json.loads(form1Textarea1)  # Dessert
