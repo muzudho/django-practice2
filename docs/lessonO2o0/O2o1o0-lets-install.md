@@ -445,7 +445,7 @@ urlpatterns = [
     #     1        2
     # 1. 例えば `http://example.com/admin/` のような URLのパスの部分
     #                              -------
-    # 2. 例えば `http://example.com/admin/login/?next=/admin/` のように admin.site.urls モジュールに含まれる urlpatterns を (1.) にぶら下げる
+    # 2. 例えば `http://example.com/admin/login/?next=/admin/` のように admin.site.urls モジュールに含まれる urlpatterns を `1.` にぶら下げる
     #                                    --------------------
     #
     # もしあなたが、あとで Django アプリケーションを作ったなら、以下のように追加することになるだろう
@@ -453,7 +453,7 @@ urlpatterns = [
     #      --           ---------
     #      1            2
     # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `host1/app1/urls.py` の urlpatterns を (1.) にぶら下げる
+    # 2. `host1/app1/urls.py` の urlpatterns を `1.` にぶら下げる
     #           ---------
 ]
 ```

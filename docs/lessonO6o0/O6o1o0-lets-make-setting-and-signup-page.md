@@ -835,7 +835,7 @@ urlpatterns = [
     #    --            ----------------------------
     #    1             2
     # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `host1/projectN/urls_accounts.py` の urlpatterns を (1.) にぶら下げる
+    # 2. `host1/projectN/urls_accounts.py` の urlpatterns を `1.` にぶら下げる
     #           ----------------------
 ]
 ```

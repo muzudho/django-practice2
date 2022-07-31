@@ -1790,7 +1790,7 @@ urlpatterns = [
     #    --           ----------------------------
     #      1          2
     # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `host1/project1/urls_tic_tac_toe_v2.py` の urlpatterns を (1.) にぶら下げる
+    # 2. `host1/project1/urls_tic_tac_toe_v2.py` の urlpatterns を `1.` にぶら下げる
     #           ----------------------------
 ]
 ```

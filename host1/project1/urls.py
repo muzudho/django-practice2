@@ -31,7 +31,7 @@ urlpatterns = [
     #     1        2
     # 1. 例えば `http://example.com/admin/` のような URLのパスの部分
     #                              -------
-    # 2. 例えば `http://example.com/admin/login/?next=/admin/` のように admin.site.urls モジュールに含まれる urlpatterns を (1.) にぶら下げる
+    # 2. 例えば `http://example.com/admin/login/?next=/admin/` のように admin.site.urls モジュールに含まれる urlpatterns を `1.` にぶら下げる
     #                                    --------------------
     #
     # もしあなたが、あとで Django アプリケーションを作ったなら、以下のように追加することになるだろう
@@ -39,7 +39,7 @@ urlpatterns = [
     #      --           ---------
     #      1            2
     # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `host1/app1/urls.py` の urlpatterns を (1.) にぶら下げる
+    # 2. `host1/app1/urls.py` の urlpatterns を `1.` にぶら下げる
     #           ---------
 
     # O3o1o0 練習
@@ -56,7 +56,7 @@ urlpatterns = [
     #    --            --------------------------
     #    1             2
     # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `host1/projectN/urls_portal.py` の urlpatterns を (1.) にぶら下げる
+    # 2. `host1/projectN/urls_portal.py` の urlpatterns を `1.` にぶら下げる
     #           --------------------
 
 
@@ -65,7 +65,7 @@ urlpatterns = [
     #    --            ----------------------------
     #    1             2
     # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `host1/projectN/urls_accounts.py` の urlpatterns を (1.) にぶら下げる
+    # 2. `host1/projectN/urls_accounts.py` の urlpatterns を `1.` にぶら下げる
     #           ----------------------
 
     # 〇×ゲーム v1
@@ -73,7 +73,7 @@ urlpatterns = [
     #    --           ----------------------------
     #      1          2
     # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `host1/project1/urls_tic_tac_toe_v1.py` の urlpatterns を (1.) にぶら下げる
+    # 2. `host1/project1/urls_tic_tac_toe_v1.py` の urlpatterns を `1.` にぶら下げる
     #           ----------------------------
 
     # 〇×ゲーム v2
@@ -81,6 +81,6 @@ urlpatterns = [
     #    --           ----------------------------
     #      1          2
     # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `host1/project1/urls_tic_tac_toe_v2.py` の urlpatterns を (1.) にぶら下げる
+    # 2. `host1/project1/urls_tic_tac_toe_v2.py` の urlpatterns を `1.` にぶら下げる
     #           ----------------------------
 ]
