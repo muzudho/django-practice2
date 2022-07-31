@@ -122,19 +122,18 @@ docker-compose up
 ```
 
 ```py
-from django.http import HttpResponse
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
-from django.template import loader
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 
 
 class LoggingIn():
-    """ログイン中"""
+    """O8o2o0g3o0 ログイン中"""
 
-    path_of_html = "practice_v1/o1o0/login_required.html"
-    #               ------------------------------------
-    #               1
+    # * `lp_` - Local path
+    lp_login_required = "practice_v1/o1o0/login_required.html"
+    #                    ------------------------------------
+    #                    1
     # 1. src1/apps1/practice_v1/templates/practice_v1/o1o0/login_required.html を取得
     #                                     ------------------------------------
 
@@ -144,11 +143,11 @@ class LoggingIn():
     @login_required
     def render(request):
         """描画"""
-        return loggingIn_render(request, LoggingIn.path_of_html)
+        return loggingIn_render(request, LoggingIn.lp_login_required)
 
 
 class LoggingOut():
-    """ログアウト中"""
+    """O8o2o0g3o0 ログアウト中"""
 
     def render(request):
         """描画"""
@@ -158,9 +157,15 @@ class LoggingOut():
 # 以下、関数
 
 
-def loggingIn_render(request, path_of_html):
-    """ログイン中 - 描画"""
-    template = loader.get_template(path_of_html)
+def loggingIn_render(request, lp_login_required):
+    """O8o2o0g3o0 ログイン中 - 描画
+    Parameters
+    ----------
+    request : object
+        リクエスト
+    lp_login_required : str
+        ローカルパス
+    """
 
     user = request.user
     context = {
@@ -168,11 +173,11 @@ def loggingIn_render(request, path_of_html):
         "username": user.username,
         "email": user.email,
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, lp_login_required, context)
 
 
 def loggingOut_render(request):
-    """ログアウト中 - 描画"""
+    """O8o2o0g3o0 ログアウト中 - 描画"""
     logout(request)  # Django の認証機能のログアウトを使う
     return redirect('home')  # ホームに戻る
 ```
