@@ -292,8 +292,14 @@ import datetime
 from django.shortcuts import render
 
 
-def render_auto_redirect(request, path_of_redirecter_page):
-    """描画 - 自動リダイレクト ページ"""
+def render_auto_redirect(request, lp_auto_redirect):
+    """OA21o2o0g5o0 描画 - 自動リダイレクト ページ
+
+    Parameters
+    ----------
+    lp_auto_redirect : str
+        ローカルパス
+    """
 
     # 現在日時
     dt_now = datetime.datetime.now()
@@ -317,7 +323,7 @@ def render_auto_redirect(request, path_of_redirecter_page):
         "dj_redirect_path": redirect_path,
     }
 
-    return render(request, path_of_redirecter_page, context)
+    return render(request, lp_auto_redirect, context)
 ```
 
 # Step OA21o2o0g6o0 ルート編集 - urls_practice.py ファイル
