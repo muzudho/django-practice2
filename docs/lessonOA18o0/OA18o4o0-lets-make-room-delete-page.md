@@ -232,8 +232,7 @@ class RoomV():
 ```
 
 ```py
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render
 
 from apps1.practice_v1.models.o1o0.m_room import Room
 #          -----------             ------        ----
@@ -245,11 +244,14 @@ from apps1.practice_v1.models.o1o0.m_room import Room
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
-@staticmethod
-def render_delete(request, room_pk, path_of_delete_page):
-    """削除ページ"""
+def render_delete(request, room_pk, lp_room_delete):
+    """OA18o4o0g4o0 削除ページ
 
-    template = loader.get_template(path_of_delete_page)
+    Parameters
+    ----------
+    lp_room_delete : str
+        ローカルパス
+    """
 
     room = Room.objects.get(pk=room_pk)  # idを指定してメンバーを１人取得
     name = room.name  # 名前だけまだ使う
@@ -259,7 +261,7 @@ def render_delete(request, room_pk, path_of_delete_page):
             'name': name
         }
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, lp_room_delete, context)
 ```
 
 # Step OA18o4o0g5o0 ルート編集 - urls_practice.py ファイル
