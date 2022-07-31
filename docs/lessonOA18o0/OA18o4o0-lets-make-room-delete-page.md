@@ -45,9 +45,6 @@ id が 4 の部屋を削除したい
 ディレクトリ構成を抜粋すると 以下のようになっている  
 
 ```plaintext
-    ├── 📂 host_local1                   # Djangoとは関係ないもの
-    │    ├── 📂 sockapp1
-    │    └── 📂 websockapp1
     ├── 📂 src1                         # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
     │   │   ├── 📂 allauth_customized_v1    # アプリケーション
@@ -105,6 +102,9 @@ id が 4 の部屋を削除したい
     │   ├── 🐳 Dockerfile
     │   ├── 📄 manage.py
     │   └── 📄 requirements.txt
+    ├── 📂 src2_local                   # Djangoとは関係ないもの
+    │    ├── 📂 sockapp1
+    │    └── 📂 websockapp1
     └── 📄 .gitignore
 ```
 
