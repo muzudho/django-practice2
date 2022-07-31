@@ -266,20 +266,20 @@ path,label
 ```py
 import pandas as pd
 
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render
 
 
 class Portal():
-    """ポータル ページ"""
+    """O5o2o0g7o0 ポータル ページ"""
 
     def render(request):
         """描画"""
 
-        template = loader.get_template('portal_v1/o2o0/portal_base.html')
-        #                                          ^two
-        #                               -------------------------------
-        #                               1
+        # * `lp_` - Local path
+        lp_this_page = 'portal_v1/o2o0/portal_base.html'
+        #                          ^two
+        #               -------------------------------
+        #               1
         # 1. src1/apps1/portal_v1/templates/portal_v1/o2o0/portal_base.html を取得
         #                                   -------------------------------
 
@@ -321,7 +321,7 @@ class Portal():
             "dj_finished_lesson_list": finished_lesson_list,
         }
 
-        return HttpResponse(template.render(context, request))
+        return render(request, lp_this_page, context)
 ```
 
 # Step O5o2o0g8o0 サブ ルート編集 - urls_portal.py
