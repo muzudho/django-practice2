@@ -173,8 +173,7 @@ docker-compose up
 ```
 
 ```py
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render
 
 # 都道府県モデル
 from apps1.practice_v1.models.o1o0.m_prefecture import Prefecture
@@ -188,18 +187,19 @@ from apps1.practice_v1.models.o1o0.m_prefecture import Prefecture
 
 
 def render_list(request):
-    """一覧画面の描画"""
+    """OA11o1o0g3o0 一覧画面の描画"""
 
-    template = loader.get_template('practice_v1/o1o0/prefecture/list.html')
-    #                               -------------------------------------
-    #                               1
+    # * `lp_` - Local path
+    lp_prefecture_list = 'practice_v1/o1o0/prefecture/list.html'
+    #                     -------------------------------------
+    #                     1
     # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/prefecture/list.html` を取得
     #                                      -------------------------------------
 
     context = {
         'prefectures': Prefecture.objects.all().order_by('pk'),  # pk順にメンバーを全部取得
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, lp_prefecture_list, context)
 ```
 
 # Step OA11o1o0g4o0 ビュー作成 - prefecture モジュール
