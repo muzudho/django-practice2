@@ -13,6 +13,14 @@ from django.core.asgi import get_asgi_application
 from channels.auth import AuthMiddlewareStack
 from channels.routing import ProtocolTypeRouter, URLRouter
 
+from .settings import PROJECT_NAME
+#    ]--------        ------------
+#    12               3
+# 1. 同じディレクトリー
+# 2. `host1/projectN/settings.py`
+#                    --------
+# 3. 変数
+
 # Webソケット練習
 from . import ws_urls_practice
 #    -        ----------------
@@ -47,17 +55,14 @@ from . import ws_urls_tic_tac_toe_v3
 # 2. `host1/projectN/ws_urls_tic_tac_toe_v3.py`
 #                    ----------------------
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project1.settings')
-#                                                -----------------
-#                                                1
-# 1. 設定モジュール名 `host1/project1/settings.py`
+# * 変更前
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project1.settings')
+# * 変更後
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', f'{PROJECT_NAME}.settings')
+#                                                 -----------------------
+#                                                 1
+# 1. 設定モジュール名 `host1/projectN/settings.py`
 #                          -----------------
-#    例えばレッスンの最初に project1 プロジェクトを作成した場合、
-#    デフォルトでは project1 プロジェクトの設定モジュール名 `project1.settings` がハードコーディングされる
-#                                                       -------- --------
-#                                                       1.1      1.2
-#    1.1 プロジェクト フォルダー名
-#    1.2 settings.py ファイルの拡張子抜き
 
 
 # 複数のアプリケーションの websocket_urlpatterns をマージします
