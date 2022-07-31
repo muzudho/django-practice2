@@ -204,40 +204,23 @@ import os
 # * 以下を削除
 # from django.core.asgi import get_asgi_application
 
-# * 追加ここから
+# vvvv OA15o1o0g4o0 ASGI設定
 import django
 from channels.http import AsgiHandler
 from channels.routing import ProtocolTypeRouter
-
-from .settings import PROJECT_NAME
-#    ]--------        ------------
-#    12               3
-# 1. 同じディレクトリー
-# 2. `host1/projectN/settings.py`
-#                    --------
-# 3. 変数
-# * 追加ここまで
+# ^^^^ OA15o1o0g4o0
 
 
-# ...略...
+# ...略... os.environ.setdefault( ... ) など
 
 
-# * 変更前
-# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project1.settings')
-# * 変更後
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', f'{PROJECT_NAME}.settings')
-#                                                 -----------------------
-#                                                 1
-# 1. 設定モジュール名 `host1/projectN/settings.py`
-#                          -----------------
-
-# * 以下を追加
+# * OA15o1o0g4o0 ASGI設定
 django.setup()
 
 # * 以下を削除
 # application = get_asgi_application()
 
-# * 以下を追加
+# * OA15o1o0g4o0 ASGI設定
 application = ProtocolTypeRouter({
     "http": AsgiHandler(),
     # * IMPORTANT::Just HTTP for now. (We can add other protocols later.)

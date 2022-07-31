@@ -11,8 +11,11 @@ import os
 
 from django.core.asgi import get_asgi_application
 from channels.auth import AuthMiddlewareStack
+# vvvv OA15o1o0g4o0 ASGI設定
 from channels.routing import ProtocolTypeRouter, URLRouter
+# ^^^^ OA15o1o0g4o0
 
+# O2o1o0g9o1o1o0 プロジェクト名の一般化
 from .settings import PROJECT_NAME
 #    ]--------        ------------
 #    12               3
@@ -57,7 +60,7 @@ from . import ws_urls_tic_tac_toe_v3
 
 # * 変更前
 # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project1.settings')
-# * 変更後
+# * O2o1o0g9o1o1o0 プロジェクト名の一般化
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', f'{PROJECT_NAME}.settings')
 #                                                 -----------------------
 #                                                 1
@@ -87,6 +90,7 @@ websocket_urlpatterns_merged.extend(
 #                        ^three
 
 
+# * OA15o1o0g4o0 ASGI設定
 application = ProtocolTypeRouter({
     "http": get_asgi_application(),
     "websocket": AuthMiddlewareStack(

@@ -349,6 +349,53 @@ ALLOWED_HOSTS = []
 
 ## Step O2o1o0g9o1o1o0 asgi.py
 
+👇 以下のファイルを編集してほしい
+
+```plaintext
+    ├── 📂 host1
+    │   ├── 📂 project1
+    │   │   ├── 📄 __init__.py
+👉  │   │   ├── 📄 asgi.py
+    │   │   ├── 📄 settings_secrets_example.txt
+    │   │   ├── 📄 settings_secrets.py
+    │   │   ├── 📄 settings.py
+    │   │   ├── 📄 urls.py
+    │   │   └── 📄 wsgi.py
+    │   ├── 🐳 docker-compose.yml
+    │   ├── 🐳 Dockerfile
+    │   ├── 📄 manage.py
+    │   └── 📄 requirements.txt
+    └── 📄 .gitignore
+```
+
+```py
+# ...略... import文など
+
+
+# vvvv 追加ここから
+# O2o1o0g9o1o1o0 プロジェクト名の一般化
+from .settings import PROJECT_NAME
+#    ]--------        ------------
+#    12               3
+# 1. 同じディレクトリー
+# 2. `host1/projectN/settings.py`
+#                    --------
+# 3. 変数
+
+# * 変更前
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project1.settings')
+# * O2o1o0g9o1o1o0 プロジェクト名の一般化
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', f'{PROJECT_NAME}.settings')
+#                                                 -----------------------
+#                                                 1
+# 1. 設定モジュール名 `host1/projectN/settings.py`
+#                          -----------------
+# ^^^^ 追加ここまで
+
+
+# ...略... application変数の設定など
+```
+
 ## Step O2o1o0g9o1o2o_9o0 settings.py
 
 👇 以下のファイルを編集してほしい
