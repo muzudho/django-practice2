@@ -303,8 +303,7 @@ class UserListV():
 
 ```py
 import json
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render
 
 # ユーザー モデルヘルパー
 from apps1.practice_v1.models_helper.o1o0.mh_user import MhUser
@@ -317,10 +316,11 @@ from apps1.practice_v1.models_helper.o1o0.mh_user import MhUser
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
-def render_user_list(request, path_of_this_page):
-    """描画 - 会員一覧"""
-
-    template = loader.get_template(path_of_this_page)
+def render_user_list(request, lp_user_list):
+    """O9o1o0g6o0 描画 - 会員一覧
+    lp_user_list : str
+        ローカルパス
+    """
 
     context = {
         # * `dj_` - 「Djangoがレンダーに埋め込む変数」 の目印
@@ -328,7 +328,7 @@ def render_user_list(request, path_of_this_page):
         'dj_user_dic': json.dumps(MhUser.get_user_dic())
     }
 
-    return HttpResponse(template.render(context, request))
+    return render(request, lp_user_list, context)
 ```
 
 # Step O9o1o0g7o0 ルート編集 - urls_practice.py ファイル
