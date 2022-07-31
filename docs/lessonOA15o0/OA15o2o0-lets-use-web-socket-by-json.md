@@ -89,7 +89,7 @@ Webサーバーとクライアント間でテキストを双方向の非同期�
     └── 📄 .gitignore
 ```
 
-# Step O1o0 Dockerコンテナの起動
+# Step OA15o2o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -101,11 +101,11 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o0 ASGI設定 - asgi.py ファイル
+# Step OA15o2o0g2o0 ASGI設定 - asgi.py ファイル
 
 これは 前回の記事で行った。 WSGI を ASGI にバージョンアップしておくことは必要だ  
 
-# Step O3o0 Webソケット設定 - consumer2.py ファイル
+# Step OA15o2o0g3o0 Webソケット設定 - consumer2.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -157,7 +157,7 @@ class WebsockPractice2V1Consumer(AsyncJsonWebsocketConsumer):
         await self.send(text_data=res)
 ```
 
-# Step O4o0 ルート編集 - ws_urls_practice.py ファイル
+# Step OA15o2o0g4o0 ルート編集 - ws_urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -203,14 +203,14 @@ websocket_urlpatterns = [
 ]
 ```
 
-# Step O5o0 ローカルPCにPythonのパッケージ websocket-client をインストール
+# Step OA15o2o0g5o0 ローカルPCにPythonのパッケージ websocket-client をインストール
 
-Step O1o0～ 4. は サーバーサイドだった。  
-Step O5o0 からは クライアントサイドを説明する  
+Step OA15o2o0g1o0～ 4. は サーバーサイドだった。  
+Step OA15o2o0g5o0 からは クライアントサイドを説明する  
 
 websocket-client パッケージは以前の記事で既にインストールしてある  
 
-# Step O6o0 Webクライアントソケット設定 - client_as_json.py ファイル
+# Step OA15o2o0g6o0 Webクライアントソケット設定 - client_as_json.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -337,7 +337,7 @@ if __name__ == "__main__":
     sys.exit(MainFinally.run(Main1()))
 ```
 
-# Step O7o0 Webソケット クライアント起動 - コマンド実行
+# Step OA15o2o0g7o0 Webソケット クライアント起動 - コマンド実行
 
 👇 以下のコマンドを打鍵してほしい
 
