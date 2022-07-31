@@ -123,7 +123,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O1o0 Dockerコンテナの起動
+# Step OA18o5o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -135,7 +135,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o0 画面作成 - upsert.html ファイル
+# Step OA18o5o0g2o0 画面作成 - upsert.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -193,7 +193,7 @@ docker-compose up
 </html>
 ```
 
-# Step O3o0 フォーム作成 - f_room.py ファイル
+# Step OA18o5o0g3o0 フォーム作成 - f_room.py ファイル
 
 HTMLタグの `<form>～</form>` の子要素を自動生成させよう。  
 
@@ -231,7 +231,7 @@ class RoomForm(ModelForm):
         fields = ('name', 'board', 'record',)  # フィールド指定
 ```
 
-# Step O4o0 ビュー モジュール編集 - room フォルダー
+# Step OA18o5o0g4o0 ビュー モジュール編集 - room フォルダー
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -283,7 +283,7 @@ class RoomV():
         return render_upsert(request, id, RoomV._path_of_upsert_page)
 ```
 
-# Step O5o0 ビュー モジュール作成 - v_upsert ファイル
+# Step OA18o5o0g5o0 ビュー モジュール作成 - v_upsert ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -354,7 +354,7 @@ def render_upsert(request, id, path_of_upsert_page):
     return render(request, path_of_upsert_page, dict(form=form, id=id))
 ```
 
-# Step O6o0 ルート編集 - urls_practice.py ファイル
+# Step OA18o5o0g6o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -413,7 +413,7 @@ urlpatterns = [
 ]
 ```
 
-# Step O7o0 Web画面へアクセス
+# Step OA18o5o0g7o0 Web画面へアクセス
 
 👇 作成するとき、部屋ID は付けるな  
 
@@ -423,7 +423,7 @@ urlpatterns = [
 
 📖 [http://localhost:8000/practice/v1/rooms/upsert/5/](http://localhost:8000/practice/v1/rooms/upsert/5/)  
 
-# Step O8o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step OA18o5o0g8o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
