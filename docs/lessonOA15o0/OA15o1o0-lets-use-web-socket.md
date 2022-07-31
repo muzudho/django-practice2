@@ -631,8 +631,8 @@ if __name__ == "__main__":
 👇 以下のコマンドを打鍵してほしい  
 
 ```shell
-# がんばって `host_local1/websockapp1` へ、カレントディレクトリを移動してほしい
-# cd host_local1/websockapp1
+# がんばって `src2_local/websockapp1` へ、カレントディレクトリを移動してほしい
+# cd src2_local/websockapp1
 
 python.exe -m websock_client
 ```

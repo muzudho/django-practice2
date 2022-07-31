@@ -483,7 +483,7 @@ if __name__ == "__main__":
 # Step OA14o1o0g6o0 エコーサーバー起動 - コマンド実行
 
 ```shell
-cd host_local1/sockapp1
+cd src2_local/sockapp1
 
 python.exe -m echo_server
 ```
@@ -493,7 +493,7 @@ python.exe -m echo_server
 エコーサーバーとは別ターミナルで:  
 
 ```shell
-cd host_local1/sockapp1
+cd src2_local/sockapp1
 
 python.exe -m client
 ```
