@@ -83,7 +83,7 @@ id が 2 のメンバーを削除したい。
     └── 📄 .gitignore
 ```
 
-# Step O1o0 Dockerコンテナの起動
+# Step OA11o3o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -95,7 +95,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o0 画面作成 - delete.html ファイル
+# Step OA11o3o0g2o0 画面作成 - delete.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -142,7 +142,7 @@ docker-compose up
 </html>
 ```
 
-# Step O3o0 ビュー編集 - v_delete.py ファイル
+# Step OA11o3o0g3o0 ビュー編集 - v_delete.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -207,7 +207,7 @@ def render_delete(request, id=id):
     return HttpResponse(template.render(context, request))
 ```
 
-# Step O4o0 ビュー編集 - prefecture モジュール
+# Step OA11o3o0g4o0 ビュー編集 - prefecture モジュール
 
 👇 以下のファイルを編集してほしい  
 
@@ -239,7 +239,7 @@ class PrefectureV(object):
     from .v_delete import render_delete
 ```
 
-# Step O5o0 ルート編集 - urls.py ファイル
+# Step OA11o3o0g5o0 ルート編集 - urls.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -302,13 +302,13 @@ urlpatterns = [
 ]
 ```
 
-# Step O6o0 Web画面へアクセス
+# Step OA11o3o0g6o0 Web画面へアクセス
 
 👇 IDの番号は適宜変えてほしい。  
 
 📖 [http://localhost:8000/practice/v1/prefectures/delete/2/](http://localhost:8000/practice/v1/prefectures/delete/2/)  
 
-# Step O7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step OA11o3o0g7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
