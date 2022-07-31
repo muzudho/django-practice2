@@ -60,12 +60,12 @@ urlpatterns = [
     #           --------------------
 
 
-    # 認証
-    path('', include('project1.urls_accounts')),
-    #    --           ----------------------
-    #      1          2
+    # 06o1o0 認証
+    path('', include(f'{PROJECT_NAME}.urls_accounts')),
+    #    --            ----------------------------
+    #    1             2
     # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `host1/project1/urls_accounts.py` の urlpatterns を (1.) にぶら下げる
+    # 2. `host1/projectN/urls_accounts.py` の urlpatterns を (1.) にぶら下げる
     #           ----------------------
 
     # 〇×ゲーム v1
