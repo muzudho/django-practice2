@@ -1,15 +1,14 @@
 import json
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render
 
 
 def render_desserts1(request):
-    """ビューティファイのデザート１"""
+    """OA13o1o0g4o0 ビューティファイのデザート１"""
 
-    template = loader.get_template(
-        'practice_v1/o1o0/vuetify/desserts1.html')
-    #    ---------------------------------------
-    #    1
+    # * `lp_` - Local path
+    lp_desserts1 = 'practice_v1/o1o0/vuetify/desserts1.html'
+    #               ---------------------------------------
+    #               1
     # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/vuetify/desserts1.html` を取得
     #                                      ---------------------------------------
 
@@ -23,4 +22,4 @@ def render_desserts1(request):
     context = {
         'dessertsStr': json.dumps(doc)
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, lp_desserts1, context)
