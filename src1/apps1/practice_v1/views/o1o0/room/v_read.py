@@ -20,8 +20,14 @@ from apps1.practice_v1.models_helper.o1o0.mh_user import MhUser
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
-def render_read(request, room_pk, path_of_read_page):
-    """読取ページ"""
+def render_read(request, room_pk, lp_room_read):
+    """OA18o3o0g4o0 読取ページ
+
+    Parameters
+    ----------
+    lp_room_read : str
+        ローカルパス
+    """
 
     # idを指定してメンバーを１人取得
     room_resultset = Room.objects.filter(pk=room_pk)
@@ -59,4 +65,4 @@ def render_read(request, room_pk, path_of_read_page):
     context = {
         'room': room_dic,
     }
-    return render(request, path_of_read_page, context)
+    return render(request, lp_room_read, context)
