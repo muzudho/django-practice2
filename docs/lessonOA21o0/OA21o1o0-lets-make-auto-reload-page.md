@@ -94,7 +94,7 @@
     └── 📄 .gitignore
 ```
 
-# Step O1o0 Dockerコンテナの起動
+# Step OA21o1o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -106,7 +106,7 @@ cd host1
 docker-compose up
 ```
 
-# Step O2o0 機能強化 - clock.js ファイル
+# Step OA21o1o0g2o0 機能強化 - clock.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -148,7 +148,7 @@ function getTimeStamp() {
 }
 ```
 
-# Step O3o0 機能強化 - auto_reload.js ファイル
+# Step OA21o1o0g3o0 機能強化 - auto_reload.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -174,7 +174,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 }
 ```
 
-# Step O4o0 画面編集 - v0o0o1/auto_reload.html ファイル
+# Step OA21o1o0g4o0 画面編集 - v0o0o1/auto_reload.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -266,7 +266,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 </html>
 ```
 
-# Step O5o0 ビュー モジュール作成 - reloader フォルダー
+# Step OA21o1o0g5o0 ビュー モジュール作成 - reloader フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -315,7 +315,7 @@ class AutoReloadV():
         return render_auto_reload(request, AutoReloadV._path_of_auto_reload_page)
 ```
 
-# Step O6o0 ビュー モジュール作成 - v_auto_reload ファイル
+# Step OA21o1o0g6o0 ビュー モジュール作成 - v_auto_reload ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -352,7 +352,7 @@ def render_auto_reload(request, path_of_reloader_page):
     return render(request, path_of_reloader_page, context)
 ```
 
-# Step O7o0 ルート編集 - urls_practice.py ファイル
+# Step OA21o1o0g7o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -412,11 +412,11 @@ urlpatterns = [
 ]
 ```
 
-# Step O8o0 Web画面へアクセス
+# Step OA21o1o0g8o0 Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/auto_reload/](http://localhost:8000/practice/v1/auto_reload/)  
 
-# Step O9o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+# Step OA21o1o0g9o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
