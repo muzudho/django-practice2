@@ -527,9 +527,9 @@ from apps1.tic_tac_toe_v3.views.o1o0.playing import PlayingV as PlayingVV3o1o0
 
 
 class PlayingV():
-    """対局中ビュー"""
+    """OA24o1o0g7o0 対局中ビュー"""
 
-    path_of_ws_playing = "/tic-tac-toe/v3.3/playing/"
+    path_of_web_socket = "/tic-tac-toe/v3.3/playing/"
     #                                     ^three
     #                     --------------------------
     #                     1
@@ -552,7 +552,7 @@ class PlayingV():
         return render_playing(
             request,
             kw_room_name,
-            PlayingV.path_of_ws_playing,
+            PlayingV.path_of_web_socket,
             PlayingVV3o1o0.path_of_html,
             PlayingVV3o1o0.on_update,
             PlayingVV2g1o0.expected_pieces)
