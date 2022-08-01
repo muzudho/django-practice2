@@ -21,9 +21,9 @@ from apps1.practice_v1.views.page_to_be_added.v2o0 import PageToBeAdded as PageT
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 # 3. `2.` の別名
 
-# 練習ページ ２回追加されたページ
-from apps1.practice_v1.views.o3o0.page_to_be_added import PageToBeAdded as PageToBeAdded2
-#                             ^three
+# O3o3o0g4o0 練習ページ ２回追加されたページ
+from apps1.practice_v1.views.page_to_be_added.v3o0 import PageToBeAdded as PageToBeAdded2
+#                                              ^three
 #          -----------            ----------------        -------------    --------------
 #          11                     12                      2                3
 #    ---------------------------------------------
