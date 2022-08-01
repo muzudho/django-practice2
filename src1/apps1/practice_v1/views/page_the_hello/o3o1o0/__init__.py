@@ -9,11 +9,11 @@ class PageTheHello():
         """描画"""
 
         # * `lp_` - Local path
-        lp_this_page = 'practice_v1/o1o0/page_the_hello.html'
-        #               ------------------------------------
+        lp_this_page = 'practice_v1/page_the_hello/o3o1o0.html'
+        #               --------------------------------------
         #               1
-        # 1. src1/apps1/practice_v1/templates/practice_v1/o1o0/page_the_hello.html を取得
-        #                                     ------------------------------------
+        # 1. src1/apps1/practice_v1/templates/practice_v1/page_the_hello/o3o1o0.html を取得
+        #                                     --------------------------------------
 
         context = {}
         return render(request, lp_this_page, context)

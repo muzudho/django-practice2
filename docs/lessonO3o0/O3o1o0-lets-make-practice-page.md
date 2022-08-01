@@ -213,7 +213,7 @@ INSTALLED_APPS = [
             └── 📂 practice_v1              # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1      # アプリケーションと同名
-                        └── 📂 o1o0
+                        └── 📂 o3o1o0
 👉                          └── 📄 page_the_hello.html
 ```
 
@@ -240,7 +240,7 @@ INSTALLED_APPS = [
         │   └── 📂 practice_v1                  # アプリケーション
         │       └── 📂 templates
         │           └── 📂 practice_v1
-        │               └── 📂 o1o0
+        │               └── 📂 o3o1o0
         │                   └── 📄 page_the_hello.html
         └── 📂 project1
 👉          └── 📄 settings.py
@@ -260,7 +260,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'apps1/practice_v1/templates'),
             #                       ---------------------------
             #                       10
-            # Example: /src1/apps1/practice_v1/templates/practice_v1/o1o0/page_the_hello.html
+            # Example: /src1/apps1/practice_v1/templates/practice_v1/page_the_hello/o3o1o0.html
             #                      -----------          ------------
             #                      11                   2
             #                ---------------------------
@@ -293,11 +293,11 @@ TEMPLATES = [
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📄 page_the_hello.html
+        │       │       └── 📂 page_the_hello
+        │       │           └── 📄 o3o1o0.html
         │       └── 📂 views
         │           └── 📂 page_the_hello
-        │               └── 📂 o1o0
+        │               └── 📂 o3o1o0
 👉      │                   └── 📄 __init__.py
         └── 📂 project1
             └── 📄 settings.py
@@ -315,11 +315,11 @@ class PageTheHello():
         """描画"""
 
         # * `lp_` - Local path
-        lp_this_page = 'practice_v1/o1o0/page_the_hello.html'
-        #               ------------------------------------
+        lp_this_page = 'practice_v1/page_the_hello/o3o1o0.html'
+        #               --------------------------------------
         #               1
-        # 1. src1/apps1/practice_v1/templates/practice_v1/o1o0/page_the_hello.html を取得
-        #                                     ------------------------------------
+        # 1. src1/apps1/practice_v1/templates/practice_v1/page_the_hello/o3o1o0.html を取得
+        #                                     --------------------------------------
 
         context = {}
         return render(request, lp_this_page, context)
@@ -346,11 +346,11 @@ class PageTheHello():
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📄 page_the_hello.html
+        │       │       └── 📂 page_the_hello
+        │       │           └── 📄 o3o1o0.html
         │       └── 📂 views
         │           └── 📂 page_the_hello
-        │               └── 📂 o1o0
+        │               └── 📂 o3o1o0
         │                   └── 📄 __init__.py
         └── 📂 project1
 👉          ├── 📄 urls_practice.py          # 新規作成
@@ -360,11 +360,11 @@ class PageTheHello():
 ```py
 from django.urls import path
 
-# おはようページ
-from apps1.practice_v1.views.page_the_hello.o1o0 import PageTheHello
-#          -----------                      ----        ------------
-#          11                               12          2
-#    -------------------------------------------
+# O3o1o0gA10o0 おはようページ
+from apps1.practice_v1.views.page_the_hello.o3o1o0 import PageTheHello
+#          -----------                      ------        ------------
+#          11                               12            2
+#    ---------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -397,11 +397,11 @@ urlpatterns = [
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📄 page_the_hello.html
+        │       │       └── 📂 page_the_hello
+        │       │           └── 📄 o3o1o0.html
         │       └── 📂 views
         │           └── 📂 page_the_hello
-        │               └── 📂 o1o0
+        │               └── 📂 o3o1o0
         │                   └── 📄 __init__.py
         └── 📂 project1
 ❌          ├── 📄 urls_practice.py          # これではない
