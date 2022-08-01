@@ -296,8 +296,8 @@ TEMPLATES = [
         │       │       └── 📂 o1o0
         │       │           └── 📄 page_the_hello.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 page_the_hello
+        │           └── 📂 page_the_hello
+        │               └── 📂 o1o0
 👉      │                   └── 📄 __init__.py
         └── 📂 project1
             └── 📄 settings.py
@@ -349,8 +349,8 @@ class PageTheHello():
         │       │       └── 📂 o1o0
         │       │           └── 📄 page_the_hello.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 page_the_hello
+        │           └── 📂 page_the_hello
+        │               └── 📂 o1o0
         │                   └── 📄 __init__.py
         └── 📂 project1
 👉          ├── 📄 urls_practice.py          # 新規作成
@@ -361,9 +361,9 @@ class PageTheHello():
 from django.urls import path
 
 # おはようページ
-from apps1.practice_v1.views.o1o0.page_the_hello import PageTheHello
-#          -----------            --------------        ------------
-#          11                     12                    2
+from apps1.practice_v1.views.page_the_hello.o1o0 import PageTheHello
+#          -----------                      ----        ------------
+#          11                               12          2
 #    -------------------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -400,8 +400,8 @@ urlpatterns = [
         │       │       └── 📂 o1o0
         │       │           └── 📄 page_the_hello.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 page_the_hello
+        │           └── 📂 page_the_hello
+        │               └── 📂 o1o0
         │                   └── 📄 __init__.py
         └── 📂 project1
 ❌          ├── 📄 urls_practice.py          # これではない

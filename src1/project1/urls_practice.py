@@ -1,9 +1,9 @@
 from django.urls import path
 
 # おはようページ
-from apps1.practice_v1.views.o1o0.page_the_hello import PageTheHello
-#          -----------            --------------        ------------
-#          11                     12                    2
+from apps1.practice_v1.views.page_the_hello.o1o0 import PageTheHello
+#          -----------                      ----        ------------
+#          11                               12          2
 #    -------------------------------------------
 #    10
 # 10, 12. ディレクトリー
