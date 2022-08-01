@@ -1,9 +1,9 @@
 from django.urls import path
 
-# ポータルの練習
-from apps1.portal_v1.views.o1o0.portal import Portal as PortalO1o0
-#          ---------            ------        ------    ----------
-#          11                   12            2         3
+# O5o1o0gA11o0 ポータルの練習
+from apps1.portal_v1.views.portal.v1o0 import Portal as PortalO1o0
+#          ---------              ----        ------    ----------
+#          11                     12          2         3
 #    ---------------------------------
 #    10
 # 10, 12. ディレクトリー

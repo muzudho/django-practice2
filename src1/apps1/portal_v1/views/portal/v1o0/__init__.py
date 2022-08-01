@@ -8,11 +8,11 @@ class Portal():
         """描画"""
 
         # * `lp_` - Local path
-        lp_this_page = 'portal_v1/o1o0/portal_base.html'
-        #               -------------------------------
+        lp_this_page = 'portal_v1/v1o0.html'
+        #               -------------------
         #               1
-        # 1. src1/apps1/practice_v1/templates/portal_v1/o1o0/portal_base.html を取得
-        #                                     -------------------------------
+        # 1. src1/apps1/practice_v1/templates/portal_v1/v1o0.html を取得
+        #                                     -------------------
 
         context = {
             "dj_path_of_page_the_hello": "/practice/v1/page-the-hello",
