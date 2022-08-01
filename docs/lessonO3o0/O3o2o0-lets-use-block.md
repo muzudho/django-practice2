@@ -27,11 +27,11 @@
     │   │   └── 📂 practice_v1              # アプリケーション名
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_v1
-    │   │       │       └── 📂 o1o0
-    │   │       │           └── 📄 page_the_hello.html
+    │   │       │       └── 📂 page_the_hello
+    │   │       │           └── 📄 v1o0.html
     │   │       └── 📂 views
-    │   │           └── 📂 o1o0
-    │   │               └── 📂 page_the_hello
+    │   │           └── 📂 page_the_hello
+    │   │               └── 📂 v1o0
     │   │                   └── 📄 __init__.py
     │   ├── 📂 data
     │   ├── 📂 project1                  # プロジェクト名
@@ -63,7 +63,7 @@ cd src1
 docker-compose up
 ```
 
-# Step O3o2o0g2o0 画面作成 - page_to_be_added.html ファイル
+# Step O3o2o0g2o0 画面作成 - page_to_be_added/v1o0.html ファイル
 
 以下のファイルを作成してほしい。
 
@@ -73,8 +73,8 @@ docker-compose up
             └── 📂 practice_v1
                 └── 📂 templates
                     └── 📂 practice_v1
-                        └── 📂 o1o0
-👉                          └── 📄 page_to_be_added.html
+                        └── 📂 page_to_be_added
+👉                          └── 📄 v1o0.html
 ```
 
 ```html
@@ -116,7 +116,7 @@ docker-compose up
 </html>
 ```
 
-# Step O3o2o0g3o0 画面作成 - o2o0/page_to_be_added.html.txt ファイル
+# Step O3o2o0g3o0 画面作成 - page_to_be_added/v2o0.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい。  
 自動フォーマットされてくないので、拡張子をテキストファイルにしておく  
@@ -127,17 +127,16 @@ docker-compose up
             └── 📂 practice_v1
                 └── 📂 templates
                     └── 📂 practice_v1
-                        ├── 📂 o1o0
-                        │   └── 📄 page_to_be_added.html
-                        └── 📂 o2o0     # Two
-👉                          └── 📄 page_to_be_added.html.txt
+                        └── 📂 page_to_be_added
+                            ├── 📄 v1o0.html
+👉                          └── 📄 v2o0.html.txt
 ```
 
 ```html
-{% extends "practice_v1/o1o0/page_to_be_added.html" %}
+{% extends "practice_v1/page_to_be_added/v1o0.html" %}
 {#          --------------------------------------
             1
-1. src1/apps1/practice_v1/templates/practice_v1/o1o0/page_to_be_added.html
+1. src1/apps1/practice_v1/templates/practice_v1/page_to_be_added/v1o0.html
                                     --------------------------------------
 #}
 
@@ -178,13 +177,12 @@ docker-compose up
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       ├── 📂 o1o0
-        │       │       │   └── 📄 page_to_be_added.html
-        │       │       └── 📂 o2o0
-        │       │           └── 📄 page_to_be_added.html.txt
+        │       │       └── 📂 page_to_be_added
+        │       │           ├── 📄 v1o0.html
+        │       │           └── 📄 v2o0.html.txt
         │       └── 📂 views
-        │           └── 📂 o2o0     # Two
-        │               └── 📂 page_to_be_added
+        │           └── 📂 page_to_be_added
+        │               └── 📂 v2o0             # Two
 👉      │                   └── 📄 __init__.py
         └── 📂 project1
             └── 📄 settings.py
@@ -201,11 +199,11 @@ class PageToBeAdded():
         """描画"""
 
         # * `lp_` - Local path
-        lp_this_page = 'practice_v1/o2o0/page_to_be_added.html.txt'
-        #                            ^two
+        lp_this_page = 'practice_v1/page_to_be_added/v2o0.html.txt'
+        #                                             ^two
         #               ------------------------------------------
         #               1
-        # 1. src1/apps1/practice_v1/templates/practice_v1/o2o0/page_to_be_added.html.txt を取得
+        # 1. src1/apps1/practice_v1/templates/practice_v1/page_to_be_added/v2o0.html.txt を取得
         #                                     ------------------------------------------
 
         context = {}
@@ -222,13 +220,12 @@ class PageToBeAdded():
         │   └── 📂 practice_v1              # アプリケーション名
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       ├── 📂 o1o0
-        │       │       │   └── 📄 page_to_be_added.html
-        │       │       └── 📂 o2o0
-        │       │           └── 📄 page_to_be_added.html.txt
+        │       │       └── 📂 page_to_be_added
+        │       │           ├── 📄 v1o0.html
+        │       │           └── 📄 v2o0.html.txt
         │       └── 📂 views
-        │           └── 📂 o2o0
-        │               └── 📂 page_to_be_added
+        │           └── 📂 page_to_be_added
+        │               └── 📂 v2o0
         │                   └── 📄 __init__.py
         └── 📂 project1
 👉          ├── 📄 urls_practice.py          # こちら
@@ -236,14 +233,11 @@ class PageToBeAdded():
 ```
 
 ```py
-from django.urls import path
+# ...略...
 
 
-# ...中略...
-
-
-# 練習ページ １回追加されたページ
-from apps1.practice_v1.views.o2o0.page_to_be_added import PageToBeAdded as PageToBeAdded1
+# O3o2o0g5o0 練習ページ １回追加されたページ
+from apps1.practice_v1.views.page_to_be_added.v2o0 import PageToBeAdded as PageToBeAdded1
 #          -----------            ----------------        -------------    --------------
 #          11                     12                      2                3
 #    ---------------------------------------------

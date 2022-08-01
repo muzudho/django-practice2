@@ -10,8 +10,8 @@ from apps1.practice_v1.views.page_the_hello.o3o1o0 import PageTheHello
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# 練習ページ １回追加されたページ
-from apps1.practice_v1.views.o2o0.page_to_be_added import PageToBeAdded as PageToBeAdded1
+# O3o2o0g5o0 練習ページ １回追加されたページ
+from apps1.practice_v1.views.page_to_be_added.v2o0 import PageToBeAdded as PageToBeAdded1
 #          -----------            ----------------        -------------    --------------
 #          11                     12                      2                3
 #    ---------------------------------------------
