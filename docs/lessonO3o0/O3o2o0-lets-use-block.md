@@ -168,7 +168,7 @@ docker-compose up
 {% endblock section2_footer %}
 ```
 
-# Step O3o2o0g4o0 ビュー作成 - o2o0/page_to_be_added フォルダー
+# Step O3o2o0g4o0 ビュー モジュール作成 - o2o0/page_to_be_added フォルダー
 
 👇 以下のファイルを新規作成してほしい
 
