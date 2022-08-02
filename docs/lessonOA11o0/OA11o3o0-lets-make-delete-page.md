@@ -50,13 +50,13 @@ id が 2 のメンバーを削除したい。
     │   │       ├── 📂 static
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_v1          # アプリケーションと同名
-    │   │       │       └── 📂 o1o0
-    │   │       │           └── 📂 prefecture
+    │   │       │       └── 📂 prefecture
+    │   │       │           └── 📂 v1o0
     │   │       │               ├── 📄 list.html
     │   │       │               └── 📄 read.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 o1o0
-    │   │       │       └── 📂 prefecture
+    │   │       │   └── 📂 prefecture
+    │   │       │       └── 📂 v1o0
     │   │       │           ├── 📄 __init__.py
     │   │       │           ├── 📄 v_list.py
     │   │       │           └── 📄 v_read.py
@@ -105,12 +105,14 @@ docker-compose up
             └── 📂 practice_v1                      # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1              # アプリケーションと同名
-                        └── 📂 o1o0                # ただのフォルダー
-                            └── 📂 prefecture            # ただのフォルダー
+                        └── 📂 prefecture           # ただのフォルダー
+                            └── 📂 v1o0             # ただのフォルダー
 👉                              └── 📄 delete.html
 ```
 
 ```html
+{# OA11o3o0g2o0 #}
+<!-- -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <!-- See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92 -->
@@ -152,17 +154,17 @@ docker-compose up
             └── 📂 practice_v1                      # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1              # アプリケーションと同名
-                │       └── 📂 o1o0                 # ただのフォルダー
-                │           └── 📂 prefecture       # ただのフォルダー
+                │       └── 📂 prefecture           # ただのフォルダー
+                │           └── 📂 v1o0             # ただのフォルダー
                 │               └── 📄 delete.html
                 └── 📂 views
-                    └── 📂 o1o0                     # ただのフォルダー
-                        └── 📂 prefecture           # ただのフォルダー
+                    └── 📂 prefecture               # ただのフォルダー
+                        └── 📂 v1o0                 # ただのフォルダー
 👉                          └── 📄 v_delete.py
 ```
 
 ```py
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # 都道府県モデル
 from apps1.practice_v1.models.prefecture.v1o0 import Prefecture
@@ -187,14 +189,15 @@ def render_delete(request, id=id):
     """
 
     # * `lp_` - Local path
-    lp_prefecture_delete = 'practice_v1/o1o0/prefecture/delete.html'
+    lp_prefecture_delete = 'practice_v1/prefecture/v1o0/delete.html'
     #                       ---------------------------------------
     #                       1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/prefecture/delete.html` を取得
+    # 1. `src1/apps1/practice_v1/templates/practice_v1/prefecture/v1o0/delete.html` を取得
     #                                      ---------------------------------------
 
-    # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得
-    prefecture = Prefecture.objects.get(pk=id)
+    # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得。無ければ 404 画面へ飛ぶ
+    prefecture = get_object_or_404(Prefecture, pk=id)
+
     name = prefecture.name  # 名前だけまだ使う
     prefecture.delete()
     # すでに削除されたデータを使うために以下のようにする
@@ -216,25 +219,26 @@ def render_delete(request, id=id):
             └── 📂 practice_v1                      # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o1o0
-                │           └── 📂 prefecture
+                │       └── 📂 prefecture
+                │           └── 📂 v1o0
                 │               └── 📄 delete.html
                 └── 📂 views
-                    └── 📂 o1o0
-                        └── 📂 prefecture
+                    └── 📂 prefecture
+                        └── 📂 v1o0
 👉                          ├── 📄 __init__.py
                             └── 📄 v_delete.py
 ```
 
 ```py
 class PrefectureV(object):
-    """都道府県のビュー"""
+    """OA11o1o0g4o0 都道府県のビュー"""
 
 
     # ..略..
 
 
     # 以下を追加
+    # OA11o3o0g4o0 削除画面
     from .v_delete import render_delete
 ```
 
@@ -248,12 +252,12 @@ class PrefectureV(object):
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 prefecture
+        │       │       └── 📂 prefecture
+        │       │           └── 📂 v1o0
         │       │               └── 📄 delete.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 prefecture
+        │           └── 📂 prefecture
+        │               └── 📂 v1o0
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_delete.py
         └── 📂 project1                          # プロジェクト
@@ -262,21 +266,7 @@ class PrefectureV(object):
 ```
 
 ```py
-from django.urls import path
-
-
 # ...略...
-
-
-# 都道府県
-from apps1.practice_v1.views.o1o0.prefecture import PrefectureV
-#          -----------            ----------        -----------
-#          11                     12                2
-#    ---------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 urlpatterns = [
@@ -285,7 +275,7 @@ urlpatterns = [
     # ...略...
 
 
-    # 都道府県の削除
+    # OA11o3o0g5o0 都道府県の削除
     path('practice/v1/prefectures/delete/<int:id>/',
          # ---------------------------------------
          # 1
@@ -320,12 +310,12 @@ urlpatterns = [
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 prefecture
+        │       │       └── 📂 prefecture
+        │       │           └── 📂 v1o0
         │       │               └── 📄 delete.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 prefecture
+        │           └── 📂 prefecture
+        │               └── 📂 v1o0
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_delete.py
         └── 📂 project1                          # プロジェクト

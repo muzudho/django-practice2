@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # 都道府県モデル
 from apps1.practice_v1.models.prefecture.v1o0 import Prefecture
@@ -23,14 +23,15 @@ def render_delete(request, id=id):
     """
 
     # * `lp_` - Local path
-    lp_prefecture_delete = 'practice_v1/o1o0/prefecture/delete.html'
+    lp_prefecture_delete = 'practice_v1/prefecture/v1o0/delete.html'
     #                       ---------------------------------------
     #                       1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/prefecture/delete.html` を取得
+    # 1. `src1/apps1/practice_v1/templates/practice_v1/prefecture/v1o0/delete.html` を取得
     #                                      ---------------------------------------
 
-    # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得
-    prefecture = Prefecture.objects.get(pk=id)
+    # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得。無ければ 404 画面へ飛ぶ
+    prefecture = get_object_or_404(Prefecture, pk=id)
+
     name = prefecture.name  # 名前だけまだ使う
     prefecture.delete()
     # すでに削除されたデータを使うために以下のようにする

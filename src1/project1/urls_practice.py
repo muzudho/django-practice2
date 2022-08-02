@@ -398,7 +398,7 @@ urlpatterns = [
     # 2. PrefectureV クラスの render_read 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_prefectures_read' %} のような形でURLを取得するのに使える
 
-    # 都道府県の削除
+    # OA11o3o0g5o0 都道府県の削除
     path('practice/v1/prefectures/delete/<int:id>/',
          # ---------------------------------------
          # 1

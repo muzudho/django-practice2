@@ -7,5 +7,7 @@ class PrefectureV(object):
     # OA11o2o0g4o0 詳細
     from .v_read import render_read
 
+    # OA11o3o0g4o0 削除画面
     from .v_delete import render_delete
+
     from .v_upsert import render_upsert

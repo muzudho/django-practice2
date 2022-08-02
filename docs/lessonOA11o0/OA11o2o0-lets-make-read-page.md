@@ -208,8 +208,10 @@ def render_read(request, id=id):
     # 1. `src1/apps1/practice_v1/templates/practice_v1/prefecture/v1o0/read.html` を取得
     #                                      -------------------------------------
 
-    # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得。無ければ 404エラー
+    # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得。無ければ 404 画面へ飛ぶ
     prefecture = get_object_or_404(Prefecture, pk=id)
+    # * 以下の書き方だと、 404 画面に飛ばない
+    # prefecture = Prefecture.objects.get(pk=id)
 
     context = {
         'prefecture': prefecture,
