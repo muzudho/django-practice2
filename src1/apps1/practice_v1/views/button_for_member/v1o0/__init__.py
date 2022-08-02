@@ -1,11 +1,11 @@
 class ButtonForMember():
-    """会員にだけ見えるボタンを説明するページ"""
+    """O8o3o0g3o0 会員にだけ見えるボタンを説明するページ"""
 
     # そのページ
-    _path_of_this_page = "practice_v1/o1o0/button_for_member.html"
+    _path_of_this_page = "practice_v1/button_for_member/v1o0.html"
     #                     ---------------------------------------
     #                     1
-    # 1. src1/apps1/practice_v1/templates/practice_v1/o1o0/button_for_member.html を取得
+    # 1. src1/apps1/practice_v1/templates/practice_v1/button_for_member/v1o0.html を取得
     #                                     ---------------------------------------
 
     # 既存のポータルページ
@@ -44,7 +44,7 @@ class ButtonForMember():
         from .v_render import render_button_for_member
         #    ---------        ------------------------
         #    1                2
-        # 1. `src1/apps1/practice_v1/views/o1o0/button_for_member/v_render.py`
+        # 1. `src1/apps1/practice_v1/views/button_for_member/v1o0/v_render.py`
         #                                                         --------
         # 2. `1.` に含まれる関数
 

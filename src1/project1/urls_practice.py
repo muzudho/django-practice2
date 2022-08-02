@@ -43,10 +43,10 @@ from apps1.practice_v1.views.login_required.v1o0 import LoggingIn, LoggingOut
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# 会員用ボタン
-from apps1.practice_v1.views.o1o0.button_for_member import ButtonForMember
-#          -----------            -----------------        ---------------
-#          11                     12                       2
+# O8o3o0g5o0 会員用ボタン
+from apps1.practice_v1.views.button_for_member.v1o0 import ButtonForMember
+#          -----------                         ----        ---------------
+#          11                                  12          2
 #    ----------------------------------------------
 #    10
 # 10, 12. ディレクトリー

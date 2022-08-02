@@ -2,11 +2,7 @@
 
 📖 [http://tic.warabenture.com:8000/practice/v1/buttom_for_member/](http://tic.warabenture.com:8000/practice/v1/buttom_for_member/)  
 
-# 目的
-
-会員に特典を与えたい  
-
-# 手段
+# 概要
 
 ログインしていない人には見えず、  
 ログインしている人には見えるボタンを作ろう！  
@@ -74,8 +70,8 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1          # アプリケーションと同名
-                        └── 📂 o1o0
-👉                          └── 📄 button_for_member.html
+                        └── 📂 button_for_member
+👉                          └── 📄 v1o0.html
 ```
 
 ```html
@@ -170,7 +166,7 @@ docker-compose up
 </html>
 ```
 
-# Step O8o3o0g3o0 ビュー作成 - button_for_member フォルダー
+# Step O8o3o0g3o0 ビュー作成 - button_for_member/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -180,23 +176,23 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o1o0
-                │           └── 📄 button_for_member.html
+                │       └── 📂 button_for_member
+                │           └── 📄 v1o0.html
                 └── 📂 views
-                    └── 📂 o1o0
-                        └── 📂 button_for_member
+                    └── 📂 button_for_member
+                        └── 📂 v1o0
 👉                          └── 📄 __init__.py
 ```
 
 ```py
 class ButtonForMember():
-    """会員にだけ見えるボタンを説明するページ"""
+    """O8o3o0g3o0 会員にだけ見えるボタンを説明するページ"""
 
     # そのページ
-    _path_of_this_page = "practice_v1/o1o0/button_for_member.html"
+    _path_of_this_page = "practice_v1/button_for_member/v1o0.html"
     #                     ---------------------------------------
     #                     1
-    # 1. src1/apps1/practice_v1/templates/practice_v1/o1o0/button_for_member.html を取得
+    # 1. src1/apps1/practice_v1/templates/practice_v1/button_for_member/v1o0.html を取得
     #                                     ---------------------------------------
 
     # 既存のポータルページ
@@ -235,14 +231,14 @@ class ButtonForMember():
         from .v_render import render_button_for_member
         #    ---------        ------------------------
         #    1                2
-        # 1. `src1/apps1/practice_v1/views/o1o0/button_for_member/v_render.py`
+        # 1. `src1/apps1/practice_v1/views/button_for_member/v1o0/v_render.py`
         #                                                         --------
         # 2. `1.` に含まれる関数
 
         return render_button_for_member(request, ButtonForMember._path_of_this_page, ButtonForMember._path_of_portal, ButtonForMember._path_of_login_required, ButtonForMember._path_of_login, ButtonForMember._path_of_logout)
 ```
 
-# Step O8o3o0g4o0 ビュー作成 - button_for_member/v_render.py ファイル
+# Step O8o3o0g4o0 ビュー作成 - button_for_member/v1o0/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -252,11 +248,11 @@ class ButtonForMember():
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o1o0
-                │           └── 📄 button_for_member.html
+                │       └── 📂 button_for_member
+                │           └── 📄 v1o0.html
                 └── 📂 views
-                    └── 📂 o1o0
-                        └── 📂 button_for_member
+                    └── 📂 button_for_member
+                        └── 📂 v1o0
                             ├── 📄 __init__.py
 👉                          └── 📄 v_render.py       # 頭の `v_` は、これはビューだと分かるよう目印に付けているだけなので、無くてもいい
 ```
@@ -267,6 +263,7 @@ from django.shortcuts import render
 
 def render_button_for_member(request, lp_button_for_member_page, path_of_portal, path_of_login_required, path_of_login, path_of_logout):
     """O8o3o0g4o0 描画 - 会員にだけ見えるボタンを説明するページ
+
     Parameters
     ----------
     lp_button_for_member_page : str
@@ -294,11 +291,11 @@ def render_button_for_member(request, lp_button_for_member_page, path_of_portal,
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📄 button_for_member.html
+        │       │       └── 📂 button_for_member
+        │       │           └── 📄 v1o0.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 button_for_member
+        │           └── 📂 button_for_member
+        │               └── 📂 v1o0
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_render.py
         └── 📂 project1                      # プロジェクト
@@ -309,10 +306,10 @@ def render_button_for_member(request, lp_button_for_member_page, path_of_portal,
 # ...略...
 
 
-# 会員用ボタン
-from apps1.practice_v1.views.o1o0.button_for_member import ButtonForMember
-#          -----------            -----------------        ---------------
-#          11                     12                       2
+# O8o3o0g5o0 会員用ボタン
+from apps1.practice_v1.views.button_for_member.v1o0 import ButtonForMember
+#          -----------                         ----        ---------------
+#          11                                  12          2
 #    ----------------------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -354,11 +351,11 @@ urlpatterns = [
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📄 button_for_member.html
+        │       │       └── 📂 button_for_member
+        │       │           └── 📄 v1o0.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 button_for_member
+        │           └── 📂 button_for_member
+        │               └── 📂 v1o0
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_render.py
         └── 📂 project1                      # プロジェクト
