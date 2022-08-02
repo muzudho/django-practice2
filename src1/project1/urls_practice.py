@@ -93,8 +93,8 @@ from apps1.practice_v1.views.debug.v1o0 import DebugV
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# 都道府県
-from apps1.practice_v1.views.o1o0.prefecture import PrefectureV
+# OA11o1o0g5o0 都道府県
+from apps1.practice_v1.views.prefecture.v1o0 import PrefectureV
 #          -----------            ----------        -----------
 #          11                     12                2
 #    ---------------------------------------
@@ -372,7 +372,7 @@ urlpatterns = [
     # 2. DebugV クラスの render_model_as_json 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_from_object_to_json_str' %} のような形でURLを取得するのに使える
 
-    # 都道府県の一覧
+    # OA11o1o0g5o0 都道府県の一覧
     path('practice/v1/prefectures/',
          # -----------------------
          # 1

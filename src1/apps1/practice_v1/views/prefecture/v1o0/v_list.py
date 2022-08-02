@@ -15,10 +15,10 @@ def render_list(request):
     """OA11o1o0g3o0 一覧画面の描画"""
 
     # * `lp_` - Local path
-    lp_prefecture_list = 'practice_v1/o1o0/prefecture/list.html'
+    lp_prefecture_list = 'practice_v1/prefecture/v1o0/list.html'
     #                     -------------------------------------
     #                     1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/prefecture/list.html` を取得
+    # 1. `src1/apps1/practice_v1/templates/practice_v1/prefecture/v1o0/list.html` を取得
     #                                      -------------------------------------
 
     context = {

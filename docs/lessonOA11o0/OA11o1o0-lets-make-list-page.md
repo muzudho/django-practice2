@@ -98,12 +98,14 @@ docker-compose up
             └── 📂 practice_v1                      # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1              # アプリケーションと同名
-                        └── 📂 o1o0                 # ただのフォルダー
-                            └── 📂 prefecture            # ただのフォルダー
+                        └── 📂 prefecture           # ただのフォルダー
+                            └── 📂 v1o0             # ただのフォルダー
 👉                              └── 📄 list.html
 ```
 
 ```html
+{# OA11o1o0g2o0 #}
+<!-- -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <!-- See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92 -->
@@ -163,12 +165,12 @@ docker-compose up
             └── 📂 practice_v1                      # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o1o0
-                │           └── 📂 prefecture
+                │       └── 📂 prefecture
+                │           └── 📂 v1o0
                 │               └── 📄 list.html
                 └── 📂 views
-                    └── 📂 o1o0                     # ただのフォルダー
-                        └── 📂 prefecture            # ただのフォルダー
+                    └── 📂 prefecture               # ただのフォルダー
+                        └── 📂 v1o0                 # ただのフォルダー
 👉                          └── 📄 v_list.py
 ```
 
@@ -179,7 +181,7 @@ from django.shortcuts import render
 from apps1.practice_v1.models.prefecture.v1o0 import Prefecture
 #          -----------                   ----        ----------
 #          11                            12          2
-#    ------------------------------------------
+#    ----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -190,10 +192,10 @@ def render_list(request):
     """OA11o1o0g3o0 一覧画面の描画"""
 
     # * `lp_` - Local path
-    lp_prefecture_list = 'practice_v1/o1o0/prefecture/list.html'
+    lp_prefecture_list = 'practice_v1/prefecture/v1o0/list.html'
     #                     -------------------------------------
     #                     1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/prefecture/list.html` を取得
+    # 1. `src1/apps1/practice_v1/templates/practice_v1/prefecture/v1o0/list.html` を取得
     #                                      -------------------------------------
 
     context = {
@@ -212,20 +214,21 @@ def render_list(request):
             └── 📂 practice_v1                      # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o1o0
-                │           └── 📂 prefecture
+                │       └── 📂 prefecture
+                │           └── 📂 v1o0
                 │               └── 📄 list.html
                 └── 📂 views
-                    └── 📂 o1o0
-                        └── 📂 prefecture
+                    └── 📂 prefecture
+                        └── 📂 v1o0
 👉                          ├── 📄 __init__.py
                             └── 📄 v_list.py
 ```
 
 ```py
 class PrefectureV(object):
-    """都道府県のビュー"""
+    """OA11o1o0g4o0 都道府県のビュー"""
 
+    # OA11o1o0g4o0 一覧
     from .v_list import render_list
 ```
 
@@ -239,12 +242,12 @@ class PrefectureV(object):
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 prefecture
+        │       │       └── 📂 prefecture
+        │       │           └── 📂 v1o0
         │       │               └── 📄 list.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 prefecture
+        │           └── 📂 prefecture
+        │               └── 📂 v1o0
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_list.py
         └── 📂 project1                          # プロジェクト
@@ -256,8 +259,8 @@ class PrefectureV(object):
 # ...略...
 
 
-# 都道府県
-from apps1.practice_v1.views.o1o0.prefecture import PrefectureV
+# OA11o1o0g5o0 都道府県
+from apps1.practice_v1.views.prefecture.v1o0 import PrefectureV
 #          -----------            ----------        -----------
 #          11                     12                2
 #    ---------------------------------------
@@ -273,7 +276,7 @@ urlpatterns = [
     # ...略...
 
 
-    # 都道府県の一覧
+    # OA11o1o0g5o0 都道府県の一覧
     path('practice/v1/prefectures/',
          # -----------------------
          # 1
@@ -304,12 +307,12 @@ urlpatterns = [
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 prefecture
+        │       │       └── 📂 prefecture
+        │       │           └── 📂 v1o0
         │       │               └── 📄 list.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 prefecture
+        │           └── 📂 prefecture
+        │               └── 📂 v1o0
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_list.py
         └── 📂 project1                          # プロジェクト
