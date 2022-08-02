@@ -7,10 +7,10 @@ class LoggingIn():
     """O8o2o0g3o0 ログイン中"""
 
     # * `lp_` - Local path
-    lp_login_required = "practice_v1/o1o0/login_required.html"
+    lp_login_required = "practice_v1/login_required/v1o0.html"
     #                    ------------------------------------
     #                    1
-    # 1. src1/apps1/practice_v1/templates/practice_v1/o1o0/login_required.html を取得
+    # 1. src1/apps1/practice_v1/templates/practice_v1/login_required/v1o0.html を取得
     #                                     ------------------------------------
 
     # 👇 このデコレーターを付けると、ログインしていないなら、 settings.py の LOGIN_URL で指定した URL に飛ばします。
@@ -35,6 +35,7 @@ class LoggingOut():
 
 def loggingIn_render(request, lp_login_required):
     """O8o2o0g3o0 ログイン中 - 描画
+
     Parameters
     ----------
     request : object

@@ -33,10 +33,10 @@ from apps1.practice_v1.views.page_to_be_added.v3o0 import PageToBeAdded as PageT
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 # 3. `2.` の別名
 
-# ログイン必須ページ
-from apps1.practice_v1.views.o1o0.login_required import LoggingIn, LoggingOut
-#          -----------            --------------        ---------------------
-#          11                     12                    2
+# O8o2o0g4o0 ログイン必須ページ
+from apps1.practice_v1.views.login_required.v1o0 import LoggingIn, LoggingOut
+#          -----------                      ----        ---------------------
+#          11                               12          2
 #    -------------------------------------------
 #    10
 # 10, 12. ディレクトリー

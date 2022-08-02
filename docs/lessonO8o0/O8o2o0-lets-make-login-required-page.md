@@ -3,13 +3,13 @@
 📖 [http://tic.warabenture.com:8000/practice/v1/login-required](http://localhost:8000/practice/v1/login-required) - ログインが必要なページ  
 📖 [http://tic.warabenture.com:8000/practice/v1/logout](http://localhost:8000/practice/v1/logout) - ログアウト  
 
-# 目的
+# 概要
 
 ログインしているユーザーには 見え、  
 そうでないユーザーには ログイン ページが出るような  
 ページを作る練習をする  
 
-見えるページは、以下のように 自分のユーザー情報が出るよう、考えている  
+とりあえず、見えるページは、以下のように 自分のユーザー情報を出す  
 
 ```
 Login user.
@@ -18,10 +18,6 @@ Login user.
 * username: Muzudho
 * email: admin@example.com
 ```
-
-# 手段
-
-allauth アプリケーションの機能を使う　　
 
 # はじめに
 
@@ -76,7 +72,7 @@ cd src1
 docker-compose up
 ```
 
-# Step O8o2o0g2o0 画面作成 - login_required.html ファイル
+# Step O8o2o0g2o0 画面作成 - login_required/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -86,8 +82,8 @@ docker-compose up
             └── 📂 practice_v1              # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1              # アプリケーションと同名
-                        └── 📂 o1o0
-👉                          └── 📄 login_required.html
+                        └── 📂 login_required
+👉                          └── 📄 v1o0.html
 ```
 
 ```html
@@ -113,11 +109,11 @@ docker-compose up
             └── 📂 practice_v1              # アプリケーション
                 └── 📂 templates
                     ├── 📂 practice_v1
-                    │   └── 📂 o1o0
-                    │       └── 📄 login_required.html
+                    │   └── 📂 login_required
+👉                  │       └── 📄 v1o0.html
                     └── 📂 views
-                        └── 📂 o1o0
-                            └── 📂 login_required
+                        └── 📂 login_required
+                            └── 📂 v1o0
 👉                              └── 📄 __init__.py
 ```
 
@@ -131,10 +127,10 @@ class LoggingIn():
     """O8o2o0g3o0 ログイン中"""
 
     # * `lp_` - Local path
-    lp_login_required = "practice_v1/o1o0/login_required.html"
+    lp_login_required = "practice_v1/login_required/v1o0.html"
     #                    ------------------------------------
     #                    1
-    # 1. src1/apps1/practice_v1/templates/practice_v1/o1o0/login_required.html を取得
+    # 1. src1/apps1/practice_v1/templates/practice_v1/login_required/v1o0.html を取得
     #                                     ------------------------------------
 
     # 👇 このデコレーターを付けると、ログインしていないなら、 settings.py の LOGIN_URL で指定した URL に飛ばします。
@@ -159,6 +155,7 @@ class LoggingOut():
 
 def loggingIn_render(request, lp_login_required):
     """O8o2o0g3o0 ログイン中 - 描画
+
     Parameters
     ----------
     request : object
@@ -192,11 +189,11 @@ def loggingOut_render(request):
         │   └── 📂 practice_v1              # アプリケーション
         │       └── 📂 templates
         │           ├── 📂 practice_v1
-        │           │   └── 📂 o1o0
-        │           │       └── 📄 login_required.html
+        │           │   └── 📂 login_required
+        │           │       └── 📄 v1o0.html
         │           └── 📂 views
-        │               └── 📂 o1o0
-        │                   └── 📂 login_required
+        │               └── 📂 login_required
+        │                   └── 📂 v1o0
         │                       └── 📄 __init__.py
         └── 📂 project1
 👉          ├── 📄 urls_practice.py          # こちら
@@ -207,10 +204,10 @@ def loggingOut_render(request):
 # ...略...
 
 
-# ログイン必須ページ
-from apps1.practice_v1.views.o1o0.login_required import LoggingIn, LoggingOut
-#          -----------            --------------        ---------------------
-#          11                     12                    2
+# O8o2o0g4o0 ログイン必須ページ
+from apps1.practice_v1.views.login_required.v1o0 import LoggingIn, LoggingOut
+#          -----------                      ----        ---------------------
+#          11                               12          2
 #    -------------------------------------------
 #    10
 # 10, 12. ディレクトリー
