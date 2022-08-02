@@ -292,7 +292,7 @@ favicon.ico を有効にするには HTML で設定する必要があるが、�
                             <h3>終わったレッスン</h3>
                         </v-row>
                         <v-row class="my-2">
-                            <v-btn :href="vu_pathOfPageTheHello">おはようページ</v-btn>
+                            <v-btn :href="vu_pathOfPageTheHello">こんにちわページ</v-btn>
                         </v-row>
                         <v-row class="my-2">
                             <v-btn :href="vu_pathOfPageToBeAdded1">１回追加されたページ</v-btn>

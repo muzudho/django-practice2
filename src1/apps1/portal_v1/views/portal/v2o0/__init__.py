@@ -28,7 +28,7 @@ class Portal():
         # Example
         # -------
         #    path                             label
-        # 0  /practice/v1/page-the-hello      おはようページ
+        # 0  /practice/v1/page-the-hello      こんにちわページ
         # 1  /practice/v1/page-to-be-added-1  １回追加されたページ
         # 2  /practice/v1/page-to-be-added-2  ２回追加されたページ
 

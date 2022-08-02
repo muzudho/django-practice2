@@ -1,6 +1,6 @@
 from django.urls import path
 
-# O3o1o0gA10o0 おはようページ
+# O3o1o0gA10o0 こんにちわページ
 from apps1.practice_v1.views.page_the_hello.v1o0 import PageTheHello
 #          -----------                      ----        ------------
 #          11                               12          2
@@ -103,11 +103,11 @@ from apps1.practice_v1.views.prefecture.v1o0 import PrefectureV
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# 都道府県ビュー
-from apps1.practice_v1.views.o1o0.vuetify import VuetifyV
-#          -----------            -------        --------
-#          11                     12             2
-#    ------------------------------------
+# OA12o1o0g5o0 ビューティファイ練習
+from apps1.practice_v1.views.vuetifies import VuetifyV
+#          -----------       ---------        --------
+#          11                12               2
+#    ---------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -251,7 +251,7 @@ from apps1.tic_tac_toe_v3.views.o4o0.playing import PlayingV as TicTacToeV3g4o0P
 
 urlpatterns = [
 
-    # O3o1o0gA10o0 おはようページ
+    # O3o1o0gA10o0 こんにちわページ
     path('practice/v1/page-the-hello',
          # -------------------------
          # 1
@@ -437,7 +437,7 @@ urlpatterns = [
     # 2. PrefectureV クラスの render_upsert 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_refectures_update' %} のような形でURLを取得するのに使える
 
-    # ビューティファイでハロー
+    # OA12o1o0g5o0 ビューティファイでハロー
     path('practice/v1/vuetify/hello1', VuetifyV.render_hello1,
          # -------------------------   ----------------------
          # 1                           2

@@ -154,7 +154,7 @@ path,label
 /practice/v1/portal,ポータルの練習
 /,ポータル
 /admin,管理画面
-/practice/v1/page-the-hello,おはようページ
+/practice/v1/page-the-hello,こんにちわページ
 /practice/v1/page-to-be-added-1,１回追加されたページ
 /practice/v1/page-to-be-added-2,２回追加されたページ
 ```
@@ -288,7 +288,7 @@ class Portal():
         # Example
         # -------
         #    path                             label
-        # 0  /practice/v1/page-the-hello      おはようページ
+        # 0  /practice/v1/page-the-hello      こんにちわページ
         # 1  /practice/v1/page-to-be-added-1  １回追加されたページ
         # 2  /practice/v1/page-to-be-added-2  ２回追加されたページ
 

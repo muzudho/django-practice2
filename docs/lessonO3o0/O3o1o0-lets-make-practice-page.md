@@ -225,7 +225,7 @@ INSTALLED_APPS = [
         <title>ページ１</title>
     </head>
     <body>
-        おはよう、世界！
+        こんにちわ、世界！
     </body>
 </html>
 ```
@@ -308,7 +308,7 @@ from django.shortcuts import render
 
 
 class PageTheHello():
-    """O3o1o0g9o0 おはようページ"""
+    """O3o1o0g9o0 こんにちわページ"""
 
     @staticmethod
     def render(request):
@@ -360,7 +360,7 @@ class PageTheHello():
 ```py
 from django.urls import path
 
-# O3o1o0gA10o0 おはようページ
+# O3o1o0gA10o0 こんにちわページ
 from apps1.practice_v1.views.page_the_hello.v1o0 import PageTheHello
 #          -----------                      ----        ------------
 #          11                               12          2
@@ -373,7 +373,7 @@ from apps1.practice_v1.views.page_the_hello.v1o0 import PageTheHello
 
 urlpatterns = [
 
-    # O3o1o0gA10o0 おはようページ
+    # O3o1o0gA10o0 こんにちわページ
     path('practice/v1/page-the-hello',
          # -------------------------
          # 1

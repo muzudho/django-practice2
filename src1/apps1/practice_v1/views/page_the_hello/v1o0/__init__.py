@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 
 class PageTheHello():
-    """O3o1o0g9o0 おはようページ"""
+    """O3o1o0g9o0 こんにちわページ"""
 
     @staticmethod
     def render(request):
