@@ -1,10 +1,11 @@
-from django.urls import include, path  # include 追加
+from django.urls import include, path
+#                       --------追加
 from django.views.generic import TemplateView  # 追加
 
-# サインアップ（会員登録）
-from apps1.allauth_customized_v1.views.o1o0.accounts import AccountsV1SignupView
-#          ---------------------            --------        --------------------
-#          11                               12              2
+# O6o1o0gA12o0 サインアップ（会員登録）
+from apps1.allauth_customized_v1.views.accounts.v1o0 import AccountsV1SignupView
+#          ---------------------                ----        --------------------
+#          11                                   12          2
 #    -----------------------------------------------
 #    10
 # 10, 12. ディレクトリー

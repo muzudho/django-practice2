@@ -680,8 +680,8 @@ class DjangoAllauthFormParser {
         │       │   └── 📂 account                   # ディレクトリ構成を allauth アプリケーション に合わせる
         │       │       └── 📄 signup.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 accounts
+        │           └── 📂 accounts
+        │               └── 📂 v1o0
 👉      │                   └── 📄 __init__.py
         ├── 📂 project1
         │   └── 📄 settings.py
@@ -732,8 +732,9 @@ class AccountsV1SignupView(SignupView):
         │       │   └── 📂 account                   # ディレクトリ構成を allauth アプリケーション に合わせる
         │       │       └── 📄 signup.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📄 v_accounts.py
+        │           └── 📂 accounts
+        │               └── 📂 v1o0
+        │                   └── 📄 __init__.py
         ├── 📂 project1
         │   ├── 📄 settings.py
 👉      │   ├── 📄 urls_accounts.py          # 新規作成
@@ -744,13 +745,14 @@ class AccountsV1SignupView(SignupView):
 ```
 
 ```py
-from django.urls import include, path  # include 追加
+from django.urls import include, path
+#                       --------追加
 from django.views.generic import TemplateView  # 追加
 
-# サインアップ（会員登録）
-from apps1.allauth_customized_v1.views.o1o0.accounts import AccountsV1SignupView
-#          ---------------------            --------        --------------------
-#          11                               12              2
+# O6o1o0gA12o0 サインアップ（会員登録）
+from apps1.allauth_customized_v1.views.accounts.v1o0 import AccountsV1SignupView
+#          ---------------------                ----        --------------------
+#          11                                   12          2
 #    -----------------------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -809,8 +811,9 @@ urlpatterns = [
         │       │   └── 📂 account                      # ディレクトリ構成を allauth アプリケーション に合わせる
         │       │       └── 📄 signup.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📄 v_accounts.py
+        │           └── 📂 accounts
+        │               └── 📂 v1o0
+        │                   └── 📄 __init__.py
         ├── 📂 project1
         │   ├── 📄 settings.py
 ❌      │   ├── 📄 urls_accounts.py          # これではない
@@ -874,8 +877,9 @@ urlpatterns = [
         │       │   └── 📂 account
         │       │       └── 📄 signup.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📄 v_accounts.py
+        │           └── 📂 accounts
+        │               └── 📂 v1o0
+        │                   └── 📄 __init__.py
         ├── 📂 project1
         │   ├── 📄 settings.py
         │   ├── 📄 urls_accounts.py
