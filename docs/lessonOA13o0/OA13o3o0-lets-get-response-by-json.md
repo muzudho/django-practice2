@@ -171,7 +171,7 @@ class VuetifyV(object):
     from .v_desserts1_as_json import render_desserts1_as_json
 ```
 
-# Step OA13o3o0g5o0 ルート編集 - urls.py ファイル
+# Step OA13o3o0g5o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 

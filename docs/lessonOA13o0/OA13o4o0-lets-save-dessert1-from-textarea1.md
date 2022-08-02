@@ -489,7 +489,7 @@ class VuetifyV(object):
     from .v_textarea1_to_model import render_textarea1_to_model, render_save_result_of_desserts1_from_textarea1
 ```
 
-# Step OA13o4o0gA13o0 ルート編集 - urls.py ファイル
+# Step OA13o4o0gA13o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 

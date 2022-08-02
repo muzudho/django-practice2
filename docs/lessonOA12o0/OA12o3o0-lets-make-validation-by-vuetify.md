@@ -241,7 +241,7 @@ class VuetifyV(object):
     from .v_validation1 import render_validation1
 ```
 
-# Step OA12o3o0g5o0 ルート編集 - urls.py ファイル
+# Step OA12o3o0g5o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 

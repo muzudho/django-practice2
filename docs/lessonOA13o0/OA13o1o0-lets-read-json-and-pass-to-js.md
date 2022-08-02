@@ -353,7 +353,7 @@ class VuetifyV(object):
     from .v_desserts1 import render_desserts1
 ```
 
-# Step OA13o1o0g6o0 ルート編集 - urls.py ファイル
+# Step OA13o1o0g6o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 

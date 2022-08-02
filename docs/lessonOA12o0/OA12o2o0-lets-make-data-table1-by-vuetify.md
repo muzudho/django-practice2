@@ -306,7 +306,7 @@ class VuetifyV(object):
     from .v_data_table1 import render_data_table1
 ```
 
-# Step OA12o2o0g5o0 ルート編集 - urls.py ファイル
+# Step OA12o2o0g5o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 

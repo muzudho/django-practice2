@@ -211,7 +211,7 @@ class VuetifyV(object):
     from .v_hello1 import render_hello1
 ```
 
-# Step OA12o1o0g5o0 ルート編集 - urls.py ファイル
+# Step OA12o1o0g5o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 

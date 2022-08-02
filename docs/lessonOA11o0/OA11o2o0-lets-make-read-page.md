@@ -252,7 +252,7 @@ class PrefectureV(object):
     from .v_read import render_read
 ```
 
-# Step OA11o2o0g5o0 ルート編集 - urls.py ファイル
+# Step OA11o2o0g5o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 

@@ -242,7 +242,7 @@ class PrefectureV(object):
     from .v_delete import render_delete
 ```
 
-# Step OA11o3o0g5o0 ルート編集 - urls.py ファイル
+# Step OA11o3o0g5o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 

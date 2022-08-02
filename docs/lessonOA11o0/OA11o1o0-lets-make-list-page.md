@@ -232,7 +232,7 @@ class PrefectureV(object):
     from .v_list import render_list
 ```
 
-# Step OA11o1o0g5o0 ルート編集 - urls.py ファイル
+# Step OA11o1o0g5o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 

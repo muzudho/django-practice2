@@ -318,7 +318,7 @@ class VuetifyV(object):
     from .v_textarea1 import render_textarea1, render_desserts1_from_textarea1
 ```
 
-# Step OA13o2o0g7o0 ルート編集 - urls.py ファイル
+# Step OA13o2o0g7o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
