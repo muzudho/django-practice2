@@ -261,8 +261,8 @@ class PrefectureV(object):
 
 # OA11o1o0g5o0 都道府県
 from apps1.practice_v1.views.prefecture.v1o0 import PrefectureV
-#          -----------            ----------        -----------
-#          11                     12                2
+#          -----------                  ----        -----------
+#          11                           12          2
 #    ---------------------------------------
 #    10
 # 10, 12. ディレクトリー

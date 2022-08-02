@@ -52,12 +52,12 @@ pk が 1 の都道府県を表示したい
     │   │       ├── 📂 static
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_v1          # アプリケーションと同名
-    │   │       │       └── 📂 o1o0
-    │   │       │           └── 📂 prefecture
+    │   │       │       └── 📂 prefecture
+    │   │       │           └── 📂 v1o0
     │   │       │               └── 📄 list.html
     │   │       ├── 📂 views
-    │   │       │   └── 📂 o1o0
-    │   │       │       └── 📂 prefecture
+    │   │       │   └── 📂 prefecture
+    │   │       │       └── 📂 v1o0
     │   │       │           ├── 📄 __init__.py
     │   │       │           └── 📄 v_list.py
     │   │       ├── 📄 __init__.py
@@ -105,12 +105,14 @@ docker-compose up
             └── 📂 practice_v1                      # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1              # アプリケーションと同名
-                        └── 📂 o1o0                # ただのフォルダー
-                            └── 📂 prefecture            # ただのフォルダー
+                        └── 📂 prefecture           # ただのフォルダー
+                            └── 📂 v1o0             # ただのフォルダー
 👉                              └── 📄 read.html
 ```
 
 ```html
+{# OA11o2o0g2o0 #}
+<!-- -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <!-- See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92 -->
@@ -165,17 +167,17 @@ docker-compose up
             └── 📂 practice_v1                      # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1              # アプリケーションと同名
-                │       └── 📂 o1o0                 # ただのフォルダー
-                │           └── 📂 prefecture       # ただのフォルダー
+                │       └── 📂 prefecture
+                │           └── 📂 v1o0
                 │               └── 📄 read.html
                 └── 📂 views
-                    └── 📂 o1o0                     # ただのフォルダー
-                        └── 📂 prefecture           # ただのフォルダー
+                    └── 📂 prefecture               # ただのフォルダー
+                        └── 📂 v1o0                 # ただのフォルダー
 👉                          └── 📄 v_read.py
 ```
 
 ```py
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # 都道府県モデル
 from apps1.practice_v1.models.prefecture.v1o0 import Prefecture
@@ -200,15 +202,17 @@ def render_read(request, id=id):
     """
 
     # * `lp_` - Local path
-    lp_prefecture_read = 'practice_v1/o1o0/prefecture/read.html'
+    lp_prefecture_read = 'practice_v1/prefecture/v1o0/read.html'
     #                     -------------------------------------
     #                     1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/prefecture/read.html` を取得
+    # 1. `src1/apps1/practice_v1/templates/practice_v1/prefecture/v1o0/read.html` を取得
     #                                      -------------------------------------
 
+    # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得。無ければ 404エラー
+    prefecture = get_object_or_404(Prefecture, pk=id)
+
     context = {
-        # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得
-        'prefecture': Prefecture.objects.get(pk=id),
+        'prefecture': prefecture,
     }
     return render(request, lp_prefecture_read, context)
 ```
@@ -227,21 +231,22 @@ def render_read(request, id=id):
                 │           └── 📂 prefecture
                 │               └── 📄 read.html
                 └── 📂 views
-                    └── 📂 o1o0
-                        └── 📂 prefecture
+                    └── 📂 prefecture
+                        └── 📂 v1o0
 👉                          ├── 📄 __init__.py
                             └── 📄 v_read.py
 ```
 
 ```py
 class PrefectureV(object):
-    """都道府県のビュー"""
+    """OA11o1o0g4o0 都道府県のビュー"""
 
 
-    # ..略..
+    # ...略...
 
 
-    # 以下を追加
+    # * 以下を追加
+    # OA11o2o0g4o0 詳細
     from .v_read import render_read
 ```
 
@@ -255,12 +260,12 @@ class PrefectureV(object):
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 prefecture
+        │       │       └── 📂 prefecture
+        │       │           └── 📂 v1o0
         │       │               └── 📄 read.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 prefecture
+        │           └── 📂 prefecture
+        │               └── 📂 v1o0
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_read.py
         └── 📂 project1                          # プロジェクト
@@ -269,21 +274,7 @@ class PrefectureV(object):
 ```
 
 ```py
-from django.urls import path
-
-
 # ...略...
-
-
-# 都道府県
-from apps1.practice_v1.views.o1o0.prefecture import PrefectureV
-#          -----------            ----------        -----------
-#          11                     12                2
-#    ---------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 urlpatterns = [
@@ -292,7 +283,7 @@ urlpatterns = [
     # ...略...
 
 
-    # 都道府県の詳細
+    # OA11o2o0g5o0 都道府県の詳細
     path('practice/v1/prefectures/read/<int:id>/',
          # -------------------------------------
          # 1

@@ -95,8 +95,8 @@ from apps1.practice_v1.views.debug.v1o0 import DebugV
 
 # OA11o1o0g5o0 都道府県
 from apps1.practice_v1.views.prefecture.v1o0 import PrefectureV
-#          -----------            ----------        -----------
-#          11                     12                2
+#          -----------                  ----        -----------
+#          11                           12          2
 #    ---------------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -384,7 +384,7 @@ urlpatterns = [
     # 2. PrefectureV クラスの render_list 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_prefectures' %} のような形でURLを取得するのに使える
 
-    # 都道府県の詳細
+    # OA11o2o0g5o0 都道府県の詳細
     path('practice/v1/prefectures/read/<int:id>/',
          # -------------------------------------
          # 1
