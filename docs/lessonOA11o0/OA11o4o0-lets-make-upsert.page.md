@@ -198,10 +198,10 @@ docker-compose up
 from django.forms import ModelForm
 
 # 都道府県モデル
-from apps1.practice_v1.models.o1o0.m_prefecture import Prefecture
-#          -----------             ------------        ----------
-#          1.1                     2                   3
-#    ------------------------------------------
+from apps1.practice_v1.models.prefecture.v1o0 import Prefecture
+#          -----------                   ----        ----------
+#          1.1                           2           3
+#    ----------------------------------------
 #    1
 # 1. ディレクトリー
 # 1.1 アプリケーション
@@ -242,10 +242,10 @@ class PrefectureForm(ModelForm):
 from django.shortcuts import render, get_object_or_404, redirect
 
 # 都道府県モデル
-from apps1.practice_v1.models.o1o0.m_prefecture import Prefecture
-#          -----------             ------------        ----------
-#          11                      12                  2
-#    ------------------------------------------
+from apps1.practice_v1.models.prefecture.v1o0 import Prefecture
+#          -----------                   ----        ----------
+#          11                            12          2
+#    ----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション

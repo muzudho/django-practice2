@@ -165,10 +165,10 @@ docker-compose up
 from django.shortcuts import render
 
 # 都道府県モデル
-from apps1.practice_v1.models.o1o0.m_prefecture import Prefecture
-#          -----------             ------------        ----------
-#          11                      12                  2
-#    ------------------------------------------
+from apps1.practice_v1.models.prefecture.v1o0 import Prefecture
+#          -----------                   ----        ----------
+#          11                            12          2
+#    ----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション

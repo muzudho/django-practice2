@@ -3,7 +3,7 @@ from django.db import models
 
 
 class Prefecture(models.Model):
-    """都道府県"""
+    """OA10o1o0g2o0 都道府県"""
 
     # プロパティの仕様を決める感じで
     seq = models.AutoField('連番', primary_key=True)

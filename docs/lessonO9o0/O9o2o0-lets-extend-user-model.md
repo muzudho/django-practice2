@@ -615,13 +615,10 @@ from .models.user_profile.v1o0 import Profile
 
 
 # Register your models here.
-
-
-# ...略...
-
-
 #   └── * 管理画面にモデルが表示されるようになる
 #       └── * `manage.py makemigrations` コマンドの実行対象になる
+
+# O9o2o0gA13o0 Userの拡張
 admin.site.register(Profile)
 ```
 
