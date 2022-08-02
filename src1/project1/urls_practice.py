@@ -412,7 +412,7 @@ urlpatterns = [
     # 2. PrefectureV クラスの render_delete メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_prefectures_delete' %} のような形でURLを取得するのに使える
 
-    # 都道府県の新規作成
+    # OA11o4o0g6o0 都道府県の新規作成
     path('practice/v1/prefectures/create/',
          # ------------------------------
          # 1
@@ -424,7 +424,7 @@ urlpatterns = [
     # 2. PrefectureV クラスの render_upsert 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_prefectures_create' %} のような形でURLを取得するのに使える
 
-    # 都道府県の更新
+    # OA11o4o0g6o0 都道府県の更新
     path('practice/v1/prefectures/update/<int:id>/',
          # ---------------------------------------
          # 1
