@@ -68,7 +68,7 @@ docker-compose up
 
 管理画面から、都道府県モデルのデータを追加しておいてください  
 
-# Step OA10o2o0g3o0 モデルヘルパー モジュール作成 - mh_json フォルダー
+# Step OA10o2o0g3o0 モデルヘルパー作成 - json/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -77,24 +77,22 @@ docker-compose up
         └── 📂 apps1
             └── 📂 practice_v1                 # アプリケーション
                 └── 📂 models_helper
-                    └── 📂 o1o0
-                        └── 📂 mh_json
+                    └── 📂 json
+                        └── 📂 v1o0
 👉                          └── 📄 __init__.py
 ```
 
 ```py
 class MhJson():
-    """JSONモデルヘルパー"""
+    """OA10o2o0g3o0 JSONモデルヘルパー"""
 
-    # 以下のファイルはあとで作ります
-    from .m_from_model_to_json_str import from_model_to_json_str
+    # OA10o2o0g3o0 以下のファイルはあとで作ります
+    from .m_from_model_to_json_str import from_model_to_json_str, from_model_to_json_str_with_indent
     #    -------------------------        ----------------------
     #    1                                2
-    # 1. `src1/apps1/practice_v1/model_helper/o1o0/mh_json/m_from_model_to_json_str.py`
-    #                                                      ------------------------
+    # 1. `src1/apps1/practice_v1/model_helper/json/v1o0/m_from_model_to_json_str.py`
+    #                                                   ------------------------
     # 2. `1.` に含まれる関数
-
-    from .m_from_model_to_json_str import from_model_to_json_str_with_indent
 ```
 
 # Step OA10o2o0g4o0 モデルヘルパー モジュール作成 - m_from_model_to_json_str フォルダー
@@ -106,8 +104,8 @@ class MhJson():
         └── 📂 apps1
             └── 📂 practice_v1                 # アプリケーション
                 └── 📂 models_helper
-                    └── 📂 o1o0
-                        └── 📂 mh_json
+                    └── 📂 json
+                        └── 📂 v1o0
                             ├── 📄 __init__.py
 👉                          └── 📄 m_from_model_to_json_str.py
 ```
@@ -118,12 +116,12 @@ from django.core import serializers
 
 
 def from_model_to_json_str(any_object):
-    """モデルをJSON文字列に変換する"""
+    """OA10o2o0g4o0 モデルをJSON文字列に変換する"""
     return serializers.serialize('json', any_object)
 
 
 def from_model_to_json_str_with_indent(any_object):
-    """モデルをインデント付きでJSON文字列に変換する"""
+    """OA10o2o0g4o0 モデルをインデント付きでJSON文字列に変換する"""
     json_str = from_model_to_json_str(any_object)
     doc = json.loads(json_str)
     return json.dumps(doc, indent=4)
@@ -138,30 +136,30 @@ def from_model_to_json_str_with_indent(any_object):
         └── 📂 apps1
             └── 📂 practice_v1                 # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o1o0
-                │       └── 📂 mh_json
+                │   └── 📂 json
+                │       └── 📂 v1o0
                 │           ├── 📄 __init__.py
                 │           └── 📄 m_from_model_to_doc.py
                 └── 📂 views
-                    └── 📂 o1o0
-                        └── 📂 debug
+                    └── 📂 debug
+                        └── 📂 v1o0
 👉                          └── 📄 __init__.py
 ```
 
 ```py
 from django.http import HttpResponse
 
-# JSONモデルヘルパー
-from apps1.practice_v1.models_helper.o1o0.mh_json import MhJson
-#          -----------                    -------        ------
-#          11                             12             2
-#    --------------------------------------------
+# OA10o2o0g5o0 JSONモデルヘルパー
+from apps1.practice_v1.models_helper.json.v1o0 import MhJson
+#          -----------                    ----        ------
+#          11                             12          2
+#    -----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# 都道府県モデル
+# OA10o2o0g5o0 都道府県モデル
 from apps1.practice_v1.models.prefecture.v1o0 import Prefecture
 #          -----------                   ----        ----------
 #          11                            12          2
@@ -173,11 +171,11 @@ from apps1.practice_v1.models.prefecture.v1o0 import Prefecture
 
 
 class DebugV():
-    """デバッグ ビュー"""
+    """OA10o2o0g5o0 デバッグ ビュー"""
 
     @staticmethod
     def render_model_as_json(request):
-        """描画 - モデルをダンプ出力する"""
+        """OA10o2o0g5o0 描画 - モデルをダンプ出力する"""
 
         prefecture_resultset = Prefecture.objects.all()
 
@@ -201,15 +199,15 @@ class DebugV():
         ├── 📂 apps1
         │   └── 📂 practice_v1                 # アプリケーション
         │       ├── 📂 models_helper
-        │       │   └── 📂 o1o0
-        │       │       └── 📂 mh_json
+        │       │   └── 📂 json
+        │       │       └── 📂 v1o0
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 m_from_model_to_doc.py
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 debug
+        │           └── 📂 debug
+        │               └── 📂 v1o0
         │                   └── 📄 __init__.py
-        └── 📂 project1                      # プロジェクト
+        └── 📂 project1                         # プロジェクト
 👉          └── 📄 urls_practice.py
 ```
 
@@ -217,10 +215,10 @@ class DebugV():
 # ...略...
 
 
-# デバッグ用。モデルをダンプ出力
-from apps1.practice_v1.views.o1o0.debug import DebugV
-#          -----------            -----        ------
-#          11                     12           2
+# OA10o2o0g6o0 デバッグ用。モデルをダンプ出力
+from apps1.practice_v1.views.debug.v1o0 import DebugV
+#          -----------             ----        ------
+#          11                      12          2
 #    ----------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -232,7 +230,7 @@ urlpatterns = [
     # ...略...
 
 
-    # デバッグ用。モデルをダンプ出力
+    # OA10o2o0g6o0 デバッグ用。モデルをダンプ出力
     path('practice/v1/from-object-to-json-str/',
          # -----------------------------------
          # 1
@@ -262,15 +260,15 @@ urlpatterns = [
 👉      │   │       └── 📄 finished-lessons.csv
         │   └── 📂 practice_v1
         │       ├── 📂 models_helper
-        │       │   └── 📂 o1o0
-        │       │       └── 📂 mh_json
+        │       │   └── 📂 json
+        │       │       └── 📂 v1o0
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 m_from_model_to_doc.py
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 debug
+        │           └── 📂 debug
+        │               └── 📂 v1o0
         │                   └── 📄 __init__.py
-        └── 📂 project1                      # プロジェクト
+        └── 📂 project1                         # プロジェクト
             └── 📄 urls_practice.py
 ```
 

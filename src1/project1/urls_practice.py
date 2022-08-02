@@ -83,21 +83,21 @@ from apps1.practice_v1.views.session.v1o0 import SessionV
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# 都道府県
-from apps1.practice_v1.views.o1o0.prefecture import PrefectureV
-#          -----------            ----------        -----------
-#          11                     12                2
-#    ---------------------------------------
+# OA10o2o0g6o0 デバッグ用。モデルをダンプ出力
+from apps1.practice_v1.views.debug.v1o0 import DebugV
+#          -----------             ----        ------
+#          11                      12          2
+#    ----------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# デバッグ用。モデルをダンプ出力
-from apps1.practice_v1.views.o1o0.debug import DebugV
-#          -----------            -----        ------
-#          11                     12           2
-#    ----------------------------------
+# 都道府県
+from apps1.practice_v1.views.o1o0.prefecture import PrefectureV
+#          -----------            ----------        -----------
+#          11                     12                2
+#    ---------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -360,7 +360,7 @@ urlpatterns = [
     # 2. UserListV クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_active_user_list' %} のような形でURLを取得するのに使える
 
-    # デバッグ用。モデルをダンプ出力
+    # OA10o2o0g6o0 デバッグ用。モデルをダンプ出力
     path('practice/v1/from-object-to-json-str/',
          # -----------------------------------
          # 1

@@ -1,16 +1,16 @@
 from django.http import HttpResponse
 
-# JSONモデルヘルパー
-from apps1.practice_v1.models_helper.o1o0.mh_json import MhJson
-#          -----------                    -------        ------
-#          11                             12             2
-#    --------------------------------------------
+# OA10o2o0g5o0 JSONモデルヘルパー
+from apps1.practice_v1.models_helper.json.v1o0 import MhJson
+#          -----------                    ----        ------
+#          11                             12          2
+#    -----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# 都道府県モデル
+# OA10o2o0g5o0 都道府県モデル
 from apps1.practice_v1.models.prefecture.v1o0 import Prefecture
 #          -----------                   ----        ----------
 #          11                            12          2
@@ -22,11 +22,11 @@ from apps1.practice_v1.models.prefecture.v1o0 import Prefecture
 
 
 class DebugV():
-    """デバッグ ビュー"""
+    """OA10o2o0g5o0 デバッグ ビュー"""
 
     @staticmethod
     def render_model_as_json(request):
-        """描画 - モデルをダンプ出力する"""
+        """OA10o2o0g5o0 描画 - モデルをダンプ出力する"""
 
         prefecture_resultset = Prefecture.objects.all()
 
