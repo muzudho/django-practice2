@@ -12,8 +12,8 @@ from apps1.allauth_customized_v1.views.accounts.v1o0 import AccountsV1SignupView
 # 11. アプリケーション
 # 2. クラス
 
-# ログイン（入場）
-from apps1.allauth_customized_v1.views.o1o0.login import AccountsV1LoginView
+# O8o1o0g4o0 ログイン（ユーザー認証）
+from apps1.allauth_customized_v1.views.login.v1o0 import AccountsV1LoginView
 #          ---------------------            -----        -------------------
 #          11                               12           2
 #    --------------------------------------------

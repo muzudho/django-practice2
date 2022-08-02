@@ -262,8 +262,8 @@ docker-compose up
                 │   └── 📂 account
                 │       └── 📄 login.html
                 └── 📂 views
-                    └── 📂 o1o0
-                        └── 📂 login
+                    └── 📂 login
+                        └── 📂 v1o0
 👉                          └── 📄 __init__.py
 ```
 
@@ -295,8 +295,8 @@ class AccountsV1LoginView(LoginView):
         │       │   └── 📂 account
         │       │       └── 📄 login.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 login
+        │           └── 📂 login
+        │               └── 📂 v1o0
         │                   └── 📄 __init__.py
         └── 📂 project1
 👉          ├── 📄 urls_accounts.py          # こちら
@@ -307,8 +307,8 @@ class AccountsV1LoginView(LoginView):
 # ...略...
 
 
-# ログイン（入場）
-from apps1.allauth_customized_v1.views.o1o0.login import AccountsV1LoginView
+# O8o1o0g4o0 ログイン（ユーザー認証）
+from apps1.allauth_customized_v1.views.login.v1o0 import AccountsV1LoginView
 #          ---------------------            -----        -------------------
 #          11                               12           2
 #    --------------------------------------------
@@ -363,8 +363,9 @@ urlpatterns = [
         │       │   └── 📂 account
         │       │       └── 📄 login.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📄 v_login.py
+        │           └── 📂 login
+        │               └── 📂 v1o0
+        │                   └── 📄 __init__.py
         └── 📂 project1
             ├── 📄 urls_accounts.py
             └── 📄 urls.py
