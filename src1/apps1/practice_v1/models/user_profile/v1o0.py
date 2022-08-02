@@ -5,6 +5,7 @@ from django.dispatch import receiver
 
 
 class Profile(models.Model):
+    """O9o2o0g2o0 Userモデル拡張"""
 
     # この User オブジェクトの下に Profile オブジェクトをぶら下げると思ってください
     #
@@ -36,14 +37,14 @@ class Profile(models.Model):
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
-    """新規作成"""
+    """O9o2o0g2o0 新規作成"""
     if created:
         Profile.objects.create(user=instance)
 
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
-    """保存"""
+    """O9o2o0g2o0 保存"""
 
     if hasattr(instance, 'profile'):
         # * ここを通らないといけない

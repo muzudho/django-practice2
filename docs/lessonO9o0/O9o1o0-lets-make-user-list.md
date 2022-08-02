@@ -152,7 +152,7 @@ docker-compose up
 </html>
 ```
 
-# Step O9o1o0g3o0 モデルヘルパー モジュール作成 - mh_user フォルダー
+# Step O9o1o0g3o0 モデルヘルパー モジュール作成 - user/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -161,7 +161,7 @@ docker-compose up
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 mh_user              # 頭の `mh_` は models helper の頭文字を目印にしたもの。無くてもいい
+                │   └── 📂 user
                 │       └── 📂 v1o0
 👉              │           └── 📄 __init__.py
                 └── 📂 templates
@@ -178,8 +178,8 @@ class MhUser():
     from .mh_get_user_dic import get_user_dic
     #    ----------------        ------------
     #    1                       2
-    # 1. `src1/apps1/practice_v1/model_helper/mh_user/v1o0/mh_get_user_dic.py`
-    #                                                      ---------------
+    # 1. `src1/apps1/practice_v1/model_helper/user/v1o0/mh_get_user_dic.py`
+    #                                                   ---------------
     # 2. `1.` に含まれる関数
 ```
 
@@ -192,7 +192,7 @@ class MhUser():
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 mh_user
+                │   └── 📂 user
                 │       └── 📂 v1o0
                 │           ├── 📄 __init__.py
 👉              │           └── 📄 mh_get_user_dic.py
@@ -238,7 +238,7 @@ def get_user_dic():
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 mh_user
+                │   └── 📂 user
                 │       └── 📂 v1o0
                 │           ├── 📄 __init__.py
                 │           └── 📄 mh_get_user_dic.py
@@ -287,7 +287,7 @@ class UserListV():
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 mh_user
+                │   └── 📂 user
                 │       └── 📂 v1o0
                 │           ├── 📄 __init__.py
                 │           └── 📄 mh_get_user_dic.py
@@ -307,10 +307,10 @@ import json
 from django.shortcuts import render
 
 # ユーザー モデルヘルパー
-from apps1.practice_v1.models_helper.mh_user.v1o0 import MhUser
-#          -----------                       ----        ------
-#          11                                12          2
-#    --------------------------------------------
+from apps1.practice_v1.models_helper.user.v1o0 import MhUser
+#          -----------                    ----        ------
+#          11                             12          2
+#    -----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -344,7 +344,7 @@ def render_user_list(request, lp_user_list):
         ├── 📂 apps1
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 models_helper
-        │       │   └── 📂 mh_user
+        │       │   └── 📂 user
         │       │       └── 📂 v1o0
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 mh_get_user_dic.py

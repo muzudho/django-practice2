@@ -63,10 +63,10 @@ from apps1.practice_v1.views.user_list.v1o0 import UserListV
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# （拡張済）会員一覧
-from apps1.practice_v1.views.o1o0.extends_user_list import ExtendsUserListV
-#          -----------            -----------------        ----------------
-#          11                     12                       2
+# O9o2o0gA12o0 （拡張済）会員一覧
+from apps1.practice_v1.views.extends_user_list.v1o0 import ExtendsUserListV
+#          -----------                         ----        ----------------
+#          11                                  12          2
 #    ----------------------------------------------
 #    10
 # 10, 12. ディレクトリー

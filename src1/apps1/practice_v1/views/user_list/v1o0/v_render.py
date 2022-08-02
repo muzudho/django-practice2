@@ -2,10 +2,10 @@ import json
 from django.shortcuts import render
 
 # ユーザー モデルヘルパー
-from apps1.practice_v1.models_helper.mh_user.v1o0 import MhUser
-#          -----------                       ----        ------
-#          11                                12          2
-#    --------------------------------------------
+from apps1.practice_v1.models_helper.user.v1o0 import MhUser
+#          -----------                    ----        ------
+#          11                             12          2
+#    -----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
