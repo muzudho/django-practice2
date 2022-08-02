@@ -11,9 +11,9 @@ from apps1.portal_v1.views.portal.v1o0 import Portal as PortalO1o0
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 # 3. `2.` の別名
 
-# ポータル
-from apps1.portal_v1.views.o2o0.portal import Portal as PortalO2o0
-#                           ^two
+# O5o2o0g8o0 ポータル
+from apps1.portal_v1.views.portal.v2o0 import Portal as PortalO2o0
+#                                  ^two
 #          ---------            ------        ------    ----------
 #          11                   12            2         3
 #    ---------------------------------

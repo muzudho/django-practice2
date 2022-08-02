@@ -10,12 +10,12 @@ class Portal():
         """描画"""
 
         # * `lp_` - Local path
-        lp_this_page = 'portal_v1/o2o0/portal_base.html'
+        lp_this_page = 'portal_v1/v2o0.html'
         #                          ^two
-        #               -------------------------------
+        #               -------------------
         #               1
-        # 1. src1/apps1/portal_v1/templates/portal_v1/o2o0/portal_base.html を取得
-        #                                   -------------------------------
+        # 1. src1/apps1/portal_v1/templates/portal_v1/v2o0.html を取得
+        #                                   -------------------
 
         df = pd.read_csv('apps1/portal_v1/data/finished-lessons.csv')
         #                 -----------------------------------------
