@@ -4,10 +4,11 @@ from django.contrib.sessions.models import Session
 from django.utils import timezone
 
 
-@staticmethod
 def get_all_logged_in_users():
-    # 接続が切れていないセッションを絞りこみます。
-    # ログアウトせず２週間放置しているセッションが含まれる場合があります
+    """O9o3o0g4o0 接続が切れていないセッションを絞りこみます。
+    ログアウトせず２週間放置しているセッションが含まれる場合があります
+    """
+
     sessions = Session.objects.filter(expire_date__gte=timezone.now())
     uid_list = []
 

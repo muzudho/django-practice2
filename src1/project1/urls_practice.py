@@ -73,10 +73,10 @@ from apps1.practice_v1.views.extends_user_list.v1o0 import ExtendsUserListV
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# アクティブユーザー一覧
-from apps1.practice_v1.views.o1o0.session import SessionV
-#          -----------            -------        --------
-#          11                     12             2
+# O9o3o0g7o0 アクティブユーザー一覧
+from apps1.practice_v1.views.session.v1o0 import SessionV
+#          -----------               ----        --------
+#          11                        12          2
 #    ------------------------------------
 #    10
 # 10, 12. ディレクトリー
