@@ -53,8 +53,8 @@ from apps1.practice_v1.views.button_for_member.v1o0 import ButtonForMember
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# 会員一覧
-from apps1.practice_v1.views.o1o0.user_list import UserListV
+# O9o1o0g7o0 会員一覧
+from apps1.practice_v1.views.user_list.v1o0 import UserListV
 #          -----------            ---------        ---------
 #          11                     12               2
 #    --------------------------------------

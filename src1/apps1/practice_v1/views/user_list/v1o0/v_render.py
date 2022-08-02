@@ -2,9 +2,9 @@ import json
 from django.shortcuts import render
 
 # ユーザー モデルヘルパー
-from apps1.practice_v1.models_helper.o1o0.mh_user import MhUser
-#          -----------                    -------        ------
-#          11                             12             2
+from apps1.practice_v1.models_helper.mh_user.v1o0 import MhUser
+#          -----------                       ----        ------
+#          11                                12          2
 #    --------------------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -14,6 +14,9 @@ from apps1.practice_v1.models_helper.o1o0.mh_user import MhUser
 
 def render_user_list(request, lp_user_list):
     """O9o1o0g6o0 描画 - 会員一覧
+
+    Parameters
+    ----------
     lp_user_list : str
         ローカルパス
     """

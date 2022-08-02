@@ -1,11 +1,11 @@
 class UserListV():
-    """会員一覧ビュー"""
+    """O9o1o0g5o0 会員一覧ビュー"""
 
     # そのページ
-    _path_of_this_page = "practice_v1/o1o0/user_list.html"
+    _path_of_this_page = "practice_v1/user_list/v1o0.html"
     #                     -------------------------------
     #                     1
-    # 1. src1/apps1/practice_v1/templates/practice_v1/o1o0/user_list.html を取得
+    # 1. src1/apps1/practice_v1/templates/practice_v1/user_list/v1o0.html を取得
     #                                     -------------------------------
 
     @staticmethod
@@ -16,7 +16,7 @@ class UserListV():
         from .v_render import render_user_list
         #    ---------        ----------------
         #    1                2
-        # 1. `src1/apps1/practice_v1/views/o1o0/user_list/v_render.py`
+        # 1. `src1/apps1/practice_v1/views/user_list/v1o0/v_render.py`
         #                                                 --------
         # 2. `1.` に含まれる関数
 

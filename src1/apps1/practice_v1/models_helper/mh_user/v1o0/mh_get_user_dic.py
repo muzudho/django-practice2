@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model  # カスタムした User
 
 @staticmethod
 def get_user_dic():
-    """会員登録ユーザー一覧"""
+    """O9o1o0g4o0 会員登録ユーザー一覧"""
     User = get_user_model()
 
     # 会員登録ユーザー一覧
