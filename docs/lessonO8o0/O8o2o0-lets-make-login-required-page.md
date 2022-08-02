@@ -222,7 +222,7 @@ urlpatterns = [
     # ...略...
 
 
-    # ログイン中
+    # O8o2o0g4o0 ログイン中
     path('practice/v1/login-required', LoggingIn.render,
          # -------------------------   ----------------
          # 1                           2
@@ -234,7 +234,7 @@ urlpatterns = [
     # 2. LoggingIn クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_login_required' %} のような形でURLを取得するのに使える
 
-    # ログアウト中
+    # O8o2o0g4o0 ログアウト中
     path('practice/v1/logout', LoggingOut.render,
          # -----------------   -----------------
          # 1                   2

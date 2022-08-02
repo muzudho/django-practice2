@@ -554,7 +554,7 @@ urlpatterns = [
     # ...略...
 
 
-    # （拡張済）会員一覧
+    # O9o2o0gA12o0 （拡張済）会員一覧
     path('practice/v1/extends-user-list/',
          # -----------------------------
          # 1

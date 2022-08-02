@@ -401,7 +401,7 @@ urlpatterns = [
     # ...略...
 
 
-    # アクティブユーザー一覧
+    # O9o3o0g7o0 アクティブユーザー一覧
     path('practice/v1/active-user-list/',
          # ----------------------------
          # 1

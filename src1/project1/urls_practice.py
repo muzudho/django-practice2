@@ -251,7 +251,7 @@ from apps1.tic_tac_toe_v3.views.o4o0.playing import PlayingV as TicTacToeV3g4o0P
 
 urlpatterns = [
 
-    # おはようページ
+    # O3o1o0gA10o0 おはようページ
     path('practice/v1/page-the-hello',
          # -------------------------
          # 1
@@ -263,7 +263,7 @@ urlpatterns = [
     # 2. PageTheHello クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'page_the_hello' %} のような形でURLを取得するのに使える
 
-    # 練習ページ２ １回追加されたページ
+    # O3o2o0g5o0 練習ページ２ １回追加されたページ
     path('practice/v1/page-to-be-added-1',
          # -----------------------------
          # 1
@@ -276,7 +276,7 @@ urlpatterns = [
     # 2. PageToBeAdded1 (別名)クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'page_to_be_added_1' %} のような形でURLを取得するのに使える
 
-    # 練習ページ２ ２回追加されたページ
+    # O3o3o0g4o0 練習ページ２ ２回追加されたページ
     path('practice/v1/page-to-be-added-2',
          # -----------------------------
          # 1
@@ -289,7 +289,7 @@ urlpatterns = [
     # 2. PageToBeAdded2 (別名)クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'page_to_be_added_2' %} のような形でURLを取得するのに使える
 
-    # ログイン中
+    # O8o2o0g4o0 ログイン中
     path('practice/v1/login-required', LoggingIn.render,
          # -------------------------   ----------------
          # 1                           2
@@ -301,7 +301,7 @@ urlpatterns = [
     # 2. LoggingIn クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_login_required' %} のような形でURLを取得するのに使える
 
-    # ログアウト中
+    # O8o2o0g4o0 ログアウト中
     path('practice/v1/logout', LoggingOut.render,
          # -----------------   -----------------
          # 1                   2
@@ -313,7 +313,7 @@ urlpatterns = [
     # 2. LoggingOut クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_logout' %} のような形でURLを取得するのに使える
 
-    # 会員にだけ見えるボタンを説明するページ
+    # O8o3o0g5o0 会員にだけ見えるボタンを説明するページ
     path('practice/v1/buttom_for_member/',
          # -----------------------------
          # 1
@@ -324,7 +324,7 @@ urlpatterns = [
     #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
 
-    # 会員一覧
+    # O9o1o0g7o0 会員一覧
     path('practice/v1/user-list/',
          # ---------------------
          # 1
@@ -336,7 +336,7 @@ urlpatterns = [
     # 2. UserListV クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_user_list' %} のような形でURLを取得するのに使える
 
-    # （拡張済）会員一覧
+    # O9o2o0gA12o0 （拡張済）会員一覧
     path('practice/v1/extends-user-list/',
          # -----------------------------
          # 1
@@ -348,7 +348,7 @@ urlpatterns = [
     # 2. ExtendsUserListV クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_extends_user_list' %} のような形でURLを取得するのに使える
 
-    # アクティブユーザー一覧
+    # O9o3o0g7o0 アクティブユーザー一覧
     path('practice/v1/active-user-list/',
          # ----------------------------
          # 1

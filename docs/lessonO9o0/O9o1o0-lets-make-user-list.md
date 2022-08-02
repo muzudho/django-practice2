@@ -380,7 +380,7 @@ urlpatterns = [
     # ...略...
 
 
-    # 会員一覧
+    # O9o1o0g7o0 会員一覧
     path('practice/v1/user-list/',
          # ---------------------
          # 1

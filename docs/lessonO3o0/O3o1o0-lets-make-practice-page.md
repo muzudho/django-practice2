@@ -373,7 +373,7 @@ from apps1.practice_v1.views.page_the_hello.v1o0 import PageTheHello
 
 urlpatterns = [
 
-    # おはようページ
+    # O3o1o0gA10o0 おはようページ
     path('practice/v1/page-the-hello',
          # -------------------------
          # 1
