@@ -38,22 +38,16 @@ Webサーバーとクライアント間で双方向の非同期通信をした�
     │   │       ├── 📂 models
     │   │       ├── 📂 static
     │   │       │   └── 📂 practice_v1      # アプリケーションと同名
-    │   │       │       └── 📂 o1o0
-    │   │       │           └── 📂 data
-    │   │       │               └── 📄 desserts1.json
+    │   │       │       └── 📂 data
+    │   │       │           └── 📂 desserts1
+    │   │       │               └── 📄 v1o0.json
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_v1      # アプリケーションと同名
-    │   │       │       └── 📂 o1o0
-    │   │       │           ├── 📂 prefecture
-    │   │       │           └── 📂 vuetify
-    │   │       │               ├── 📄 textarea1_base.html
-    │   │       │               └── 📄 desserts1.html
-    │   │       ├── 📂 views
-    │   │       │   └── 📂 o1o0
     │   │       │       ├── 📂 prefecture
-    │   │       │       └── 📂 vuetify
-    │   │       │           ├── 📄 __init__.py
-    │   │       │           └── 📄 v_textarea1.py
+    │   │       │       └── 📂 vuetifies
+    │   │       ├── 📂 views
+    │   │       │   ├── 📂 prefecture
+    │   │       │   └── 📂 vuetifies
     │   │       ├── 📄 __init__.py
     │   │       ├── 📄 admin.py
     │   │       ├── 📄 apps.py
@@ -131,8 +125,8 @@ INSTALLED_APPS = [
     # ...略...
 
 
-    # 以下を追加
-    # For web socket
+    # * 以下を追加
+    # OA15o1o0g3o0 For web socket
     'channels',
 ]
 
@@ -140,7 +134,7 @@ INSTALLED_APPS = [
 # ...略...
 
 
-# * WSGI を ASGI にバージョンアップする
+# *
 # ├── * 変更前
 # │ // WSGI_APPLICATION = 'project1.wsgi.application'
 # | // # * O2o1o0g9o1o2o_9o0 プロジェクト名の一般化
@@ -148,18 +142,19 @@ INSTALLED_APPS = [
 # │                         -------------------------------
 # │                         1
 # │ 1. DjangoのWSGI設定の大元となるグローバル変数。
-# │    `src1/project1/wsgi.py` ファイルの中の application 変数を指している
+# │    `src1/projectN/wsgi.py` ファイルの中の application 変数を指している
 # │          -------------
 # │
-# └── * 変更後
+# └── * OA15o1o0g3o0 WSGI を ASGI にバージョンアップする
 ASGI_APPLICATION = f"{PROJECT_NAME}.asgi.application"
 #                    -------------------------------
 #                    1
 # 1. DjangoのASGI設定の大元となるグローバル変数。
-#    `src1/project1/asgi.py` ファイルの中の application 変数を指している
+#    `src1/projectN/asgi.py` ファイルの中の application 変数を指している
 #          -------------
 
-# 続けて追加
+# * 続けて追加
+# OA15o1o0g3o0 Webソケット使用
 # See also: 📖 [Django Channels and WebSockets](https://blog.logrocket.com/django-channels-and-websockets/)
 CHANNEL_LAYERS = {
     'default': {
@@ -201,7 +196,7 @@ CHANNEL_LAYERS = {
 ```py
 import os
 
-# * 以下を削除
+# * OA15o1o0g4o0 以下をコメントアウト
 # from django.core.asgi import get_asgi_application
 
 # vvvv OA15o1o0g4o0 ASGI設定
@@ -217,7 +212,7 @@ from channels.routing import ProtocolTypeRouter
 # * OA15o1o0g4o0 ASGI設定
 django.setup()
 
-# * 以下を削除
+# * OA15o1o0g4o0 以下を削除
 # application = get_asgi_application()
 
 # * OA15o1o0g4o0 ASGI設定
@@ -282,8 +277,8 @@ docker-compose up
         ├── 📂 apps1
         │   └── 📂 practice_v1              # アプリケーション
         │       └── 📂 websocks             # ただのフォルダー
-        │           └── 📂 o1o0             # ただのフォルダー
-👉      │               └── 📄 consumer.py
+        │           └── 📂 consumer         # ただのフォルダー
+👉      │               └── 📄 v1o0.py
         ├── 📂 project1                     # プロジェクト
         │   ├── 📄 asgi.py
         │   └── 📄 settings.py
@@ -299,7 +294,7 @@ from channels.generic.websocket import AsyncWebsocketConsumer
 
 
 class WebsockPractice1V1Consumer(AsyncWebsocketConsumer):
-    """非同期のWebソケットのコンシューマー"""
+    """OA15o1o0g7o0 非同期のWebソケットのコンシューマー"""
 
     async def connect(self):
         """接続時"""
@@ -335,9 +330,9 @@ class WebsockPractice1V1Consumer(AsyncWebsocketConsumer):
     └── 📂 src1
         ├── 📂 apps1
         │   └── 📂 practice_v1              # アプリケーション
-        │       └── 📂 websocks             # ただのフォルダー
-        │           └── 📂 o1o0             # ただのフォルダー
-        │               └── 📄 consumer.py
+        │       └── 📂 websocks
+        │           └── 📂 consumer
+        │               └── 📄 v1o0.py
         ├── 📂 project1                     # プロジェクト
         │   ├── 📄 asgi.py
         │   ├── 📄 settings.py
@@ -349,18 +344,20 @@ class WebsockPractice1V1Consumer(AsyncWebsocketConsumer):
 # See also: 📖 [Channels - Consumers](https://channels.readthedocs.io/en/latest/topics/consumers.html)
 from django.conf.urls import url
 
-# Webソケットの練習１
-from apps1.practice_v1.websocks.o1o0.consumer import WebsockPractice1V1Consumer
-#    ------------------------------- --------        --------------------------
-#    1                               2               3
-# 1. ディレクトリー名
-# 2. Python ファイル名。拡張子抜き
-# 3. クラス名
+# OA15o1o0g8o0 Webソケットの練習１
+from apps1.practice_v1.websocks.consumer.v1o0 import WebsockPractice1V1Consumer
+#          -----------                   ----        --------------------------
+#          11                            12          2
+#    ----------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 websocket_urlpatterns = [
 
-    # Webソケットの練習１
+    # OA15o1o0g8o0 Webソケットの練習１
     url(r'^websock-practice1/v1/$', WebsockPractice1V1Consumer.as_asgi()),
     #     -----------------------   ------------------------------------
     #     1                         2
@@ -379,8 +376,8 @@ websocket_urlpatterns = [
         ├── 📂 apps1
         │   └── 📂 practice_v1              # アプリケーション
         │       └── 📂 websocks
-        │           └── 📂 o1o0
-        │               └── 📄 consumer.py
+        │           └── 📂 consumer
+        │               └── 📄 v1o0.py
         ├── 📂 project1                  # プロジェクト
 👉      │   ├── 📄 asgi.py
         │   ├── 📄 settings.py
@@ -391,7 +388,7 @@ websocket_urlpatterns = [
 ```py
 import os
 
-# * 削除の取消
+# * OA15o1o0g9o0 コメントアウトの解除
 from django.core.asgi import get_asgi_application
 
 # * 追加の取消ここから
@@ -403,7 +400,7 @@ from django.core.asgi import get_asgi_application
 from channels.auth import AuthMiddlewareStack
 from channels.routing import ProtocolTypeRouter, URLRouter
 
-# Webソケット練習
+# OA15o1o0g9o0 Webソケット練習１
 from . import ws_urls_practice
 #    -        ----------------
 #    1        2
@@ -425,10 +422,10 @@ from . import ws_urls_practice
 
 
 # * 以下を追加
-# 複数のアプリケーションの websocket_urlpatterns をマージします
+# OA15o1o0g9o0 複数のアプリケーションの websocket_urlpatterns をマージします
 websocket_urlpatterns_merged = []
 
-# Webソケット練習
+# OA15o1o0g9o0 Webソケット練習１
 websocket_urlpatterns_merged.extend(
     ws_urls_practice.websocket_urlpatterns)
 
@@ -438,7 +435,7 @@ websocket_urlpatterns_merged.extend(
 # |     "http": AsgiHandler(),
 # |     # * IMPORTANT::Just HTTP for now. (We can add other protocols later.)
 # | })
-# * 変更後
+# * OA15o1o0g9o0 変更後
 application = ProtocolTypeRouter({
     # * 削除
     # "http": AsgiHandler(),
@@ -542,6 +539,7 @@ from main_finally import MainFinally
 
 
 class Websocket_Client():
+    """OA15o1o0gA12o0 Webソケット クライアント"""
 
     def __init__(self, url):
 
@@ -639,6 +637,8 @@ python.exe -m websock_client
 
 これで サーバー側とつながったはずだ。  
 適当な文字列 `hello` でも打鍵してほしい。  
+`receive : Echo: hello` と返ってくれば成功だ
+
 クライアント側は `[ctrl] + [C]` キーで終了してほしい  
 
 サーバー側で `[ctrl] + [C]` キーを打鍵するとサーバーが落ちるので注意してほしい  

@@ -9,7 +9,10 @@ https://docs.djangoproject.com/en/3.2/howto/deployment/asgi/
 
 import os
 
+# * OA15o1o0g4o0 以下をコメントアウト
+# * OA15o1o0g9o0 コメントアウトの解除
 from django.core.asgi import get_asgi_application
+
 from channels.auth import AuthMiddlewareStack
 # vvvv OA15o1o0g4o0 ASGI設定
 from channels.routing import ProtocolTypeRouter, URLRouter
@@ -24,7 +27,7 @@ from .settings import PROJECT_NAME
 #                   --------
 # 3. 変数
 
-# Webソケット練習
+# OA15o1o0g9o0 Webソケット練習１
 from . import ws_urls_practice
 #    -        ----------------
 #    1        2
@@ -68,10 +71,10 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', f'{PROJECT_NAME}.settings')
 #                         -----------------
 
 
-# 複数のアプリケーションの websocket_urlpatterns をマージします
+# OA15o1o0g9o0 複数のアプリケーションの websocket_urlpatterns をマージします
 websocket_urlpatterns_merged = []
 
-# Webソケット練習
+# OA15o1o0g9o0 Webソケット練習１
 websocket_urlpatterns_merged.extend(
     ws_urls_practice.websocket_urlpatterns)
 

@@ -6,7 +6,7 @@ from channels.generic.websocket import AsyncWebsocketConsumer
 
 
 class WebsockPractice1V1Consumer(AsyncWebsocketConsumer):
-    """非同期のWebソケットのコンシューマー"""
+    """OA15o1o0g7o0 非同期のWebソケットのコンシューマー"""
 
     async def connect(self):
         """接続時"""

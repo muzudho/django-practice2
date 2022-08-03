@@ -65,7 +65,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
-    # For web socket
+    # OA15o1o0g3o0 For web socket
     'channels',
 ]
 
@@ -165,7 +165,7 @@ TEMPLATES = [
     },
 ]
 
-# * WSGI を ASGI にバージョンアップする
+# *
 # ├── * 変更前
 # │ // WSGI_APPLICATION = 'project1.wsgi.application'
 # | // # * O2o1o0g9o1o2o_9o0 プロジェクト名の一般化
@@ -176,7 +176,7 @@ TEMPLATES = [
 # │    `src1/projectN/wsgi.py` ファイルの中の application 変数を指している
 # │          -------------
 # │
-# └── * 変更後
+# └── * OA15o1o0g3o0 WSGI を ASGI にバージョンアップする
 ASGI_APPLICATION = f"{PROJECT_NAME}.asgi.application"
 #                    -------------------------------
 #                    1
@@ -184,6 +184,7 @@ ASGI_APPLICATION = f"{PROJECT_NAME}.asgi.application"
 #    `src1/projectN/asgi.py` ファイルの中の application 変数を指している
 #          -------------
 
+# OA15o1o0g3o0 Webソケット使用
 # See also: 📖 [Django Channels and WebSockets](https://blog.logrocket.com/django-channels-and-websockets/)
 CHANNEL_LAYERS = {
     'default': {

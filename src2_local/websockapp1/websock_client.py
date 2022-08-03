@@ -17,6 +17,7 @@ from main_finally import MainFinally
 
 
 class Websocket_Client():
+    """OA15o1o0gA12o0 Webソケット クライアント"""
 
     def __init__(self, url):
 
