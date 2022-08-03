@@ -35,18 +35,18 @@ Vuetify の テキストフィールド の バリデーション を練習し�
     │   │       ├── 📂 static
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_v1          # アプリケーションと同名
-    │   │       │       └── 📂 o1o0
-    │   │       │           ├── 📂 prefecture
-    │   │       │           └── 📂 vuetify
-    │   │       │               ├── 📄 data_table1.html
-    │   │       │               └── 📄 hello1.html
-    │   │       ├── 📂 views
-    │   │       │   └── 📂 o1o0
     │   │       │       ├── 📂 prefecture
-    │   │       │       └── 📂 vuetify
-    │   │       │           ├── 📄 __init__.py
-    │   │       │           ├── 📄 v_data_table1.py
-    │   │       │           └── 📄 v_hello1.py
+    │   │       │       └── 📂 vuetifies
+    │   │       │           ├── 📂 data_table1
+    │   │       │           │   └── 📄 v1o0.html
+    │   │       │           └── 📂 hello
+    │   │       │               └── 📄 v1o0.html
+    │   │       ├── 📂 views
+    │   │       │   ├── 📂 prefecture
+    │   │       │   └── 📂 vuetifies
+    │   │       │       ├── 📂 data_table1
+    │   │       │       │   └── 📄 v1o0.py
+    │   │       │       └── 📄 __init__.py
     │   │       ├── 📄 __init__.py
     │   │       ├── 📄 admin.py
     │   │       ├── 📄 apps.py
@@ -82,7 +82,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA12o3o0g2o0 画面作成 - validation1.html ファイル
+# Step OA12o3o0g2o0 画面作成 - vuetifies/validation1/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -92,13 +92,15 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1              # アプリケーションと同名
-                        └── 📂 o1o0
-                            └── 📂 vuetify
-👉                              └── 📄 validation1.html
+                        └── 📂 vuetifies
+                            └── 📂 validation1
+👉                              └── 📄 v1o0.html
 ```
 
 ```html
-{% load static %} {% comment %} 👈あとで static "URL" を使うので load static します {% endcomment %}
+{# OA12o3o0g2o0 #}
+<!-- -->
+{% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -183,13 +185,13 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 templates
                 │    └── 📂 practice_v1              # アプリケーションと同名
-                │        └── 📂 o1o0
-                │            └── 📂 vuetify
-                │                └── 📄 validation1.html
+                │       └── 📂 vuetifies
+                │           └── 📂 validation1
+                │               └── 📄 v1o0.html
                 └── 📂 views
-                    └── 📂 o1o0
-                        └── 📂 vuetify
-👉                          └── 📄 v_validation1.py
+                    └── 📂 vuetifies
+                        └── 📂 validation1
+👉                          └── 📄 v1o0.py
 ```
 
 ```py
@@ -200,11 +202,11 @@ def render_validation1(request):
     """OA12o3o0g3o0 バリデーション１の描画"""
 
     # * `lp_` - Local path
-    lp_validation1 = 'practice_v1/o1o0/vuetify/validation1.html'
-    #                 -----------------------------------------
+    lp_validation1 = 'practice_v1/vuetifies/validation1/v1o0.html'
+    #                 -------------------------------------------
     #                 1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/vuetify/validation1.html` を取得
-    #                                      -----------------------------------------
+    # 1. `src1/apps1/practice_v1/templates/practice_v1/vuetifies/validation1/v1o0.html` を取得
+    #                                      -------------------------------------------
 
     context = {}
     return render(request, lp_validation1, context)
@@ -220,25 +222,27 @@ def render_validation1(request):
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o1o0
-                │           └── 📂 vuetify
-                │               └── 📄 validation1.html
+                │       └── 📂 vuetifies
+                │           └── 📂 validation1
+                │               └── 📄 v1o0.html
                 └── 📂 views
-                    └── 📂 o1o0
-                        └── 📂 vuetify
-👉                          ├── 📄 __init__.py
-                            └── 📄 v_validation1.py
+                    └── 📂 vuetifies
+                        ├── 📂 validation1
+                        │   └── 📄 v1o0.py
+👉                      └── 📄 __init__.py
 ```
 
 ```py
 class VuetifyV(object):
-    """ビューティファイの練習のビュー"""
+    """OA12o1o0g4o0 ビューティファイの練習のビュー"""
+
 
     # ..略..
 
 
     # 以下を追加
-    from .v_validation1 import render_validation1
+    # OA12o3o0g4o0 バリデーション１
+    from .validation1.v1o0 import render_validation1
 ```
 
 # Step OA12o3o0g5o0 ルート編集 - urls_practice.py ファイル
@@ -251,35 +255,21 @@ class VuetifyV(object):
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 vuetify
-        │       │               └── 📄 validation1.html
+        │       │       └── 📂 vuetifies
+        │       │           └── 📂 validation1
+        │       │               └── 📄 v1o0.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 vuetify
-        │                   ├── 📄 __init__.py
-        │                   └── 📄 v_validation1.py
+        │           └── 📂 vuetifies
+        │               ├── 📂 validation1
+        │               │   └── 📄 v1o0.py
+        │               └── 📄 __init__.py
         └── 📂 project1                          # プロジェクト
 👉          ├── 📄 urls_practice.py              # こちら
 ❌          └── 📄 urls.py                       # これではない
 ```
 
 ```py
-from django.urls import path
-
-
 # ...略...
-
-
-# 都道府県ビュー
-from apps1.practice_v1.views.o1o0.vuetify import VuetifyV
-#          -----------            -------        --------
-#          11                     12             2
-#    ------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 urlpatterns = [
@@ -288,17 +278,17 @@ urlpatterns = [
     # ...略...
 
 
-    # ビューティファイでバリデーション１
-    path('practice/v1/vuetify/validation1',
+    # OA12o3o0g5o0 ビューティファイでデータテーブル１
+    path('practice/v1/vuetify/data-table1',
          # ------------------------------
          # 1
-         VuetifyV.render_validation1, name='practice_v1_vuetify_validation1'),
+         VuetifyV.render_data_table1, name='practice_v1_vuetify_data_table1'),
     #    ---------------------------        -------------------------------
     #    2                                  3
-    # 1. 例えば `http://example.com/practice/v1/vuetify/validation1` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1/vuetify/data-table1` のような URL のパスの部分
     #                              -------------------------------
-    # 2. VuetifyV クラスの render_validation1 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_validation1' %} のような形でURLを取得するのに使える
+    # 2. VuetifyV クラスの render_data_table1 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_data_table1' %} のような形でURLを取得するのに使える
 ]
 ```
 
@@ -319,14 +309,14 @@ urlpatterns = [
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 vuetify
-        │       │               └── 📄 validation1.html
+        │       │       └── 📂 vuetifies
+        │       │           └── 📂 validation1
+        │       │               └── 📄 v1o0.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 vuetify
-        │                   ├── 📄 __init__.py
-        │                   └── 📄 v_validation1.py
+        │           └── 📂 vuetifies
+        │               ├── 📂 validation1
+        │               │   └── 📄 v1o0.py
+        │               └── 📄 __init__.py
         └── 📂 project1                          # プロジェクト
             ├── 📄 urls_practice.py
             └── 📄 urls.py

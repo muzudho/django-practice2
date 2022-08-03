@@ -449,7 +449,7 @@ urlpatterns = [
     # 2. VuetifyV クラスの render_hello1 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_hello1' %} のような形でURLを取得するのに使える
 
-    # OA12o2o0g5o0 ビューティファイでデータテーブル１
+    # OA12o3o0g5o0 ビューティファイでデータテーブル１
     path('practice/v1/vuetify/data-table1',
          # ------------------------------
          # 1
