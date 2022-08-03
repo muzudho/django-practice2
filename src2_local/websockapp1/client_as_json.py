@@ -18,6 +18,7 @@ from main_finally import MainFinally
 
 
 class ClientAsJson():
+    """OA15o2o0g6o0 Webソケット クライアント JSON使用"""
 
     def __init__(self, url):
 

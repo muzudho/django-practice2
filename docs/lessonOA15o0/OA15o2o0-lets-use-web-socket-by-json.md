@@ -39,25 +39,19 @@ Webサーバーとクライアント間でテキストを双方向の非同期�
     │   │       ├── 📂 models
     │   │       ├── 📂 static
     │   │       │   └── 📂 practice_v1
-    │   │       │       └── 📂 o1o0
-    │   │       │           └── 📂 data
-    │   │       │               └── 📄 desserts1.json
+    │   │       │       └── 📂 data
+    │   │       │           └── 📂 desserts1
+    │   │       │               └── 📄 v1o0.json
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_v1          # アプリケーションと同名
-    │   │       │       └── 📂 o1o0
-    │   │       │           ├── 📂 prefecture
-    │   │       │           └── 📂 vuetify
-    │   │       │               ├── 📄 textarea1_base.html
-    │   │       │               └── 📄 desserts1.html
-    │   │       ├── 📂 views
-    │   │       │   └── 📂 o1o0
     │   │       │       ├── 📂 prefecture
-    │   │       │       └── 📂 vuetify
-    │   │       │           ├── 📄 __init__.py
-    │   │       │           └── 📄 v_textarea1.py
+    │   │       │       └── 📂 vuetifies
+    │   │       ├── 📂 views
+    │   │       │   ├── 📂 prefecture
+    │   │       │   └── 📂 vuetifies
     │   │       ├── 📂 websocks
-    │   │       │   └── 📂 o1o0
-    │   │       │       └── 📄 consumer.py
+    │   │       │   └── 📂 consumer
+    │   │       │       └── 📄 v1o0.py
     │   │       ├── 📄 __init__.py
     │   │       ├── 📄 admin.py
     │   │       ├── 📄 apps.py
@@ -105,7 +99,7 @@ docker-compose up
 
 これは 前回の記事で行った。 WSGI を ASGI にバージョンアップしておくことは必要だ  
 
-# Step OA15o2o0g3o0 Webソケット設定 - consumer2.py ファイル
+# Step OA15o2o0g3o0 Webソケット設定 - consumer_as_json/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -114,8 +108,8 @@ docker-compose up
         └── 📂 apps1
             └── 📂 practice_v1              # アプリケーション
                 └── 📂 websocks
-                    └── 📂 o1o0
-👉                      └── 📄 consumer_as_json.py
+                    └── 📂 consumer_as_json
+👉                      └── 📄 v1o0.py
 ```
 
 ```py
@@ -130,7 +124,7 @@ from channels.generic.websocket import AsyncJsonWebsocketConsumer
 
 
 class WebsockPractice2V1Consumer(AsyncJsonWebsocketConsumer):
-    """非同期のWebソケットのコンシューマー"""
+    """OA15o2o0g3o0 非同期のWebソケットのコンシューマー"""
 
     async def connect(self):
         """Called when the websocket is handshaking as part of initial connection."""
@@ -166,8 +160,8 @@ class WebsockPractice2V1Consumer(AsyncJsonWebsocketConsumer):
         ├── 📂 apps1
         │   └── 📂 practice_v1              # アプリケーション
         │       └── 📂 websocks
-        │           └── 📂 o1o0
-        │               └── 📄 consumer_as_json.py
+        │           └── 📂 consumer_as_json
+        │               └── 📄 v1o0.py
         └── 📂 project1                  # プロジェクト
 👉          └── 📄 ws_urls_practice.py
 ```
@@ -177,14 +171,16 @@ class WebsockPractice2V1Consumer(AsyncJsonWebsocketConsumer):
 
 
 # * 以下を追加
-# Webソケットの練習２
-from apps1.practice_v1.websocks.o1o0.consumer_as_json import WebsockPractice2V1Consumer
+# OA15o2o0g4o0 Webソケットの練習２
+from apps1.practice_v1.websocks.consumer_as_json.v1o0 import WebsockPractice2V1Consumer
 #                                                                           ^two
-#    ------------------------------- ----------------        --------------------------
-#    1                               2                       3
-# 1. ディレクトリー名
-# 2. Python ファイル名。拡張子抜き
-# 3. クラス名
+#          -----------                           ----        --------------------------
+#          11                                    12          2
+#    ------------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 websocket_urlpatterns = [
@@ -192,7 +188,7 @@ websocket_urlpatterns = [
 
 
     # * 以下を追加
-    # Webソケットの練習２
+    # OA15o2o0g4o0 Webソケットの練習２
     url(r'^websock-practice2/v1/$', WebsockPractice2V1Consumer.as_asgi()),
     #                      ^two                    ^two
     #     -----------------------   ------------------------------------
@@ -219,8 +215,8 @@ websocket-client パッケージは以前の記事で既にインストールし
     │   ├── 📂 apps1
     │   │   └── 📂 practice_v1              # アプリケーション
     │   │       └── 📂 websocks
-    │   │           └── 📂 o1o0
-    │   │               └── 📄 consumer_as_json.py
+    │   │           └── 📂 consumer_as_json
+    │   │               └── 📄 v1o0.py
     │   └── 📂 project1                  # プロジェクト
     │       └── 📄 ws_urls_practice.py
     └── 📂 src2_local
@@ -249,6 +245,7 @@ from main_finally import MainFinally
 
 
 class ClientAsJson():
+    """OA15o2o0g6o0 Webソケット クライアント JSON使用"""
 
     def __init__(self, url):
 

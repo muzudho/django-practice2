@@ -11,14 +11,16 @@ from apps1.practice_v1.websocks.consumer.v1o0 import WebsockPractice1V1Consumer
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# Webソケットの練習２
-from apps1.practice_v1.websocks.o1o0.consumer_as_json import WebsockPractice2V1Consumer
-#                                                                         ^two
-#    ------------------------------- ----------------        --------------------------
-#    1                               2                       3
-# 1. ディレクトリー名
-# 2. Python ファイル名。拡張子抜き
-# 3. クラス名
+# OA15o2o0g4o0 Webソケットの練習２
+from apps1.practice_v1.websocks.consumer_as_json.v1o0 import WebsockPractice2V1Consumer
+#                                                                           ^two
+#          -----------                           ----        --------------------------
+#          11                                    12          2
+#    ------------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 websocket_urlpatterns = [
@@ -31,7 +33,7 @@ websocket_urlpatterns = [
     #                            ----------------------
     # 2. WebsockPractice1V1Consumer クラスの as_asgi 静的メソッドの返却値
 
-    # Webソケットの練習２
+    # OA15o2o0g4o0 Webソケットの練習２
     url(r'^websock-practice2/v1/$', WebsockPractice2V1Consumer.as_asgi()),
     #                      ^two                    ^two
     #     -----------------------   ------------------------------------

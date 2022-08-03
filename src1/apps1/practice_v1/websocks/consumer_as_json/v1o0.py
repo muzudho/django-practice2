@@ -9,7 +9,7 @@ from channels.generic.websocket import AsyncJsonWebsocketConsumer
 
 
 class WebsockPractice2V1Consumer(AsyncJsonWebsocketConsumer):
-    """非同期のWebソケットのコンシューマー"""
+    """OA15o2o0g3o0 非同期のWebソケットのコンシューマー"""
 
     async def connect(self):
         """Called when the websocket is handshaking as part of initial connection."""
