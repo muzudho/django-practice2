@@ -35,22 +35,16 @@
     │   │       ├── 📂 models
     │   │       ├── 📂 static
     │   │       │   └── 📂 practice_v1
-    │   │       │       └── 📂 o1o0
-    │   │       │           └── 📂 data
-    │   │       │               └── 📄 desserts1.json
+    │   │       │       └── 📂 data
+    │   │       │           └── 📂 desserts1
+    │   │       │               └── 📄 v1o0.json
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_v1          # アプリケーションと同名
-    │   │       │       └── 📂 o1o0
-    │   │       │           ├── 📂 prefecture
-    │   │       │           └── 📂 vuetify
-    │   │       │               ├── 📄 textarea1_base.html
-    │   │       │               └── 📄 desserts1.html
-    │   │       ├── 📂 views
-    │   │       │   └── 📂 o1o0
     │   │       │       ├── 📂 prefecture
     │   │       │       └── 📂 vuetify
-    │   │       │           ├── 📄 __init__.py
-    │   │       │           └── 📄 v_textarea1.py
+    │   │       ├── 📂 views
+    │   │       │   ├── 📂 prefecture
+    │   │       │   └── 📂 vuetify
     │   │       ├── 📄 __init__.py
     │   │       ├── 📄 admin.py
     │   │       ├── 📄 apps.py
@@ -98,12 +92,12 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 static
                     └── 📂 practice_v1              # アプリケーションと同名
-                        └── 📂 o1o0
-                            └── 📂 data
-👉                              └── 📄 desserts1.json
+                        └── 📂 data
+                            └── 📂 desserts1
+👉                              └── 📄 v1o0.json
 ```
 
-# Step OA13o3o0g3o0 ビュー編集 - v_desserts1_as_json.py ファイル
+# Step OA13o3o0g3o0 ビュー編集 - vuetifies/desserts1_as_json/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -113,13 +107,13 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
                 │   └── 📂 practice_v1
-                │       └── 📂 o1o0
-                │           └── 📂 data
-                │               └── 📄 desserts1.json
+                │       └── 📂 data
+                │           └── 📂 desserts1
+                │               └── 📄 v1o0.json
                 └── 📂 views
-                    └── 📂 o1o0
-                        └── 📂 vuetify
-👉                          └── 📄 v_desserts1_as_json.py
+                    └── 📂 vuetifies
+                        └── 📂 desserts1_as_json
+👉                          └── 📄 v1o0.py
 ```
 
 ```py
@@ -128,12 +122,12 @@ from django.http import JsonResponse
 
 
 def render_desserts1_as_json(request):
-    """JSON形式でデザート１描画"""
+    """OA13o3o0g3o0 JSON形式でデザート１描画"""
 
-    with open('apps1/practice_v1/static/practice_v1/o1o0/data/desserts1.json', mode='r', encoding='utf-8') as f:
+    with open('apps1/practice_v1/static/practice_v1/data/desserts1/v1o0.json', mode='r', encoding='utf-8') as f:
         #      -------------------------------------------------------------
         #      1
-        # 1. `src1/apps1/practice_v1/static/practice_v1/o1o0/data/desserts1.json` を取得
+        # 1. `src1/apps1/practice_v1/static/practice_v1/data/desserts1/v1o0.json` を取得
         #          -------------------------------------------------------------
         doc = json.load(f)
 
@@ -150,25 +144,27 @@ def render_desserts1_as_json(request):
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
                 │   └── 📂 practice_v1
-                │       └── 📂 o1o0
-                │           └── 📂 data
-                │               └── 📄 desserts1.json
+                │       └── 📂 data
+                │           └── 📂 desserts1
+                │               └── 📄 v1o0.json
                 └── 📂 views
-                    └── 📂 o1o0
-                        └── 📂 vuetify
-👉                          ├── 📄 __init__.py
-                            └── 📄 v_desserts1_as_json.py
+                    └── 📂 vuetifies
+                        ├── 📂 desserts1_as_json
+                        │   └── 📄 v1o0.py
+👉                      └── 📄 __init__.py
 ```
 
 ```py
 class VuetifyV(object):
-    """ビューティファイの練習のビュー"""
+    """OA12o1o0g4o0 ビューティファイの練習のビュー"""
+
 
     # ..略..
 
 
-    # 以下を追加
-    from .v_desserts1_as_json import render_desserts1_as_json
+    # * 以下を追加
+    # OA13o3o0g4o0 JSONでデザート１
+    from .desserts1_as_json.v1o0 import render_desserts1_as_json
 ```
 
 # Step OA13o3o0g5o0 ルート編集 - urls_practice.py ファイル
@@ -181,35 +177,21 @@ class VuetifyV(object):
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 data
-        │       │               └── 📄 desserts1.json
+        │       │       └── 📂 data
+        │       │           └── 📂 desserts1
+        │       │               └── 📄 v1o0.json
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 vuetify
-        │                   ├── 📄 __init__.py
-        │                   └── 📄 v_desserts1_as_json.py
+        │           └── 📂 vuetifies
+        │               ├── 📂 desserts1_as_json
+        │               │   └── 📄 v1o0.py
+        │               └── 📄 __init__.py
         └── 📂 project1                          # プロジェクト
 👉          ├── 📄 urls_practice.py              # こちら
 ❌          └── 📄 urls.py                       # これではない
 ```
 
 ```py
-from django.urls import path
-
-
 # ...略...
-
-
-# 都道府県ビュー
-from apps1.practice_v1.views.o1o0.vuetify import VuetifyV
-#          -----------            -------        --------
-#          11                     12             2
-#    ------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 urlpatterns = [
@@ -218,7 +200,7 @@ urlpatterns = [
     # ...略...
 
 
-    # ビューティファイでJSON形式のデザート１
+    # OA13o3o0g5o0 ビューティファイでJSON形式のデザート１
     path('practice/v1/vuetify/desserts1-as-json',
          # ------------------------------------
          # 1
@@ -249,14 +231,14 @@ urlpatterns = [
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 data
-        │       │               └── 📄 desserts1.json
+        │       │       └── 📂 data
+        │       │           └── 📂 desserts1
+        │       │               └── 📄 v1o0.json
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 vuetify
-        │                   ├── 📄 __init__.py
-        │                   └── 📄 v_desserts1_as_json.py
+        │           └── 📂 vuetifies
+        │               ├── 📂 desserts1_as_json
+        │               │   └── 📄 v1o0.py
+        │               └── 📄 __init__.py
         └── 📂 project1                          # プロジェクト
             ├── 📄 urls_practice.py
             └── 📄 urls.py

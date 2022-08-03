@@ -509,7 +509,7 @@ urlpatterns = [
     # 2. VuetifyV クラスの render_desserts1_from_textarea1 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_desserts1_from_textarea1' %} のような形でURLを取得するのに使える
 
-    # ビューティファイでJSON形式のデザート１
+    # OA13o3o0g5o0 ビューティファイでJSON形式のデザート１
     path('practice/v1/vuetify/desserts1-as-json',
          # ------------------------------------
          # 1
