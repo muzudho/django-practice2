@@ -7,8 +7,10 @@ from main_finally import MainFinally
 
 
 class Client:
+    """OA14o1o0g5o0 ソケット通信のクライアント"""
+
     def __init__(self, server_host="127.0.0.1", server_port=5002, message_size=1024):
-        """クライアントです。
+        """初期化
 
         Parameters
         ----------

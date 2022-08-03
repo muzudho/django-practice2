@@ -7,6 +7,8 @@ from main_finally import MainFinally
 
 
 class EchoServer():
+    """OA14o1o0g4o0 エコーサーバー"""
+
     def __init__(self, host="0.0.0.0", port=5002, message_size=1024):
         """初期化
 

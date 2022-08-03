@@ -40,22 +40,16 @@ Webサーバーとクライアント間で通知したい。
     │   │       ├── 📂 models
     │   │       ├── 📂 static
     │   │       │   └── 📂 practice_v1      # アプリケーションと同名
-    │   │       │       └── 📂 o1o0
-    │   │       │           └── 📂 data
-    │   │       │               └── 📄 desserts1.json
+    │   │       │       └── 📂 data
+    │   │       │           └── 📂 desserts1
+    │   │       │               └── 📄 v1o0.json
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_v1      # アプリケーションと同名
-    │   │       │       └── 📂 o1o0
-    │   │       │           ├── 📂 prefecture
-    │   │       │           └── 📂 vuetify
-    │   │       │               ├── 📄 textarea1_base.html
-    │   │       │               └── 📄 desserts1.html
-    │   │       ├── 📂 views
-    │   │       │   └── 📂 o1o0
     │   │       │       ├── 📂 prefecture
     │   │       │       └── 📂 vuetify
-    │   │       │           ├── 📄 __init__.py
-    │   │       │           └── 📄 v_textarea1.py
+    │   │       ├── 📂 views
+    │   │       │   ├── 📂 prefecture
+    │   │       │   └── 📂 vuetify
     │   │       ├── 📄 __init__.py
     │   │       ├── 📄 admin.py
     │   │       ├── 📄 apps.py
@@ -118,7 +112,7 @@ import signal
 
 
 class MainFinally:
-    """アプリケーション終了時に、必ず終了処理を実行するための仕掛けです。
+    """OA14o1o0g3o0 アプリケーション終了時に、必ず終了処理を実行するための仕掛けです。
     See also: 📖 [Python で終了時に必ず何か実行したい](https://qiita.com/qualitia_cdev/items/f536002791671c6238e3)
 
     Examples
@@ -207,6 +201,8 @@ from main_finally import MainFinally
 
 
 class EchoServer():
+    """OA14o1o0g4o0 エコーサーバー"""
+
     def __init__(self, host="0.0.0.0", port=5002, message_size=1024):
         """初期化
 
@@ -306,6 +302,7 @@ class EchoServer():
         if not (self._s_sock is None):
             self._s_sock.close()
 
+
 # このファイルを直接実行したときは、以下の関数を呼び出します
 if __name__ == "__main__":
 
@@ -331,7 +328,6 @@ if __name__ == "__main__":
             return 1
 
     sys.exit(MainFinally.run(Main1()))
-
 ```
 
 # Step OA14o1o0g5o0 練習用通信クライアント作成 - client.py ファイル
@@ -357,8 +353,10 @@ from main_finally import MainFinally
 
 
 class Client:
+    """OA14o1o0g5o0 ソケット通信のクライアント"""
+
     def __init__(self, server_host="127.0.0.1", server_port=5002, message_size=1024):
-        """クライアントです。
+        """初期化
 
         Parameters
         ----------
@@ -448,6 +446,7 @@ Please push q key to quit."""
             # finally, send the message
             self._s_sock.send(to_send.encode())
 
+
 # このファイルを直接実行したときは、以下の関数を呼び出します
 if __name__ == "__main__":
 
@@ -458,8 +457,10 @@ if __name__ == "__main__":
         def on_main(self):
             parser = argparse.ArgumentParser(
                 description='サーバーのアドレスとポートを指定して、テキストを送信します')
-            parser.add_argument('--host', default="127.0.0.1", help='サーバーのホスト。規定値:127.0.0.1')
-            parser.add_argument('--port', type=int, default=5002, help='サーバーのポート。規定値:5002')
+            parser.add_argument('--host', default="127.0.0.1",
+                                help='サーバーのホスト。規定値:127.0.0.1')
+            parser.add_argument('--port', type=int,
+                                default=5002, help='サーバーのポート。規定値:5002')
             args = parser.parse_args()
 
             self._client = Client(server_host=args.host, server_port=args.port)
