@@ -485,7 +485,7 @@ urlpatterns = [
     # 2. VuetifyV クラスの render_desserts1 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_desserts1' %} のような形でURLを取得するのに使える
 
-    # ビューティファイでテキストエリア１
+    # OA13o2o0g7o0 ビューティファイでテキストエリア１
     path('practice/v1/vuetify/textarea1',
          # ----------------------------
          # 1
@@ -497,7 +497,7 @@ urlpatterns = [
     # 2. VuetifyV クラスの render_textarea1 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_textarea1' %} のような形でURLを取得するのに使える
 
-    # ビューティファイでデザート１ . テキストエリア１から
+    # OA13o2o0g7o0 ビューティファイでデザート１ . テキストエリア１から
     path('practice/v1/vuetify/desserts1-from-textarea1',
          # -------------------------------------------
          # 1
