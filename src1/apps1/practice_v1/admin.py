@@ -16,10 +16,11 @@ from .models.prefecture.v1o0 import Prefecture
 #                                      ----------------------
 # 2. クラス
 
-from .models.o1o0.m_dessert import Dessert
-#    ----------------------        -------
-#    1                             2
-# 1. このファイルと同じディレクトリにある `models/o1o0/m_dessert.py` ファイルの拡張子抜き
+# OA13o4o0g3o0 デザート
+from .models.dessert.v1o0 import Dessert
+#    --------------------        -------
+#    1                           2
+# 1. このファイルと同じディレクトリにある `models/dessert/v1o0.py` ファイルの拡張子抜き
 #                                      ----------------------
 # 2. クラス
 
@@ -41,6 +42,7 @@ admin.site.register(Profile)
 # OA10o1o0g3o0 都道府県
 admin.site.register(Prefecture)
 
+# OA13o4o0g3o0 デザート
 admin.site.register(Dessert)
 
 admin.site.register(Room)

@@ -26,7 +26,7 @@ path,label
 /practice/v1/vuetify/desserts1,ビューティファイでデザート１
 /practice/v1/vuetify/textarea1,ビューティファイでテキストエリア１
 /practice/v1/vuetify/desserts1-as-json,ビューティファイでJSON形式のデザート１
-/practice/v1/vuetify/textarea1-to-model,ビューティファイでテキストエリア１ . 保存用
+/practice/v1/vuetify/textarea1-to-model,ビューティファイでテキストエリアから保存まで . 入力
 /tic-tac-toe/v1/match-application/,〇×ゲーム v1
 /tic-tac-toe/v2/engine-manual/,〇×ゲーム v2 思考エンジン手動テスト
 /tic-tac-toe/v2/match-application/,〇×ゲーム v2

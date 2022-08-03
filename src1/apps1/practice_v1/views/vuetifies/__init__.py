@@ -19,4 +19,5 @@ class VuetifyV(object):
     # OA13o3o0g4o0 JSONでデザート１
     from .desserts1_as_json.v1o0 import render_desserts1_as_json
 
+    # OA13o4o0gA12o0 テキストエリア入力から保存まで
     from .textarea1_to_model.v1o0 import render_textarea1_to_model, render_save_result_of_desserts1_from_textarea1

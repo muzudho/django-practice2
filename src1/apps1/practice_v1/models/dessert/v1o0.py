@@ -3,7 +3,7 @@ from django.db import models
 
 
 class Dessert(models.Model):
-    """デザート"""
+    """OA13o4o0g2o0 デザート"""
 
     # プロパティの仕様を決める感じで
     name = models.CharField('Name', max_length=32)
