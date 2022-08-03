@@ -1,11 +1,11 @@
 class PlayingV():
-    """対局中ビュー"""
+    """OA16o1o0gA15o0 対局中ビュー"""
 
-    path_of_local_html = "tic_tac_toe_v1/o1o0/playing.html"
-    #                                     ^one
+    path_of_local_html = "tic_tac_toe_v1/playing/v1o0.html"
+    #                                             ^one
     #                     --------------------------------
     #                     1
-    # 1. `src1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o1o0/playing.html`
+    # 1. `src1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/playing/v1o0.html`
     #                                         --------------------------------
 
     def render(request, room_name):
@@ -15,7 +15,7 @@ class PlayingV():
         from .v_render import render_playing
         #    ---------        --------------
         #    1                2
-        # 1. `src1/apps1/tic_tac_toe_v1/views/o1o0/playing/v_render.py`
+        # 1. `src1/apps1/tic_tac_toe_v1/views/playing/v1o0/v_render.py`
         #                                                  --------
         # 2. `1.` に含まれる関数
 

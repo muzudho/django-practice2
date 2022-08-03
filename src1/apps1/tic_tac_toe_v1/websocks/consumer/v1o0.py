@@ -4,7 +4,7 @@ from channels.generic.websocket import AsyncJsonWebsocketConsumer
 
 
 class TicTacToeV1Consumer(AsyncJsonWebsocketConsumer):
-    """非同期のWebソケットのコンシューマー"""
+    """OA16o1o0gA19o0 非同期のWebソケットのコンシューマー"""
 
     async def connect(self):
         """接続時"""

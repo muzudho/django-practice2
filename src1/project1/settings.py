@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'apps1.practice_v1',
     'apps1.portal_v1',
     'apps1.allauth_customized_v1',
+    # OA16o1o0g8o0 〇×ゲーム v1
     'apps1.tic_tac_toe_v1',
     'apps1.tic_tac_toe_v2',
     'apps1.tic_tac_toe_v3',
@@ -138,12 +139,12 @@ TEMPLATES = [
             # 2. まるで `http://example.com/account` という素材フォルダーがあるかのように扱われる
             #                             --------
 
-            # 〇×ゲーム v1
+            # OA16o1o0gA22o0 〇×ゲーム v1
             os.path.join(BASE_DIR, 'apps1/tic_tac_toe_v1/templates'),
             #                       ------------------------------
             #                       10
             #
-            # Example: `/src1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/o1o0/match_application.html`
+            # Example: `/src1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/match_application/v1o0.html`
             #                       --------------          ---------------
             #                       11                      2
             #                 ------------------------------

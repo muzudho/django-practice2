@@ -1,22 +1,29 @@
 from django.urls import path
 
-from apps1.tic_tac_toe_v1.views.o1o0.match_application import MatchApplicationV
-#    ----- -------------- ----------------------------        -----------------
-#    1     2              3                                   4
+# OA16o1o0gA17o0 対局申込
+from apps1.tic_tac_toe_v1.views.match_application.v1o0 import MatchApplicationV
+#          --------------                         ----        -----------------
+#          11                                     12          2
 #    -------------------------------------------------
-#    5
-# 1. 開発者用ディレクトリーの一部
-# 2. アプリケーション フォルダー名
-# 3. ディレクトリー名
-# 4. クラス名
-# 5. Pythonモジュール名
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-from apps1.tic_tac_toe_v1.views.o1o0.playing import PlayingV
+# OA16o1o0gA17o0 対局中
+from apps1.tic_tac_toe_v1.views.playing.v1o0 import PlayingV
+#          --------------               ----        --------
+#          11                           12          2
+#    ---------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 urlpatterns = [
 
-    # 対局申込
+    # OA16o1o0gA17o0 対局申込
     path('tic-tac-toe/v1/match-application/',
          # --------------------------------
          # 1
@@ -27,7 +34,7 @@ urlpatterns = [
     #                              ---------------------------------
     # 2. MatchApplicationV クラスの render 静的メソッド
 
-    # 対局中
+    # OA16o1o0gA17o0 対局中
     path('tic-tac-toe/v1/playing/<str:room_name>/',
          # --------------------------------------
          # 1

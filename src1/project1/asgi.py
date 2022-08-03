@@ -35,7 +35,7 @@ from . import ws_urls_practice
 # 2. `src1/projectN/ws_urls_practice.py`
 #                   ----------------
 
-# 〇×ゲーム v1
+# OA16o1o0gA21o0 〇×ゲーム v1
 from . import ws_urls_tic_tac_toe_v1
 #    -        ----------------------
 #    1        2
@@ -78,7 +78,7 @@ websocket_urlpatterns_merged = []
 websocket_urlpatterns_merged.extend(
     ws_urls_practice.websocket_urlpatterns)
 
-# 〇×ゲーム v1
+# OA16o1o0gA21o0 〇×ゲーム v1
 websocket_urlpatterns_merged.extend(
     ws_urls_tic_tac_toe_v1.websocket_urlpatterns)
 

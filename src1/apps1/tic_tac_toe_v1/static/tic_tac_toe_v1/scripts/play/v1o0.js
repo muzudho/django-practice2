@@ -1,3 +1,4 @@
+// OA16o1o0gA10o0
 // See also: 📖[Django Channels and WebSockets](https://blog.logrocket.com/django-channels-and-websockets/)
 
 var roomName = document.getElementById("board").getAttribute("room_name");
