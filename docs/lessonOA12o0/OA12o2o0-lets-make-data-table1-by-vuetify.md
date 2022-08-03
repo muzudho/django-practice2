@@ -36,16 +36,16 @@ Data table を作れば上がる。だから説明する
     │   │       ├── 📂 static
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_v1          # アプリケーションと同名
-    │   │       │       └── 📂 o1o0
-    │   │       │           ├── 📂 prefecture
-    │   │       │           └── 📂 vuetify
-    │   │       │               └── 📄 hello1.html
-    │   │       ├── 📂 views
-    │   │       │   └── 📂 o1o0
     │   │       │       ├── 📂 prefecture
-    │   │       │       └── 📂 vuetify
-    │   │       │           ├── 📄 __init__.py
-    │   │       │           └── 📄 v_hello1.py
+    │   │       │       └── 📂 vuetifies
+    │   │       │           └── 📂 hello
+    │   │       │               └── 📄 v1o0.html
+    │   │       ├── 📂 views
+    │   │       │   ├── 📂 prefecture
+    │   │       │   └── 📂 vuetifies
+    │   │       │       ├── 📂 hello
+    │   │       │       │   └── 📄 v1o0.py
+    │   │       │       └── 📄 __init__.py
     │   │       ├── 📄 __init__.py
     │   │       ├── 📄 admin.py
     │   │       ├── 📄 apps.py
@@ -91,16 +91,18 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1              # アプリケーションと同名
-                        └── 📂 o1o0
-                            └── 📂 vuetify
-👉                              └── 📄 data_table1.html
+                        └── 📂 vuetifies
+                            └── 📂 data_table1
+👉                              └── 📄 v1o0.html
 ```
 
 ```html
+{# OA12o2o0g2o0 #}
+<!-- -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <!-- See also: https://vuetifyjs.com/en/components/data-tables/#dense -->
-<html>
+<html lang="ja">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
@@ -238,7 +240,7 @@ docker-compose up
 
 👆 `<v-data-table>` の説明は 📖[Vuetify - Data tables - Usage](https://vuetifyjs.com/en/components/data-tables/#dense) のページにある  
 
-# Step OA12o2o0g3o0 ビュー作成 - v_data_table1.py ファイル
+# Step OA12o2o0g3o0 ビュー作成 - vuetifies/data_table1/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -247,14 +249,14 @@ docker-compose up
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 templates
-                │    └── 📂 practice_v1              # アプリケーションと同名
-                │        └── 📂 o1o0
-                │            └── 📂 vuetify
-                │                └── 📄 data_table1.html
+                │   └── 📂 practice_v1              # アプリケーションと同名
+                │       └── 📂 vuetifies
+                │           └── 📂 data_table1
+                │               └── 📄 v1o0.html
                 └── 📂 views
-                    └── 📂 o1o0
-                        └── 📂 vuetify
-👉                          └── 📄 v_data_table1.py
+                    └── 📂 vuetifies
+                        └── 📂 data_table1
+👉                          └── 📄 v1o0.py
 ```
 
 ```py
@@ -265,11 +267,11 @@ def render_data_table1(request):
     """OA12o2o0g3o0 描画 - データテーブル１"""
 
     # * `lp_` - Local path
-    lp_data_table1 = 'practice_v1/o1o0/vuetify/data_table1.html'
-    #                 -----------------------------------------
+    lp_data_table1 = 'practice_v1/vuetifies/data_table1/v1o0.html'
+    #                 -------------------------------------------
     #                 1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/vuetify/data_table1.html` を取得
-    #                                      -----------------------------------------
+    # 1. `src1/apps1/practice_v1/templates/practice_v1/vuetifies/data_table1/v1o0.html` を取得
+    #                                      -------------------------------------------
 
     context = {}
     return render(request, lp_data_table1, context)
@@ -285,25 +287,27 @@ def render_data_table1(request):
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o1o0
-                │           └── 📂 vuetify
-                │               └── 📄 hello1.html
+                │       └── 📂 vuetifies
+                │           └── 📂 data_table1
+                │               └── 📄 v1o0.html
                 └── 📂 views
-                    └── 📂 o1o0
-                        └── 📂 vuetify
-👉                          ├── 📄 __init__.py
-                            └── 📄 v_data_table1.py
+                    └── 📂 vuetifies
+                        ├── 📂 data_table1
+                        │   └── 📄 v1o0.py
+👉                      └── 📄 __init__.py
 ```
 
 ```py
 class VuetifyV(object):
-    """ビューティファイの練習のビュー"""
+    """OA12o1o0g4o0 ビューティファイの練習のビュー"""
+
 
     # ..略..
 
 
-    # 以下を追加
-    from .v_data_table1 import render_data_table1
+    # * 以下を追加
+    # OA12o2o0g4o0 データテーブル１
+    from .data_table1.v1o0 import render_data_table1
 ```
 
 # Step OA12o2o0g5o0 ルート編集 - urls_practice.py ファイル
@@ -316,35 +320,21 @@ class VuetifyV(object):
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 vuetify
-        │       │               └── 📄 data_table1.html
+        │       │       └── 📂 vuetifies
+        │       │           └── 📂 data_table1
+        │       │               └── 📄 v1o0.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 vuetify
-        │                   ├── 📄 __init__.py
-        │                   └── 📄 v_data_table1.py
+        │           └── 📂 vuetifies
+        │               ├── 📂 data_table1
+        │               │   └── 📄 v1o0.py
+        │               └── 📄 __init__.py
         └── 📂 project1                          # プロジェクト
 👉          ├── 📄 urls_practice.py              # こちら
 ❌          └── 📄 urls.py                       # これではない
 ```
 
 ```py
-from django.urls import path
-
-
 # ...略...
-
-
-# 都道府県ビュー
-from apps1.practice_v1.views.o1o0.vuetify import VuetifyV
-#          -----------            -------        --------
-#          11                     12             2
-#    ------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 urlpatterns = [
@@ -353,7 +343,7 @@ urlpatterns = [
     # ...略...
 
 
-    # ビューティファイでデータテーブル１
+    # OA12o2o0g5o0 ビューティファイでデータテーブル１
     path('practice/v1/vuetify/data-table1',
          # ------------------------------
          # 1
@@ -384,14 +374,14 @@ urlpatterns = [
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 vuetify
-        │       │               └── 📄 data_table1.html
+        │       │       └── 📂 vuetifies
+        │       │           └── 📂 data_table1
+        │       │               └── 📄 v1o0.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 vuetify
-        │                   ├── 📄 __init__.py
-        │                   └── 📄 v_data_table1.py
+        │           └── 📂 vuetifies
+        │               ├── 📂 data_table1
+        │               │   └── 📄 v1o0.py
+        │               └── 📄 __init__.py
         └── 📂 project1                          # プロジェクト
             ├── 📄 urls_practice.py
             └── 📄 urls.py
