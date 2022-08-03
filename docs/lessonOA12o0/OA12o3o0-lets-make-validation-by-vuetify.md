@@ -278,17 +278,17 @@ urlpatterns = [
     # ...略...
 
 
-    # OA12o3o0g5o0 ビューティファイでデータテーブル１
-    path('practice/v1/vuetify/data-table1',
+    # OA12o3o0g5o0 ビューティファイでバリデーション１
+    path('practice/v1/vuetify/validation1',
          # ------------------------------
          # 1
-         VuetifyV.render_data_table1, name='practice_v1_vuetify_data_table1'),
+         VuetifyV.render_validation1, name='practice_v1_vuetify_validation1'),
     #    ---------------------------        -------------------------------
     #    2                                  3
-    # 1. 例えば `http://example.com/practice/v1/vuetify/data-table1` のような URL のパスの部分
+    # 1. 例えば `http://example.com/practice/v1/vuetify/validation1` のような URL のパスの部分
     #                              -------------------------------
-    # 2. VuetifyV クラスの render_data_table1 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_data_table1' %} のような形でURLを取得するのに使える
+    # 2. VuetifyV クラスの render_validation1 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_validation1' %} のような形でURLを取得するのに使える
 ]
 ```
 
