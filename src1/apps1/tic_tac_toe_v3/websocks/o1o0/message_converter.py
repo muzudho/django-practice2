@@ -1,8 +1,8 @@
 from asgiref.sync import sync_to_async
 
-from apps1.tic_tac_toe_v2.websocks.o1o0.gui.message_converter import TicTacToeV2MessageConverter
-#          --------------                   -----------------        ---------------------------
-#          11                               12                       2
+from apps1.tic_tac_toe_v2.websocks.gui.message_converter.v1o0 import TicTacToeV2MessageConverter
+#          --------------                                ----        ---------------------------
+#          11                                            12          2
 #    --------------------------------------------------------
 #    10
 # 10, 12. ディレクトリー

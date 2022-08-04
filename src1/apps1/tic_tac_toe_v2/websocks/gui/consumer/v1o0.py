@@ -6,7 +6,7 @@ from channels.generic.websocket import AsyncJsonWebsocketConsumer
 
 
 class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
-    """Webソケット用コンシューマー"""
+    """OA16o3o0g9o0 Webソケット用コンシューマー"""
 
     def __init__(self):
         super().__init__()

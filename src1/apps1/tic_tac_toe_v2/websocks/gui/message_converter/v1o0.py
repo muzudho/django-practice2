@@ -1,5 +1,5 @@
 class TicTacToeV2MessageConverter():
-    """サーバープロトコル"""
+    """OA16o3o0g8o0 サーバープロトコル"""
 
     async def on_receive(self, scope, doc_received):
         """クライアントからサーバーへ送られてきた変数を解析し、

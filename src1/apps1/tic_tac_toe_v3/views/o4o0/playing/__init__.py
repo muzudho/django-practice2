@@ -43,11 +43,11 @@ class PlayingV():
         """描画"""
 
         # 以下のファイルは既存です
-        from apps1.tic_tac_toe_v2.views.o1o0.gui.playing.v_render import render_playing
+        from apps1.tic_tac_toe_v2.views.gui.playing.v1o0.v_render import render_playing
         #                       ^two
         #    ----------------------------------------------------        --------------
         #    1                                                           2
-        # 1. `src1/apps1/tic_tac_toe_v2/views/o1o0/gui/playing/v_render.py`
+        # 1. `src1/apps1/tic_tac_toe_v2/views/gui/playing/v1o0/v_render.py`
         #          ----------------------------------------------------
         # 2. `1.` のファイルに含まれる render_playing 関数
 

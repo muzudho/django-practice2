@@ -1,3 +1,5 @@
+// OA16o3o0g4o0
+
 // 参考にした記事
 // -------------
 // 📖[Django Channels and WebSockets](https://blog.logrocket.com/django-channels-and-websockets/)

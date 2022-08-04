@@ -1,8 +1,8 @@
-from apps1.tic_tac_toe_v2.websocks.o1o0.gui.consumer_base import TicTacToeV2ConsumerBase
+from apps1.tic_tac_toe_v2.websocks.gui.consumer.v1o0 import TicTacToeV2ConsumerBase
 #                       ^two
-#          --------------                   -------------        -----------------------
-#          11                               12                   2
-#    ----------------------------------------------------
+#          --------------                       ----        -----------------------
+#          11                                   12          2
+#    -----------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション

@@ -2,7 +2,7 @@ import json
 
 
 class MatchApplicationV():
-    """対局申込ビュー"""
+    """OA16o3o0gA11o0 対局申込ビュー"""
 
     # 対局申込 - 訪問後
     open_context = {
@@ -23,11 +23,11 @@ class MatchApplicationV():
     # 1. `http://example.com:8000/tic-tac-toe/v2/playing/Elephant/?&myturn=X`
     #                            -------------------------------------------
 
-    path_of_local_html = "tic_tac_toe_v2/o1o0/gui/match_application.html"
+    path_of_local_html = "tic_tac_toe_v2/gui/match_application/v1o0.html"
     #                                  ^two
     #                     ----------------------------------------------
     #                     1
-    # 1. src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1o0/gui/match_application.html
+    # 1. src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/gui/match_application/v1o0.html
     #                                        ----------------------------------------------
 
     @staticmethod
@@ -38,7 +38,7 @@ class MatchApplicationV():
         from .v_render import render_match_application
         #    ---------        ------------------------
         #    1                2
-        # 1. `src1/apps1/tic_tac_toe_v2/views/o1o0/gui/match_application/v_render.py`
+        # 1. `src1/apps1/tic_tac_toe_v2/views/gui/match_application/v1o0/v_render.py`
         #                                                                --------
         # 2. `1.` に含まれる関数
 

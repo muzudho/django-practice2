@@ -1,23 +1,21 @@
+# OA16o3o0gA16o0
 # See also: 📖 [Channels - Consumers](https://channels.readthedocs.io/en/latest/topics/consumers.html)
 from django.conf.urls import url
 
 # 〇×ゲーム v2o1o0
-from apps1.tic_tac_toe_v2.websocks.o1o0.gui.consumer_custom import TicTacToeV2o1o0ConsumerCustom
-#    ----- -------------- ----------------- ---------------        -----------------------------
-#    1     2              3                 4                      5
-#    ------------------------------------------------------
-#    6
-# 1. 開発者用ディレクトリーの一部
-# 2. アプリケーション フォルダー名
-# 3. ディレクトリー名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
-# 6. モジュール名
+from apps1.tic_tac_toe_v2.websocks.gui.consumer.v1o1o0 import TicTacToeV2o1o0ConsumerCustom
+#          --------------                       ------        -----------------------------
+#          11                                   12            2
+#    -------------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py にさらに含まれるクラス
 
 
 websocket_urlpatterns = [
 
-    # 〇×ゲーム v2
+    # OA16o3o0gA16o0 〇×ゲーム v2
     url(r'^tic-tac-toe/v2/playing/(?P<kw_room_name>\w+)/$',
         # -----------------------------------------------
         # 1

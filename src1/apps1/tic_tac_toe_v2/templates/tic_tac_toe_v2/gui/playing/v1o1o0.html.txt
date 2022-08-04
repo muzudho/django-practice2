@@ -1,8 +1,10 @@
-{% extends "tic_tac_toe_v2/o1o0/gui/playing_base.html" %}
-{#          -----------------------------------------
+{# OA16o3o0g7o0 #}
+<!-- -->
+{% extends "tic_tac_toe_v2/gui/playing/v1o0.html" %}
+{#          ------------------------------------
             1
-1. src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1o0/gui/playing_base.html
-                                       -----------------------------------------
+1. src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/gui/playing/v1o0.html
+                                       ------------------------------------
 
     自動フォーマットしないでください
     Do not auto fomatting

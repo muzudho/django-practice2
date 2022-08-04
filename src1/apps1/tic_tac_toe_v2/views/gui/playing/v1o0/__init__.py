@@ -1,5 +1,5 @@
 class PlayingV():
-    """対局中ビュー"""
+    """OA16o3o0gA13o0 対局中ビュー"""
 
     # 駒
     expected_pieces = ['X', 'O']
@@ -13,12 +13,12 @@ class PlayingV():
     #                          ------------------------
 
     # HTML
-    path_of_local_html = "tic_tac_toe_v2/o1o0/gui/playing.html.txt"
+    path_of_local_html = "tic_tac_toe_v2/gui/playing/v1o1o0.html.txt"
     #                                  ^two
-    #                     ----------------------------------------
+    #                     ------------------------------------------
     #                     1
-    # 1. `src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1o0/gui/playing.html.txt`
-    #                                         ----------------------------------------
+    # 1. `src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/gui/playing/v1o1o0.html.txt`
+    #                                         ------------------------------------------
 
     @staticmethod
     def render(request, kw_room_name):
@@ -28,7 +28,7 @@ class PlayingV():
         from .v_render import render_playing
         #    ---------        --------------
         #    1                2
-        # 1. `src1/apps1/tic_tac_toe_v2/views/o1o0/gui/playing/v_render.py`
+        # 1. `src1/apps1/tic_tac_toe_v2/views/gui/playing/v1o0/v_render.py`
         #                                                      --------
         # 2. `1.` に含まれる関数
 

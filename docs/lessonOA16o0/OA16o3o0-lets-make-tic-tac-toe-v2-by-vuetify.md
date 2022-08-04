@@ -46,23 +46,28 @@
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o1o0
-    │   │       │           └── 📂 think
-    │   │       │               ├── 📄 concepts.js
-    │   │       │               ├── 📄 engine.js
-    │   │       │               ├── 📄 judge_ctrl.js
-    │   │       │               ├── 📄 position.js
-    │   │       │               ├── 📄 things.js
-    │   │       │               └── 📄 user_ctrl.js
+    │   │       │       └── 📂 think
+    │   │       │           ├── 📂 concepts
+    │   │       │           │   └── 📄 v1o0.js
+    │   │       │           ├── 📂 engine
+    │   │       │           │   └── 📄 v1o0.js
+    │   │       │           ├── 📂 judge_ctrl
+    │   │       │           │   └── 📄 v1o0.js
+    │   │       │           ├── 📂 position
+    │   │       │           │   └── 📄 v1o0.js
+    │   │       │           ├── 📂 things
+    │   │       │           │   └── 📄 v1o0.js
+    │   │       │           └── 📂 user_ctrl
+    │   │       │               └── 📄 v1o0.js
     │   │       ├── 📂 templates
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o1o0
-    │   │       │           └── 📂 think
-    │   │       │               └── 📄 engine_manual.html
-    │   │       ├── 📂 views
-    │   │       │   └── 📂 o1o0
     │   │       │       └── 📂 think
     │   │       │           └── 📂 engine_manual
+    │   │       │               └── 📄 v1o0.html
+    │   │       ├── 📂 views
+    │   │       │   └── 📂 think
+    │   │       │       └── 📂 engine_manual
+    │   │       │           └── 📂 v1o0
     │   │       │               ├── 📄 __init__.py
     │   │       │               └── 📄 v_render.py
     │   │       ├── 📄 __init__.py
@@ -106,7 +111,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA16o3o0g2o0 送信メッセージ実装 - outgoing_messages.js ファイル
+# Step OA16o3o0g2o0 送信メッセージ実装 - gui/outgoing_messages/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -116,12 +121,14 @@ docker-compose up
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 └── 📂 static
                     └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-                        └── 📂 o1o0
-                            └── 📂 gui
-                                └── 📄 outgoing_messages.js
+                        └── 📂 gui
+                            └── 📂 outgoing_messages
+                                └── 📄 v1o0.js
 ```
 
 ```js
+// OA16o3o0g2o0
+
 /**
  * 送信メッセージ一覧
  *
@@ -182,7 +189,7 @@ class OutgoingMessages {
 }
 ```
 
-# Step OA16o3o0g3o0 受信メッセージ実装 - incoming_messages.js ファイル
+# Step OA16o3o0g3o0 受信メッセージ実装 - gui/incoming_messages/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -192,13 +199,16 @@ class OutgoingMessages {
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 └── 📂 static
                     └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-                        └── 📂 o1o0
-                            └── 📂 gui
-👉                              ├── 📄 incoming_messages.js
-                                └── 📄 outgoing_messages.js
+                        └── 📂 gui
+                            ├── 📂 incoming_messages
+👉                          │   └── 📄 v1o0.js
+                            └── 📂 outgoing_messages
+                                └── 📄 v1o0.js
 ```
 
 ```js
+// OA16o3o0g3o0
+
 /**
  * 受信メッセージ一覧
  */
@@ -296,7 +306,7 @@ class IncomingMessages {
 }
 ```
 
-# Step OA16o3o0g4o0 Webソケット接続の実装 - connection.js ファイル
+# Step OA16o3o0g4o0 Webソケット接続の実装 - gui/connection/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -306,14 +316,18 @@ class IncomingMessages {
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 └── 📂 static
                     └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-                        └── 📂 o1o0
-                            └── 📂 gui
-👉                              ├── 📄 connection.js
-                                ├── 📄 incoming_messages.js
-                                └── 📄 outgoing_messages.js
+                        └── 📂 gui
+                            ├── 📂 connection
+👉                          │   └── 📄 v1o0.js
+                            ├── 📂 incoming_messages
+                            │   └── 📄 v1o0.js
+                            └── 📂 outgoing_messages
+                                └── 📄 v1o0.js
 ```
 
 ```js
+// OA16o3o0g4o0
+
 // 参考にした記事
 // -------------
 // 📖[Django Channels and WebSockets](https://blog.logrocket.com/django-channels-and-websockets/)
@@ -461,7 +475,7 @@ class Connection {
 }
 ```
 
-# Step OA16o3o0g5o0 対局申込画面作成 - match_application.html ファイル
+# Step OA16o3o0g5o0 対局申込画面作成 - gui/match_application/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -471,20 +485,24 @@ class Connection {
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
-                │       └── 📂 o1o0
-                │           └── 📂 gui
-                │               ├── 📄 connection.js
-                │               ├── 📄 incoming_messages.js
-                │               └── 📄 outgoing_messages.js
+                │       └── 📂 gui
+                │           ├── 📂 connection
+                │           │   └── 📄 v1o0.js
+                │           ├── 📂 incoming_messages
+                │           │   └── 📄 v1o0.js
+                │           └── 📂 outgoing_messages
+                │               └── 📄 v1o0.js
                 └── 📂 templates
                     └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-                        └── 📂 o1o0
-                            └── 📂 gui
-👉                              └── 📄 match_application.html
+                        └── 📂 gui
+                            └── 📂 match_application
+👉                              └── 📄 v1o0.html
 ```
 
 ```html
-{% load static %} {% comment %} 👈あとで static "URL" を使うので load static します {% endcomment %}
+{# OA16o3o0g5o0 #}
+<!-- -->
+{% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <html>
     <head>
@@ -553,7 +571,7 @@ class Connection {
 </html>
 ```
 
-# Step OA16o3o0g6o0 対局画面作成 - playing_base.html ファイル
+# Step OA16o3o0g6o0 対局画面作成 - gui/playing/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -570,14 +588,17 @@ class Connection {
                 │               └── 📄 outgoing_messages.js
                 └── 📂 templates
                     └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-                        └── 📂 o1o0
-                            └── 📂 gui
-                                ├── 📄 match_application.html
-👉                              └── 📄 playing_base.html
+                        └── 📂 gui
+                            ├── 📂 match_application
+                            │   └── 📄 v1o0.html
+                            └── 📂 playing
+👉                              └── 📄 v1o0.html
 ```
 
 ```html
-{% load static %} {% comment %} 👈あとで static "URL" を使うので load static します {% endcomment %}
+{# OA16o3o0g6o0 #}
+<!-- -->
+{% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <html>
     <head>
@@ -659,9 +680,9 @@ class Connection {
         <script src="{% static 'tic_tac_toe_v2/think/user_ctrl/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/think/judge_ctrl/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/think/engine/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o1o0/gui/connection.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o1o0/gui/incoming_messages.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o1o0/gui/outgoing_messages.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/gui/connection/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/gui/incoming_messages/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/gui/outgoing_messages/v1o0.js' %}"></script>
         <!--            ====================================================
                         1
         1. src1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/gui/outgoing_messages/v1o0.js
@@ -1036,7 +1057,7 @@ class Connection {
 </html>
 ```
 
-# Step OA16o3o0g7o0 対局画面作成 - playing.html.txt ファイル
+# Step OA16o3o0g7o0 対局画面作成 - gui/playing/v1o1o0.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1053,21 +1074,24 @@ class Connection {
                 │               └── 📄 outgoing_messages.js
                 └── 📂 templates
                     └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-                        └── 📂 o1o0
-                            └── 📂 gui
-                                ├── 📄 match_application.html
-                                ├── 📄 playing_base.html
-👉                              └── 📄 playing.html.txt
+                        └── 📂 gui
+                            ├── 📂 match_application
+                            │   └── 📄 v1o0.html
+                            └── 📂 playing
+                                ├── 📄 v1o0.html
+👉                              └── 📄 v1o1o0.html.txt
 ```
 
 👆 自動フォーマットされてくないので、拡張子をテキストファイルにしておく  
 
 ```html
-{% extends "tic_tac_toe_v2/o1o0/gui/playing_base.html" %}
-{#          -----------------------------------------
+{# OA16o3o0g7o0 #}
+<!-- -->
+{% extends "tic_tac_toe_v2/gui/playing/v1o0.html" %}
+{#          ------------------------------------
             1
-1. src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1o0/gui/playing_base.html
-                                       -----------------------------------------
+1. src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/gui/playing/v1o0.html
+                                       ------------------------------------
 
     自動フォーマットしないでください
     Do not auto fomatting
@@ -1103,7 +1127,7 @@ class Connection {
 {% endblock methods_footer %}
 ```
 
-# Step OA16o3o0g8o0 通信プロトコル作成 - message_converter.py ファイル
+# Step OA16o3o0g8o0 通信プロトコル作成 - gui/message_converter/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1120,20 +1144,21 @@ class Connection {
                 │               └── 📄 outgoing_messages.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-                │       └── 📂 o1o0
-                │           └── 📂 gui
-                │               ├── 📄 match_application.html
-                │               ├── 📄 playing_base.html
-                │               └── 📄 playing.html.txt
+                │       └── 📂 gui
+                │           ├── 📂 match_application
+                │           │   └── 📄 v1o0.html
+                │           └── 📂 playing
+                │               ├── 📄 v1o0.html
+                │               └── 📄 v1o1o0.html.txt
                 └── 📂 websocks
-                    └── 📂 o1o0
-                        └── 📂 gui
-👉                          └── 📄 message_converter.py
+                    └── 📂 gui
+                        └── 📂 message_converter
+👉                          └── 📄 v1o0.py
 ```
 
 ```py
 class TicTacToeV2MessageConverter():
-    """サーバープロトコル"""
+    """OA16o3o0g8o0 サーバープロトコル"""
 
     async def on_receive(self, scope, doc_received):
         """クライアントからサーバーへ送られてきた変数を解析し、
@@ -1207,7 +1232,7 @@ class TicTacToeV2MessageConverter():
         pass
 ```
 
-# Step OA16o3o0g9o0 Webソケットの通信プロトコル作成 - consumer_base.py ファイル
+# Step OA16o3o0g9o0 Webソケットの通信プロトコル作成 - gui/consumer/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1224,16 +1249,18 @@ class TicTacToeV2MessageConverter():
                 │               └── 📄 outgoing_messages.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-                │       └── 📂 o1o0
-                │           └── 📂 gui
-                │               ├── 📄 match_application.html
-                │               ├── 📄 playing_base.html
-                │               └── 📄 playing.html.txt
+                │       └── 📂 gui
+                │           ├── 📂 match_application
+                │           │   └── 📄 v1o0.html
+                │           └── 📂 playing
+                │               ├── 📄 v1o0.html
+                │               └── 📄 v1o1o0.html.txt
                 └── 📂 websocks
-                    └── 📂 o1o0
-                        └── 📂 gui
-👉                          ├── 📄 consumer_base.py
-                            └── 📄 message_converter.py
+                    └── 📂 gui
+                        ├── 📂 consumer
+👉                      │   └── 📄 v1o0.py
+                        └── 📂 message_converter
+                            └── 📄 v1o0.py
 ```
 
 ```py
@@ -1245,7 +1272,7 @@ from channels.generic.websocket import AsyncJsonWebsocketConsumer
 
 
 class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
-    """Webソケット用コンシューマー"""
+    """OA16o3o0g9o0 Webソケット用コンシューマー"""
 
     def __init__(self):
         super().__init__()
@@ -1304,7 +1331,7 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
         }))
 ```
 
-# Step OA16o3o0gA10o0 Webソケットの通信プロトコル作成 - consumer_custom.py ファイル
+# Step OA16o3o0gA10o0 Webソケットの通信プロトコル作成 - gui/consumer/v1o1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1321,39 +1348,45 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
                 │               └── 📄 outgoing_messages.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-                │       └── 📂 o1o0
-                │           └── 📂 gui
-                │               ├── 📄 match_application.html
-                │               ├── 📄 playing_base.html
-                │               └── 📄 playing.html.txt
+                │       └── 📂 gui
+                │           ├── 📂 match_application
+                │           │   └── 📄 v1o0.html
+                │           └── 📂 playing
+                │               ├── 📄 v1o0.html
+                │               └── 📄 v1o1o0.html.txt
                 └── 📂 websocks
-                    └── 📂 o1o0
-                        └── 📂 gui
-                            ├── 📄 consumer_base.py
-👉                          ├── 📄 consumer_custom.py
-                            └── 📄 message_converter.py
+                    └── 📂 gui
+                        ├── 📂 consumer
+                        │   ├── 📄 v1o0.py
+👉                      │   └── 📄 v1o1o0.py
+                        └── 📂 message_converter
+                            └── 📄 v1o0.py
 ```
 
 ```py
-from apps1.tic_tac_toe_v2.websocks.o1o0.gui.consumer_base import TicTacToeV2ConsumerBase
-#    ----- -------------- ----------------- -------------        -----------------------
-#    1     2              3                 4                    5
-# 1,3. ディレクトリー名
-# 1. アプリケーション フォルダー名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
+# Webソケット コンシューマー v1.0
+from apps1.tic_tac_toe_v2.websocks.gui.consumer.v1o0 import TicTacToeV2ConsumerBase
+#          --------------                       ----        -----------------------
+#          11                                   12          2
+#    -----------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py にさらに含まれるクラス
 
-from apps1.tic_tac_toe_v2.websocks.o1o0.gui.message_converter import TicTacToeV2MessageConverter
-#    ----- -------------- ----------------- -----------------        ---------------------------
-#    1     2              3                 4                        5
-# 1,3. ディレクトリー名
-# 1. アプリケーション フォルダー名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
+# Webソケット メッセージコンバーター v1.1.0
+from apps1.tic_tac_toe_v2.websocks.gui.message_converter.v1o0 import TicTacToeV2MessageConverter
+#          --------------                                ----        -----------------------
+#          11                                            12          2
+#    --------------------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py にさらに含まれるクラス
 
 
 class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
-    """Webソケット用コンシューマー"""
+    """OA16o3o0gA10o0 Webソケット用コンシューマー"""
 
     def __init__(self):
         super().__init__()
@@ -1370,7 +1403,7 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
         return await self._messageConverter.on_receive(self.scope, doc_received)
 ```
 
-# Step OA16o3o0gA11o0 ビュー作成 - match_application フォルダー
+# Step OA16o3o0gA11o0 ビュー作成 - gui/match_application/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1387,22 +1420,24 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
                 │               └── 📄 outgoing_messages.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-                │       └── 📂 o1o0
-                │           └── 📂 gui
-                │               ├── 📄 match_application.html
-                │               ├── 📄 playing_base.html
-                │               └── 📄 playing.html.txt
-                ├── 📂 views
-                │   └── 📂 o1o0
                 │       └── 📂 gui
-                │           └── 📂 match_application
+                │           ├── 📂 match_application
+                │           │   └── 📄 v1o0.html
+                │           └── 📂 playing
+                │               ├── 📄 v1o0.html
+                │               └── 📄 v1o1o0.html.txt
+                ├── 📂 views
+                │   └── 📂 gui
+                │       └── 📂 match_application
+                │           └── 📂 v1o0
 👉              │               └── 📄 __init__.py
                 └── 📂 websocks
-                    └── 📂 o1o0
-                        └── 📂 gui
-                            ├── 📄 consumer_base.py
-                            ├── 📄 consumer_custom.py
-                            └── 📄 message_converter.py
+                    └── 📂 gui
+                        ├── 📂 consumer
+                        │   ├── 📄 v1o0.py
+                        │   └── 📄 v1o1o0.py
+                        └── 📂 message_converter
+                            └── 📄 v1o0.py
 ```
 
 ```py
@@ -1410,7 +1445,7 @@ import json
 
 
 class MatchApplicationV():
-    """対局申込ビュー"""
+    """OA16o3o0gA11o0 対局申込ビュー"""
 
     # 対局申込 - 訪問後
     open_context = {
@@ -1431,11 +1466,11 @@ class MatchApplicationV():
     # 1. `http://example.com:8000/tic-tac-toe/v2/playing/Elephant/?&myturn=X`
     #                            -------------------------------------------
 
-    path_of_local_html = "tic_tac_toe_v2/o1o0/gui/match_application.html"
+    path_of_local_html = "tic_tac_toe_v2/gui/match_application/v1o0.html"
     #                                  ^two
-    #                     --------------------------------------------
+    #                     ----------------------------------------------
     #                     1
-    # 1. src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1o0/gui/match_application.html
+    # 1. src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/gui/match_application/v1o0.html
     #                                        ----------------------------------------------
 
     @staticmethod
@@ -1446,7 +1481,7 @@ class MatchApplicationV():
         from .v_render import render_match_application
         #    ---------        ------------------------
         #    1                2
-        # 1. `src1/apps1/tic_tac_toe_v2/views/o1o0/gui/match_application/v_render.py`
+        # 1. `src1/apps1/tic_tac_toe_v2/views/gui/match_application/v1o0/v_render.py`
         #                                                                --------
         # 2. `1.` に含まれる関数
 
@@ -1468,7 +1503,7 @@ class MatchApplicationV():
         return MatchApplicationV.open_context
 ```
 
-# Step OA16o3o0gA12o0 ビュー作成 - match_application/v_render.py ファイル
+# Step OA16o3o0gA12o0 ビュー作成 - gui/match_application/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1485,23 +1520,25 @@ class MatchApplicationV():
                 │               └── 📄 outgoing_messages.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-                │       └── 📂 o1o0
-                │           └── 📂 gui
-                │               ├── 📄 match_application.html
-                │               ├── 📄 playing_base.html
-                │               └── 📄 playing.html.txt
-                ├── 📂 views
-                │   └── 📂 o1o0
                 │       └── 📂 gui
-                │           └── 📂 match_application
+                │           ├── 📂 match_application
+                │           │   └── 📄 v1o0.html
+                │           └── 📂 playing
+                │               ├── 📄 v1o0.html
+                │               └── 📄 v1o1o0.html.txt
+                ├── 📂 views
+                │   └── 📂 gui
+                │       └── 📂 match_application
+                │           └── 📂 v1o0
                 │               ├── 📄 __init__.py
 👉              │               └── 📄 v_render.py
                 └── 📂 websocks
-                    └── 📂 o1o0
-                        └── 📂 gui
-                            ├── 📄 consumer_base.py
-                            ├── 📄 consumer_custom.py
-                            └── 📄 message_converter.py
+                    └── 📂 gui
+                        ├── 📂 consumer
+                        │   ├── 📄 v1o0.py
+                        │   └── 📄 v1o1o0.py
+                        └── 📂 message_converter
+                            └── 📄 v1o0.py
 ```
 
 ```py
@@ -1535,7 +1572,7 @@ def render_match_application(request, path_of_http_playing, lp_match_application
     return render(request, lp_match_application, context)
 ```
 
-# Step OA16o3o0gA13o0 ビュー作成 - playing フォルダー
+# Step OA16o3o0gA13o0 ビュー作成 - gui/playing/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1552,30 +1589,33 @@ def render_match_application(request, path_of_http_playing, lp_match_application
                 │               └── 📄 outgoing_messages.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-                │       └── 📂 o1o0
-                │           └── 📂 gui
-                │               ├── 📄 match_application.html
-                │               ├── 📄 playing_base.html
-                │               └── 📄 playing.html.txt
-                ├── 📂 views
-                │   └── 📂 o1o0
                 │       └── 📂 gui
                 │           ├── 📂 match_application
-                │           │   ├── 📄 __init__.py
-                │           │   └── 📄 v_render.py
+                │           │   └── 📄 v1o0.html
                 │           └── 📂 playing
+                │               ├── 📄 v1o0.html
+                │               └── 📄 v1o1o0.html.txt
+                ├── 📂 views
+                │   └── 📂 gui
+                │       ├── 📂 match_application
+                │       │   └── 📂 v1o0
+                │       │       ├── 📄 __init__.py
+                │       │       └── 📄 v_render.py
+                │       └── 📂 playing
+                │           └── 📂 v1o0
 👉              │               └── 📄 __init__.py
                 └── 📂 websocks
-                    └── 📂 o1o0
-                        └── 📂 gui
-                            ├── 📄 consumer_base.py
-                            ├── 📄 consumer_custom.py
-                            └── 📄 message_converter.py
+                    └── 📂 gui
+                        ├── 📂 consumer
+                        │   ├── 📄 v1o0.py
+                        │   └── 📄 v1o1o0.py
+                        └── 📂 message_converter
+                            └── 📄 v1o0.py
 ```
 
 ```py
 class PlayingV():
-    """対局中ビュー"""
+    """OA16o3o0gA13o0 対局中ビュー"""
 
     # 駒
     expected_pieces = ['X', 'O']
@@ -1589,12 +1629,12 @@ class PlayingV():
     #                          ------------------------
 
     # HTML
-    path_of_local_html = "tic_tac_toe_v2/o1o0/gui/playing.html.txt"
+    path_of_local_html = "tic_tac_toe_v2/gui/playing/v1o1o0.html.txt"
     #                                  ^two
-    #                     ----------------------------------------
+    #                     ------------------------------------------
     #                     1
-    # 1. `src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1o0/gui/playing.html.txt`
-    #                                         ----------------------------------------
+    # 1. `src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/gui/playing/v1o1o0.html.txt`
+    #                                         ------------------------------------------
 
     @staticmethod
     def render(request, kw_room_name):
@@ -1604,7 +1644,7 @@ class PlayingV():
         from .v_render import render_playing
         #    ---------        --------------
         #    1                2
-        # 1. `src1/apps1/tic_tac_toe_v2/views/o1o0/gui/playing/v_render.py`
+        # 1. `src1/apps1/tic_tac_toe_v2/views/gui/playing/v1o0/v_render.py`
         #                                                      --------
         # 2. `1.` に含まれる関数
 
@@ -1623,7 +1663,7 @@ class PlayingV():
         pass
 ```
 
-# Step OA16o3o0gA14o0 ビュー作成 - playing/v_render.py ファイル
+# Step OA16o3o0gA14o0 ビュー作成 - gui/playing/v1o0/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1640,26 +1680,29 @@ class PlayingV():
                 │               └── 📄 outgoing_messages.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-                │       └── 📂 o1o0
-                │           └── 📂 gui
-                │               ├── 📄 match_application.html
-                │               ├── 📄 playing_base.html
-                │               └── 📄 playing.html.txt
-                ├── 📂 views
-                │   └── 📂 o1o0
                 │       └── 📂 gui
                 │           ├── 📂 match_application
-                │           │   ├── 📄 __init__.py
-                │           │   └── 📄 v_render.py
+                │           │   └── 📄 v1o0.html
                 │           └── 📂 playing
+                │               ├── 📄 v1o0.html
+                │               └── 📄 v1o1o0.html.txt
+                ├── 📂 views
+                │   └── 📂 gui
+                │       ├── 📂 match_application
+                │       │   └── 📂 v1o0
+                │       │       ├── 📄 __init__.py
+                │       │       └── 📄 v_render.py
+                │       └── 📂 playing
+                │           └── 📂 v1o0
                 │               ├── 📄 __init__.py
 👉              │               └── 📄 v_render.py
                 └── 📂 websocks
-                    └── 📂 o1o0
-                        └── 📂 gui
-                            ├── 📄 consumer_base.py
-                            ├── 📄 consumer_custom.py
-                            └── 📄 message_converter.py
+                    └── 📂 gui
+                        ├── 📂 consumer
+                        │   ├── 📄 v1o0.py
+                        │   └── 📄 v1o1o0.py
+                        └── 📂 message_converter
+                            └── 📄 v1o0.py
 ```
 
 ```py
@@ -1710,26 +1753,29 @@ def render_playing(request, kw_room_name, wsp_playing, lp_playing, on_update, ex
         │       │               └── 📄 outgoing_messages.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 gui
-        │       │               ├── 📄 match_application.html
-        │       │               ├── 📄 playing_base.html
-        │       │               └── 📄 playing.html.txt
-        │       ├── 📂 views
-        │       │   └── 📂 o1o0
         │       │       └── 📂 gui
         │       │           ├── 📂 match_application
-        │       │           │   ├── 📄 __init__.py
-        │       │           │   └── 📄 v_render.py
+        │       │           │   └── 📄 v1o0.html
         │       │           └── 📂 playing
+        │       │               ├── 📄 v1o0.html
+        │       │               └── 📄 v1o1o0.html.txt
+        │       ├── 📂 views
+        │       │   └── 📂 gui
+        │       │       ├── 📂 match_application
+        │       │       │   └── 📂 v1o0
+        │       │       │       ├── 📄 __init__.py
+        │       │       │       └── 📄 v_render.py
+        │       │       └── 📂 playing
+        │       │           └── 📂 v1o0
         │       │               ├── 📄 __init__.py
         │       │               └── 📄 v_render.py
         │       └── 📂 websocks
-        │           └── 📂 o1o0
-        │               └── 📂 gui
-        │                   ├── 📄 consumer_base.py
-        │                   ├── 📄 consumer_custom.py
-        │                   └── 📄 message_converter.py
+        │           └── 📂 gui
+        │               ├── 📂 consumer
+        │               │   ├── 📄 v1o0.py
+        │               │   └── 📄 v1o1o0.py
+        │               └── 📂 message_converter
+        │                   └── 📄 v1o0.py
         └── 📂 project1                      # プロジェクト
 👉          └── 📄 urls_tic_tac_toe_v2.py
 ```
@@ -1738,20 +1784,20 @@ def render_playing(request, kw_room_name, wsp_playing, lp_playing, on_update, ex
 # ...略...
 
 
-# 〇×ゲーム v2 対局申込ページ
-from apps1.tic_tac_toe_v2.views.o1o0.gui.match_application import MatchApplicationV
-#          --------------                  ---------------        -----------------
-#          11                              12                     2
+# OA16o3o0gA15o0 〇×ゲーム v2 対局申込ページ
+from apps1.tic_tac_toe_v2.views.gui.match_application.v1o0 import MatchApplicationV
+#          --------------                             ----        -----------------
+#          11                                         12          2
 #    -----------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# 〇×ゲーム v2 対局中ページ
-from apps1.tic_tac_toe_v2.views.o1o0.gui.playing import PlayingV
-#          --------------                -------        --------
-#          11                            12             2
+# OA16o3o0gA15o0 〇×ゲーム v2 対局中ページ
+from apps1.tic_tac_toe_v2.views.gui.playing.v1o0 import PlayingV
+#          --------------                   ----        --------
+#          11                               12          2
 #    -------------------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -1763,7 +1809,7 @@ urlpatterns = [
     # ...略...
 
 
-    # 対局申込
+    # OA16o3o0gA15o0 対局申込
     path('tic-tac-toe/v2/match-application/',
          # --------------------------------
          # 1
@@ -1774,7 +1820,7 @@ urlpatterns = [
     #                              ---------------------------------
     # 2. MatchApplicationV クラスの render 静的メソッド
 
-    # 対局中
+    # OA16o3o0gA15o0 対局中
     path('tic-tac-toe/v2/playing/<str:kw_room_name>/',
          # -----------------------------------------
          # 1
@@ -1805,52 +1851,53 @@ urlpatterns = [
         │       │               └── 📄 outgoing_messages.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 gui
-        │       │               ├── 📄 match_application.html
-        │       │               ├── 📄 playing_base.html
-        │       │               └── 📄 playing.html.txt
-        │       ├── 📂 views
-        │       │   └── 📂 o1o0
         │       │       └── 📂 gui
         │       │           ├── 📂 match_application
-        │       │           │   ├── 📄 __init__.py
-        │       │           │   └── 📄 v_render.py
+        │       │           │   └── 📄 v1o0.html
         │       │           └── 📂 playing
+        │       │               ├── 📄 v1o0.html
+        │       │               └── 📄 v1o1o0.html.txt
+        │       ├── 📂 views
+        │       │   └── 📂 gui
+        │       │       ├── 📂 match_application
+        │       │       │   └── 📂 v1o0
+        │       │       │       ├── 📄 __init__.py
+        │       │       │       └── 📄 v_render.py
+        │       │       └── 📂 playing
+        │       │           └── 📂 v1o0
         │       │               ├── 📄 __init__.py
         │       │               └── 📄 v_render.py
         │       └── 📂 websocks
-        │           └── 📂 o1o0
-        │               └── 📂 gui
-        │                   ├── 📄 consumer_base.py
-        │                   ├── 📄 consumer_custom.py
-        │                   └── 📄 message_converter.py
+        │           └── 📂 gui
+        │               ├── 📂 consumer
+        │               │   ├── 📄 v1o0.py
+        │               │   └── 📄 v1o1o0.py
+        │               └── 📂 message_converter
+        │                   └── 📄 v1o0.py
         └── 📂 project1                      # プロジェクト
             ├── 📄 urls_tic_tac_toe_v2.py
 👉          └── 📄 ws_urls_tic_tac_toe_v2.py
 ```
 
 ```py
+# OA16o3o0gA16o0
 # See also: 📖 [Channels - Consumers](https://channels.readthedocs.io/en/latest/topics/consumers.html)
 from django.conf.urls import url
 
-# 〇×ゲーム v2
-from apps1.tic_tac_toe_v2.websocks.o1o0.gui.consumer_custom import TicTacToeV2o1o0ConsumerCustom
-#    ----- -------------- ----------------- ---------------        -----------------------------
-#    1     2              3                 4                      5
-#    ------------------------------------------------------
-#    6
-# 1. 開発者用ディレクトリーの一部
-# 2. アプリケーション フォルダー名
-# 3. ディレクトリー名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
-# 6. モジュール名
+# 〇×ゲーム v2o1o0
+from apps1.tic_tac_toe_v2.websocks.gui.consumer.v1o1o0 import TicTacToeV2o1o0ConsumerCustom
+#          --------------                       ------        -----------------------------
+#          11                                   12            2
+#    -------------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py にさらに含まれるクラス
 
 
 websocket_urlpatterns = [
 
-    # 〇×ゲーム v2
+    # OA16o3o0gA16o0 〇×ゲーム v2
     url(r'^tic-tac-toe/v2/playing/(?P<kw_room_name>\w+)/$',
         # -----------------------------------------------
         # 1
@@ -1881,26 +1928,29 @@ websocket_urlpatterns = [
         │       │               └── 📄 outgoing_messages.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 gui
-        │       │               ├── 📄 match_application.html
-        │       │               ├── 📄 playing_base.html
-        │       │               └── 📄 playing.html.txt
-        │       ├── 📂 views
-        │       │   └── 📂 o1o0
         │       │       └── 📂 gui
         │       │           ├── 📂 match_application
-        │       │           │   ├── 📄 __init__.py
-        │       │           │   └── 📄 v_render.py
+        │       │           │   └── 📄 v1o0.html
         │       │           └── 📂 playing
+        │       │               ├── 📄 v1o0.html
+        │       │               └── 📄 v1o1o0.html.txt
+        │       ├── 📂 views
+        │       │   └── 📂 gui
+        │       │       ├── 📂 match_application
+        │       │       │   └── 📂 v1o0
+        │       │       │       ├── 📄 __init__.py
+        │       │       │       └── 📄 v_render.py
+        │       │       └── 📂 playing
+        │       │           └── 📂 v1o0
         │       │               ├── 📄 __init__.py
         │       │               └── 📄 v_render.py
         │       └── 📂 websocks
-        │           └── 📂 o1o0
-        │               └── 📂 gui
-        │                   ├── 📄 consumer_base.py
-        │                   ├── 📄 consumer_custom.py
-        │                   └── 📄 message_converter.py
+        │           └── 📂 gui
+        │               ├── 📂 consumer
+        │               │   ├── 📄 v1o0.py
+        │               │   └── 📄 v1o1o0.py
+        │               └── 📂 message_converter
+        │                   └── 📄 v1o0.py
         └── 📂 project1                      # プロジェクト
 👉          ├── 📄 asgi.py
             ├── 📄 urls_tic_tac_toe_v2.py
@@ -1912,7 +1962,7 @@ websocket_urlpatterns = [
 
 
 # * 以下を追加
-# 〇×ゲーム v2
+# OA16o3o0gA17o0 〇×ゲーム v2
 from . import ws_urls_tic_tac_toe_v2
 #                                  ^two
 #    -        ----------------------
@@ -1937,7 +1987,7 @@ websocket_urlpatterns_merged = []
 
 
 # * 以下を追加
-# 〇×ゲーム v2
+# OA16o3o0gA17o0 〇×ゲーム v2
 websocket_urlpatterns_merged.extend(
     ws_urls_tic_tac_toe_v2.websocket_urlpatterns)
 #                        ^two
@@ -1969,26 +2019,29 @@ websocket_urlpatterns_merged.extend(
         │       │               └── 📄 outgoing_messages.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 gui
-        │       │               ├── 📄 match_application.html
-        │       │               ├── 📄 playing_base.html
-        │       │               └── 📄 playing.html.txt
-        │       ├── 📂 views
-        │       │   └── 📂 o1o0
         │       │       └── 📂 gui
         │       │           ├── 📂 match_application
-        │       │           │   ├── 📄 __init__.py
-        │       │           │   └── 📄 v_render.py
+        │       │           │   └── 📄 v1o0.html
         │       │           └── 📂 playing
+        │       │               ├── 📄 v1o0.html
+        │       │               └── 📄 v1o1o0.html.txt
+        │       ├── 📂 views
+        │       │   └── 📂 gui
+        │       │       ├── 📂 match_application
+        │       │       │   └── 📂 v1o0
+        │       │       │       ├── 📄 __init__.py
+        │       │       │       └── 📄 v_render.py
+        │       │       └── 📂 playing
+        │       │           └── 📂 v1o0
         │       │               ├── 📄 __init__.py
         │       │               └── 📄 v_render.py
         │       └── 📂 websocks
-        │           └── 📂 o1o0
-        │               └── 📂 gui
-        │                   ├── 📄 consumer_base.py
-        │                   ├── 📄 consumer_custom.py
-        │                   └── 📄 message_converter.py
+        │           └── 📂 gui
+        │               ├── 📂 consumer
+        │               │   ├── 📄 v1o0.py
+        │               │   └── 📄 v1o1o0.py
+        │               └── 📂 message_converter
+        │                   └── 📄 v1o0.py
         └── 📂 project1                          # プロジェクト
             ├── 📄 asgi.py
             ├── 📄 urls_tic_tac_toe_v2.py
