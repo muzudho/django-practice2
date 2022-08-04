@@ -1,3 +1,5 @@
+{# OA16o2o0gA13o0 #}
+<!-- -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <html>
@@ -38,15 +40,15 @@
             </v-app>
         </div>
 
-        <script src="{% static 'tic_tac_toe_v2/o1o0/think/things.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o1o0/think/concepts.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o1o0/think/position.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o1o0/think/user_ctrl.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o1o0/think/judge_ctrl.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o1o0/think/engine.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/things/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/concepts/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/position/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/user_ctrl/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/judge_ctrl/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/engine/v1o0.js' %}"></script>
         <!--            ===========================================
                         1
-        1. src1/apps1/tic_tac_toe_v2/static/tic-ta-toe_v2/o1o0/think/engine.js
+        1. src1/apps1/tic_tac_toe_v2/static/tic-ta-toe_v2/think/engine/v1o0.js
                                      =========================================
         -->
 
@@ -118,7 +120,7 @@ board
                              * @param {string} pieceMoved - 動かした駒
                              */
                             (sq, pieceMoved) => {
-                                console.log(`[Engine onDidMove] 置いたマス=${sq} 動かした駒=${pieceMoved}`);
+                                // console.log(`[Engine onDidMove] 置いたマス:${sq} 動かした駒:${pieceMoved}`);
                             }
                         ),
                         // 審判コントロール
@@ -129,25 +131,25 @@ board
                              * @param {*} gameoverSet - ゲームオーバー集合
                              */
                             (gameoverSet) => {
-                                console.log(`[Engine onDoJudge] 自分の番=${vue1.engine.position.turn.me}`);
+                                // console.log(`[Engine onDoJudge] 自分の番:${vue1.engine.position.turn.me}`);
                                 vue1.engine.gameoverSet = gameoverSet;
 
                                 switch (gameoverSet.value) {
                                     case GameoverSet.won:
                                         // 勝ったとき
-                                        console.log(`[Engine onDoJudge] 勝ち`);
+                                        // console.log(`[Engine onDoJudge] 勝ち`);
                                         break;
                                     case GameoverSet.draw:
                                         // 引き分けたとき
-                                        console.log(`[Engine onDoJudge] 引き分け`);
+                                        // console.log(`[Engine onDoJudge] 引き分け`);
                                         break;
                                     case GameoverSet.lost:
                                         // 負けたとき
-                                        console.log(`[Engine onDoJudge] 負け`);
+                                        // console.log(`[Engine onDoJudge] 負け`);
                                         break;
                                     case GameoverSet.none:
                                         // なんでもなかったとき
-                                        console.log(`[Engine onDoJudge] 何もなし`);
+                                        // console.log(`[Engine onDoJudge] 何もなし`);
                                         break;
                                     default:
                                         throw new Error(`Unexpected gameoverSet.value=${gameoverSet.value}`);
@@ -162,7 +164,7 @@ board
                      * po_input 欄のコマンドを入力します
                      */
                     executeVu() {
-                        console.log(`[methods executeVu]`);
+                        // console.log(`[methods executeVu]`);
                         vue1.outputText.value = vue1.engine.execute(vue1.inputText.value);
                     },
                 },

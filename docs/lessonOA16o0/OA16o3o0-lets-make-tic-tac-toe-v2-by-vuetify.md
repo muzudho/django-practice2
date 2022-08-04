@@ -653,18 +653,18 @@ class Connection {
             </v-app>
         </div>
 
-        <script src="{% static 'tic_tac_toe_v2/o1o0/think/things.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o1o0/think/concepts.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o1o0/think/position.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o1o0/think/user_ctrl.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o1o0/think/judge_ctrl.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o1o0/think/engine.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/things/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/concepts/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/position/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/user_ctrl/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/judge_ctrl/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/engine/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/o1o0/gui/connection.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/o1o0/gui/incoming_messages.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/o1o0/gui/outgoing_messages.js' %}"></script>
         <!--            ====================================================
                         1
-        1. src1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/o1o0/gui/outgoing_messages.js
+        1. src1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/gui/outgoing_messages/v1o0.js
                                      ===================================================
         -->
 

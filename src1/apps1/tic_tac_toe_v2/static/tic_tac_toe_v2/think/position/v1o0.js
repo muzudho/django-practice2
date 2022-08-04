@@ -1,3 +1,5 @@
+// OA16o2o0g9o0
+
 /**
  * 局面
  */
@@ -10,7 +12,7 @@ class Position {
      * @param {string} myTurn - 自分の手番。 "X", "O"
      */
     constructor(myTurn) {
-        console.log(`[Position constructor] 自分の手番=${myTurn}`);
+        // console.log(`[Position constructor] 自分の手番:${myTurn}`);
 
         // 盤面
         this._board = new Board();
@@ -71,7 +73,7 @@ class Position {
 
         // 各マス
         const squares = this._board.toArray();
-        console.log(`squares=${squares}`);
+        // console.log(`[Position toBoardString] squares:${squares}`);
         const [a, b, c, d, e, f, g, h, i] = squares.map((x) => pc_to_label(x));
 
         return `= [Next ${moves} moves / ${currentTurn} turn]

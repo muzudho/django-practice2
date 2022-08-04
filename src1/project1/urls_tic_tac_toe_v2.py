@@ -1,9 +1,9 @@
 from django.urls import path
 
-# 〇×ゲーム v2 思考エンジン
-from apps1.tic_tac_toe_v2.views.o1o0.think.engine_manual import EngineManual
-#          --------------                  -------------        ------------
-#          11                              12                   2
+# OA16o2o0gA16o0 〇×ゲーム v2 思考エンジン
+from apps1.tic_tac_toe_v2.views.think.engine_manual.v1o0 import EngineManual
+#          --------------                           ----        ------------
+#          11                                       12          2
 #    ---------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -33,7 +33,7 @@ from apps1.tic_tac_toe_v2.views.o1o0.gui.playing import PlayingV
 
 urlpatterns = [
 
-    # エンジン手動
+    # OA16o2o0gA16o0 エンジン手動
     path('tic-tac-toe/v2/engine-manual/',
          # ----------------------------
          # 1

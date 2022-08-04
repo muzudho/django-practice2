@@ -1,3 +1,5 @@
+// OA16o2o0gA12o0
+
 /**
  * 思考エンジン
  */
@@ -9,7 +11,7 @@ class Engine {
      * @param {JudgeCtrl} judgeCtrl - 審判コントロール
      */
     constructor(myTurn, userCtrl, judgeCtrl) {
-        console.log(`[Engine constructor] 自分の手番=${myTurn}`);
+        // console.log(`[Engine constructor] 自分の手番:${myTurn}`);
 
         // あれば勝者 "X", "O" なければ空文字列
         this._winner = "";

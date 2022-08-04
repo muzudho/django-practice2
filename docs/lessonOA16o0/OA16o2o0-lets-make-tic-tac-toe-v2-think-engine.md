@@ -45,25 +45,30 @@
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
     │   │       │   └── 📂 tic_tac_toe_v1
-    │   │       │       └── 📂 o1o0
-    │   │       │           ├── 📄 main.css
-    │   │       │           └── 📄 play.js
+    │   │       │       ├── 📂 style
+    │   │       │       │   └── 📂 main
+    │   │       │       │       └── 📄 v1o0.css
+    │   │       │       └── 📂 scripts
+    │   │       │           └── 📂 play
+    │   │       │               └── 📄 v1o0.js
     │   │       ├── 📂 templates
     │   │       │   └── 📂 tic_tac_toe_v1
-    │   │       │       └── 📂 o1o0
-    │   │       │           ├── 📄 match_application.html
-    │   │       │           └── 📄 playing.html
-    │   │       ├── 📂 views
-    │   │       │   └── 📂 o1o0
     │   │       │       ├── 📂 match_application
-    │   │       │       │   ├── 📄 __init__.py
-    │   │       │       │   └── 📄 v_render.py
+    │   │       │       │   └── 📄 v1o0.html
     │   │       │       └── 📂 playing
+    │   │       │           └── 📄 v1o0.html
+    │   │       ├── 📂 views
+    │   │       │   ├── 📂 match_application
+    │   │       │   │   └── 📂 v1o0
+    │   │       │   │       ├── 📄 __init__.py
+    │   │       │   │       └── 📄 v_render.py
+    │   │       │   └── 📂 playing
+    │   │       │       └── 📂 v1o0
     │   │       │           ├── 📄 __init__.py
     │   │       │           └── 📄 v_render.py
     │   │       ├── 📂 websocks
-    │   │       │   └── 📂 o1o0
-    │   │       │       └── 📄 consumer.py
+    │   │       │   └── 📂 consumer
+    │   │       │       └── 📄 v1o0.py
     │   │       ├── 📄 __init__.py
     │   │       ├── 📄 admin.py
     │   │       ├── 📄 apps.py
@@ -186,7 +191,7 @@ class TicTacToeV2Config(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     # * 変更前
     # name = 'tic_tac_toe_v2'
-    # * 変更後
+    # * OA16o2o0g5o0 変更後
     name = 'apps1.tic_tac_toe_v2'
     #       --------------------
     #       1
@@ -223,6 +228,7 @@ INSTALLED_APPS = [
     # ...略...
 
 
+    # OA16o2o0g6o0 〇×ゲーム v2
     'apps1.tic_tac_toe_v2',
 
 
@@ -230,7 +236,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-# Step OA16o2o0g7o0 物の定義 - things.js ファイル
+# Step OA16o2o0g7o0 物の定義 - think/things/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -242,9 +248,9 @@ INSTALLED_APPS = [
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 think
-👉      │       │               └── 📄 things.js
+        │       │       └── 📂 think
+        │       │           └── 📂 things
+👉      │       │               └── 📄 v1o0.js
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -254,6 +260,8 @@ INSTALLED_APPS = [
 ```
 
 ```js
+// OA16o2o0g7o0
+
 // +--------
 // | 駒
 // |
@@ -484,7 +492,7 @@ ${indent}_squares:${this._squares}`;
 // +--------
 ```
 
-# Step OA16o2o0g8o0 概念の定義 - concepts.js ファイル
+# Step OA16o2o0g8o0 概念の定義 - think/concepts/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -496,10 +504,11 @@ ${indent}_squares:${this._squares}`;
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 think
-👉      │       │               ├── 📄 concepts.js
-        │       │               └── 📄 things.js
+        │       │       └── 📂 think
+        │       │           ├── 📂 concepts
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 things
+👉      │       │               └── 📄 v1o0.js
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -509,6 +518,8 @@ ${indent}_squares:${this._squares}`;
 ```
 
 ```js
+// OA16o2o0g8o0
+
 /**
  * 部屋の状態
  */
@@ -782,7 +793,7 @@ function flipTurn(piece) {
 }
 ```
 
-# Step OA16o2o0g9o0 局面作成 - position.js ファイル
+# Step OA16o2o0g9o0 局面作成 - think/position/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -794,11 +805,13 @@ function flipTurn(piece) {
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 think
-        │       │               ├── 📄 concepts.js
-👉      │       │               ├── 📄 position.js
-        │       │               └── 📄 things.js
+        │       │       └── 📂 think
+        │       │           ├── 📂 concepts
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 position
+👉      │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 things
+        │       │               └── 📄 v1o0.js
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -808,6 +821,8 @@ function flipTurn(piece) {
 ```
 
 ```js
+// OA16o2o0g9o0
+
 /**
  * 局面
  */
@@ -820,7 +835,7 @@ class Position {
      * @param {string} myTurn - 自分の手番。 "X", "O"
      */
     constructor(myTurn) {
-        console.log(`[Position constructor] 自分の手番=${myTurn}`);
+        // console.log(`[Position constructor] 自分の手番:${myTurn}`);
 
         // 盤面
         this._board = new Board();
@@ -881,7 +896,7 @@ class Position {
 
         // 各マス
         const squares = this._board.toArray();
-        console.log(`squares=${squares}`);
+        // console.log(`[Position toBoardString] squares:${squares}`);
         const [a, b, c, d, e, f, g, h, i] = squares.map((x) => pc_to_label(x));
 
         return `= [Next ${moves} moves / ${currentTurn} turn]
@@ -911,7 +926,7 @@ ${indent}${this._turn.dump(indent + "    ")}`;
 }
 ```
 
-# Step OA16o2o0gA10o0 ユーザーコントロール作成 - user_ctrl.js ファイル
+# Step OA16o2o0gA10o0 ユーザーコントロール作成 - think/user_ctrl/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -923,12 +938,15 @@ ${indent}${this._turn.dump(indent + "    ")}`;
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 think
-        │       │               ├── 📄 concepts.js
-        │       │               ├── 📄 position.js
-        │       │               ├── 📄 things.js
-👉      │       │               └── 📄 user_ctrl.js
+        │       │       └── 📂 think
+        │       │           ├── 📂 concepts
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 position
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 things
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 user_ctrl
+👉      │       │               └── 📄 v1o0.js
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -938,6 +956,8 @@ ${indent}${this._turn.dump(indent + "    ")}`;
 ```
 
 ```js
+// OA16o2o0gA10o0
+
 /**
  * ユーザーコントロール
  */
@@ -962,7 +982,7 @@ class UserCtrl {
     doMove(position, piece, sq) {
         if (position.board.getPieceBySq(sq) == PC_EMPTY) {
             // 空升なら駒を置きます
-            console.log(`[UserCtrl doMove] 置いたマス:${sq} 動かした駒:${piece}`);
+            // console.log(`[UserCtrl doMove] 置いたマス:${sq} 動かした駒:${piece}`);
 
             position.record.push(sq); // 棋譜に追加
 
@@ -979,9 +999,9 @@ class UserCtrl {
                     return false;
             }
 
-            console.log(`[UserCtrl doMove] 反転前の手番=${position.turn.next}`);
+            // console.log(`[UserCtrl doMove] 反転前の手番=${position.turn.next}`);
             position.turn.next = flipTurn(position.turn.next);
-            console.log(`[UserCtrl doMove] 反転後の手番=${position.turn.next}`);
+            // console.log(`[UserCtrl doMove] 反転後の手番=${position.turn.next}`);
 
             this._onDidMove(sq, piece);
             return true;
@@ -1000,15 +1020,15 @@ class UserCtrl {
      */
     undoMove(position) {
         const previousSq = position.record.pop();
-        console.log(`[UserCtrl undoMove] previousSq:${previousSq}`);
+        // console.log(`[UserCtrl undoMove] previousSq:${previousSq}`);
 
         if (typeof previousSq === "undefined") {
             return false;
         }
 
-        console.log(`[UserCtrl doMove] 反転前の手番:${position.turn.next}`);
+        // console.log(`[UserCtrl doMove] 反転前の手番:${position.turn.next}`);
         position.turn.next = flipTurn(position.turn.next);
-        console.log(`[UserCtrl doMove] 反転後の手番:${position.turn.next}`);
+        // console.log(`[UserCtrl doMove] 反転後の手番:${position.turn.next}`);
 
         // 盤上の駒を消します
         position.board.setPiece(previousSq, PC_EMPTY);
@@ -1017,7 +1037,7 @@ class UserCtrl {
 }
 ```
 
-# Step OA16o2o0gA11o0 審判作成 - judge_ctrl.js ファイル
+# Step OA16o2o0gA11o0 審判作成 - think/judge_ctrl/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1029,13 +1049,17 @@ class UserCtrl {
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 think
-        │       │               ├── 📄 concepts.js
-👉      │       │               ├── 📄 judge_ctrl.js
-        │       │               ├── 📄 position.js
-        │       │               ├── 📄 things.js
-        │       │               └── 📄 user_ctrl.js
+        │       │       └── 📂 think
+        │       │           ├── 📂 concepts
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 judge_ctrl
+👉      │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 position
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 things
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 user_ctrl
+        │       │               └── 📄 v1o0.js
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -1045,6 +1069,8 @@ class UserCtrl {
 ```
 
 ```js
+// OA16o2o0gA11o0
+
 /**
  * 審判コントロール
  */
@@ -1068,7 +1094,7 @@ class JudgeCtrl {
      */
     doJudge(position) {
         let gameoverSet = this.#makeGameoverSet(position);
-        console.log(`[doJudge] gameoverSet.toString()=${gameoverSet.toString()}`);
+        // console.log(`[doJudge] gameoverSet.toString():${gameoverSet.toString()}`);
         this._onJudged(gameoverSet);
 
         return gameoverSet;
@@ -1124,7 +1150,7 @@ class JudgeCtrl {
 }
 ```
 
-# Step OA16o2o0gA12o0 思考エンジン作成 - engine.js ファイル
+# Step OA16o2o0gA12o0 思考エンジン作成 - think/engine/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1136,14 +1162,19 @@ class JudgeCtrl {
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 think
-        │       │               ├── 📄 concepts.js
-👉      │       │               ├── 📄 engine.js
-        │       │               ├── 📄 judge_ctrl.js
-        │       │               ├── 📄 position.js
-        │       │               ├── 📄 things.js
-        │       │               └── 📄 user_ctrl.js
+        │       │       └── 📂 think
+        │       │           ├── 📂 concepts
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 engine
+👉      │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 judge_ctrl
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 position
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 things
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 user_ctrl
+        │       │               └── 📄 v1o0.js
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -1153,6 +1184,8 @@ class JudgeCtrl {
 ```
 
 ```js
+// OA16o2o0gA12o0
+
 /**
  * 思考エンジン
  */
@@ -1164,7 +1197,7 @@ class Engine {
      * @param {JudgeCtrl} judgeCtrl - 審判コントロール
      */
     constructor(myTurn, userCtrl, judgeCtrl) {
-        console.log(`[Engine constructor] 自分の手番=${myTurn}`);
+        // console.log(`[Engine constructor] 自分の手番:${myTurn}`);
 
         // あれば勝者 "X", "O" なければ空文字列
         this._winner = "";
@@ -1340,7 +1373,7 @@ ${indent}${this._position.dump(indent + "    ")}`;
 }
 ```
 
-# Step OA16o2o0gA13o0 エンジン テスト ページ作成 - engine_manual.html ファイル
+# Step OA16o2o0gA13o0 画面作成 - think/engine_manual/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1352,19 +1385,24 @@ ${indent}${this._position.dump(indent + "    ")}`;
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 think
-        │       │               ├── 📄 concepts.js
-        │       │               ├── 📄 engine.js
-        │       │               ├── 📄 judge_ctrl.js
-        │       │               ├── 📄 position.js
-        │       │               ├── 📄 things.js
-        │       │               └── 📄 user_ctrl.js
+        │       │       └── 📂 think
+        │       │           ├── 📂 concepts
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 engine
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 judge_ctrl
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 position
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 things
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 user_ctrl
+        │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 think
-👉      │       │               └── 📄 engine_manual.html
+        │       │       └── 📂 think
+        │       │           └── 📂 engine_manual
+👉      │       │               └── 📄 v1o0.html
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -1374,6 +1412,8 @@ ${indent}${this._position.dump(indent + "    ")}`;
 ```
 
 ```html
+{# OA16o2o0gA13o0 #}
+<!-- -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <html>
@@ -1414,15 +1454,15 @@ ${indent}${this._position.dump(indent + "    ")}`;
             </v-app>
         </div>
 
-        <script src="{% static 'tic_tac_toe_v2/o1o0/think/things.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o1o0/think/concepts.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o1o0/think/position.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o1o0/think/user_ctrl.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o1o0/think/judge_ctrl.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/o1o0/think/engine.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/things/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/concepts/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/position/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/user_ctrl/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/judge_ctrl/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/engine/v1o0.js' %}"></script>
         <!--            ===========================================
                         1
-        1. src1/apps1/tic_tac_toe_v2/static/tic-ta-toe_v2/o1o0/think/engine.js
+        1. src1/apps1/tic_tac_toe_v2/static/tic-ta-toe_v2/think/engine/v1o0.js
                                      =========================================
         -->
 
@@ -1494,7 +1534,7 @@ board
                              * @param {string} pieceMoved - 動かした駒
                              */
                             (sq, pieceMoved) => {
-                                console.log(`[Engine onDidMove] 置いたマス=${sq} 動かした駒=${pieceMoved}`);
+                                // console.log(`[Engine onDidMove] 置いたマス:${sq} 動かした駒:${pieceMoved}`);
                             }
                         ),
                         // 審判コントロール
@@ -1505,25 +1545,25 @@ board
                              * @param {*} gameoverSet - ゲームオーバー集合
                              */
                             (gameoverSet) => {
-                                console.log(`[Engine onDoJudge] 自分の番=${vue1.engine.position.turn.me}`);
+                                //console.log(`[Engine onDoJudge] 自分の番:${vue1.engine.position.turn.me}`);
                                 vue1.engine.gameoverSet = gameoverSet;
 
                                 switch (gameoverSet.value) {
                                     case GameoverSet.won:
                                         // 勝ったとき
-                                        console.log(`[Engine onDoJudge] 勝ち`);
+                                        // console.log(`[Engine onDoJudge] 勝ち`);
                                         break;
                                     case GameoverSet.draw:
                                         // 引き分けたとき
-                                        console.log(`[Engine onDoJudge] 引き分け`);
+                                        // console.log(`[Engine onDoJudge] 引き分け`);
                                         break;
                                     case GameoverSet.lost:
                                         // 負けたとき
-                                        console.log(`[Engine onDoJudge] 負け`);
+                                        // console.log(`[Engine onDoJudge] 負け`);
                                         break;
                                     case GameoverSet.none:
                                         // なんでもなかったとき
-                                        console.log(`[Engine onDoJudge] 何もなし`);
+                                        // console.log(`[Engine onDoJudge] 何もなし`);
                                         break;
                                     default:
                                         throw new Error(`Unexpected gameoverSet.value=${gameoverSet.value}`);
@@ -1538,7 +1578,7 @@ board
                      * po_input 欄のコマンドを入力します
                      */
                     executeVu() {
-                        console.log(`[methods executeVu]`);
+                        // console.log(`[methods executeVu]`);
                         vue1.outputText.value = vue1.engine.execute(vue1.inputText.value);
                     },
                 },
@@ -1548,7 +1588,7 @@ board
 </html>
 ```
 
-# Step OA16o2o0gA14o0 ビュー作成 - engine_manual フォルダー
+# Step OA16o2o0gA14o0 ビュー作成 - think/engine_manual/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1560,23 +1600,28 @@ board
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 think
-        │       │               ├── 📄 concepts.js
-        │       │               ├── 📄 engine.js
-        │       │               ├── 📄 judge_ctrl.js
-        │       │               ├── 📄 position.js
-        │       │               ├── 📄 things.js
-        │       │               └── 📄 user_ctrl.js
+        │       │       └── 📂 think
+        │       │           ├── 📂 concepts
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 engine
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 judge_ctrl
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 position
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 things
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 user_ctrl
+        │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 think
-        │       │               └── 📄 engine_manual.html
-        │       ├── 📂 views
-        │       │   └── 📂 o1o0
         │       │       └── 📂 think
         │       │           └── 📂 engine_manual
+        │       │               └── 📄 v1o0.html
+        │       ├── 📂 views
+        │       │   └── 📂 think
+        │       │       └── 📂 engine_manual
+        │       │           └── 📂 v1o0
 👉      │       │               └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -1588,12 +1633,12 @@ board
 
 ```py
 class EngineManual():
-    """エンジン手動"""
+    """OA16o2o0gA14o0 エンジン手動"""
 
-    path_of_local_html = "tic_tac_toe_v2/o1o0/think/engine_manual.html"
+    path_of_local_html = "tic_tac_toe_v2/think/engine_manual/v1o0.html"
     #                     --------------------------------------------
     #                     1
-    # 1. src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/o1o0/think/engine_manual.html
+    # 1. src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/think/engine_manual/v1o0.html
     #                                        --------------------------------------------
 
     @staticmethod
@@ -1604,14 +1649,14 @@ class EngineManual():
         from .v_render import render_engine_manual
         #    ---------        --------------------
         #    1                2
-        # 1. `src1/apps1/tic_tac_toe_v2/views/o1o0/engine_manual/v_render.py`
-        #                                                        --------
+        # 1. `src1/apps1/tic_tac_toe_v2/views/think/engine_manual/v1o0/v_render.py`
+        #                                                              --------
         # 2. `1.` に含まれる関数
 
         return render_engine_manual(request, EngineManual.path_of_local_html)
 ```
 
-# Step OA16o2o0gA15o0 ビュー作成 - engine_manual/v_render.py ファイル
+# Step OA16o2o0gA15o0 ビュー作成 - think/engine_manual/v1o0/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1623,23 +1668,28 @@ class EngineManual():
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 think
-        │       │               ├── 📄 concepts.js
-        │       │               ├── 📄 engine.js
-        │       │               ├── 📄 judge_ctrl.js
-        │       │               ├── 📄 position.js
-        │       │               ├── 📄 things.js
-        │       │               └── 📄 user_ctrl.js
+        │       │       └── 📂 think
+        │       │           ├── 📂 concepts
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 engine
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 judge_ctrl
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 position
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 things
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 user_ctrl
+        │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 think
-        │       │               └── 📄 engine_manual.html
-        │       ├── 📂 views
-        │       │   └── 📂 o1o0
         │       │       └── 📂 think
         │       │           └── 📂 engine_manual
+        │       │               └── 📄 v1o0.html
+        │       ├── 📂 views
+        │       │   └── 📂 think
+        │       │       └── 📂 engine_manual
+        │       │           └── 📂 v1o0
         │       │               ├── 📄 __init__.py
 👉      │       │               └── 📄 v_render.py
         │       ├── 📄 __init__.py
@@ -1668,7 +1718,7 @@ def render_engine_manual(request, lp_engine_manual):
     return render(request, lp_engine_manual, context)
 ```
 
-# Step OA16o2o0gA16o0 ルート新規作成 - urls_tic_tac_toe_v2.py ファイル
+# Step OA16o2o0gA16o0 サブ ルート新規作成 - urls_tic_tac_toe_v2.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1680,23 +1730,28 @@ def render_engine_manual(request, lp_engine_manual):
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 think
-        │       │               ├── 📄 concepts.js
-        │       │               ├── 📄 engine.js
-        │       │               ├── 📄 judge_ctrl.js
-        │       │               ├── 📄 position.js
-        │       │               ├── 📄 things.js
-        │       │               └── 📄 user_ctrl.js
+        │       │       └── 📂 think
+        │       │           ├── 📂 concepts
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 engine
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 judge_ctrl
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 position
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 things
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 user_ctrl
+        │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 think
-        │       │               └── 📄 engine_manual.html
-        │       ├── 📂 views
-        │       │   └── 📂 o1o0
         │       │       └── 📂 think
         │       │           └── 📂 engine_manual
+        │       │               └── 📄 v1o0.html
+        │       ├── 📂 views
+        │       │   └── 📂 think
+        │       │       └── 📂 engine_manual
+        │       │           └── 📂 v1o0
         │       │               ├── 📄 __init__.py
         │       │               └── 📄 v_render.py
         │       ├── 📄 __init__.py
@@ -1711,10 +1766,10 @@ def render_engine_manual(request, lp_engine_manual):
 ```py
 from django.urls import path
 
-# 〇×ゲーム v2 思考エンジン
-from apps1.tic_tac_toe_v2.views.o1o0.think.engine_manual import EngineManual
-#          --------------                  -------------        ------------
-#          11                              12                   2
+# OA16o2o0gA16o0 〇×ゲーム v2 思考エンジン
+from apps1.tic_tac_toe_v2.views.think.engine_manual.v1o0 import EngineManual
+#          --------------                           ----        ------------
+#          11                                       12          2
 #    ---------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -1724,7 +1779,7 @@ from apps1.tic_tac_toe_v2.views.o1o0.think.engine_manual import EngineManual
 
 urlpatterns = [
 
-    # エンジン手動
+    # OA16o2o0gA16o0 エンジン手動
     path('tic-tac-toe/v2/engine-manual/',
          # ----------------------------
          # 1
@@ -1749,19 +1804,24 @@ urlpatterns = [
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 think
-        │       │               ├── 📄 concepts.js
-        │       │               ├── 📄 engine.js
-        │       │               ├── 📄 judge_ctrl.js
-        │       │               ├── 📄 position.js
-        │       │               ├── 📄 things.js
-        │       │               └── 📄 user_ctrl.js
+        │       │       └── 📂 think
+        │       │           ├── 📂 concepts
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 engine
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 judge_ctrl
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 position
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 things
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 user_ctrl
+        │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 think
-        │       │               └── 📄 engine_manual.html
+        │       │       └── 📂 think
+        │       │           └── 📂 engine_manual
+        │       │               └── 📄 v1o0.html
         │       ├── 📂 views
         │       │   └── 📂 o1o0
         │       │       └── 📂 think
@@ -1817,19 +1877,24 @@ urlpatterns = [
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 think
-        │       │               ├── 📄 concepts.js
-        │       │               ├── 📄 engine.js
-        │       │               ├── 📄 judge_ctrl.js
-        │       │               ├── 📄 position.js
-        │       │               ├── 📄 things.js
-        │       │               └── 📄 user_ctrl.js
+        │       │       └── 📂 think
+        │       │           ├── 📂 concepts
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 engine
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 judge_ctrl
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 position
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 things
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 user_ctrl
+        │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 think
-        │       │               └── 📄 engine_manual.html
+        │       │       └── 📂 think
+        │       │           └── 📂 engine_manual
+        │       │               └── 📄 v1o0.html
         │       ├── 📂 views
         │       │   └── 📂 o1o0
         │       │       └── 📂 think

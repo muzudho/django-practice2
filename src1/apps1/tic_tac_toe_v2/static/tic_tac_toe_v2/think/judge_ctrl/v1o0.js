@@ -1,3 +1,5 @@
+// OA16o2o0gA11o0
+
 /**
  * 審判コントロール
  */
@@ -21,7 +23,7 @@ class JudgeCtrl {
      */
     doJudge(position) {
         let gameoverSet = this.#makeGameoverSet(position);
-        console.log(`[doJudge] gameoverSet.toString()=${gameoverSet.toString()}`);
+        // console.log(`[doJudge] gameoverSet.toString():${gameoverSet.toString()}`);
         this._onJudged(gameoverSet);
 
         return gameoverSet;

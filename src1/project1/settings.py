@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'apps1.allauth_customized_v1',
     # OA16o1o0g8o0 〇×ゲーム v1
     'apps1.tic_tac_toe_v1',
+    # OA16o2o0g6o0 〇×ゲーム v2
     'apps1.tic_tac_toe_v2',
     'apps1.tic_tac_toe_v3',
 
