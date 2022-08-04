@@ -581,11 +581,13 @@ class Connection {
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
-                │       └── 📂 o1o0
-                │           └── 📂 gui
-                │               ├── 📄 connection.js
-                │               ├── 📄 incoming_messages.js
-                │               └── 📄 outgoing_messages.js
+                │       └── 📂 gui
+                │           ├── 📂 connection
+                │           │   └── 📄 v1o0.js
+                │           ├── 📂 incoming_messages
+                │           │   └── 📄 v1o0.js
+                │           └── 📂 outgoing_messages
+                │               └── 📄 v1o0.js
                 └── 📂 templates
                     └── 📂 tic_tac_toe_v2    # アプリケーションと同名
                         └── 📂 gui
@@ -1067,11 +1069,13 @@ class Connection {
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
-                │       └── 📂 o1o0
-                │           └── 📂 gui
-                │               ├── 📄 connection.js
-                │               ├── 📄 incoming_messages.js
-                │               └── 📄 outgoing_messages.js
+                │       └── 📂 gui
+                │           ├── 📂 connection
+                │           │   └── 📄 v1o0.js
+                │           ├── 📂 incoming_messages
+                │           │   └── 📄 v1o0.js
+                │           └── 📂 outgoing_messages
+                │               └── 📄 v1o0.js
                 └── 📂 templates
                     └── 📂 tic_tac_toe_v2    # アプリケーションと同名
                         └── 📂 gui
@@ -1137,11 +1141,13 @@ class Connection {
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
-                │       └── 📂 o1o0
-                │           └── 📂 gui
-                │               ├── 📄 connection.js
-                │               ├── 📄 incoming_messages.js
-                │               └── 📄 outgoing_messages.js
+                │       └── 📂 gui
+                │           ├── 📂 connection
+                │           │   └── 📄 v1o0.js
+                │           ├── 📂 incoming_messages
+                │           │   └── 📄 v1o0.js
+                │           └── 📂 outgoing_messages
+                │               └── 📄 v1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
                 │       └── 📂 gui
@@ -1242,11 +1248,13 @@ class TicTacToeV2MessageConverter():
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
-                │       └── 📂 o1o0
-                │           └── 📂 gui
-                │               ├── 📄 connection.js
-                │               ├── 📄 incoming_messages.js
-                │               └── 📄 outgoing_messages.js
+                │       └── 📂 gui
+                │           ├── 📂 connection
+                │           │   └── 📄 v1o0.js
+                │           ├── 📂 incoming_messages
+                │           │   └── 📄 v1o0.js
+                │           └── 📂 outgoing_messages
+                │               └── 📄 v1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
                 │       └── 📂 gui
@@ -1341,11 +1349,13 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
-                │       └── 📂 o1o0
-                │           └── 📂 gui
-                │               ├── 📄 connection.js
-                │               ├── 📄 incoming_messages.js
-                │               └── 📄 outgoing_messages.js
+                │       └── 📂 gui
+                │           ├── 📂 connection
+                │           │   └── 📄 v1o0.js
+                │           ├── 📂 incoming_messages
+                │           │   └── 📄 v1o0.js
+                │           └── 📂 outgoing_messages
+                │               └── 📄 v1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
                 │       └── 📂 gui
@@ -1413,11 +1423,13 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
-                │       └── 📂 o1o0
-                │           └── 📂 gui
-                │               ├── 📄 connection.js
-                │               ├── 📄 incoming_messages.js
-                │               └── 📄 outgoing_messages.js
+                │       └── 📂 gui
+                │           ├── 📂 connection
+                │           │   └── 📄 v1o0.js
+                │           ├── 📂 incoming_messages
+                │           │   └── 📄 v1o0.js
+                │           └── 📂 outgoing_messages
+                │               └── 📄 v1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
                 │       └── 📂 gui
@@ -1513,11 +1525,13 @@ class MatchApplicationV():
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
-                │       └── 📂 o1o0
-                │           └── 📂 gui
-                │               ├── 📄 connection.js
-                │               ├── 📄 incoming_messages.js
-                │               └── 📄 outgoing_messages.js
+                │       └── 📂 gui
+                │           ├── 📂 connection
+                │           │   └── 📄 v1o0.js
+                │           ├── 📂 incoming_messages
+                │           │   └── 📄 v1o0.js
+                │           └── 📂 outgoing_messages
+                │               └── 📄 v1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
                 │       └── 📂 gui
@@ -1582,11 +1596,13 @@ def render_match_application(request, path_of_http_playing, lp_match_application
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
-                │       └── 📂 o1o0
-                │           └── 📂 gui
-                │               ├── 📄 connection.js
-                │               ├── 📄 incoming_messages.js
-                │               └── 📄 outgoing_messages.js
+                │       └── 📂 gui
+                │           ├── 📂 connection
+                │           │   └── 📄 v1o0.js
+                │           ├── 📂 incoming_messages
+                │           │   └── 📄 v1o0.js
+                │           └── 📂 outgoing_messages
+                │               └── 📄 v1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
                 │       └── 📂 gui
@@ -1673,11 +1689,13 @@ class PlayingV():
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
-                │       └── 📂 o1o0
-                │           └── 📂 gui
-                │               ├── 📄 connection.js
-                │               ├── 📄 incoming_messages.js
-                │               └── 📄 outgoing_messages.js
+                │       └── 📂 gui
+                │           ├── 📂 connection
+                │           │   └── 📄 v1o0.js
+                │           ├── 📂 incoming_messages
+                │           │   └── 📄 v1o0.js
+                │           └── 📂 outgoing_messages
+                │               └── 📄 v1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
                 │       └── 📂 gui
@@ -1746,11 +1764,13 @@ def render_playing(request, kw_room_name, wsp_playing, lp_playing, on_update, ex
         │   └── 📂 tic_tac_toe_v2    # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 gui
-        │       │               ├── 📄 connection.js
-        │       │               ├── 📄 incoming_messages.js
-        │       │               └── 📄 outgoing_messages.js
+        │       │       └── 📂 gui
+        │       │           ├── 📂 connection
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 incoming_messages
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 outgoing_messages
+        │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
         │       │       └── 📂 gui
@@ -1844,11 +1864,13 @@ urlpatterns = [
         │   └── 📂 tic_tac_toe_v2    # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 gui
-        │       │               ├── 📄 connection.js
-        │       │               ├── 📄 incoming_messages.js
-        │       │               └── 📄 outgoing_messages.js
+        │       │       └── 📂 gui
+        │       │           ├── 📂 connection
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 incoming_messages
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 outgoing_messages
+        │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
         │       │       └── 📂 gui
@@ -1921,11 +1943,13 @@ websocket_urlpatterns = [
         │   └── 📂 tic_tac_toe_v2    # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 gui
-        │       │               ├── 📄 connection.js
-        │       │               ├── 📄 incoming_messages.js
-        │       │               └── 📄 outgoing_messages.js
+        │       │       └── 📂 gui
+        │       │           ├── 📂 connection
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 incoming_messages
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 outgoing_messages
+        │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
         │       │       └── 📂 gui
@@ -2012,11 +2036,13 @@ websocket_urlpatterns_merged.extend(
         │   └── 📂 tic_tac_toe_v2                # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 gui
-        │       │               ├── 📄 connection.js
-        │       │               ├── 📄 incoming_messages.js
-        │       │               └── 📄 outgoing_messages.js
+        │       │       └── 📂 gui
+        │       │           ├── 📂 connection
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 incoming_messages
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 outgoing_messages
+        │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2
         │       │       └── 📂 gui
