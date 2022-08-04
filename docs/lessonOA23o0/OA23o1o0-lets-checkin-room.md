@@ -214,22 +214,24 @@ class MatchApplicationV():
 
 ```py
 # 部屋モデル
-from apps1.practice_v1.models.o1o0.m_room import Room
-#    ----- ----------- ----------- ------        ----
-#    1     2           3           4             5
-# 1,3. ディレクトリー名
-# 2. アプリケーション名
-# 4. Python ファイル名。拡張子抜き
-# 5. クラス名
+from apps1.practice_v1.models.room.v1o0 import Room
+#          -----------             ----        ----
+#          11                      12          2
+#    ----------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # ユーザー拡張
-from apps1.practice_v1.models.o1o0.m_user_profile import Profile
-#    ----- ----------- --------------------------        -------
-#    1     2           3                                 4
-# 1,3. ディレクトリー名
-# 2. アプリケーション フォルダー名
-# 3. Python ファイル名。拡張子抜き
-# 4. クラス名
+from apps1.practice_v1.models.user_profile.v1o0 import Profile
+#          -----------                     ----        -------
+#          11                              12          2
+#    ------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
 def match_application_on_sent(request):

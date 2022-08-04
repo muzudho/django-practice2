@@ -3,7 +3,7 @@ from django.db import models
 
 
 class Room(models.Model):
-    """部屋のモデル"""
+    """OA18o1o0g2o0 部屋のモデル"""
 
     # プロパティの仕様を決める感じで
 

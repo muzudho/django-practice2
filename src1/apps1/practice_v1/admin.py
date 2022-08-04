@@ -24,12 +24,12 @@ from .models.dessert.v1o0 import Dessert
 #                                      ----------------------
 # 2. クラス
 
-# 対局部屋
-from .models.o1o0.m_room import Room
-#    -------------------        ----
-#    1                          2
-# 1. このファイルと同じディレクトリにある `models/o1o0/m_room.py` ファイルの拡張子抜き
-#                                      ------------------
+# OA18o1o0g3o0 対局部屋
+from .models.room.v1o0 import Room
+#    -----------------        ----
+#    1                        2
+# 1. このファイルと同じディレクトリにある `models/room/v1o0.py` ファイルの拡張子抜き
+#                                      ----------------
 # 2. クラス
 
 # Register your models here.
@@ -45,4 +45,5 @@ admin.site.register(Prefecture)
 # OA13o4o0g3o0 デザート
 admin.site.register(Dessert)
 
+# OA18o1o0g3o0 対局部屋
 admin.site.register(Room)

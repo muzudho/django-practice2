@@ -1,9 +1,10 @@
 from django.shortcuts import render
 
-from apps1.practice_v1.models.o1o0.m_room import Room
-#          -----------             ------        ----
-#          11                      12            2
-#    ------------------------------------
+# 部屋モデル
+from apps1.practice_v1.models.room.v1o0 import Room
+#          -----------             ----        ----
+#          11                      12          2
+#    ----------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション

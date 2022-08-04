@@ -1,13 +1,13 @@
 from django.shortcuts import get_object_or_404, redirect, render
 
 # 部屋モデル
-from apps1.practice_v1.models.o1o0.m_room import Room
-#          -----------             ------        ----
-#          11                      12            2
-#    ------------------------------------
+from apps1.practice_v1.models.room.v1o0 import Room
+#          -----------             ----        ----
+#          11                      12          2
+#    ----------------------------------
 #    10
-# 10, 12. ディレクトリー名
-# 11. アプリケーション名
+# 10, 12. ディレクトリー
+# 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # 部屋フォーム
