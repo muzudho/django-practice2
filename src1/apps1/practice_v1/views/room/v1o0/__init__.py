@@ -8,7 +8,7 @@ class RoomV():
     # 1. `src1/apps1/practice_v1/templates/practice_v1/room/list/v1o0.html` を取得
     #                                      -------------------------------
 
-    # 詳細ページ
+    # OA18o3o0g3o0 詳細ページ
     _path_of_read_page = "practice_v1/room/read/v1o0.html"
     #                     -------------------------------
     #                     1
@@ -45,7 +45,7 @@ class RoomV():
 
     @staticmethod
     def render_read(request, id):
-        """描画 - 詳細"""
+        """OA18o3o0g3o0 描画 - 詳細"""
 
         # 以下のファイルはあとで作ります
         from ..read.v1o0 import render_read

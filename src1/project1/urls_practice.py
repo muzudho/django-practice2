@@ -558,7 +558,7 @@ urlpatterns = [
     # 2. RoomVV1o0 クラスの render_list 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms' %} のような形でURLを取得するのに使える
 
-    # 対局部屋の詳細
+    # OA18o3o0g5o0 対局部屋の詳細
     path('practice/v1/rooms/read/<int:id>/',
          # -------------------------------
          # 1
