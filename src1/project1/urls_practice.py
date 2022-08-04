@@ -113,15 +113,16 @@ from apps1.practice_v1.views.vuetifies import VuetifyV
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# 部屋ビュー
-from apps1.practice_v1.views.o1o0.room import RoomV
-#          -----------            ----        -----
-#          11                     12          2
+# OA18o2o0g7o0 部屋ビュー v1.0
+from apps1.practice_v1.views.room.v1o0 import RoomV as RoomVV1o0
+#          -----------            ----        -----    ---------
+#          11                     12          2        3
 #    ---------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
+# 3. `2.` の別名
 
 # ロビー ビュー
 from apps1.practice_v1.views.o1o0.lobby import LobbyV
@@ -548,31 +549,31 @@ urlpatterns = [
     # 2. VuetifyV クラスの render_save_result_of_desserts1_from_textarea1 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'vuetify_save_desserts1_from_textarea1' %} のような形でURLを取得するのに使える
 
-    # 対局部屋の一覧
-    path('practice/v1/rooms/', RoomV.render_list, name='practice_v1_rooms'),
-    #     ------------------   -----------------        -----------------
-    #     1                    2                        3
+    # OA18o2o0g7o0 対局部屋の一覧
+    path('practice/v1/rooms/', RoomVV1o0.render_list, name='practice_v1_rooms'),
+    #     ------------------   ---------------------        -----------------
+    #     1                    2                            3
     # 1. 例えば `http://example.com/practice/v1/rooms/` のような URL のパスの部分
     #                              ------------------
-    # 2. RoomV クラスの render_list 静的メソッド
+    # 2. RoomVV1o0 クラスの render_list 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms' %} のような形でURLを取得するのに使える
 
     # 対局部屋の詳細
     path('practice/v1/rooms/read/<int:id>/',
          # -------------------------------
          # 1
-         RoomV.render_read, name='practice_v1_rooms_read'),
-    #    -----------------        ----------------------
-    #    2                        3
+         RoomVV1o0.render_read, name='practice_v1_rooms_read'),
+    #    ---------------------        ----------------------
+    #    2                            3
     # 1. 例えば `http://example.com/practice/v1/rooms/read/<数字列>/` のような URL のパスの部分。
     #                              --------------------------------
     #    数字列は `2.` の関数の引数 id で取得できる
-    # 2. RoomV クラスの render_read 静的メソッド
+    # 2. RoomVV1o0 クラスの render_read 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_read' %} のような形でURLを取得するのに使える
 
     # 対局部屋の削除
-    path('practice/v1/rooms/delete/<int:id>/', RoomV.render_delete,
-         # ---------------------------------   -------------------
+    path('practice/v1/rooms/delete/<int:id>/', RoomVV1o0.render_delete,
+         # ---------------------------------   -----------------------
          # 1                                   2
          name='practice_v1_rooms_delete'),
     #          ------------------------
@@ -580,24 +581,24 @@ urlpatterns = [
     # 1. 例えば `http://example.com/practice/v1/rooms/delete/<数字列>/` のような URL のパスの部分。
     #                              ----------------------------------
     #    数字列は `2.` の関数の引数 id で取得できる
-    # 2. RoomV クラスの render_delete 静的メソッド
+    # 2. RoomVV1o0 クラスの render_delete 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_delete' %} のような形でURLを取得するのに使える
 
     # 対局部屋の新規作成
-    path('practice/v1/rooms/upsert/', RoomV.render_upsert,
-         # ------------------------   -------------------
+    path('practice/v1/rooms/upsert/', RoomVV1o0.render_upsert,
+         # ------------------------   -----------------------
          # 1                          2
          name='practice_v1_rooms_create'),
     #          ------------------------
     #          3
     # 1. 例えば `http://example.com/practice/v1/rooms/upsert/` のような URL のパスの部分
     #                              -------------------------
-    # 2. RoomV クラスの render_upsert 静的メソッド
+    # 2. RoomVV1o0 クラスの render_upsert 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_create' %} のような形でURLを取得するのに使える
 
     # 対局部屋の更新
-    path('practice/v1/rooms/upsert/<int:id>/', RoomV.render_upsert,
-         # ---------------------------------   -------------------
+    path('practice/v1/rooms/upsert/<int:id>/', RoomVV1o0.render_upsert,
+         # ---------------------------------   -----------------------
          # 1                                   2
          name='practice_v1_rooms_update'),
     #          ------------------------
@@ -605,7 +606,7 @@ urlpatterns = [
     # 1. 例えば `http://example.com/practice/v1/rooms/upsert/<数字列>/` のような URL のパスの部分
     #                              ----------------------------------
     #    数字列は `2.` の関数の引数 id で取得できる
-    # 2. RoomV クラスの render_upsert 静的メソッド
+    # 2. RoomVV1o0 クラスの render_upsert 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_update' %} のような形でURLを取得するのに使える
 
     # ロビー

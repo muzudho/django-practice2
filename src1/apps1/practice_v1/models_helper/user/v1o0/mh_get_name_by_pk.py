@@ -1,9 +1,8 @@
 from django.contrib.auth.models import User
 
 
-@staticmethod
 def get_name_by_pk(id):
-    """主キーを使って、ユーザーを絞りこみます"""
+    """OA18o2o0g4o0 主キーを使って、ユーザーを絞りこみます"""
 
     try:
         user = User.objects.get(pk=id)
