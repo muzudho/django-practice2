@@ -15,7 +15,7 @@ class RoomV():
     # 1. `src1/apps1/practice_v1/templates/practice_v1/room/read/v1o0.html` を取得
     #                                      -------------------------------
 
-    # 削除ページ
+    # OA18o4o0g3o0 削除ページ
     _path_of_delete_page = "practice_v1/room/delete/v1o0.html"
     #                       ---------------------------------
     #                       1
@@ -59,7 +59,7 @@ class RoomV():
 
     @staticmethod
     def render_delete(request, id):
-        """描画 - 削除"""
+        """OA18o4o0g3o0 描画 - 削除"""
 
         # 以下のファイルはあとで作ります
         from ..delete.v1o0 import render_delete

@@ -571,7 +571,7 @@ urlpatterns = [
     # 2. RoomVV1o0 クラスの render_read 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_read' %} のような形でURLを取得するのに使える
 
-    # 対局部屋の削除
+    # OA18o4o0g5o0 対局部屋の削除
     path('practice/v1/rooms/delete/<int:id>/', RoomVV1o0.render_delete,
          # ---------------------------------   -----------------------
          # 1                                   2
