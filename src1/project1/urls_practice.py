@@ -584,7 +584,7 @@ urlpatterns = [
     # 2. RoomVV1o0 クラスの render_delete 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_delete' %} のような形でURLを取得するのに使える
 
-    # 対局部屋の新規作成
+    # OA18o5o0g6o0 対局部屋の新規作成
     path('practice/v1/rooms/upsert/', RoomVV1o0.render_upsert,
          # ------------------------   -----------------------
          # 1                          2
@@ -596,7 +596,7 @@ urlpatterns = [
     # 2. RoomVV1o0 クラスの render_upsert 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_create' %} のような形でURLを取得するのに使える
 
-    # 対局部屋の更新
+    # OA18o5o0g6o0 対局部屋の更新
     path('practice/v1/rooms/upsert/<int:id>/', RoomVV1o0.render_upsert,
          # ---------------------------------   -----------------------
          # 1                                   2

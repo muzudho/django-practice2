@@ -22,7 +22,7 @@ class RoomV():
     # 1. `src1/apps1/practice_v1/templates/practice_v1/room/delete/v1o0.html` を取得
     #                                      ---------------------------------
 
-    # 新規作成または更新のページ
+    # OA18o5o0g4o0 新規作成または更新のページ
     _path_of_upsert_page = "practice_v1/room/upsert/v1o0.html"
     #                       ---------------------------------
     #                       1
@@ -73,7 +73,7 @@ class RoomV():
 
     @staticmethod
     def render_upsert(request, id=None):
-        """新規作成または更新のページ"""
+        """OA18o5o0g4o0 新規作成または更新のページ"""
 
         # 以下のファイルはあとで作ります
         from ..upsert.v1o0 import render_upsert
