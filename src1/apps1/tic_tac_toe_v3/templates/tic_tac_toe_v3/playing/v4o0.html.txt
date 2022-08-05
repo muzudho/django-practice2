@@ -1,3 +1,5 @@
+{# OA25o1o0g2o0 #}
+<!-- -->
 {% extends "tic_tac_toe_v3/playing/v1o0.html.txt" %}
 {#                                  ^one
             ------------------------------------
