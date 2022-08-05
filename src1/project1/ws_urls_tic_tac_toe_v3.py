@@ -1,12 +1,13 @@
+# OA24o1o0g4o0
 # See also: 📖 [Channels - Consumers](https://channels.readthedocs.io/en/latest/topics/consumers.html)
 from django.conf.urls import url
 
 # 〇×ゲームの練習 v3.1
-from apps1.tic_tac_toe_v3.websocks.o1o0.consumer_custom import TicTacToeV3o1o0ConsumerCustom
+from apps1.tic_tac_toe_v3.websocks.consumer_custom.v1o0 import TicTacToeV3o1o0ConsumerCustom
 #                       ^three
-#          --------------               ---------------        -----------------------------
-#          11                           12                     2
-#    --------------------------------------------------
+#          --------------                          ----        -----------------------------
+#          11                                      12          2
+#    ----------------------------------------------
 #    10
 # 10. ディレクトリー
 # 11. アプリケーション
@@ -14,14 +15,9 @@ from apps1.tic_tac_toe_v3.websocks.o1o0.consumer_custom import TicTacToeV3o1o0Co
 # 2. クラス名
 
 
-# ...略...
-
-
 websocket_urlpatterns = [
-    # ...略...
 
-
-    # 〇×ゲームの練習 v3.3
+    # OA24o1o0g4o0 〇×ゲームの練習 v3.3
     url(r'^tic-tac-toe/v3.3/playing/(?P<kw_room_name>\w+)/$',
         #                 ^three
         # -------------------------------------------------

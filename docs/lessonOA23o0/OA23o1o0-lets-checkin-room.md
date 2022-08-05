@@ -329,8 +329,8 @@ def match_application_on_sent(request):
 # OA23o1o0g4o0 〇×ゲーム v3.2 対局申込中
 from apps1.tic_tac_toe_v3.views.match_application.v2o0 import MatchApplicationV as TicTacToeV3g2o0MatchApplicationV
 #                       ^three                     ^two
-#          --------------            -----------------        -----------------    --------------------------------
-#          11                        12                       2                    3
+#          --------------                         ----        -----------------    --------------------------------
+#          11                                     12          2                    3
 #    -------------------------------------------------
 #    10
 # 10, 12. ディレクトリー

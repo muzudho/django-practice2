@@ -52,7 +52,7 @@ from . import ws_urls_tic_tac_toe_v2
 # 2. `src1/projectN/ws_urls_tic_tac_toe_v2.py`
 #                   ----------------------
 
-# 〇×ゲーム v3
+# OA24o1o0g5o0 〇×ゲーム v3
 from . import ws_urls_tic_tac_toe_v3
 #                                  ^three
 #    -        ----------------------
@@ -87,7 +87,7 @@ websocket_urlpatterns_merged.extend(
     ws_urls_tic_tac_toe_v2.websocket_urlpatterns)
 #                        ^two
 
-# 〇×ゲーム v3
+# OA24o1o0g5o0 〇×ゲーム v3
 websocket_urlpatterns_merged.extend(
     ws_urls_tic_tac_toe_v3.websocket_urlpatterns)
 #                        ^three

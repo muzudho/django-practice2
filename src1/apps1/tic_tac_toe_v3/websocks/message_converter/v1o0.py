@@ -1,5 +1,6 @@
 from asgiref.sync import sync_to_async
 
+# 〇×ゲーム v2 メッセージコンバーター v1.0
 from apps1.tic_tac_toe_v2.websocks.gui.message_converter.v1o0 import TicTacToeV2MessageConverter
 #          --------------                                ----        ---------------------------
 #          11                                            12          2
@@ -21,7 +22,7 @@ from apps1.practice_v1.models.room.v1o0 import Room
 
 
 class TicTacToeV3g1o0MessageConverter(TicTacToeV2MessageConverter):
-    """サーバープロトコル"""
+    """OA24o1o0g2o0 サーバープロトコル"""
 
     def on_end(self, scope, doc_received):
         """対局終了時"""
