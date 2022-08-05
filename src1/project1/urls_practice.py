@@ -124,21 +124,21 @@ from apps1.practice_v1.views.room.v1o0 import RoomV as RoomVV1o0
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 # 3. `2.` の別名
 
-# ロビー ビュー
-from apps1.practice_v1.views.o1o0.lobby import LobbyV
-#          -----------            -----        ------
-#          11                     12           2
-#    ----------------------------------
+# OA19o1o0g5o0 マイページ ビュー
+from apps1.practice_v1.views.my.v1o0 import MyV
+#          -----------          ----        ---
+#          11                   12          2
+#    -------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# マイページ ビュー
-from apps1.practice_v1.views.o1o0.my import MyV
-#          -----------            --        ---
-#          11                     12        2
-#    -------------------------------
+# ロビー ビュー
+from apps1.practice_v1.views.o1o0.lobby import LobbyV
+#          -----------            -----        ------
+#          11                     12           2
+#    ----------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -609,6 +609,16 @@ urlpatterns = [
     # 2. RoomVV1o0 クラスの render_upsert 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_update' %} のような形でURLを取得するのに使える
 
+    # OA19o1o0g5o0 マイ ページ
+    path('practice/v1/my/', MyV.render_my, name='practice_v1_my'),
+    #     ---------------   -------------        --------------
+    #     1                 2                    3
+    #
+    # 1. 例えば `http://example.com/practice/v1/my/` のような URL のパスの部分
+    #                              ---------------
+    # 2. MyV クラスの render_my 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'practice_v1_my' %} のような形でURLを取得するのに使える
+
     # ロビー
     path('practice/v1/lobby/', LobbyV.render_lobby, name='practice_v1_lobby'),
     #     ------------------   -------------------        -----------------
@@ -618,16 +628,6 @@ urlpatterns = [
     #    数字列は `2.` の関数の引数 id で取得できる
     # 2. LobbyV クラスの render_lobby 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_lobby' %} のような形でURLを取得するのに使える
-
-    # マイ ページ
-    path('practice/v1/my/', MyV.render_my, name='practice_v1_my'),
-    #     ---------------   -------------        --------------
-    #     1                 2                    3
-    #
-    # 1. 例えば `http://example.com/practice/v1/my/` のような URL のパスの部分
-    #                              ---------------
-    # 2. MyV クラスの render_my 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_my' %} のような形でURLを取得するのに使える
 
     # 自動再読込
     path('practice/v1/auto_reload/', AutoReloadV.render_auto_reload,
