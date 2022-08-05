@@ -164,11 +164,11 @@ from apps1.practice_v1.views.auto_redirect.v1o0 import AutoRedirectV
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# 〇×ゲーム v3.1 対局申込中
-from apps1.tic_tac_toe_v3.views.o1o0.match_application import MatchApplicationV as TicTacToeV3g1o0MatchApplicationV
-#                       ^three   ^one
-#          --------------            -----------------        -----------------    --------------------------------
-#          11                        12                       2                    3
+# OA22o1o0gA10o0 〇×ゲーム v3.1 対局申込中
+from apps1.tic_tac_toe_v3.views.match_application.v1o0 import MatchApplicationV as TicTacToeV3g1o0MatchApplicationV
+#                       ^three                     ^one
+#          --------------                         ----        -----------------    --------------------------------
+#          11                                     12          2                    3
 #    -------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -176,11 +176,11 @@ from apps1.tic_tac_toe_v3.views.o1o0.match_application import MatchApplicationV 
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 # 3. `2.` の別名
 
-# 〇×ゲーム v3.1 対局中
-from apps1.tic_tac_toe_v3.views.o1o0.playing import PlayingV as TicTacToeV3g1o0PlayingV
-#                       ^three   ^one
-#          --------------            -------        --------    -----------------------
-#          11                        12             2           3
+# OA22o1o0gA10o0 〇×ゲーム v3.1 対局中
+from apps1.tic_tac_toe_v3.views.playing.v1o0 import PlayingV as TicTacToeV3g1o0PlayingV
+#                       ^three           ^one
+#          --------------               ----        --------    -----------------------
+#          11                           12          2           3
 #    ---------------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -654,7 +654,7 @@ urlpatterns = [
     # 2. AutoRedirectV クラスの render_auto_redirect メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_auto_redirect' %} のような形でURLを取得するのに使える
 
-    # 〇×ゲーム v3.1 対局申込中
+    # OA22o1o0gA10o0 〇×ゲーム v3.1 対局申込中
     path('tic-tac-toe/v3.1/match-application/', TicTacToeV3g1o0MatchApplicationV.render,
          # ----------------------------------   ---------------------------------------
          # 1                                    2
@@ -666,7 +666,7 @@ urlpatterns = [
     # 2. TicTacToeV3g1o0MatchApplicationV （別名）クラスの render メソッド
     # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3g1o0_match_application' %} のような形でURLを取得するのに使える
 
-    # 〇×ゲーム v3.1 対局中
+    # OA22o1o0gA10o0 〇×ゲーム v3.1 対局中
     path('tic-tac-toe/v3.1/playing/<str:kw_room_name>/', TicTacToeV3g1o0PlayingV.render,
          # -------------------------------------------   ------------------------------
          # 1                                             2

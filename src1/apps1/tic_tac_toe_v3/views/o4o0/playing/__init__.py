@@ -1,10 +1,10 @@
-# 以前のバージョン
-from apps1.tic_tac_toe_v3.views.o1o0.playing import PlayingV as PlayingVV3o1o0
-#          --------------            -------        --------    --------------
-#          11                        12             2           3
+# 〇×ゲーム v3.1
+from apps1.tic_tac_toe_v3.views.playing.v1o0 import PlayingV as PlayingVV3o1o0
+#          --------------               ----        --------    --------------
+#          11                           12          2           3
 #    ---------------------------------------
 #    10
-# 10. `src1/apps1/tic_tac_toe_v3/views/o1o0/playing/__init__.py`
+# 10. `src1/apps1/tic_tac_toe_v3/views/playing/v1o0/__init__.py`
 #           ---------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー

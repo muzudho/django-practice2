@@ -1,4 +1,4 @@
-# 以前のバージョン
+# 〇×ゲーム v2
 from apps1.tic_tac_toe_v2.views.gui.match_application.v1o0 import MatchApplicationV as MatchApplicationVV2g1o0
 #                       ^two
 #    -----------------------------------------------------        -----------------    -----------------------
@@ -10,7 +10,7 @@ from apps1.tic_tac_toe_v2.views.gui.match_application.v1o0 import MatchApplicati
 
 
 class MatchApplicationV():
-    """対局申込ビュー"""
+    """OA22o1o0g8o0 対局申込ビュー"""
 
     # 〇×ゲーム v3.1
     path_of_http_playing = "/tic-tac-toe/v3.1/playing/{0}/?&myturn={1}"

@@ -1,4 +1,4 @@
-# 以前のバージョン
+# 〇×ゲーム v2
 from apps1.tic_tac_toe_v2.views.gui.playing.v1o0 import PlayingV as PlayingVV2g1o0
 #                       ^two
 #          --------------                   ----        --------    --------------
@@ -23,11 +23,11 @@ class PlayingV():
     # 1. `ws://example.com:8000/tic-tac-toe/v2/playing/`
     #                          ------------------------
 
-    path_of_local_html = "tic_tac_toe_v3/o1o0/playing.html.txt"
+    path_of_local_html = "tic_tac_toe_v3/playing/v1o0.html.txt"
     #                                  ^three
     #                     ------------------------------------
     #                     1
-    # 1. `src1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o1o0/playing.html.txt`
+    # 1. `src1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/playing/v1o0.html.txt`
     #                                         ------------------------------------
 
     @staticmethod

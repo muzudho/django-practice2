@@ -1,3 +1,5 @@
+{# OA22o1o0g7o0 #}
+<!-- -->
 {% extends "tic_tac_toe_v2/gui/playing/v1o0.html" %}
 {#                       ^two
             ------------------------------------

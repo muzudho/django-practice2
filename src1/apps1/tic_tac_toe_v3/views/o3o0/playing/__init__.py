@@ -12,19 +12,19 @@ from apps1.tic_tac_toe_v2.views.gui.playing.v1o0 import PlayingV as PlayingVV2g1
 # 2. `12.` に含まれる `__init__.py` ファイルにさらに含まれるクラス
 # 3. `2.` の別名
 
-# 以前のバージョン
-from apps1.tic_tac_toe_v3.views.o1o0.playing import PlayingV as PlayingVV3o1o0
-#                       ^three
-#          --------------            -------        --------    --------------
-#          11                        12             2           3
-#    ---------------------------------------
+# 〇×ゲーム v3.1
+from apps1.tic_tac_toe_v3.views.match_application.v1o0 import MatchApplicationV as MatchApplicationVV3g1o0
+#                       ^three                     ^one
+#          --------------                         ----        -----------------    -----------------------
+#          11                                     12          2                    3
+#    -------------------------------------------------
 #    10
-# 10. `src1/apps1/tic_tac_toe_v3/views/o1o0/playing/__init__.py`
-#           ---------------------------------------
+# 10. `src1/apps1/tic_tac_toe_v3/views/match_application/v1o0/__init__.py`
+#           -------------------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
-# 2. `12.` に含まれる `__init__.py` ファイルにさらに含まれるクラス
-# 3. `2.` の別名
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
+# 3. '2.' の別名
 
 
 class PlayingV():

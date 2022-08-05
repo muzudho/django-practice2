@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'apps1.tic_tac_toe_v1',
     # OA16o2o0g6o0 〇×ゲーム v2
     'apps1.tic_tac_toe_v2',
+    # OA22o1o0g6o0 〇×ゲーム v3
     'apps1.tic_tac_toe_v3',
 
     # Djangoの標準アプリケーション

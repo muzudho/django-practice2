@@ -1,8 +1,8 @@
-{% extends "tic_tac_toe_v3/o1o0/playing.html.txt" %}
-{#                          ^one
+{% extends "tic_tac_toe_v3/playing/v1o0.html.txt" %}
+{#                                  ^one
             ------------------------------------
             1
-1. src1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/o1o0/playing.html.txt
+1. src1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/playing/v1o0.html.txt
                                        ------------------------------------
 
     自動フォーマットしないでください

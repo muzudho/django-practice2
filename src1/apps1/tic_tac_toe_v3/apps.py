@@ -5,7 +5,7 @@ class TicTacToeV3Config(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     # * 変更前
     # name = 'tic_tac_toe_v3'
-    # * 変更後
+    # * OA22o1o0g5o0 変更後
     name = 'apps1.tic_tac_toe_v3'
     #       --------------------
     #       1
