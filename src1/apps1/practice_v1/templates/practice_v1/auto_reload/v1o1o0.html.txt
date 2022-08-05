@@ -1,18 +1,20 @@
-{% extends "practice_v1/o1o0/auto_reload.html" %}
+{# OA21o2o0g3o0 #}
+<!-- -->
+{% extends "practice_v1/auto_reload/v1o0.html" %}
 {#          ---------------------------------
             1
-1. src1/apps1/practice_v1/templates/practice_v1/o1o0/auto_reload.html
-                                     ---------------------------------
+1. src1/apps1/practice_v1/templates/practice_v1/auto_reload/v1o0.html
+                                    ---------------------------------
 #}
 
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 
 {% block script_src %}
-<script src="{% static 'practice_v1/o1o0/clock.js' %}"></script>
-<script src="{% static 'practice_v1/o2o0/auto_reload.js' %}"></script>
-<!--                                 ^three
+<script src="{% static 'practice_v1/clock/v1o0.js' %}"></script>
+<script src="{% static 'practice_v1/auto_reload/v2o0.js' %}"></script>
+<!--                                             ^two
                 =======================================
-    `src1/apps1/practice_v1/static/practice_v1/o2o0/auto_reload.js`
+    `src1/apps1/practice_v1/static/practice_v1/auto_reload/v2o0.js`
                             ======================================
 -->
 {% endblock script_src %}

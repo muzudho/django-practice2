@@ -154,11 +154,10 @@ from apps1.practice_v1.views.auto_reload.v1o0 import AutoReloadV
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# 自動リダイレクト ビュー
-from apps1.practice_v1.views.o2o0.auto_redirect import AutoRedirectV
-#                             ^two
-#          -----------            -------------        -------------
-#          11                     12                   2
+# OA21o2o0g6o0 自動リダイレクト ビュー
+from apps1.practice_v1.views.auto_redirect.v1o0 import AutoRedirectV
+#          -----------                     ----        -------------
+#          11                              12          2
 #    ------------------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -642,7 +641,7 @@ urlpatterns = [
     # 2. AutoReloadV クラスの render_auto_reload 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_auto_reload' %} のような形でURLを取得するのに使える
 
-    # 自動リダイレクト
+    # OA21o2o0g6o0 自動リダイレクト
     path('practice/v1/auto_redirect/', AutoRedirectV.render_auto_redirect,
          # -------------------------   ----------------------------------
          # 1                           2

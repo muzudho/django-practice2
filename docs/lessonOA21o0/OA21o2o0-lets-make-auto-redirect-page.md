@@ -40,33 +40,23 @@
     │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
-    │   │   │       └── 📂 o1o0
-    │   │   │           └── 📄 m_room.py
+    │   │   │       └── 📂 room
+    │   │   │           └── 📄 v1o0.py
     │   │   ├── 📂 tic_tac_toe_v1           # アプリケーション
     │   │   └── 📂 tic_tac_toe_v2           # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o1o0
-    │   │       │           └── 📂 think
-    │   │       │               ├── 📄 concepts.js
-    │   │       │               ├── 📄 engine.js
-    │   │       │               ├── 📄 judge_ctrl.js
-    │   │       │               ├── 📄 position.js
-    │   │       │               ├── 📄 things.js
-    │   │       │               └── 📄 user_ctrl.js
+    │   │       │       ├── 📂 gui
+    │   │       │       └── 📂 think
     │   │       ├── 📂 templates
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o1o0
-    │   │       │           └── 📂 think
-    │   │       │               └── 📄 engine_manual.html
-    │   │       ├── 📂 views
-    │   │       │   └── 📂 o1o0
+    │   │       │       ├── 📂 gui
     │   │       │       └── 📂 think
-    │   │       │           └── 📂 engine_manual
-    │   │       │               ├── 📄 __init__.py
-    │   │       │               └── 📄 v_render.py
+    │   │       ├── 📂 views
+    │   │       │   ├── 📂 gui
+    │   │       │   └── 📂 think
     │   │       ├── 📄 __init__.py
     │   │       ├── 📄 admin.py
     │   │       ├── 📄 apps.py
@@ -108,7 +98,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA21o2o0g2o0 機能強化 - o2o0/auto_reload.js ファイル
+# Step OA21o2o0g2o0 機能強化 - auto_reload/v2o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -118,11 +108,13 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 static
                     └── 📂 practice_v1          # アプリケーションと同名
-                        └── 📂 o2o0             # Three
-👉                          └── 📄 auto_reload.js
+                        └── 📂 auto_reload
+👉                          └── 📄 v2o0.js
 ```
 
 ```js
+// OA21o2o0g2o0
+
 /**
  * 内部で使用する変数
  *
@@ -147,7 +139,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 }
 ```
 
-# Step OA21o2o0g3o0 テンプレート編集 - auto_reload_with_redirect.html ファイル
+# Step OA21o2o0g3o0 テンプレート編集 - auto_reload/v1o1o0.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -157,30 +149,32 @@ function startReloadingAutomatically(intervalMilliseconds) {
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
                 │   └── 📂 practice_v1
-                │       └── 📂 o1o0
-                │           └── 📄 auto_reload.js
+                │       └── 📂 auto_reload
+                │           └── 📄 v2o0.js
                 └── 📂 templates
                     └── 📂 practice_v1          # アプリケーションと同名
-                        └── 📂 o2o0             # Three
-👉                          └── 📄 auto_reload_with_redirect.html.txt
+                        └── 📂 auto_reload
+👉                          └── 📄 v1o1o0.html.txt
 ```
 
 ```html
-{% extends "practice_v1/o1o0/auto_reload.html" %}
+{# OA21o2o0g3o0 #}
+<!-- -->
+{% extends "practice_v1/auto_reload/v1o0.html" %}
 {#          ---------------------------------
             1
-1. src1/apps1/practice_v1/templates/practice_v1/o1o0/auto_reload.html
+1. src1/apps1/practice_v1/templates/practice_v1/auto_reload/v1o0.html
                                     ---------------------------------
 #}
 
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 
 {% block script_src %}
-<script src="{% static 'practice_v1/o1o0/clock.js' %}"></script>
-<script src="{% static 'practice_v1/o2o0/auto_reload.js' %}"></script>
-<!--                                 ^three
+<script src="{% static 'practice_v1/clock/v1o0.js' %}"></script>
+<script src="{% static 'practice_v1/auto_reload/v2o0.js' %}"></script>
+<!--                                             ^two
                 =======================================
-    `src1/apps1/practice_v1/static/practice_v1/o2o0/auto_reload.js`
+    `src1/apps1/practice_v1/static/practice_v1/auto_reload/v2o0.js`
                             ======================================
 -->
 {% endblock script_src %}
@@ -215,7 +209,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 {% endblock methods_trailing %}
 ```
 
-# Step OA21o2o0g4o0 ビュー作成 - auto_redirect フォルダー
+# Step OA21o2o0g4o0 ビュー作成 - auto_redirect/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -225,29 +219,29 @@ function startReloadingAutomatically(intervalMilliseconds) {
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
                 │   └── 📂 practice_v1
-                │       └── 📂 o1o0
-                │           └── 📄 auto_reload.js
+                │       └── 📂 auto_reload
+                │           └── 📄 v2o0.js
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o0
-                │           └── 📄 auto_reload_with_redirect.html.txt
+                │       └── 📂 auto_reload
+                │           └── 📄 v1o1o0.html.txt
                 └── 📂 views
-                    └── 📂 o2o0                 # Three
-                        └── 📂 auto_redirect
+                    └── 📂 auto_redirect
+                        └── 📂 v1o0
 👉                          └── 📄 __init__.py
 ```
 
 ```py
 class AutoRedirectV():
-    """リダイレクト ビュー"""
+    """OA21o2o0g4o0 リダイレクト ビュー"""
 
     # 自動リダイレクト ページ
-    _path_of_redirecter_page = "practice_v1/o2o0/auto_reload_with_redirect.html.txt"
-    #                                        ^three
-    #                           -------------------------------------------------
+    _path_of_redirecter_page = "practice_v1/auto_reload/v1o1o0.html.txt"
+    #                                                    ^^^one o one
+    #                           ---------------------------------------
     #                           1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/o2o0/auto_reload_with_redirect.html.txt` を取得
-    #                                      ---------------------------------------------------
+    # 1. `src1/apps1/practice_v1/templates/practice_v1/auto_reload/o1o1o0.html.txt` を取得
+    #                                      ---------------------------------------
 
     @staticmethod
     def render_auto_redirect(request):
@@ -255,16 +249,16 @@ class AutoRedirectV():
 
         # 以下のファイルはあとで作ります
         from .v_redirect import render_auto_redirect
-        #    -----------        ---------------
+        #    -----------        --------------------
         #    1                  2
-        # 1. `src1/apps1/practice_v1/views/o2o0/auto_redirect/v_redirect.py`
+        # 1. `src1/apps1/practice_v1/views/auto_redirect/v1o0/v_redirect.py`
         #                                                     ----------
         # 2. `1.` に含まれる関数
 
         return render_auto_redirect(request, AutoRedirectV._path_of_redirecter_page)
 ```
 
-# Step OA21o2o0g5o0 ビュー作成 - v_redirect ファイル
+# Step OA21o2o0g5o0 ビュー作成 - auto_redirect/v1o0/v_redirect.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -274,17 +268,17 @@ class AutoRedirectV():
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
                 │   └── 📂 practice_v1
-                │       └── 📂 o1o0
-                │           └── 📄 auto_reload.js
+                │       └── 📂 auto_reload
+                │           └── 📄 v2o0.js
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o2o0
-                │           └── 📄 auto_reload_with_redirect.html.txt
+                │       └── 📂 auto_reload
+                │           └── 📄 v1o1o0.html.txt
                 └── 📂 views
-                    └── 📂 o2o0
-                        └── 📂 auto_redirect
-                            ├──📄 __init__.py
-👉                          └──📄 v_redirect.py
+                    └── 📂 auto_redirect
+                        └── 📂 v1o0
+                            ├── 📄 __init__.py
+👉                          └── 📄 v_redirect.py
 ```
 
 ```py
@@ -336,17 +330,17 @@ def render_auto_redirect(request, lp_auto_redirect):
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📄 auto_reload.js
+        │       │       └── 📂 auto_reload
+        │       │           └── 📄 v2o0.js
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o0
-        │       │           └── 📄 auto_reload_with_redirect.html.txt
+        │       │       └── 📂 auto_reload
+        │       │           └── 📄 v1o1o0.html.txt
         │       └── 📂 views
-        │           └── 📂 o2o0
-        │               └── 📂 auto_redirect
-        │                   ├──📄 __init__.py
-        │                   └──📄 v_redirect.py
+        │           └── 📂 auto_redirect
+        │               └── 📂 v1o0
+        │                   ├── 📄 __init__.py
+        │                   └── 📄 v_redirect.py
         └── 📂 project1                      # プロジェクト
 👉          └── 📄 urls_practice.py
 ```
@@ -355,11 +349,10 @@ def render_auto_redirect(request, lp_auto_redirect):
 # ...略...
 
 
-# 自動リダイレクト ビュー
-from apps1.practice_v1.views.o2o0.auto_redirect import AutoRedirectV
-#                             ^two
-#          -----------            -------------        -------------
-#          11                     12                   2
+# OA21o2o0g6o0 自動リダイレクト ビュー
+from apps1.practice_v1.views.auto_redirect.v1o0 import AutoRedirectV
+#          -----------                     ----        -------------
+#          11                              12          2
 #    ------------------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -371,7 +364,7 @@ urlpatterns = [
     # ...略...
 
 
-    # 自動リダイレクト
+    # OA21o2o0g6o0 自動リダイレクト
     path('practice/v1/auto_redirect/', AutoRedirectV.render_auto_redirect,
          # -------------------------   ----------------------------------
          # 1                           2
@@ -403,17 +396,17 @@ urlpatterns = [
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📄 auto_reload.js
+        │       │       └── 📂 auto_reload
+        │       │           └── 📄 v2o0.js
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o2o0
-        │       │           └── 📄 auto_reload_with_redirect.html.txt
+        │       │       └── 📂 auto_reload
+        │       │           └── 📄 v1o1o0.html.txt
         │       └── 📂 views
-        │           └── 📂 o2o0
-        │               └── 📂 auto_redirect
-        │                   ├──📄 __init__.py
-        │                   └──📄 v_redirect.py
+        │           └── 📂 auto_redirect
+        │               └── 📂 v1o0
+        │                   ├── 📄 __init__.py
+        │                   └── 📄 v_redirect.py
         └── 📂 project1                          # プロジェクト
             └── 📄 urls_practice.py
 ```
