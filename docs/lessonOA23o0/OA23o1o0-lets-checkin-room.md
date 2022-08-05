@@ -50,33 +50,23 @@
     │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
-    │   │   │       └── 📂 o1o0
-    │   │   │           └── 📄 m_room.py
+    │   │   │       └── 📂 room
+    │   │   │           └── 📄 v1o0.py
     │   │   ├── 📂 tic_tac_toe_v1           # アプリケーション
     │   │   └── 📂 tic_tac_toe_v2           # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o1o0
-    │   │       │           └── 📂 think
-    │   │       │               ├── 📄 concepts.js
-    │   │       │               ├── 📄 engine.js
-    │   │       │               ├── 📄 judge_ctrl.js
-    │   │       │               ├── 📄 position.js
-    │   │       │               ├── 📄 things.js
-    │   │       │               └── 📄 user_ctrl.js
+    │   │       │       ├── 📂 gui
+    │   │       │       └── 📂 think
     │   │       ├── 📂 templates
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o1o0
-    │   │       │           └── 📂 think
-    │   │       │               └── 📄 engine_manual.html
-    │   │       ├── 📂 views
-    │   │       │   └── 📂 o1o0
+    │   │       │       ├── 📂 gui
     │   │       │       └── 📂 think
-    │   │       │           └── 📂 engine_manual
-    │   │       │               ├── 📄 __init__.py
-    │   │       │               └── 📄 v_render.py
+    │   │       ├── 📂 views
+    │   │       │   ├── 📂 gui
+    │   │       │   └── 📂 think
     │   │       ├── 📄 __init__.py
     │   │       ├── 📄 admin.py
     │   │       ├── 📄 apps.py
@@ -118,7 +108,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA23o1o0g2o0 対局申込ビュー編集 - match_application フォルダー
+# Step OA23o1o0g2o0 対局申込ビュー編集 - match_application/v2o0 フォルダー
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -127,13 +117,13 @@ docker-compose up
         └── 📂 apps1
             └── 📂 tic_tac_toe_v3                 # アプリケーション Three
                 └── 📂 views
-                    └── 📂 o2o0                     # Two
-                        └── 📂 match_application
+                    └── 📂 match_application
+                        └── 📂 v2o0
 👉                          └── 📄 __init__.py
 ```
 
 ```py
-# 以前のバージョン
+# 〇×ゲーム v2
 from apps1.tic_tac_toe_v2.views.gui.match_application.v1o0 import MatchApplicationV as MatchApplicationVV2g1o0
 #                       ^two
 #    -----------------------------------------------------        -----------------    -----------------------
@@ -159,7 +149,7 @@ from apps1.tic_tac_toe_v3.views.match_application.v1o0 import MatchApplicationV 
 
 
 class MatchApplicationV():
-    """対局申込ビュー"""
+    """OA23o1o0g2o0 対局申込ビュー"""
 
     @staticmethod
     def render(request):
@@ -201,7 +191,7 @@ class MatchApplicationV():
         return MatchApplicationVV2g1o0.open_context
 ```
 
-# Step OA23o1o0g3o0 対局申込ビュー作成 - v_on_sent.py ファイル
+# Step OA23o1o0g3o0 対局申込ビュー作成 - match_application/v2o0/v_on_sent.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -210,8 +200,8 @@ class MatchApplicationV():
         └── 📂 apps1
             └── 📂 tic_tac_toe_v3                   # アプリケーション Three
                 └── 📂 views
-                    └── 📂 o2o0                     # Two
-                        └── 📂 match_application
+                    └── 📂 match_application
+                        └── 📂 v2o0
                             ├── 📄 __init__.py
 👉                          └── 📄 v_on_sent.py
 ```
@@ -239,7 +229,7 @@ from apps1.practice_v1.models.user_profile.v1o0 import Profile
 
 
 def match_application_on_sent(request):
-    """対局申込 - 送信後
+    """OA23o1o0g3o0 対局申込 - 送信後
 
     * ログインしていないユーザーが部屋に入っても 何も記録しません
     * ログインしているユーザーが部屋に入ってくると、以下のものを記録します（チェックイン）
@@ -265,7 +255,6 @@ def match_application_on_sent(request):
         # 新規作成
         room = Room()
         room.name = po_room_name
-
 
     if request.user.is_authenticated:
         # ログインしたユーザーだった
@@ -325,8 +314,8 @@ def match_application_on_sent(request):
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v3                   # アプリケーション Three
         │       └── 📂 views
-        │           └── 📂 o2o0                     # Two
-        │               └── 📂 match_application
+        │           └── 📂 match_application
+        │               └── 📂 v2o0
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_on_sent.py
         └── 📂 project1                             # プロジェクト
@@ -337,9 +326,9 @@ def match_application_on_sent(request):
 # ...略...
 
 
-# 〇×ゲーム v3.2 対局申込中
-from apps1.tic_tac_toe_v3.views.o2o0.match_application import MatchApplicationV as TicTacToeV3g2o0MatchApplicationV
-#                       ^three   ^two
+# OA23o1o0g4o0 〇×ゲーム v3.2 対局申込中
+from apps1.tic_tac_toe_v3.views.match_application.v2o0 import MatchApplicationV as TicTacToeV3g2o0MatchApplicationV
+#                       ^three                     ^two
 #          --------------            -----------------        -----------------    --------------------------------
 #          11                        12                       2                    3
 #    -------------------------------------------------
@@ -354,7 +343,7 @@ urlpatterns = [
     # ...略...
 
 
-    # 〇×ゲーム v3.2 対局申込中
+    # OA23o1o0g4o0 〇×ゲーム v3.2 対局申込中
     path('tic-tac-toe/v3.2/match-application/', TicTacToeV3g2o0MatchApplicationV.render,
          # ----------------------------------   ---------------------------------------
          # 1                                    2
@@ -418,16 +407,18 @@ urlpatterns = [
 
 ```plaintext
     └── 📂 src1
-        └── 📂 apps1
-            ├── 📂 portal_v1                        # アプリケーション
-            │   └── 📂 data
-👉          │       └── 📄 finished-lessons.csv
-            └── 📂 tic_tac_toe_v3                   # アプリケーション Three
-                └── 📂 views
-                    └── 📂 o2o0                     # Two
-                        └── 📂 match_application
-                            ├── 📄 __init__.py
-                            └── 📄 v_on_sent.py
+        ├── 📂 apps1
+        │   ├── 📂 portal_v1                        # アプリケーション
+        │   │   └── 📂 data
+👉      │   │       └── 📄 finished-lessons.csv
+        │   └── 📂 tic_tac_toe_v3                   # アプリケーション Three
+        │       └── 📂 views
+        │           └── 📂 match_application
+        │               └── 📂 v2o0
+        │                   ├── 📄 __init__.py
+        │                   └── 📄 v_on_sent.py
+        └── 📂 project1                             # プロジェクト
+            └── 📄 urls_practice.py
 ```
 
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  

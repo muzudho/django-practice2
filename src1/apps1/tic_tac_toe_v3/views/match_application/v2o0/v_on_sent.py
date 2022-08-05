@@ -20,7 +20,7 @@ from apps1.practice_v1.models.user_profile.v1o0 import Profile
 
 
 def match_application_on_sent(request):
-    """対局申込 - 送信後
+    """OA23o1o0g3o0 対局申込 - 送信後
 
     * ログインしていないユーザーが部屋に入っても 何も記録しません
     * ログインしているユーザーが部屋に入ってくると、以下のものを記録します（チェックイン）

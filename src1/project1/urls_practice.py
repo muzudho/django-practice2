@@ -188,9 +188,9 @@ from apps1.tic_tac_toe_v3.views.playing.v1o0 import PlayingV as TicTacToeV3g1o0P
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 # 3. `2.` の別名
 
-# 〇×ゲーム v3.2 対局申込中
-from apps1.tic_tac_toe_v3.views.o2o0.match_application import MatchApplicationV as TicTacToeV3g2o0MatchApplicationV
-#                       ^three   ^two
+# OA23o1o0g4o0 〇×ゲーム v3.2 対局申込中
+from apps1.tic_tac_toe_v3.views.match_application.v2o0 import MatchApplicationV as TicTacToeV3g2o0MatchApplicationV
+#                       ^three                     ^two
 #          --------------            -----------------        -----------------    --------------------------------
 #          11                        12                       2                    3
 #    -------------------------------------------------
@@ -679,7 +679,7 @@ urlpatterns = [
     # 2. TicTacToeV3g1o0PlayingV （別名）クラスの render メソッド
     # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3g1o0_playing' %} のような形でURLを取得するのに使える
 
-    # 〇×ゲーム v3.2 対局申込中
+    # OA23o1o0g4o0 〇×ゲーム v3.2 対局申込中
     path('tic-tac-toe/v3.2/match-application/', TicTacToeV3g2o0MatchApplicationV.render,
          # ----------------------------------   ---------------------------------------
          # 1                                    2

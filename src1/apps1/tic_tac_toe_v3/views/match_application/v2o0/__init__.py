@@ -1,4 +1,4 @@
-# 以前のバージョン
+# 〇×ゲーム v2
 from apps1.tic_tac_toe_v2.views.gui.match_application.v1o0 import MatchApplicationV as MatchApplicationVV2g1o0
 #                       ^two
 #    -----------------------------------------------------        -----------------    -----------------------
@@ -24,7 +24,7 @@ from apps1.tic_tac_toe_v3.views.match_application.v1o0 import MatchApplicationV 
 
 
 class MatchApplicationV():
-    """対局申込ビュー"""
+    """OA23o1o0g2o0 対局申込ビュー"""
 
     @staticmethod
     def render(request):
