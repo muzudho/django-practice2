@@ -10,6 +10,8 @@ from apps1.practice_v1.models.room.v1o0 import Room
 
 
 def get_all_rooms_as_dic():
+    """OA20o1o0g4o0 全ての対局部屋をディクショナリー構造で取得"""
+
     room_resultset = Room.objects.all().order_by('id')
 
     # 使いやすい形に変換します

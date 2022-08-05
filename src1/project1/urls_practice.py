@@ -134,10 +134,10 @@ from apps1.practice_v1.views.my.v1o0 import MyV
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# ロビー ビュー
-from apps1.practice_v1.views.o1o0.lobby import LobbyV
-#          -----------            -----        ------
-#          11                     12           2
+# OA20o1o0g7o0 ロビー ビュー
+from apps1.practice_v1.views.lobby.v1o0 import LobbyV
+#          -----------             ----        ------
+#          11                      12          2
 #    ----------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -619,7 +619,7 @@ urlpatterns = [
     # 2. MyV クラスの render_my 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_my' %} のような形でURLを取得するのに使える
 
-    # ロビー
+    # OA20o1o0g7o0 ロビー
     path('practice/v1/lobby/', LobbyV.render_lobby, name='practice_v1_lobby'),
     #     ------------------   -------------------        -----------------
     #     1                    2                          3

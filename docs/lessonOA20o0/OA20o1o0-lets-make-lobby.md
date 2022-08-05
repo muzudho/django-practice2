@@ -72,33 +72,23 @@
     │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
-    │   │   │       └── 📂 o1o0
-    │   │   │           └── 📄 m_room.py
+    │   │   │       └── 📂 room
+    │   │   │           └── 📄 v1o0.py
     │   │   ├── 📂 tic_tac_toe_v1        # アプリケーション
     │   │   └── 📂 tic_tac_toe_v2        # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o1o0
-    │   │       │           └── 📂 think
-    │   │       │               ├── 📄 concepts.js
-    │   │       │               ├── 📄 engine.js
-    │   │       │               ├── 📄 judge_ctrl.js
-    │   │       │               ├── 📄 position.js
-    │   │       │               ├── 📄 things.js
-    │   │       │               └── 📄 user_ctrl.js
+    │   │       │       ├── 📂 gui
+    │   │       │       └── 📂 think
     │   │       ├── 📂 templates
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o1o0
-    │   │       │           └── 📂 think
-    │   │       │               └── 📄 engine_manual.html
-    │   │       ├── 📂 views
-    │   │       │   └── 📂 o1o0
+    │   │       │       ├── 📂 gui
     │   │       │       └── 📂 think
-    │   │       │           └── 📂 engine_manual
-    │   │       │               ├── 📄 __init__.py
-    │   │       │               └── 📄 v_render.py
+    │   │       ├── 📂 views
+    │   │       │   ├── 📂 gui
+    │   │       │   └── 📂 think
     │   │       ├── 📄 __init__.py
     │   │       ├── 📄 admin.py
     │   │       ├── 📄 apps.py
@@ -140,7 +130,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA20o1o0g2o0 画面作成 - lobby.html ファイル
+# Step OA20o1o0g2o0 画面作成 - lobby/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -150,12 +140,14 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 templates
                     └── 📂 practice_v1          # アプリケーションと同名
-                        └── 📂 o1o0
-👉                          └── 📄 lobby.html
+                        └── 📂 lobby
+👉                          └── 📄 v1o0.html
 ```
 
 ```html
-{% load static %} {% comment %} 👈あとで static "URL" を使うので load static します {% endcomment %}
+{# OA20o1o0g2o0 #}
+<!-- -->
+{% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <!-- See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92 -->
 <html lang="ja">
@@ -278,7 +270,7 @@ docker-compose up
 </html>
 ```
 
-# Step OA20o1o0g3o0 モデルヘルパー モジュール作成 - mh_room フォルダー
+# Step OA20o1o0g3o0 モデルヘルパー作成 - room/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -287,29 +279,29 @@ docker-compose up
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o1o0
-                │       └── 📂 mh_room
+                │   └── 📂 room
+                │       └── 📂 v1o0
 👉              │           └── 📄 __init__.py
                 └── 📂 templates
                     └── 📂 practice_v1
-                        └── 📂 o1o0
-                            └── 📄 lobby.html
+                        └── 📂 lobby
+                            └── 📄 v1o0.html
 ```
 
 ```py
 class MhRoom():
-    """部屋モデルヘルパー"""
+    """OA20o1o0g3o0 部屋モデルヘルパー"""
 
     # 以下のファイルはあとで作ります
     from .mh_get_all_rooms_as_dic import get_all_rooms_as_dic
     #    ------------------------        --------------------
     #    1                               2
-    # 1. `src1/apps1/practice_v1/model_helper/o1o0/mh_room/mh_get_all_rooms_as_dic.py`
-    #                                                      -----------------------
+    # 1. `src1/apps1/practice_v1/model_helper/room/v1o0/mh_get_all_rooms_as_dic.py`
+    #                                                   -----------------------
     # 2. `1.` に含まれる関数
 ```
 
-# Step OA20o1o0g4o0 モデルヘルパー モジュール作成 - mh_get_all_rooms_as_dic.py ファイル
+# Step OA20o1o0g4o0 モデルヘルパー作成 - room/v1o0/mh_get_all_rooms_as_dic.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -318,14 +310,14 @@ class MhRoom():
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o1o0
-                │       └── 📂 mh_room
+                │   └── 📂 room
+                │       └── 📂 v1o0
                 │           ├── 📄 __init__.py
 👉              │           └── 📄 mh_get_all_rooms_as_dic.py
                 └── 📂 templates
                     └── 📂 practice_v1
-                        └── 📂 o1o0
-                            └── 📄 lobby.html
+                        └── 📂 lobby
+                            └── 📄 v1o0.html
 ```
 
 ```py
@@ -341,6 +333,8 @@ from apps1.practice_v1.models.room.v1o0 import Room
 
 
 def get_all_rooms_as_dic():
+    """OA20o1o0g4o0 全ての対局部屋をディクショナリー構造で取得"""
+
     room_resultset = Room.objects.all().order_by('id')
 
     # 使いやすい形に変換します
@@ -360,7 +354,7 @@ def get_all_rooms_as_dic():
     return room_dic
 ```
 
-# Step OA20o1o0g5o0 ビュー作成 - lobby フォルダー
+# Step OA20o1o0g5o0 ビュー作成 - lobby/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -369,29 +363,29 @@ def get_all_rooms_as_dic():
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o1o0
-                │       └── 📂 mh_room
+                │   └── 📂 room
+                │       └── 📂 v1o0
                 │           ├── 📄 __init__.py
-                │           └── 📄 mh_get_user_dic.py
+                │           └── 📄 mh_get_all_rooms_as_dic.py
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o1o0
-                │           └── 📄 lobby.html
+                │       └── 📂 lobby
+                │           └── 📄 v1o0.html
                 └── 📂 views
-                    └── 📂 o1o0
-                        └── 📂 lobby
+                    └── 📂 lobby
+                        └── 📂 v1o0
 👉                          └── 📄 __init__.py
 ```
 
 ```py
 class LobbyV():
-    """ロビー ビュー"""
+    """OA20o1o0g5o0 ロビー ビュー"""
 
     # 一覧ページ
-    _path_of_lobby_page = "practice_v1/o1o0/lobby.html"
+    _path_of_lobby_page = "practice_v1/lobby/v1o0.html"
     #                      ---------------------------
     #                      1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/lobby.html` を取得
+    # 1. `src1/apps1/practice_v1/templates/practice_v1/lobby/v1o0.html` を取得
     #                                      ---------------------------
 
     @staticmethod
@@ -402,14 +396,14 @@ class LobbyV():
         from .v_lobby import render_lobby
         #    --------        ------------
         #    1               2
-        # 1. `src1/apps1/practice_v1/views/o1o0/lobby/v_lobby.py`
+        # 1. `src1/apps1/practice_v1/views/lobby/v1o0/v_lobby.py`
         #                                             -------
         # 2. `1.` に含まれる関数
 
         return render_lobby(request, LobbyV._path_of_lobby_page)
 ```
 
-# Step OA20o1o0g6o0 ビュー作成 - v_lobby ファイル
+# Step OA20o1o0g6o0 ビュー作成 - lobby/v1o0/v_lobby.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -418,17 +412,17 @@ class LobbyV():
         └── 📂 apps1
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 models_helper
-                │   └── 📂 o1o0
-                │       └── 📂 mh_room
+                │   └── 📂 room
+                │       └── 📂 v1o0
                 │           ├── 📄 __init__.py
-                │           └── 📄 mh_get_user_dic.py
+                │           └── 📄 mh_get_all_rooms_as_dic.py
                 ├── 📂 templates
                 │   └── 📂 practice_v1
-                │       └── 📂 o1o0
-                │           └── 📄 lobby.html
+                │       └── 📂 lobby
+                │           └── 📄 v1o0.html
                 └── 📂 views
-                    └── 📂 o1o0
-                        └── 📂 lobby
+                    └── 📂 lobby
+                        └── 📂 v1o0
                             ├── 📄 __init__.py
 👉                          └── 📄 v_lobby.py
 ```
@@ -438,10 +432,10 @@ import json
 from django.shortcuts import render
 
 # 部屋モデルヘルパー
-from apps1.practice_v1.models_helper.o1o0.mh_room import MhRoom
-#          -----------                    -------        ------
-#          11                             12             2
-#    --------------------------------------------
+from apps1.practice_v1.models_helper.room.v1o0 import MhRoom
+#          -----------                    ----        ------
+#          11                             12          2
+#    -----------------------------------------
 #    10
 # 11, 12. ディレクトリー
 # 10. アプリケーション
@@ -449,10 +443,10 @@ from apps1.practice_v1.models_helper.o1o0.mh_room import MhRoom
 
 
 # セッション モデルヘルパー
-from apps1.practice_v1.models_helper.o1o0.mh_session import MhSession
-#          -----------                    ----------        ---------
-#          11                             12                2
-#    -----------------------------------------------
+from apps1.practice_v1.models_helper.session.v1o0 import MhSession
+#          -----------                    -------        ---------
+#          11                             12             2
+#    --------------------------------------------
 #    10
 # 11, 12. ディレクトリー
 # 10. アプリケーション
@@ -495,17 +489,17 @@ def render_lobby(request, lp_lobby):
         ├── 📂 apps1
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 models_helper
-        │       │   └── 📂 o1o0
-        │       │       └── 📂 mh_room
+        │       │   └── 📂 room
+        │       │       └── 📂 v1o0
         │       │           ├── 📄 __init__.py
-        │       │           └── 📄 mh_get_user_dic.py
+        │       │           └── 📄 mh_get_all_rooms_as_dic.py
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📄 lobby.html
+        │       │       └── 📂 lobby
+        │       │           └── 📄 v1o0.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 lobby
+        │           └── 📂 lobby
+        │               └── 📂 v1o0
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_lobby.py
         └── 📂 project1                          # プロジェクト
@@ -516,10 +510,10 @@ def render_lobby(request, lp_lobby):
 # ...略...
 
 
-# ロビー ビュー
-from apps1.practice_v1.views.o1o0.lobby import LobbyV
-#          -----------            -----        ------
-#          11                     12           2
+# OA20o1o0g7o0 ロビー ビュー
+from apps1.practice_v1.views.lobby.v1o0 import LobbyV
+#          -----------             ----        ------
+#          11                      12          2
 #    ----------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -531,14 +525,14 @@ urlpatterns = [
     # ...略...
 
 
-    # ロビー
+    # OA20o1o0g7o0 ロビー
     path('practice/v1/lobby/', LobbyV.render_lobby, name='practice_v1_lobby'),
     #     ------------------   -------------------        -----------------
     #     1                    2                          3
     # 1. 例えば `http://example.com/practice/v1/lobby/` のような URL のパスの部分
     #                              ------------------
     #    数字列は `2.` の関数の引数 id で取得できる
-    # 2. LobbyV クラスの render_lobby メソッド
+    # 2. LobbyV クラスの render_lobby 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_lobby' %} のような形でURLを取得するのに使える
 ]
 ```
@@ -559,17 +553,17 @@ urlpatterns = [
 👉      │   │       └── 📄 finished-lessons.csv
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 models_helper
-        │       │   └── 📂 o1o0
-        │       │       └── 📂 mh_room
+        │       │   └── 📂 room
+        │       │       └── 📂 v1o0
         │       │           ├── 📄 __init__.py
-        │       │           └── 📄 mh_get_user_dic.py
+        │       │           └── 📄 mh_get_all_rooms_as_dic.py
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📄 lobby.html
+        │       │       └── 📂 lobby
+        │       │           └── 📄 v1o0.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 lobby
+        │           └── 📂 lobby
+        │               └── 📂 v1o0
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_lobby.py
         └── 📂 project1                          # プロジェクト

@@ -2,10 +2,10 @@ import json
 from django.shortcuts import render
 
 # 部屋モデルヘルパー
-from apps1.practice_v1.models_helper.o1o0.mh_room import MhRoom
-#          -----------                    -------        ------
-#          11                             12             2
-#    --------------------------------------------
+from apps1.practice_v1.models_helper.room.v1o0 import MhRoom
+#          -----------                    ----        ------
+#          11                             12          2
+#    -----------------------------------------
 #    10
 # 11, 12. ディレクトリー
 # 10. アプリケーション
@@ -13,10 +13,10 @@ from apps1.practice_v1.models_helper.o1o0.mh_room import MhRoom
 
 
 # セッション モデルヘルパー
-from apps1.practice_v1.models_helper.o1o0.mh_session import MhSession
-#          -----------                    ----------        ---------
-#          11                             12                2
-#    -----------------------------------------------
+from apps1.practice_v1.models_helper.session.v1o0 import MhSession
+#          -----------                    -------        ---------
+#          11                             12             2
+#    --------------------------------------------
 #    10
 # 11, 12. ディレクトリー
 # 10. アプリケーション
