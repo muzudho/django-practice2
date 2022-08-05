@@ -1,11 +1,11 @@
 class AutoReloadV():
-    """自動再読込ビュー"""
+    """OA21o1o0g5o0 自動再読込ビュー"""
 
     # 自動再読込ページ
-    _path_of_auto_reload_page = "practice_v1/o1o0/auto_reload.html"
+    _path_of_auto_reload_page = "practice_v1/auto_reload/v1o0.html"
     #                            ---------------------------------
     #                            1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/auto_reload.html` を取得
+    # 1. `src1/apps1/practice_v1/templates/practice_v1/auto_reload/v1o0.html` を取得
     #                                      ---------------------------------
 
     @staticmethod
@@ -16,7 +16,7 @@ class AutoReloadV():
         from .v_auto_reload import render_auto_reload
         #    --------------        ------------------
         #    1                     2
-        # 1. `src1/apps1/practice_v1/views/o1o0/auto_reload/v_auto_reload.py`
+        # 1. `src1/apps1/practice_v1/views/auto_reload/v1o0/v_auto_reload.py`
         #                                                   -------------
         # 2. `1.` に含まれる関数
 

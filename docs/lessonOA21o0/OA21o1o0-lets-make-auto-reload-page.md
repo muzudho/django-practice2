@@ -38,33 +38,23 @@
     │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
-    │   │   │       └── 📂 o1o0
-    │   │   │           └── 📄 m_room.py
+    │   │   │       └── 📂 room
+    │   │   │           └── 📄 v1o0.py
     │   │   ├── 📂 tic_tac_toe_v1        # アプリケーション
     │   │   └── 📂 tic_tac_toe_v2        # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o1o0
-    │   │       │           └── 📂 think
-    │   │       │               ├── 📄 concepts.js
-    │   │       │               ├── 📄 engine.js
-    │   │       │               ├── 📄 judge_ctrl.js
-    │   │       │               ├── 📄 position.js
-    │   │       │               ├── 📄 things.js
-    │   │       │               └── 📄 user_ctrl.js
+    │   │       │       ├── 📂 gui
+    │   │       │       └── 📂 think
     │   │       ├── 📂 templates
     │   │       │   └── 📂 tic_tac_toe_v2
-    │   │       │       └── 📂 o1o0
-    │   │       │           └── 📂 think
-    │   │       │               └── 📄 engine_manual.html
-    │   │       ├── 📂 views
-    │   │       │   └── 📂 o1o0
+    │   │       │       ├── 📂 gui
     │   │       │       └── 📂 think
-    │   │       │           └── 📂 engine_manual
-    │   │       │               ├── 📄 __init__.py
-    │   │       │               └── 📄 v_render.py
+    │   │       ├── 📂 views
+    │   │       │   ├── 📂 gui
+    │   │       │   └── 📂 think
     │   │       ├── 📄 __init__.py
     │   │       ├── 📄 admin.py
     │   │       ├── 📄 apps.py
@@ -106,7 +96,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA21o1o0g2o0 機能強化 - clock.js ファイル
+# Step OA21o1o0g2o0 機能強化 - clock/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -116,11 +106,13 @@ docker-compose up
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 static
                     └── 📂 practice_v1          # アプリケーションと同名
-                        └── 📂 o1o0
-👉                          └── 📄 clock.js
+                        └── 📂 clock
+👉                          └── 📄 v1o0.js
 ```
 
 ```js
+// OA21o1o0g2o0
+
 /**
  *
  * @returns 現在時刻の文字列
@@ -148,7 +140,7 @@ function getTimeStamp() {
 }
 ```
 
-# Step OA21o1o0g3o0 機能強化 - auto_reload.js ファイル
+# Step OA21o1o0g3o0 機能強化 - auto_reload/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -158,12 +150,15 @@ function getTimeStamp() {
             └── 📂 practice_v1                  # アプリケーション
                 └── 📂 static
                     └── 📂 practice_v1          # アプリケーションと同名
-                        └── 📂 o1o0
-                            ├── 📄 clock.js
-👉                          └── 📄 auto_reload.js
+                        ├── 📂 auto_reload
+👉                      │   └── 📄 v1o0.js
+                        └── 📂 clock
+                            └── 📄 v1o0.js
 ```
 
 ```js
+// OA21o1o0g3o0
+
 /**
  * @param {number} intervalMilliseconds
  */
@@ -174,7 +169,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 }
 ```
 
-# Step OA21o1o0g4o0 画面編集 - v0o0o1/auto_reload.html ファイル
+# Step OA21o1o0g4o0 画面編集 - auto_reload/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -184,16 +179,19 @@ function startReloadingAutomatically(intervalMilliseconds) {
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
                 │   └── 📂 practice_v1
-                │       └── 📂 o1o0
-                │           ├── 📄 clock.js
-                │           └── 📄 auto_reload.js
+                │       ├── 📂 auto_reload
+                │       │   └── 📄 v1o0.js
+                │       └── 📂 clock
+                │           └── 📄 v1o0.js
                 └── 📂 templates
                     └── 📂 practice_v1          # アプリケーションと同名
-                        └── 📂 o1o0
-👉                          └── 📄 auto_reload.html
+                        └── 📂 auto_reload
+👉                          └── 📄 v1o0.html
 ```
 
 ```html
+{# OA21o1o0g4o0 #}
+<!-- -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <!-- See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92 -->
@@ -228,10 +226,10 @@ function startReloadingAutomatically(intervalMilliseconds) {
         </div>
 
         {% block script_src %}
-        <script src="{% static 'practice_v1/o1o0/clock.js' %}"></script>
-        <script src="{% static 'practice_v1/o1o0/auto_reload.js' %}"></script>
+        <script src="{% static 'practice_v1/clock/v1o0.js' %}"></script>
+        <script src="{% static 'practice_v1/auto_reload/v1o0.js' %}"></script>
         <!--            =======================================
-            `src1/apps1/practice_v1/static/practice_v1/o1o0/auto_reload.js`
+            `src1/apps1/practice_v1/static/practice_v1/auto_reload/v1o0.js`
                                     ======================================
         -->
         {% endblock script_src %}
@@ -266,7 +264,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 </html>
 ```
 
-# Step OA21o1o0g5o0 ビュー作成 - reloader フォルダー
+# Step OA21o1o0g5o0 ビュー作成 - auto_reload/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -276,28 +274,29 @@ function startReloadingAutomatically(intervalMilliseconds) {
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
                 │   └── 📂 practice_v1
-                │       └── 📂 o1o0
-                │           ├── 📄 clock.js
-                │           └── 📄 auto_reload.js
+                │       ├── 📂 auto_reload
+                │       │   └── 📄 v1o0.js
+                │       └── 📂 clock
+                │           └── 📄 v1o0.js
                 ├── 📂 templates
                 │   └── 📂 practice_v1          # アプリケーションと同名
-                │       └── 📂 o1o0
-                │           └── 📄 auto_reload.html
+                │       └── 📂 auto_reload
+                │           └── 📄 v1o0.html
                 └── 📂 views
-                    └── 📂 o1o0
-                        └── 📂 auto_reload
+                    └── 📂 auto_reload
+                        └── 📂 v1o0
 👉                          └── 📄 __init__.py
 ```
 
 ```py
 class AutoReloadV():
-    """自動再読込ビュー"""
+    """OA21o1o0g5o0 自動再読込ビュー"""
 
     # 自動再読込ページ
-    _path_of_auto_reload_page = "practice_v1/o1o0/auto_reload.html"
+    _path_of_auto_reload_page = "practice_v1/auto_reload/v1o0.html"
     #                            ---------------------------------
     #                            1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/o1o0/auto_reload.html` を取得
+    # 1. `src1/apps1/practice_v1/templates/practice_v1/auto_reload/v1o0.html` を取得
     #                                      ---------------------------------
 
     @staticmethod
@@ -308,14 +307,14 @@ class AutoReloadV():
         from .v_auto_reload import render_auto_reload
         #    --------------        ------------------
         #    1                     2
-        # 1. `src1/apps1/practice_v1/views/o1o0/auto_reload/v_auto_reload.py`
+        # 1. `src1/apps1/practice_v1/views/auto_reload/v1o0/v_auto_reload.py`
         #                                                   -------------
         # 2. `1.` に含まれる関数
 
         return render_auto_reload(request, AutoReloadV._path_of_auto_reload_page)
 ```
 
-# Step OA21o1o0g6o0 ビュー作成 - v_auto_reload ファイル
+# Step OA21o1o0g6o0 ビュー作成 - auto_reload/v1o0/v_auto_reload.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -325,18 +324,19 @@ class AutoReloadV():
             └── 📂 practice_v1                  # アプリケーション
                 ├── 📂 static
                 │   └── 📂 practice_v1
-                │       └── 📂 o1o0
-                │           ├── 📄 clock.js
-                │           └── 📄 auto_reload.js
+                │       ├── 📂 auto_reload
+                │       │   └── 📄 v1o0.js
+                │       └── 📂 clock
+                │           └── 📄 v1o0.js
                 ├── 📂 templates
                 │   └── 📂 practice_v1          # アプリケーションと同名
-                │       └── 📂 o1o0
-                │           └── 📄 auto_reload.html
+                │       └── 📂 auto_reload
+                │           └── 📄 v1o0.html
                 └── 📂 views
-                    └── 📂 o1o0
-                        └── 📂 auto_reload
-                            ├──📄 __init__.py
-👉                          └──📄 v_auto_reload.py
+                    └── 📂 auto_reload
+                        └── 📂 v1o0
+                            ├── 📄 __init__.py
+👉                          └── 📄 v_auto_reload.py
 ```
 
 ```py
@@ -366,18 +366,19 @@ def render_auto_reload(request, lp_auto_reload):
         │   └── 📂 practice_v1                  # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           ├── 📄 clock.js
-        │       │           └── 📄 auto_reload.js
+        │       │       ├── 📂 auto_reload
+        │       │       │   └── 📄 v1o0.js
+        │       │       └── 📂 clock
+        │       │           └── 📄 v1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📄 auto_reload.html
+        │       │       └── 📂 auto_reload
+        │       │           └── 📄 v1o0.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 auto_reload
-        │                   ├──📄 __init__.py
-        │                   └──📄 v_auto_reload.py
+        │           └── 📂 auto_reload
+        │               └── 📂 v1o0
+        │                   ├── 📄 __init__.py
+        │                   └── 📄 v_auto_reload.py
         └── 📂 project1                      # プロジェクト
 👉          └── 📄 urls_practice.py
 ```
@@ -386,10 +387,10 @@ def render_auto_reload(request, lp_auto_reload):
 # ...略...
 
 
-# 自動リロード ビュー
-from apps1.practice_v1.views.o1o0.auto_reload import AutoReloadV
-#          -----------            -----------        -----------
-#          11                     12                 2
+# OA21o1o0g7o0 自動リロード ビュー
+from apps1.practice_v1.views.auto_reload.v1o0 import AutoReloadV
+#          -----------                   ----        -----------
+#          11                            12          2
 #    ----------------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -401,7 +402,7 @@ urlpatterns = [
     # ...略...
 
 
-    # 自動再読込
+    # OA21o1o0g7o0 自動再読込
     path('practice/v1/auto_reload/', AutoReloadV.render_auto_reload,
          # -----------------------   ------------------------------
          # 1                         2
@@ -433,18 +434,19 @@ urlpatterns = [
         │   └── 📂 practice_v1                      # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           ├── 📄 clock.js
-        │       │           └── 📄 auto_reload.js
+        │       │       ├── 📂 auto_reload
+        │       │       │   └── 📄 v1o0.js
+        │       │       └── 📂 clock
+        │       │           └── 📄 v1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📄 auto_reload.html
+        │       │       └── 📂 auto_reload
+        │       │           └── 📄 v1o0.html
         │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 auto_reload
-        │                   ├──📄 __init__.py
-        │                   └──📄 v_auto_reload.py
+        │           └── 📂 auto_reload
+        │               └── 📂 v1o0
+        │                   ├── 📄 __init__.py
+        │                   └── 📄 v_auto_reload.py
         └── 📂 project1                          # プロジェクト
             └── 📄 urls_practice.py
 ```

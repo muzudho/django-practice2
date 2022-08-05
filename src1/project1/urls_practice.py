@@ -144,10 +144,10 @@ from apps1.practice_v1.views.lobby.v1o0 import LobbyV
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# 自動リロード ビュー
-from apps1.practice_v1.views.o1o0.auto_reload import AutoReloadV
-#          -----------            -----------        -----------
-#          11                     12                 2
+# OA21o1o0g7o0 自動リロード ビュー
+from apps1.practice_v1.views.auto_reload.v1o0 import AutoReloadV
+#          -----------                   ----        -----------
+#          11                            12          2
 #    ----------------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -629,7 +629,7 @@ urlpatterns = [
     # 2. LobbyV クラスの render_lobby 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_lobby' %} のような形でURLを取得するのに使える
 
-    # 自動再読込
+    # OA21o1o0g7o0 自動再読込
     path('practice/v1/auto_reload/', AutoReloadV.render_auto_reload,
          # -----------------------   ------------------------------
          # 1                         2
