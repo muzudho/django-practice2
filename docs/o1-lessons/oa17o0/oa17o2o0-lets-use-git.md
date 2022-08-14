@@ -52,6 +52,9 @@ git clone https://github.com/muzudho/django-practice2.git
 #         -----------------------------------------------
 #         1
 # 1. Git Hub の レポジトリのURL
+
+# 2回目以降
+# git fetch https://github.com/muzudho/django-practice2.git
 ```
 
 これでディレクトリー構成はクローンされる。  
