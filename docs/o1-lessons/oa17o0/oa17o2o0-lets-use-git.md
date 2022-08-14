@@ -46,6 +46,8 @@ cd /home/ubuntu/repo
 👇 URLは適宜変えてほしい  
 
 ```shell
+git init
+
 git clone https://github.com/muzudho/django-practice2.git
 #         -----------------------------------------------
 #         1
