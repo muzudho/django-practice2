@@ -66,7 +66,7 @@ class Engine {
                 case "play":
                     {
                         // Example: `play`
-                        const isOk = this._userCtrl.doMove(this._position);
+                        this._userCtrl.doMove(this._position);
                         // Ok
                         log += "=\n.\n";
                     }

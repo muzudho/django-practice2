@@ -97,6 +97,7 @@ class Board {
         this._squares = Array(BOARD_AREA);
         this._squares.fill(PC_EMPTY);
 
+        // TODO これは消す
         // グライダー
         var s =
             "................................................................" + // 0
@@ -174,13 +175,17 @@ class Board {
      * @param {function} convertCell - (sq, cellValue)
      */
     eachSq(convertCell) {
+        var nextBoard = Array(BOARD_AREA);
+
         for (var y = 0; y < BOARD_HEIGHT; y++) {
             for (var x = 0; x < BOARD_WIDTH; x++) {
                 var sq = this.toSq(x, y);
                 var cell = convertCell(sq, this._squares[sq]);
-                this._squares[sq] = cell;
+                nextBoard[sq] = cell;
             }
         }
+
+        this._squares = nextBoard;
     }
 
     /**
