@@ -31,7 +31,7 @@ class Position {
         // 各マス
         const label_of_squares = this._board.toArray().map((n) => pc_to_label(n));
 
-        s = "";
+        var s = "";
 
         // 上辺の横線
         s += "+";

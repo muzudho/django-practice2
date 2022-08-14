@@ -174,12 +174,98 @@ INSTALLED_APPS = [
 
 ```html
 <!-- OAAA1001o1o0g7o0 -->
+{% load static %} {# 👈あとで static "URL" を使うので load static します #}
+<!DOCTYPE html>
 <html>
     <head>
-        <title>ライフゲーム</title>
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+        <title>Life game</title>
+        <style>
+            /* 等幅 */
+            .v-textarea textarea {
+                font-family: monospace, monospace;
+            }
+        </style>
     </head>
     <body>
-        ライフゲームの盤
+        <div id="app">
+            <v-app>
+                <v-main>
+                    <v-container fluid>
+                        <h1>Tic Tac Toe Engine Test</h1>
+                        <v-form method="POST">
+                            {% csrf_token %}
+
+                            <!-- `po_` は POST送信するパラメーター名の目印 -->
+                            <!-- 入力 -->
+                            <v-textarea name="po_input" required v-model="inputText.value" label="Input"></v-textarea>
+
+                            <v-btn block elevation="2" v-on:click="executeVu()"> Execute </v-btn>
+
+                            <!-- 出力 -->
+                            <v-textarea name="po_output" required v-model="outputText.value" label="Output"></v-textarea>
+                        </v-form>
+                    </v-container>
+                </v-main>
+            </v-app>
+        </div>
+
+        <script src="{% static 'lifegame_v1/think/things/v1o0.js' %}"></script>
+        <script src="{% static 'lifegame_v1/think/position/v1o0.js' %}"></script>
+        <script src="{% static 'lifegame_v1/think/user_ctrl/v1o0.js' %}"></script>
+        <script src="{% static 'lifegame_v1/think/engine/v1o0.js' %}"></script>
+        <!--            ===========================================
+                        1
+        1. src1/apps1/lifegame_v1/static/lifegame_v1/think/engine/v1o0.js
+                                  =======================================
+        -->
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+        <script>
+            const vue1 = new Vue({
+                el: "#app",
+                vuetify: new Vuetify(),
+                data: {
+                    // 入力
+                    inputText: {
+                        value: `board
+play
+board
+play
+board
+play
+board
+play
+board
+`,
+                    },
+                    // 出力
+                    outputText: {
+                        value: 'Please push "Execute" button.',
+                    },
+                    // 思考エンジン
+                    engine: new Engine(
+                        // ユーザーコントロール
+                        new UserCtrl()
+                    ),
+                },
+                methods: {
+                    // 関数名の末尾の Vu は vue1 のメソッドであることを表す目印
+                    /**
+                     * po_input 欄のコマンドを入力します
+                     */
+                    executeVu() {
+                        // console.log(`[methods executeVu]`);
+                        vue1.outputText.value = vue1.engine.execute(vue1.inputText.value);
+                    },
+                },
+            });
+        </script>
     </body>
 </html>
 ```
@@ -533,8 +619,8 @@ class Board {
     eachSq(convertCell) {
         for (var y = 0; y < BOARD_HEIGHT; y++) {
             for (var x = 0; x < BOARD_WIDTH; x++) {
-                sq = this.toSq(x, y);
-                cell = convertCell(sq, this._squares[sq]);
+                var sq = this.toSq(x, y);
+                var cell = convertCell(sq, this._squares[sq]);
                 this._squares[sq] = cell;
             }
         }
@@ -546,13 +632,13 @@ class Board {
      * @returns
      */
     getLifeCountAround(sq) {
-        count = 0;
+        var count = 0;
 
-        north = -BOARD_WIDTH; // 北
-        east = 1; // 東
-        south = BOARD_WIDTH; // 南
-        west = -1; // 西
-        next = [
+        const north = -BOARD_WIDTH; // 北
+        const east = 1; // 東
+        const south = BOARD_WIDTH; // 南
+        const west = -1; // 西
+        const next = [
             sq + north, // 北
             sq + north + east, // 北東
             sq + east, // 東
@@ -722,7 +808,7 @@ class Position {
         // 各マス
         const label_of_squares = this._board.toArray().map((n) => pc_to_label(n));
 
-        s = "";
+        var s = "";
 
         // 上辺の横線
         s += "+";
@@ -819,7 +905,7 @@ class UserCtrl {
      * 時間を１つ進めます
      */
     doMove() {
-        this._position.eachSq(convertCell);
+        this._position.board.eachSq(this.convertCell);
     }
 
     /**
@@ -829,7 +915,7 @@ class UserCtrl {
      * @returns
      */
     convertCell(sq, cellValue) {
-        count = this._position.board.getLifeCountAround(sq);
+        var count = this._position.board.getLifeCountAround(sq);
 
         switch (cellValue) {
             case PC_EMPTY: // 生命のいない場所
@@ -849,6 +935,138 @@ class UserCtrl {
             default:
                 throw `Unexpected piece:${cellValue} sq:${sq}`;
         }
+    }
+}
+```
+
+# Step OAAA1001o1o0ga12o_4o0 エンジン作成 - think/engine/v1o0.js ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        ├── 📂 apps1
+        │   └── 📂 lifegame_v1                  # アプリケーション
+        │       ├── 📂 migrations
+        │       │   └── 📄 __init__.py
+        │       ├── 📂 static
+        │       │   └── 📂 lifegame_v1          # アプリケーションと同名
+        │       │       └── 📂 think
+        │       │           ├── 📂 engine
+👉      │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 position
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 things
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 user_ctrl
+        │       │               └── 📄 v1o0.js
+        │       ├── 📂 templates
+        │       │   └── 📂 lifegame_v1
+        │       │       └── 📂 board
+        │       │           └── 📄 v1o0.html
+        │       ├── 📂 views
+        │       │   └── 📂 board
+        │       │       └── 📂 v1o0
+        │       │           └── 📄 __init__.py
+        │       ├── 📄 __init__.py
+        │       ├── 📄 admin.py
+        │       ├── 📄 apps.py
+        │       └── 📄 tests.py
+        └── 📂 project1
+            ├── 📄 settings.py
+            ├── 📄 urls_lifegame.py
+            └── 📄 urls.py
+```
+
+```js
+// OAAA1001o1o0ga12o_4o0
+
+/**
+ * 思考エンジン
+ */
+class Engine {
+    /**
+     * 生成
+     * @param {UserCtrl} userCtrl - ユーザーコントロール
+     */
+    constructor(userCtrl) {
+        // 局面
+        this._position = new Position();
+
+        // ユーザーコントロール
+        this._userCtrl = userCtrl;
+    }
+
+    /**
+     * 局面
+     */
+    get position() {
+        return this._position;
+    }
+
+    /**
+     * ユーザーコントロール
+     */
+    get userCtrl() {
+        return this._userCtrl;
+    }
+
+    /**
+     * 対局開始時
+     */
+    start() {
+        // 局面の初期化
+        this._position = new Position();
+    }
+
+    /**
+     * コマンドの実行
+     */
+    execute(command) {
+        let log = "";
+
+        const lines = command.split(/\r?\n/);
+        for (const line of lines) {
+            // 空行はパス
+            if (line.trim() === "") {
+                continue;
+            }
+
+            // One line command
+            log += "# " + line + "\n";
+
+            const tokens = line.split(" ");
+            switch (tokens[0]) {
+                case "board":
+                    {
+                        // Example: `board`
+                        log += this._position.toBoardString();
+                    }
+                    break;
+
+                case "play":
+                    {
+                        // Example: `play`
+                        const isOk = this._userCtrl.doMove(this._position);
+                        // Ok
+                        log += "=\n.\n";
+                    }
+                    break;
+
+                default:
+                    // ignored
+                    break;
+            }
+        }
+
+        return log;
+    }
+
+    dump(indent) {
+        return `
+${indent}Engine
+${indent}------
+${indent}${this._position.dump(indent + "    ")}`;
     }
 }
 ```

@@ -105,8 +105,8 @@ class Board {
     eachSq(convertCell) {
         for (var y = 0; y < BOARD_HEIGHT; y++) {
             for (var x = 0; x < BOARD_WIDTH; x++) {
-                sq = this.toSq(x, y);
-                cell = convertCell(sq, this._squares[sq]);
+                var sq = this.toSq(x, y);
+                var cell = convertCell(sq, this._squares[sq]);
                 this._squares[sq] = cell;
             }
         }
@@ -118,13 +118,13 @@ class Board {
      * @returns
      */
     getLifeCountAround(sq) {
-        count = 0;
+        var count = 0;
 
-        north = -BOARD_WIDTH; // 北
-        east = 1; // 東
-        south = BOARD_WIDTH; // 南
-        west = -1; // 西
-        next = [
+        const north = -BOARD_WIDTH; // 北
+        const east = 1; // 東
+        const south = BOARD_WIDTH; // 南
+        const west = -1; // 西
+        const next = [
             sq + north, // 北
             sq + north + east, // 北東
             sq + east, // 東

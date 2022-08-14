@@ -1462,8 +1462,8 @@ ${indent}${this._position.dump(indent + "    ")}`;
         <script src="{% static 'tic_tac_toe_v2/think/engine/v1o0.js' %}"></script>
         <!--            ===========================================
                         1
-        1. src1/apps1/tic_tac_toe_v2/static/tic-ta-toe_v2/think/engine/v1o0.js
-                                     =========================================
+        1. src1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/think/engine/v1o0.js
+                                     ==========================================
         -->
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
