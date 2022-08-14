@@ -115,6 +115,7 @@ Lesson OA16o0 Tic tac toe
 Lesson OA17o0 Open server  
 
 * 📖 [OA17o1o0 さくらVPS 備忘録](https://qiita.com/muzudho1/items/1d3b4b5608716463184c)
+* 📖 [OA17o2o0 DjangoとDocker練習O17o2o0 gitでソースをクローンしよう！](https://qiita.com/muzudho1/items/7d4c35b58d6af20e3ceb)
 
 Lesson OA18o0 Make room  
 

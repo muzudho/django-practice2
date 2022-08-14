@@ -1,4 +1,4 @@
-# はじめに
+# 本題の前に
 
 わたしは今は `さくらのVPS` を使っているので、この連載の内容で何も言及がなければ `さくらのVPS` での説明をしている。  
 しかし昔は `AWS` を使っていたので、その記事が混ざっているかもしれない  
@@ -11,6 +11,11 @@
 * サービス、または一部の機能の提供が終了していることがある。そのときは諦めてほしい
 
 📖 [さくらのVPS](https://vps.sakura.ad.jp/)  
+
+# はじめに
+
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
+連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
 
 # ログインする
 
@@ -57,15 +62,16 @@
     /
     └── 📂 home
         └── 📂 ubuntu
-            └── 📂 app
-                └── 📂 src1            # ソース
-                    ├── 📂 apps1        # 各種アプリケーション
-                    ├── 📂 project2     # 本番用プロジェクト
-                    ├── 📄 .env
-                    ├── 🐳 docker-compose.yml   # `🐳 docker-compose-project2.yml` をリネーム
-                    ├── 🐳 Dockerfile
-                    ├── 📄 manage.py
-                    └── 📄 requirements.txt
+            └── 📂 repo
+                └── 📂 django-practice2
+                    └── 📂 src1            # ソース
+                        ├── 📂 apps1        # 各種アプリケーション
+                        ├── 📂 project2     # 本番用プロジェクト
+                        ├── 📄 .env
+                        ├── 🐳 docker-compose.yml   # `🐳 docker-compose-project2.yml` をリネーム
+                        ├── 🐳 Dockerfile
+                        ├── 📄 manage.py
+                        └── 📄 requirements.txt
 ```
 
 * git か Visual Studio Code の Remote host を使ってファイルをコピーしてほしい
@@ -75,9 +81,10 @@
 # コマンド
 
 ```shell
-cd /home/ubuntu/app/src1
+cd /home/ubuntu/repo/django-practice2/src1
 
-docker-compose -f docker-compose.yml up
+docker-compose up
+# ファイルを指定するなら
 # docker-compose -f docker-compose-project2.yml up
 ```
 
@@ -101,9 +108,17 @@ Django の settings.py に `ALLOWED_HOSTS = []` という文字列配列があ�
 ここに外部からアクセスさせる IPアドレスまたは ドメインを書くこと。  
 ファイルを保存すると　自動で読込まれるので、ドッカーコンテナの再起動は必要ない。  
 
+# Dockerコンテナの停止の方法
+
+```shell
+docker-compose down
+```
+
+📖 [Dockerイメージとコンテナの削除方法](https://qiita.com/tifa2chan/items/e9aa408244687a63a0ae)  
+
 # 次の記事
 
-📖 [Djangoでゲーム対局部屋のモデルを定義しよう！](https://qiita.com/muzudho1/items/e1cf253dd6929bcd708d)  
+📖 [OA17o2o0 DjangoとDocker練習O17o2o0 gitでソースをクローンしよう！](https://qiita.com/muzudho1/items/7d4c35b58d6af20e3ceb)  
 
 # 参考にした記事
 
