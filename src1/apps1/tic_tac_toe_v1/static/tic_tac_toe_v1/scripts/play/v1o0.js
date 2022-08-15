@@ -1,10 +1,10 @@
 // OA16o1o0gA10o0
 // See also: 📖[Django Channels and WebSockets](https://blog.logrocket.com/django-channels-and-websockets/)
 
-var roomName = document.getElementById("board").getAttribute("room_name");
-var myPiece = document.getElementById("board").getAttribute("my_piece");
+let roomName = document.getElementById("board").getAttribute("room_name");
+let myPiece = document.getElementById("board").getAttribute("my_piece");
 
-var connectionString = `ws://${window.location.host}/tic-tac-toe/v1/playing/${roomName}/`;
+let connectionString = `ws://${window.location.host}/tic-tac-toe/v1/playing/${roomName}/`;
 //                      ----]----------------------- -----------------------------------
 //                      11   12                      13
 //                      ----------------------------------------------------------------
@@ -14,11 +14,11 @@ var connectionString = `ws://${window.location.host}/tic-tac-toe/v1/playing/${ro
 // 12. ホスト アドレス
 // 13. パス
 
-var webSock1 = new WebSocket(connectionString);
+let webSock1 = new WebSocket(connectionString);
 
 const PC_EMPTY = -1; // A square without piece; PC is piece
 // Game board for maintaing the state of the game
-var board = [PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY];
+let board = [PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY];
 
 // SQ is square
 // +---------+

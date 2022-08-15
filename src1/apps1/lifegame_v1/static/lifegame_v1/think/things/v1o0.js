@@ -99,7 +99,7 @@ class Board {
 
         // TODO これは消す
         // グライダー
-        var s =
+        let s =
             "................................................................" + // 0
             "................................................................" + //
             "....X..........................................................." + //
@@ -173,12 +173,12 @@ class Board {
      * @param {function} convertCell - (sq, cellValue)
      */
     eachSq(convertCell) {
-        var nextBoard = Array(BOARD_AREA);
+        let nextBoard = Array(BOARD_AREA);
 
-        for (var y = 0; y < BOARD_HEIGHT; y++) {
-            for (var x = 0; x < BOARD_WIDTH; x++) {
-                var sq = this.toSq(x, y);
-                var cell = convertCell(sq, this._squares[sq]);
+        for (let y = 0; y < BOARD_HEIGHT; y++) {
+            for (let x = 0; x < BOARD_WIDTH; x++) {
+                let sq = this.toSq(x, y);
+                let cell = convertCell(sq, this._squares[sq]);
                 nextBoard[sq] = cell;
             }
         }
@@ -192,7 +192,7 @@ class Board {
      * @returns
      */
     getLifeCountAround(sq) {
-        var count = 0;
+        let count = 0;
 
         const north = -BOARD_WIDTH; // 北
         const east = 1; // 東
@@ -272,10 +272,10 @@ class Board {
 ${indent}Board
 ${indent}-----`;
 
-        for (var y = 0; y < BOARD_HEIGHT; y++) {
+        for (let y = 0; y < BOARD_HEIGHT; y++) {
             s += `
 ${indent}`;
-            for (var x = 0; x < BOARD_WIDTH; x++) {
+            for (let x = 0; x < BOARD_WIDTH; x++) {
                 s += `${this._squares[this.toSq(x, y)]}`;
             }
         }

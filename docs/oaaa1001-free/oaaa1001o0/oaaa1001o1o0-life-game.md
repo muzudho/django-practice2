@@ -1044,7 +1044,7 @@ class Engine {
                 continue;
             }
 
-            // One line command
+            // Echo for Single line.
             log += "# " + line + "\n";
 
             const tokens = line.split(" ");

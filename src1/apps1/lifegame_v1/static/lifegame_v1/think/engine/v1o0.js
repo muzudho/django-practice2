@@ -14,6 +14,9 @@ class Engine {
 
         // ユーザーコントロール
         this._userCtrl = userCtrl;
+
+        // 実行ログ
+        this._log = "";
     }
 
     /**
@@ -42,24 +45,13 @@ class Engine {
      * コマンドの実行
      */
     execute(command) {
-        let log = "";
-
-        const lines = command.split(/\r?\n/);
-        for (const line of lines) {
-            // 空行はパス
-            if (line.trim() === "") {
-                continue;
-            }
-
-            // One line command
-            log += "# " + line + "\n";
-
+        let executeMain = (line) => {
             const tokens = line.split(" ");
             switch (tokens[0]) {
                 case "board":
                     {
                         // Example: `board`
-                        log += this._position.toBoardString();
+                        this._log += this._position.toBoardString();
                     }
                     break;
 
@@ -68,7 +60,7 @@ class Engine {
                         // Example: `play`
                         this._userCtrl.doMove(this._position);
                         // Ok
-                        log += "=\n.\n";
+                        this._log += "=\n.\n";
                     }
                     break;
 
@@ -76,9 +68,26 @@ class Engine {
                     // ignored
                     break;
             }
+        };
+        let executeCurr = executeMain;
+        this._log = "";
+
+        const lines = command.split(/\r?\n/);
+        for (const line of lines) {
+            // 空行はパス
+            if (line.trim() === "") {
+                continue;
+            }
+
+            // Echo for Single line.
+            this._log += "# " + line + "\n";
+
+            executeCurr(line);
         }
 
-        return log;
+        let logTemp = this._log;
+        this._log = "";
+        return logTemp;
     }
 
     dump(indent) {

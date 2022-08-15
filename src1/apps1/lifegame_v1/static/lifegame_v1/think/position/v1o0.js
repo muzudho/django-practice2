@@ -31,19 +31,19 @@ class Position {
         // 各マス
         const label_of_squares = this._board.toArray().map((n) => pc_to_label(n));
 
-        var s = "";
+        let s = "";
 
         // 上辺の横線
         s += "+";
-        for (var x = 0; x < BOARD_WIDTH; x++) {
+        for (let x = 0; x < BOARD_WIDTH; x++) {
             s += "-";
         }
         s += "+\n";
 
         // 各行
-        for (var y = 0; y < BOARD_HEIGHT; y++) {
+        for (let y = 0; y < BOARD_HEIGHT; y++) {
             s += "|";
-            for (var x = 0; x < BOARD_WIDTH; x++) {
+            for (let x = 0; x < BOARD_WIDTH; x++) {
                 s += label_of_squares[this._board.toSq(x, y)];
             }
             s += "|\n";
@@ -51,7 +51,7 @@ class Position {
 
         // 下辺の横線
         s += "+";
-        for (var x = 0; x < BOARD_WIDTH; x++) {
+        for (let x = 0; x < BOARD_WIDTH; x++) {
             s += "-";
         }
         s += "+\n";

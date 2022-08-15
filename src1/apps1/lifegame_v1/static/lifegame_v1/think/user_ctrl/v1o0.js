@@ -13,7 +13,7 @@ class UserCtrl {
         this._position = position;
         // セルの変化
         this._position.board.eachSq((sq, cellValue) => {
-            var count = this._position.board.getLifeCountAround(sq);
+            let count = this._position.board.getLifeCountAround(sq);
 
             switch (cellValue) {
                 case PC_EMPTY: // 生命のいない場所
