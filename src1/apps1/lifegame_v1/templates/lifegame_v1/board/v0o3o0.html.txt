@@ -28,6 +28,13 @@
                 background-color:#607D8B; /* blue-gray */
                 border:solid 1px black;
             }
+            /* エラーのセル */
+            .error {
+                font-family: monospace, monospace;
+                color:red;
+                background-color:red;
+                border:solid 1px black;
+            }
         </style>
     </head>
     <body>
@@ -50,7 +57,7 @@
                         </v-form>
                     </v-container>
                     <v-container>
-                        <!-- Example: <span class="live">■</span><span class="dead">■</span> -->
+                        <!-- Example: <span id="sq_0" class="live">■</span><span id="sq_1" class="dead">■</span> -->
                         <div id="life_game_canvas" style="line-height:1;"></div>
                     </v-container>
                 </v-main>
@@ -79,7 +86,7 @@
                 // 横に並べる
                 for(let x=0; x<BOARD_WIDTH; x++) {
                     let span = document.createElement('span');
-                    span.setAttribute("id", `cell_${idCount}`);
+                    span.setAttribute("id", `sq_${idCount}`);
                     idCount++;
                     span.setAttribute("class", "dead");
                     span.textContent = "■";
@@ -191,6 +198,22 @@ position"""
                         vue1.engine.userCtrl.doMove(vue1.engine.position);
 
                         // 盤面表示
+                        vue1.engine.position.board.eachSq((sq, cellValue) => {
+                            let cell = document.getElementById(`sq_${sq}`);
+                            switch(cellValue) {
+                                case PC_X:
+                                    cell.setAttribute("class", "live");
+                                    break;
+
+                                case PC_EMPTY:
+                                    cell.setAttribute("class", "dead");
+                                    break;
+
+                                default:
+                                    cell.setAttribute("class", "error");
+                                    break;
+                            }
+                        })
                     },
                 },
             });

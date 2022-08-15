@@ -102,18 +102,25 @@ class Board {
      * 各マスについて変換
      * @param {function} convertCell - (sq, cellValue)
      */
-    eachSq(convertCell) {
+    convertEachSq(convertCell) {
         let nextBoard = Array(BOARD_AREA);
 
-        for (let y = 0; y < BOARD_HEIGHT; y++) {
-            for (let x = 0; x < BOARD_WIDTH; x++) {
-                let sq = this.toSq(x, y);
-                let cell = convertCell(sq, this._squares[sq]);
-                nextBoard[sq] = cell;
-            }
+        for (let sq = 0; sq < BOARD_AREA; sq++) {
+            let cell = convertCell(sq, this._squares[sq]);
+            nextBoard[sq] = cell;
         }
 
         this._squares = nextBoard;
+    }
+
+    /**
+     * 各マスについてアクション
+     * @param {function} setCell - (sq, cellValue)
+     */
+    eachSq(setCell) {
+        for (let sq = 0; sq < BOARD_AREA; sq++) {
+            setCell(sq, this._squares[sq]);
+        }
     }
 
     /**

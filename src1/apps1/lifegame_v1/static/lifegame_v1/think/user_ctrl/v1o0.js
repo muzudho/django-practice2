@@ -12,7 +12,7 @@ class UserCtrl {
     doMove(position) {
         this._position = position;
         // セルの変化
-        this._position.board.eachSq((sq, cellValue) => {
+        this._position.board.convertEachSq((sq, cellValue) => {
             let count = this._position.board.getLifeCountAround(sq);
 
             switch (cellValue) {
