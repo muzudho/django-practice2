@@ -1887,4 +1887,5 @@ urlpatterns = [
 
 # 参考にした記事
 
-📖 [http://math.shinshu-u.ac.jp/~hanaki/lifegame/](http://math.shinshu-u.ac.jp/~hanaki/lifegame/)  
+📖 [ライフゲーム Akihide Hanaki](http://math.shinshu-u.ac.jp/~hanaki/lifegame/)  
+📖 [ライフゲームの数理 里村孔明](http://nalab.mind.meiji.ac.jp/2018/2019-satomura.pdf)  
