@@ -17,79 +17,10 @@
         </style>
     </head>
     <body>
-        <div id="app">
-            <v-app>
-                <v-main>
-                    <v-container fluid>
-                        <h1>Life game Engine Test</h1>
-                        <v-form method="POST">
-                            {% csrf_token %}
-
-                            <!-- `po_` は POST送信するパラメーター名の目印 -->
-                            <!-- 入力 -->
-                            <v-textarea name="po_input" required v-model="inputText.value" label="Input"></v-textarea>
-
-                            <v-btn block elevation="2" v-on:click="executeVu()"> Execute </v-btn>
-
-                            <!-- 出力 -->
-                            <v-textarea name="po_output" required v-model="outputText.value" label="Output"></v-textarea>
-                        </v-form>
-                    </v-container>
-                </v-main>
-            </v-app>
-        </div>
-
-        <script src="{% static 'lifegame_v1/think/engine/v1o0.js' %}"></script>
-        <script src="{% static 'lifegame_v1/think/position/v1o0.js' %}"></script>
-        <script src="{% static 'lifegame_v1/think/things/v1o0.js' %}"></script>
-        <script src="{% static 'lifegame_v1/think/user_ctrl/v1o0.js' %}"></script>
-        <!--            ===========================================
-                        1
-        1. src1/apps1/lifegame_v1/static/lifegame_v1/think/user_ctrl/v1o0.js
-                                  ==========================================
-        -->
-
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-        <script>
-            const vue1 = new Vue({
-                el: "#app",
-                vuetify: new Vuetify(),
-                data: {
-                    // 入力
-                    inputText: {
-                        value: `board
-play
-board
-play
-board
-play
-board
-play
-board
-`,
-                    },
-                    // 出力
-                    outputText: {
-                        value: 'Please push "Execute" button.',
-                    },
-                    // 思考エンジン
-                    engine: new Engine(
-                        // ユーザーコントロール
-                        new UserCtrl()
-                    ),
-                },
-                methods: {
-                    // 関数名の末尾の Vu は vue1 のメソッドであることを表す目印
-                    /**
-                     * po_input 欄のコマンドを入力します
-                     */
-                    executeVu() {
-                        // console.log(`[methods executeVu]`);
-                        vue1.outputText.value = vue1.engine.execute(vue1.inputText.value);
-                    },
-                },
-            });
-        </script>
+        {% block body %}
+        <!-- -->
+        ここに本体を書く
+        <!-- -->
+        {% endblock body %}
     </body>
 </html>

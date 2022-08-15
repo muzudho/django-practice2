@@ -152,7 +152,7 @@ INSTALLED_APPS = [
 
 # Step OAAA1001o1o0g7o0 画面作成 - board/v1o0.html ファイル
 
-👇 以下のファイルを作成してほしい  
+👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 src1
@@ -192,80 +192,11 @@ INSTALLED_APPS = [
         </style>
     </head>
     <body>
-        <div id="app">
-            <v-app>
-                <v-main>
-                    <v-container fluid>
-                        <h1>Tic Tac Toe Engine Test</h1>
-                        <v-form method="POST">
-                            {% csrf_token %}
-
-                            <!-- `po_` は POST送信するパラメーター名の目印 -->
-                            <!-- 入力 -->
-                            <v-textarea name="po_input" required v-model="inputText.value" label="Input"></v-textarea>
-
-                            <v-btn block elevation="2" v-on:click="executeVu()"> Execute </v-btn>
-
-                            <!-- 出力 -->
-                            <v-textarea name="po_output" required v-model="outputText.value" label="Output"></v-textarea>
-                        </v-form>
-                    </v-container>
-                </v-main>
-            </v-app>
-        </div>
-
-        <script src="{% static 'lifegame_v1/think/things/v1o0.js' %}"></script>
-        <script src="{% static 'lifegame_v1/think/position/v1o0.js' %}"></script>
-        <script src="{% static 'lifegame_v1/think/user_ctrl/v1o0.js' %}"></script>
-        <script src="{% static 'lifegame_v1/think/engine/v1o0.js' %}"></script>
-        <!--            ===========================================
-                        1
-        1. src1/apps1/lifegame_v1/static/lifegame_v1/think/engine/v1o0.js
-                                  =======================================
-        -->
-
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-        <script>
-            const vue1 = new Vue({
-                el: "#app",
-                vuetify: new Vuetify(),
-                data: {
-                    // 入力
-                    inputText: {
-                        value: `board
-play
-board
-play
-board
-play
-board
-play
-board
-`,
-                    },
-                    // 出力
-                    outputText: {
-                        value: 'Please push "Execute" button.',
-                    },
-                    // 思考エンジン
-                    engine: new Engine(
-                        // ユーザーコントロール
-                        new UserCtrl()
-                    ),
-                },
-                methods: {
-                    // 関数名の末尾の Vu は vue1 のメソッドであることを表す目印
-                    /**
-                     * po_input 欄のコマンドを入力します
-                     */
-                    executeVu() {
-                        // console.log(`[methods executeVu]`);
-                        vue1.outputText.value = vue1.engine.execute(vue1.inputText.value);
-                    },
-                },
-            });
-        </script>
+        {% block body %}
+        <!-- -->
+        ここに本体を書く
+        <!-- -->
+        {% endblock body %}
     </body>
 </html>
 ```
@@ -366,8 +297,8 @@ class BoardView():
         this_page_lp = 'lifegame_v1/board/v1o0.html'
         #               ---------------------------
         #               1
-        # 1. src1/apps1/lifegame_v1/templates/lifegame_v1/board/v1o0.html を取得
-        #                                     ---------------------------
+        # 1. `src1/apps1/lifegame_v1/templates/lifegame_v1/board/v1o0.html` を取得
+        #                                      ---------------------------
 
         context = {}
         return render(request, this_page_lp, context)
@@ -477,6 +408,12 @@ urlpatterns = [
     #          ----------------------
 ]
 ```
+
+# Step OAAA1001o1o0ga12o_1o__99o0 Webページにアクセスする
+
+👇 接続の確認だけしてほしい  
+
+📖 [http://localhost:8000/lifegame/v1/board](http://localhost:8000/lifegame/v1/board)  
 
 # Step OAAA1001o1o0ga12o_1o0 物の定義
 
@@ -1147,9 +1084,276 @@ ${indent}${this._position.dump(indent + "    ")}`;
 }
 ```
 
+# Step OAAA1001o1o0ga12o_5o0 画面作成 - board/v1o1o0.html ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        ├── 📂 apps1
+        │   └── 📂 lifegame_v1                  # アプリケーション
+        │       ├── 📂 migrations
+        │       │   └── 📄 __init__.py
+        │       ├── 📂 static
+        │       │   └── 📂 lifegame_v1          # アプリケーションと同名
+        │       │       └── 📂 think
+        │       │           ├── 📂 engine
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 position
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 things
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 user_ctrl
+        │       │               └── 📄 v1o0.js
+        │       ├── 📂 templates
+        │       │   └── 📂 lifegame_v1
+        │       │       └── 📂 board
+        │       │           ├── 📄 v1o0.html
+👉      │       │           └── 📄 v1o1o0.html.txt
+        │       ├── 📂 views
+        │       │   └── 📂 board
+        │       │       └── 📂 v1o0
+        │       │           └── 📄 __init__.py
+        │       ├── 📄 __init__.py
+        │       ├── 📄 admin.py
+        │       ├── 📄 apps.py
+        │       └── 📄 tests.py
+        └── 📂 project1
+            ├── 📄 settings.py
+            ├── 📄 urls_lifegame.py
+            └── 📄 urls.py
+```
+
+```html
+{# OAAA1001o1o0ga12o_5o0 #}
+<!-- -->
+{% extends "lifegame_v1/board/v1o0.html" %}
+{#          ---------------------------
+            1
+1. src1/apps1/lifegame_v1/templates/lifegame_v1/board/v1o0.html
+                                    ---------------------------
+#}
+{% load static %} {# 👈あとで static "URL" を使うので load static します #}
+
+{% block body %}
+        <div id="app">
+            <v-app>
+                <v-main>
+                    <v-container fluid>
+                        <h1>Life game Engine Test</h1>
+                        <v-form method="POST">
+                            {% csrf_token %}
+
+                            <!-- `po_` は POST送信するパラメーター名の目印 -->
+                            <!-- 入力 -->
+                            <v-textarea name="po_input" required v-model="inputText.value" label="Input"></v-textarea>
+
+                            <v-btn block elevation="2" v-on:click="executeVu()"> Execute </v-btn>
+
+                            <!-- 出力 -->
+                            <v-textarea name="po_output" required v-model="outputText.value" label="Output"></v-textarea>
+                        </v-form>
+                    </v-container>
+                </v-main>
+            </v-app>
+        </div>
+
+        <script src="{% static 'lifegame_v1/think/engine/v1o0.js' %}"></script>
+        <script src="{% static 'lifegame_v1/think/position/v1o0.js' %}"></script>
+        <script src="{% static 'lifegame_v1/think/things/v1o0.js' %}"></script>
+        <script src="{% static 'lifegame_v1/think/user_ctrl/v1o0.js' %}"></script>
+        <!--            ===========================================
+                        1
+        1. src1/apps1/lifegame_v1/static/lifegame_v1/think/user_ctrl/v1o0.js
+                                  ==========================================
+        -->
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+        <script>
+            const vue1 = new Vue({
+                el: "#app",
+                vuetify: new Vuetify(),
+                data: {
+                    // 入力
+                    inputText: {
+                        value: `board
+play
+board
+play
+board
+play
+board
+play
+board
+`,
+                    },
+                    // 出力
+                    outputText: {
+                        value: 'Please push "Execute" button.',
+                    },
+                    // 思考エンジン
+                    engine: new Engine(
+                        // ユーザーコントロール
+                        new UserCtrl()
+                    ),
+                },
+                methods: {
+                    // 関数名の末尾の Vu は vue1 のメソッドであることを表す目印
+                    /**
+                     * po_input 欄のコマンドを入力します
+                     */
+                    executeVu() {
+                        // console.log(`[methods executeVu]`);
+                        vue1.outputText.value = vue1.engine.execute(vue1.inputText.value);
+                    },
+                },
+            });
+        </script>
+{% endblock body %}
+```
+
+# Step OAAA1001o1o0ga12o_6o0 ビュー作成 - board/v1o1o0 フォルダー
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        ├── 📂 apps1
+        │   └── 📂 lifegame_v1                  # アプリケーション
+        │       ├── 📂 migrations
+        │       │   └── 📄 __init__.py
+        │       ├── 📂 static
+        │       │   └── 📂 lifegame_v1          # アプリケーションと同名
+        │       │       └── 📂 think
+        │       │           ├── 📂 engine
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 position
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 things
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 user_ctrl
+        │       │               └── 📄 v1o0.js
+        │       ├── 📂 templates
+        │       │   └── 📂 lifegame_v1
+        │       │       └── 📂 board
+        │       │           ├── 📄 v1o0.html
+        │       │           └── 📄 v1o1o0.html.txt
+        │       ├── 📂 views
+        │       │   └── 📂 board
+        │       │       ├── 📂 v1o0
+        │       │       │   └── 📄 __init__.py
+        │       │       └── 📂 v1o1o0
+👉      │       │           └── 📄 __init__.py
+        │       ├── 📄 __init__.py
+        │       ├── 📄 admin.py
+        │       ├── 📄 apps.py
+        │       └── 📄 tests.py
+        └── 📂 project1
+            ├── 📄 settings.py
+            ├── 📄 urls_lifegame.py
+            └── 📄 urls.py
+```
+
+```py
+from django.shortcuts import render
+
+
+class BoardView():
+    """OAAA1001o1o0ga12o_6o0 盤"""
+
+    @staticmethod
+    def render(request):
+        """描画"""
+
+        # * `_lp` - Local path
+        this_page_lp = 'lifegame_v1/board/v1o1o0.html.txt'
+        #               ---------------------------------
+        #               1
+        # 1. `src1/apps1/lifegame_v1/templates/lifegame_v1/board/v1o1o0.html.txt` を取得
+        #                                      ---------------------------------
+
+        context = {}
+        return render(request, this_page_lp, context)
+```
+
+# Step OAAA1001o1o0ga12o_7o0 サブ ルート作成 - urls_lifegame.py
+
+```plaintext
+    └── 📂 src1
+        ├── 📂 apps1
+        │   └── 📂 lifegame_v1                  # アプリケーション
+        │       ├── 📂 migrations
+        │       │   └── 📄 __init__.py
+        │       ├── 📂 static
+        │       │   └── 📂 lifegame_v1          # アプリケーションと同名
+        │       │       └── 📂 think
+        │       │           ├── 📂 engine
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 position
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 things
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 user_ctrl
+        │       │               └── 📄 v1o0.js
+        │       ├── 📂 templates
+        │       │   └── 📂 lifegame_v1
+        │       │       └── 📂 board
+        │       │           ├── 📄 v1o0.html
+        │       │           └── 📄 v1o1o0.html.txt
+        │       ├── 📂 views
+        │       │   └── 📂 board
+        │       │       ├── 📂 v1o0
+        │       │       │   └── 📄 __init__.py
+        │       │       └── 📂 v1o1o0
+        │       │           └── 📄 __init__.py
+        │       ├── 📄 __init__.py
+        │       ├── 📄 admin.py
+        │       ├── 📄 apps.py
+        │       └── 📄 tests.py
+        └── 📂 project1
+            ├── 📄 settings.py
+👉          ├── 📄 urls_lifegame.py
+            └── 📄 urls.py
+```
+
+```py
+# ...略...
+
+
+# OAAA1001o1o0ga12o_7o0 盤
+from apps1.lifegame_v1.views.board.v1o1o0 import BoardView as BoardViewV1o1o0
+#          -----------             ------        ---------    ---------------
+#          11                      12            2            3
+#    ------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
+# 3. `2.` の別名
+
+
+urlpatterns = [
+    # ...略...
+
+
+    # OAAA1001o1o0ga12o_7o0 ライフゲーム v1.1 の盤
+    path('lifegame/v1.1/board',
+         # ------------------
+         # 1
+         BoardViewV1o1o0.render, name='lifegame_v1o1_board'),
+    #    ----------------------        -------------------
+    #    2                             3
+    # 1. 例えば `http://example.com/lifegame/v1.1/board` のようなURLのパスの部分
+    #                              -------------------
+    # 2. BoardViewV1o1o0 クラスの render 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'lifegame_v1o1_board' %} のような形でURLを取得するのに使える
+]
+```
+
 # Step OAAA1001o1o0ga12o0 Webページにアクセスする
 
-📖 [http://localhost:8000/lifegame/v1/board](http://localhost:8000/lifegame/v1/board)  
+📖 [http://localhost:8000/lifegame/v1.1/board](http://localhost:8000/lifegame/v1.1/board)  
 
 # 参考にした記事
 
