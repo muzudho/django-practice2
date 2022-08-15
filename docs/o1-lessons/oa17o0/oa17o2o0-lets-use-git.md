@@ -55,7 +55,7 @@ git clone https://github.com/muzudho/django-practice2.git
 #
 # ここまでは1回行うだけでよい
 
-# 2回目以降、うまくいかない
+# 2回目以降は、プルしてフェッチ
 # git pull https://github.com/muzudho/django-practice2.git
 # git fetch https://github.com/muzudho/django-practice2.git
 ```

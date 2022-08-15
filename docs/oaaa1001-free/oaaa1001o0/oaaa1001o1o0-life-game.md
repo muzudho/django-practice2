@@ -1546,7 +1546,7 @@ urlpatterns = [
 
                             <!-- `po_` は POST送信するパラメーター名の目印 -->
                             <!-- 入力 -->
-                            <v-textarea name="po_input" required v-model="inputText.value" label="Input" :disabled="!inputText.enabled"></v-textarea>
+                            <v-textarea name="po_input" required rows="6" v-model="inputText.value" label="Input" :disabled="!inputText.enabled"></v-textarea>
 
                             <!-- 実行ボタン -->
                             <v-btn block elevation="2" v-on:click="executeVu()" :disabled="!executeButton.enabled"> Execute </v-btn>
@@ -1604,8 +1604,7 @@ urlpatterns = [
                     // 入力
                     inputText: {
                         enabled: true,
-                        value: `
-# 64x64 グライダー
+                        value: `# 64x64 グライダー
 position"""
 ................................................................
 ................................................................
