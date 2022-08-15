@@ -163,7 +163,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'apps1/lifegame_v1/templates'),
             #                       ---------------------------
             #                       10
-            # Example: /src1/apps1/lifegame_v1/templates/lifegame_v1/board/v1o0.html
+            # Example: /src1/apps1/lifegame_v1/templates/lifegame_v1/board/v0o1o0.html
             #                      -----------          ------------
             #                      11                   2
             #                ---------------------------

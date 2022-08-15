@@ -9,11 +9,11 @@ class BoardView():
         """描画"""
 
         # * `_lp` - Local path
-        this_page_lp = 'lifegame_v1/board/v1o0.html'
-        #               ---------------------------
+        this_page_lp = 'lifegame_v1/board/v0o1o0.html'
+        #               -----------------------------
         #               1
-        # 1. `src1/apps1/lifegame_v1/templates/lifegame_v1/board/v1o0.html` を取得
-        #                                      ---------------------------
+        # 1. `src1/apps1/lifegame_v1/templates/lifegame_v1/board/v0o1o0.html` を取得
+        #                                      -----------------------------
 
         context = {}
         return render(request, this_page_lp, context)

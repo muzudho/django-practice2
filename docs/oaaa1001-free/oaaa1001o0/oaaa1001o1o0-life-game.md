@@ -150,7 +150,7 @@ INSTALLED_APPS = [
 # ...略...
 ```
 
-# Step OAAA1001o1o0g7o0 画面作成 - board/v1o0.html ファイル
+# Step OAAA1001o1o0g7o0 画面作成 - board/v0o1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -163,7 +163,7 @@ INSTALLED_APPS = [
         │       ├── 📂 templates
         │       │   └── 📂 lifegame_v1      # アプリケーションと同名
         │       │       └── 📂 board
-👉      │       │           └── 📄 v1o0.html
+👉      │       │           └── 📄 v0o1o0.html
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -214,7 +214,7 @@ INSTALLED_APPS = [
         │       ├── 📂 templates
         │       │   └── 📂 lifegame_v1      # アプリケーションと同名
         │       │       └── 📂 board
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 v0o1o0.html
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -239,7 +239,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'apps1/lifegame_v1/templates'),
             #                       ---------------------------
             #                       10
-            # Example: /src1/apps1/lifegame_v1/templates/lifegame_v1/board/v1o0.html
+            # Example: /src1/apps1/lifegame_v1/templates/lifegame_v1/board/v0o1o0.html
             #                      -----------          ------------
             #                      11                   2
             #                ---------------------------
@@ -256,7 +256,7 @@ TEMPLATES = [
 ]
 ```
 
-# Step OAAA1001o1o0g9o0 ビュー作成 - board/v1o0 フォルダー
+# Step OAAA1001o1o0g9o0 ビュー作成 - board/v0o1 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -269,10 +269,10 @@ TEMPLATES = [
         │       ├── 📂 templates
         │       │   └── 📂 lifegame_v1      # アプリケーションと同名
         │       │       └── 📂 board
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 v0o1o0.html
         │       ├── 📂 views
         │       │   └── 📂 board
-        │       │       └── 📂 v1o0
+        │       │       └── 📂 v0o1o0
 👉      │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -294,11 +294,11 @@ class BoardView():
         """描画"""
 
         # * `_lp` - Local path
-        this_page_lp = 'lifegame_v1/board/v1o0.html'
-        #               ---------------------------
+        this_page_lp = 'lifegame_v1/board/v0o1o0.html'
+        #               -----------------------------
         #               1
-        # 1. `src1/apps1/lifegame_v1/templates/lifegame_v1/board/v1o0.html` を取得
-        #                                      ---------------------------
+        # 1. `src1/apps1/lifegame_v1/templates/lifegame_v1/board/v0o1o0.html` を取得
+        #                                      -----------------------------
 
         context = {}
         return render(request, this_page_lp, context)
@@ -317,10 +317,10 @@ class BoardView():
         │       ├── 📂 templates
         │       │   └── 📂 lifegame_v1      # アプリケーションと同名
         │       │       └── 📂 board
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 v0o1o0.html
         │       ├── 📂 views
         │       │   └── 📂 board
-        │       │       └── 📂 v1o0
+        │       │       └── 📂 v0o1o0
         │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -335,11 +335,11 @@ class BoardView():
 ```py
 from django.urls import path
 
-# OAAA1001o1o0g9o0 盤
-from apps1.lifegame_v1.views.board.v1o0 import BoardView as BoardViewV1o0
-#          -----------             ----        ---------    -------------
-#          11                      12          2            3
-#    ----------------------------------
+# OAAA1001o1o0g9o0 ライフゲーム v0.1 の盤
+from apps1.lifegame_v1.views.board.v0o1o0 import BoardView as BoardViewV0o1o0
+#          -----------             ------        ---------    ---------------
+#          11                      12            2            3
+#    ------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -349,17 +349,17 @@ from apps1.lifegame_v1.views.board.v1o0 import BoardView as BoardViewV1o0
 
 urlpatterns = [
 
-    # OAAA1001o1o0ga10o0 ライフゲーム v1 の盤
-    path('lifegame/v1/board',
-         # ----------------
+    # OAAA1001o1o0ga10o0 ライフゲーム v0.1 の盤
+    path('lifegame/v0.1/board',
+         # ------------------
          # 1
-         BoardViewV1o0.render, name='lifegame_v1_board'),
-    #    --------------------        -----------------
-    #    2                           3
-    # 1. 例えば `http://example.com/lifegame/v1/board` のようなURLのパスの部分
-    #                              -----------------
-    # 2. BoardViewV1o0 クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'lifegame_v1_board' %} のような形でURLを取得するのに使える
+         BoardViewV0o1o0.render, name='lifegame_v0o1o0_board'),
+    #    ----------------------        ---------------------
+    #    2                             3
+    # 1. 例えば `http://example.com/lifegame/v0.1/board` のようなURLのパスの部分
+    #                              -------------------
+    # 2. BoardViewV0o1o0 クラスの render 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'lifegame_v0o1o0_board' %} のような形でURLを取得するのに使える
 ]
 ```
 
@@ -376,10 +376,10 @@ urlpatterns = [
         │       ├── 📂 templates
         │       │   └── 📂 lifegame_v1
         │       │       └── 📂 board
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 v0o1o0.html
         │       ├── 📂 views
         │       │   └── 📂 board
-        │       │       └── 📂 v1o0
+        │       │       └── 📂 v0o1o0
         │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -413,7 +413,7 @@ urlpatterns = [
 
 👇 接続の確認だけしてほしい  
 
-📖 [http://localhost:8000/lifegame/v1/board](http://localhost:8000/lifegame/v1/board)  
+📖 [http://localhost:8000/lifegame/v0.1/board](http://localhost:8000/lifegame/v0.1/board)  
 
 # Step OAAA1001o1o0ga12o_1o0 物の定義
 
@@ -433,10 +433,10 @@ urlpatterns = [
         │       ├── 📂 templates
         │       │   └── 📂 lifegame_v1
         │       │       └── 📂 board
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 v0o1o0.html
         │       ├── 📂 views
         │       │   └── 📂 board
-        │       │       └── 📂 v1o0
+        │       │       └── 📂 v0o1o0
         │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -772,10 +772,10 @@ ${indent}`;
         │       ├── 📂 templates
         │       │   └── 📂 lifegame_v1
         │       │       └── 📂 board
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 v0o1o0.html
         │       ├── 📂 views
         │       │   └── 📂 board
-        │       │       └── 📂 v1o0
+        │       │       └── 📂 v0o1o0
         │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -883,10 +883,10 @@ ${indent}${this._board.dump(indent + "    ")}`;
         │       ├── 📂 templates
         │       │   └── 📂 lifegame_v1
         │       │       └── 📂 board
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 v0o1o0.html
         │       ├── 📂 views
         │       │   └── 📂 board
-        │       │       └── 📂 v1o0
+        │       │       └── 📂 v0o1o0
         │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -976,10 +976,10 @@ class UserCtrl {
         │       ├── 📂 templates
         │       │   └── 📂 lifegame_v1
         │       │       └── 📂 board
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 v0o1o0.html
         │       ├── 📂 views
         │       │   └── 📂 board
-        │       │       └── 📂 v1o0
+        │       │       └── 📂 v0o1o0
         │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -1084,7 +1084,7 @@ ${indent}${this._position.dump(indent + "    ")}`;
 }
 ```
 
-# Step OAAA1001o1o0ga12o_5o0 画面作成 - board/v1o1o0.html ファイル
+# Step OAAA1001o1o0ga12o_5o0 画面作成 - board/v0o2o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1108,11 +1108,11 @@ ${indent}${this._position.dump(indent + "    ")}`;
         │       ├── 📂 templates
         │       │   └── 📂 lifegame_v1
         │       │       └── 📂 board
-        │       │           ├── 📄 v1o0.html
-👉      │       │           └── 📄 v1o1o0.html.txt
+        │       │           ├── 📄 v0o1o0.html
+👉      │       │           └── 📄 v0o2o0.html.txt
         │       ├── 📂 views
         │       │   └── 📂 board
-        │       │       └── 📂 v1o0
+        │       │       └── 📂 v0o1o0
         │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -1127,11 +1127,11 @@ ${indent}${this._position.dump(indent + "    ")}`;
 ```html
 {# OAAA1001o1o0ga12o_5o0 #}
 <!-- -->
-{% extends "lifegame_v1/board/v1o0.html" %}
-{#          ---------------------------
+{% extends "lifegame_v1/board/v0o1o0.html" %}
+{#          -----------------------------
             1
-1. src1/apps1/lifegame_v1/templates/lifegame_v1/board/v1o0.html
-                                    ---------------------------
+1. src1/apps1/lifegame_v1/templates/lifegame_v1/board/v0o1o0.html
+                                    -----------------------------
 #}
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 
@@ -1213,7 +1213,7 @@ board
 {% endblock body %}
 ```
 
-# Step OAAA1001o1o0ga12o_6o0 ビュー作成 - board/v1o1o0 フォルダー
+# Step OAAA1001o1o0ga12o_6o0 ビュー作成 - board/v0o2o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1237,13 +1237,13 @@ board
         │       ├── 📂 templates
         │       │   └── 📂 lifegame_v1
         │       │       └── 📂 board
-        │       │           ├── 📄 v1o0.html
-        │       │           └── 📄 v1o1o0.html.txt
+        │       │           ├── 📄 v0o1o0.html
+        │       │           └── 📄 v0o2o0.html.txt
         │       ├── 📂 views
         │       │   └── 📂 board
-        │       │       ├── 📂 v1o0
+        │       │       ├── 📂 v0o1o0
         │       │       │   └── 📄 __init__.py
-        │       │       └── 📂 v1o1o0
+        │       │       └── 📂 v0o2o0
 👉      │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -1267,10 +1267,10 @@ class BoardView():
         """描画"""
 
         # * `_lp` - Local path
-        this_page_lp = 'lifegame_v1/board/v1o1o0.html.txt'
+        this_page_lp = 'lifegame_v1/board/v0o2o0.html.txt'
         #               ---------------------------------
         #               1
-        # 1. `src1/apps1/lifegame_v1/templates/lifegame_v1/board/v1o1o0.html.txt` を取得
+        # 1. `src1/apps1/lifegame_v1/templates/lifegame_v1/board/v0o2o0.html.txt` を取得
         #                                      ---------------------------------
 
         context = {}
@@ -1299,13 +1299,13 @@ class BoardView():
         │       ├── 📂 templates
         │       │   └── 📂 lifegame_v1
         │       │       └── 📂 board
-        │       │           ├── 📄 v1o0.html
-        │       │           └── 📄 v1o1o0.html.txt
+        │       │           ├── 📄 v0o1o0.html
+        │       │           └── 📄 v0o2o0.html.txt
         │       ├── 📂 views
         │       │   └── 📂 board
-        │       │       ├── 📂 v1o0
+        │       │       ├── 📂 v0o1o0
         │       │       │   └── 📄 __init__.py
-        │       │       └── 📂 v1o1o0
+        │       │       └── 📂 v0o2o0
         │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -1321,8 +1321,8 @@ class BoardView():
 # ...略...
 
 
-# OAAA1001o1o0ga12o_7o0 盤
-from apps1.lifegame_v1.views.board.v1o1o0 import BoardView as BoardViewV1o1o0
+# OAAA1001o1o0ga12o_7o0 ライフゲーム v0.2 の盤
+from apps1.lifegame_v1.views.board.v0o2o0 import BoardView as BoardViewV0o2o0
 #          -----------             ------        ---------    ---------------
 #          11                      12            2            3
 #    ------------------------------------
@@ -1337,23 +1337,23 @@ urlpatterns = [
     # ...略...
 
 
-    # OAAA1001o1o0ga12o_7o0 ライフゲーム v1.1 の盤
-    path('lifegame/v1.1/board',
+    # OAAA1001o1o0ga12o_7o0 ライフゲーム v0.2 の盤
+    path('lifegame/v0.2/board',
          # ------------------
          # 1
-         BoardViewV1o1o0.render, name='lifegame_v1o1_board'),
-    #    ----------------------        -------------------
+         BoardViewV0o2o0.render, name='lifegame_v0o2o0_board'),
+    #    ----------------------        ---------------------
     #    2                             3
-    # 1. 例えば `http://example.com/lifegame/v1.1/board` のようなURLのパスの部分
+    # 1. 例えば `http://example.com/lifegame/v0.2/board` のようなURLのパスの部分
     #                              -------------------
     # 2. BoardViewV1o1o0 クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'lifegame_v1o1_board' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'lifegame_v0o2o0_board' %} のような形でURLを取得するのに使える
 ]
 ```
 
 # Step OAAA1001o1o0ga12o0 Webページにアクセスする
 
-📖 [http://localhost:8000/lifegame/v1.1/board](http://localhost:8000/lifegame/v1.1/board)  
+📖 [http://localhost:8000/lifegame/v0.2/board](http://localhost:8000/lifegame/v0.2/board)  
 
 # 参考にした記事
 

@@ -1,10 +1,10 @@
 {# OAAA1001o1o0ga12o_5o0 #}
 <!-- -->
-{% extends "lifegame_v1/board/v1o0.html" %}
-{#          ---------------------------
+{% extends "lifegame_v1/board/v0o1o0.html" %}
+{#          -----------------------------
             1
-1. src1/apps1/lifegame_v1/templates/lifegame_v1/board/v1o0.html
-                                    ---------------------------
+1. src1/apps1/lifegame_v1/templates/lifegame_v1/board/v0o1o0.html
+                                    -----------------------------
 #}
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 
