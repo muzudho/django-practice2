@@ -34,11 +34,11 @@ sudo apt-get install git-all
     📂 /
         └── 📂 home
             └── 📂 ubuntu
-👉              └── 📂 repo  この中にソースを置きたい
+👉              └── 📂 repos  この中にソースを置きたい
 ```
 
 ```shell
-cd /home/ubuntu/repo
+cd /home/ubuntu/repos
 ```
 
 # ソースをクローンする
@@ -64,7 +64,7 @@ git clone https://github.com/muzudho/django-practice2.git
     📂 /
         └── 📂 home
             └── 📂 ubuntu
-                └── 📂 repo
+                └── 📂 repos
                     └── 📂 django-practice2     # レポジトリ
                         ├── 📂 docs
                         ├── 📂 src1

@@ -62,7 +62,7 @@
     /
     └── 📂 home
         └── 📂 ubuntu
-            └── 📂 repo
+            └── 📂 repos
                 └── 📂 django-practice2
                     └── 📂 src1            # ソース
                         ├── 📂 apps1        # 各種アプリケーション
@@ -81,7 +81,7 @@
 # コマンド
 
 ```shell
-cd /home/ubuntu/repo/django-practice2/src1
+cd /home/ubuntu/repos/django-practice2/src1
 
 docker-compose up
 # ファイルを指定するなら
