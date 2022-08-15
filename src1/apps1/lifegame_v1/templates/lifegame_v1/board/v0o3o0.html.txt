@@ -42,19 +42,19 @@
             <v-app>
                 <v-main>
                     <v-container fluid>
-                        <h1>Life game Engine Test</h1>
+                        <h1>Life game</h1>
                         <v-form method="POST">
                             {% csrf_token %}
 
                             <!-- `po_` は POST送信するパラメーター名の目印 -->
                             <!-- 入力 -->
-                            <v-textarea name="po_input" required v-model="inputText.value" label="Input"></v-textarea>
+                            <v-textarea name="po_input" required v-model="inputText.value" label="Input" :disabled="!inputText.enabled"></v-textarea>
 
                             <!-- 実行ボタン -->
                             <v-btn block elevation="2" v-on:click="executeVu()" :disabled="!executeButton.enabled"> Execute </v-btn>
 
                             <!-- 出力 -->
-                            <v-textarea name="po_output" required v-model="outputText.value" label="Output"></v-textarea>
+                            <v-textarea name="po_output" rows="1" disabled v-model="outputText.value" label="Output"></v-textarea>
                         </v-form>
                     </v-container>
                     <v-container>
@@ -105,6 +105,7 @@
                 data: {
                     // 入力
                     inputText: {
+                        enabled: true,
                         value: `
 # 64x64 グライダー
 position"""
@@ -195,7 +196,9 @@ position"""
                      * po_input 欄のコマンドを入力します
                      */
                     executeVu() {
+                        this.inputText.enabled = false;
                         this.executeButton.enabled = false;
+                        this.outputText.value = "All that's left is to look.";
 
                         let firstPositionText = vue1.inputText.value;
 
