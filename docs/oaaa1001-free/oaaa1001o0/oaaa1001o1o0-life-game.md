@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [http://tic.warabenture.com:8000/lifegame/v0.3/board/](http://tic.warabenture.com:8000/lifegame/v0.3/board/)  
+
 # 目的
 
 ライフゲームを作る
@@ -1446,6 +1450,27 @@ urlpatterns = [
             .v-textarea textarea {
                 font-family: monospace, monospace;
             }
+            /* 生きているセル */
+            .live {
+                font-family: monospace, monospace;
+                color:#FFC107; /* amber */
+                background-color:#FFC107; /* amber */
+                border:solid 1px black;
+            }
+            /* 死んでいるセル */
+            .dead {
+                font-family: monospace, monospace;
+                color:#607D8B; /* blue-gray */
+                background-color:#607D8B; /* blue-gray */
+                border:solid 1px black;
+            }
+            /* エラーのセル */
+            .error {
+                font-family: monospace, monospace;
+                color:red;
+                background-color:red;
+                border:solid 1px black;
+            }
         </style>
     </head>
     <body>
@@ -1453,24 +1478,24 @@ urlpatterns = [
             <v-app>
                 <v-main>
                     <v-container fluid>
-                        <h1>Life game Engine Test</h1>
+                        <h1>Life game</h1>
                         <v-form method="POST">
                             {% csrf_token %}
 
                             <!-- `po_` は POST送信するパラメーター名の目印 -->
                             <!-- 入力 -->
-                            <v-textarea name="po_input" required v-model="inputText.value" label="Input"></v-textarea>
+                            <v-textarea name="po_input" required v-model="inputText.value" label="Input" :disabled="!inputText.enabled"></v-textarea>
 
-                            <v-btn block elevation="2" v-on:click="executeVu()"> Execute </v-btn>
+                            <!-- 実行ボタン -->
+                            <v-btn block elevation="2" v-on:click="executeVu()" :disabled="!executeButton.enabled"> Execute </v-btn>
 
                             <!-- 出力 -->
-                            <v-textarea name="po_output" required v-model="outputText.value" label="Output"></v-textarea>
-                            <v-btn
-                                elevation="1"
-                                tile
-                                x-small
-                            ></v-btn>
+                            <v-textarea name="po_output" rows="1" disabled v-model="outputText.value" label="Output"></v-textarea>
                         </v-form>
+                    </v-container>
+                    <v-container>
+                        <!-- Example: <span id="sq_0" class="live">■</span><span id="sq_1" class="dead">■</span> -->
+                        <div id="life_game_canvas" style="line-height:1;"></div>
                     </v-container>
                 </v-main>
             </v-app>
@@ -1489,12 +1514,34 @@ urlpatterns = [
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
         <script>
+            // テーブルを動的生成
+            let lifeGameCanvas = document.getElementById("life_game_canvas");
+            let idCount = 0;
+
+            // 縦に並べる
+            for(let y=0; y<BOARD_HEIGHT; y++) {
+                // 横に並べる
+                for(let x=0; x<BOARD_WIDTH; x++) {
+                    let span = document.createElement('span');
+                    span.setAttribute("id", `sq_${idCount}`);
+                    idCount++;
+                    span.setAttribute("class", "dead");
+                    span.textContent = "■";
+                    lifeGameCanvas.appendChild(span);
+                }
+
+                // 改行
+                let br = document.createElement('br');
+                lifeGameCanvas.appendChild(br);
+            }
+
             const vue1 = new Vue({
                 el: "#app",
                 vuetify: new Vuetify(),
                 data: {
                     // 入力
                     inputText: {
+                        enabled: true,
                         value: `
 # 64x64 グライダー
 position"""
@@ -1574,6 +1621,10 @@ position"""
                         // ユーザーコントロール
                         new UserCtrl()
                     ),
+                    // 実行ボタンの活性性
+                    executeButton: {
+                        enabled: true,
+                    },
                 },
                 methods: {
                     // 関数名の末尾の Vu は vue1 のメソッドであることを表す目印
@@ -1581,14 +1632,40 @@ position"""
                      * po_input 欄のコマンドを入力します
                      */
                     executeVu() {
+                        this.inputText.enabled = false;
+                        this.executeButton.enabled = false;
+                        this.outputText.value = "All that's left is to look.";
+
                         let firstPositionText = vue1.inputText.value;
 
                         let _log = vue1.engine.execute(firstPositionText);
 
+                        intervalMilliseconds = 100;
+                        setInterval(() => {
+                            this.playVu();
+                        }, intervalMilliseconds);
+                    },
+                    playVu() {
                         // 動かす
                         vue1.engine.userCtrl.doMove(vue1.engine.position);
 
                         // 盤面表示
+                        vue1.engine.position.board.eachSq((sq, cellValue) => {
+                            let cell = document.getElementById(`sq_${sq}`);
+                            switch(cellValue) {
+                                case PC_X:
+                                    cell.setAttribute("class", "live");
+                                    break;
+
+                                case PC_EMPTY:
+                                    cell.setAttribute("class", "dead");
+                                    break;
+
+                                default:
+                                    cell.setAttribute("class", "error");
+                                    break;
+                            }
+                        })
                     },
                 },
             });
