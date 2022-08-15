@@ -153,3 +153,7 @@ Lesson OA24o0 Monitor
 Lesson OA25o0 Watching game  
 
 * 📖 [OA25o1o0 観戦モードを作ろう！](https://qiita.com/muzudho1/items/9e4a7dd1ccfac6ac8d66)
+
+# 以下は自由課題
+
+* 📖 [DjangoとDocker自由課題OAAA1001o1o0 ライフゲームを作ろう！](https://qiita.com/muzudho1/items/a2c90f8d3dfaad849211)
