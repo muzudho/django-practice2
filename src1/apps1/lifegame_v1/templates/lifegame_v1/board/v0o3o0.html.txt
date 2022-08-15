@@ -50,7 +50,8 @@
                             <!-- 入力 -->
                             <v-textarea name="po_input" required v-model="inputText.value" label="Input"></v-textarea>
 
-                            <v-btn block elevation="2" v-on:click="executeVu()"> Execute </v-btn>
+                            <!-- 実行ボタン -->
+                            <v-btn block elevation="2" v-on:click="executeVu()" :disabled="!executeButton.enabled"> Execute </v-btn>
 
                             <!-- 出力 -->
                             <v-textarea name="po_output" required v-model="outputText.value" label="Output"></v-textarea>
@@ -183,6 +184,10 @@ position"""
                         // ユーザーコントロール
                         new UserCtrl()
                     ),
+                    // 実行ボタンの活性性
+                    executeButton: {
+                        enabled: true,
+                    },
                 },
                 methods: {
                     // 関数名の末尾の Vu は vue1 のメソッドであることを表す目印
@@ -190,6 +195,8 @@ position"""
                      * po_input 欄のコマンドを入力します
                      */
                     executeVu() {
+                        this.executeButton.enabled = false;
+
                         let firstPositionText = vue1.inputText.value;
 
                         let _log = vue1.engine.execute(firstPositionText);
