@@ -194,6 +194,12 @@ position"""
 
                         let _log = vue1.engine.execute(firstPositionText);
 
+                        intervalMilliseconds = 100;
+                        setInterval(() => {
+                            this.playVu();
+                        }, intervalMilliseconds);
+                    },
+                    playVu() {
                         // 動かす
                         vue1.engine.userCtrl.doMove(vue1.engine.position);
 
