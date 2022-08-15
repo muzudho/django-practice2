@@ -14,6 +14,20 @@
             .v-textarea textarea {
                 font-family: monospace, monospace;
             }
+            /* 生きているセル */
+            .live {
+                font-family: monospace, monospace;
+                color:#FFC107; /* amber */
+                background-color:#FFC107; /* amber */
+                border:solid 1px black;
+            }
+            /* 死んでいるセル */
+            .dead {
+                font-family: monospace, monospace;
+                color:#607D8B; /* blue-gray */
+                background-color:#607D8B; /* blue-gray */
+                border:solid 1px black;
+            }
         </style>
     </head>
     <body>
@@ -33,12 +47,11 @@
 
                             <!-- 出力 -->
                             <v-textarea name="po_output" required v-model="outputText.value" label="Output"></v-textarea>
-                            <v-btn
-                                elevation="1"
-                                tile
-                                x-small
-                            ></v-btn>
                         </v-form>
+                    </v-container>
+                    <v-container>
+                        <!-- Example: <span class="live">■</span><span class="dead">■</span> -->
+                        <div id="life_game_canvas" style="line-height:1;"></div>
                     </v-container>
                 </v-main>
             </v-app>
@@ -57,6 +70,27 @@
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
         <script>
+            // テーブルを動的生成
+            let lifeGameCanvas = document.getElementById("life_game_canvas");
+            let idCount = 0;
+
+            // 縦に並べる
+            for(let y=0; y<BOARD_HEIGHT; y++) {
+                // 横に並べる
+                for(let x=0; x<BOARD_WIDTH; x++) {
+                    let span = document.createElement('span');
+                    span.setAttribute("id", `cell_${idCount}`);
+                    idCount++;
+                    span.setAttribute("class", "dead");
+                    span.textContent = "■";
+                    lifeGameCanvas.appendChild(span);
+                }
+
+                // 改行
+                let br = document.createElement('br');
+                lifeGameCanvas.appendChild(br);
+            }
+
             const vue1 = new Vue({
                 el: "#app",
                 vuetify: new Vuetify(),
