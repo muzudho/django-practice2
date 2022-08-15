@@ -17,6 +17,8 @@ class Engine {
 
         // 実行ログ
         this._log = "";
+        // 実行時の現在のエグゼキューター
+        this._executeCurr = null;
     }
 
     /**
@@ -45,6 +47,25 @@ class Engine {
      * コマンドの実行
      */
     execute(command) {
+        let positionText = "";
+        let executePosition = (line) => {
+            switch (line) {
+                case '"""':
+                    {
+                        this.position.board.parse(positionText);
+                        positionText = "";
+
+                        this._executeCurr = executeMain;
+                    }
+                    break;
+
+                default:
+                    {
+                        positionText += `${line}`;
+                    }
+                    break;
+            }
+        };
         let executeMain = (line) => {
             const tokens = line.split(" ");
             switch (tokens[0]) {
@@ -64,12 +85,19 @@ class Engine {
                     }
                     break;
 
+                case 'position"""':
+                    {
+                        positionText = "";
+                        this._executeCurr = executePosition;
+                    }
+                    break;
+
                 default:
                     // ignored
                     break;
             }
         };
-        let executeCurr = executeMain;
+        this._executeCurr = executeMain;
         this._log = "";
 
         const lines = command.split(/\r?\n/);
@@ -80,10 +108,12 @@ class Engine {
             }
 
             // Echo for Single line.
-            this._log += "# " + line + "\n";
+            this._log += `# ${line}\n`;
 
-            executeCurr(line);
+            this._executeCurr(line);
         }
+
+        this._executeCurr = null;
 
         let logTemp = this._log;
         this._log = "";
