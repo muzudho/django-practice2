@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [http://tic.warabenture.com:8000/lifegame/v0.3/board/](http://tic.warabenture.com:8000/lifegame/v0.3/board/)  
+📖 [http://tic.warabenture.com:8000/lifegame/v0.3/board](http://tic.warabenture.com:8000/lifegame/v0.3/board)  
 
 # 目的
 

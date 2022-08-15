@@ -52,8 +52,11 @@ git clone https://github.com/muzudho/django-practice2.git
 #         -----------------------------------------------
 #         1
 # 1. Git Hub の レポジトリのURL
+#
+# ここまでは1回行うだけでよい
 
-# 2回目以降
+# 2回目以降、うまくいかない
+# git pull https://github.com/muzudho/django-practice2.git
 # git fetch https://github.com/muzudho/django-practice2.git
 ```
 
