@@ -452,7 +452,7 @@ urlpatterns = [
 ```
 
 ```js
-// OAAA1001o1o0ga12o_9o0
+// OAAA1001o1o0ga12o_1o0
 
 // +--------
 // | 駒
@@ -585,23 +585,85 @@ class Board {
     getLifeCountAround(sq) {
         let count = 0;
 
+        // 上を北、右を東とする
         const north = -BOARD_WIDTH; // 北
         const east = 1; // 東
         const south = BOARD_WIDTH; // 南
         const west = -1; // 西
-        const next = [
-            sq + north, // 北
-            sq + north + east, // 北東
-            sq + east, // 東
-            sq + south + east, // 南東
-            sq + south, // 南
-            sq + south + west, // 南西
-            sq + west, // 西
-            sq + north + west, // 北西
-        ];
 
-        for (const nx of next) {
-            if (0 <= nx && nx < BOARD_AREA && this._squares[nx] === PC_X) {
+        let dirs = [];
+
+        let isEastEnd = sq % BOARD_WIDTH == BOARD_WIDTH - 1; // 東端だ
+        let isNorthernEnd = sq / BOARD_WIDTH == 0; // 北端だ
+        let isWestEnd = sq % BOARD_WIDTH == 0; // 西端だ
+        let isSouthEnd = sq / BOARD_WIDTH == BOARD_HEIGHT - 1; // 南端だ
+
+        if (!isEastEnd) {
+            // 盤の東端でなければ
+            //  |
+            // -+* 東
+            //  |
+            dirs.push(east);
+
+            if (!isNorthernEnd) {
+                // かつ、盤の北端でもなければ
+                //  |* 北東
+                // -+-
+                //  |
+                dirs.push(north + east);
+            }
+        }
+
+        if (!isNorthernEnd) {
+            // 盤の北端でなければ
+            //  * 北
+            // -+-
+            //  |
+            dirs.push(north);
+
+            if (!isWestEnd) {
+                // かつ、盤の西端でもなければ
+                // *| 北西
+                // -+-
+                //  |
+                dirs.push(north + west);
+            }
+        }
+
+        if (!isWestEnd) {
+            // 盤の西端でなければ
+            //  |
+            // *+- 西
+            //  |
+            dirs.push(west);
+
+            if (!isSouthEnd) {
+                // かつ、盤の南端でもなければ
+                //  |
+                // -+-
+                // *|  南西
+                dirs.push(south + west);
+            }
+        }
+
+        if (!isSouthEnd) {
+            // 盤の南端でなければ
+            //  |
+            // -+-
+            //  *  南
+            dirs.push(south);
+
+            if (!isEastEnd) {
+                // かつ、盤の東端でもなければ
+                //  |
+                // -+-
+                //  |* 南東
+                dirs.push(south + east);
+            }
+        }
+
+        for (const dir of dirs) {
+            if (this._squares[sq + dir] === PC_X) {
                 count += 1;
             }
         }
