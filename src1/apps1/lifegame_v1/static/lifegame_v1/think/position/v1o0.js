@@ -10,25 +10,15 @@ class Position {
      * * 対局開始時
      */
     constructor() {
-        // 盤
-        this._board = new Board();
-
-        // 盤２
-        this._board2 = new Board();
+        // ２つの盤
+        this._boards = [new Board(), new Board()];
     }
 
     /**
-     * 盤
+     * 盤配列
      */
-    get board() {
-        return this._board;
-    }
-
-    /**
-     * 盤２
-     */
-    get board2() {
-        return this._board2;
+    get boards() {
+        return this._boards;
     }
 
     /**
@@ -38,7 +28,7 @@ class Position {
         return `
 ${indent}Position
 ${indent}--------
-${indent}${this._board.dump(indent + "    ")}
-${indent}${this._board2.dump(indent + "    ")}`;
+${indent}${this._boards[0].dump(indent + "    ")}
+${indent}${this._boards[1].dump(indent + "    ")}`;
     }
 }

@@ -11,9 +11,10 @@ class UserCtrl {
      */
     doMove(position) {
         this._position = position;
+        // 盤[0] について
         // セルの変化
-        this._position.board.convertEachSq((sq, cellValue) => {
-            let count = this._position.board.getLifeCountAround(sq);
+        this._position.boards[0].convertEachSq((sq, cellValue) => {
+            let count = this._position.boards[0].getLifeCountAround(sq);
 
             switch (cellValue) {
                 case PC_EMPTY: // 生命のいない場所

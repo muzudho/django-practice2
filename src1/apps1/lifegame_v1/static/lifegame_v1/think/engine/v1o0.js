@@ -50,42 +50,42 @@ class Engine {
     execute(command) {
         // 変数
         this._log = "";
-        let boardText = "";
+        let textOfBoards = ["", ""];
 
-        // [`board`] - 盤の表示
-        this._parser.onBoard = () => {
-            this._log += this._position.board.toString();
+        // Example: `board 0` - 盤の表示
+        this._parser.onBoardPrint = (boardIndex) => {
+            this._log += this._position.boards[boardIndex].toString();
         };
 
-        // [`boardWidth`] - 盤の横幅設定
-        this._parser.onBoardWidth = (tokens) => {
-            let width = parseInt(tokens[1]);
-            this._position.board.width = width;
+        // Example: `board 0 width 64` - 盤の横幅設定
+        this._parser.onBoardWidth = (boardIndex, tokens) => {
+            let width = parseInt(tokens[3]);
+            this._position.boards[boardIndex].width = width;
         };
 
-        // [`boardHeight`] - 盤の横幅設定
-        this._parser.onBoardHeight = (tokens) => {
-            let height = parseInt(tokens[1]);
-            this._position.board.height = height;
+        // Example: `board 0 height 16` - 盤の縦幅設定
+        this._parser.onBoardHeight = (boardIndex, tokens) => {
+            let height = parseInt(tokens[3]);
+            this._position.boards[boardIndex].height = height;
         };
 
-        // [`board"""`]
-        this._parser.onBoardStart = () => {
-            boardText = "";
+        // Example: `board 0 """` - 盤の設定（複数行）開始
+        this._parser.onBoardStart = (boardIndex) => {
+            textOfBoards[boardIndex] = "";
         };
 
-        // [`board"""`][*]
-        this._parser.onBoardBody = (line) => {
-            boardText += `${line}`;
+        // Example: `....X....` in board multi-line
+        this._parser.onBoardBody = (boardIndex, line) => {
+            textOfBoards[boardIndex] += line;
         };
 
-        // [`board"""`][`"""`]
-        this._parser.onBoardEnd = () => {
-            this.position.board.parse(boardText);
-            boardText = "";
+        // Example: `"""` end of board multi-line
+        this._parser.onBoardEnd = (boardIndex) => {
+            this.position.boards[boardIndex].parse(textOfBoards[boardIndex]);
+            textOfBoards[boardIndex] = "";
         };
 
-        // [`play`]
+        // Example: `play`
         this._parser.onPlay = () => {
             this._userCtrl.doMove(this._position);
             // Ok

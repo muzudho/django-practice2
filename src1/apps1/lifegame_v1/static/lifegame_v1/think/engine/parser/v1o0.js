@@ -8,20 +8,18 @@ class Parser {
      * 生成
      */
     constructor() {
-        // 実行時の現在のエグゼキューター
-        this._executeCurr = null;
+        // 実行時の現在のパーサー
+        this._parseCurr = null;
 
+        // 盤コマンドのイベントハンドラー
         this._onBoardWidth = null;
         this._onBoardHeight = null;
-        this._onBoard = null;
+        this._onBoardPrint = null;
         this._onBoardStart = null;
         this._onBoardBody = null;
         this._onBoardEnd = null;
-        this._onPlay = null;
-    }
 
-    set onBoard(action) {
-        this._onBoard = action;
+        this._onPlay = null;
     }
 
     set onBoardWidth(action) {
@@ -30,6 +28,10 @@ class Parser {
 
     set onBoardHeight(action) {
         this._onBoardHeight = action;
+    }
+
+    set onBoardPrint(action) {
+        this._onBoardPrint = action;
     }
 
     set onBoardStart(action) {
@@ -52,39 +54,64 @@ class Parser {
      * コマンドの実行
      */
     execute(command) {
-        let executePosition = (line) => {
+        // 内部状態
+        let boardIndex = 0;
+
+        let parseBoard = (line) => {
             switch (line) {
                 case '"""':
-                    this._onBoardEnd();
-                    this._executeCurr = executeMain;
+                    {
+                        this._onBoardEnd(boardIndex);
+                        this._parseCurr = parseMain;
+                    }
                     break;
 
                 default:
-                    this._onBoardBody(line);
+                    {
+                        this._onBoardBody(boardIndex, line);
+                    }
                     break;
             }
         };
-        let executeMain = (line) => {
+        let parseMain = (line) => {
             const tokens = line.split(" ");
             switch (tokens[0]) {
                 case "board":
-                    this._onBoard();
-                    break;
+                    // Example: `board 0`
+                    // Example: `board 0 width 64`
+                    // Example: `board 0 """
+                    //           ....X....
+                    //           """`
+                    boardIndex = parseInt(tokens[1]);
 
-                case "boardWidth":
-                    this._onBoardWidth(tokens);
-                    break;
+                    if (tokens.length < 3) {
+                        this._onBoardPrint(boardIndex);
+                        return;
+                    }
 
-                case "boardHeight":
-                    this._onBoardHeight(tokens);
-                    break;
+                    let subCommand = tokens[2];
+                    switch (subCommand) {
+                        case "width":
+                            this._onBoardWidth(boardIndex, tokens);
+                            break;
 
-                case 'board"""':
-                    this._onBoardStart();
-                    this._executeCurr = executePosition;
+                        case "height":
+                            this._onBoardHeight(boardIndex, tokens);
+                            break;
+
+                        case '"""':
+                            this._onBoardStart(boardIndex);
+                            this._parseCurr = parseBoard;
+                            break;
+
+                        default:
+                            // Error
+                            throw new Error(`subCommand:${subCommand} in line:${line}`);
+                    }
                     break;
 
                 case "play":
+                    // Example: `play`
                     this._onPlay();
                     break;
 
@@ -93,7 +120,7 @@ class Parser {
                     break;
             }
         };
-        this._executeCurr = executeMain;
+        this._parseCurr = parseMain;
 
         const lines = command.split(/\r?\n/);
         for (const line of lines) {
@@ -105,9 +132,9 @@ class Parser {
             // Echo for Single line.
             this._log += `# ${line}\n`;
 
-            this._executeCurr(line);
+            this._parseCurr(line);
         }
 
-        this._executeCurr = null;
+        this._parseCurr = null;
     }
 }

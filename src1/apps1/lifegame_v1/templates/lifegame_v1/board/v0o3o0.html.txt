@@ -87,10 +87,11 @@
                 let lifeGameCanvas = document.getElementById("life_game_canvas");
                 let idCount = 0;
 
+                // 盤[0]について
                 // 縦に並べる
-                for(let y=0; y<vue1.engine.position.board.height; y++) {
+                for(let y=0; y<vue1.engine.position.boards[0].height; y++) {
                     // 横に並べる
-                    for(let x=0; x<vue1.engine.position.board.width; x++) {
+                    for(let x=0; x<vue1.engine.position.boards[0].width; x++) {
                         let span = document.createElement('span');
                         span.setAttribute("id", `sq_${idCount}`);
                         idCount++;
@@ -126,11 +127,11 @@
                     // 入力
                     inputText: {
                         enabled: true,
-                        value: `# 盤サイズ
-boardWidth 64
-boardHeight 32
+                        value: `# 盤[0]サイズ
+board 0 width 64
+board 0 height 32
 # グライダー
-board"""
+board 0 """
 ................................................................
 ................................................................
 ....X...........................................................
@@ -207,9 +208,9 @@ board"""
                     },
                     playVu() {
                         if (this.enteredText !== null) {
-                            // 盤サイズを一時記憶
-                            let boardWidth = vue1.engine.position.board.width;
-                            let boardHeight = vue1.engine.position.board.height;
+                            // 盤[0]サイズを一時記憶
+                            let boardWidth = vue1.engine.position.boards[0].width;
+                            let boardHeight = vue1.engine.position.boards[0].height;
 
                             // コマンドを実行
                             let log = vue1.engine.execute(this.enteredText);
@@ -217,9 +218,9 @@ board"""
 
                             this.outputText.value = log;
 
-                            // 盤のサイズが変わっていれば作り直し
-                            if (boardWidth !== vue1.engine.position.board.width ||
-                                boardHeight !== vue1.engine.position.board.height) {
+                            // 盤[0]のサイズが変わっていれば作り直し
+                            if (boardWidth !== vue1.engine.position.boards[0].width ||
+                                boardHeight !== vue1.engine.position.boards[0].height) {
                                 uninstallTable();
                                 installTable();
                             }
@@ -228,8 +229,8 @@ board"""
                             vue1.engine.userCtrl.doMove(vue1.engine.position);
                         }
 
-                        // 盤面表示
-                        vue1.engine.position.board.eachSq((sq, cellValue) => {
+                        // 盤[0]表示
+                        vue1.engine.position.boards[0].eachSq((sq, cellValue) => {
                             let cell = document.getElementById(`sq_${sq}`);
                             switch(cellValue) {
                                 case PC_X:
