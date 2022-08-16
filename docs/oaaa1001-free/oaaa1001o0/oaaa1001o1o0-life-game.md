@@ -940,6 +940,46 @@ class UserCtrl {
 }
 ```
 
+# Step OAAA1001o1o0ga12o_4o_A99o0 エンジン作成 - think/engine/parser/v1o0.js ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        ├── 📂 apps1
+        │   └── 📂 lifegame_v1                  # アプリケーション
+        │       ├── 📂 migrations
+        │       │   └── 📄 __init__.py
+        │       ├── 📂 static
+        │       │   └── 📂 lifegame_v1          # アプリケーションと同名
+        │       │       └── 📂 think
+        │       │           ├── 📂 engine
+        │       │           │   └── 📂 parser
+👉      │       │           │       └── 📄 v1o0.js
+        │       │           ├── 📂 position
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 things
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 user_ctrl
+        │       │               └── 📄 v1o0.js
+        │       ├── 📂 templates
+        │       │   └── 📂 lifegame_v1
+        │       │       └── 📂 board
+        │       │           └── 📄 v0o1o0.html
+        │       ├── 📂 views
+        │       │   └── 📂 board
+        │       │       └── 📂 v0o1o0
+        │       │           └── 📄 __init__.py
+        │       ├── 📄 __init__.py
+        │       ├── 📄 admin.py
+        │       ├── 📄 apps.py
+        │       └── 📄 tests.py
+        └── 📂 project1
+            ├── 📄 settings.py
+            ├── 📄 urls_lifegame.py
+            └── 📄 urls.py
+```
+
 # Step OAAA1001o1o0ga12o_4o0 エンジン作成 - think/engine/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
@@ -999,8 +1039,9 @@ class Engine {
 
         // 実行ログ
         this._log = "";
-        // 実行時の現在のエグゼキューター
-        this._executeCurr = null;
+
+        // パーサー
+        // this._parser = new Parser();
     }
 
     /**
@@ -1029,22 +1070,51 @@ class Engine {
      * コマンドの実行
      */
     execute(command) {
+        // this._parser.execute(command);
+
+        // 変数
         let positionText = "";
+
+        // / `board`
+        let onBoard = () => {
+            // Example: `board`
+            this._log += this._position.toBoardString();
+        };
+
+        // / `play`
+        let onPlay = () => {
+            // Example: `play`
+            this._userCtrl.doMove(this._position);
+            // Ok
+            this._log += "=\n.\n";
+        };
+
+        // / `position"""`
+        let onPosition = () => {
+            positionText = "";
+        };
+
+        // / `position"""` / *
+        let onPositionBody = (line) => {
+            positionText += `${line}`;
+        };
+
+        // / `position"""` / `"""`
+        let onPositionEnd = () => {
+            this.position.board.parse(positionText);
+            positionText = "";
+
+            this._executeCurr = executeMain;
+        };
+
         let executePosition = (line) => {
             switch (line) {
                 case '"""':
-                    {
-                        this.position.board.parse(positionText);
-                        positionText = "";
-
-                        this._executeCurr = executeMain;
-                    }
+                    onPositionEnd();
                     break;
 
                 default:
-                    {
-                        positionText += `${line}`;
-                    }
+                    onPositionBody(line);
                     break;
             }
         };
@@ -1052,26 +1122,16 @@ class Engine {
             const tokens = line.split(" ");
             switch (tokens[0]) {
                 case "board":
-                    {
-                        // Example: `board`
-                        this._log += this._position.toBoardString();
-                    }
+                    onBoard();
                     break;
 
                 case "play":
-                    {
-                        // Example: `play`
-                        this._userCtrl.doMove(this._position);
-                        // Ok
-                        this._log += "=\n.\n";
-                    }
+                    onPlay();
                     break;
 
                 case 'position"""':
-                    {
-                        positionText = "";
-                        this._executeCurr = executePosition;
-                    }
+                    onPosition();
+                    this._executeCurr = executePosition;
                     break;
 
                 default:

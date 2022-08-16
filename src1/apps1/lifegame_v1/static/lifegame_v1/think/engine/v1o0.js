@@ -17,8 +17,9 @@ class Engine {
 
         // 実行ログ
         this._log = "";
-        // 実行時の現在のエグゼキューター
-        this._executeCurr = null;
+
+        // パーサー
+        // this._parser = new Parser();
     }
 
     /**
@@ -47,22 +48,51 @@ class Engine {
      * コマンドの実行
      */
     execute(command) {
+        // this._parser.execute(command);
+
+        // 変数
         let positionText = "";
+
+        // / `board`
+        let onBoard = () => {
+            // Example: `board`
+            this._log += this._position.toBoardString();
+        };
+
+        // / `play`
+        let onPlay = () => {
+            // Example: `play`
+            this._userCtrl.doMove(this._position);
+            // Ok
+            this._log += "=\n.\n";
+        };
+
+        // / `position"""`
+        let onPosition = () => {
+            positionText = "";
+        };
+
+        // / `position"""` / *
+        let onPositionBody = (line) => {
+            positionText += `${line}`;
+        };
+
+        // / `position"""` / `"""`
+        let onPositionEnd = () => {
+            this.position.board.parse(positionText);
+            positionText = "";
+
+            this._executeCurr = executeMain;
+        };
+
         let executePosition = (line) => {
             switch (line) {
                 case '"""':
-                    {
-                        this.position.board.parse(positionText);
-                        positionText = "";
-
-                        this._executeCurr = executeMain;
-                    }
+                    onPositionEnd();
                     break;
 
                 default:
-                    {
-                        positionText += `${line}`;
-                    }
+                    onPositionBody(line);
                     break;
             }
         };
@@ -70,26 +100,16 @@ class Engine {
             const tokens = line.split(" ");
             switch (tokens[0]) {
                 case "board":
-                    {
-                        // Example: `board`
-                        this._log += this._position.toBoardString();
-                    }
+                    onBoard();
                     break;
 
                 case "play":
-                    {
-                        // Example: `play`
-                        this._userCtrl.doMove(this._position);
-                        // Ok
-                        this._log += "=\n.\n";
-                    }
+                    onPlay();
                     break;
 
                 case 'position"""':
-                    {
-                        positionText = "";
-                        this._executeCurr = executePosition;
-                    }
+                    onPosition();
+                    this._executeCurr = executePosition;
                     break;
 
                 default:
