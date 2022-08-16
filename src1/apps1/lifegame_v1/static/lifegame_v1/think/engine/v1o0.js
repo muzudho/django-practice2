@@ -19,7 +19,7 @@ class Engine {
         this._log = "";
 
         // パーサー
-        // this._parser = new Parser();
+        this._parser = new Parser();
     }
 
     /**
@@ -48,92 +48,39 @@ class Engine {
      * コマンドの実行
      */
     execute(command) {
-        // this._parser.execute(command);
-
         // 変数
+        this._log = "";
         let positionText = "";
 
-        // / `board`
-        let onBoard = () => {
-            // Example: `board`
+        // [`board`]
+        this._parser.onBoard = () => {
             this._log += this._position.toBoardString();
         };
 
-        // / `play`
-        let onPlay = () => {
-            // Example: `play`
+        // [`play`]
+        this._parser.onPlay = () => {
             this._userCtrl.doMove(this._position);
             // Ok
             this._log += "=\n.\n";
         };
 
-        // / `position"""`
-        let onPosition = () => {
+        // [`position"""`]
+        this._parser.onPosition = () => {
             positionText = "";
         };
 
-        // / `position"""` / *
-        let onPositionBody = (line) => {
+        // [`position"""`][*]
+        this._parser.onPositionBody = (line) => {
             positionText += `${line}`;
         };
 
-        // / `position"""` / `"""`
-        let onPositionEnd = () => {
+        // [`position"""`][`"""`]
+        this._parser.onPositionEnd = () => {
             this.position.board.parse(positionText);
             positionText = "";
-
-            this._executeCurr = executeMain;
         };
 
-        let executePosition = (line) => {
-            switch (line) {
-                case '"""':
-                    onPositionEnd();
-                    break;
-
-                default:
-                    onPositionBody(line);
-                    break;
-            }
-        };
-        let executeMain = (line) => {
-            const tokens = line.split(" ");
-            switch (tokens[0]) {
-                case "board":
-                    onBoard();
-                    break;
-
-                case "play":
-                    onPlay();
-                    break;
-
-                case 'position"""':
-                    onPosition();
-                    this._executeCurr = executePosition;
-                    break;
-
-                default:
-                    // ignored
-                    break;
-            }
-        };
-        this._executeCurr = executeMain;
-        this._log = "";
-
-        const lines = command.split(/\r?\n/);
-        for (const line of lines) {
-            // 空行はパス
-            if (line.trim() === "") {
-                continue;
-            }
-
-            // Echo for Single line.
-            this._log += `# ${line}\n`;
-
-            this._executeCurr(line);
-        }
-
-        this._executeCurr = null;
+        this._parser.execute(command);
 
         let logTemp = this._log;
         this._log = "";

@@ -65,6 +65,7 @@
             </v-app>
         </div>
 
+        <script src="{% static 'lifegame_v1/think/engine/parser/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/engine/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/position/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/things/v1o0.js' %}"></script>

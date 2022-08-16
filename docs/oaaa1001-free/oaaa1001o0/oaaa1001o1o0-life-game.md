@@ -980,6 +980,104 @@ class UserCtrl {
             └── 📄 urls.py
 ```
 
+```js
+// OAAA1001o1o0ga12o_4o_A99o0
+
+/**
+ * パーサー
+ */
+class Parser {
+    /**
+     * 生成
+     */
+    constructor() {
+        // 実行時の現在のエグゼキューター
+        this._executeCurr = null;
+
+        this._onBoard = null;
+        this._onPlay = null;
+        this._onPosition = null;
+        this._onPositionBody = null;
+        this._onPositionEnd = null;
+    }
+
+    set onBoard(action) {
+        this._onBoard = action;
+    }
+
+    set onPlay(action) {
+        this._onPlay = action;
+    }
+
+    set onPosition(action) {
+        this._onPosition = action;
+    }
+
+    set onPositionBody(action) {
+        this._onPositionBody = action;
+    }
+
+    set onPositionEnd(action) {
+        this._onPositionEnd = action;
+    }
+
+    /**
+     * コマンドの実行
+     */
+    execute(command) {
+        let executePosition = (line) => {
+            switch (line) {
+                case '"""':
+                    this._onPositionEnd();
+                    this._executeCurr = executeMain;
+                    break;
+
+                default:
+                    this._onPositionBody(line);
+                    break;
+            }
+        };
+        let executeMain = (line) => {
+            const tokens = line.split(" ");
+            switch (tokens[0]) {
+                case "board":
+                    this._onBoard();
+                    break;
+
+                case "play":
+                    this._onPlay();
+                    break;
+
+                case 'position"""':
+                    this._onPosition();
+                    this._executeCurr = executePosition;
+                    break;
+
+                default:
+                    // ignored
+                    break;
+            }
+        };
+        this._executeCurr = executeMain;
+
+        const lines = command.split(/\r?\n/);
+        for (const line of lines) {
+            // 空行はパス
+            if (line.trim() === "") {
+                continue;
+            }
+
+            // Echo for Single line.
+            this._log += `# ${line}\n`;
+
+            this._executeCurr(line);
+        }
+
+        this._executeCurr = null;
+    }
+}
+```
+
 # Step OAAA1001o1o0ga12o_4o0 エンジン作成 - think/engine/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
@@ -994,6 +1092,8 @@ class UserCtrl {
         │       │   └── 📂 lifegame_v1          # アプリケーションと同名
         │       │       └── 📂 think
         │       │           ├── 📂 engine
+        │       │           │   ├── 📂 parser
+        │       │           │   │   └── 📄 v1o0.js
 👉      │       │           │   └── 📄 v1o0.js
         │       │           ├── 📂 position
         │       │           │   └── 📄 v1o0.js
@@ -1041,7 +1141,7 @@ class Engine {
         this._log = "";
 
         // パーサー
-        // this._parser = new Parser();
+        this._parser = new Parser();
     }
 
     /**
@@ -1070,92 +1170,39 @@ class Engine {
      * コマンドの実行
      */
     execute(command) {
-        // this._parser.execute(command);
-
         // 変数
+        this._log = "";
         let positionText = "";
 
-        // / `board`
-        let onBoard = () => {
-            // Example: `board`
+        // [`board`]
+        this._parser.onBoard = () => {
             this._log += this._position.toBoardString();
         };
 
-        // / `play`
-        let onPlay = () => {
-            // Example: `play`
+        // [`play`]
+        this._parser.onPlay = () => {
             this._userCtrl.doMove(this._position);
             // Ok
             this._log += "=\n.\n";
         };
 
-        // / `position"""`
-        let onPosition = () => {
+        // [`position"""`]
+        this._parser.onPosition = () => {
             positionText = "";
         };
 
-        // / `position"""` / *
-        let onPositionBody = (line) => {
+        // [`position"""`][*]
+        this._parser.onPositionBody = (line) => {
             positionText += `${line}`;
         };
 
-        // / `position"""` / `"""`
-        let onPositionEnd = () => {
+        // [`position"""`][`"""`]
+        this._parser.onPositionEnd = () => {
             this.position.board.parse(positionText);
             positionText = "";
-
-            this._executeCurr = executeMain;
         };
 
-        let executePosition = (line) => {
-            switch (line) {
-                case '"""':
-                    onPositionEnd();
-                    break;
-
-                default:
-                    onPositionBody(line);
-                    break;
-            }
-        };
-        let executeMain = (line) => {
-            const tokens = line.split(" ");
-            switch (tokens[0]) {
-                case "board":
-                    onBoard();
-                    break;
-
-                case "play":
-                    onPlay();
-                    break;
-
-                case 'position"""':
-                    onPosition();
-                    this._executeCurr = executePosition;
-                    break;
-
-                default:
-                    // ignored
-                    break;
-            }
-        };
-        this._executeCurr = executeMain;
-        this._log = "";
-
-        const lines = command.split(/\r?\n/);
-        for (const line of lines) {
-            // 空行はパス
-            if (line.trim() === "") {
-                continue;
-            }
-
-            // Echo for Single line.
-            this._log += `# ${line}\n`;
-
-            this._executeCurr(line);
-        }
-
-        this._executeCurr = null;
+        this._parser.execute(command);
 
         let logTemp = this._log;
         this._log = "";
@@ -1185,6 +1232,8 @@ ${indent}${this._position.dump(indent + "    ")}`;
         │       │   └── 📂 lifegame_v1          # アプリケーションと同名
         │       │       └── 📂 think
         │       │           ├── 📂 engine
+        │       │           │   ├── 📂 parser
+        │       │           │   │   └── 📄 v1o0.js
         │       │           │   └── 📄 v1o0.js
         │       │           ├── 📂 position
         │       │           │   └── 📄 v1o0.js
@@ -1382,6 +1431,8 @@ board
         │       │   └── 📂 lifegame_v1          # アプリケーションと同名
         │       │       └── 📂 think
         │       │           ├── 📂 engine
+        │       │           │   ├── 📂 parser
+        │       │           │   │   └── 📄 v1o0.js
         │       │           │   └── 📄 v1o0.js
         │       │           ├── 📂 position
         │       │           │   └── 📄 v1o0.js
@@ -1446,6 +1497,8 @@ class BoardView():
         │       │   └── 📂 lifegame_v1          # アプリケーションと同名
         │       │       └── 📂 think
         │       │           ├── 📂 engine
+        │       │           │   ├── 📂 parser
+        │       │           │   │   └── 📄 v1o0.js
         │       │           │   └── 📄 v1o0.js
         │       │           ├── 📂 position
         │       │           │   └── 📄 v1o0.js
@@ -1526,6 +1579,8 @@ urlpatterns = [
         │       │   └── 📂 lifegame_v1          # アプリケーションと同名
         │       │       └── 📂 think
         │       │           ├── 📂 engine
+        │       │           │   ├── 📂 parser
+        │       │           │   │   └── 📄 v1o0.js
         │       │           │   └── 📄 v1o0.js
         │       │           ├── 📂 position
         │       │           │   └── 📄 v1o0.js
@@ -1623,6 +1678,7 @@ urlpatterns = [
             </v-app>
         </div>
 
+        <script src="{% static 'lifegame_v1/think/engine/parser/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/engine/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/position/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/things/v1o0.js' %}"></script>
@@ -1823,6 +1879,8 @@ position"""
         │       │   └── 📂 lifegame_v1          # アプリケーションと同名
         │       │       └── 📂 think
         │       │           ├── 📂 engine
+        │       │           │   ├── 📂 parser
+        │       │           │   │   └── 📄 v1o0.js
         │       │           │   └── 📄 v1o0.js
         │       │           ├── 📂 position
         │       │           │   └── 📄 v1o0.js
@@ -1890,6 +1948,8 @@ class BoardView():
         │       │   └── 📂 lifegame_v1          # アプリケーションと同名
         │       │       └── 📂 think
         │       │           ├── 📂 engine
+        │       │           │   ├── 📂 parser
+        │       │           │   │   └── 📄 v1o0.js
         │       │           │   └── 📄 v1o0.js
         │       │           ├── 📂 position
         │       │           │   └── 📄 v1o0.js
