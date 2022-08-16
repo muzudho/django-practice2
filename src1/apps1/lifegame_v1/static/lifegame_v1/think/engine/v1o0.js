@@ -57,6 +57,18 @@ class Engine {
             this._log += this._position.board.toString();
         };
 
+        // [`boardWidth`] - 盤の横幅設定
+        this._parser.onBoardWidth = (tokens) => {
+            let width = parseInt(tokens[1]);
+            this._position.board.width = width;
+        };
+
+        // [`boardHeight`] - 盤の横幅設定
+        this._parser.onBoardHeight = (tokens) => {
+            let height = parseInt(tokens[1]);
+            this._position.board.height = height;
+        };
+
         // [`board"""`]
         this._parser.onBoardStart = () => {
             boardText = "";

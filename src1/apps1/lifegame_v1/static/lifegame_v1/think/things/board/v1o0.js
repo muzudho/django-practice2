@@ -2,6 +2,7 @@
 
 /*
  * SQ は Square （マス）の略です
+ * 64x64サイズの例
  * +----------------------+
  * |    0     1  ...   63 |
  * |   64    65  ...  127 |
@@ -20,9 +21,8 @@ class Board {
         // 盤の縦幅
         this._height = 64;
 
-        // 各マス
-        this._squares = Array(this.area);
-        this._squares.fill(PC_EMPTY);
+        // 盤サイズ変更
+        this.resize();
     }
 
     /**
@@ -35,6 +35,9 @@ class Board {
 
     set width(value) {
         this._width = value;
+
+        // 盤サイズ変更
+        this.resize();
     }
 
     /**
@@ -47,6 +50,9 @@ class Board {
 
     set height(value) {
         this._height = value;
+
+        // 盤サイズ変更
+        this.resize();
     }
 
     /**
@@ -182,6 +188,17 @@ class Board {
      */
     getPieceBySq(sq) {
         return this._squares[sq];
+    }
+
+    /**
+     * 盤サイズ変更
+     */
+    resize() {
+        // 各マス
+        this._squares = Array(this.area);
+
+        // 空マスで埋める
+        this._squares.fill(PC_EMPTY);
     }
 
     /**

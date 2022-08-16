@@ -11,6 +11,8 @@ class Parser {
         // 実行時の現在のエグゼキューター
         this._executeCurr = null;
 
+        this._onBoardWidth = null;
+        this._onBoardHeight = null;
         this._onBoard = null;
         this._onBoardStart = null;
         this._onBoardBody = null;
@@ -20,6 +22,14 @@ class Parser {
 
     set onBoard(action) {
         this._onBoard = action;
+    }
+
+    set onBoardWidth(action) {
+        this._onBoardWidth = action;
+    }
+
+    set onBoardHeight(action) {
+        this._onBoardHeight = action;
     }
 
     set onBoardStart(action) {
@@ -59,6 +69,14 @@ class Parser {
             switch (tokens[0]) {
                 case "board":
                     this._onBoard();
+                    break;
+
+                case "boardWidth":
+                    this._onBoardWidth(tokens);
+                    break;
+
+                case "boardHeight":
+                    this._onBoardHeight(tokens);
                     break;
 
                 case 'board"""':
