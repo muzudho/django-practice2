@@ -10,14 +10,11 @@ class Position {
      * * 対局開始時
      */
     constructor() {
-        // 盤面
+        // 盤
         this._board = new Board();
 
-        // 棋譜
-        // なし
-
-        // 番
-        // なし
+        // 盤２
+        this._board2 = new Board();
     }
 
     /**
@@ -27,36 +24,11 @@ class Position {
         return this._board;
     }
 
-    toBoardString() {
-        // 各マス
-        const label_of_squares = this._board.toArray().map((n) => pc_to_label(n));
-
-        let s = "";
-
-        // 上辺の横線
-        s += "+";
-        for (let x = 0; x < BOARD_WIDTH; x++) {
-            s += "-";
-        }
-        s += "+\n";
-
-        // 各行
-        for (let y = 0; y < BOARD_HEIGHT; y++) {
-            s += "|";
-            for (let x = 0; x < BOARD_WIDTH; x++) {
-                s += label_of_squares[this._board.toSq(x, y)];
-            }
-            s += "|\n";
-        }
-
-        // 下辺の横線
-        s += "+";
-        for (let x = 0; x < BOARD_WIDTH; x++) {
-            s += "-";
-        }
-        s += "+\n";
-
-        return s;
+    /**
+     * 盤２
+     */
+    get board2() {
+        return this._board2;
     }
 
     /**
@@ -66,6 +38,7 @@ class Position {
         return `
 ${indent}Position
 ${indent}--------
-${indent}${this._board.dump(indent + "    ")}`;
+${indent}${this._board.dump(indent + "    ")}
+${indent}${this._board2.dump(indent + "    ")}`;
     }
 }

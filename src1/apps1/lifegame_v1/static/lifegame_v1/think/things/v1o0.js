@@ -255,6 +255,42 @@ class Board {
     }
 
     /**
+     * 文字列化
+     * @returns
+     */
+    toString() {
+        // 各マス
+        const label_of_squares = this._board.toArray().map((n) => pc_to_label(n));
+
+        let s = "";
+
+        // 上辺の横線
+        s += "+";
+        for (let x = 0; x < BOARD_WIDTH; x++) {
+            s += "-";
+        }
+        s += "+\n";
+
+        // 各行
+        for (let y = 0; y < BOARD_HEIGHT; y++) {
+            s += "|";
+            for (let x = 0; x < BOARD_WIDTH; x++) {
+                s += label_of_squares[this._board.toSq(x, y)];
+            }
+            s += "|\n";
+        }
+
+        // 下辺の横線
+        s += "+";
+        for (let x = 0; x < BOARD_WIDTH; x++) {
+            s += "-";
+        }
+        s += "+\n";
+
+        return s;
+    }
+
+    /**
      * 盤面を設定します
      *
      * @param {*} token - Example: `..X.X....`
@@ -284,15 +320,5 @@ ${indent}`;
 }
 
 // | 盤
-// |
-// +--------
-
-// +--------
-// | 棋譜
-// |
-
-// なし
-
-// | 棋譜
 // |
 // +--------

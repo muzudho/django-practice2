@@ -50,11 +50,27 @@ class Engine {
     execute(command) {
         // 変数
         this._log = "";
-        let positionText = "";
+        let boardText = "";
 
-        // [`board`]
+        // [`board`] - 盤の表示
         this._parser.onBoard = () => {
-            this._log += this._position.toBoardString();
+            this._log += this._position.board.toString();
+        };
+
+        // [`board"""`]
+        this._parser.onBoardStart = () => {
+            boardText = "";
+        };
+
+        // [`board"""`][*]
+        this._parser.onBoardBody = (line) => {
+            boardText += `${line}`;
+        };
+
+        // [`board"""`][`"""`]
+        this._parser.onBoardEnd = () => {
+            this.position.board.parse(boardText);
+            boardText = "";
         };
 
         // [`play`]
@@ -62,22 +78,6 @@ class Engine {
             this._userCtrl.doMove(this._position);
             // Ok
             this._log += "=\n.\n";
-        };
-
-        // [`position"""`]
-        this._parser.onPosition = () => {
-            positionText = "";
-        };
-
-        // [`position"""`][*]
-        this._parser.onPositionBody = (line) => {
-            positionText += `${line}`;
-        };
-
-        // [`position"""`][`"""`]
-        this._parser.onPositionEnd = () => {
-            this.position.board.parse(positionText);
-            positionText = "";
         };
 
         this._parser.execute(command);

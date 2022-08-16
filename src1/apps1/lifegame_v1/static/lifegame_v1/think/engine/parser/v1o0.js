@@ -12,30 +12,30 @@ class Parser {
         this._executeCurr = null;
 
         this._onBoard = null;
+        this._onBoardStart = null;
+        this._onBoardBody = null;
+        this._onBoardEnd = null;
         this._onPlay = null;
-        this._onPosition = null;
-        this._onPositionBody = null;
-        this._onPositionEnd = null;
     }
 
     set onBoard(action) {
         this._onBoard = action;
     }
 
+    set onBoardStart(action) {
+        this._onBoardStart = action;
+    }
+
+    set onBoardBody(action) {
+        this._onBoardBody = action;
+    }
+
+    set onBoardEnd(action) {
+        this._onBoardEnd = action;
+    }
+
     set onPlay(action) {
         this._onPlay = action;
-    }
-
-    set onPosition(action) {
-        this._onPosition = action;
-    }
-
-    set onPositionBody(action) {
-        this._onPositionBody = action;
-    }
-
-    set onPositionEnd(action) {
-        this._onPositionEnd = action;
     }
 
     /**
@@ -45,12 +45,12 @@ class Parser {
         let executePosition = (line) => {
             switch (line) {
                 case '"""':
-                    this._onPositionEnd();
+                    this._onBoardEnd();
                     this._executeCurr = executeMain;
                     break;
 
                 default:
-                    this._onPositionBody(line);
+                    this._onBoardBody(line);
                     break;
             }
         };
@@ -61,13 +61,13 @@ class Parser {
                     this._onBoard();
                     break;
 
-                case "play":
-                    this._onPlay();
+                case 'board"""':
+                    this._onBoardStart();
+                    this._executeCurr = executePosition;
                     break;
 
-                case 'position"""':
-                    this._onPosition();
-                    this._executeCurr = executePosition;
+                case "play":
+                    this._onPlay();
                     break;
 
                 default:

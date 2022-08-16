@@ -709,6 +709,42 @@ class Board {
     }
 
     /**
+     * 文字列化
+     * @returns
+     */
+    toString() {
+        // 各マス
+        const label_of_squares = this._board.toArray().map((n) => pc_to_label(n));
+
+        let s = "";
+
+        // 上辺の横線
+        s += "+";
+        for (let x = 0; x < BOARD_WIDTH; x++) {
+            s += "-";
+        }
+        s += "+\n";
+
+        // 各行
+        for (let y = 0; y < BOARD_HEIGHT; y++) {
+            s += "|";
+            for (let x = 0; x < BOARD_WIDTH; x++) {
+                s += label_of_squares[this._board.toSq(x, y)];
+            }
+            s += "|\n";
+        }
+
+        // 下辺の横線
+        s += "+";
+        for (let x = 0; x < BOARD_WIDTH; x++) {
+            s += "-";
+        }
+        s += "+\n";
+
+        return s;
+    }
+
+    /**
      * 盤面を設定します
      *
      * @param {*} token - Example: `..X.X....`
@@ -738,16 +774,6 @@ ${indent}`;
 }
 
 // | 盤
-// |
-// +--------
-
-// +--------
-// | 棋譜
-// |
-
-// なし
-
-// | 棋譜
 // |
 // +--------
 ```
@@ -800,14 +826,11 @@ class Position {
      * * 対局開始時
      */
     constructor() {
-        // 盤面
+        // 盤
         this._board = new Board();
 
-        // 棋譜
-        // なし
-
-        // 番
-        // なし
+        // 盤２
+        this._board2 = new Board();
     }
 
     /**
@@ -817,36 +840,11 @@ class Position {
         return this._board;
     }
 
-    toBoardString() {
-        // 各マス
-        const label_of_squares = this._board.toArray().map((n) => pc_to_label(n));
-
-        let s = "";
-
-        // 上辺の横線
-        s += "+";
-        for (let x = 0; x < BOARD_WIDTH; x++) {
-            s += "-";
-        }
-        s += "+\n";
-
-        // 各行
-        for (let y = 0; y < BOARD_HEIGHT; y++) {
-            s += "|";
-            for (let x = 0; x < BOARD_WIDTH; x++) {
-                s += label_of_squares[this._board.toSq(x, y)];
-            }
-            s += "|\n";
-        }
-
-        // 下辺の横線
-        s += "+";
-        for (let x = 0; x < BOARD_WIDTH; x++) {
-            s += "-";
-        }
-        s += "+\n";
-
-        return s;
+    /**
+     * 盤２
+     */
+    get board2() {
+        return this._board2;
     }
 
     /**
@@ -856,7 +854,8 @@ class Position {
         return `
 ${indent}Position
 ${indent}--------
-${indent}${this._board.dump(indent + "    ")}`;
+${indent}${this._board.dump(indent + "    ")}
+${indent}${this._board2.dump(indent + "    ")}`;
     }
 }
 ```
@@ -995,30 +994,30 @@ class Parser {
         this._executeCurr = null;
 
         this._onBoard = null;
+        this._onBoardStart = null;
+        this._onBoardBody = null;
+        this._onBoardEnd = null;
         this._onPlay = null;
-        this._onPosition = null;
-        this._onPositionBody = null;
-        this._onPositionEnd = null;
     }
 
     set onBoard(action) {
         this._onBoard = action;
     }
 
+    set onBoardStart(action) {
+        this._onBoardStart = action;
+    }
+
+    set onBoardBody(action) {
+        this._onBoardBody = action;
+    }
+
+    set onBoardEnd(action) {
+        this._onBoardEnd = action;
+    }
+
     set onPlay(action) {
         this._onPlay = action;
-    }
-
-    set onPosition(action) {
-        this._onPosition = action;
-    }
-
-    set onPositionBody(action) {
-        this._onPositionBody = action;
-    }
-
-    set onPositionEnd(action) {
-        this._onPositionEnd = action;
     }
 
     /**
@@ -1028,12 +1027,12 @@ class Parser {
         let executePosition = (line) => {
             switch (line) {
                 case '"""':
-                    this._onPositionEnd();
+                    this._onBoardEnd();
                     this._executeCurr = executeMain;
                     break;
 
                 default:
-                    this._onPositionBody(line);
+                    this._onBoardBody(line);
                     break;
             }
         };
@@ -1044,13 +1043,13 @@ class Parser {
                     this._onBoard();
                     break;
 
-                case "play":
-                    this._onPlay();
+                case 'board"""':
+                    this._onBoardStart();
+                    this._executeCurr = executePosition;
                     break;
 
-                case 'position"""':
-                    this._onPosition();
-                    this._executeCurr = executePosition;
+                case "play":
+                    this._onPlay();
                     break;
 
                 default:
@@ -1172,11 +1171,27 @@ class Engine {
     execute(command) {
         // 変数
         this._log = "";
-        let positionText = "";
+        let boardText = "";
 
-        // [`board`]
+        // [`board`] - 盤の表示
         this._parser.onBoard = () => {
-            this._log += this._position.toBoardString();
+            this._log += this._position.board.toString();
+        };
+
+        // [`board"""`]
+        this._parser.onBoardStart = () => {
+            boardText = "";
+        };
+
+        // [`board"""`][*]
+        this._parser.onBoardBody = (line) => {
+            boardText += `${line}`;
+        };
+
+        // [`board"""`][`"""`]
+        this._parser.onBoardEnd = () => {
+            this.position.board.parse(boardText);
+            boardText = "";
         };
 
         // [`play`]
@@ -1184,22 +1199,6 @@ class Engine {
             this._userCtrl.doMove(this._position);
             // Ok
             this._log += "=\n.\n";
-        };
-
-        // [`position"""`]
-        this._parser.onPosition = () => {
-            positionText = "";
-        };
-
-        // [`position"""`][*]
-        this._parser.onPositionBody = (line) => {
-            positionText += `${line}`;
-        };
-
-        // [`position"""`][`"""`]
-        this._parser.onPositionEnd = () => {
-            this.position.board.parse(positionText);
-            positionText = "";
         };
 
         this._parser.execute(command);
@@ -1315,7 +1314,7 @@ ${indent}${this._position.dump(indent + "    ")}`;
                     inputText: {
                         value: `
 # 64x64 グライダー
-position"""
+board"""
 ................................................................
 ................................................................
 ....X...........................................................
@@ -1721,7 +1720,7 @@ urlpatterns = [
                     inputText: {
                         enabled: true,
                         value: `# 64x64 グライダー
-position"""
+board"""
 ................................................................
 ................................................................
 ....X...........................................................
