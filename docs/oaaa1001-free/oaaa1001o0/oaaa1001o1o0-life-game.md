@@ -1548,8 +1548,8 @@ urlpatterns = [
                             <!-- 入力 -->
                             <v-textarea name="po_input" required rows="6" v-model="inputText.value" label="Input" :disabled="!inputText.enabled"></v-textarea>
 
-                            <!-- 実行ボタン -->
-                            <v-btn block elevation="2" v-on:click="executeVu()" :disabled="!executeButton.enabled"> Execute </v-btn>
+                            <!-- 入力ボタン -->
+                            <v-btn block elevation="2" v-on:click="enterVu()" :disabled="!enterButton.enabled"> Enter </v-btn>
 
                             <!-- 出力 -->
                             <v-textarea name="po_output" rows="1" disabled v-model="outputText.value" label="Output"></v-textarea>
@@ -1675,40 +1675,54 @@ position"""
                     },
                     // 出力
                     outputText: {
-                        value: 'Please push "Execute" button.',
+                        value: 'Please push "Enter" button.',
                     },
                     // 思考エンジン
                     engine: new Engine(
                         // ユーザーコントロール
                         new UserCtrl()
                     ),
-                    // 実行ボタンの活性性
-                    executeButton: {
+                    // 入力ボタンの活性性
+                    enterButton: {
                         enabled: true,
                     },
+                    // 入力されたテキスト
+                    enteredText : null,
+                },
+                mounted() {
+                    window.onload = ()=>{
+                        console.log('ページが読み込まれました！');
+
+                        // タイマー生成
+                        intervalMilliseconds = 100;
+                        setInterval(() => {
+                            this.playVu();
+                        }, intervalMilliseconds);
+                    }
                 },
                 methods: {
                     // 関数名の末尾の Vu は vue1 のメソッドであることを表す目印
                     /**
                      * po_input 欄のコマンドを入力します
                      */
-                    executeVu() {
-                        this.inputText.enabled = false;
-                        this.executeButton.enabled = false;
-                        this.outputText.value = "All that's left is to look.";
+                    enterVu() {
+                        // this.inputText.enabled = false;
+                        // this.enterButton.enabled = false;
 
-                        let firstPositionText = vue1.inputText.value;
-
-                        let _log = vue1.engine.execute(firstPositionText);
-
-                        intervalMilliseconds = 100;
-                        setInterval(() => {
-                            this.playVu();
-                        }, intervalMilliseconds);
+                        this.enteredText = vue1.inputText.value;
+                        vue1.inputText.value = "";
                     },
                     playVu() {
-                        // 動かす
-                        vue1.engine.userCtrl.doMove(vue1.engine.position);
+                        if (this.enteredText !== null) {
+                            // コマンドを実行
+                            let log = vue1.engine.execute(this.enteredText);
+                            this.enteredText = null;
+
+                            this.outputText.value = log;
+                        } else {
+                            // 動かす
+                            vue1.engine.userCtrl.doMove(vue1.engine.position);
+                        }
 
                         // 盤面表示
                         vue1.engine.position.board.eachSq((sq, cellValue) => {
@@ -1887,5 +1901,11 @@ urlpatterns = [
 
 # 参考にした記事
 
+## ライフゲーム
+
 📖 [ライフゲーム Akihide Hanaki](http://math.shinshu-u.ac.jp/~hanaki/lifegame/)  
 📖 [ライフゲームの数理 里村孔明](http://nalab.mind.meiji.ac.jp/2018/2019-satomura.pdf)  
+
+## Vue.js
+
+📖 [【Vue.js】ページ読み込み完了後・離脱時に処理を実行する](https://into-the-program.com/vue-page-onload-leave/)  
