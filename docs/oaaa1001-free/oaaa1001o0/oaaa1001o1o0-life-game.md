@@ -509,10 +509,45 @@ function label_to_pc(label) {
 // |
 // | 駒
 // +--------
+```
 
-// +--------
-// | 盤
-// |
+# Step OAAA1001o1o0ga12o_2o_A10o0 物の定義 - think/things/board/v1o0.js ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        ├── 📂 apps1
+        │   └── 📂 lifegame_v1                  # アプリケーション
+        │       ├── 📂 migrations
+        │       │   └── 📄 __init__.py
+        │       ├── 📂 static
+        │       │   └── 📂 lifegame_v1          # アプリケーションと同名
+        │       │       └── 📂 think
+        │       │           └── 📂 things
+        │       │               ├── 📂 board
+👉      │       │               │   └── 📄 v1o0.js
+        │       │               └── 📄 v1o0.js
+        │       ├── 📂 templates
+        │       │   └── 📂 lifegame_v1
+        │       │       └── 📂 board
+        │       │           └── 📄 v0o1o0.html
+        │       ├── 📂 views
+        │       │   └── 📂 board
+        │       │       └── 📂 v0o1o0
+        │       │           └── 📄 __init__.py
+        │       ├── 📄 __init__.py
+        │       ├── 📄 admin.py
+        │       ├── 📄 apps.py
+        │       └── 📄 tests.py
+        └── 📂 project1
+            ├── 📄 settings.py
+            ├── 📄 urls_lifegame.py
+            └── 📄 urls.py
+```
+
+```js
+// OAAA1001o1o0ga12o_2o_A10o0
 
 /**
  * 盤の横幅
@@ -714,7 +749,7 @@ class Board {
      */
     toString() {
         // 各マス
-        const label_of_squares = this._board.toArray().map((n) => pc_to_label(n));
+        const label_of_squares = this.toArray().map((n) => pc_to_label(n));
 
         let s = "";
 
@@ -729,7 +764,7 @@ class Board {
         for (let y = 0; y < BOARD_HEIGHT; y++) {
             s += "|";
             for (let x = 0; x < BOARD_WIDTH; x++) {
-                s += label_of_squares[this._board.toSq(x, y)];
+                s += label_of_squares[this.toSq(x, y)];
             }
             s += "|\n";
         }
@@ -772,10 +807,6 @@ ${indent}`;
         return s;
     }
 }
-
-// | 盤
-// |
-// +--------
 ```
 
 # Step OAAA1001o1o0ga12o_2o0 局面作成 - think/position/v1o0.js ファイル
@@ -939,7 +970,7 @@ class UserCtrl {
 }
 ```
 
-# Step OAAA1001o1o0ga12o_4o_A99o0 エンジン作成 - think/engine/parser/v1o0.js ファイル
+# Step OAAA1001o1o0ga12o_4o_A10o0 エンジン作成 - think/engine/parser/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -980,7 +1011,7 @@ class UserCtrl {
 ```
 
 ```js
-// OAAA1001o1o0ga12o_4o_A99o0
+// OAAA1001o1o0ga12o_4o_A10o0
 
 /**
  * パーサー
@@ -1293,9 +1324,11 @@ ${indent}${this._position.dump(indent + "    ")}`;
             </v-app>
         </div>
 
+        <script src="{% static 'lifegame_v1/think/engine/parser/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/engine/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/position/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/things/v1o0.js' %}"></script>
+        <script src="{% static 'lifegame_v1/think/things/board/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/user_ctrl/v1o0.js' %}"></script>
         <!--            ===========================================
                         1
@@ -1681,6 +1714,7 @@ urlpatterns = [
         <script src="{% static 'lifegame_v1/think/engine/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/position/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/things/v1o0.js' %}"></script>
+        <script src="{% static 'lifegame_v1/think/things/board/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/user_ctrl/v1o0.js' %}"></script>
         <!--            ===========================================
                         1
