@@ -1,23 +1,5 @@
 // OAAA1001o1o0ga12o_2o_A10o0
 
-/**
- * 盤の横幅
- * @type {number}
- */
-const BOARD_WIDTH = 64;
-
-/**
- * 盤の縦幅
- * @type {number}
- */
-const BOARD_HEIGHT = 64;
-
-/**
- * 盤上の升の数
- * @type {number}
- */
-const BOARD_AREA = BOARD_WIDTH * BOARD_HEIGHT;
-
 /*
  * SQ は Square （マス）の略です
  * +----------------------+
@@ -33,9 +15,46 @@ const BOARD_AREA = BOARD_WIDTH * BOARD_HEIGHT;
  */
 class Board {
     constructor() {
+        // 盤の横幅
+        this._width = 64;
+        // 盤の縦幅
+        this._height = 64;
+
         // 各マス
-        this._squares = Array(BOARD_AREA);
+        this._squares = Array(this.area);
         this._squares.fill(PC_EMPTY);
+    }
+
+    /**
+     * 盤の横幅
+     * @type {number}
+     */
+    get width() {
+        return this._width;
+    }
+
+    set width(value) {
+        this._width = value;
+    }
+
+    /**
+     * 盤の縦幅
+     * @type {number}
+     */
+    get height() {
+        return this._height;
+    }
+
+    set height(value) {
+        this._height = value;
+    }
+
+    /**
+     * 盤上の升の数
+     * @type {number}
+     */
+    get area() {
+        return this._width * this._height;
     }
 
     /**
@@ -43,9 +62,9 @@ class Board {
      * @param {function} convertCell - (sq, cellValue)
      */
     convertEachSq(convertCell) {
-        let nextBoard = Array(BOARD_AREA);
+        let nextBoard = Array(this.area);
 
-        for (let sq = 0; sq < BOARD_AREA; sq++) {
+        for (let sq = 0; sq < this.area; sq++) {
             let cell = convertCell(sq, this._squares[sq]);
             nextBoard[sq] = cell;
         }
@@ -58,7 +77,7 @@ class Board {
      * @param {function} setCell - (sq, cellValue)
      */
     eachSq(setCell) {
-        for (let sq = 0; sq < BOARD_AREA; sq++) {
+        for (let sq = 0; sq < this.area; sq++) {
             setCell(sq, this._squares[sq]);
         }
     }
@@ -72,17 +91,17 @@ class Board {
         let count = 0;
 
         // 上を北、右を東とする
-        const north = -BOARD_WIDTH; // 北
+        const north = -this._width; // 北
         const east = 1; // 東
-        const south = BOARD_WIDTH; // 南
+        const south = this._width; // 南
         const west = -1; // 西
 
         let dirs = [];
 
-        let isEastEnd = sq % BOARD_WIDTH == BOARD_WIDTH - 1; // 東端だ
-        let isNorthernEnd = sq / BOARD_WIDTH == 0; // 北端だ
-        let isWestEnd = sq % BOARD_WIDTH == 0; // 西端だ
-        let isSouthEnd = sq / BOARD_WIDTH == BOARD_HEIGHT - 1; // 南端だ
+        let isEastEnd = sq % this._width == this._width - 1; // 東端だ
+        let isNorthernEnd = sq / this._width == 0; // 北端だ
+        let isWestEnd = sq % this._width == 0; // 西端だ
+        let isSouthEnd = sq / this._width == this._height - 1; // 南端だ
 
         if (!isEastEnd) {
             // 盤の東端でなければ
@@ -191,7 +210,7 @@ class Board {
      * @returns マス番号
      */
     toSq(x, y) {
-        return y * BOARD_WIDTH + x;
+        return y * this._width + x;
     }
 
     /**
@@ -206,15 +225,15 @@ class Board {
 
         // 上辺の横線
         s += "+";
-        for (let x = 0; x < BOARD_WIDTH; x++) {
+        for (let x = 0; x < this._width; x++) {
             s += "-";
         }
         s += "+\n";
 
         // 各行
-        for (let y = 0; y < BOARD_HEIGHT; y++) {
+        for (let y = 0; y < this._height; y++) {
             s += "|";
-            for (let x = 0; x < BOARD_WIDTH; x++) {
+            for (let x = 0; x < this._width; x++) {
                 s += label_of_squares[this.toSq(x, y)];
             }
             s += "|\n";
@@ -222,7 +241,7 @@ class Board {
 
         // 下辺の横線
         s += "+";
-        for (let x = 0; x < BOARD_WIDTH; x++) {
+        for (let x = 0; x < this._width; x++) {
             s += "-";
         }
         s += "+\n";
@@ -247,10 +266,10 @@ class Board {
 ${indent}Board
 ${indent}-----`;
 
-        for (let y = 0; y < BOARD_HEIGHT; y++) {
+        for (let y = 0; y < this._height; y++) {
             s += `
 ${indent}`;
-            for (let x = 0; x < BOARD_WIDTH; x++) {
+            for (let x = 0; x < this._width; x++) {
                 s += `${this._squares[this.toSq(x, y)]}`;
             }
         }

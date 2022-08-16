@@ -80,25 +80,29 @@
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
         <script>
-            // テーブルを動的生成
-            let lifeGameCanvas = document.getElementById("life_game_canvas");
-            let idCount = 0;
+            /**
+             * テーブルを動的生成
+             */
+            function installTable() {
+                let lifeGameCanvas = document.getElementById("life_game_canvas");
+                let idCount = 0;
 
-            // 縦に並べる
-            for(let y=0; y<BOARD_HEIGHT; y++) {
-                // 横に並べる
-                for(let x=0; x<BOARD_WIDTH; x++) {
-                    let span = document.createElement('span');
-                    span.setAttribute("id", `sq_${idCount}`);
-                    idCount++;
-                    span.setAttribute("class", "dead");
-                    span.textContent = "■";
-                    lifeGameCanvas.appendChild(span);
+                // 縦に並べる
+                for(let y=0; y<vue1.engine.position.board.height; y++) {
+                    // 横に並べる
+                    for(let x=0; x<vue1.engine.position.board.width; x++) {
+                        let span = document.createElement('span');
+                        span.setAttribute("id", `sq_${idCount}`);
+                        idCount++;
+                        span.setAttribute("class", "dead");
+                        span.textContent = "■";
+                        lifeGameCanvas.appendChild(span);
+                    }
+
+                    // 改行
+                    let br = document.createElement('br');
+                    lifeGameCanvas.appendChild(br);
                 }
-
-                // 改行
-                let br = document.createElement('br');
-                lifeGameCanvas.appendChild(br);
             }
 
             const vue1 = new Vue({
@@ -248,6 +252,9 @@ board"""
                     },
                 },
             });
+
+            // テーブルを動的生成
+            installTable();
         </script>
     </body>
 </html>
