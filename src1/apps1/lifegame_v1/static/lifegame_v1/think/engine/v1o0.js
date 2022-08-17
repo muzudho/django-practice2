@@ -7,10 +7,11 @@ class Engine {
     /**
      * 生成
      * @param {UserCtrl} userCtrl - ユーザーコントロール
+     * @param {number} boardsCount - 盤の数
      */
-    constructor(userCtrl) {
+    constructor(userCtrl, boardsCount) {
         // 局面
-        this._position = new Position();
+        this._position = new Position(boardsCount);
 
         // ユーザーコントロール
         this._userCtrl = userCtrl;
@@ -52,29 +53,49 @@ class Engine {
         this._log = "";
         let textOfBoards = ["", ""];
 
-        // Example: `board 0` - 盤の表示
-        this._parser.onBoardPrint = (boardIndex) => {
+        // 盤の表示
+        // Example: `board 0`
+        //           ----- -
+        //           0     1
+        this._parser.onBoardPrint = (tokens) => {
+            let boardIndex = parseInt(tokens[1]);
             this._log += this._position.boards[boardIndex].toHumanPresentableText();
         };
 
-        // Example: `board 0 width 64` - 盤の横幅設定
-        this._parser.onBoardWidth = (boardIndex, tokens) => {
+        // 盤の横幅設定
+        // Example: `board 0 width 64`
+        //           ----- - ----- --
+        //           0     1 2     3
+        this._parser.onBoardWidth = (tokens) => {
+            let boardIndex = parseInt(tokens[1]);
             let width = parseInt(tokens[3]);
+            console.log(`board width change: boardIndex:${boardIndex} width:${width} curr:${this._position.boards[boardIndex].width}`);
             this._position.boards[boardIndex].width = width;
         };
 
-        // Example: `board 0 height 16` - 盤の縦幅設定
-        this._parser.onBoardHeight = (boardIndex, tokens) => {
+        // 盤の縦幅設定
+        // Example: `board 0 height 16`
+        //           ----- - ------ --
+        //           0     1 2      3
+        this._parser.onBoardHeight = (tokens) => {
+            let boardIndex = parseInt(tokens[1]);
             let height = parseInt(tokens[3]);
             this._position.boards[boardIndex].height = height;
         };
 
-        // Example: `board 0 """` - 盤の設定（複数行）開始
-        this._parser.onBoardStart = (boardIndex) => {
+        // 盤の設定（複数行）開始
+        // Example: `board 0 """`
+        //           ----- - ---
+        //           0     1 2
+        this._parser.onBoardStart = (tokens) => {
+            let boardIndex = parseInt(tokens[1]);
             textOfBoards[boardIndex] = "";
         };
 
         // Example: `....X....` in board multi-line
+        //           ---------
+        //           1
+        // 1. line
         this._parser.onBoardBody = (boardIndex, line) => {
             textOfBoards[boardIndex] += line;
         };

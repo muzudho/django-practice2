@@ -8,10 +8,17 @@ class Position {
      * 初期化
      *
      * * 対局開始時
+     *
+     * @param {number} boardsCount - 盤の数
      */
-    constructor() {
-        // ２つの盤
-        this._boards = [new Board(), new Board()];
+    constructor(boardsCount) {
+        // 各盤
+        this._boards = Array(boardsCount);
+
+        // 全要素の初期化（fillは参照渡しなので使いません）
+        for (let i = 0; i < this._boards.length; i++) {
+            this._boards[i] = new Board();
+        }
     }
 
     /**
@@ -25,10 +32,13 @@ class Position {
      * ダンプ
      */
     dump(indent) {
-        return `
+        let s = `
 ${indent}Position
-${indent}--------
-${indent}${this._boards[0].dump(indent + "    ")}
-${indent}${this._boards[1].dump(indent + "    ")}`;
+${indent}--------`;
+
+        for (let boardIndex = 0; boardIndex < this._boards.length; boardIndex++) {
+            s += `
+${indent}${this._boards[boardIndex].dump(indent + "    ")}`;
+        }
     }
 }

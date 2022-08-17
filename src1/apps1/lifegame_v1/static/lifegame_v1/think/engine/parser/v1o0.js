@@ -91,18 +91,18 @@ class Parser {
                     boardIndex = parseInt(tokens[1]);
 
                     if (tokens.length < 3) {
-                        this._onBoardPrint(boardIndex);
+                        this._onBoardPrint(tokens);
                         return;
                     }
 
                     let subCommand = tokens[2];
                     switch (subCommand) {
                         case "width":
-                            this._onBoardWidth(boardIndex, tokens);
+                            this._onBoardWidth(tokens);
                             break;
 
                         case "height":
-                            this._onBoardHeight(boardIndex, tokens);
+                            this._onBoardHeight(tokens);
                             break;
 
                         case "xy":
@@ -110,7 +110,7 @@ class Parser {
                             break;
 
                         case '"""':
-                            this._onBoardStart(boardIndex);
+                            this._onBoardStart(tokens);
                             this._parseCurr = parseBoard;
                             break;
 

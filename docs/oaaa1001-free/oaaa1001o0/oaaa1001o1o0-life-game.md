@@ -934,10 +934,17 @@ class Position {
      * 初期化
      *
      * * 対局開始時
+     *
+     * @param {number} boardsCount - 盤の数
      */
-    constructor() {
-        // ２つの盤
-        this._boards = [new Board(), new Board()];
+    constructor(boardsCount) {
+        // 各盤
+        this._boards = Array(boardsCount);
+
+        // 全要素の初期化（fillは参照渡しなので使いません）
+        for (let i = 0; i < this._boards.length; i++) {
+            this._boards[i] = new Board();
+        }
     }
 
     /**
@@ -951,11 +958,14 @@ class Position {
      * ダンプ
      */
     dump(indent) {
-        return `
+        let s = `
 ${indent}Position
-${indent}--------
-${indent}${this._boards[0].dump(indent + "    ")}
-${indent}${this._boards[1].dump(indent + "    ")}`;
+${indent}--------`;
+
+        for (let boardIndex = 0; boardIndex < this._boards.length; boardIndex++) {
+            s += `
+${indent}${this._boards[boardIndex].dump(indent + "    ")}`;
+        }
     }
 }
 ```
@@ -1175,18 +1185,18 @@ class Parser {
                     boardIndex = parseInt(tokens[1]);
 
                     if (tokens.length < 3) {
-                        this._onBoardPrint(boardIndex);
+                        this._onBoardPrint(tokens);
                         return;
                     }
 
                     let subCommand = tokens[2];
                     switch (subCommand) {
                         case "width":
-                            this._onBoardWidth(boardIndex, tokens);
+                            this._onBoardWidth(tokens);
                             break;
 
                         case "height":
-                            this._onBoardHeight(boardIndex, tokens);
+                            this._onBoardHeight(tokens);
                             break;
 
                         case "xy":
@@ -1194,7 +1204,7 @@ class Parser {
                             break;
 
                         case '"""':
-                            this._onBoardStart(boardIndex);
+                            this._onBoardStart(tokens);
                             this._parseCurr = parseBoard;
                             break;
 
@@ -1285,10 +1295,11 @@ class Engine {
     /**
      * 生成
      * @param {UserCtrl} userCtrl - ユーザーコントロール
+     * @param {number} boardsCount - 盤の数
      */
-    constructor(userCtrl) {
+    constructor(userCtrl, boardsCount) {
         // 局面
-        this._position = new Position();
+        this._position = new Position(boardsCount);
 
         // ユーザーコントロール
         this._userCtrl = userCtrl;
@@ -1330,29 +1341,49 @@ class Engine {
         this._log = "";
         let textOfBoards = ["", ""];
 
-        // Example: `board 0` - 盤の表示
-        this._parser.onBoardPrint = (boardIndex) => {
+        // 盤の表示
+        // Example: `board 0`
+        //           ----- -
+        //           0     1
+        this._parser.onBoardPrint = (tokens) => {
+            let boardIndex = parseInt(tokens[1]);
             this._log += this._position.boards[boardIndex].toHumanPresentableText();
         };
 
-        // Example: `board 0 width 64` - 盤の横幅設定
-        this._parser.onBoardWidth = (boardIndex, tokens) => {
+        // 盤の横幅設定
+        // Example: `board 0 width 64`
+        //           ----- - ----- --
+        //           0     1 2     3
+        this._parser.onBoardWidth = (tokens) => {
+            let boardIndex = parseInt(tokens[1]);
             let width = parseInt(tokens[3]);
+            console.log(`board width change: boardIndex:${boardIndex} width:${width} curr:${this._position.boards[boardIndex].width}`);
             this._position.boards[boardIndex].width = width;
         };
 
-        // Example: `board 0 height 16` - 盤の縦幅設定
-        this._parser.onBoardHeight = (boardIndex, tokens) => {
+        // 盤の縦幅設定
+        // Example: `board 0 height 16`
+        //           ----- - ------ --
+        //           0     1 2      3
+        this._parser.onBoardHeight = (tokens) => {
+            let boardIndex = parseInt(tokens[1]);
             let height = parseInt(tokens[3]);
             this._position.boards[boardIndex].height = height;
         };
 
-        // Example: `board 0 """` - 盤の設定（複数行）開始
-        this._parser.onBoardStart = (boardIndex) => {
+        // 盤の設定（複数行）開始
+        // Example: `board 0 """`
+        //           ----- - ---
+        //           0     1 2
+        this._parser.onBoardStart = (tokens) => {
+            let boardIndex = parseInt(tokens[1]);
             textOfBoards[boardIndex] = "";
         };
 
         // Example: `....X....` in board multi-line
+        //           ---------
+        //           1
+        // 1. line
         this._parser.onBoardBody = (boardIndex, line) => {
             textOfBoards[boardIndex] += line;
         };
@@ -1874,23 +1905,34 @@ urlpatterns = [
                         </v-form>
                     </v-container>
                     <v-container>
-                        <v-card
-                            elevation="2"
-                        >
-                            <v-card-title>board 1</v-card-title>
-                            <v-card-text>
-                                <!-- Example: <span id="sq_0" class="live">■</span><span id="sq_1" class="dead">■</span> -->
-                                <div id="life_game_canvas1" style="line-height:1;"></div>
-                            </v-card-text>
-                        </v-card>
-
+                        <!-- 盤０ -->
                         <v-card
                             elevation="2"
                         >
                             <v-card-title>board 0</v-card-title>
                             <v-card-text>
-                                <!-- Example: <span id="sq_0" class="live">■</span><span id="sq_1" class="dead">■</span> -->
+                                <!-- Example: <span id="b0_sq0" class="live">■</span><span id="b0_sq1" class="dead">■</span> -->
                                 <div id="life_game_canvas0" style="line-height:1;"></div>
+                            </v-card-text>
+                        </v-card>
+
+                        <!-- 盤１ -->
+                        <v-card
+                            elevation="2"
+                        >
+                            <v-card-title>board 1</v-card-title>
+                            <v-card-text>
+                                <div id="life_game_canvas1" style="line-height:1;"></div>
+                            </v-card-text>
+                        </v-card>
+
+                        <!-- 盤２ -->
+                        <v-card
+                            elevation="2"
+                        >
+                            <v-card-title>board 2</v-card-title>
+                            <v-card-text>
+                                <div id="life_game_canvas2" style="line-height:1;"></div>
                             </v-card-text>
                         </v-card>
                     </v-container>
@@ -1914,11 +1956,16 @@ urlpatterns = [
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
         <script>
             /**
+             * 盤の数
+             */
+            let BOARDS_COUNT = 3;
+
+            /**
              * テーブルを動的生成
              */
             function installTable(boardIndex) {
                 let lifeGameCanvas = document.getElementById(`life_game_canvas${boardIndex}`);
-                let idCount = 0;
+                let sq = 0;
 
                 // 盤について
                 // 縦に並べる
@@ -1926,8 +1973,8 @@ urlpatterns = [
                     // 横に並べる
                     for(let x=0; x<vue1.engine.position.boards[boardIndex].width; x++) {
                         let span = document.createElement('span');
-                        span.setAttribute("id", `sq_${idCount}`);
-                        idCount++;
+                        span.setAttribute("id", `b${boardIndex}_sq${sq}`);
+                        sq++;
                         span.setAttribute("class", "dead");
                         span.textContent = "■";
                         lifeGameCanvas.appendChild(span);
@@ -1960,20 +2007,7 @@ urlpatterns = [
                     // 入力
                     inputText: {
                         enabled: true,
-                        value: `# 盤[1] 停止
-# サイズ
-board 1 width 5
-board 1 height 5
-# 点描
-board 1 """
-.....
-..X..
-...X.
-.XXX.
-.....
-"""
-
-# 盤[0] ムービー
+                        value: `# 盤[0] ムービー
 # サイズ
 board 0 width 64
 board 0 height 32
@@ -2013,9 +2047,57 @@ board 0 """
 ................................................................
 """
 
+# 盤[1] 停止
+# サイズ
+board 1 width 64
+board 1 height 6
+# 点描
+#    5     11   16   21    27 30    36    42    48
+board 1 """
+................................................................
+.XX...XX...XX....XX...XX...X...XX...XX.....X.....X..............
+.XX..X..X..X.X..X.X..X..X..X..X.....X......X.X....X.............
+......XX....X...XX...X..X..X.....X.....X..X.X...XXX.............
+......................XX.......XX.....XX....X...................
+................................................................
+"""
+
+# 盤[2] 停止
+# サイズ
+board 2 width 64
+board 2 height 7
+# 点描
+board 2 """
+................................................................
+.XXX...XXX...XXX..XXX..XXX...X...X..XXX.........................
+.X..X..X....X.....X....X..X..X...X..X...........................
+.XXX...XXX...XX...XXX..XXX...X...X..XXX.........................
+.X..X..X.......X..X....X..X...X.X...X...........................
+.X..X..XXX..XXX...XXX..X..X....X....XXX.........................
+................................................................
+"""
+
 # コピー
-board 0 xy 7 2 copy_from board 1 rect 0 0 5 5
-board 0 xy 12 2 copy_from board 1 rect 0 0 5 5
+# グライダー
+board 0 xy 1 1 copy_from board 1 rect 48 1 3 3
+# ブロック
+board 0 xy 10 3 copy_from board 1 rect 1 1 2 2
+# 蜂の巣
+board 0 xy 17 5 copy_from board 1 rect 5 1 4 3
+# ボート
+board 0 xy 24 3 copy_from board 1 rect 11 1 3 3
+# 船
+board 0 xy 31 6 copy_from board 1 rect 16 1 3 3
+# 池
+board 0 xy 38 2 copy_from board 1 rect 21 1 4 4
+# ブリンカー
+board 0 xy 45 5 copy_from board 1 rect 27 1 1 3
+# ヒキガエル
+board 0 xy 52 8 copy_from board 1 rect 30 1 4 4
+# ビーコン
+board 0 xy 57 3 copy_from board 1 rect 36 1 4 4
+# 時計
+board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
 `,
                     },
                     // 出力
@@ -2025,7 +2107,9 @@ board 0 xy 12 2 copy_from board 1 rect 0 0 5 5
                     // 思考エンジン
                     engine: new Engine(
                         // ユーザーコントロール
-                        new UserCtrl()
+                        new UserCtrl(),
+                        // 盤の数
+                        BOARDS_COUNT
                     ),
                     // 入力ボタンの活性性
                     enterButton: {
@@ -2063,9 +2147,11 @@ board 0 xy 12 2 copy_from board 1 rect 0 0 5 5
                     updateVu() {
                         if (this.enteredText !== null) {
                             // 盤のサイズを一時記憶
-                            let widthOfBoards = [0, 0];
-                            let heightOfBoards = [0, 0];
-                            for(let boardIndex=0; boardIndex<2; boardIndex++){
+                            let widthOfBoards = new Array(BOARDS_COUNT);
+                            widthOfBoards.fill(0);
+                            let heightOfBoards = new Array(BOARDS_COUNT);
+                            heightOfBoards.fill(0);
+                            for(let boardIndex=0; boardIndex<BOARDS_COUNT; boardIndex++){
                                 widthOfBoards[boardIndex] = vue1.engine.position.boards[boardIndex].width;
                                 heightOfBoards[boardIndex] = vue1.engine.position.boards[boardIndex].height;
                             }
@@ -2077,7 +2163,7 @@ board 0 xy 12 2 copy_from board 1 rect 0 0 5 5
                             this.outputText.value = log;
 
                             // 盤のサイズが変わっていれば作り直し
-                            for(let boardIndex=0; boardIndex<2; boardIndex++){
+                            for(let boardIndex=0; boardIndex<BOARDS_COUNT; boardIndex++){
                                 if (widthOfBoards[boardIndex] !== vue1.engine.position.boards[boardIndex].width ||
                                     heightOfBoards[boardIndex] !== vue1.engine.position.boards[boardIndex].height) {
                                     uninstallTable(boardIndex);
@@ -2085,16 +2171,15 @@ board 0 xy 12 2 copy_from board 1 rect 0 0 5 5
                                 }
                             }
                         } else {
-                            // 盤[0]を動かす
-                            // 盤[1]は動かさない
+                            // 盤[0]を動かす。それ以外の盤は動かさない
                             let boardIndex = 0;
                             vue1.engine.userCtrl.doMove(vue1.engine.position, boardIndex);
                         }
 
                         // 盤表示
-                        for(let boardIndex=0; boardIndex<2; boardIndex++){
+                        for(let boardIndex=0; boardIndex<BOARDS_COUNT; boardIndex++){
                             vue1.engine.position.boards[boardIndex].eachSq((sq, cellValue) => {
-                                let cell = document.getElementById(`sq_${sq}`);
+                                let cell = document.getElementById(`b${boardIndex}_sq${sq}`);
                                 switch(cellValue) {
                                     case PC_X:
                                         cell.setAttribute("class", "live");
