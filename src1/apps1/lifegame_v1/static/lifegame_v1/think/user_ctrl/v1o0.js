@@ -8,13 +8,14 @@ class UserCtrl {
      * 時間を１つ進めます
      *
      * @param {Position} position - 局面
+     * @param {number} boardIndex - 盤番号
      */
-    doMove(position) {
+    doMove(position, boardIndex) {
         this._position = position;
         // 盤[0] について
         // セルの変化
-        this._position.boards[0].convertEachSq((sq, cellValue) => {
-            let count = this._position.boards[0].getLifeCountAround(sq);
+        this._position.boards[boardIndex].convertEachSq((sq, cellValue) => {
+            let count = this._position.boards[boardIndex].getLifeCountAround(sq);
 
             switch (cellValue) {
                 case PC_EMPTY: // 生命のいない場所

@@ -17,9 +17,9 @@
 class Board {
     constructor() {
         // 盤の横幅
-        this._width = 64;
+        this._width = 0;
         // 盤の縦幅
-        this._height = 64;
+        this._height = 0;
 
         // 盤サイズ変更
         this.resize();

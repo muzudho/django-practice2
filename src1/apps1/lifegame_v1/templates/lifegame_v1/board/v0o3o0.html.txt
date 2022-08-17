@@ -58,8 +58,25 @@
                         </v-form>
                     </v-container>
                     <v-container>
-                        <!-- Example: <span id="sq_0" class="live">■</span><span id="sq_1" class="dead">■</span> -->
-                        <div id="life_game_canvas" style="line-height:1;"></div>
+                        <v-card
+                            elevation="2"
+                        >
+                            <v-card-title>board 1</v-card-title>
+                            <v-card-text>
+                                <!-- Example: <span id="sq_0" class="live">■</span><span id="sq_1" class="dead">■</span> -->
+                                <div id="life_game_canvas1" style="line-height:1;"></div>
+                            </v-card-text>
+                        </v-card>
+
+                        <v-card
+                            elevation="2"
+                        >
+                            <v-card-title>board 0</v-card-title>
+                            <v-card-text>
+                                <!-- Example: <span id="sq_0" class="live">■</span><span id="sq_1" class="dead">■</span> -->
+                                <div id="life_game_canvas0" style="line-height:1;"></div>
+                            </v-card-text>
+                        </v-card>
                     </v-container>
                 </v-main>
             </v-app>
@@ -83,15 +100,15 @@
             /**
              * テーブルを動的生成
              */
-            function installTable() {
-                let lifeGameCanvas = document.getElementById("life_game_canvas");
+            function installTable(boardIndex) {
+                let lifeGameCanvas = document.getElementById(`life_game_canvas${boardIndex}`);
                 let idCount = 0;
 
-                // 盤[0]について
+                // 盤について
                 // 縦に並べる
-                for(let y=0; y<vue1.engine.position.boards[0].height; y++) {
+                for(let y=0; y<vue1.engine.position.boards[boardIndex].height; y++) {
                     // 横に並べる
-                    for(let x=0; x<vue1.engine.position.boards[0].width; x++) {
+                    for(let x=0; x<vue1.engine.position.boards[boardIndex].width; x++) {
                         let span = document.createElement('span');
                         span.setAttribute("id", `sq_${idCount}`);
                         idCount++;
@@ -109,8 +126,8 @@
             /**
              * テーブルを削除
              */
-            function uninstallTable() {
-                let lifeGameCanvas = document.getElementById("life_game_canvas");
+            function uninstallTable(boardIndex) {
+                let lifeGameCanvas = document.getElementById(`life_game_canvas${boardIndex}`);
 
                 // 子要素を全て削除
                 var child = lifeGameCanvas.lastElementChild;
@@ -127,10 +144,24 @@
                     // 入力
                     inputText: {
                         enabled: true,
-                        value: `# 盤[0]サイズ
+                        value: `# 盤[1] 停止
+# サイズ
+board 1 width 5
+board 1 height 5
+# 点描
+board 1 """
+.....
+..X..
+...X.
+.XXX.
+.....
+"""
+
+# 盤[0] ムービー
+# サイズ
 board 0 width 64
 board 0 height 32
-# グライダー
+# 点描
 board 0 """
 ................................................................
 ................................................................
@@ -190,7 +221,7 @@ board 0 """
                         // タイマー生成
                         intervalMilliseconds = 100;
                         setInterval(() => {
-                            this.playVu();
+                            this.updateVu();
                         }, intervalMilliseconds);
                     }
                 },
@@ -206,11 +237,18 @@ board 0 """
                         this.enteredText = vue1.inputText.value;
                         vue1.inputText.value = "";
                     },
-                    playVu() {
+                    /**
+                     * 画面更新
+                     */
+                    updateVu() {
                         if (this.enteredText !== null) {
-                            // 盤[0]サイズを一時記憶
-                            let boardWidth = vue1.engine.position.boards[0].width;
-                            let boardHeight = vue1.engine.position.boards[0].height;
+                            // 盤のサイズを一時記憶
+                            let widthOfBoards = [0, 0];
+                            let heightOfBoards = [0, 0];
+                            for(let boardIndex=0; boardIndex<2; boardIndex++){
+                                widthOfBoards[boardIndex] = vue1.engine.position.boards[boardIndex].width;
+                                heightOfBoards[boardIndex] = vue1.engine.position.boards[boardIndex].height;
+                            }
 
                             // コマンドを実行
                             let log = vue1.engine.execute(this.enteredText);
@@ -218,40 +256,46 @@ board 0 """
 
                             this.outputText.value = log;
 
-                            // 盤[0]のサイズが変わっていれば作り直し
-                            if (boardWidth !== vue1.engine.position.boards[0].width ||
-                                boardHeight !== vue1.engine.position.boards[0].height) {
-                                uninstallTable();
-                                installTable();
+                            // 盤のサイズが変わっていれば作り直し
+                            for(let boardIndex=0; boardIndex<2; boardIndex++){
+                                if (widthOfBoards[boardIndex] !== vue1.engine.position.boards[boardIndex].width ||
+                                    heightOfBoards[boardIndex] !== vue1.engine.position.boards[boardIndex].height) {
+                                    uninstallTable(boardIndex);
+                                    installTable(boardIndex);
+                                }
                             }
                         } else {
-                            // 動かす
-                            vue1.engine.userCtrl.doMove(vue1.engine.position);
+                            // 盤[0]を動かす
+                            // 盤[1]は動かさない
+                            let boardIndex = 0;
+                            vue1.engine.userCtrl.doMove(vue1.engine.position, boardIndex);
                         }
 
-                        // 盤[0]表示
-                        vue1.engine.position.boards[0].eachSq((sq, cellValue) => {
-                            let cell = document.getElementById(`sq_${sq}`);
-                            switch(cellValue) {
-                                case PC_X:
-                                    cell.setAttribute("class", "live");
-                                    break;
+                        // 盤表示
+                        for(let boardIndex=0; boardIndex<2; boardIndex++){
+                            vue1.engine.position.boards[boardIndex].eachSq((sq, cellValue) => {
+                                let cell = document.getElementById(`sq_${sq}`);
+                                switch(cellValue) {
+                                    case PC_X:
+                                        cell.setAttribute("class", "live");
+                                        break;
 
-                                case PC_EMPTY:
-                                    cell.setAttribute("class", "dead");
-                                    break;
+                                    case PC_EMPTY:
+                                        cell.setAttribute("class", "dead");
+                                        break;
 
-                                default:
-                                    cell.setAttribute("class", "error");
-                                    break;
-                            }
-                        })
+                                    default:
+                                        cell.setAttribute("class", "error");
+                                        break;
+                                }
+                            })
+                        }
                     },
                 },
             });
 
-            // テーブルを動的生成
-            installTable();
+            // 盤[0]を動的生成
+            installTable(0);
         </script>
     </body>
 </html>
