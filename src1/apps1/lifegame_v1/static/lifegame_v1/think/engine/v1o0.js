@@ -54,7 +54,7 @@ class Engine {
 
         // Example: `board 0` - 盤の表示
         this._parser.onBoardPrint = (boardIndex) => {
-            this._log += this._position.boards[boardIndex].toString();
+            this._log += this._position.boards[boardIndex].toHumanPresentableText();
         };
 
         // Example: `board 0 width 64` - 盤の横幅設定
@@ -83,6 +83,37 @@ class Engine {
         this._parser.onBoardEnd = (boardIndex) => {
             this.position.boards[boardIndex].parse(textOfBoards[boardIndex]);
             textOfBoards[boardIndex] = "";
+        };
+
+        // 複写
+        // Example: `board 0 xy 3 3 copy_from board 1 rect 0 0 5 5`
+        //           ----- - -- - - --------- ----- - ---- - - - -
+        //           0     1 2  3 4 5         6     7 8    9 101112
+        this._parser.onBoardCopyFrom = (tokens) => {
+            let dstBoardIndex = parseInt(tokens[1]);
+            let dstX = parseInt(tokens[3]);
+            let dstY = parseInt(tokens[4]);
+            let srcBoardIndex = parseInt(tokens[7]);
+            let srcX = parseInt(tokens[9]);
+            let srcY = parseInt(tokens[10]);
+            let srcWidth = parseInt(tokens[11]);
+            let srcHeight = parseInt(tokens[12]);
+            let dstBoard = this.position.boards[dstBoardIndex];
+            let srcBoard = this.position.boards[srcBoardIndex];
+            console.log(`dstBoardIndex:${dstBoardIndex}
+dstX:${dstX}
+dstY:${dstY}
+srcBoardIndex:${srcBoardIndex}
+srcX:${srcX}
+srcY:${srcY}
+srcWidth:${srcWidth}
+srcHeight:${srcHeight}`);
+
+            let vec = srcBoard.cropRect(srcX, srcY, srcWidth, srcHeight);
+            let cropText1 = vec.map((n) => pc_to_label(n)).join("");
+            console.log(`cropText1:${cropText1}`);
+
+            dstBoard.pasteRect(vec, srcWidth, srcHeight, dstX, dstY);
         };
 
         // Example: `play`

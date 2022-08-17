@@ -18,6 +18,7 @@ class Parser {
         this._onBoardStart = null;
         this._onBoardBody = null;
         this._onBoardEnd = null;
+        this._onBoardCopyFrom = null;
 
         this._onPlay = null;
     }
@@ -44,6 +45,10 @@ class Parser {
 
     set onBoardEnd(action) {
         this._onBoardEnd = action;
+    }
+
+    set onBoardCopyFrom(action) {
+        this._onBoardCopyFrom = action;
     }
 
     set onPlay(action) {
@@ -82,6 +87,7 @@ class Parser {
                     // Example: `board 0 """
                     //           ....X....
                     //           """`
+                    // Example: `board 0 xy 3 3 copy_from board 1 rect 0 0 5 5`
                     boardIndex = parseInt(tokens[1]);
 
                     if (tokens.length < 3) {
@@ -97,6 +103,10 @@ class Parser {
 
                         case "height":
                             this._onBoardHeight(boardIndex, tokens);
+                            break;
+
+                        case "xy":
+                            this._onBoardCopyFrom(tokens);
                             break;
 
                         case '"""':

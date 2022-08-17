@@ -780,13 +780,55 @@ class Board {
     }
 
     /**
-     * 文字列化
+     * データ用の部分数列
+     *
+     * * 矩形で部分指定
+     * * シリアライズ = 改行を含まない
+     */
+    cropRect(ox, oy, width, height) {
+        let vec = [];
+
+        let x2 = ox + width;
+        let y2 = oy + height;
+
+        if (this._width < x2) {
+            x2 = this._width;
+        }
+
+        if (this._height < y2) {
+            y2 = this._height;
+        }
+
+        // 各行
+        for (let y = oy; y < y2; y++) {
+            for (let x = ox; x < x2; x++) {
+                vec.push(this._squares[this.toSq(x, y)]);
+            }
+        }
+
+        return vec;
+    }
+
+    /**
+     * データ用の文字列貼り付け, 矩形
+     */
+    pasteRect(srcVec, width, height, dstX, dstY) {
+        // 各行
+        for (let y = 0; y < height; y++) {
+            for (let x = 0; x < width; x++) {
+                let srcSq = y * width + x;
+                let dstSq = this.toSq(dstX + x, dstY + y);
+
+                this._squares[dstSq] = label_to_pc(srcVec[srcSq]);
+            }
+        }
+    }
+
+    /**
+     * 表示用の文字列　枠付き
      * @returns
      */
-    toString() {
-        // 各マス
-        const label_of_squares = this.toArray().map((n) => pc_to_label(n));
-
+    toHumanPresentableText() {
         let s = "";
 
         // 上辺の横線
@@ -797,12 +839,13 @@ class Board {
         s += "+\n";
 
         // 各行
+        let vec = this.cropRect(0, 0, this._width, this._height);
+        let i = 0;
         for (let y = 0; y < this._height; y++) {
-            s += "|";
-            for (let x = 0; x < this._width; x++) {
-                s += label_of_squares[this.toSq(x, y)];
-            }
-            s += "|\n";
+            let row = vec.slice(i, i + this._width);
+            line = row.map((n) => pc_to_label(n)).join("");
+            s += `|${line}|\n`;
+            i += this._width;
         }
 
         // 下辺の横線
@@ -1059,6 +1102,7 @@ class Parser {
         this._onBoardStart = null;
         this._onBoardBody = null;
         this._onBoardEnd = null;
+        this._onBoardCopyFrom = null;
 
         this._onPlay = null;
     }
@@ -1085,6 +1129,10 @@ class Parser {
 
     set onBoardEnd(action) {
         this._onBoardEnd = action;
+    }
+
+    set onBoardCopyFrom(action) {
+        this._onBoardCopyFrom = action;
     }
 
     set onPlay(action) {
@@ -1123,6 +1171,7 @@ class Parser {
                     // Example: `board 0 """
                     //           ....X....
                     //           """`
+                    // Example: `board 0 xy 3 3 copy_from board 1 rect 0 0 5 5`
                     boardIndex = parseInt(tokens[1]);
 
                     if (tokens.length < 3) {
@@ -1138,6 +1187,10 @@ class Parser {
 
                         case "height":
                             this._onBoardHeight(boardIndex, tokens);
+                            break;
+
+                        case "xy":
+                            this._onBoardCopyFrom(tokens);
                             break;
 
                         case '"""':
@@ -1279,7 +1332,7 @@ class Engine {
 
         // Example: `board 0` - 盤の表示
         this._parser.onBoardPrint = (boardIndex) => {
-            this._log += this._position.boards[boardIndex].toString();
+            this._log += this._position.boards[boardIndex].toHumanPresentableText();
         };
 
         // Example: `board 0 width 64` - 盤の横幅設定
@@ -1308,6 +1361,37 @@ class Engine {
         this._parser.onBoardEnd = (boardIndex) => {
             this.position.boards[boardIndex].parse(textOfBoards[boardIndex]);
             textOfBoards[boardIndex] = "";
+        };
+
+        // 複写
+        // Example: `board 0 xy 3 3 copy_from board 1 rect 0 0 5 5`
+        //           ----- - -- - - --------- ----- - ---- - - - -
+        //           0     1 2  3 4 5         6     7 8    9 101112
+        this._parser.onBoardCopyFrom = (tokens) => {
+            let dstBoardIndex = parseInt(tokens[1]);
+            let dstX = parseInt(tokens[3]);
+            let dstY = parseInt(tokens[4]);
+            let srcBoardIndex = parseInt(tokens[7]);
+            let srcX = parseInt(tokens[9]);
+            let srcY = parseInt(tokens[10]);
+            let srcWidth = parseInt(tokens[11]);
+            let srcHeight = parseInt(tokens[12]);
+            let dstBoard = this.position.boards[dstBoardIndex];
+            let srcBoard = this.position.boards[srcBoardIndex];
+            console.log(`dstBoardIndex:${dstBoardIndex}
+dstX:${dstX}
+dstY:${dstY}
+srcBoardIndex:${srcBoardIndex}
+srcX:${srcX}
+srcY:${srcY}
+srcWidth:${srcWidth}
+srcHeight:${srcHeight}`);
+
+            let vec = srcBoard.cropRect(srcX, srcY, srcWidth, srcHeight);
+            let cropText1 = vec.map((n) => pc_to_label(n)).join("");
+            console.log(`cropText1:${cropText1}`);
+
+            dstBoard.pasteRect(vec, srcWidth, srcHeight, dstX, dstY);
         };
 
         // Example: `play`
@@ -1897,9 +1981,9 @@ board 0 height 32
 board 0 """
 ................................................................
 ................................................................
-....X...........................................................
-.....X..........................................................
-...XXX..........................................................
+................................................................
+................................................................
+................................................................
 ................................................................
 ................................................................
 ................................................................
@@ -1928,6 +2012,10 @@ board 0 """
 ................................................................
 ................................................................
 """
+
+# コピー
+board 0 xy 7 2 copy_from board 1 rect 0 0 5 5
+board 0 xy 12 2 copy_from board 1 rect 0 0 5 5
 `,
                     },
                     // 出力
@@ -2025,9 +2113,6 @@ board 0 """
                     },
                 },
             });
-
-            // 盤[0]を動的生成
-            installTable(0);
         </script>
     </body>
 </html>

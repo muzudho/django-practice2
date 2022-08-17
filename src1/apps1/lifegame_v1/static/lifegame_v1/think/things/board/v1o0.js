@@ -231,13 +231,55 @@ class Board {
     }
 
     /**
-     * 文字列化
+     * データ用の部分数列
+     *
+     * * 矩形で部分指定
+     * * シリアライズ = 改行を含まない
+     */
+    cropRect(ox, oy, width, height) {
+        let vec = [];
+
+        let x2 = ox + width;
+        let y2 = oy + height;
+
+        if (this._width < x2) {
+            x2 = this._width;
+        }
+
+        if (this._height < y2) {
+            y2 = this._height;
+        }
+
+        // 各行
+        for (let y = oy; y < y2; y++) {
+            for (let x = ox; x < x2; x++) {
+                vec.push(this._squares[this.toSq(x, y)]);
+            }
+        }
+
+        return vec;
+    }
+
+    /**
+     * データ用の文字列貼り付け, 矩形
+     */
+    pasteRect(srcVec, width, height, dstX, dstY) {
+        // 各行
+        for (let y = 0; y < height; y++) {
+            for (let x = 0; x < width; x++) {
+                let srcSq = y * width + x;
+                let dstSq = this.toSq(dstX + x, dstY + y);
+
+                this._squares[dstSq] = label_to_pc(srcVec[srcSq]);
+            }
+        }
+    }
+
+    /**
+     * 表示用の文字列　枠付き
      * @returns
      */
-    toString() {
-        // 各マス
-        const label_of_squares = this.toArray().map((n) => pc_to_label(n));
-
+    toHumanPresentableText() {
         let s = "";
 
         // 上辺の横線
@@ -248,12 +290,13 @@ class Board {
         s += "+\n";
 
         // 各行
+        let vec = this.cropRect(0, 0, this._width, this._height);
+        let i = 0;
         for (let y = 0; y < this._height; y++) {
-            s += "|";
-            for (let x = 0; x < this._width; x++) {
-                s += label_of_squares[this.toSq(x, y)];
-            }
-            s += "|\n";
+            let row = vec.slice(i, i + this._width);
+            line = row.map((n) => pc_to_label(n)).join("");
+            s += `|${line}|\n`;
+            i += this._width;
         }
 
         // 下辺の横線
