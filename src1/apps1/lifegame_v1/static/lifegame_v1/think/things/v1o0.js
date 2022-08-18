@@ -16,7 +16,7 @@ const PC_X = 1; // 塗りつぶしたセルを表します
  * @type {string}
  */
 const PC_EMPTY_LABEL = ".";
-const PC_X_LABEL = "X";
+const PC_X_LABEL = "x";
 
 /**
  * 定数をラベルに変換
