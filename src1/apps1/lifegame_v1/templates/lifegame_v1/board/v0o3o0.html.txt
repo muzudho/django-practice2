@@ -66,6 +66,10 @@
                             <v-card-text>
                                 <!-- Example: <span id="b0_sq0" class="live">■</span><span id="b0_sq1" class="dead">■</span> -->
                                 <div id="life_game_canvas0" style="line-height:1;"></div>
+                                <!-- 再生ボタン -->
+                                <v-btn block elevation="2" v-on:click="playVu()" v-show="playButton.isShow" :disabled="!playButton.enabled"> ▶ Play </v-btn>
+                                <!-- 一時停止ボタン -->
+                                <v-btn block elevation="2" v-on:click="pauseVu()" :disabled="!pauseButton.enabled"> ▮▮ Pause </v-btn>
                             </v-card-text>
                         </v-card>
 
@@ -264,22 +268,32 @@ board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
                         // 盤の数
                         BOARDS_COUNT
                     ),
-                    // 入力ボタンの活性性
+                    // 入力ボタン
                     enterButton: {
+                        enabled: true,
+                    },
+                    // 再生ボタン
+                    playButton: {
+                        enabled: false,
+                        isShow: false,
+                    },
+                    // 一時停止ボタン
+                    pauseButton: {
                         enabled: true,
                     },
                     // 入力されたテキスト
                     enteredText : null,
+                    // 再生間隔（ミリ秒）
+                    intervalMilliseconds: 100,
                 },
                 mounted() {
                     window.onload = ()=>{
                         console.log('ページが読み込まれました！');
 
                         // タイマー生成
-                        intervalMilliseconds = 100;
                         setInterval(() => {
                             this.updateVu();
-                        }, intervalMilliseconds);
+                        }, this.intervalMilliseconds);
                     }
                 },
                 methods: {
@@ -348,6 +362,18 @@ board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
                                 }
                             })
                         }
+                    },
+                    /**
+                     * 再生ボタンをクリックした
+                     */
+                    playVu(){
+                        console.log("再生ボタンをクリックした");
+                    },
+                    /**
+                     * 停止ボタンをクリックした
+                     */
+                    pauseVu(){
+                        console.log("停止ボタンをクリックした");
                     },
                 },
             });
