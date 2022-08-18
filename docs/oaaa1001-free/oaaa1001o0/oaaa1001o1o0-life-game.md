@@ -2367,3 +2367,8 @@ urlpatterns = [
 ## Vue.js
 
 📖 [【Vue.js】ページ読み込み完了後・離脱時に処理を実行する](https://into-the-program.com/vue-page-onload-leave/)  
+📖 [Vue.js v-show ディレクティブで要素の表示非表示を切り替える](https://anteku.jp/blog/develop/vue-js-v-show-%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%86%E3%82%A3%E3%83%96%E3%81%A7%E8%A6%81%E7%B4%A0%E3%81%AE%E8%A1%A8%E7%A4%BA%E9%9D%9E%E8%A1%A8%E7%A4%BA%E3%82%92%E5%88%87%E3%82%8A%E6%9B%BF/)  
+
+## Java Script
+
+📖 [How to Stop setInterval() Call in JavaScript](https://www.tutorialrepublic.com/faq/how-to-stop-setinterval-call-in-javascript.php)  
