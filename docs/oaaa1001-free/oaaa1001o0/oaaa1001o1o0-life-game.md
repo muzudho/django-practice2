@@ -511,7 +511,7 @@ function label_to_pc(label) {
 // +--------
 ```
 
-# Step OAAA1001o1o0ga12o_2o_A10o0 盤の定義 - think/things/board/v1o0.js ファイル
+# Step OAAA1001o1o0ga12o_2o_9o0 盤の定義 - think/things/board/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -547,7 +547,7 @@ function label_to_pc(label) {
 ```
 
 ```js
-// OAAA1001o1o0ga12o_2o_A10o0
+// OAAA1001o1o0ga12o_2o_9o0
 
 /*
  * SQ は Square （マス）の略です
@@ -941,7 +941,7 @@ class Position {
         // 各盤
         this._boards = Array(boardsCount);
 
-        // 全要素の初期化（fillは参照渡しなので使いません）
+        // 全要素の初期化（.fill()は参照渡しなので使いません）
         for (let i = 0; i < this._boards.length; i++) {
             this._boards[i] = new Board();
         }
@@ -1051,7 +1051,7 @@ class UserCtrl {
 }
 ```
 
-# Step OAAA1001o1o0ga12o_4o_A10o0 エンジン作成 - think/engine/parser/v1o0.js ファイル
+# Step OAAA1001o1o0ga12o_4o_9o0 エンジン作成 - think/engine/parser/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1092,7 +1092,7 @@ class UserCtrl {
 ```
 
 ```js
-// OAAA1001o1o0ga12o_4o_A10o0
+// OAAA1001o1o0ga12o_4o_9o0
 
 /**
  * パーサー
@@ -1799,6 +1799,110 @@ urlpatterns = [
 
 📖 [http://localhost:8000/lifegame/v0.2/board](http://localhost:8000/lifegame/v0.2/board)  
 
+# Step OAAA1001o1o0ga13o_9o0 画面作成 - gui/dynamic_html_board/v1o0.js ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        ├── 📂 apps1
+        │   └── 📂 lifegame_v1                  # アプリケーション
+        │       ├── 📂 migrations
+        │       │   └── 📄 __init__.py
+        │       ├── 📂 static
+        │       │   └── 📂 lifegame_v1          # アプリケーションと同名
+        │       │       ├── 📂 gui
+        │       │       │   └── 📂 dynamic_html_board
+👉      │       │       │       └── 📄 v1o0.js
+        │       │       └── 📂 think
+        │       │           ├── 📂 engine
+        │       │           │   ├── 📂 parser
+        │       │           │   │   └── 📄 v1o0.js
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 position
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 things
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 user_ctrl
+        │       │               └── 📄 v1o0.js
+        │       ├── 📂 templates
+        │       │   └── 📂 lifegame_v1
+        │       │       └── 📂 board
+        │       │           ├── 📄 v0o1o0.html
+        │       │           └── 📄 v0o2o0.html.txt
+        │       ├── 📂 views
+        │       │   └── 📂 board
+        │       │       ├── 📂 v0o1o0
+        │       │       │   └── 📄 __init__.py
+        │       │       └── 📂 v0o2o0
+        │       │           └── 📄 __init__.py
+        │       ├── 📄 __init__.py
+        │       ├── 📄 admin.py
+        │       ├── 📄 apps.py
+        │       └── 📄 tests.py
+        └── 📂 project1
+            ├── 📄 settings.py
+            ├── 📄 urls_lifegame.py
+            └── 📄 urls.py
+```
+
+```js
+// OAAA1001o1o0ga13o_9o0
+
+/**
+ * 盤を動的生成
+ */
+class DynamicHtmlBoard {
+    /**
+     *
+     * @param {number} boardIndex - 盤の番号
+     */
+    constructor(boardIndex) {
+        this._boardIndex = boardIndex;
+    }
+
+    /**
+     * テーブルを動的生成
+     */
+    installTable() {
+        let lifeGameCanvas = document.getElementById(`life_game_canvas${this._boardIndex}`);
+        let sq = 0;
+
+        // 盤について
+        // 縦に並べる
+        for (let y = 0; y < vue1.engine.position.boards[this._boardIndex].height; y++) {
+            // 横に並べる
+            for (let x = 0; x < vue1.engine.position.boards[this._boardIndex].width; x++) {
+                let span = document.createElement("span");
+                span.setAttribute("id", `b${this._boardIndex}_sq${sq}`);
+                sq++;
+                span.setAttribute("class", "dead");
+                span.textContent = "■";
+                lifeGameCanvas.appendChild(span);
+            }
+
+            // 改行
+            let br = document.createElement("br");
+            lifeGameCanvas.appendChild(br);
+        }
+    }
+
+    /**
+     * テーブルを削除
+     */
+    uninstallTable() {
+        let lifeGameCanvas = document.getElementById(`life_game_canvas${this._boardIndex}`);
+
+        // 子要素を全て削除
+        var child = lifeGameCanvas.lastElementChild;
+        while (child) {
+            lifeGameCanvas.removeChild(child);
+            child = lifeGameCanvas.lastElementChild;
+        }
+    }
+}
+```
+
 # Step OAAA1001o1o0ga13o0 画面作成 - board/v0o3o0.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
@@ -1811,6 +1915,9 @@ urlpatterns = [
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 lifegame_v1          # アプリケーションと同名
+        │       │       ├── 📂 gui
+        │       │       │   └── 📂 dynamic_html_board
+        │       │       │       └── 📄 v1o0.js
         │       │       └── 📂 think
         │       │           ├── 📂 engine
         │       │           │   ├── 📂 parser
@@ -1944,6 +2051,7 @@ urlpatterns = [
             </v-app>
         </div>
 
+        <script src="{% static 'lifegame_v1/gui/dynamic_html_board/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/engine/parser/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/engine/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/position/v1o0.js' %}"></script>
@@ -1964,44 +2072,12 @@ urlpatterns = [
              */
             let BOARDS_COUNT = 3;
 
-            /**
-             * テーブルを動的生成
-             */
-            function installTable(boardIndex) {
-                let lifeGameCanvas = document.getElementById(`life_game_canvas${boardIndex}`);
-                let sq = 0;
+            // 盤を動的生成
+            let dynamicHtmlBoards = Array(BOARDS_COUNT);
 
-                // 盤について
-                // 縦に並べる
-                for(let y=0; y<vue1.engine.position.boards[boardIndex].height; y++) {
-                    // 横に並べる
-                    for(let x=0; x<vue1.engine.position.boards[boardIndex].width; x++) {
-                        let span = document.createElement('span');
-                        span.setAttribute("id", `b${boardIndex}_sq${sq}`);
-                        sq++;
-                        span.setAttribute("class", "dead");
-                        span.textContent = "■";
-                        lifeGameCanvas.appendChild(span);
-                    }
-
-                    // 改行
-                    let br = document.createElement('br');
-                    lifeGameCanvas.appendChild(br);
-                }
-            }
-
-            /**
-             * テーブルを削除
-             */
-            function uninstallTable(boardIndex) {
-                let lifeGameCanvas = document.getElementById(`life_game_canvas${boardIndex}`);
-
-                // 子要素を全て削除
-                var child = lifeGameCanvas.lastElementChild;
-                while (child) {
-                    lifeGameCanvas.removeChild(child);
-                    child = lifeGameCanvas.lastElementChild;
-                }
+            // 全要素の初期化（.fill()は参照渡しなので使いません）
+            for (let i = 0; i < BOARDS_COUNT; i++) {
+                dynamicHtmlBoards[i] = new DynamicHtmlBoard(i);
             }
 
             const vue1 = new Vue({
@@ -2184,8 +2260,8 @@ board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
                             for(let boardIndex=0; boardIndex<BOARDS_COUNT; boardIndex++){
                                 if (widthOfBoards[boardIndex] !== vue1.engine.position.boards[boardIndex].width ||
                                     heightOfBoards[boardIndex] !== vue1.engine.position.boards[boardIndex].height) {
-                                    uninstallTable(boardIndex);
-                                    installTable(boardIndex);
+                                    dynamicHtmlBoards[boardIndex].uninstallTable();
+                                    dynamicHtmlBoards[boardIndex].installTable();
                                 }
                             }
                         } else {
@@ -2265,6 +2341,9 @@ board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 lifegame_v1          # アプリケーションと同名
+        │       │       ├── 📂 gui
+        │       │       │   └── 📂 dynamic_html_board
+        │       │       │       └── 📄 v1o0.js
         │       │       └── 📂 think
         │       │           ├── 📂 engine
         │       │           │   ├── 📂 parser
@@ -2334,6 +2413,9 @@ class BoardView():
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
         │       │   └── 📂 lifegame_v1          # アプリケーションと同名
+        │       │       ├── 📂 gui
+        │       │       │   └── 📂 dynamic_html_board
+        │       │       │       └── 📄 v1o0.js
         │       │       └── 📂 think
         │       │           ├── 📂 engine
         │       │           │   ├── 📂 parser

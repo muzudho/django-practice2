@@ -15,7 +15,7 @@ class Position {
         // 各盤
         this._boards = Array(boardsCount);
 
-        // 全要素の初期化（fillは参照渡しなので使いません）
+        // 全要素の初期化（.fill()は参照渡しなので使いません）
         for (let i = 0; i < this._boards.length; i++) {
             this._boards[i] = new Board();
         }

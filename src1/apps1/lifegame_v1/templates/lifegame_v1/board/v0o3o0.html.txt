@@ -97,6 +97,7 @@
             </v-app>
         </div>
 
+        <script src="{% static 'lifegame_v1/gui/dynamic_html_board/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/engine/parser/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/engine/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/position/v1o0.js' %}"></script>
@@ -117,44 +118,12 @@
              */
             let BOARDS_COUNT = 3;
 
-            /**
-             * テーブルを動的生成
-             */
-            function installTable(boardIndex) {
-                let lifeGameCanvas = document.getElementById(`life_game_canvas${boardIndex}`);
-                let sq = 0;
+            // 盤を動的生成
+            let dynamicHtmlBoards = Array(BOARDS_COUNT);
 
-                // 盤について
-                // 縦に並べる
-                for(let y=0; y<vue1.engine.position.boards[boardIndex].height; y++) {
-                    // 横に並べる
-                    for(let x=0; x<vue1.engine.position.boards[boardIndex].width; x++) {
-                        let span = document.createElement('span');
-                        span.setAttribute("id", `b${boardIndex}_sq${sq}`);
-                        sq++;
-                        span.setAttribute("class", "dead");
-                        span.textContent = "■";
-                        lifeGameCanvas.appendChild(span);
-                    }
-
-                    // 改行
-                    let br = document.createElement('br');
-                    lifeGameCanvas.appendChild(br);
-                }
-            }
-
-            /**
-             * テーブルを削除
-             */
-            function uninstallTable(boardIndex) {
-                let lifeGameCanvas = document.getElementById(`life_game_canvas${boardIndex}`);
-
-                // 子要素を全て削除
-                var child = lifeGameCanvas.lastElementChild;
-                while (child) {
-                    lifeGameCanvas.removeChild(child);
-                    child = lifeGameCanvas.lastElementChild;
-                }
+            // 全要素の初期化（.fill()は参照渡しなので使いません）
+            for (let i = 0; i < BOARDS_COUNT; i++) {
+                dynamicHtmlBoards[i] = new DynamicHtmlBoard(i);
             }
 
             const vue1 = new Vue({
@@ -337,8 +306,8 @@ board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
                             for(let boardIndex=0; boardIndex<BOARDS_COUNT; boardIndex++){
                                 if (widthOfBoards[boardIndex] !== vue1.engine.position.boards[boardIndex].width ||
                                     heightOfBoards[boardIndex] !== vue1.engine.position.boards[boardIndex].height) {
-                                    uninstallTable(boardIndex);
-                                    installTable(boardIndex);
+                                    dynamicHtmlBoards[boardIndex].uninstallTable();
+                                    dynamicHtmlBoards[boardIndex].installTable();
                                 }
                             }
                         } else {
