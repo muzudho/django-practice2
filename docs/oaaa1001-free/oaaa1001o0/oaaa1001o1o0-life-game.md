@@ -2,6 +2,12 @@
 
 📖 [http://tic.warabenture.com:8000/lifegame/v0.3/board](http://tic.warabenture.com:8000/lifegame/v0.3/board)  
 
+# オススメ動画
+
+👇 以下の６分程度の動画９本を全部見れば１時間でライフゲームの見所の知識が入る  
+
+📖 [THE RECURSIVE COSMOS: Conway's Game of Life ライフゲームの世界](https://www.youtube.com/playlist?list=PLZC7Zqdh0Qb3wOpit5dewit3q2-Mqg9vC)  
+
 # 目的
 
 ライフゲームを作る
