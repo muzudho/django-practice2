@@ -371,7 +371,7 @@ board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
                      * 再生ボタンをクリックした
                      */
                     playVu(){
-                        console.log("再生ボタンをクリックした");
+                        // console.log("再生ボタンをクリックした");
 
                         this.playButton.enabled = false;
                         this.playButton.isShow = false;
@@ -388,7 +388,7 @@ board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
                      * 停止ボタンをクリックした
                      */
                     pauseVu(){
-                        console.log("停止ボタンをクリックした");
+                        // console.log("停止ボタンをクリックした");
 
                         this.pauseButton.enabled = false;
                         this.pauseButton.isShow = false;

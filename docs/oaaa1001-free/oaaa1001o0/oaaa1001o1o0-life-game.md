@@ -1409,18 +1409,18 @@ class Engine {
             let srcHeight = parseInt(tokens[12]);
             let dstBoard = this.position.boards[dstBoardIndex];
             let srcBoard = this.position.boards[srcBoardIndex];
-            console.log(`dstBoardIndex:${dstBoardIndex}
-dstX:${dstX}
-dstY:${dstY}
-srcBoardIndex:${srcBoardIndex}
-srcX:${srcX}
-srcY:${srcY}
-srcWidth:${srcWidth}
-srcHeight:${srcHeight}`);
+            //             console.log(`dstBoardIndex:${dstBoardIndex}
+            // dstX:${dstX}
+            // dstY:${dstY}
+            // srcBoardIndex:${srcBoardIndex}
+            // srcX:${srcX}
+            // srcY:${srcY}
+            // srcWidth:${srcWidth}
+            // srcHeight:${srcHeight}`);
 
             let vec = srcBoard.cropRect(srcX, srcY, srcWidth, srcHeight);
             let cropText1 = vec.map((n) => pc_to_label(n)).join("");
-            console.log(`cropText1:${cropText1}`);
+            // console.log(`cropText1:${cropText1}`);
 
             dstBoard.pasteRect(vec, srcWidth, srcHeight, dstX, dstY);
         };
@@ -1913,6 +1913,10 @@ urlpatterns = [
                             <v-card-text>
                                 <!-- Example: <span id="b0_sq0" class="live">■</span><span id="b0_sq1" class="dead">■</span> -->
                                 <div id="life_game_canvas0" style="line-height:1;"></div>
+                                <!-- 再生ボタン -->
+                                <v-btn block elevation="2" v-on:click="playVu()" v-show="playButton.isShow" :disabled="!playButton.enabled"> ▶ Play </v-btn>
+                                <!-- 一時停止ボタン -->
+                                <v-btn block elevation="2" v-on:click="pauseVu()" v-show="pauseButton.isShow" :disabled="!pauseButton.enabled"> ▮▮ Pause </v-btn>
                             </v-card-text>
                         </v-card>
 
@@ -2111,22 +2115,36 @@ board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
                         // 盤の数
                         BOARDS_COUNT
                     ),
-                    // 入力ボタンの活性性
+                    // 入力ボタン
                     enterButton: {
                         enabled: true,
                     },
+                    // 再生ボタン
+                    playButton: {
+                        enabled: false,
+                        isShow: true,
+                    },
+                    // 一時停止ボタン
+                    pauseButton: {
+                        enabled: true,
+                        isShow: false,
+                    },
                     // 入力されたテキスト
                     enteredText : null,
+                    // タイマー
+                    timer: {
+                        // 停止するのに使う
+                        id: null,
+                        // 再生間隔（ミリ秒）
+                        intervalMilliseconds: 100,
+                    },
                 },
                 mounted() {
                     window.onload = ()=>{
                         console.log('ページが読み込まれました！');
 
-                        // タイマー生成
-                        intervalMilliseconds = 100;
-                        setInterval(() => {
-                            this.updateVu();
-                        }, intervalMilliseconds);
+                        // 再生する
+                        this.playVu();
                     }
                 },
                 methods: {
@@ -2195,6 +2213,38 @@ board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
                                 }
                             })
                         }
+                    },
+                    /**
+                     * 再生ボタンをクリックした
+                     */
+                    playVu(){
+                        // console.log("再生ボタンをクリックした");
+
+                        this.playButton.enabled = false;
+                        this.playButton.isShow = false;
+
+                        // タイマー開始
+                        this.timer.id = setInterval(() => {
+                            this.updateVu();
+                        }, this.timer.intervalMilliseconds);
+
+                        this.pauseButton.enabled = true;
+                        this.pauseButton.isShow = true;
+                    },
+                    /**
+                     * 停止ボタンをクリックした
+                     */
+                    pauseVu(){
+                        // console.log("停止ボタンをクリックした");
+
+                        this.pauseButton.enabled = false;
+                        this.pauseButton.isShow = false;
+
+                        // タイマー停止
+                        clearInterval(this.timer.id);
+
+                        this.playButton.enabled = true;
+                        this.playButton.isShow = true;
                     },
                 },
             });

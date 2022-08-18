@@ -121,18 +121,18 @@ class Engine {
             let srcHeight = parseInt(tokens[12]);
             let dstBoard = this.position.boards[dstBoardIndex];
             let srcBoard = this.position.boards[srcBoardIndex];
-            console.log(`dstBoardIndex:${dstBoardIndex}
-dstX:${dstX}
-dstY:${dstY}
-srcBoardIndex:${srcBoardIndex}
-srcX:${srcX}
-srcY:${srcY}
-srcWidth:${srcWidth}
-srcHeight:${srcHeight}`);
+            //             console.log(`dstBoardIndex:${dstBoardIndex}
+            // dstX:${dstX}
+            // dstY:${dstY}
+            // srcBoardIndex:${srcBoardIndex}
+            // srcX:${srcX}
+            // srcY:${srcY}
+            // srcWidth:${srcWidth}
+            // srcHeight:${srcHeight}`);
 
             let vec = srcBoard.cropRect(srcX, srcY, srcWidth, srcHeight);
             let cropText1 = vec.map((n) => pc_to_label(n)).join("");
-            console.log(`cropText1:${cropText1}`);
+            // console.log(`cropText1:${cropText1}`);
 
             dstBoard.pasteRect(vec, srcWidth, srcHeight, dstX, dstY);
         };
