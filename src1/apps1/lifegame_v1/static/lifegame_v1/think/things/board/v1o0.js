@@ -1,4 +1,4 @@
-// OAAA1001o1o0ga12o_2o_9o0
+// OAAA1001o1o0ga12o_2o_1o0
 
 /*
  * SQ は Square （マス）の略です

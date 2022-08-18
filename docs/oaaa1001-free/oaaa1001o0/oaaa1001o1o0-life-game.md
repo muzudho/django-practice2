@@ -418,7 +418,7 @@ urlpatterns = [
 ]
 ```
 
-# Step OAAA1001o1o0ga12o_1o__99o0 Webページにアクセスする
+# Step OAAA1001o1o0ga12o_1o__10o0 Webページにアクセスする
 
 👇 接続の確認だけしてほしい  
 
@@ -512,12 +512,28 @@ function label_to_pc(label) {
     }
 }
 
+/**
+ * 駒の有無を反転
+ * @param {*} pc
+ * @returns
+ */
+function flip_pc(pc) {
+    switch (pc) {
+        case PC_EMPTY:
+            return PC_X;
+        case PC_X:
+            return PC_EMPTY;
+        default:
+            return pc;
+    }
+}
+
 // |
 // | 駒
 // +--------
 ```
 
-# Step OAAA1001o1o0ga12o_2o_9o0 盤の定義 - think/things/board/v1o0.js ファイル
+# Step OAAA1001o1o0ga12o_2o_1o0 盤の定義 - think/things/board/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -553,7 +569,7 @@ function label_to_pc(label) {
 ```
 
 ```js
-// OAAA1001o1o0ga12o_2o_9o0
+// OAAA1001o1o0ga12o_2o_1o0
 
 /*
  * SQ は Square （マス）の略です
@@ -1057,7 +1073,7 @@ class UserCtrl {
 }
 ```
 
-# Step OAAA1001o1o0ga12o_4o_9o0 エンジン作成 - think/engine/parser/v1o0.js ファイル
+# Step OAAA1001o1o0ga12o_4o_1o0 エンジン作成 - think/engine/parser/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1098,7 +1114,7 @@ class UserCtrl {
 ```
 
 ```js
-// OAAA1001o1o0ga12o_4o_9o0
+// OAAA1001o1o0ga12o_4o_1o0
 
 /**
  * パーサー
@@ -1808,7 +1824,7 @@ urlpatterns = [
 
 📖 [http://localhost:8000/lifegame/v0.2/board](http://localhost:8000/lifegame/v0.2/board)  
 
-# Step OAAA1001o1o0ga13o_9o0 画面作成 - gui/dynamic_html_board/v1o0.js ファイル
+# Step OAAA1001o1o0ga13o_1o0 画面作成 - gui/dynamic_html_board/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1856,7 +1872,7 @@ urlpatterns = [
 ```
 
 ```js
-// OAAA1001o1o0ga13o_9o0
+// OAAA1001o1o0ga13o_1o0
 
 /**
  * 盤を動的生成

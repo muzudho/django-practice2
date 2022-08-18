@@ -52,6 +52,22 @@ function label_to_pc(label) {
     }
 }
 
+/**
+ * 駒の有無を反転
+ * @param {*} pc
+ * @returns
+ */
+function flip_pc(pc) {
+    switch (pc) {
+        case PC_EMPTY:
+            return PC_X;
+        case PC_X:
+            return PC_EMPTY;
+        default:
+            return pc;
+    }
+}
+
 // |
 // | 駒
 // +--------
