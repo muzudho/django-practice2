@@ -25,10 +25,16 @@ class DynamicHtmlBoard {
             // 横に並べる
             for (let x = 0; x < vue1.engine.position.boards[this._boardIndex].width; x++) {
                 let span = document.createElement("span");
-                span.setAttribute("id", `b${this._boardIndex}_sq${sq}`);
+                let cellId = `b${this._boardIndex}_sq${sq}`;
+                span.setAttribute("id", cellId);
                 sq++;
                 span.setAttribute("class", "dead");
+                // 正方形に近い文字
                 span.textContent = "■";
+
+                span.setAttribute("onClick", `vue1.onCellClicked("${cellId}"); return false;`);
+                // span.setAttribute("onClick", "alert('test'); return false;");
+
                 lifeGameCanvas.appendChild(span);
             }
 

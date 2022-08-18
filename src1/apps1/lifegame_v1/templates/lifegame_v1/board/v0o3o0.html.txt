@@ -368,6 +368,12 @@ board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
                         this.playButton.enabled = true;
                         this.playButton.isShow = true;
                     },
+                    /**
+                     * セルクリック時
+                     */
+                    onCellClicked(cellId){
+                        // alert(`cell clicked id:${cellId}`);
+                    },
                 },
             });
         </script>
