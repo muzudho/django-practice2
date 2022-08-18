@@ -16,9 +16,6 @@ class Engine {
         // ユーザーコントロール
         this._userCtrl = userCtrl;
 
-        // 実行ログ
-        this._log = "";
-
         // パーサー
         this._parser = new Parser();
     }
@@ -49,8 +46,8 @@ class Engine {
      * コマンドの実行
      */
     execute(command) {
-        // 変数
-        this._log = "";
+        // ログ
+        let log = "";
         let textOfBoards = ["", ""];
 
         // 盤の表示
@@ -59,7 +56,7 @@ class Engine {
         //           0     1
         this._parser.onBoardPrint = (tokens) => {
             let boardIndex = parseInt(tokens[1]);
-            this._log += this._position.boards[boardIndex].toHumanPresentableText();
+            log += this._position.boards[boardIndex].toHumanPresentableText();
         };
 
         // 盤の横幅設定
@@ -141,14 +138,16 @@ class Engine {
         this._parser.onPlay = () => {
             this._userCtrl.doMove(this._position);
             // Ok
-            this._log += "=\n.\n";
+            log += "=\n.\n";
+        };
+
+        this._parser.onReadLine = (line) => {
+            log += line;
         };
 
         this._parser.execute(command);
 
-        let logTemp = this._log;
-        this._log = "";
-        return logTemp;
+        return log;
     }
 
     dump(indent) {

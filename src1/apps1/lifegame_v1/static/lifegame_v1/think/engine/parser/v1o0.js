@@ -55,6 +55,10 @@ class Parser {
         this._onPlay = action;
     }
 
+    set onReadLine(action) {
+        this._onReadLine = action;
+    }
+
     /**
      * コマンドの実行
      */
@@ -140,7 +144,7 @@ class Parser {
             }
 
             // Echo for Single line.
-            this._log += `# ${line}\n`;
+            this._onReadLine(`# ${line}\n`);
 
             this._parseCurr(line);
         }
