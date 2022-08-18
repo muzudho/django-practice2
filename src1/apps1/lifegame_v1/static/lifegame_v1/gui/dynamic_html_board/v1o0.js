@@ -25,7 +25,7 @@ class DynamicHtmlBoard {
             // 横に並べる
             for (let x = 0; x < vue1.engine.position.boards[this._boardIndex].width; x++) {
                 let span = document.createElement("span");
-                let cellId = `b${this._boardIndex}_sq${sq}`;
+                let cellId = CellIdHelper.createId(this._boardIndex, sq);
                 span.setAttribute("id", cellId);
                 sq++;
                 span.setAttribute("class", "dead");

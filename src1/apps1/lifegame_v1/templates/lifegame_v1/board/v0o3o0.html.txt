@@ -43,12 +43,17 @@
                 <v-main>
                     <v-container fluid>
                         <h1>Life game</h1>
+                        <div>
+                            Original: 📖 <a href="https://conwaylife.com/">https://conwaylife.com/</a>
+                        </div>
+                    </v-container>
+                    <v-container>
                         <v-form method="POST">
                             {% csrf_token %}
 
                             <!-- `po_` は POST送信するパラメーター名の目印 -->
                             <!-- 入力 -->
-                            <v-textarea name="po_input" required rows="6" v-model="inputText.value" label="Input" :disabled="!inputText.enabled"></v-textarea>
+                            <v-textarea name="po_input" required rows="6" v-model="inputText.value" label="Input" :disabled="!inputText.enabled" background-color="#263238" dark></v-textarea>
 
                             <!-- 入力ボタン -->
                             <v-btn block elevation="2" v-on:click="enterVu()" :disabled="!enterButton.enabled"> Enter </v-btn>
@@ -70,6 +75,7 @@
                                 <v-btn block elevation="2" v-on:click="playVu()" v-show="playButton.isShow" :disabled="!playButton.enabled"> ▶ Play </v-btn>
                                 <!-- 一時停止ボタン -->
                                 <v-btn block elevation="2" v-on:click="pauseVu()" v-show="pauseButton.isShow" :disabled="!pauseButton.enabled"> ▮▮ Pause </v-btn>
+                                <div>Pause, then click a cell.</div>
                             </v-card-text>
                         </v-card>
 
@@ -97,6 +103,7 @@
             </v-app>
         </div>
 
+        <script src="{% static 'lifegame_v1/gui/cell_id_helper/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/gui/dynamic_html_board/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/engine/parser/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/engine/v1o0.js' %}"></script>
@@ -316,10 +323,17 @@ board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
                             vue1.engine.userCtrl.doMove(vue1.engine.position, boardIndex);
                         }
 
+                        this.repaintVu();
+                    },
+                    /**
+                     * 再描画
+                     */
+                    repaintVu(){
                         // 盤表示
                         for(let boardIndex=0; boardIndex<BOARDS_COUNT; boardIndex++){
                             vue1.engine.position.boards[boardIndex].eachSq((sq, cellValue) => {
-                                let cell = document.getElementById(`b${boardIndex}_sq${sq}`);
+                                const cellId = CellIdHelper.createId(boardIndex, sq);
+                                let cell = document.getElementById(cellId);
                                 switch(cellValue) {
                                     case PC_X:
                                         cell.setAttribute("class", "live");
@@ -372,7 +386,18 @@ board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
                      * セルクリック時
                      */
                     onCellClicked(cellId){
-                        // alert(`cell clicked id:${cellId}`);
+                        const [boardIndex, sq] = CellIdHelper.destructuringId(cellId);
+
+                        // Reverse piece
+                        const revPc = flip_pc(vue1.engine.position.boards[boardIndex].getPieceBySq(sq));
+                        // alert(`cell clicked id:${cellId} board:${boardIndex} sq:${sq} revPc:${revPc}`);
+
+                        vue1.engine.position.boards[boardIndex].setPiece(sq, revPc);
+
+                        // 再生中に１セル塗っても、すぐ消える。
+                        // 一時停止中に塗る。
+                        // 一時停止中は描画されないので、明示的に再描画する
+                        this.repaintVu();
                     },
                 },
             });

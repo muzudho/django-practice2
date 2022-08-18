@@ -1824,6 +1824,75 @@ urlpatterns = [
 
 📖 [http://localhost:8000/lifegame/v0.2/board](http://localhost:8000/lifegame/v0.2/board)  
 
+# Step OAAA1001o1o0ga13o__10o0 画面作成 - gui/cell_id_helper/v1o0.js ファイル
+
+👇 以下の既存ファイルを編集してほしい  
+
+```plaintext
+    └── 📂 src1
+        ├── 📂 apps1
+        │   └── 📂 lifegame_v1                  # アプリケーション
+        │       ├── 📂 migrations
+        │       │   └── 📄 __init__.py
+        │       ├── 📂 static
+        │       │   └── 📂 lifegame_v1          # アプリケーションと同名
+        │       │       ├── 📂 gui
+        │       │       │   └── 📂 cell_id_helper
+👉      │       │       │       └── 📄 v1o0.js
+        │       │       └── 📂 think
+        │       │           ├── 📂 engine
+        │       │           │   ├── 📂 parser
+        │       │           │   │   └── 📄 v1o0.js
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 position
+        │       │           │   └── 📄 v1o0.js
+        │       │           ├── 📂 things
+        │       │           │   └── 📄 v1o0.js
+        │       │           └── 📂 user_ctrl
+        │       │               └── 📄 v1o0.js
+        │       ├── 📂 templates
+        │       │   └── 📂 lifegame_v1
+        │       │       └── 📂 board
+        │       │           ├── 📄 v0o1o0.html
+        │       │           └── 📄 v0o2o0.html.txt
+        │       ├── 📂 views
+        │       │   └── 📂 board
+        │       │       ├── 📂 v0o1o0
+        │       │       │   └── 📄 __init__.py
+        │       │       └── 📂 v0o2o0
+        │       │           └── 📄 __init__.py
+        │       ├── 📄 __init__.py
+        │       ├── 📄 admin.py
+        │       ├── 📄 apps.py
+        │       └── 📄 tests.py
+        └── 📂 project1
+            ├── 📄 settings.py
+👉          ├── 📄 urls_lifegame.py
+            └── 📄 urls.py
+```
+
+```js
+// OAAA1001o1o0ga13o__10o0
+
+class CellIdHelper {
+    /**
+     * IDを作成します
+     * @param {*} boardIndex - 盤番号
+     * @param {*} sq - セル番号
+     */
+    static createId(boardIndex, sq) {
+        return `b${boardIndex}_sq${sq}`;
+    }
+
+    static destructuringId(id) {
+        const re = /b(\d+)_sq(\d+)/;
+        const result = id.match(re);
+
+        return [parseInt(result[1]), parseInt(result[2])];
+    }
+}
+```
+
 # Step OAAA1001o1o0ga13o_1o0 画面作成 - gui/dynamic_html_board/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
@@ -1899,10 +1968,16 @@ class DynamicHtmlBoard {
             // 横に並べる
             for (let x = 0; x < vue1.engine.position.boards[this._boardIndex].width; x++) {
                 let span = document.createElement("span");
-                span.setAttribute("id", `b${this._boardIndex}_sq${sq}`);
+                let cellId = CellIdHelper.createId(this._boardIndex, sq);
+                span.setAttribute("id", cellId);
                 sq++;
                 span.setAttribute("class", "dead");
+                // 正方形に近い文字
                 span.textContent = "■";
+
+                span.setAttribute("onClick", `vue1.onCellClicked("${cellId}"); return false;`);
+                // span.setAttribute("onClick", "alert('test'); return false;");
+
                 lifeGameCanvas.appendChild(span);
             }
 
@@ -2022,12 +2097,17 @@ class DynamicHtmlBoard {
                 <v-main>
                     <v-container fluid>
                         <h1>Life game</h1>
+                        <div>
+                            Original: 📖 <a href="https://conwaylife.com/">https://conwaylife.com/</a>
+                        </div>
+                    </v-container>
+                    <v-container>
                         <v-form method="POST">
                             {% csrf_token %}
 
                             <!-- `po_` は POST送信するパラメーター名の目印 -->
                             <!-- 入力 -->
-                            <v-textarea name="po_input" required rows="6" v-model="inputText.value" label="Input" :disabled="!inputText.enabled"></v-textarea>
+                            <v-textarea name="po_input" required rows="6" v-model="inputText.value" label="Input" :disabled="!inputText.enabled" background-color="#263238" dark></v-textarea>
 
                             <!-- 入力ボタン -->
                             <v-btn block elevation="2" v-on:click="enterVu()" :disabled="!enterButton.enabled"> Enter </v-btn>
@@ -2049,6 +2129,7 @@ class DynamicHtmlBoard {
                                 <v-btn block elevation="2" v-on:click="playVu()" v-show="playButton.isShow" :disabled="!playButton.enabled"> ▶ Play </v-btn>
                                 <!-- 一時停止ボタン -->
                                 <v-btn block elevation="2" v-on:click="pauseVu()" v-show="pauseButton.isShow" :disabled="!pauseButton.enabled"> ▮▮ Pause </v-btn>
+                                <div>Pause, then click a cell.</div>
                             </v-card-text>
                         </v-card>
 
@@ -2076,6 +2157,7 @@ class DynamicHtmlBoard {
             </v-app>
         </div>
 
+        <script src="{% static 'lifegame_v1/gui/cell_id_helper/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/gui/dynamic_html_board/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/engine/parser/v1o0.js' %}"></script>
         <script src="{% static 'lifegame_v1/think/engine/v1o0.js' %}"></script>
@@ -2295,10 +2377,17 @@ board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
                             vue1.engine.userCtrl.doMove(vue1.engine.position, boardIndex);
                         }
 
+                        this.repaintVu();
+                    },
+                    /**
+                     * 再描画
+                     */
+                    repaintVu(){
                         // 盤表示
                         for(let boardIndex=0; boardIndex<BOARDS_COUNT; boardIndex++){
                             vue1.engine.position.boards[boardIndex].eachSq((sq, cellValue) => {
-                                let cell = document.getElementById(`b${boardIndex}_sq${sq}`);
+                                const cellId = CellIdHelper.createId(boardIndex, sq);
+                                let cell = document.getElementById(cellId);
                                 switch(cellValue) {
                                     case PC_X:
                                         cell.setAttribute("class", "live");
@@ -2346,6 +2435,23 @@ board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
 
                         this.playButton.enabled = true;
                         this.playButton.isShow = true;
+                    },
+                    /**
+                     * セルクリック時
+                     */
+                    onCellClicked(cellId){
+                        const [boardIndex, sq] = CellIdHelper.destructuringId(cellId);
+
+                        // Reverse piece
+                        const revPc = flip_pc(vue1.engine.position.boards[boardIndex].getPieceBySq(sq));
+                        // alert(`cell clicked id:${cellId} board:${boardIndex} sq:${sq} revPc:${revPc}`);
+
+                        vue1.engine.position.boards[boardIndex].setPiece(sq, revPc);
+
+                        // 再生中に１セル塗っても、すぐ消える。
+                        // 一時停止中に塗る。
+                        // 一時停止中は描画されないので、明示的に再描画する
+                        this.repaintVu();
                     },
                 },
             });
@@ -2526,6 +2632,15 @@ urlpatterns = [
 📖 [【Vue.js】ページ読み込み完了後・離脱時に処理を実行する](https://into-the-program.com/vue-page-onload-leave/)  
 📖 [Vue.js v-show ディレクティブで要素の表示非表示を切り替える](https://anteku.jp/blog/develop/vue-js-v-show-%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%86%E3%82%A3%E3%83%96%E3%81%A7%E8%A6%81%E7%B4%A0%E3%81%AE%E8%A1%A8%E7%A4%BA%E9%9D%9E%E8%A1%A8%E7%A4%BA%E3%82%92%E5%88%87%E3%82%8A%E6%9B%BF/)  
 
+## Vuetify
+
+📖 [Colors](https://vuetifyjs.com/en/styles/colors/#material-colors)  
+
 ## Java Script
 
 📖 [How to Stop setInterval() Call in JavaScript](https://www.tutorialrepublic.com/faq/how-to-stop-setinterval-call-in-javascript.php)  
+📖 [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)  
+
+### 正規表現
+
+📖 [正規表現](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Regular_Expressions)  
