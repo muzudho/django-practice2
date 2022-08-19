@@ -17,8 +17,6 @@
 | --------- | ------------------------------------------------------------------------------------------------------- |
 | Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
 
-# 始める前に
-
 この記事のアーキテクチャ:  
 
 | What is          | This is                                   |
@@ -104,7 +102,9 @@
     └── 📄 .gitignore
 ```
 
-# Step OA16o3o0g1o0 Dockerコンテナの起動
+# 手順
+
+## Step OA16o3o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -116,7 +116,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA16o3o0g2o0 送信メッセージ実装 - gui/outgoing_messages/v1o0.js ファイル
+## Step OA16o3o0g2o0 送信メッセージ実装 - gui/outgoing_messages/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -194,7 +194,7 @@ class OutgoingMessages {
 }
 ```
 
-# Step OA16o3o0g3o0 受信メッセージ実装 - gui/incoming_messages/v1o0.js ファイル
+## Step OA16o3o0g3o0 受信メッセージ実装 - gui/incoming_messages/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -311,7 +311,7 @@ class IncomingMessages {
 }
 ```
 
-# Step OA16o3o0g4o0 Webソケット接続の実装 - gui/connection/v1o0.js ファイル
+## Step OA16o3o0g4o0 Webソケット接続の実装 - gui/connection/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -480,7 +480,7 @@ class Connection {
 }
 ```
 
-# Step OA16o3o0g5o0 対局申込画面作成 - gui/match_application/v1o0.html ファイル
+## Step OA16o3o0g5o0 対局申込画面作成 - gui/match_application/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -576,7 +576,7 @@ class Connection {
 </html>
 ```
 
-# Step OA16o3o0g6o0 対局画面作成 - gui/playing/v1o0.html ファイル
+## Step OA16o3o0g6o0 対局画面作成 - gui/playing/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1064,7 +1064,7 @@ class Connection {
 </html>
 ```
 
-# Step OA16o3o0g7o0 対局画面作成 - gui/playing/v1o1o0.html.txt ファイル
+## Step OA16o3o0g7o0 対局画面作成 - gui/playing/v1o1o0.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1136,7 +1136,7 @@ class Connection {
 {% endblock methods_footer %}
 ```
 
-# Step OA16o3o0g8o0 通信プロトコル作成 - gui/message_converter/v1o0.py ファイル
+## Step OA16o3o0g8o0 通信プロトコル作成 - gui/message_converter/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1243,7 +1243,7 @@ class TicTacToeV2MessageConverter():
         pass
 ```
 
-# Step OA16o3o0g9o0 Webソケットの通信プロトコル作成 - gui/consumer/v1o0.py ファイル
+## Step OA16o3o0g9o0 Webソケットの通信プロトコル作成 - gui/consumer/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1344,7 +1344,7 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
         }))
 ```
 
-# Step OA16o3o0gA10o0 Webソケットの通信プロトコル作成 - gui/consumer/v1o1o0.py ファイル
+## Step OA16o3o0gA10o0 Webソケットの通信プロトコル作成 - gui/consumer/v1o1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1418,7 +1418,7 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
         return await self._messageConverter.on_receive(self.scope, doc_received)
 ```
 
-# Step OA16o3o0gA11o0 ビュー作成 - gui/match_application/v1o0 フォルダー
+## Step OA16o3o0gA11o0 ビュー作成 - gui/match_application/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1520,7 +1520,7 @@ class MatchApplicationV():
         return MatchApplicationV.open_context
 ```
 
-# Step OA16o3o0gA12o0 ビュー作成 - gui/match_application/v_render.py ファイル
+## Step OA16o3o0gA12o0 ビュー作成 - gui/match_application/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1591,7 +1591,7 @@ def render_match_application(request, path_of_http_playing, lp_match_application
     return render(request, lp_match_application, context)
 ```
 
-# Step OA16o3o0gA13o0 ビュー作成 - gui/playing/v1o0 フォルダー
+## Step OA16o3o0gA13o0 ビュー作成 - gui/playing/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1684,7 +1684,7 @@ class PlayingV():
         pass
 ```
 
-# Step OA16o3o0gA14o0 ビュー作成 - gui/playing/v1o0/v_render.py ファイル
+## Step OA16o3o0gA14o0 ビュー作成 - gui/playing/v1o0/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1759,7 +1759,7 @@ def render_playing(request, kw_room_name, wsp_playing, lp_playing, on_update, ex
     return render(request, lp_playing, context)
 ```
 
-# Step OA16o3o0gA15o0 ルート編集 - urls_tic_tac_toe_v2.py ファイル
+## Step OA16o3o0gA15o0 ルート編集 - urls_tic_tac_toe_v2.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -1859,7 +1859,7 @@ urlpatterns = [
 ]
 ```
 
-# Step OA16o3o0gA16o0 Webソケット用ルート新規作成 - ws_urls_tic_tac_toe_v2.py ファイル
+## Step OA16o3o0gA16o0 Webソケット用ルート新規作成 - ws_urls_tic_tac_toe_v2.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1938,7 +1938,7 @@ websocket_urlpatterns = [
 ]
 ```
 
-# Step OA16o3o0gA17o0 Webソケット用総合ルート設定 - asgi.py ファイル＜その２＞
+## Step OA16o3o0gA17o0 Webソケット用総合ルート設定 - asgi.py ファイル＜その２＞
 
 👇以下の既存のファイルを編集してほしい  
 
@@ -2022,13 +2022,13 @@ websocket_urlpatterns_merged.extend(
 #                        ^two
 ```
 
-# Step OA16o3o0gA18o0 Web画面へアクセス
+## Step OA16o3o0gA18o0 Web画面へアクセス
 
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでください  
 
 📖 [http://localhost:8000/tic-tac-toe/v2/match-application/](http://localhost:8000/tic-tac-toe/v2/match-application/)  
 
-# Step OA16o3o0gA19o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+## Step OA16o3o0gA19o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

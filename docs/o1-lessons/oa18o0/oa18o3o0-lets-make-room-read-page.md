@@ -56,8 +56,6 @@ Elephant
 | --------- | ------------------------------------------------------------------------------------------------------- |
 | Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
 
-# 始める前に
-
 この記事のアーキテクチャ:  
 
 | What is          | This is                                   |
@@ -132,7 +130,9 @@ Elephant
     └── 📄 .gitignore
 ```
 
-# Step OA18o3o0g1o0 Dockerコンテナの起動
+# 手順
+
+## Step OA18o3o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -144,7 +144,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA18o3o0g2o0 画面作成 - room/read/v1o0.html ファイル
+## Step OA18o3o0g2o0 画面作成 - room/read/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -281,7 +281,7 @@ docker-compose up
 </html>
 ```
 
-# Step OA18o3o0g3o0 ビュー編集 - room/v1o0 フォルダー
+## Step OA18o3o0g3o0 ビュー編集 - room/v1o0 フォルダー
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -334,7 +334,7 @@ class RoomV():
         return render_read(request, id, RoomV._path_of_read_page)
 ```
 
-# Step OA18o3o0g4o0 ビュー作成 - room/read/v1o0.py ファイル
+## Step OA18o3o0g4o0 ビュー作成 - room/read/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -427,7 +427,7 @@ def render_read(request, room_pk, lp_room_read):
     return render(request, lp_room_read, context)
 ```
 
-# Step OA18o3o0g5o0 ルート編集 - urls_practice.py ファイル
+## Step OA18o3o0g5o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -473,13 +473,13 @@ urlpatterns = [
 ]
 ```
 
-# Step OA18o3o0g6o0 Web画面へアクセス
+## Step OA18o3o0g6o0 Web画面へアクセス
 
 👇 部屋番号は適宜変えてほしい  
 
 📖 [http://localhost:8000/practice/v1/rooms/read/1/](http://localhost:8000/practice/v1/rooms/read/1/)  
 
-# Step OA18o3o0g7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+## Step OA18o3o0g7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

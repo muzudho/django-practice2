@@ -17,8 +17,6 @@
 | --------- | ------------------------------------------------------------------------------------------------------- |
 | Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
 
-# 始める前に
-
 この記事のアーキテクチャ:  
 
 | What is          | This is                                   |
@@ -102,7 +100,9 @@
     └── 📄 .gitignore
 ```
 
-# Step OA16o2o0g1o0 Dockerコンテナの起動
+# 手順
+
+## Step OA16o2o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -114,7 +114,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA16o2o0g2o0 フォルダー作成 - apps1/tic_tac_toe_v2 フォルダー
+## Step OA16o2o0g2o0 フォルダー作成 - apps1/tic_tac_toe_v2 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -126,7 +126,7 @@ docker-compose up
 
 `tic_tac_toe_v1` と依存関係は無い  
 
-# Step OA16o2o0g3o0 アプリケーション作成
+## Step OA16o2o0g3o0 アプリケーション作成
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -154,7 +154,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v2 ./apps1/tic
 👉              └── 📄 views.py
 ```
 
-# Step OA16o2o0g4o0 今回使わないファイルの削除
+## Step OA16o2o0g4o0 今回使わないファイルの削除
 
 👇 以下のファイルを削除してほしい  
 
@@ -172,7 +172,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v2 ./apps1/tic
 👉              └── 📄 views.py
 ```
 
-# Step OA16o2o0g5o0 アプリケーション設定変更 - apps.py
+## Step OA16o2o0g5o0 アプリケーション設定変更 - apps.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -204,7 +204,7 @@ class TicTacToeV2Config(AppConfig):
     #          --------------------
 ```
 
-# Step OA16o2o0g6o0 アプリケーション登録 - settings.py ファイル
+## Step OA16o2o0g6o0 アプリケーション登録 - settings.py ファイル
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -241,7 +241,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-# Step OA16o2o0g7o0 物の定義 - think/things/v1o0.js ファイル
+## Step OA16o2o0g7o0 物の定義 - think/things/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -497,7 +497,7 @@ ${indent}_squares:${this._squares}`;
 // +--------
 ```
 
-# Step OA16o2o0g8o0 概念の定義 - think/concepts/v1o0.js ファイル
+## Step OA16o2o0g8o0 概念の定義 - think/concepts/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -798,7 +798,7 @@ function flipTurn(piece) {
 }
 ```
 
-# Step OA16o2o0g9o0 局面作成 - think/position/v1o0.js ファイル
+## Step OA16o2o0g9o0 局面作成 - think/position/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -931,7 +931,7 @@ ${indent}${this._turn.dump(indent + "    ")}`;
 }
 ```
 
-# Step OA16o2o0gA10o0 ユーザーコントロール作成 - think/user_ctrl/v1o0.js ファイル
+## Step OA16o2o0gA10o0 ユーザーコントロール作成 - think/user_ctrl/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1042,7 +1042,7 @@ class UserCtrl {
 }
 ```
 
-# Step OA16o2o0gA11o0 審判作成 - think/judge_ctrl/v1o0.js ファイル
+## Step OA16o2o0gA11o0 審判作成 - think/judge_ctrl/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1154,7 +1154,7 @@ class JudgeCtrl {
 }
 ```
 
-# Step OA16o2o0gA12o0 思考エンジン作成 - think/engine/v1o0.js ファイル
+## Step OA16o2o0gA12o0 思考エンジン作成 - think/engine/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1377,7 +1377,7 @@ ${indent}${this._position.dump(indent + "    ")}`;
 }
 ```
 
-# Step OA16o2o0gA13o0 画面作成 - think/engine_manual/v1o0.html ファイル
+## Step OA16o2o0gA13o0 画面作成 - think/engine_manual/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1592,7 +1592,7 @@ board
 </html>
 ```
 
-# Step OA16o2o0gA14o0 ビュー作成 - think/engine_manual/v1o0 フォルダー
+## Step OA16o2o0gA14o0 ビュー作成 - think/engine_manual/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1660,7 +1660,7 @@ class EngineManual():
         return render_engine_manual(request, EngineManual.path_of_local_html)
 ```
 
-# Step OA16o2o0gA15o0 ビュー作成 - think/engine_manual/v1o0/v_render.py ファイル
+## Step OA16o2o0gA15o0 ビュー作成 - think/engine_manual/v1o0/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1722,7 +1722,7 @@ def render_engine_manual(request, lp_engine_manual):
     return render(request, lp_engine_manual, context)
 ```
 
-# Step OA16o2o0gA16o0 サブ ルート新規作成 - urls_tic_tac_toe_v2.py ファイル
+## Step OA16o2o0gA16o0 サブ ルート新規作成 - urls_tic_tac_toe_v2.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1796,7 +1796,7 @@ urlpatterns = [
 ]
 ```
 
-# Step OA16o2o0gA17o0 総合ルート編集 - urls.py
+## Step OA16o2o0gA17o0 総合ルート編集 - urls.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -1862,11 +1862,11 @@ urlpatterns = [
 ]
 ```
 
-# Step OA16o2o0gA18o0 Web画面へアクセス
+## Step OA16o2o0gA18o0 Web画面へアクセス
 
 📖 [http://localhost:8000/tic-tac-toe/v2/engine-manual/](http://localhost:8000/tic-tac-toe/v2/engine-manual/)  
 
-# Step OA16o2o0gA19o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+## Step OA16o2o0gA19o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

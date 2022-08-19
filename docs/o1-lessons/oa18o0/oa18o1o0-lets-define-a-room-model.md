@@ -10,8 +10,6 @@
 | --------- | ------------------------------------------------------------------------------------------------------- |
 | Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
 
-# 始める前に
-
 この記事のアーキテクチャ:  
 
 | What is          | This is                                   |
@@ -119,7 +117,9 @@
     └── 📄 .gitignore
 ```
 
-# Step OA18o1o0g1o0 Dockerコンテナの起動
+# 手順
+
+## Step OA18o1o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -131,7 +131,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA18o1o0g2o0 モデル作成 - room/v1o0.py ファイル
+## Step OA18o1o0g2o0 モデル作成 - room/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -191,7 +191,7 @@ class Room(models.Model):
         return f"{self.name} room"
 ```
 
-# Step OA18o1o0g3o0 データベースへモデル登録 - admin.py ファイル
+## Step OA18o1o0g3o0 データベースへモデル登録 - admin.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -240,7 +240,7 @@ admin.site.register(Room)
 * 管理画面に Room オブジェクトが表示される
 * マイグレーションの対象になる
 
-# Step OA18o1o0g4o0 マイグレーションファイル作成 - makemigrations コマンド
+## Step OA18o1o0g4o0 マイグレーションファイル作成 - makemigrations コマンド
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
@@ -273,7 +273,7 @@ docker-compose run --rm web python3 manage.py makemigrations practice_v1 --setti
 
 まだ マイグレーション作業は完了していない  
 
-# Step OA18o1o0g5o0 マイグレーション - migrate コマンド
+## Step OA18o1o0g5o0 マイグレーション - migrate コマンド
 
 ```shell
 docker-compose run --rm web python manage.py migrate
@@ -281,7 +281,7 @@ docker-compose run --rm web python manage.py migrate
 
 👆 ここまでやって マイグレーション という作業が終わるらしい  
 
-# Step OA18o1o0g6o0 スーパーユーザーでWebの管理画面へアクセス
+## Step OA18o1o0g6o0 スーパーユーザーでWebの管理画面へアクセス
 
 👇 スーパーユーザーでログインすること  
 
@@ -297,7 +297,7 @@ docker-compose run --rm web python manage.py migrate
 +-------------+--------+-----------+
 ```
 
-# Step OA18o1o0g7o0 Room を３つほど追加してほしい
+## Step OA18o1o0g7o0 Room を３つほど追加してほしい
 
 `➕ Add` をクリックしてほしい  
 
@@ -334,7 +334,7 @@ Lion                    5             6  XOXOXOXOX  012345678
 
 `[SAVE]` が追加ボタンのようだ。  
 
-# Step OA18o1o0g8o0 登録した Room を確認してほしい
+## Step OA18o1o0g8o0 登録した Room を確認してほしい
 
 `➕ Add` の左側にある `Rooms` リンクをクリックしてほしい。  
 一覧画面が出てくる  

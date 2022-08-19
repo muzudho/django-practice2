@@ -44,8 +44,6 @@
 | --------- | ------------------------------------------------------------------------------------------------------- |
 | Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
 
-# 始める前に
-
 この記事のアーキテクチャ:  
 
 | What is          | This is                                   |
@@ -120,7 +118,9 @@
     └── 📄 .gitignore
 ```
 
-# Step OA18o5o0g1o0 Dockerコンテナの起動
+# 手順
+
+## Step OA18o5o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -132,7 +132,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA18o5o0g2o0 画面作成 - room/upsert/v1o0.html ファイル
+## Step OA18o5o0g2o0 画面作成 - room/upsert/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -192,7 +192,7 @@ docker-compose up
 </html>
 ```
 
-# Step OA18o5o0g3o0 フォーム作成 - f_room.py ファイル
+## Step OA18o5o0g3o0 フォーム作成 - f_room.py ファイル
 
 HTMLタグの `<form>～</form>` の子要素を自動生成させよう。  
 
@@ -233,7 +233,7 @@ class RoomForm(ModelForm):
         fields = ('name', 'board', 'record',)  # フィールド指定
 ```
 
-# Step OA18o5o0g4o0 ビュー編集 - room フォルダー
+## Step OA18o5o0g4o0 ビュー編集 - room フォルダー
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -285,7 +285,7 @@ class RoomV():
         return render_upsert(request, id, RoomV._path_of_upsert_page)
 ```
 
-# Step OA18o5o0g5o0 ビュー作成 - room/upsert/v1o0 ファイル
+## Step OA18o5o0g5o0 ビュー作成 - room/upsert/v1o0 ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -367,7 +367,7 @@ def render_upsert(request, id, lp_of_room_upsert):
     return render(request, lp_of_room_upsert, dict(form=form, id=id))
 ```
 
-# Step OA18o5o0g6o0 ルート編集 - urls_practice.py ファイル
+## Step OA18o5o0g6o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -427,7 +427,7 @@ urlpatterns = [
 ]
 ```
 
-# Step OA18o5o0g7o0 Web画面へアクセス
+## Step OA18o5o0g7o0 Web画面へアクセス
 
 👇 作成するとき、部屋ID は付けるな  
 
@@ -437,7 +437,7 @@ urlpatterns = [
 
 📖 [http://localhost:8000/practice/v1/rooms/upsert/5/](http://localhost:8000/practice/v1/rooms/upsert/5/)  
 
-# Step OA18o5o0g8o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+## Step OA18o5o0g8o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
