@@ -15,8 +15,6 @@
 | --------- | ------------------------------------------------------------------------------------------------------- |
 | Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
 
-# 始める前に
-
 この記事のアーキテクチャ:  
 
 | Key       | Value                                     |
@@ -53,7 +51,9 @@
     └── 📄 .gitignore
 ```
 
-# Step O8o3o0g1o0 Dockerコンテナの起動
+# 手順
+
+## Step O8o3o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -65,7 +65,7 @@ cd src1
 docker-compose up
 ```
 
-# Step O8o3o0g2o0 HTMLファイルの作成
+## Step O8o3o0g2o0 HTMLファイルの作成
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -171,7 +171,7 @@ docker-compose up
 </html>
 ```
 
-# Step O8o3o0g3o0 ビュー作成 - button_for_member/v1o0 フォルダー
+## Step O8o3o0g3o0 ビュー作成 - button_for_member/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -243,7 +243,7 @@ class ButtonForMember():
         return render_button_for_member(request, ButtonForMember._path_of_this_page, ButtonForMember._path_of_portal, ButtonForMember._path_of_login_required, ButtonForMember._path_of_login, ButtonForMember._path_of_logout)
 ```
 
-# Step O8o3o0g4o0 ビュー作成 - button_for_member/v1o0/v_render.py ファイル
+## Step O8o3o0g4o0 ビュー作成 - button_for_member/v1o0/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -286,7 +286,7 @@ def render_button_for_member(request, lp_button_for_member_page, path_of_portal,
     return render(request, lp_button_for_member_page, context)
 ```
 
-# Step O8o3o0g5o0 ルート編集 - urls_practice.py ファイル
+## Step O8o3o0g5o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -339,11 +339,11 @@ urlpatterns = [
 ]
 ```
 
-# Step O8o3o0g6o0 Web画面へアクセス
+## Step O8o3o0g6o0 Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/buttom_for_member/](http://localhost:8000/practice/v1/buttom_for_member/)  
 
-# Step O8o3o0g7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+## Step O8o3o0g7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
