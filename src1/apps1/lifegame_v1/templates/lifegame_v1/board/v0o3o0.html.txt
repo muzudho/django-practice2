@@ -47,22 +47,11 @@
                             Original: 📖 <a href="https://conwaylife.com/">https://conwaylife.com/</a>
                         </div>
                     </v-container>
-                    <v-container>
-                        <v-form method="POST">
-                            {% csrf_token %}
-
-                            <!-- `po_` は POST送信するパラメーター名の目印 -->
-                            <!-- 入力 -->
-                            <v-textarea name="po_input" required rows="6" v-model="inputText.value" label="Input" :disabled="!inputText.enabled" background-color="#263238" dark></v-textarea>
-
-                            <!-- 入力ボタン -->
-                            <v-btn block elevation="2" v-on:click="enterVu()" :disabled="!enterButton.enabled"> Enter </v-btn>
-
-                            <!-- 出力 -->
-                            <v-textarea name="po_output" rows="1" disabled v-model="outputText.value" label="Output"></v-textarea>
-                        </v-form>
-                    </v-container>
-                    <v-container>
+                    <!--
+                        ディスプレイ部
+                        横幅いっぱい広げるために fluid を指定
+                    -->
+                    <v-container fluid>
                         <!-- 盤０ -->
                         <v-card
                             elevation="2"
@@ -98,6 +87,22 @@
                                 <div id="life_game_canvas2" style="line-height:1;"></div>
                             </v-card-text>
                         </v-card>
+                    </v-container>
+                    <!-- テキストエディター部 -->
+                    <v-container fluid>
+                        <v-form method="POST">
+                            {% csrf_token %}
+
+                            <!-- `po_` は POST送信するパラメーター名の目印 -->
+                            <!-- 入力 -->
+                            <v-textarea name="po_input" required rows="6" v-model="inputText.value" label="Input" :disabled="!inputText.enabled" background-color="#263238" dark></v-textarea>
+
+                            <!-- 入力ボタン -->
+                            <v-btn block elevation="2" v-on:click="enterVu()" :disabled="!enterButton.enabled"> Enter </v-btn>
+
+                            <!-- 出力 -->
+                            <v-textarea name="po_output" rows="1" disabled v-model="outputText.value" label="Output"></v-textarea>
+                        </v-form>
                     </v-container>
                 </v-main>
             </v-app>
@@ -272,7 +277,43 @@ board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
                     window.onload = ()=>{
                         console.log('ページが読み込まれました！');
 
-                        // 再生する
+                        // 初期状態を設定
+                        let boardIndex = 0;
+                        vue1.engine.position.boards[boardIndex].width = 24;
+                        vue1.engine.position.boards[boardIndex].height = 24;
+                        vue1.engine.position.boards[boardIndex].parse(`........................
+........................
+........................
+........................
+........................
+........................
+........................
+........................
+........................
+........................
+........................
+.........x....x.........
+.......xx.xxxx.xx.......
+.........x....x.........
+........................
+........................
+........................
+........................
+........................
+........................
+........................
+........................
+........................
+........................`.replace(/\r?\n/g, ''));
+
+                        // GUIに反映
+                        dynamicHtmlBoards[boardIndex].uninstallTable();
+                        dynamicHtmlBoards[boardIndex].installTable();
+
+                        // 初期状態を描画
+                        this.repaintVu();
+
+                        // 自動再生する
                         this.playVu();
                     }
                 },

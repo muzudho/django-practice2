@@ -883,7 +883,7 @@ class Board {
     /**
      * 盤面を設定します
      *
-     * @param {*} token - Example: `..X.X....`
+     * @param {*} token - Example: `..x.x....`
      */
     parse(token) {
         this._squares = token.split("").map((x) => label_to_pc(x));
@@ -2101,22 +2101,11 @@ class DynamicHtmlBoard {
                             Original: 📖 <a href="https://conwaylife.com/">https://conwaylife.com/</a>
                         </div>
                     </v-container>
-                    <v-container>
-                        <v-form method="POST">
-                            {% csrf_token %}
-
-                            <!-- `po_` は POST送信するパラメーター名の目印 -->
-                            <!-- 入力 -->
-                            <v-textarea name="po_input" required rows="6" v-model="inputText.value" label="Input" :disabled="!inputText.enabled" background-color="#263238" dark></v-textarea>
-
-                            <!-- 入力ボタン -->
-                            <v-btn block elevation="2" v-on:click="enterVu()" :disabled="!enterButton.enabled"> Enter </v-btn>
-
-                            <!-- 出力 -->
-                            <v-textarea name="po_output" rows="1" disabled v-model="outputText.value" label="Output"></v-textarea>
-                        </v-form>
-                    </v-container>
-                    <v-container>
+                    <!--
+                        ディスプレイ部
+                        横幅いっぱい広げるために fluid を指定
+                    -->
+                    <v-container fluid>
                         <!-- 盤０ -->
                         <v-card
                             elevation="2"
@@ -2152,6 +2141,22 @@ class DynamicHtmlBoard {
                                 <div id="life_game_canvas2" style="line-height:1;"></div>
                             </v-card-text>
                         </v-card>
+                    </v-container>
+                    <!-- テキストエディター部 -->
+                    <v-container fluid>
+                        <v-form method="POST">
+                            {% csrf_token %}
+
+                            <!-- `po_` は POST送信するパラメーター名の目印 -->
+                            <!-- 入力 -->
+                            <v-textarea name="po_input" required rows="6" v-model="inputText.value" label="Input" :disabled="!inputText.enabled" background-color="#263238" dark></v-textarea>
+
+                            <!-- 入力ボタン -->
+                            <v-btn block elevation="2" v-on:click="enterVu()" :disabled="!enterButton.enabled"> Enter </v-btn>
+
+                            <!-- 出力 -->
+                            <v-textarea name="po_output" rows="1" disabled v-model="outputText.value" label="Output"></v-textarea>
+                        </v-form>
                     </v-container>
                 </v-main>
             </v-app>
@@ -2326,7 +2331,43 @@ board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
                     window.onload = ()=>{
                         console.log('ページが読み込まれました！');
 
-                        // 再生する
+                        // 初期状態を設定
+                        let boardIndex = 0;
+                        vue1.engine.position.boards[boardIndex].width = 24;
+                        vue1.engine.position.boards[boardIndex].height = 24;
+                        vue1.engine.position.boards[boardIndex].parse(`........................
+........................
+........................
+........................
+........................
+........................
+........................
+........................
+........................
+........................
+........................
+.........x....x.........
+.......xx.xxxx.xx.......
+.........x....x.........
+........................
+........................
+........................
+........................
+........................
+........................
+........................
+........................
+........................
+........................`.replace(/\r?\n/g, ''));
+
+                        // GUIに反映
+                        dynamicHtmlBoards[boardIndex].uninstallTable();
+                        dynamicHtmlBoards[boardIndex].installTable();
+
+                        // 初期状態を描画
+                        this.repaintVu();
+
+                        // 自動再生する
                         this.playVu();
                     }
                 },
@@ -2640,6 +2681,10 @@ urlpatterns = [
 
 📖 [How to Stop setInterval() Call in JavaScript](https://www.tutorialrepublic.com/faq/how-to-stop-setinterval-call-in-javascript.php)  
 📖 [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)  
+
+### テキスト
+
+📖 [javascript 改行を全て削除する手順](https://mebee.info/2020/10/24/post-16225/)  
 
 ### 正規表現
 

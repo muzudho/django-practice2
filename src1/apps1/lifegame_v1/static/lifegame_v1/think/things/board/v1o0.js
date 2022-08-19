@@ -312,7 +312,7 @@ class Board {
     /**
      * 盤面を設定します
      *
-     * @param {*} token - Example: `..X.X....`
+     * @param {*} token - Example: `..x.x....`
      */
     parse(token) {
         this._squares = token.split("").map((x) => label_to_pc(x));
