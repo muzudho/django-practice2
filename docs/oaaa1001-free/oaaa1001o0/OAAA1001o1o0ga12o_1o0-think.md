@@ -1,6 +1,18 @@
+# サンプルを見る
+
+📚 [この連載のゴール](http://tic.warabenture.com:8000/lifegame/v0.3/board)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/lifegame/v0.2/board)  
+
 # 前回の記事
 
 📖 [DjangoとDocker自由課題OAAA1001o1o0 ライフゲームを作ろう！](https://qiita.com/muzudho1/items/a2c90f8d3dfaad849211)  
+
+# 情報
+
+| What is        | This is                                                                     |
+| -------------- | --------------------------------------------------------------------------- |
+| この連載の目的 | ライフゲームを作る                                                          |
+| この記事の目標 | いきなりライフゲームを作るのは難しいから、まずCUIベースの思考エンジンを作る |
 
 # Step OAAA1001o1o0ga12o_1o0 物の定義 - think/things/v1o0.js ファイル
 
@@ -714,7 +726,7 @@ class Parser {
         this._onBoardEnd = null;
         this._onBoardCopyFrom = null;
 
-        this._onPlay = null;
+        this._onStep = null;
     }
 
     set onBoardWidth(action) {
@@ -745,8 +757,8 @@ class Parser {
         this._onBoardCopyFrom = action;
     }
 
-    set onPlay(action) {
-        this._onPlay = action;
+    set onStep(action) {
+        this._onStep = action;
     }
 
     set onReadLine(action) {
@@ -818,9 +830,9 @@ class Parser {
                     }
                     break;
 
-                case "play":
-                    // Example: `play`
-                    this._onPlay();
+                case "step":
+                    // Example: `step board 0`
+                    this._onStep(tokens);
                     break;
 
                 default:
@@ -1026,9 +1038,13 @@ class Engine {
             dstBoard.pasteRect(vec, srcWidth, srcHeight, dstX, dstY);
         };
 
-        // Example: `play`
-        this._parser.onPlay = () => {
-            this._userCtrl.doMove(this._position);
+        // Example: `step board 0`
+        //           ---- ----- -
+        //           0    1     2
+        this._parser.onStep = (tokens) => {
+            let boardIndex = parseInt(tokens[2]);
+
+            this._userCtrl.doMove(this._position, boardIndex);
             // Ok
             log += "=\n.\n";
         };
@@ -1142,6 +1158,11 @@ ${indent}${this._position.dump(indent + "    ")}`;
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
         <script>
+            /**
+             * 盤の数
+             */
+            let BOARDS_COUNT = 3;
+
             const vue1 = new Vue({
                 el: "#app",
                 vuetify: new Vuetify(),
@@ -1155,9 +1176,9 @@ board 0 height 32
 board 0 """
 ................................................................
 ................................................................
-....X...........................................................
-.....X..........................................................
-...XXX..........................................................
+....x...........................................................
+.....x..........................................................
+...xxx..........................................................
 ................................................................
 ................................................................
 ................................................................
@@ -1219,13 +1240,13 @@ board 0 """
 ................................................................
 """
 board 0
-play
+step board 0
 board 0
-play
+step board 0
 board 0
-play
+step board 0
 board 0
-play
+step board 0
 board 0
 `,
                     },
@@ -1236,7 +1257,9 @@ board 0
                     // 思考エンジン
                     engine: new Engine(
                         // ユーザーコントロール
-                        new UserCtrl()
+                        new UserCtrl(),
+                        // 盤の数
+                        BOARDS_COUNT
                     ),
                 },
                 methods: {

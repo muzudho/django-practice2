@@ -20,7 +20,7 @@ class Parser {
         this._onBoardEnd = null;
         this._onBoardCopyFrom = null;
 
-        this._onPlay = null;
+        this._onStep = null;
     }
 
     set onBoardWidth(action) {
@@ -51,8 +51,8 @@ class Parser {
         this._onBoardCopyFrom = action;
     }
 
-    set onPlay(action) {
-        this._onPlay = action;
+    set onStep(action) {
+        this._onStep = action;
     }
 
     set onReadLine(action) {
@@ -124,9 +124,9 @@ class Parser {
                     }
                     break;
 
-                case "play":
-                    // Example: `play`
-                    this._onPlay();
+                case "step":
+                    // Example: `step board 0`
+                    this._onStep(tokens);
                     break;
 
                 default:

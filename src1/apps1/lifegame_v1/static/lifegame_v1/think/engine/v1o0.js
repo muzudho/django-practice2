@@ -134,9 +134,13 @@ class Engine {
             dstBoard.pasteRect(vec, srcWidth, srcHeight, dstX, dstY);
         };
 
-        // Example: `play`
-        this._parser.onPlay = () => {
-            this._userCtrl.doMove(this._position);
+        // Example: `step board 0`
+        //           ---- ----- -
+        //           0    1     2
+        this._parser.onStep = (tokens) => {
+            let boardIndex = parseInt(tokens[2]);
+
+            this._userCtrl.doMove(this._position, boardIndex);
             // Ok
             log += "=\n.\n";
         };
