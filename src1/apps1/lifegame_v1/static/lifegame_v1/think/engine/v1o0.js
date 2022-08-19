@@ -138,7 +138,7 @@ class Engine {
         //           ---- ----- -
         //           0    1     2
         this._parser.onStep = (tokens) => {
-            let boardIndex = parseInt(tokens[2]);
+            const boardIndex = parseInt(tokens[2]);
 
             this._userCtrl.doMove(this._position, boardIndex);
             // Ok
