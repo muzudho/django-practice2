@@ -294,7 +294,7 @@ class Board {
         let i = 0;
         for (let y = 0; y < this._height; y++) {
             let row = vec.slice(i, i + this._width);
-            line = row.map((n) => pc_to_label(n)).join("");
+            const line = row.map((n) => pc_to_label(n)).join("");
             s += `|${line}|\n`;
             i += this._width;
         }
