@@ -323,41 +323,25 @@ board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
                      * po_input 欄のコマンドを入力します
                      */
                     enterVu() {
+                        console.log("入力ボタンをクリックした");
+
                         // this.inputText.enabled = false;
                         // this.enterButton.enabled = false;
 
                         this.enteredText = vue1.inputText.value;
                         vue1.inputText.value = "";
+
+                        // 入力テキストを処理
+                        // * タイマーの処理が走っているときに、この処理がどう割り込むのか分からない
+                        this.processingTextVu();
                     },
                     /**
                      * 画面更新
                      */
                     updateVu() {
                         if (this.enteredText !== null) {
-                            // 盤のサイズを一時記憶
-                            let widthOfBoards = new Array(BOARDS_COUNT);
-                            widthOfBoards.fill(0);
-                            let heightOfBoards = new Array(BOARDS_COUNT);
-                            heightOfBoards.fill(0);
-                            for(let boardIndex=0; boardIndex<BOARDS_COUNT; boardIndex++){
-                                widthOfBoards[boardIndex] = vue1.engine.position.boards[boardIndex].width;
-                                heightOfBoards[boardIndex] = vue1.engine.position.boards[boardIndex].height;
-                            }
-
-                            // コマンドを実行
-                            let log = vue1.engine.execute(this.enteredText);
-                            this.enteredText = null;
-
-                            this.outputText.value = log;
-
-                            // 盤のサイズが変わっていれば作り直し
-                            for(let boardIndex=0; boardIndex<BOARDS_COUNT; boardIndex++){
-                                if (widthOfBoards[boardIndex] !== vue1.engine.position.boards[boardIndex].width ||
-                                    heightOfBoards[boardIndex] !== vue1.engine.position.boards[boardIndex].height) {
-                                    dynamicHtmlBoards[boardIndex].uninstallTable();
-                                    dynamicHtmlBoards[boardIndex].installTable();
-                                }
-                            }
+                            // 入力テキストを処理
+                            this.processingTextVu();
                         } else {
                             // 盤[0]を動かす。それ以外の盤は動かさない
                             let boardIndex = 0;
@@ -365,6 +349,35 @@ board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
                         }
 
                         this.repaintVu();
+                    },
+                    /**
+                     * 入力テキストを処理
+                     */
+                    processingTextVu(){
+                        // 盤のサイズを一時記憶
+                        let widthOfBoards = new Array(BOARDS_COUNT);
+                        widthOfBoards.fill(0);
+                        let heightOfBoards = new Array(BOARDS_COUNT);
+                        heightOfBoards.fill(0);
+                        for(let boardIndex=0; boardIndex<BOARDS_COUNT; boardIndex++){
+                            widthOfBoards[boardIndex] = vue1.engine.position.boards[boardIndex].width;
+                            heightOfBoards[boardIndex] = vue1.engine.position.boards[boardIndex].height;
+                        }
+
+                        // コマンドを実行
+                        let log = vue1.engine.execute(this.enteredText);
+                        this.enteredText = null;
+
+                        this.outputText.value = log;
+
+                        // 盤のサイズが変わっていれば作り直し
+                        for(let boardIndex=0; boardIndex<BOARDS_COUNT; boardIndex++){
+                            if (widthOfBoards[boardIndex] !== vue1.engine.position.boards[boardIndex].width ||
+                                heightOfBoards[boardIndex] !== vue1.engine.position.boards[boardIndex].height) {
+                                dynamicHtmlBoards[boardIndex].uninstallTable();
+                                dynamicHtmlBoards[boardIndex].installTable();
+                            }
+                        }
                     },
                     /**
                      * 再描画
