@@ -20,8 +20,6 @@
 | --------- | ------------------------------------------------------------------------------------------------------- |
 | Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
 
-# 始める前に
-
 この記事のアーキテクチャ:  
 
 | What is          | This is                                   |
@@ -93,7 +91,9 @@
     └── 📄 .gitignore
 ```
 
-# Step OA21o2o0g1o0 Dockerコンテナの起動
+# 手順
+
+## Step OA21o2o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -105,7 +105,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA21o2o0g2o0 機能強化 - auto_reload/v2o0.js ファイル
+## Step OA21o2o0g2o0 機能強化 - auto_reload/v2o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -146,7 +146,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 }
 ```
 
-# Step OA21o2o0g3o0 テンプレート編集 - auto_reload/v1o1o0.html.txt ファイル
+## Step OA21o2o0g3o0 テンプレート編集 - auto_reload/v1o1o0.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -216,7 +216,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 {% endblock methods_trailing %}
 ```
 
-# Step OA21o2o0g4o0 ビュー作成 - auto_redirect/v1o0 フォルダー
+## Step OA21o2o0g4o0 ビュー作成 - auto_redirect/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -265,7 +265,7 @@ class AutoRedirectV():
         return render_auto_redirect(request, AutoRedirectV._path_of_redirecter_page)
 ```
 
-# Step OA21o2o0g5o0 ビュー作成 - auto_redirect/v1o0/v_redirect.py ファイル
+## Step OA21o2o0g5o0 ビュー作成 - auto_redirect/v1o0/v_redirect.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -327,7 +327,7 @@ def render_auto_redirect(request, lp_auto_redirect):
     return render(request, lp_auto_redirect, context)
 ```
 
-# Step OA21o2o0g6o0 ルート編集 - urls_practice.py ファイル
+## Step OA21o2o0g6o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -386,11 +386,11 @@ urlpatterns = [
 ]
 ```
 
-# Step OA21o2o0g7o0 Web画面へアクセス
+## Step OA21o2o0g7o0 Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/auto_redirect/](http://localhost:8000/practice/v1/auto_redirect/)  
 
-# Step OA21o2o0g8o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+## Step OA21o2o0g8o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

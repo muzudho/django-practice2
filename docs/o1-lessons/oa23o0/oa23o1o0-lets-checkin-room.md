@@ -26,8 +26,6 @@
 | --------- | ------------------------------------------------------------------------------------------------------- |
 | Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
 
-# 始める前に
-
 この記事のアーキテクチャ:  
 
 | What is          | This is                                   |
@@ -99,7 +97,9 @@
     └── 📄 .gitignore
 ```
 
-# Step OA23o1o0g1o0 Dockerコンテナの起動
+# 手順
+
+## Step OA23o1o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -111,7 +111,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA23o1o0g2o0 対局申込ビュー編集 - match_application/v2o0 フォルダー
+## Step OA23o1o0g2o0 対局申込ビュー編集 - match_application/v2o0 フォルダー
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -194,7 +194,7 @@ class MatchApplicationV():
         return MatchApplicationVV2g1o0.open_context
 ```
 
-# Step OA23o1o0g3o0 対局申込ビュー作成 - match_application/v2o0/v_on_sent.py ファイル
+## Step OA23o1o0g3o0 対局申込ビュー作成 - match_application/v2o0/v_on_sent.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -308,7 +308,7 @@ def match_application_on_sent(request):
         pass
 ```
 
-# Step OA23o1o0g4o0 ルート編集 - urls_practice.py ファイル
+## Step OA23o1o0g4o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -361,7 +361,7 @@ urlpatterns = [
 ]
 ```
 
-# Step OA23o1o0g5o0 Web画面へアクセス
+## Step OA23o1o0g5o0 Web画面へアクセス
 
 先手と後手で、２人分のプレイヤーのアカウントがほしい。  
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでほしい  
@@ -404,7 +404,7 @@ urlpatterns = [
 
 また、既存でない部屋名でも ちゃんとユーザーの主キーが記録されることを確認してほしい  
 
-# Step OA23o1o0g6o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+## Step OA23o1o0g6o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

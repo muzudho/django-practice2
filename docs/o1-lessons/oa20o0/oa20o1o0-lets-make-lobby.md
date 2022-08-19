@@ -39,8 +39,6 @@
 | --------- | ------------------------------------------------------------------------------------------------------- |
 | Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
 
-# 始める前に
-
 この記事のアーキテクチャ:  
 
 | What is          | This is                                   |
@@ -112,7 +110,9 @@
     └── 📄 .gitignore
 ```
 
-# Step OA20o1o0g1o0 Dockerコンテナの起動
+# 手順
+
+## Step OA20o1o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -124,7 +124,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA20o1o0g2o0 画面作成 - lobby/v1o0.html ファイル
+## Step OA20o1o0g2o0 画面作成 - lobby/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -264,7 +264,7 @@ docker-compose up
 </html>
 ```
 
-# Step OA20o1o0g3o0 モデルヘルパー作成 - room/v1o0 フォルダー
+## Step OA20o1o0g3o0 モデルヘルパー作成 - room/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -295,7 +295,7 @@ class MhRoom():
     # 2. `1.` に含まれる関数
 ```
 
-# Step OA20o1o0g4o0 モデルヘルパー作成 - room/v1o0/mh_get_all_rooms_as_dic.py ファイル
+## Step OA20o1o0g4o0 モデルヘルパー作成 - room/v1o0/mh_get_all_rooms_as_dic.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -348,7 +348,7 @@ def get_all_rooms_as_dic():
     return room_dic
 ```
 
-# Step OA20o1o0g5o0 ビュー作成 - lobby/v1o0 フォルダー
+## Step OA20o1o0g5o0 ビュー作成 - lobby/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -397,7 +397,7 @@ class LobbyV():
         return render_lobby(request, LobbyV._path_of_lobby_page)
 ```
 
-# Step OA20o1o0g6o0 ビュー作成 - lobby/v1o0/v_lobby.py ファイル
+## Step OA20o1o0g6o0 ビュー作成 - lobby/v1o0/v_lobby.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -474,7 +474,7 @@ def render_lobby(request, lp_lobby):
     return render(request, lp_lobby, context)
 ```
 
-# Step OA20o1o0g7o0 ルート編集 - urls_practice.py ファイル
+## Step OA20o1o0g7o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -531,11 +531,11 @@ urlpatterns = [
 ]
 ```
 
-# Step OA20o1o0g8o0 Web画面へアクセス
+## Step OA20o1o0g8o0 Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/lobby/](http://localhost:8000/practice/v1/lobby/)  
 
-# Step OA20o1o0g9o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+## Step OA20o1o0g9o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

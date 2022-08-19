@@ -14,8 +14,6 @@
 | --------- | ------------------------------------------------------------------------------------------------------- |
 | Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
 
-# 始める前に
-
 この記事のアーキテクチャ:  
 
 | What is          | This is                                   |
@@ -87,7 +85,9 @@
     └── 📄 .gitignore
 ```
 
-# Step OA25o1o0g1o0 Dockerコンテナの起動
+# 手順
+
+## Step OA25o1o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -99,7 +99,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA25o1o0g2o0 対局画面作成 - playing/v4o0.html.txt ファイル
+## Step OA25o1o0g2o0 対局画面作成 - playing/v4o0.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -157,7 +157,7 @@ docker-compose up
 {% endblock create_gameover_message %}
 ```
 
-# Step OA25o1o0g3o0 対局申込ビュー作成 - match_application/v4o0 フォルダー
+## Step OA25o1o0g3o0 対局申込ビュー作成 - match_application/v4o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -256,7 +256,7 @@ class MatchApplicationV():
         return MatchApplicationV.open_context
 ```
 
-# Step OA25o1o0g4o0 対局申込ビュー作成 - playing/v4o0 フォルダー
+## Step OA25o1o0g4o0 対局申込ビュー作成 - playing/v4o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -340,7 +340,7 @@ class PlayingV():
             PlayingV.expected_pieces)
 ```
 
-# Step OA25o1o0g5o0 ルート編集 - urls_practice.py ファイル
+## Step OA25o1o0g5o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -423,7 +423,7 @@ urlpatterns = [
 ]
 ```
 
-# Step OA25o1o0g6o0 Web画面へアクセス
+## Step OA25o1o0g6o0 Web画面へアクセス
 
 * 観戦モードのテストをするので、Webページを３窓で開き、一方が X プレイヤー、もう一方が O プレイヤー、もう一方は WatchingGame を選んでください
 * テストするためには `サインアップ` してアカウントを作ってから、 `ログイン` してください
@@ -437,7 +437,7 @@ urlpatterns = [
 
 📖 [http://localhost:8000/admin](http://localhost:8000/admin)  
 
-# Step OA25o1o0g7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+## Step OA25o1o0g7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
