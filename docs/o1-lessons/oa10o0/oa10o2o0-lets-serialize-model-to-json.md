@@ -15,8 +15,6 @@
 | --------- | ------------------------------------------------------------------------------------------------------- |
 | Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
 
-# 始める前に
-
 この記事のアーキテクチャ:  
 
 | What is   | This is                                   |
@@ -53,7 +51,9 @@
     └── 📄 .gitignore
 ```
 
-# Step OA10o2o0g1o0 Dockerコンテナの起動
+# 手順
+
+## Step OA10o2o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -65,11 +65,11 @@ cd src1
 docker-compose up
 ```
 
-# Step OA10o2o0g2o0 データ用意 - 管理画面
+## Step OA10o2o0g2o0 データ用意 - 管理画面
 
 管理画面から、都道府県モデルのデータを追加しておいてください  
 
-# Step OA10o2o0g3o0 モデルヘルパー作成 - json/v1o0 フォルダー
+## Step OA10o2o0g3o0 モデルヘルパー作成 - json/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -96,7 +96,7 @@ class MhJson():
     # 2. `1.` に含まれる関数
 ```
 
-# Step OA10o2o0g4o0 モデルヘルパー モジュール作成 - m_from_model_to_json_str フォルダー
+## Step OA10o2o0g4o0 モデルヘルパー モジュール作成 - m_from_model_to_json_str フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -128,7 +128,7 @@ def from_model_to_json_str_with_indent(any_object):
     return json.dumps(doc, indent=4)
 ```
 
-# Step OA10o2o0g5o0 ビュー作成 - debug フォルダー
+## Step OA10o2o0g5o0 ビュー作成 - debug フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -191,7 +191,7 @@ class DebugV():
         return HttpResponse(f"<pre>{json_str}</pre>")
 ```
 
-# Step OA10o2o0g6o0 ルート編集 - urls_practice.py ファイル
+## Step OA10o2o0g6o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -245,11 +245,11 @@ urlpatterns = [
 ]
 ```
 
-# Step OA10o2o0g7o0 Web画面へアクセス
+## Step OA10o2o0g7o0 Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/from-object-to-json-str/](http://localhost:8000/practice/v1/from-object-to-json-str/)  
 
-# Step OA10o2o0g8o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+## Step OA10o2o0g8o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

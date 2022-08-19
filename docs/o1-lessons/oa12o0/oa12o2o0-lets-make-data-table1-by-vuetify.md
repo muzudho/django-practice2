@@ -15,8 +15,6 @@ Data table を作れば上がる。だから説明する
 | --------- | ------------------------------------------------------------------------------------------------------- |
 | Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
 
-# 始める前に
-
 この記事のアーキテクチャ:  
 
 | What is   | This is                                   |
@@ -74,7 +72,9 @@ Data table を作れば上がる。だから説明する
     └── 📄 .gitignore
 ```
 
-# Step OA12o2o0g1o0 Dockerコンテナの起動
+# 手順
+
+## Step OA12o2o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -86,7 +86,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA12o2o0g2o0 画面作成 - data_table1.html ファイル
+## Step OA12o2o0g2o0 画面作成 - data_table1.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -245,7 +245,7 @@ docker-compose up
 
 👆 `<v-data-table>` の説明は 📖[Vuetify - Data tables - Usage](https://vuetifyjs.com/en/components/data-tables/#dense) のページにある  
 
-# Step OA12o2o0g3o0 ビュー作成 - vuetifies/data_table1/v1o0.py ファイル
+## Step OA12o2o0g3o0 ビュー作成 - vuetifies/data_table1/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -282,7 +282,7 @@ def render_data_table1(request):
     return render(request, lp_data_table1, context)
 ```
 
-# Step OA12o2o0g4o0 ビュー編集 - VuetifyV モジュール
+## Step OA12o2o0g4o0 ビュー編集 - VuetifyV モジュール
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -315,7 +315,7 @@ class VuetifyV(object):
     from .data_table1.v1o0 import render_data_table1
 ```
 
-# Step OA12o2o0g5o0 ルート編集 - urls_practice.py ファイル
+## Step OA12o2o0g5o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -362,11 +362,11 @@ urlpatterns = [
 ]
 ```
 
-# Step OA12o2o0g6o0 Web画面へアクセス
+## Step OA12o2o0g6o0 Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/vuetify/data-table1](http://localhost:8000/practice/v1/vuetify/data-table1)  
 
-# Step OA12o2o0g7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+## Step OA12o2o0g7o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
