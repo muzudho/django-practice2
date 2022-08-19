@@ -16,8 +16,6 @@ Webサーバーと、クライアント側のアプリ間で通信する練習�
 | --------- | ------------------------------------------------------------------------------------------------------- |
 | Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
 
-# 始める前に
-
 この記事のアーキテクチャ:  
 
 | What is          | This is                                   |
@@ -88,7 +86,9 @@ Webサーバーと、クライアント側のアプリ間で通信する練習�
     └── 📄 .gitignore
 ```
 
-# Step OA16o1o0g1o0 Dockerコンテナの起動
+# 手順
+
+## Step OA16o1o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -100,7 +100,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA16o1o0g2o0 Pythonパッケージ インストール指定 - requirements.txt ファイル
+## Step OA16o1o0g2o0 Pythonパッケージ インストール指定 - requirements.txt ファイル
 
 👇 以下のファイルを編集してほしい  
 
@@ -118,7 +118,7 @@ docker-compose up
 channels_redis>=3.2
 ```
 
-# Step OA16o1o0g3o0 Dockerコンテナの停止～ビルド～起動
+## Step OA16o1o0g3o0 Dockerコンテナの停止～ビルド～起動
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -144,7 +144,7 @@ docker-compose up
 
 👆 これで Dockerコンテナに channels_redis パッケージをインストールした  
 
-# Step OA16o1o0g4o0 フォルダー作成 - apps1/tic_tac_toe_v1 フォルダー
+## Step OA16o1o0g4o0 フォルダー作成 - apps1/tic_tac_toe_v1 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -158,7 +158,7 @@ docker-compose up
 あとで `tic_tac_toe_v2` を作るので、今回は `v1` とした。  
 `v1` と `v2` との間で依存はさせないので 別のアプリケーションとすることにした  
 
-# Step OA16o1o0g5o0 アプリケーション作成
+## Step OA16o1o0g5o0 アプリケーション作成
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -186,7 +186,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v1 ./apps1/tic
 👉              └── 📄 views.py
 ```
 
-# Step OA16o1o0g6o0 今回使わないファイルの削除
+## Step OA16o1o0g6o0 今回使わないファイルの削除
 
 👇 以下のファイルを削除してほしい  
 
@@ -204,7 +204,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v1 ./apps1/tic
 👉              └── 📄 views.py
 ```
 
-# Step OA16o1o0g7o0 アプリケーション設定変更 - apps.py
+## Step OA16o1o0g7o0 アプリケーション設定変更 - apps.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -236,7 +236,7 @@ class TicTacToeV1Config(AppConfig):
     #          --------------------
 ```
 
-# Step OA16o1o0g8o0 アプリケーション登録 - settings.py ファイル
+## Step OA16o1o0g8o0 アプリケーション登録 - settings.py ファイル
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -273,7 +273,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-# Step OA16o1o0g9o0 Web ページのスタイル作成 - style/main/v1o0.css ファイル
+## Step OA16o1o0g9o0 Web ページのスタイル作成 - style/main/v1o0.css ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -361,7 +361,7 @@ select {
 }
 ```
 
-# Step OA16o1o0gA10o0 機能作成 - scripts/play/v1o0.js ファイル
+## Step OA16o1o0gA10o0 機能作成 - scripts/play/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -653,7 +653,7 @@ function connect() {
 connect();
 ```
 
-# Step OA16o1o0gA11o0 対局申込画面作成 - match_application/v1o0.html ファイル
+## Step OA16o1o0gA11o0 対局申込画面作成 - match_application/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -725,7 +725,7 @@ connect();
 </html>
 ```
 
-# Step OA16o1o0gA12o0 対局画面作成 - playing/v1o0.html ファイル
+## Step OA16o1o0gA12o0 対局画面作成 - playing/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -804,7 +804,7 @@ connect();
 </html>
 ```
 
-# Step OA16o1o0gA13o0 ビュー作成 - match_application/v1o0 フォルダー
+## Step OA16o1o0gA13o0 ビュー作成 - match_application/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -875,7 +875,7 @@ class MatchApplicationV():
 ```
 
 
-# Step OA16o1o0gA14o0 ビュー作成 - match_application/v1o0/v_render.py ファイル
+## Step OA16o1o0gA14o0 ビュー作成 - match_application/v1o0/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -937,7 +937,7 @@ def render_match_application(request, upf_playing, lp_match_application):
     return render(request, lp_match_application, {})
 ```
 
-# Step OA16o1o0gA15o0 ビュー作成 - playing/v1o0 フォルダー
+## Step OA16o1o0gA15o0 ビュー作成 - playing/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1001,7 +1001,7 @@ class PlayingV():
         return render_playing(request, room_name, PlayingV.path_of_local_html)
 ```
 
-# Step OA16o1o0gA16o0 ビュー作成 - playing/v1o0/v_render.py ファイル
+## Step OA16o1o0gA16o0 ビュー作成 - playing/v1o0/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1066,7 +1066,7 @@ def render_playing(request, room_name, lp_playing):
     return render(request, lp_playing, context)
 ```
 
-# Step OA16o1o0gA17o0 ルート新規作成 - urls_tic_tac_toe_v1.py ファイル
+## Step OA16o1o0gA17o0 ルート新規作成 - urls_tic_tac_toe_v1.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1159,7 +1159,7 @@ urlpatterns = [
 ]
 ```
 
-# Step OA16o1o0gA18o0 総合ルート編集 - urls.py
+## Step OA16o1o0gA18o0 総合ルート編集 - urls.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -1222,7 +1222,7 @@ urlpatterns = [
 ]
 ```
 
-# Step OA16o1o0gA19o0 consumer/v1o0.py ファイルの作成
+## Step OA16o1o0gA19o0 consumer/v1o0.py ファイルの作成
 
 以下のファイルを新規作成してほしい  
 
@@ -1342,7 +1342,7 @@ class TicTacToeV1Consumer(AsyncJsonWebsocketConsumer):
         }))
 ```
 
-# Step OA16o1o0gA20o0 Webソケット用ルート新規作成 - ws_urls_tic_tac_toe_v1.py ファイル
+## Step OA16o1o0gA20o0 Webソケット用ルート新規作成 - ws_urls_tic_tac_toe_v1.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1420,7 +1420,7 @@ websocket_urlpatterns = [
 ]
 ```
 
-# Step OA16o1o0gA21o0 Webソケット用総合ルート設定 - asgi.py ファイル＜その２＞
+## Step OA16o1o0gA21o0 Webソケット用総合ルート設定 - asgi.py ファイル＜その２＞
 
 👇以下の既存のファイルを編集してほしい  
 
@@ -1504,7 +1504,7 @@ websocket_urlpatterns_merged.extend(
 
 
 
-# Step OA16o1o0gA22o0 Djangoの設定 - settings.py ファイル
+## Step OA16o1o0gA22o0 Djangoの設定 - settings.py ファイル
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -1591,13 +1591,13 @@ TEMPLATES = [
 ]
 ```
 
-# Step OA16o1o0gA23o0 Web画面へアクセス
+## Step OA16o1o0gA23o0 Web画面へアクセス
 
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでください  
 
 📖 [http://localhost:8000/tic-tac-toe/v1/match-application/](http://localhost:8000/tic-tac-toe/v1/match-application/)  
 
-# Step OA16o1o0gA24o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+## Step OA16o1o0gA24o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

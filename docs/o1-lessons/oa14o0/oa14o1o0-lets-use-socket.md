@@ -13,8 +13,6 @@ Webサーバーとクライアント間で通知したい。
 | --------- | ------------------------------------------------------------------------------------------------------- |
 | Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
 
-# 始める前に
-
 この記事のアーキテクチャ:  
 
 | What is          | This is                                   |
@@ -74,7 +72,9 @@ Webサーバーとクライアント間で通知したい。
     └── 📄 .gitignore
 ```
 
-# Step OA14o1o0g1o0 Dockerコンテナの起動
+# 手順
+
+## Step OA14o1o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -86,7 +86,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA14o1o0g2o0 フォルダー作成
+## Step OA14o1o0g2o0 フォルダー作成
 
 👇 ソケットの練習は Django とは関係ないので、別にフォルダーを作ってほしい  
 
@@ -96,7 +96,7 @@ docker-compose up
 👉       └── 📂 sockapp1            # 新規作成
 ```
 
-# Step OA14o1o0g3o0 機能増強 - main_finally.py ファイル
+## Step OA14o1o0g3o0 機能増強 - main_finally.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -180,7 +180,7 @@ class MainFinally:
         return return_code
 ```
 
-# Step OA14o1o0g4o0 練習用通信サーバー作成 - echo_server.py ファイル
+## Step OA14o1o0g4o0 練習用通信サーバー作成 - echo_server.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -331,7 +331,7 @@ if __name__ == "__main__":
     sys.exit(MainFinally.run(Main1()))
 ```
 
-# Step OA14o1o0g5o0 練習用通信クライアント作成 - client.py ファイル
+## Step OA14o1o0g5o0 練習用通信クライアント作成 - client.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -482,7 +482,7 @@ if __name__ == "__main__":
     sys.exit(MainFinally.run(Main1()))
 ```
 
-# Step OA14o1o0g6o0 エコーサーバー起動 - コマンド実行
+## Step OA14o1o0g6o0 エコーサーバー起動 - コマンド実行
 
 ```shell
 cd src2_local/sockapp1
@@ -490,7 +490,7 @@ cd src2_local/sockapp1
 python.exe -m echo_server
 ```
 
-# Step OA14o1o0g7o0 クライアント起動～停止 - コマンド実行
+## Step OA14o1o0g7o0 クライアント起動～停止 - コマンド実行
 
 エコーサーバーとは別ターミナルで:  
 
@@ -512,7 +512,7 @@ Echo: hello
 
 これで クライアントを強制終了する  
 
-# Step OA14o1o0g8o0 エコーサーバー停止
+## Step OA14o1o0g8o0 エコーサーバー停止
 
 サーバーは良い止め方がないので、ターミナルごと終了させてほしい  
 

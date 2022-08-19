@@ -14,8 +14,6 @@ Web ページで表示する内容を、JSON形式のテキストで渡したい
 | --------- | ------------------------------------------------------------------------------------------------------- |
 | Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
 
-# 始める前に
-
 この記事のアーキテクチャ:  
 
 | What is     | This is                                   |
@@ -73,7 +71,9 @@ Web ページで表示する内容を、JSON形式のテキストで渡したい
     └── 📄 .gitignore
 ```
 
-# Step OA13o2o0g1o0 Dockerコンテナの起動
+# 手順
+
+## Step OA13o2o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -85,7 +85,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA13o2o0g2o0 データの再利用 - desserts.json ファイル
+## Step OA13o2o0g2o0 データの再利用 - desserts.json ファイル
 
 👇 以下の記事で掲載した JSON ファイルを再利用してほしい  
 
@@ -102,7 +102,7 @@ docker-compose up
 👉                              └── 📄 v1o0.json
 ```
 
-# Step OA13o2o0g3o0 画面作成 - vuetifies/textarea1/v1o0.html ファイル
+## Step OA13o2o0g3o0 画面作成 - vuetifies/textarea1/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -191,7 +191,7 @@ docker-compose up
 </html>
 ```
 
-# Step OA13o2o0g4o0 HTMLファイルの再利用 - desserts1.html ファイル
+## Step OA13o2o0g4o0 HTMLファイルの再利用 - desserts1.html ファイル
 
 👇 以下の記事で掲載した HTML ファイルを再利用してほしい  
 
@@ -215,7 +215,7 @@ docker-compose up
                                 └── 📄 v1o0.html
 ```
 
-# Step OA13o2o0g5o0 ビュー作成 - vuetifies/textarea1/v1o0.py ファイル
+## Step OA13o2o0g5o0 ビュー作成 - vuetifies/textarea1/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -287,7 +287,7 @@ def render_desserts1_from_textarea1(request):
     return render(request, lp_desserts1, context)
 ```
 
-# Step OA13o2o0g6o0 ビュー編集 - VuetifyV モジュール
+## Step OA13o2o0g6o0 ビュー編集 - VuetifyV モジュール
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -327,7 +327,7 @@ class VuetifyV(object):
     from .textarea1.v1o0 import render_textarea1, render_desserts1_from_textarea1
 ```
 
-# Step OA13o2o0g7o0 ルート編集 - urls_practice.py ファイル
+## Step OA13o2o0g7o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -393,11 +393,11 @@ urlpatterns = [
 ]
 ```
 
-# Step OA13o2o0g8o0 Web画面へアクセス
+## Step OA13o2o0g8o0 Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/vuetify/textarea1](http://localhost:8000/practice/v1/vuetify/textarea1)  
 
-# Step OA13o2o0g9o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+## Step OA13o2o0g9o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

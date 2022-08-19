@@ -14,8 +14,6 @@ Vuetify に JSON形式でデータを渡したい
 | --------- | ------------------------------------------------------------------------------------------------------- |
 | Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
 
-# 始める前に
-
 この記事のアーキテクチャ:  
 
 | What is     | This is                                   |
@@ -69,7 +67,9 @@ Vuetify に JSON形式でデータを渡したい
     └── 📄 .gitignore
 ```
 
-# Step OA13o1o0g1o0 Dockerコンテナの起動
+# 手順
+
+## Step OA13o1o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -81,7 +81,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA13o1o0g2o0 データ作成 - desserts1/v1o0.json ファイル
+## Step OA13o1o0g2o0 データ作成 - desserts1/v1o0.json ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -198,7 +198,7 @@ docker-compose up
 
 👆 このJSONは 📖[Vuetify - Data tables - Usage](https://vuetifyjs.com/en/components/data-tables/#dense) のスクリプトに埋め込まれてある  
 
-# Step OA13o1o0g3o0 画面作成 - desserts1.html ファイル
+## Step OA13o1o0g3o0 画面作成 - desserts1.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -266,7 +266,7 @@ docker-compose up
 </html>
 ```
 
-# Step OA13o1o0g4o0 ビュー作成 - v_desserts1.py ファイル
+## Step OA13o1o0g4o0 ビュー作成 - v_desserts1.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -318,7 +318,7 @@ def render_desserts1(request):
     return render(request, lp_desserts1, context)
 ```
 
-# Step OA13o1o0g5o0 ビュー編集 - VuetifyV モジュール
+## Step OA13o1o0g5o0 ビュー編集 - VuetifyV モジュール
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -356,7 +356,7 @@ class VuetifyV(object):
     from .dessert1.v1o0 import render_desserts1
 ```
 
-# Step OA13o1o0g6o0 ルート編集 - urls_practice.py ファイル
+## Step OA13o1o0g6o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -408,11 +408,11 @@ urlpatterns = [
 ]
 ```
 
-# Step OA13o1o0g7o0 Web画面へアクセス
+## Step OA13o1o0g7o0 Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/vuetify/desserts1](http://localhost:8000/practice/v1/vuetify/desserts1)  
 
-# Step OA13o1o0g8o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+## Step OA13o1o0g8o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

@@ -14,8 +14,6 @@
 | --------- | ------------------------------------------------------------------------------------------------------- |
 | Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
 
-# 始める前に
-
 この記事のアーキテクチャ:  
 
 | What is     | This is                                   |
@@ -73,7 +71,9 @@
     └── 📄 .gitignore
 ```
 
-# Step OA13o4o0g1o0 Dockerコンテナの起動
+# 手順
+
+## Step OA13o4o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -85,7 +85,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OA13o4o0g2o0 モデル作成 - dessert/v1o0.py ファイル
+## Step OA13o4o0g2o0 モデル作成 - dessert/v1o0.py ファイル
 
 JSONのデータを受け入れられる形をサーバー側で定義しておく必要がある。  
 おおまかに言って以下のような形だ。  
@@ -135,7 +135,7 @@ class Dessert(models.Model):
         return f"{self.name} dessert"
 ```
 
-# Step OA13o4o0g3o0 モデル登録 - admin.py ファイル
+## Step OA13o4o0g3o0 モデル登録 - admin.py ファイル
 
 👇 以下の既存ファイルに追記してほしい  
 
@@ -178,7 +178,7 @@ from .models.dessert.v1o0 import Dessert
 admin.site.register(Dessert)
 ```
 
-# Step OA13o4o0g4o0 マイグレーション ファイル作成 - コマンド実行＜その１＞
+## Step OA13o4o0g4o0 マイグレーション ファイル作成 - コマンド実行＜その１＞
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
@@ -212,7 +212,7 @@ docker-compose run --rm web python3 manage.py makemigrations practice_v1 --setti
 
 まだ マイグレーション作業は完了していない  
 
-# Step OA13o4o0g5o0 コマンド実行＜その２＞
+## Step OA13o4o0g5o0 コマンド実行＜その２＞
 
 ```shell
 docker-compose run --rm web python manage.py migrate --settings project1.settings
@@ -224,7 +224,7 @@ docker-compose run --rm web python manage.py migrate --settings project1.setting
 
 👆 ここまでやって マイグレーション という作業が終わるらしい  
 
-# Step OA13o4o0g6o0 スーパーユーザーでWebの管理画面へアクセス
+## Step OA13o4o0g6o0 スーパーユーザーでWebの管理画面へアクセス
 
 👇 スーパーユーザーでログインすること  
 
@@ -242,7 +242,7 @@ docker-compose run --rm web python manage.py migrate --settings project1.setting
 +-------------+--------+-----------+
 ```
 
-# Step OA13o4o0g7o0 Dessert を３つほど追加してほしい
+## Step OA13o4o0g7o0 Dessert を３つほど追加してほしい
 
 Desserts ラベルの右横の `➕ Add` リンクをクリックしてほしい  
 
@@ -271,11 +271,11 @@ Iron (%):
 👆入力フォームが出てくるから、３件ほど適当に追加してほしい。  
 `[SAVE]` が追加ボタンのようだ  
 
-# Step OA13o4o0g8o0 登録した Prefecture を確認してほしい
+## Step OA13o4o0g8o0 登録した Prefecture を確認してほしい
 
 `Desserts` ラベルをクリックすると、一覧画面が出てくる  
 
-# Step OA13o4o0g9o0 規定値の作成 - desserts1_placeholder/v1o0.json ファイル
+## Step OA13o4o0g9o0 規定値の作成 - desserts1_placeholder/v1o0.json ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -311,7 +311,7 @@ Iron (%):
 
 👆 入力フォームの規定値にする  
 
-# Step OA13o4o0gA10o0 画面作成 - vuetifies/textarea1_to_model/v1o0.html.txt ファイル
+## Step OA13o4o0gA10o0 画面作成 - vuetifies/textarea1_to_model/v1o0.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -360,7 +360,7 @@ Iron (%):
 {% endblock form_signature %}
 ```
 
-# Step OA13o4o0gA11o0 ビュー作成 - v_textarea1_to_model.py ファイル
+## Step OA13o4o0gA11o0 ビュー作成 - v_textarea1_to_model.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -452,7 +452,7 @@ def render_save_result_of_desserts1_from_textarea1(request):
     return JsonResponse(doc2)
 ```
 
-# Step OA13o4o0gA12o0 ビュー編集 - VuetifyV モジュール
+## Step OA13o4o0gA12o0 ビュー編集 - VuetifyV モジュール
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -498,7 +498,7 @@ class VuetifyV(object):
     from .textarea1_to_model.v1o0 import render_textarea1_to_model, render_save_result_of_desserts1_from_textarea1
 ```
 
-# Step OA13o4o0gA13o0 ルート編集 - urls_practice.py ファイル
+## Step OA13o4o0gA13o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -573,13 +573,13 @@ urlpatterns = [
 ]
 ```
 
-# Step OA13o4o0gA14o0 Web画面へアクセス
+## Step OA13o4o0gA14o0 Web画面へアクセス
 
 👇 1件送信してほしい  
 
 📖 [http://localhost:8000/practice/v1/vuetify/textarea1-to-model](http://localhost:8000/practice/v1/vuetify/textarea1-to-model)  
 
-# Step OA13o4o0gA15o0 スーパーユーザーでWebの管理画面へアクセス
+## Step OA13o4o0gA15o0 スーパーユーザーでWebの管理画面へアクセス
 
 👇 スーパーユーザーでログインすること  
 
@@ -597,7 +597,7 @@ urlpatterns = [
 
 `Desserts` リンクをクリックして、データが追加されていることを確認できればOK  
 
-# Step OA13o4o0gA16o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+## Step OA13o4o0gA16o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
