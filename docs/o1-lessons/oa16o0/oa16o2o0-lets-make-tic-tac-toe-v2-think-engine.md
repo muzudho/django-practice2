@@ -1,22 +1,27 @@
 # サンプルを見る
 
-📖 [http://tic.warabenture.com:8000/tic-tac-toe/v2/engine-manual/](http://tic.warabenture.com:8000/tic-tac-toe/v2/engine-manual/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/v2/engine-manual/)  
 
-# 目的
+# 目標
 
 前の記事で、１人２役で２窓で遊ぶ 〇×ゲーム（Tic tac toe）を作った  
 
 これのフロントエンドを Vuetify に置き換えて、  
 〇×ゲーム（Tic tac toe）の思考エンジンを作りたい  
 
-# はじめに
+# 情報
 
-この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
-連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい  
+
+| What is   | This is                                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------------------- |
+| Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
+
+# 始める前に
 
 この記事のアーキテクチャ:  
 
-| Key              | Value                                     |
+| What is          | This is                                   |
 | ---------------- | ----------------------------------------- |
 | OS               | Windows10                                 |
 | Container        | Docker                                    |

@@ -1,9 +1,12 @@
 Git を使ってソースをデプロイする方法を説明する  
 
-# はじめに
+# 情報
 
-この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
-連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい  
+
+| What is   | This is                                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------------------- |
+| Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
 
 # 用語解説
 
@@ -43,7 +46,9 @@ cd /home/ubuntu/repos
 
 # ソースをクローンする
 
-👇 URLは適宜変えてほしい  
+URLは適宜変えてほしい  
+
+👇 1回目は、イニシャライズしてクローン  
 
 ```shell
 git init
@@ -54,10 +59,13 @@ git clone https://github.com/muzudho/django-practice2.git
 # 1. Git Hub の レポジトリのURL
 #
 # ここまでは1回行うだけでよい
+```
 
-# 2回目以降は、プルしてフェッチ
-# git pull https://github.com/muzudho/django-practice2.git
-# git fetch https://github.com/muzudho/django-practice2.git
+👇 2回目以降は、プルしてフェッチ  
+
+```
+git pull https://github.com/muzudho/django-practice2.git
+git fetch https://github.com/muzudho/django-practice2.git
 ```
 
 これでディレクトリー構成はクローンされる。  
