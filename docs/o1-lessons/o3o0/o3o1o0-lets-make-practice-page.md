@@ -1,10 +1,18 @@
 # サンプルを見る
 
-📖 [http://tic.warabenture.com:8000/practice/v1/page-the-hello](http://tic.warabenture.com:8000/practice/v1/page-the-hello)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/page-the-hello)  
 
-# 目的
+# 情報
 
-Webサイトのページを追加したい。  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい  
+
+| What is        | This is                                                                                                 |
+| -------------- | ------------------------------------------------------------------------------------------------------- |
+| Lesson 1.      | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
+| この記事の目標 | Webサイトのページを追加したい                                                                           |
+
+# 概要
+
 以下のようなURLで表示させる  
 
 ```plain
@@ -17,10 +25,7 @@ http://example.com/practice/v1/page-the-hello
 3. パス
 ```
 
-# はじめに
-
-この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
-連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
+# 始める前に
 
 この記事のアーキテクチャ:  
 
