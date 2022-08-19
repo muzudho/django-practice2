@@ -16,8 +16,6 @@
 | --------- | ------------------------------------------------------------------------------------------------------- |
 | Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
 
-# 始める前に
-
 この記事のアーキテクチャ:  
 
 | What is   | This is                                   |
@@ -54,7 +52,9 @@
     └── 📄 .gitignore
 ```
 
-# Step O9o3o0g1o0 Dockerコンテナの起動
+# 手順
+
+## Step O9o3o0g1o0 Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -66,7 +66,7 @@ cd src1
 docker-compose up
 ```
 
-# Step O9o3o0g2o0 画面作成 - active_user_list/v1o0.html ファイル
+## Step O9o3o0g2o0 画面作成 - active_user_list/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -152,7 +152,7 @@ docker-compose up
 </html>
 ```
 
-# Step O9o3o0g3o0 モデル関連作成 - session/v1o0 フォルダー
+## Step O9o3o0g3o0 モデル関連作成 - session/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -183,7 +183,7 @@ class MhSession():
     # 2. `1.` に含まれる関数
 ```
 
-# Step O9o3o0g4o0 ビュー作成 - session/v1o0/v_get_all_logged_in_users.py ファイル
+## Step O9o3o0g4o0 ビュー作成 - session/v1o0/v_get_all_logged_in_users.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -268,7 +268,7 @@ web_1  | ]
     return user_dic
 ```
 
-# Step O9o3o0g5o0 ビュー作成 - session/v1o0 フォルダー
+## Step O9o3o0g5o0 ビュー作成 - session/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -317,7 +317,7 @@ class SessionV():
         return render_active_user_list(request, SessionV._path_of_this_page)
 ```
 
-# Step O9o3o0g6o0 ビュー作成 - session/v_render.py ファイル
+## Step O9o3o0g6o0 ビュー作成 - session/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -368,7 +368,7 @@ def render_active_user_list(request, path_of_this_page):
     return render(request, path_of_this_page, context)
 ```
 
-# Step O9o3o0g7o0 ルート編集 - urls_practice.py ファイル
+## Step O9o3o0g7o0 ルート編集 - urls_practice.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -427,11 +427,11 @@ urlpatterns = [
 ]
 ```
 
-# Step O9o3o0g8o0 Web画面へアクセス
+## Step O9o3o0g8o0 Web画面へアクセス
 
 📖 [http://localhost:8000/practice/v1/active-user-list/](http://localhost:8000/practice/v1/active-user-list/)  
 
-# Step O9o3o0g9o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+## Step O9o3o0g9o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
