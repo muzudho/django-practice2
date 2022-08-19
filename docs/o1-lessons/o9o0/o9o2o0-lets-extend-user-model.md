@@ -1,23 +1,30 @@
 # サンプルを見る
 
-📖 [http://tic.warabenture.com:8000/practice/v1/extends-user-list/](http://tic.warabenture.com:8000/practice/v1/extends-user-list/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/extends-user-list/)  
 
-# 目的
+# 目標
 
 Django に最初から付いている User モデルを拡張したい  
+
+## 詳細
 
 試しに 対局マッチング状況を表す match_state プロパティを追加するものとし、  
 その値は 整数とし、  
 0 を休憩中， 1 を対局申込中， 2 を対局案内中， 3 を対局中， 4 を観戦中 とする  
 
-# はじめに
+# 情報
 
-この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
-連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい  
+
+| What is   | This is                                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------------------- |
+| Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
+
+# 始める前に
 
 この記事のアーキテクチャ:  
 
-| Key       | Value                                     |
+| What is   | This is                                   |
 | --------- | ----------------------------------------- |
 | OS        | Windows10                                 |
 | Container | Docker                                    |
