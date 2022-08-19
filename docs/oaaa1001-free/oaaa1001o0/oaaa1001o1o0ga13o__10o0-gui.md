@@ -1,6 +1,6 @@
 # 前回の記事
 
-📖 [DjangoとDocker自由課題OAAA1001o1o0 ライフゲームを作ろう！](https://qiita.com/muzudho1/items/a2c90f8d3dfaad849211)  
+📖 [DjangoとDocker自由課題OAAA1001o1o0ga12o_1o0 ライフゲームの思考エンジンを作ろう！](https://qiita.com/muzudho1/items/4ec5896c7a8fb27161ff)  
 
 # Step OAAA1001o1o0ga13o__10o0 画面作成 - gui/cell_id_helper/v1o0.js ファイル
 
