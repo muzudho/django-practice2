@@ -1,12 +1,12 @@
 # サンプルを見る
 
-📖 [http://tic.warabenture.com:8000/tic-tac-toe/v3.2/match-application/](http://tic.warabenture.com:8000/tic-tac-toe/v3.2/match-application/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/v3.2/match-application/)  
 
-# 目的
+# 目標
 
 現在、対局中かどうかを調べられるようにしたい  
 
-# 手段
+## 詳細
 
 ゲーム対局部屋にチェックインさせる  
 
@@ -15,19 +15,22 @@
 * 対局が終わったことを示すチェックアウト
 * 多面指しのために複数の部屋に入ることへの考慮
 
-# 詳細
-
 ゲーム対局部屋に入るときは当該 Room モデルのレコードの sente_id または gote_id フィールドに 自分のユーザーIdを上書きし、  
 自分の Profile レコードの match_state フィールドを 3 （対局中）に上書きする  
 
-# はじめに
+# 情報
 
-この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
-連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい  
+
+| What is   | This is                                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------------------- |
+| Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
+
+# 始める前に
 
 この記事のアーキテクチャ:  
 
-| Key              | Value                                     |
+| What is          | This is                                   |
 | ---------------- | ----------------------------------------- |
 | OS               | Windows10                                 |
 | Container        | Docker                                    |

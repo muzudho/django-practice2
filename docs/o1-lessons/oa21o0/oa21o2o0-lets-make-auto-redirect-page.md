@@ -1,23 +1,30 @@
 # サンプルを見る
 
-📖 [http://tic.warabenture.com:8000/practice/v1/auto_redirect/](http://tic.warabenture.com:8000/practice/v1/auto_redirect/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/auto_redirect/)  
 
-# 目的
+# 目標
 
 待っていると　対局が付くページがほしい  
+
+## 詳細
 
 いきなり作るのは難しいので、まず サーバーサイドで時計を見て  
 0分、5分、10分、... のような 分が 5 で割り切れるタイミングで  
 クライアントのページをリダイレクトする  
 
-# はじめに
+# 情報
 
-この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
-連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい  
+
+| What is   | This is                                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------------------- |
+| Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
+
+# 始める前に
 
 この記事のアーキテクチャ:  
 
-| Key              | Value                                     |
+| What is          | This is                                   |
 | ---------------- | ----------------------------------------- |
 | OS               | Windows10                                 |
 | Container        | Docker                                    |
