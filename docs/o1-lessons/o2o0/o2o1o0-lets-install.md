@@ -1,12 +1,18 @@
-# 目的
+# 目標
 
 開発環境を用意する  
 
-# はじめに
+# 情報
+
+| What is    | This is                                                                                                 |
+| ---------- | ------------------------------------------------------------------------------------------------------- |
+| 連載の目次 | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
+
+# 始める前に
 
 この記事のアーキテクチャ:  
 
-| Key       | Value                                     |
+| What is   | This is                                   |
 | --------- | ----------------------------------------- |
 | OS        | Windows10                                 |
 | Container | Docker                                    |
@@ -16,15 +22,15 @@
 一番参考になる元記事は 📖[Quickstart: Compose and Django](https://docs.docker.com/samples/django/) だ。  
 わたしの記事は単に **やってみた** ぐらいの位置づけだ  
 
-この連載の最初のページ: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
+# 手順
 
-# Step O2o1o0g1o0 エディターのインストール - Visual Studio Code
+## Step O2o1o0g1o0 エディターのインストール - Visual Studio Code
 
 👇 以下のリンクから、がんばって Visual Studio Code をインストールしてほしい  
 
 📖 [Visual Studio Code](https://code.visualstudio.com/)  
 
-# Step O2o1o0g2o0 リポジトリの用意 - Git
+## Step O2o1o0g2o0 リポジトリの用意 - Git
 
 がんばって Git を使ったソース管理を覚えてきてほしい  
 
@@ -34,11 +40,11 @@
     * 📖 [Git Hub Desktop](https://desktop.github.com/)
 * 📖 [Git Lab](https://gitlab.com/gitlab-org/gitlab)
 
-# Step O2o1o0g3o0 仮想コンテナの用意 - Docker
+## Step O2o1o0g3o0 仮想コンテナの用意 - Docker
 
 がんばって Docker と docker-compose を覚えてきてほしい  
 
-# Step O2o1o0g4o0 開発環境の確認
+## Step O2o1o0g4o0 開発環境の確認
 
 VSCode のターミナルで以下のコマンドを叩いていって、あなたのPCと この記事の環境が似ているか確認してほしい  
 
@@ -65,7 +71,7 @@ docker-compose -version
 python -m pip install --upgrade pip
 ```
 
-# Step O2o1o0g5o0 Pythonパッケージ インストール指定 - requirements.txt ファイル
+## Step O2o1o0g5o0 Pythonパッケージ インストール指定 - requirements.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -82,7 +88,7 @@ Django>=3.0,<4.0
 psycopg2>=2.8
 ```
 
-# Step O2o1o0g6o0 ドッカーファイル作成 - Dockerfile ファイル
+## Step O2o1o0g6o0 ドッカーファイル作成 - Dockerfile ファイル
 
 以下のファイルを新規作成してほしい  
 
@@ -116,7 +122,7 @@ RUN pip install -r requirements.txt
 COPY . /code/
 ```
 
-# Step O2o1o0g7o0 ドッカーコンポーズファイル作成 - docker-compose.yml ファイル
+## Step O2o1o0g7o0 ドッカーコンポーズファイル作成 - docker-compose.yml ファイル
 
 以下のファイルを新規作成してほしい  
 
@@ -166,7 +172,7 @@ services:
       - db
 ```
 
-# Step O2o1o0g8o0 プロジェクト作成 - startproject 管理コマンド
+## Step O2o1o0g8o0 プロジェクト作成 - startproject 管理コマンド
 
 以下の説明は なんとことだか分からないだろうが、自分の頭で考えてほしい  
 
@@ -212,7 +218,7 @@ Creating src1_web_run ... done
         └── 📄 manage.py
 ```
 
-# Step O2o1o0g9o0 セキュリティ対策 - SECRET_KEY 変数
+## Step O2o1o0g9o0 セキュリティ対策 - SECRET_KEY 変数
 
 プロジェクトを作成した直後には問題がある。だから対応する。  
 
@@ -345,7 +351,7 @@ ALLOWED_HOSTS = []
 # 1. 例えば レンタルサーバーを借りたときなどは、ここに IPアドレス や ホスト名 を入れないと、外部からWebサイトが見れないだろう
 ```
 
-# Step O2o1o0g9o1o0 プロジェクト名の一般化
+## Step O2o1o0g9o1o0 プロジェクト名の一般化
 
 ## Step O2o1o0g9o1o1o0 asgi.py
 
@@ -488,7 +494,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', f'{PROJECT_NAME}.settings')
 # ...略...
 ```
 
-# Step O2o1o0gA10o0 コメント - manage.py ファイル
+## Step O2o1o0gA10o0 コメント - manage.py ファイル
 
 👇 以下のファイルに、コメントを書き入れてもいいし、書き入れなくてもよい  
 
@@ -541,7 +547,7 @@ if __name__ == '__main__':
     main()
 ```
 
-# Step O2o1o0gA11o0 コメント - urls.py ファイル
+## Step O2o1o0gA11o0 コメント - urls.py ファイル
 
 👇 以下のファイルに、コメントを書き入れてもいいし、書き入れなくてもよい  
 
@@ -601,7 +607,7 @@ urlpatterns = [
 ]
 ```
 
-# Step O2o1o0gA12o0 設定変更 - settings.py ファイル
+## Step O2o1o0gA12o0 設定変更 - settings.py ファイル
 
 👇 以下のファイルを編集してほしい  
 
@@ -692,7 +698,7 @@ DATABASES = {
 }
 ```
 
-# Step O2o1o0gA13o0 コメント - settings.py ファイル
+## Step O2o1o0gA13o0 コメント - settings.py ファイル
 
 👇 以下のファイルに、コメントを書き入れてもいいし、書き入れなくてもよい  
 
@@ -736,7 +742,7 @@ ROOT_URLCONF = f'{PROJECT_NAME}.urls'
 #          -------------
 ```
 
-# Step O2o1o0gA14o0 コメント - settings_secrets.py ファイル
+## Step O2o1o0gA14o0 コメント - settings_secrets.py ファイル
 
 👇 以下のファイルに、コメントを書き入れてもいいし、書き入れなくてもよい  
 
@@ -764,7 +770,7 @@ ALLOWED_HOSTS = []
 # 1. 例えば レンタルサーバーを借りたときなどは、ここに IPアドレス や ホスト名 を入れないと、外部からWebサイトが見れないだろう
 ```
 
-# Step O2o1o0gA15o0 ギット設定 - .gitignore ファイル
+## Step O2o1o0gA15o0 ギット設定 - .gitignore ファイル
 
 👇 （もしgitを使っているなら）以下のファイルを編集してほしい  
 
@@ -797,7 +803,7 @@ ALLOWED_HOSTS = []
 src1/data/db
 ```
 
-# Step O2o1o0gA16o0 ドッカーコンテナ起動 - docker-compose コマンド
+## Step O2o1o0gA16o0 ドッカーコンテナ起動 - docker-compose コマンド
 
 👇 以下のコマンドを叩いてほしい  
 
@@ -827,7 +833,7 @@ docker-compose up
     └── 📄 .gitignore
 ```
 
-# Step O2o1o0gA17o0 Webページへアクセス
+## Step O2o1o0gA17o0 Webページへアクセス
 
 次に、ブラウザで以下のURLにアクセスしてほしい  
 
@@ -836,7 +842,7 @@ docker-compose up
 これで、ロケットが飛んでいるページが出てくれば　インストールは完了だ。  
 `[Ctrl]+[C]` キーでWebサーバーを停めることができる  
 
-# Step O2o1o0gA18o0 Dockerコンテナの停止の練習
+## Step O2o1o0gA18o0 Dockerコンテナの停止の練習
 
 Dockerコンテナの停止の練習をしてほしい。そんなん知ってるという人はパスして構わない  
 
