@@ -1,10 +1,12 @@
 # サンプルを見る
 
-📖 [http://tic.warabenture.com:8000/practice/v1/rooms/](http://tic.warabenture.com:8000/practice/v1/rooms/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/rooms/)  
 
-# 目的
+# 目標
 
 ゲームルームを一覧したい  
+
+## 詳細
 
 表示例:  
 
@@ -19,14 +21,19 @@ ID    部屋名        先手Id  先手名  後手Id  後手名  盤面       �
 
 👆 `観る` ボタンを置いているが、クリックした先のページはまだ無い。あとで作る  
 
-# はじめに
+# 情報
 
-この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
-連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい  
+
+| What is   | This is                                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------------------- |
+| Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
+
+# 始める前に
 
 この記事のアーキテクチャ:  
 
-| Key              | Value                                     |
+| What is          | This is                                   |
 | ---------------- | ----------------------------------------- |
 | OS               | Windows10                                 |
 | Container        | Docker                                    |
