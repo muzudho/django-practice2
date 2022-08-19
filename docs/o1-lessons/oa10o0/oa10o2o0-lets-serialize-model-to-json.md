@@ -1,24 +1,25 @@
 # サンプルを見る
 
-📖 [http://tic.warabenture.com:8000/practice/v1/from-object-to-json-str/](http://tic.warabenture.com:8000/practice/v1/from-object-to-json-str/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/from-object-to-json-str/)  
 
-# 目的
+# 目標
 
 モデルの中身を全部見たい。  
 デバッグモードなら、エラー画面で変数の内容を見れるが、エラーじゃないときも見たい  
 
-# 手段
+# 情報
 
-モデルを、JSON形式にシリアライズ（出力）する  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい  
 
-# はじめに
+| What is   | This is                                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------------------- |
+| Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
 
-この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
-連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
+# 始める前に
 
 この記事のアーキテクチャ:  
 
-| Key       | Value                                     |
+| What is   | This is                                   |
 | --------- | ----------------------------------------- |
 | OS        | Windows10                                 |
 | Container | Docker                                    |
