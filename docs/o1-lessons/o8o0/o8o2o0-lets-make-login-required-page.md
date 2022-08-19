@@ -1,13 +1,15 @@
 # サンプルを見る
 
-📖 [http://tic.warabenture.com:8000/practice/v1/login-required](http://localhost:8000/practice/v1/login-required) - ログインが必要なページ  
-📖 [http://tic.warabenture.com:8000/practice/v1/logout](http://localhost:8000/practice/v1/logout) - ログアウト  
+📖 [この記事のゴール：ログインが必要なページ](http://localhost:8000/practice/v1/login-required)  
+📖 [この記事のゴール：ログアウト](http://localhost:8000/practice/v1/logout)  
 
-# 概要
+# 目標
 
 ログインしているユーザーには 見え、  
 そうでないユーザーには ログイン ページが出るような  
 ページを作る練習をする  
+
+## 詳細
 
 とりあえず、見えるページは、以下のように 自分のユーザー情報を出す  
 
@@ -19,14 +21,19 @@ Login user.
 * email: admin@example.com
 ```
 
-# はじめに
+# 情報
 
-この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい。  
-連載の目次: 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)  
+この記事は Lesson 1. から順に全部やってこないと ソースが足りず実行できないので注意されたい  
+
+| What is   | This is                                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------------------- |
+| Lesson 1. | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae) |
+
+# 始める前に
 
 この記事のアーキテクチャ:  
 
-| Key       | Value                                     |
+| What is   | This is                                   |
 | --------- | ----------------------------------------- |
 | OS        | Windows10                                 |
 | Container | Docker                                    |
