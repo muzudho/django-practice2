@@ -44,7 +44,8 @@
                     <v-container fluid>
                         <h1>Life game</h1>
                         <div>
-                            Original: 📖 <a href="https://conwaylife.com/">https://conwaylife.com/</a>
+                            Original: 📖 <a href="https://conwaylife.com/">https://conwaylife.com/</a><br/>
+                            Tutorial Video: 📺 <a href="https://www.youtube.com/playlist?list=PLZC7Zqdh0Qb3wOpit5dewit3q2-Mqg9vC">THE RECURSIVE COSMOS: Conway's Game of Life ライフゲームの世界</a>
                         </div>
                     </v-container>
                     <!--
