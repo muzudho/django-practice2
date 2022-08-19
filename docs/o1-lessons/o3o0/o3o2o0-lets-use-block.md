@@ -18,7 +18,7 @@
 
 この記事のアーキテクチャ:  
 
-| Key       | Value                                     |
+| What is   | This is                                   |
 | --------- | ----------------------------------------- |
 | OS        | Windows10                                 |
 | Container | Docker                                    |
