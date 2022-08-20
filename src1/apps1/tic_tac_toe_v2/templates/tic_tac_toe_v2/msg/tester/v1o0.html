@@ -30,9 +30,13 @@
                             <!-- 入力 -->
                             <v-textarea name="po_input" required v-model="inputTextbox.value" label="Input" background-color="blue-grey lighten-1"></v-textarea>
 
+                            <!-- リスト -->
                             <v-select v-model="c2sMessageTypeList.value" :items="c2sMessageTypeItems" label="クライアントからサーバーへ送るメッセージの種類一覧"></v-select>
-                            <!-- -->
-                            <v-btn block elevation="2" v-on:click="postVu()"> Post </v-btn>
+                            <v-select v-model="sqList.value" :items="sqItems" label="マス番号一覧"></v-select>
+                            <v-select v-model="playerList.value" :items="playerItems" label="プレイヤー一覧"></v-select>
+
+                            <!-- ボタン -->
+                            <v-btn block elevation="2" v-on:click="postVu()"> Generate JSON </v-btn>
 
                             <!-- 出力 -->
                             <v-textarea name="po_output" required v-model="outputTextbox.value" label="Output" rows="10"></v-textarea>
@@ -73,11 +77,22 @@
                     outputTextbox: {
                         value: 'Please push "Execute" button.',
                     },
-                    // クライアントからサーバーへ送るメッセージの種類一覧
-                    c2sMessageTypeItems: ["DoMove", "Draw", "Start", "Won"],
+                    // リスト
                     c2sMessageTypeList: {
                         value: "DoMove",
                     },
+                    sqList: {
+                        value: "",
+                    },
+                    playerList: {
+                        value: "",
+                    },
+                    // クライアントからサーバーへ送るメッセージの種類一覧
+                    c2sMessageTypeItems: ["DoMove", "Draw", "Start", "Won"],
+                    // マス番号の一覧
+                    sqItems: ["", 0, 1, 2, 3, 4, 5, 6, 7, 8],
+                    // プレイヤーの一覧
+                    playerItems: ["", "X", "O"],
                 },
                 methods: {
                     // 関数名の末尾の Vu は vue1 のメソッドであることを表す目印
@@ -89,7 +104,11 @@
                         let doc = null;
                         switch (this.c2sMessageTypeList.value) {
                             case "DoMove":
-                                doc = c2sJsonGen1.createDoMove(0, "X");
+                                {
+                                    const sq = this.sqList.value;
+                                    const myTurn = this.playerList.value;
+                                    doc = c2sJsonGen1.createDoMove(sq, myTurn);
+                                }
                                 break;
 
                             case "Draw":
@@ -101,7 +120,8 @@
                                 break;
 
                             case "Won":
-                                doc = c2sJsonGen1.createWon("X");
+                                const winner = this.playerList.value;
+                                doc = c2sJsonGen1.createWon(winner);
                                 break;
 
                             default:
