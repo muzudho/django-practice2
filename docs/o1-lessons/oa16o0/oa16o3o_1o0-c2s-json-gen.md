@@ -190,7 +190,7 @@ class C2sJsonGen {
 // EOF OA16o3o_1o0g_1o0
 ```
 
-## Step OA16o3o_1o0g1o0 画面作成
+## Step OA16o3o_1o0g1o0 画面作成 - msg/c2s_json_gen/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 

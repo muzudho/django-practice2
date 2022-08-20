@@ -1,3 +1,16 @@
+# BOF OA16o3o0g8o0
+
+# OA16o3o_2o0g1o0 S2C JSON ジェネレーター
+from apps1.tic_tac_toe_v2.views.msg.s2c_json_gen.v1o0 import S2cJsonGen
+#          --------------                        ----        ----------
+#          11                                    12          2
+#    ------------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py にさらに含まれるクラス
+
+
 class TicTacToeV2MessageConverter():
     """OA16o3o0g8o0 サーバープロトコル"""
 
@@ -18,13 +31,11 @@ class TicTacToeV2MessageConverter():
 
             self.on_end(scope, doc_received)
 
+            # TODO 現状、クライアント側から勝者を送ってきているが、勝敗判定のロジックはサーバー側に置きたい
+            winner = doc_received.get("c2s_winner", None)
+
             # `s2c_` は サーバーからクライアントへ送る変数の目印
-            return {
-                'type': 'send_message',  # type属性は必須
-                's2c_event': "S2C_End",
-                # TODO 現状、クライアント側から勝者を送ってきているが、勝敗判定のロジックはサーバー側に置きたい
-                's2c_winner': doc_received.get("c2s_winner", None),
-            }
+            return S2cJsonGen.create_end(winner)
 
         elif event == 'C2S_Moved':
             # 駒を置いたとき
@@ -71,3 +82,5 @@ class TicTacToeV2MessageConverter():
         """対局開始時"""
         # print("[TicTacToeV2MessageConverter on_start] ignored")
         pass
+
+# EOF OA16o3o0g8o0
