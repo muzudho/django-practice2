@@ -1,9 +1,9 @@
 // BOF OA16o3o0g3o0
 
 /**
- * 受信メッセージ一覧
+ * 受信メッセージ駆動
  */
-class S2cMessages {
+class S2cMessageDriven {
     /**
      * サーバーからクライアントへ送られてきたメッセージをセットする関数を返します
      * @returns 関数
@@ -12,7 +12,7 @@ class S2cMessages {
         // `s2c_` は サーバーからクライアントへ送られてきた変数の目印
         // イベント
         let event = message["s2c_event"];
-        console.log(`[S2cMessages setMessageFromServer] サーバーからのメッセージを受信しました event:${event}`);
+        console.log(`[S2cMessageDriven setMessageFromServer] サーバーからのメッセージを受信しました event:${event}`);
 
         switch (event) {
             case "S2C_Start":
@@ -29,7 +29,7 @@ class S2cMessages {
 
             default:
                 // Undefined behavior
-                console.log(`[S2cMessages setMessageFromServer] ignored. event=[${event}]`);
+                console.log(`[S2cMessageDriven setMessageFromServer] ignored. event=[${event}]`);
         }
     }
 
@@ -56,7 +56,7 @@ class S2cMessages {
             return;
         }
 
-        console.log(`[S2cMessages start]`);
+        console.log(`[S2cMessageDriven start]`);
         this._onStart(message);
     }
 
@@ -70,10 +70,7 @@ class S2cMessages {
             return;
         }
 
-        // 勝者
-        let winner = message["s2c_winner"];
-        console.log(`[S2cMessages end] winner:${winner}`);
-        this._onEnd(message, winner);
+        this._onEnd(message);
     }
 
     /**
@@ -86,13 +83,7 @@ class S2cMessages {
             return;
         }
 
-        // 升番号
-        let sq = message["s2c_sq"];
-        // 手番。 "X" か "O"
-        let piece_moved = message["s2c_pieceMoved"];
-        console.log(`[S2cMessages onMoved] sq:${sq} piece_moved:${piece_moved}`);
-
-        this._onMoved(message, parseInt(sq), piece_moved);
+        this._onMoved(message);
     }
 }
 

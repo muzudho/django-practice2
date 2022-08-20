@@ -83,7 +83,7 @@
         <script src="{% static 'tic_tac_toe_v2/think/judge_ctrl/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/think/engine/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/gui/connection/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/msg/s2c_messages/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/msg/s2c_message_driven/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/msg/c2s_json_gen/v1o0.js' %}"></script>
         <!--            ===============================================
                         1
@@ -107,15 +107,22 @@
             console.log(`[HTML] convertPartsToConnectionString roomName=${roomName} connectionString=${connectionString}`);
 
             // サーバーからクライアントへメッセージ送信
-            const s2cMessages = new S2cMessages();
+            const s2cMessages = new S2cMessageDriven();
             s2cMessages.onStart = (message)=>{
                 vue1.onStart();
             }
-            s2cMessages.onEnd = (message, winner)=>{
+            s2cMessages.onEnd = (message)=>{
+                // 勝者
+                let winner = message["s2c_winner"];
+                console.log(`[HTML onEnd] winner:${winner}`);
                 vue1.onGameover(winner);
             }
-            s2cMessages.onMoved = (message, sq, piece_moved)=>{
-                console.log(`[HTML onMoved] 自分の手番:${vue1.engine.position.turn.me}`);
+            s2cMessages.onMoved = (message)=>{
+                // 升番号
+                let sq = parseInt(message["s2c_sq"]);
+                // 手番。 "X" か "O"
+                let piece_moved = message["s2c_pieceMoved"];
+                console.log(`[HTML onMoved] sq:${sq} piece_moved:${piece_moved} 自分の手番:${vue1.engine.position.turn.me}`);
 
                 if (piece_moved != vue1.engine.position.turn.me) {
                     // 相手の手番なら、自動で動かします
