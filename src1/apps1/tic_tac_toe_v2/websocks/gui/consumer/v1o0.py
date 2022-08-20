@@ -1,3 +1,5 @@
+# BOF OA16o3o0g9o0
+
 # 参考にした記事
 # -------------
 # 📖[Django Channels and WebSockets](https: // blog.logrocket.com/django-channels-and-websockets/)
@@ -63,3 +65,5 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
         await self.send(text_data=json.dumps({
             "message": message,
         }))
+
+# EOF OA16o3o0g9o0
