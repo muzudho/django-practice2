@@ -18,7 +18,7 @@ class Connection {
      *
      * @param {string} roomName - 部屋名
      * @param {strint} connectionString - Webソケット接続文字列
-     * @param {IncommingMessages} s2cMessageDriven - 受信メッセージ駆動
+     * @param {S2cMessageDriven} s2cMessageDriven - 受信メッセージ駆動
      * @param {function} onOpenWebSocket - Webソケットを開かれたとき
      * @param {function} onCloseWebSocket - Webソケットが閉じられたとき。 例: サーバー側にエラーがあって接続が切れたりなど
      * @param {function} onWebSocketError - Webソケットエラー時のメッセージ
