@@ -1,4 +1,4 @@
-{# BOF OA16o3o_1o0g1o0 #}
+{# BOF OA16o3o_2o0g2o0 #}
 <!-- -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
@@ -22,7 +22,7 @@
             <v-app>
                 <v-main>
                     <v-container fluid>
-                        <h1>Tic Tac Toe - C2S Json Generator</h1>
+                        <h1>Tic Tac Toe - S2C Json Generator</h1>
                         <v-form method="POST">
                             {% csrf_token %}
 
@@ -50,10 +50,10 @@
         <script src="{% static 'tic_tac_toe_v2/think/user_ctrl/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/think/judge_ctrl/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/think/engine/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/msg/c2s_json_gen/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/msg/s2c_messages/v1o0.js' %}"></script>
         <!--            ===============================================
                         1
-        1. src1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/msg/c2s_json_gen/v1o0.js
+        1. src1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/msg/s2c_messages/v1o0.js
                                      ==============================================
         -->
 
@@ -132,4 +132,4 @@
         </script>
     </body>
 </html>
-{# EOF OA16o3o_1o0g1o0 #}
+{# EOF OA16o3o_2o0g2o0 #}

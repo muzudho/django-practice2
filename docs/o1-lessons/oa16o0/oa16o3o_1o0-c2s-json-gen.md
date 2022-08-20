@@ -263,7 +263,6 @@ class C2sJsonGen {
         <script src="{% static 'tic_tac_toe_v2/think/user_ctrl/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/think/judge_ctrl/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/think/engine/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/msg/s2c_messages/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/msg/c2s_json_gen/v1o0.js' %}"></script>
         <!--            ===============================================
                         1
