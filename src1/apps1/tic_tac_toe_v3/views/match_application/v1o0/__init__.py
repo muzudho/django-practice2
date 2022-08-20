@@ -1,3 +1,5 @@
+# BOF OA22o1o0g8o0
+
 # 〇×ゲーム v2
 from apps1.tic_tac_toe_v2.views.gui.match_application.v1o0 import MatchApplicationV as MatchApplicationVV2g1o0
 #                       ^two
@@ -13,10 +15,10 @@ class MatchApplicationV():
     """OA22o1o0g8o0 対局申込ビュー"""
 
     # 〇×ゲーム v3.1
-    path_of_http_playing = "/tic-tac-toe/v3.1/playing/{0}/?&myturn={1}"
-    #                                     ^three
-    #                       ------------------------------------------
-    #                       1
+    playing_web_path = "/tic-tac-toe/v3.1/playing/{0}/?&myturn={1}"
+    #                                 ^three
+    #                   ------------------------------------------
+    #                   1
     # 1. `http://example.com:8000/tic-tac-toe/v3.1/playing/Elephant/?&myturn=X`
     #                            ---------------------------------------------
 
@@ -35,8 +37,8 @@ class MatchApplicationV():
 
         return render_match_application(
             request,
-            MatchApplicationV.path_of_http_playing,
-            MatchApplicationVV2g1o0.path_of_local_html,
+            MatchApplicationV.playing_web_path,
+            MatchApplicationVV2g1o0.template_path,
             MatchApplicationV.on_sent,
             MatchApplicationV.open)
 
@@ -51,3 +53,5 @@ class MatchApplicationV():
     def open(request):
         """訪問後"""
         return MatchApplicationVV2g1o0.open_context
+
+# EOF OA22o1o0g8o0

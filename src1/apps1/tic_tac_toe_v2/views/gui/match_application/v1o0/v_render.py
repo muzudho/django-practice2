@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 
-def render_match_application(request, path_of_http_playing, lp_match_application, on_sent, open):
+def render_match_application(request, playing_web_path, lp_match_application, on_sent, open):
     """OA16o3o0gA12o0 対局申込 - 描画
 
     Parameters
@@ -20,7 +20,7 @@ def render_match_application(request, path_of_http_playing, lp_match_application
 
         # TODO バリデーションチェックしたい
 
-        return redirect(path_of_http_playing.format(po_room_name, my_turn))
+        return redirect(playing_web_path.format(po_room_name, my_turn))
 
     # 訪問後
     context = open(request)

@@ -840,20 +840,22 @@ connect();
 ```
 
 ```py
+# BOF OA16o1o0gA13o0
+
 class MatchApplicationV():
     """OA16o1o0gA13o0 対局申込ビュー"""
 
-    path_of_http_playing = "/tic-tac-toe/v1/playing/{0}/?&mypiece={1}"
-    #                                     ^one
-    #                       -----------------------------------------
-    #                       1
+    playing_web_path = "/tic-tac-toe/v1/playing/{0}/?&mypiece={1}"
+    #                                 ^one
+    #                   -----------------------------------------
+    #                   1
     # 1. `http://example.com:8000/tic-tac-toe/v1/playing/Elephant/?&mypiece=X`
     #                            --------------------------------------------
 
-    path_of_local_html = "tic_tac_toe_v1/match_application/v1o0.html"
-    #                                  ^one
-    #                     ------------------------------------------
-    #                     1
+    template_path = "tic_tac_toe_v1/match_application/v1o0.html"
+    #                             ^one
+    #                ------------------------------------------
+    #                1
     # 1. src1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/match_application/v1o0.html
     #                                        ------------------------------------------
 
@@ -870,8 +872,10 @@ class MatchApplicationV():
 
         return render_match_application(
             request,
-            MatchApplicationV.path_of_http_playing,
-            MatchApplicationV.path_of_local_html)
+            MatchApplicationV.playing_web_path,
+            MatchApplicationV.template_path)
+
+# EOF OA16o1o0gA13o0
 ```
 
 
@@ -977,13 +981,15 @@ def render_match_application(request, upf_playing, lp_match_application):
 ```
 
 ```py
+# BOF OA16o1o0gA15o0
+
 class PlayingV():
     """OA16o1o0gA15o0 対局中ビュー"""
 
-    path_of_local_html = "tic_tac_toe_v1/playing/v1o0.html"
-    #                                             ^one
-    #                     --------------------------------
-    #                     1
+    template_path = "tic_tac_toe_v1/playing/v1o0.html"
+    #                                        ^one
+    #                --------------------------------
+    #                1
     # 1. `src1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/playing/v1o0.html`
     #                                         --------------------------------
 
@@ -998,7 +1004,9 @@ class PlayingV():
         #                                                  --------
         # 2. `1.` に含まれる関数
 
-        return render_playing(request, room_name, PlayingV.path_of_local_html)
+        return render_playing(request, room_name, PlayingV.template_path)
+
+# EOF OA16o1o0gA15o0
 ```
 
 ## Step OA16o1o0gA16o0 ビュー作成 - playing/v1o0/v_render.py ファイル

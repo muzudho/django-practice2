@@ -285,6 +285,8 @@ INSTALLED_APPS = [
 ```
 
 ```py
+# BOF OA22o1o0g8o0
+
 # 〇×ゲーム v2
 from apps1.tic_tac_toe_v2.views.gui.match_application.v1o0 import MatchApplicationV as MatchApplicationVV2g1o0
 #                       ^two
@@ -300,10 +302,10 @@ class MatchApplicationV():
     """OA22o1o0g8o0 対局申込ビュー"""
 
     # 〇×ゲーム v3.1
-    path_of_http_playing = "/tic-tac-toe/v3.1/playing/{0}/?&myturn={1}"
-    #                                     ^three
-    #                       ------------------------------------------
-    #                       1
+    playing_web_path = "/tic-tac-toe/v3.1/playing/{0}/?&myturn={1}"
+    #                                 ^three
+    #                   ------------------------------------------
+    #                   1
     # 1. `http://example.com:8000/tic-tac-toe/v3.1/playing/Elephant/?&myturn=X`
     #                            ---------------------------------------------
 
@@ -322,8 +324,8 @@ class MatchApplicationV():
 
         return render_match_application(
             request,
-            MatchApplicationV.path_of_http_playing,
-            MatchApplicationVV2g1o0.path_of_local_html,
+            MatchApplicationV.playing_web_path,
+            MatchApplicationVV2g1o0.template_path,
             MatchApplicationV.on_sent,
             MatchApplicationV.open)
 
@@ -338,6 +340,8 @@ class MatchApplicationV():
     def open(request):
         """訪問後"""
         return MatchApplicationVV2g1o0.open_context
+
+# EOF OA22o1o0g8o0
 ```
 
 ## Step OA22o1o0g9o0 対局ビュー作成 - playing/v1o0 フォルダー
@@ -370,6 +374,8 @@ class MatchApplicationV():
 ```
 
 ```py
+# BOF OA22o1o0g9o0
+
 # 〇×ゲーム v2
 from apps1.tic_tac_toe_v2.views.gui.playing.v1o0 import PlayingV as PlayingVV2g1o0
 #                       ^two
@@ -379,8 +385,8 @@ from apps1.tic_tac_toe_v2.views.gui.playing.v1o0 import PlayingV as PlayingVV2g1
 #    10
 # 10. `src1/apps1/tic_tac_toe_v2/views/gui/playing/v1o0/__init__.py`
 #           -------------------------------------------
+# 10, 12. ディレクトリー
 # 11. アプリケーション
-# 12. ただのディレクトリー
 # 2. `12.` に含まれる `__init__.py` ファイルにさらに含まれるクラス
 # 3. `2.` の別名
 
@@ -388,17 +394,17 @@ from apps1.tic_tac_toe_v2.views.gui.playing.v1o0 import PlayingV as PlayingVV2g1
 class PlayingV():
     """OA22o1o0g9o0 対局中ビュー"""
 
-    path_of_web_socket = "/tic-tac-toe/v2/playing/"
-    #                                   ^two
-    #                     ------------------------
-    #                     1
+    web_socket_path = "/tic-tac-toe/v2/playing/"
+    #                                ^two
+    #                  ------------------------
+    #                  1
     # 1. `ws://example.com:8000/tic-tac-toe/v2/playing/`
     #                          ------------------------
 
-    path_of_local_html = "tic_tac_toe_v3/playing/v1o0.html.txt"
-    #                                  ^three
-    #                     ------------------------------------
-    #                     1
+    template_path = "tic_tac_toe_v3/playing/v1o0.html.txt"
+    #                             ^three
+    #                ------------------------------------
+    #                1
     # 1. `src1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/playing/v1o0.html.txt`
     #                                         ------------------------------------
 
@@ -418,8 +424,8 @@ class PlayingV():
         return render_playing(
             request,
             kw_room_name,
-            PlayingV.path_of_web_socket,
-            PlayingV.path_of_local_html,
+            PlayingV.web_socket_path,
+            PlayingV.template_path,
             PlayingV.on_update,
             PlayingVV2g1o0.expected_pieces)
 
@@ -428,6 +434,8 @@ class PlayingV():
         """訪問後または送信後"""
         # 何もしません
         pass
+
+# EOF OA22o1o0g9o0
 ```
 
 ## Step OA22o1o0gA10o0 ルート編集 - urls_practice.py ファイル

@@ -169,8 +169,8 @@ class MatchApplicationV():
 
         return render_match_application(
             request,
-            MatchApplicationVV3g1o0.path_of_http_playing,
-            MatchApplicationVV2g1o0.path_of_local_html,
+            MatchApplicationVV3g1o0.playing_web_path,
+            MatchApplicationVV2g1o0.template_path,
             MatchApplicationV.on_sent,
             MatchApplicationV.open)
 

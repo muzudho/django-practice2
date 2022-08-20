@@ -1,3 +1,5 @@
+# BOF OA23o1o0g2o0
+
 # 〇×ゲーム v2
 from apps1.tic_tac_toe_v2.views.gui.match_application.v1o0 import MatchApplicationV as MatchApplicationVV2g1o0
 #                       ^two
@@ -17,8 +19,8 @@ from apps1.tic_tac_toe_v3.views.match_application.v1o0 import MatchApplicationV 
 #    10
 # 10. `src1/apps1/tic_tac_toe_v3/views/match_application/v1o0/__init__.py`
 #           -------------------------------------------------
+# 10, 12. ディレクトリー
 # 11. アプリケーション
-# 12. ただのディレクトリー
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 # 3. '2.' の別名
 
@@ -41,8 +43,8 @@ class MatchApplicationV():
 
         return render_match_application(
             request,
-            MatchApplicationVV3g1o0.path_of_http_playing,
-            MatchApplicationVV2g1o0.path_of_local_html,
+            MatchApplicationVV3g1o0.playing_web_path,
+            MatchApplicationVV2g1o0.template_path,
             MatchApplicationV.on_sent,
             MatchApplicationV.open)
 
@@ -64,3 +66,5 @@ class MatchApplicationV():
     def open(request):
         """訪問後"""
         return MatchApplicationVV2g1o0.open_context
+
+# EOF OA23o1o0g2o0

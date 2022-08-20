@@ -1,3 +1,5 @@
+# BOF OA24o1o0g7o0
+
 # 〇×ゲーム v2 対局中 v1.0
 from apps1.tic_tac_toe_v2.views.gui.playing.v1o0 import PlayingV as PlayingVV2g1o0
 #                       ^two
@@ -7,8 +9,8 @@ from apps1.tic_tac_toe_v2.views.gui.playing.v1o0 import PlayingV as PlayingVV2g1
 #    10
 # 10. `src1/apps1/tic_tac_toe_v2/views/gui/playing/v1o0/__init__.py`
 #           -------------------------------------------
+# 10, 12. ディレクトリー
 # 11. アプリケーション
-# 12. ただのディレクトリー
 # 2. `12.` に含まれる `__init__.py` ファイルにさらに含まれるクラス
 # 3. `2.` の別名
 
@@ -21,8 +23,8 @@ from apps1.tic_tac_toe_v3.views.playing.v1o0 import PlayingV as PlayingVV3g1o0
 #    10
 # 10. `src1/apps1/tic_tac_toe_v3/views/o1o0/playing/__init__.py`
 #           ---------------------------------------
+# 10, 12. ディレクトリー
 # 11. アプリケーション
-# 12. ただのディレクトリー
 # 2. `12.` に含まれる `__init__.py` ファイルにさらに含まれるクラス
 # 3. `2.` の別名
 
@@ -30,10 +32,10 @@ from apps1.tic_tac_toe_v3.views.playing.v1o0 import PlayingV as PlayingVV3g1o0
 class PlayingV():
     """OA24o1o0g7o0 対局中ビュー"""
 
-    path_of_web_socket = "/tic-tac-toe/v3.3/playing/"
-    #                                     ^three
-    #                     --------------------------
-    #                     1
+    web_socket_path = "/tic-tac-toe/v3.3/playing/"
+    #                                ^three
+    #                  --------------------------
+    #                  1
     # 1. `ws://example.com/tic-tac-toe/v3.3/playing/Elephant/`
     #                     --------------------------
 
@@ -53,7 +55,9 @@ class PlayingV():
         return render_playing(
             request,
             kw_room_name,
-            PlayingV.path_of_web_socket,
-            PlayingVV3g1o0.path_of_local_html,
+            PlayingV.web_socket_path,
+            PlayingVV3g1o0.template_path,
             PlayingVV3g1o0.on_update,
             PlayingVV2g1o0.expected_pieces)
+
+# EOF OA24o1o0g7o0

@@ -176,6 +176,8 @@ docker-compose up
 ```
 
 ```py
+# BOF OA25o1o0g3o0
+
 import json
 
 # 〇×ゲーム v2 対局申込 v.1.0
@@ -187,8 +189,8 @@ from apps1.tic_tac_toe_v2.views.gui.match_application.v1o0 import MatchApplicati
 #    10
 # 10. `src1/apps1/tic_tac_toe_v2/views/gui/match_application/v1o0/__init__.py`
 #           -----------------------------------------------------
+# 10, 12. ディレクトリー
 # 11. アプリケーション
-# 12. ただのディレクトリー
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 # 3. '2.' の別名
 
@@ -223,10 +225,10 @@ class MatchApplicationV():
         ]),
     }
 
-    path_of_http_playing = "/tic-tac-toe/v3.4/playing/{0}/?&myturn={1}"
-    #                                    ^^^^
-    #                       ------------------------------------------
-    #                       1
+    playing_web_path = "/tic-tac-toe/v3.4/playing/{0}/?&myturn={1}"
+    #                                 ^three
+    #                   ------------------------------------------
+    #                   1
     # 1. `http://example.com:8000/tic-tac-toe/v3.4/playing/Elephant/?&myturn=X`
     #                            ---------------------------------------------
 
@@ -245,8 +247,8 @@ class MatchApplicationV():
 
         return render_match_application(
             request,
-            MatchApplicationV.path_of_http_playing,
-            MatchApplicationVV2g1o0.path_of_local_html,
+            MatchApplicationV.playing_web_path,
+            MatchApplicationVV2g1o0.template_path,
             MatchApplicationVV3g1o0.on_sent,
             MatchApplicationV.open)
 
@@ -254,6 +256,8 @@ class MatchApplicationV():
     def open(request):
         """訪問後"""
         return MatchApplicationV.open_context
+
+# EOF OA25o1o0g3o0
 ```
 
 ## Step OA25o1o0g4o0 対局申込ビュー作成 - playing/v4o0 フォルダー
@@ -278,6 +282,8 @@ class MatchApplicationV():
 ```
 
 ```py
+# BOF OA25o1o0g4o0
+
 # 〇×ゲーム v3 対局中 v1.0
 from apps1.tic_tac_toe_v3.views.playing.v1o0 import PlayingV as PlayingVV3o1o0
 #          --------------               ----        --------    --------------
@@ -311,10 +317,10 @@ class PlayingV():
     # 駒
     expected_pieces = ['X', 'O', '_']
 
-    path_of_local_html = "tic_tac_toe_v3/playing/v4o0.html.txt"
-    #                                             ^four
-    #                     ------------------------------------
-    #                     1
+    template_path = "tic_tac_toe_v3/playing/v4o0.html.txt"
+    #                                        ^four
+    #                ------------------------------------
+    #                1
     # 1. `src1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/playing/v4o0.html.txt`
     #                                         ------------------------------------
 
@@ -334,10 +340,12 @@ class PlayingV():
         return render_playing(
             request,
             kw_room_name,
-            PlayingVV3o3o0.path_of_web_socket,
-            PlayingV.path_of_local_html,
+            PlayingVV3o3o0.web_socket_path,
+            PlayingV.template_path,
             PlayingVV3o1o0.on_update,
             PlayingV.expected_pieces)
+
+# EOF OA25o1o0g4o0
 ```
 
 ## Step OA25o1o0g5o0 ルート編集 - urls_practice.py ファイル

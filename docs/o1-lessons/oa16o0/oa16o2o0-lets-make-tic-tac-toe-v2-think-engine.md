@@ -1636,12 +1636,14 @@ board
 ```
 
 ```py
+# BOF OA16o2o0gA14o0
+
 class EngineManual():
     """OA16o2o0gA14o0 エンジン手動"""
 
-    path_of_local_html = "tic_tac_toe_v2/think/engine_manual/v1o0.html"
-    #                     --------------------------------------------
-    #                     1
+    template_path = "tic_tac_toe_v2/think/engine_manual/v1o0.html"
+    #                --------------------------------------------
+    #                1
     # 1. src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/think/engine_manual/v1o0.html
     #                                        --------------------------------------------
 
@@ -1657,7 +1659,9 @@ class EngineManual():
         #                                                              --------
         # 2. `1.` に含まれる関数
 
-        return render_engine_manual(request, EngineManual.path_of_local_html)
+        return render_engine_manual(request, EngineManual.template_path)
+
+# EOF OA16o2o0gA14o0
 ```
 
 ## Step OA16o2o0gA15o0 ビュー作成 - think/engine_manual/v1o0/v_render.py ファイル

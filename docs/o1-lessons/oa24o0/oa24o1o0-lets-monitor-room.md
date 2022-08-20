@@ -415,6 +415,8 @@ websocket_urlpatterns_merged.extend(
 ```
 
 ```py
+# BOF OA24o1o0g6o0
+
 # 〇×ゲーム v2 対局申込 v1.0
 from apps1.tic_tac_toe_v2.views.gui.match_application.v1o0 import MatchApplicationV as MatchApplicationVV2g1o0
 #                       ^two
@@ -422,8 +424,10 @@ from apps1.tic_tac_toe_v2.views.gui.match_application.v1o0 import MatchApplicati
 #          11                            12                       2                    3
 #    -----------------------------------------------------
 #    10
-# 1. `src1/apps1/tic_tac_toe_v2/views/gui/match_application/v1o0/__init__.py`
-#          -----------------------------------------------------
+# 10. `src1/apps1/tic_tac_toe_v2/views/gui/match_application/v1o0/__init__.py`
+#           -----------------------------------------------------
+# 10, 12. ディレクトリー
+# 11. アプリケーション
 # 2. `1.` の __init__.py ファイルに含まれるクラス
 # 3. '2.' の別名
 
@@ -436,8 +440,8 @@ from apps1.tic_tac_toe_v3.views.match_application.v1o0 import MatchApplicationV 
 #    10
 # 10. `src1/apps1/tic_tac_toe_v3/views/match_application/v1o0/__init__.py`
 #           -------------------------------------------------
+# 10, 12. ディレクトリー
 # 11. アプリケーション
-# 12. ただのディレクトリー
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 # 3. '2.' の別名
 
@@ -445,10 +449,10 @@ from apps1.tic_tac_toe_v3.views.match_application.v1o0 import MatchApplicationV 
 class MatchApplicationV():
     """OA24o1o0g6o0 対局申込ビュー"""
 
-    path_of_http_playing = "/tic-tac-toe/v3.3/playing/{0}/?&myturn={1}"
-    #                                       ^three
-    #                       ------------------------------------------
-    #                       1
+    playing_web_path = "/tic-tac-toe/v3.3/playing/{0}/?&myturn={1}"
+    #                                 ^three
+    #                   ------------------------------------------
+    #                   1
     # 1. `http://example.com:8000/tic-tac-toe/v3.3/playing/Elephant/?&myturn=X`
     #                            ---------------------------------------------
 
@@ -467,10 +471,12 @@ class MatchApplicationV():
 
         return render_match_application(
             request,
-            MatchApplicationV.path_of_http_playing,
-            MatchApplicationVV2g1o0.path_of_local_html,
+            MatchApplicationV.playing_web_path,
+            MatchApplicationVV2g1o0.template_path,
             MatchApplicationVV3g1o0.on_sent,
             MatchApplicationVV2g1o0.open)
+
+# EOF OA24o1o0g6o0
 ```
 
 ## Step OA24o1o0g7o0 対局申込ビュー作成 - playing/v3o0 フォルダー
@@ -499,6 +505,8 @@ class MatchApplicationV():
 ```
 
 ```py
+# BOF OA24o1o0g7o0
+
 # 〇×ゲーム v2 対局中 v1.0
 from apps1.tic_tac_toe_v2.views.gui.playing.v1o0 import PlayingV as PlayingVV2g1o0
 #                       ^two
@@ -508,8 +516,8 @@ from apps1.tic_tac_toe_v2.views.gui.playing.v1o0 import PlayingV as PlayingVV2g1
 #    10
 # 10. `src1/apps1/tic_tac_toe_v2/views/gui/playing/v1o0/__init__.py`
 #           -------------------------------------------
+# 10, 12. ディレクトリー
 # 11. アプリケーション
-# 12. ただのディレクトリー
 # 2. `12.` に含まれる `__init__.py` ファイルにさらに含まれるクラス
 # 3. `2.` の別名
 
@@ -522,8 +530,8 @@ from apps1.tic_tac_toe_v3.views.playing.v1o0 import PlayingV as PlayingVV3g1o0
 #    10
 # 10. `src1/apps1/tic_tac_toe_v3/views/o1o0/playing/__init__.py`
 #           ---------------------------------------
+# 10, 12. ディレクトリー
 # 11. アプリケーション
-# 12. ただのディレクトリー
 # 2. `12.` に含まれる `__init__.py` ファイルにさらに含まれるクラス
 # 3. `2.` の別名
 
@@ -531,10 +539,10 @@ from apps1.tic_tac_toe_v3.views.playing.v1o0 import PlayingV as PlayingVV3g1o0
 class PlayingV():
     """OA24o1o0g7o0 対局中ビュー"""
 
-    path_of_web_socket = "/tic-tac-toe/v3.3/playing/"
-    #                                     ^three
-    #                     --------------------------
-    #                     1
+    web_socket_path = "/tic-tac-toe/v3.3/playing/"
+    #                                ^three
+    #                  --------------------------
+    #                  1
     # 1. `ws://example.com/tic-tac-toe/v3.3/playing/Elephant/`
     #                     --------------------------
 
@@ -554,10 +562,12 @@ class PlayingV():
         return render_playing(
             request,
             kw_room_name,
-            PlayingV.path_of_web_socket,
-            PlayingVV3g1o0.path_of_local_html,
+            PlayingV.web_socket_path,
+            PlayingVV3g1o0.template_path,
             PlayingVV3g1o0.on_update,
             PlayingVV2g1o0.expected_pieces)
+
+# EOF OA24o1o0g7o0
 ```
 
 ## Step OA24o1o0g8o0 ルート編集 - urls_practice.py ファイル

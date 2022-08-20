@@ -1,3 +1,5 @@
+# BOF OA25o1o0g3o0
+
 import json
 
 # 〇×ゲーム v2 対局申込 v.1.0
@@ -9,8 +11,8 @@ from apps1.tic_tac_toe_v2.views.gui.match_application.v1o0 import MatchApplicati
 #    10
 # 10. `src1/apps1/tic_tac_toe_v2/views/gui/match_application/v1o0/__init__.py`
 #           -----------------------------------------------------
+# 10, 12. ディレクトリー
 # 11. アプリケーション
-# 12. ただのディレクトリー
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 # 3. '2.' の別名
 
@@ -45,10 +47,10 @@ class MatchApplicationV():
         ]),
     }
 
-    path_of_http_playing = "/tic-tac-toe/v3.4/playing/{0}/?&myturn={1}"
-    #                                    ^^^^
-    #                       ------------------------------------------
-    #                       1
+    playing_web_path = "/tic-tac-toe/v3.4/playing/{0}/?&myturn={1}"
+    #                                 ^three
+    #                   ------------------------------------------
+    #                   1
     # 1. `http://example.com:8000/tic-tac-toe/v3.4/playing/Elephant/?&myturn=X`
     #                            ---------------------------------------------
 
@@ -67,8 +69,8 @@ class MatchApplicationV():
 
         return render_match_application(
             request,
-            MatchApplicationV.path_of_http_playing,
-            MatchApplicationVV2g1o0.path_of_local_html,
+            MatchApplicationV.playing_web_path,
+            MatchApplicationVV2g1o0.template_path,
             MatchApplicationVV3g1o0.on_sent,
             MatchApplicationV.open)
 
@@ -76,3 +78,5 @@ class MatchApplicationV():
     def open(request):
         """訪問後"""
         return MatchApplicationV.open_context
+
+# EOF OA25o1o0g3o0

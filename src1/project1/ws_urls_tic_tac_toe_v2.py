@@ -1,8 +1,9 @@
-# OA16o3o0gA16o0
+# BOF OA16o3o0gA16o0
+
 # See also: 📖 [Channels - Consumers](https://channels.readthedocs.io/en/latest/topics/consumers.html)
 from django.conf.urls import url
 
-# 〇×ゲーム v2o1o0
+# OA16o3o0gA16o0 〇×ゲーム v2
 from apps1.tic_tac_toe_v2.websocks.gui.consumer.v1o1o0 import TicTacToeV2o1o0ConsumerCustom
 #          --------------                       ------        -----------------------------
 #          11                                   12            2
@@ -27,3 +28,5 @@ websocket_urlpatterns = [
     #    kw_room_name は変数として渡される
     # 2. クラス名とメソッド。 URL を ASGI形式にする
 ]
+
+# EOF OA16o3o0gA16o0

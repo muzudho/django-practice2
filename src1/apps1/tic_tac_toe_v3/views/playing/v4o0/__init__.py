@@ -1,3 +1,5 @@
+# BOF OA25o1o0g4o0
+
 # 〇×ゲーム v3 対局中 v1.0
 from apps1.tic_tac_toe_v3.views.playing.v1o0 import PlayingV as PlayingVV3o1o0
 #          --------------               ----        --------    --------------
@@ -31,10 +33,10 @@ class PlayingV():
     # 駒
     expected_pieces = ['X', 'O', '_']
 
-    path_of_local_html = "tic_tac_toe_v3/playing/v4o0.html.txt"
-    #                                             ^four
-    #                     ------------------------------------
-    #                     1
+    template_path = "tic_tac_toe_v3/playing/v4o0.html.txt"
+    #                                        ^four
+    #                ------------------------------------
+    #                1
     # 1. `src1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/playing/v4o0.html.txt`
     #                                         ------------------------------------
 
@@ -54,7 +56,9 @@ class PlayingV():
         return render_playing(
             request,
             kw_room_name,
-            PlayingVV3o3o0.path_of_web_socket,
-            PlayingV.path_of_local_html,
+            PlayingVV3o3o0.web_socket_path,
+            PlayingV.template_path,
             PlayingVV3o1o0.on_update,
             PlayingV.expected_pieces)
+
+# EOF OA25o1o0g4o0

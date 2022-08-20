@@ -1476,17 +1476,17 @@ class MatchApplicationV():
         ]),
     }
 
-    path_of_http_playing = "/tic-tac-toe/v2/playing/{0}/?&myturn={1}"
-    #                                     ^ two
-    #                       ----------------------------------------
-    #                       1
+    playing_web_path = "/tic-tac-toe/v2/playing/{0}/?&myturn={1}"
+    #                                 ^ two
+    #                   ----------------------------------------
+    #                   1
     # 1. `http://example.com:8000/tic-tac-toe/v2/playing/Elephant/?&myturn=X`
     #                            -------------------------------------------
 
-    path_of_local_html = "tic_tac_toe_v2/gui/match_application/v1o0.html"
-    #                                  ^two
-    #                     ----------------------------------------------
-    #                     1
+    template_path = "tic_tac_toe_v2/gui/match_application/v1o0.html"
+    #                             ^two
+    #                ----------------------------------------------
+    #                1
     # 1. src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/gui/match_application/v1o0.html
     #                                        ----------------------------------------------
 
@@ -1504,8 +1504,8 @@ class MatchApplicationV():
 
         return render_match_application(
             request,
-            MatchApplicationV.path_of_http_playing,
-            MatchApplicationV.path_of_local_html,
+            MatchApplicationV.playing_web_path,
+            MatchApplicationV.template_path,
             MatchApplicationV.on_sent,
             MatchApplicationV.open)
 
@@ -1564,7 +1564,7 @@ class MatchApplicationV():
 from django.shortcuts import render, redirect
 
 
-def render_match_application(request, path_of_http_playing, lp_match_application, on_sent, open):
+def render_match_application(request, playing_web_path, lp_match_application, on_sent, open):
     """OA16o3o0gA12o0 対局申込 - 描画
 
     Parameters
@@ -1583,7 +1583,7 @@ def render_match_application(request, path_of_http_playing, lp_match_application
 
         # TODO バリデーションチェックしたい
 
-        return redirect(path_of_http_playing.format(po_room_name, my_turn))
+        return redirect(playing_web_path.format(po_room_name, my_turn))
 
     # 訪問後
     context = open(request)
@@ -1642,18 +1642,18 @@ class PlayingV():
     expected_pieces = ['X', 'O']
 
     # Webソケット v2
-    path_of_web_socket = "/tic-tac-toe/v2/playing/"
-    #                                   ^two
-    #                     ------------------------
-    #                     1
+    web_socket_path = "/tic-tac-toe/v2/playing/"
+    #                                ^two
+    #                  ------------------------
+    #                  1
     # 1. `ws://example.com:8000/tic-tac-toe/v2/playing/`
     #                          ------------------------
 
     # HTML
-    path_of_local_html = "tic_tac_toe_v2/gui/playing/v1o1o0.html.txt"
-    #                                  ^two
-    #                     ------------------------------------------
-    #                     1
+    template_path = "tic_tac_toe_v2/gui/playing/v1o1o0.html.txt"
+    #                             ^two
+    #                ------------------------------------------
+    #                1
     # 1. `src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/gui/playing/v1o1o0.html.txt`
     #                                         ------------------------------------------
 
@@ -1672,8 +1672,8 @@ class PlayingV():
         return render_playing(
             request,
             kw_room_name,
-            PlayingV.path_of_web_socket,
-            PlayingV.path_of_local_html,
+            PlayingV.web_socket_path,
+            PlayingV.template_path,
             PlayingV.on_update,
             PlayingV.expected_pieces)
 
@@ -1907,11 +1907,12 @@ urlpatterns = [
 ```
 
 ```py
-# OA16o3o0gA16o0
+# BOF OA16o3o0gA16o0
+
 # See also: 📖 [Channels - Consumers](https://channels.readthedocs.io/en/latest/topics/consumers.html)
 from django.conf.urls import url
 
-# 〇×ゲーム v2o1o0
+# OA16o3o0gA16o0 〇×ゲーム v2
 from apps1.tic_tac_toe_v2.websocks.gui.consumer.v1o1o0 import TicTacToeV2o1o0ConsumerCustom
 #          --------------                       ------        -----------------------------
 #          11                                   12            2
@@ -1936,6 +1937,8 @@ websocket_urlpatterns = [
     #    kw_room_name は変数として渡される
     # 2. クラス名とメソッド。 URL を ASGI形式にする
 ]
+
+# EOF OA16o3o0gA16o0
 ```
 
 ## Step OA16o3o0gA17o0 Webソケット用総合ルート設定 - asgi.py ファイル＜その２＞
