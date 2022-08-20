@@ -21,6 +21,17 @@ from apps1.tic_tac_toe_v2.views.msg.c2s_json_gen.v1o0 import C2sJsonGenView as C
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 # 3. `2.` の別名
 
+# OA16o3o_2o0g5o0 〇×ゲーム v2 S2C JSON ジェネレーター
+from apps1.tic_tac_toe_v2.views.msg.s2c_json_gen.v1o0 import S2cJsonGenView as S2cJsonGenViewV1o0
+#          --------------                        ----        --------------    ------------------
+#          11                                    12          2                 3
+#    ------------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
+# 3. `2.` の別名
+
 # OA16o3o0gA15o0 〇×ゲーム v2 対局申込ページ
 from apps1.tic_tac_toe_v2.views.gui.match_application.v1o0 import MatchApplicationV
 #          --------------                             ----        -----------------
@@ -65,6 +76,17 @@ urlpatterns = [
     # 1. 例えば `http://example.com/tic-tac-toe/v2/c2s-json-gen/` のような URL のパスの部分
     #                              -----------------------------
     # 2. C2sJsonGenViewV1o0 クラスの render 静的メソッド
+
+    # OA16o3o_2o0g5o0 〇×ゲーム v2 S2C JSON ジェネレーター
+    path('tic-tac-toe/v2/s2c-json-gen/',
+         # ---------------------------
+         # 1
+         S2cJsonGenViewV1o0.render),
+    #    -------------------------
+    #    2
+    # 1. 例えば `http://example.com/tic-tac-toe/v2/s2c-json-gen/` のような URL のパスの部分
+    #                              -----------------------------
+    # 2. S2cJsonGenViewV1o0 クラスの render 静的メソッド
 
     # OA16o3o0gA15o0 対局申込
     path('tic-tac-toe/v2/match-application/',
