@@ -137,7 +137,7 @@ class S2cJsonGenCommands:
     """
 
     @staticmethod
-    def create_end(winner):
+    def create_end(args):
         """対局終了
 
         Parameters
@@ -153,11 +153,11 @@ class S2cJsonGenCommands:
         return {
             'type': 'send_message',  # type属性は必須
             's2c_event': "S2C_End",
-            's2c_winner': winner,
+            's2c_winner': args["player1"],
         }
 
     @staticmethod
-    def create_moved(dst_sq, piece_moved):
+    def create_moved(args):
         """駒を動かした
 
         Parameters
@@ -175,12 +175,12 @@ class S2cJsonGenCommands:
         return {
             'type': 'send_message',  # type属性は必須
             's2c_event': 'S2C_Moved',
-            's2c_sq': dst_sq,
-            's2c_pieceMoved': piece_moved,
+            's2c_sq': args["sq1"],
+            's2c_pieceMoved': args["piece1"],
         }
 
     @staticmethod
-    def create_start():
+    def create_start(args):
         """対局開始
 
         Returns
@@ -266,7 +266,7 @@ class S2cJsonGenCommands:
                             <input type="hidden" name="po_piece1" v-model="piece1Inputbox.value"/>
 
                             <!-- リスト -->
-                            <v-select v-model="c2sMessageTypeListbox.value" :items="c2sMessageTypeItems" label="サーバーからクライアントへ送られてくるメッセージの種類一覧"></v-select>
+                            <v-select name="po_messageType" v-model="c2sMessageTypeListbox.value" :items="c2sMessageTypeItems" label="サーバーからクライアントへ送られてくるメッセージの種類一覧"></v-select>
                             <v-select v-model="sqListbox.value" :items="sqItems" label="マス番号一覧"></v-select>
                             <v-select v-model="playerListbox.value" :items="playerItems" label="プレイヤー一覧"></v-select>
                             <v-select v-model="pieceListbox.value" :items="pieceItems" label="駒一覧"></v-select>
@@ -308,7 +308,7 @@ class S2cJsonGenCommands:
                     },
                     // メッセージの種類リストボックス
                     c2sMessageTypeListbox: {
-                        value: "End",
+                        value: "S2C_End",
                     },
                     // 隠し入力ボックス：プレイヤー１
                     player1Inputbox: {
@@ -335,7 +335,7 @@ class S2cJsonGenCommands:
                         value: "",
                     },
                     // メッセージの種類一覧
-                    c2sMessageTypeItems: ["End", "Moved", "Start"],
+                    c2sMessageTypeItems: ["S2C_End", "S2C_Moved", "S2C_Start"],
                     // マス番号の一覧
                     sqItems: ["", 0, 1, 2, 3, 4, 5, 6, 7, 8],
                     // プレイヤーの一覧
@@ -350,21 +350,21 @@ class S2cJsonGenCommands:
                      */
                     pullVu() {
                         switch (this.c2sMessageTypeListbox.value) {
-                            case "End":
+                            case "S2C_End":
                                 {
                                     // Winner
                                     this.player1Inputbox.value = this.playerListbox.value;
                                 }
                                 break;
 
-                            case "Moved":
+                            case "S2C_Moved":
                                 {
                                     this.sq1Inputbox.value = this.sqListbox.value;
                                     this.piece1Inputbox.value = this.pieceListbox.value;
                                 }
                                 break;
 
-                            case "Start":
+                            case "S2C_Start":
                                 {
 
                                 }
@@ -408,7 +408,19 @@ class S2cJsonGenCommands:
 ```py
 # BOF OA16o3o_2o0g3o0
 
+import json
 from django.shortcuts import render
+
+# OA16o3o_2o0g1o0 S2C JSON ジェネレーター
+from apps1.tic_tac_toe_v2.views.msg.s2c_json_gen.commands.v1o0 import S2cJsonGenCommands as CommandsGen
+#          --------------                                 ----        ------------------    -----------
+#          11                                             12          2                     3
+#    ---------------------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py にさらに含まれるクラス
+# 3. `2.` の別名
 
 
 def render_main(request, template_path):
@@ -422,15 +434,32 @@ def render_main(request, template_path):
 
     if request.method == "POST":
         # 送信後
-        player1 = request.POST.get("po_player1")
-        sq1 = request.POST.get("po_sq1")
-        piece1 = request.POST.get("po_piece1")
-        print(f"[render_main] player1:{player1} sq1:{sq1} piece1:{piece1}")
+
+        messageType = request.POST.get("po_messageType")
+        args = {
+            "player1": request.POST.get("po_player1"),
+            "sq1": request.POST.get("po_sq1"),
+            "piece1": request.POST.get("po_piece1"),
+        }
+        print(
+            f'[render_main] messageType:{messageType} player1:{args["player1"]} sq1:{args["sq1"]} piece1:{args["piece1"]}')
         # TODO バリデーションチェックしたい
+
+        json_gen = {
+            "S2C_End": CommandsGen.create_end,
+            "S2C_Moved": CommandsGen.create_moved,
+            "S2C_Start": CommandsGen.create_start,
+        }
+
+        doc = json_gen.get(messageType)(args)
+        dj_output_json = json.dumps(doc)
+
+    else:
+        dj_output_json = "W.I.P"
 
     context = {
         # `dj_` は Djangoでレンダーするパラメーター名の目印
-        "dj_output_json": "W.I.P",
+        "dj_output_json": dj_output_json,
     }
 
     return render(request, template_path, context)
@@ -556,3 +585,9 @@ urlpatterns = [
 ## Step. Web画面へアクセス
 
 📖 [http://localhost:8000/tic-tac-toe/v2/s2c-json-gen/](http://localhost:8000/tic-tac-toe/v2/s2c-json-gen/)  
+
+# 参考にした記事
+
+## Python
+
+📖 [3 Ways to Implement Python Switch Case Statement](https://favtutor.com/blogs/python-switch-case)  

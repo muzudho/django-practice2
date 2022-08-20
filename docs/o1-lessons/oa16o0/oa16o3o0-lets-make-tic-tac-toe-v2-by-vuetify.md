@@ -1139,7 +1139,11 @@ class TicTacToeV2MessageConverter():
             # TODO 現状、クライアント側から勝者を送ってきているが、勝敗判定のロジックはサーバー側に置きたい
             winner = doc_received.get("c2s_winner", None)
 
-            return CommandsGen.create_end(winner)
+            args = {
+                "player1": winner
+            }
+
+            return CommandsGen.create_end(args)
 
         elif event == 'C2S_Moved':
             # 駒を置いたとき
@@ -1151,7 +1155,12 @@ class TicTacToeV2MessageConverter():
 
             await self.on_move(scope, doc_received)
 
-            return CommandsGen.create_moved(c2s_sq, piece_moved)
+            args = {
+                "sq1": c2s_sq,
+                "piece1": piece_moved,
+            }
+
+            return CommandsGen.create_moved(args)
 
         elif event == 'C2S_Start':
             # 対局開始時
@@ -1159,7 +1168,9 @@ class TicTacToeV2MessageConverter():
 
             self.on_start(scope, doc_received)
 
-            return CommandsGen.create_start()
+            args = {}
+
+            return CommandsGen.create_start(args)
 
         raise ValueError(f"Unknown event: {event}")
 

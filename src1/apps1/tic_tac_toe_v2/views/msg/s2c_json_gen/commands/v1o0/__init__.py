@@ -7,7 +7,7 @@ class S2cJsonGenCommands:
     """
 
     @staticmethod
-    def create_end(winner):
+    def create_end(args):
         """対局終了
 
         Parameters
@@ -23,11 +23,11 @@ class S2cJsonGenCommands:
         return {
             'type': 'send_message',  # type属性は必須
             's2c_event': "S2C_End",
-            's2c_winner': winner,
+            's2c_winner': args["player1"],
         }
 
     @staticmethod
-    def create_moved(dst_sq, piece_moved):
+    def create_moved(args):
         """駒を動かした
 
         Parameters
@@ -45,12 +45,12 @@ class S2cJsonGenCommands:
         return {
             'type': 'send_message',  # type属性は必須
             's2c_event': 'S2C_Moved',
-            's2c_sq': dst_sq,
-            's2c_pieceMoved': piece_moved,
+            's2c_sq': args["sq1"],
+            's2c_pieceMoved': args["piece1"],
         }
 
     @staticmethod
-    def create_start():
+    def create_start(args):
         """対局開始
 
         Returns
