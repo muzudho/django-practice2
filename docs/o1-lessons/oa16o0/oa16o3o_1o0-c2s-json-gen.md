@@ -282,7 +282,7 @@ class C2sJsonGen {
                 data: {
                     // 出力
                     outputTextbox: {
-                        value: 'Please push "Execute" button.',
+                        value: 'Please push "Generate JSON" button.',
                     },
                     // メッセージの種類リストボックス
                     c2sMessageTypeListbox: {
@@ -367,10 +367,10 @@ class C2sJsonGen {
                 │           └── 📂 c2s_json_gen
                 │               └── 📄 v1o0.html
                 └── 📂 views
-                        └── 📂 msg
-                            └── 📂 c2s_json_gen
-                                └── 📂 v1o0
-👉                                  └── 📄 v_render.py
+                    └── 📂 msg
+                        └── 📂 c2s_json_gen
+                            └── 📂 v1o0
+👉                              └── 📄 v_render.py
 ```
 
 ```py
@@ -414,17 +414,17 @@ def render_main(request, template_path):
                 │           └── 📂 c2s_json_gen
                 │               └── 📄 v1o0.html
                 └── 📂 views
-                        └── 📂 msg
-                            └── 📂 c2s_json_gen
-                                └── 📂 v1o0
-👉                                  └── 📄 __init__.py
+                    └── 📂 msg
+                        └── 📂 c2s_json_gen
+                            └── 📂 v1o0
+👉                              └── 📄 __init__.py
 ```
 
 ```py
 # BOF OA16o3o_1o0g3o0
 
-class TesterV():
-    """OA16o3o_1o0g3o0 テスター ビュー"""
+class C2sJsonGenView():
+    """OA16o3o_1o0g3o0 C2S Json ジェネレーター ビュー"""
 
     template_path = "tic_tac_toe_v2/msg/c2s_json_gen/v1o0.html"
     #                             ^two
@@ -447,7 +447,7 @@ class TesterV():
 
         return render_main(
             request,
-            TesterV.template_path)
+            C2sJsonGenView.template_path)
 
 # EOF OA16o3o_1o0g3o0
 ```
@@ -471,10 +471,10 @@ class TesterV():
         │       │           └── 📂 c2s_json_gen
         │       │               └── 📄 v1o0.html
         │       └── 📂 views
-        │               └── 📂 msg
-        │                   └── 📂 c2s_json_gen
-        │                       └── 📂 v1o0
-        │                           └── 📄 __init__.py
+        │           └── 📂 msg
+        │               └── 📂 c2s_json_gen
+        │                   └── 📂 v1o0
+        │                       └── 📄 __init__.py
         └── 📂 project1                      # プロジェクト
 👉          └── 📄 urls_tic_tac_toe_v2.py
 ```
@@ -484,9 +484,9 @@ class TesterV():
 
 
 # OA16o3o_1o0g4o0 〇×ゲーム v2 C2S JSON ジェネレーター
-from apps1.tic_tac_toe_v2.views.msg.c2s_json_gen.v1o0 import TesterV as MsgTesterV
-#          --------------                        ----        -------    ----------
-#          11                                    12          2          3
+from apps1.tic_tac_toe_v2.views.msg.c2s_json_gen.v1o0 import C2sJsonGenView as C2sJsonGenViewV1o0
+#          --------------                        ----        --------------    ------------------
+#          11                                    12          2                 3
 #    ------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -503,12 +503,12 @@ urlpatterns = [
     path('tic-tac-toe/v2/c2s-json-gen/',
          # ---------------------------
          # 1
-         MsgTesterV.render),
-    #    -----------------
+         C2sJsonGenViewV1o0.render),
+    #    -------------------------
     #    2
     # 1. 例えば `http://example.com/tic-tac-toe/v2/c2s-json-gen/` のような URL のパスの部分
     #                              -----------------------------
-    # 2. MsgTesterV クラスの render 静的メソッド
+    # 2. C2sJsonGenViewV1o0 クラスの render 静的メソッド
 ]
 ```
 

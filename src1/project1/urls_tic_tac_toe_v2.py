@@ -11,9 +11,9 @@ from apps1.tic_tac_toe_v2.views.think.engine_manual.v1o0 import EngineManual
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # OA16o3o_1o0g4o0 〇×ゲーム v2 C2S JSON ジェネレーター
-from apps1.tic_tac_toe_v2.views.msg.c2s_json_gen.v1o0 import TesterV as MsgTesterV
-#          --------------                        ----        -------    ----------
-#          11                                    12          2          3
+from apps1.tic_tac_toe_v2.views.msg.c2s_json_gen.v1o0 import C2sJsonGenView as C2sJsonGenViewV1o0
+#          --------------                        ----        --------------    ------------------
+#          11                                    12          2                 3
 #    ------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -59,12 +59,12 @@ urlpatterns = [
     path('tic-tac-toe/v2/c2s-json-gen/',
          # ---------------------------
          # 1
-         MsgTesterV.render),
-    #    -----------------
+         C2sJsonGenViewV1o0.render),
+    #    -------------------------
     #    2
     # 1. 例えば `http://example.com/tic-tac-toe/v2/c2s-json-gen/` のような URL のパスの部分
     #                              -----------------------------
-    # 2. MsgTesterV クラスの render 静的メソッド
+    # 2. C2sJsonGenViewV1o0 クラスの render 静的メソッド
 
     # OA16o3o0gA15o0 対局申込
     path('tic-tac-toe/v2/match-application/',

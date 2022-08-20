@@ -111,7 +111,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA16o3o_2o0g1o0 ビュー作成 - msg/s2c_json_gen/v1o0 フォルダー
+## Step OA16o3o_2o0g1o0 ビュー作成 - msg/s2c_json_gen/commands/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -122,14 +122,15 @@ docker-compose up
                 └── 📂 views
                     └── 📂 msg
                         └── 📂 s2c_json_gen
-                            └── 📂 v1o0
-👉                              └── 📄 __init__.py
+                            └── 📂 commands
+                                └── 📂 v1o0
+👉                                  └── 📄 __init__.py
 ```
 
 ```py
 # BOF OA16o3o_2o0g1o0
 
-class S2cJsonGen:
+class S2cJsonGenCommands:
     """サーバーからクライアントへ送るJSON構造の変数を生成
 
     `s2c_` は サーバーからクライアントへ送る変数の目印
@@ -196,7 +197,173 @@ class S2cJsonGen:
 # EOF OA16o3o_2o0g1o0
 ```
 
-## Step OA16o3o_2o0g2o0 画面作成 - msg/c2s_json_gen/v1o0.html ファイル
+## Step OA16o3o_2o0g2o0 画面作成 - msg/s2c_json_gen/v1o0.html ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        └── 📂 apps1
+            └── 📂 tic_tac_toe_v2    # アプリケーション
+                ├── 📂 templates
+                │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
+                │       └── 📂 msg
+                │           └── 📂 s2c_json_gen
+👉              │               └── 📄 v1o0.html
+                └── 📂 views
+                    └── 📂 msg
+                        └── 📂 s2c_json_gen
+                            └── 📂 commands
+                                └── 📂 v1o0
+                                    └── 📄 __init__.py
+```
+
+```html
+{# BOF OA16o3o_2o0g2o0 #}
+<!-- -->
+{% load static %} {# 👈あとで static "URL" を使うので load static します #}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+        <title>Tic Tac Toe</title>
+        <style>
+            /* 等幅 */
+            .v-textarea textarea {
+                font-family: monospace, monospace;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <v-app>
+                <v-main>
+                    <v-container fluid>
+                        <h1>Tic Tac Toe - S2C Json Generator</h1>
+                        <form method="POST" action="s2c-json-gen">
+                            <!--                    ============
+                                                    1
+                            1. 宛先を間違えないように
+                               `http://example.com/tic-tac-toe/v2/s2c-json-gen`
+                                                                  ============
+                            -->
+
+                            {% csrf_token %}
+                            <!--
+                               ==========
+                               1
+                            1. form要素の中に csrf_token を入れてください
+                            -->
+
+                            <!-- `po_` は POST送信するパラメーター名の目印 -->
+
+                            <!-- リスト -->
+                            <v-select v-model="c2sMessageTypeListbox.value" :items="c2sMessageTypeItems" label="クライアントからサーバーへ送るメッセージの種類一覧"></v-select>
+                            <v-select v-model="sqListbox.value" :items="sqItems" label="マス番号一覧"></v-select>
+                            <v-select v-model="playerListbox.value" :items="playerItems" label="プレイヤー一覧"></v-select>
+
+                            <!-- ボタン -->
+                            <v-btn block elevation="2" v-on:click="sendVu()"> Send </v-btn>
+
+                            <!-- 出力 -->
+                            <v-textarea name="po_output" required v-model="outputTextbox.value" label="Output" rows="10"></v-textarea>
+                        </v-form>
+                    </v-container>
+                </v-main>
+            </v-app>
+        </div>
+
+        <script src="{% static 'tic_tac_toe_v2/think/things/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/concepts/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/position/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/user_ctrl/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/judge_ctrl/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/engine/v1o0.js' %}"></script>
+        <!--            ===========================================
+                        1
+        1. src1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/think/engine/v1o0.js
+                                     ==========================================
+        -->
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+        <script>
+            const vue1 = new Vue({
+                el: "#app",
+                vuetify: new Vuetify(),
+                data: {
+                    // 出力
+                    outputTextbox: {
+                        value: 'Please push "Send" button.',
+                    },
+                    // メッセージの種類リストボックス
+                    c2sMessageTypeListbox: {
+                        value: "DoMove",
+                    },
+                    // マス番号リストボックス
+                    sqListbox: {
+                        value: "",
+                    },
+                    // プレイヤーリストボックス
+                    playerListbox: {
+                        value: "",
+                    },
+                    // メッセージの種類一覧
+                    c2sMessageTypeItems: ["DoMove", "Draw", "Start", "Won"],
+                    // マス番号の一覧
+                    sqItems: ["", 0, 1, 2, 3, 4, 5, 6, 7, 8],
+                    // プレイヤーの一覧
+                    playerItems: ["", "X", "O"],
+                },
+                methods: {
+                    // 関数名の末尾の Vu は vue1 のメソッドであることを表す目印
+                    /**
+                     * po_input 欄のコマンドを入力します
+                     */
+                    sendVu() {
+                        let doc = null;
+                        switch (this.c2sMessageTypeListbox.value) {
+                            case "DoMove":
+                                {
+                                    const sq = this.sqListbox.value;
+                                    const myTurn = this.playerListbox.value;
+                                    doc = c2sJsonGen1.createDoMove(sq, myTurn);
+                                }
+                                break;
+
+                            case "Draw":
+                                doc = c2sJsonGen1.createDraw();
+                                break;
+
+                            case "Start":
+                                doc = c2sJsonGen1.createStart();
+                                break;
+
+                            case "Won":
+                                const winner = this.playerListbox.value;
+                                doc = c2sJsonGen1.createWon(winner);
+                                break;
+
+                            default:
+                                doc = {};
+                                break;
+                        }
+
+                        this.outputTextbox.value = JSON.stringify(doc, null, "    ");
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>
+{# EOF OA16o3o_2o0g2o0 #}
+```
+
+## Step OA16o3o_2o0g3o0 ビュー作成 - msg/s2c_json_gen/v1o0/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -212,10 +379,87 @@ class S2cJsonGen:
                 └── 📂 views
                     └── 📂 msg
                         └── 📂 s2c_json_gen
+                            ├── 📂 commands
+                            │   └── 📂 v1o0
+                            │       └── 📄 __init__.py
                             └── 📂 v1o0
-👉                              └── 📄 __init__.py
+👉                              └── 📄 v_render.py
 ```
 
-```html
-<!-- OA16o3o_2o0g2o0 -->
+```py
+# BOF OA16o3o_2o0g3o0
+
+from django.shortcuts import render
+
+
+def render_main(request, template_path):
+    """OA16o3o_2o0g3o0 S2C JSON ジェネレーター - 描画
+
+    Parameters
+    ----------
+    template_path : str
+        Template path
+    """
+
+    context = {}
+
+    return render(request, template_path, context)
+
+# EOF OA16o3o_2o0g3o0
+```
+
+## Step OA16o3o_2o0g4o0 ビュー作成 - msg/s2c_json_gen/v1o0 フォルダー
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        └── 📂 apps1
+            └── 📂 tic_tac_toe_v2    # アプリケーション
+                ├── 📂 templates
+                │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
+                │       └── 📂 msg
+                │           └── 📂 s2c_json_gen
+                │               └── 📄 v1o0.html
+                └── 📂 views
+                    └── 📂 msg
+                        └── 📂 s2c_json_gen
+                            ├── 📂 commands
+                            │   └── 📂 v1o0
+                            │       └── 📄 __init__.py
+                            └── 📂 v1o0
+👉                              ├── 📄 __init__.py
+                                └── 📄 v_render.py
+```
+
+```py
+# BOF OA16o3o_2o0g4o0
+
+class S2cJsonGenView():
+    """OA16o3o_2o0g4o0 S2C Json ジェネレーター ビュー"""
+
+    template_path = "tic_tac_toe_v2/msg/s2c_json_gen/v1o0.html"
+    #                             ^two
+    #                -----------------------------------------
+    #                1
+    # 1. src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/msg/c2s_json_gen/v1o0.html
+    #                                        -----------------------------------------
+
+    @staticmethod
+    def render(request):
+        """描画"""
+
+        # 以下のファイルはあとで作ります
+        from .v_render import render_main
+        #    ---------        -----------
+        #    1                2
+        # 1. `src1/apps1/tic_tac_toe_v2/views/msg/c2s_json_gen/v1o0/v_render.py`
+        #                                                           --------
+        # 2. `1.` に含まれる関数
+
+        return render_main(
+            request,
+            S2cJsonGenView.template_path)
+
+# EOF OA16o3o_2o0g4o0
 ```

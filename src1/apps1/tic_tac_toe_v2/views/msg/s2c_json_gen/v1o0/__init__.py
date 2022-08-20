@@ -1,67 +1,29 @@
-# BOF OA16o3o_2o0g1o0
+# BOF OA16o3o_2o0g4o0
 
-class S2cJsonGen:
-    """サーバーからクライアントへ送るJSON構造の変数を生成
+class S2cJsonGenView():
+    """OA16o3o_2o0g4o0 S2C Json ジェネレーター ビュー"""
 
-    `s2c_` は サーバーからクライアントへ送る変数の目印
-    """
-
-    @staticmethod
-    def create_end(winner):
-        """対局終了
-
-        Parameters
-        ----------
-        winner : str
-            勝者
-
-        Returns
-        -------
-        doc : dict
-            クライアントへ送る
-        """
-        return {
-            'type': 'send_message',  # type属性は必須
-            's2c_event': "S2C_End",
-            's2c_winner': winner,
-        }
+    template_path = "tic_tac_toe_v2/msg/s2c_json_gen/v1o0.html"
+    #                             ^two
+    #                -----------------------------------------
+    #                1
+    # 1. src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/msg/c2s_json_gen/v1o0.html
+    #                                        -----------------------------------------
 
     @staticmethod
-    def create_moved(dst_sq, piece_moved):
-        """駒を動かした
+    def render(request):
+        """描画"""
 
-        Parameters
-        ----------
-        sq : int
-            移動先
-        piece_moved : string
-            動かした駒
+        # 以下のファイルはあとで作ります
+        from .v_render import render_main
+        #    ---------        -----------
+        #    1                2
+        # 1. `src1/apps1/tic_tac_toe_v2/views/msg/c2s_json_gen/v1o0/v_render.py`
+        #                                                           --------
+        # 2. `1.` に含まれる関数
 
-        Returns
-        -------
-        doc : dict
-            クライアントへ送る
-        """
-        return {
-            'type': 'send_message',  # type属性は必須
-            's2c_event': 'S2C_Moved',
-            's2c_sq': dst_sq,
-            's2c_pieceMoved': piece_moved,
-        }
+        return render_main(
+            request,
+            S2cJsonGenView.template_path)
 
-    @staticmethod
-    def create_start():
-        """対局開始
-
-        Returns
-        -------
-        doc : dict
-            クライアントへ送る
-        """
-        return {
-            'type': 'send_message',  # type属性は必須
-            's2c_event': "S2C_Start",
-        }
-
-
-# EOF OA16o3o_2o0g1o0
+# EOF OA16o3o_2o0g4o0

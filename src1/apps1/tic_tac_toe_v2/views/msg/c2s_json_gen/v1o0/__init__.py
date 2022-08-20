@@ -1,7 +1,7 @@
 # BOF OA16o3o_1o0g3o0
 
-class TesterV():
-    """OA16o3o_1o0g3o0 テスター ビュー"""
+class C2sJsonGenView():
+    """OA16o3o_1o0g3o0 C2S Json ジェネレーター ビュー"""
 
     template_path = "tic_tac_toe_v2/msg/c2s_json_gen/v1o0.html"
     #                             ^two
@@ -24,6 +24,6 @@ class TesterV():
 
         return render_main(
             request,
-            TesterV.template_path)
+            C2sJsonGenView.template_path)
 
 # EOF OA16o3o_1o0g3o0

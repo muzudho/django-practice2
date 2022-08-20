@@ -1,14 +1,15 @@
 # BOF OA16o3o0g8o0
 
 # OA16o3o_2o0g1o0 S2C JSON ジェネレーター
-from apps1.tic_tac_toe_v2.views.msg.s2c_json_gen.v1o0 import S2cJsonGen
-#          --------------                        ----        ----------
-#          11                                    12          2
-#    ------------------------------------------------
+from apps1.tic_tac_toe_v2.views.msg.s2c_json_gen.commands.v1o0 import S2cJsonGenCommands as CommandsGen
+#          --------------                                 ----        ------------------    -----------
+#          11                                             12          2                     3
+#    ---------------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py にさらに含まれるクラス
+# 3. `2.` の別名
 
 
 class TicTacToeV2MessageConverter():
@@ -34,7 +35,7 @@ class TicTacToeV2MessageConverter():
             # TODO 現状、クライアント側から勝者を送ってきているが、勝敗判定のロジックはサーバー側に置きたい
             winner = doc_received.get("c2s_winner", None)
 
-            return S2cJsonGen.create_end(winner)
+            return CommandsGen.create_end(winner)
 
         elif event == 'C2S_Moved':
             # 駒を置いたとき
@@ -46,7 +47,7 @@ class TicTacToeV2MessageConverter():
 
             await self.on_move(scope, doc_received)
 
-            return S2cJsonGen.create_moved(c2s_sq, piece_moved)
+            return CommandsGen.create_moved(c2s_sq, piece_moved)
 
         elif event == 'C2S_Start':
             # 対局開始時
@@ -54,7 +55,7 @@ class TicTacToeV2MessageConverter():
 
             self.on_start(scope, doc_received)
 
-            return S2cJsonGen.create_start()
+            return CommandsGen.create_start()
 
         raise ValueError(f"Unknown event: {event}")
 

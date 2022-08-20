@@ -23,8 +23,20 @@
                 <v-main>
                     <v-container fluid>
                         <h1>Tic Tac Toe - S2C Json Generator</h1>
-                        <v-form method="POST">
+                        <form method="POST" action="s2c-json-gen">
+                            <!--                    ============
+                                                    1
+                            1. 宛先を間違えないように
+                               `http://example.com/tic-tac-toe/v2/s2c-json-gen`
+                                                                  ============
+                            -->
+
                             {% csrf_token %}
+                            <!--
+                               ==========
+                               1
+                            1. form要素の中に csrf_token を入れてください
+                            -->
 
                             <!-- `po_` は POST送信するパラメーター名の目印 -->
 
@@ -34,7 +46,7 @@
                             <v-select v-model="playerListbox.value" :items="playerItems" label="プレイヤー一覧"></v-select>
 
                             <!-- ボタン -->
-                            <v-btn block elevation="2" v-on:click="postVu()"> Generate JSON </v-btn>
+                            <v-btn block elevation="2" v-on:click="sendVu()"> Send </v-btn>
 
                             <!-- 出力 -->
                             <v-textarea name="po_output" required v-model="outputTextbox.value" label="Output" rows="10"></v-textarea>
@@ -50,26 +62,22 @@
         <script src="{% static 'tic_tac_toe_v2/think/user_ctrl/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/think/judge_ctrl/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/think/engine/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/msg/s2c_messages/v1o0.js' %}"></script>
-        <!--            ===============================================
+        <!--            ===========================================
                         1
-        1. src1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/msg/s2c_messages/v1o0.js
-                                     ==============================================
+        1. src1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/think/engine/v1o0.js
+                                     ==========================================
         -->
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
         <script>
-            // クライアントからサーバーへ送るメッセージを生成できる
-            const c2sJsonGen1 = new C2sJsonGen();
-
             const vue1 = new Vue({
                 el: "#app",
                 vuetify: new Vuetify(),
                 data: {
                     // 出力
                     outputTextbox: {
-                        value: 'Please push "Execute" button.',
+                        value: 'Please push "Send" button.',
                     },
                     // メッセージの種類リストボックス
                     c2sMessageTypeListbox: {
@@ -95,8 +103,7 @@
                     /**
                      * po_input 欄のコマンドを入力します
                      */
-                    postVu() {
-                        // console.log(`[methods postVu]`);
+                    sendVu() {
                         let doc = null;
                         switch (this.c2sMessageTypeListbox.value) {
                             case "DoMove":
