@@ -39,6 +39,10 @@
                             -->
 
                             <!-- `po_` は POST送信するパラメーター名の目印 -->
+                            <!-- 入力 -->
+                            <input type="hidden" name="po_player1" v-model="player1Inputbox.value"/>
+                            <input type="hidden" name="po_sq1" v-model="sq1Inputbox.value"/>
+                            <input type="hidden" name="po_piece1" v-model="piece1Inputbox.value"/>
 
                             <!-- リスト -->
                             <v-select v-model="c2sMessageTypeListbox.value" :items="c2sMessageTypeItems" label="サーバーからクライアントへ送られてくるメッセージの種類一覧"></v-select>
@@ -47,10 +51,10 @@
                             <v-select v-model="pieceListbox.value" :items="pieceItems" label="駒一覧"></v-select>
 
                             <!-- ボタン -->
-                            <v-btn type="submit" block elevation="2" v-on:click="sendVu()"> Pull </v-btn>
+                            <v-btn type="submit" block elevation="2" v-on:click="pullVu()"> Pull </v-btn>
 
                             <!-- 出力 -->
-                            <v-textarea name="po_output" required v-model="outputTextbox.value" label="Output" rows="10"></v-textarea>
+                            <v-textarea required v-model="outputTextbox.value" label="Output" rows="10"></v-textarea>
                         </v-form>
                     </v-container>
                 </v-main>
@@ -84,6 +88,18 @@
                     c2sMessageTypeListbox: {
                         value: "End",
                     },
+                    // 隠し入力ボックス：プレイヤー１
+                    player1Inputbox: {
+                        value: "",
+                    },
+                    // 隠し入力ボックス：マス１
+                    sq1Inputbox: {
+                        value: "",
+                    },
+                    // 隠し入力ボックス：駒１
+                    piece1Inputbox: {
+                        value: "",
+                    },
                     // マス番号リストボックス
                     sqListbox: {
                         value: "",
@@ -110,19 +126,20 @@
                     /**
                      * po_input 欄のコマンドを入力します
                      */
-                    sendVu() {
+                    pullVu() {
                         let doc = null;
                         switch (this.c2sMessageTypeListbox.value) {
                             case "End":
                                 {
-                                    const winner = this.playerListbox.value;
+                                    // Winner
+                                    this.player1Inputbox.value = this.playerListbox.value;
                                 }
                                 break;
 
                             case "Moved":
                                 {
-                                    const dstSq = this.sqListbox.value;
-                                    const pieceMoved = this.pieceListbox.value;
+                                    this.sq1Inputbox.value = this.sqListbox.value;
+                                    this.piece1Inputbox.value = this.pieceListbox.value;
                                 }
                                 break;
 

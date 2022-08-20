@@ -244,12 +244,12 @@ class S2cJsonGenCommands:
                 <v-main>
                     <v-container fluid>
                         <h1>Tic Tac Toe - S2C Json Generator</h1>
-                        <form method="POST" action="s2c-json-gen">
-                            <!--                    ============
+                        <form method="POST" action="">
+                            <!--                    =
                                                     1
                             1. 宛先を間違えないように
-                               `http://example.com/tic-tac-toe/v2/s2c-json-gen`
-                                                                  ============
+                               `http://example.com/tic-tac-toe/v2/`
+                                                                  =
                             -->
 
                             {% csrf_token %}
@@ -260,17 +260,22 @@ class S2cJsonGenCommands:
                             -->
 
                             <!-- `po_` は POST送信するパラメーター名の目印 -->
+                            <!-- 入力 -->
+                            <input type="hidden" name="po_player1" v-model="player1Inputbox.value"/>
+                            <input type="hidden" name="po_sq1" v-model="sq1Inputbox.value"/>
+                            <input type="hidden" name="po_piece1" v-model="piece1Inputbox.value"/>
 
                             <!-- リスト -->
-                            <v-select v-model="c2sMessageTypeListbox.value" :items="c2sMessageTypeItems" label="クライアントからサーバーへ送るメッセージの種類一覧"></v-select>
+                            <v-select v-model="c2sMessageTypeListbox.value" :items="c2sMessageTypeItems" label="サーバーからクライアントへ送られてくるメッセージの種類一覧"></v-select>
                             <v-select v-model="sqListbox.value" :items="sqItems" label="マス番号一覧"></v-select>
                             <v-select v-model="playerListbox.value" :items="playerItems" label="プレイヤー一覧"></v-select>
+                            <v-select v-model="pieceListbox.value" :items="pieceItems" label="駒一覧"></v-select>
 
                             <!-- ボタン -->
-                            <v-btn block elevation="2" v-on:click="sendVu()"> Send </v-btn>
+                            <v-btn type="submit" block elevation="2" v-on:click="pullVu()"> Pull </v-btn>
 
                             <!-- 出力 -->
-                            <v-textarea name="po_output" required v-model="outputTextbox.value" label="Output" rows="10"></v-textarea>
+                            <v-textarea required v-model="outputTextbox.value" label="Output" rows="10"></v-textarea>
                         </v-form>
                     </v-container>
                 </v-main>
@@ -298,11 +303,23 @@ class S2cJsonGenCommands:
                 data: {
                     // 出力
                     outputTextbox: {
-                        value: 'Please push "Send" button.',
+                        value: 'Please push "Pull" button.',
                     },
                     // メッセージの種類リストボックス
                     c2sMessageTypeListbox: {
-                        value: "DoMove",
+                        value: "End",
+                    },
+                    // 隠し入力ボックス：プレイヤー１
+                    player1Inputbox: {
+                        value: "",
+                    },
+                    // 隠し入力ボックス：マス１
+                    sq1Inputbox: {
+                        value: "",
+                    },
+                    // 隠し入力ボックス：駒１
+                    piece1Inputbox: {
+                        value: "",
                     },
                     // マス番号リストボックス
                     sqListbox: {
@@ -312,48 +329,50 @@ class S2cJsonGenCommands:
                     playerListbox: {
                         value: "",
                     },
+                    // 駒リストボックス
+                    pieceListbox: {
+                        value: "",
+                    },
                     // メッセージの種類一覧
-                    c2sMessageTypeItems: ["DoMove", "Draw", "Start", "Won"],
+                    c2sMessageTypeItems: ["End", "Moved", "Start"],
                     // マス番号の一覧
                     sqItems: ["", 0, 1, 2, 3, 4, 5, 6, 7, 8],
                     // プレイヤーの一覧
                     playerItems: ["", "X", "O"],
+                    // 駒の一覧
+                    pieceItems: ["", "X", "O"],
                 },
                 methods: {
                     // 関数名の末尾の Vu は vue1 のメソッドであることを表す目印
                     /**
                      * po_input 欄のコマンドを入力します
                      */
-                    sendVu() {
+                    pullVu() {
                         let doc = null;
                         switch (this.c2sMessageTypeListbox.value) {
-                            case "DoMove":
+                            case "End":
                                 {
-                                    const sq = this.sqListbox.value;
-                                    const myTurn = this.playerListbox.value;
-                                    doc = c2sJsonGen1.createDoMove(sq, myTurn);
+                                    // Winner
+                                    this.player1Inputbox.value = this.playerListbox.value;
                                 }
                                 break;
 
-                            case "Draw":
-                                doc = c2sJsonGen1.createDraw();
+                            case "Moved":
+                                {
+                                    this.sq1Inputbox.value = this.sqListbox.value;
+                                    this.piece1Inputbox.value = this.pieceListbox.value;
+                                }
                                 break;
 
                             case "Start":
-                                doc = c2sJsonGen1.createStart();
-                                break;
+                                {
 
-                            case "Won":
-                                const winner = this.playerListbox.value;
-                                doc = c2sJsonGen1.createWon(winner);
+                                }
                                 break;
 
                             default:
-                                doc = {};
                                 break;
                         }
-
-                        this.outputTextbox.value = JSON.stringify(doc, null, "    ");
                     },
                 },
             });
