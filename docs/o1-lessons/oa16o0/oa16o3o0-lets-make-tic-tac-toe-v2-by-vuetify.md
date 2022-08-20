@@ -1008,7 +1008,7 @@ class Connection {
 {% endblock methods_footer %}
 ```
 
-## Step OA16o3o0g8o0 通信プロトコル作成 - gui/message_converter/v1o0.py ファイル
+## Step OA16o3o0g8o0 通信プロトコル作成 - gui/message_driven/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1034,7 +1034,7 @@ class Connection {
                 │               └── 📄 v1o1o0.html.txt
                 └── 📂 websocks
                     └── 📂 gui
-                        └── 📂 message_converter
+                        └── 📂 message_driven
 👉                          └── 📄 v1o0.py
 ```
 
@@ -1050,13 +1050,13 @@ class TicTacToeV2MessageDriven():
     def addHandler(self, eventName, handlerAsync):
         self._handlersAsync[eventName] = handlerAsync
 
-    async def on_receive(self, scope, doc_received):
+    async def execute(self, scope, doc_received):
         """クライアントからサーバーへ送られてきた変数を解析し、
         サーバーからクライアントへ送信するメッセージの作成"""
 
         # ログインしていなければ AnonymousUser
         user = scope["user"]
-        print(f"[TicTacToeV2MessageDriven on_receive] user=[{user}]")
+        print(f"[TicTacToeV2MessageDriven execute] user=[{user}]")
 
         # `c2s_` は クライアントからサーバーへ送られてきた変数の目印
         eventName = doc_received.get("c2s_event", None)
@@ -1066,7 +1066,7 @@ class TicTacToeV2MessageDriven():
             return response_json
 
         raise ValueError(
-            f"[TicTacToeV2MessageDriven on_receive] unknown event: {eventName}")
+            f"[TicTacToeV2MessageDriven execute] unknown event: {eventName}")
 
 
 # EOF OA16o3o0g8o0
@@ -1100,7 +1100,7 @@ class TicTacToeV2MessageDriven():
                     └── 📂 gui
                         ├── 📂 consumer
 👉                      │   └── 📄 v1o0.py
-                        └── 📂 message_converter
+                        └── 📂 message_driven
                             └── 📄 v1o0.py
 ```
 
@@ -1205,7 +1205,7 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
                         ├── 📂 consumer
                         │   ├── 📄 v1o0.py
 👉                      │   └── 📄 v1o1o0.py
-                        └── 📂 message_converter
+                        └── 📂 message_driven
                             └── 📄 v1o0.py
 ```
 
@@ -1223,10 +1223,10 @@ from apps1.tic_tac_toe_v2.websocks.gui.consumer.v1o0 import TicTacToeV2ConsumerB
 # 2. `12.` に含まれる __init__.py にさらに含まれるクラス
 
 # 〇×ゲーム v2 Webソケット メッセージ駆動 v1.0
-from apps1.tic_tac_toe_v2.websocks.gui.message_converter.v1o0 import TicTacToeV2MessageDriven
-#          --------------                                ----        ------------------------
-#          11                                            12          2
-#    --------------------------------------------------------
+from apps1.tic_tac_toe_v2.websocks.gui.message_driven.v1o0 import TicTacToeV2MessageDriven
+#          --------------                             ----        ------------------------
+#          11                                         12          2
+#    -----------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -1338,7 +1338,7 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
                         ├── 📂 consumer
                         │   ├── 📄 v1o0.py
                         │   └── 📄 v1o1o0.py
-                        └── 📂 message_converter
+                        └── 📂 message_driven
                             └── 📄 v1o0.py
 ```
 
@@ -1440,7 +1440,7 @@ class MatchApplicationV():
                         ├── 📂 consumer
                         │   ├── 📄 v1o0.py
                         │   └── 📄 v1o1o0.py
-                        └── 📂 message_converter
+                        └── 📂 message_driven
                             └── 📄 v1o0.py
 ```
 
@@ -1517,7 +1517,7 @@ def render_match_application(request, playing_web_path, match_application_tp, on
                         ├── 📂 consumer
                         │   ├── 📄 v1o0.py
                         │   └── 📄 v1o1o0.py
-                        └── 📂 message_converter
+                        └── 📂 message_driven
                             └── 📄 v1o0.py
 ```
 
@@ -1610,7 +1610,7 @@ class PlayingV():
                         ├── 📂 consumer
                         │   ├── 📄 v1o0.py
                         │   └── 📄 v1o1o0.py
-                        └── 📂 message_converter
+                        └── 📂 message_driven
                             └── 📄 v1o0.py
 ```
 
@@ -1688,7 +1688,7 @@ def render_playing(request, kw_room_name, wsp_playing, playing_tp, on_update, ex
         │               ├── 📂 consumer
         │               │   ├── 📄 v1o0.py
         │               │   └── 📄 v1o1o0.py
-        │               └── 📂 message_converter
+        │               └── 📂 message_driven
         │                   └── 📄 v1o0.py
         └── 📂 project1                      # プロジェクト
 👉          └── 📄 urls_tic_tac_toe_v2.py
@@ -1787,7 +1787,7 @@ urlpatterns = [
         │               ├── 📂 consumer
         │               │   ├── 📄 v1o0.py
         │               │   └── 📄 v1o1o0.py
-        │               └── 📂 message_converter
+        │               └── 📂 message_driven
         │                   └── 📄 v1o0.py
         └── 📂 project1                      # プロジェクト
             ├── 📄 urls_tic_tac_toe_v2.py
@@ -1868,7 +1868,7 @@ websocket_urlpatterns = [
         │               ├── 📂 consumer
         │               │   ├── 📄 v1o0.py
         │               │   └── 📄 v1o1o0.py
-        │               └── 📂 message_converter
+        │               └── 📂 message_driven
         │                   └── 📄 v1o0.py
         └── 📂 project1                      # プロジェクト
 👉          ├── 📄 asgi.py
@@ -1960,7 +1960,7 @@ websocket_urlpatterns_merged.extend(
         │               ├── 📂 consumer
         │               │   ├── 📄 v1o0.py
         │               │   └── 📄 v1o1o0.py
-        │               └── 📂 message_converter
+        │               └── 📂 message_driven
         │                   └── 📄 v1o0.py
         └── 📂 project1                          # プロジェクト
             ├── 📄 asgi.py

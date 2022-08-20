@@ -116,10 +116,8 @@ Merged to OA24o1o0g3o0
         └── 📂 apps1
             └── 📂 tic_tac_toe_v3                 # アプリケーション
                 └── 📂 websocks
-                    ├── 📂 consumer_custom
-👉                  │   └── 📄 v1o0.py
-                    └── 📂 message_converter
-                        └── 📄 v1o0.py
+                    └── 📂 consumer_custom
+👉                      └── 📄 v1o0.py
 ```
 
 ```py
@@ -149,10 +147,10 @@ from apps1.tic_tac_toe_v2.websocks.gui.consumer.v1o0 import TicTacToeV2ConsumerB
 # 2. `12.` に含まれている __init__.py ファイルにさらに含まれるクラス
 
 # 〇×ゲーム v2 Webソケット メッセージ駆動 v1.0
-from apps1.tic_tac_toe_v2.websocks.gui.message_converter.v1o0 import TicTacToeV2MessageDriven
-#          --------------                                ----        ------------------------
-#          11                                            12          2
-#    --------------------------------------------------------
+from apps1.tic_tac_toe_v2.websocks.gui.message_driven.v1o0 import TicTacToeV2MessageDriven
+#          --------------                             ----        ------------------------
+#          11                                         12          2
+#    -----------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -317,9 +315,7 @@ def save_room(room):
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v3               # アプリケーション
         │       └── 📂 websocks
-        │           ├── 📂 consumer_custom
-        │           │   └── 📄 v1o0.py
-        │           └── 📂 message_converter
+        │           └── 📂 consumer_custom
         │               └── 📄 v1o0.py
         └── 📂 project1                         # プロジェクト
 👉          └── 📄 ws_urls_tic_tac_toe_v3.py    # Three
@@ -369,9 +365,7 @@ websocket_urlpatterns = [
         ├── 📂 apps1
         │   └── 📂 tic_tac_toe_v3               # アプリケーション
         │       └── 📂 websocks
-        │           ├── 📂 consumer_custom
-        │           │   └── 📄 v1o0.py
-        │           └── 📂 message_converter
+        │           └── 📂 consumer_custom
         │               └── 📄 v1o0.py
         └── 📂 project1                         # プロジェクト
 👉          ├── 📄 asgi.py
@@ -428,9 +422,7 @@ websocket_urlpatterns_merged.extend(
         │       │       └── 📂 v3o0
 👉      │       │           └── 📄 __init__.py
         │       └── 📂 websocks
-        │           ├── 📂 consumer_custom
-        │           │   └── 📄 v1o0.py
-        │           └── 📂 message_converter
+        │           └── 📂 consumer_custom
         │               └── 📄 v1o0.py
         └── 📂 project1                             # プロジェクト
             ├── 📄 asgi.py
@@ -518,9 +510,7 @@ class MatchApplicationV():
         │       │       └── 📂 v3o0
 👉      │       │           └── 📄 __init__.py
         │       └── 📂 websocks
-        │           ├── 📂 consumer_custom
-        │           │   └── 📄 v1o0.py
-        │           └── 📂 message_converter
+        │           └── 📂 consumer_custom
         │               └── 📄 v1o0.py
         └── 📂 project1                             # プロジェクト
             ├── 📄 asgi.py
@@ -608,9 +598,7 @@ class PlayingV():
         │       │       └── 📂 playing
         │       │           └── 📄 __init__.py
         │       └── 📂 websocks
-        │           ├── 📂 consumer_custom
-        │           │   └── 📄 v1o0.py
-        │           └── 📂 message_converter
+        │           └── 📂 consumer_custom
         │               └── 📄 v1o0.py
         └── 📂 project1                             # プロジェクト
             ├── 📄 asgi.py
@@ -712,9 +700,7 @@ urlpatterns = [
         │       │       └── 📂 playing
         │       │           └── 📄 __init__.py
         │       └── 📂 websocks
-        │           ├── 📂 consumer_custom
-        │           │   └── 📄 v1o0.py
-        │           └── 📂 message_converter
+        │           └── 📂 consumer_custom
         │               └── 📄 v1o0.py
         └── 📂 project1                             # プロジェクト
             ├── 📄 asgi.py

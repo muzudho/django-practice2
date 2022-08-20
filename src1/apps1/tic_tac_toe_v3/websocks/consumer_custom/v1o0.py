@@ -24,10 +24,10 @@ from apps1.tic_tac_toe_v2.websocks.gui.consumer.v1o0 import TicTacToeV2ConsumerB
 # 2. `12.` に含まれている __init__.py ファイルにさらに含まれるクラス
 
 # 〇×ゲーム v2 Webソケット メッセージ駆動 v1.0
-from apps1.tic_tac_toe_v2.websocks.gui.message_converter.v1o0 import TicTacToeV2MessageDriven
-#          --------------                                ----        ------------------------
-#          11                                            12          2
-#    --------------------------------------------------------
+from apps1.tic_tac_toe_v2.websocks.gui.message_driven.v1o0 import TicTacToeV2MessageDriven
+#          --------------                             ----        ------------------------
+#          11                                         12          2
+#    -----------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
