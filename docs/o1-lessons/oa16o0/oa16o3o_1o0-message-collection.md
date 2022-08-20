@@ -153,9 +153,9 @@ docker-compose up
 
                             <!-- `po_` は POST送信するパラメーター名の目印 -->
                             <!-- 入力 -->
-                            <v-textarea name="po_input" required v-model="inputText.value" label="Input"></v-textarea>
+                            <v-textarea name="po_input" required v-model="inputText.value" label="Input" background-color="blue-grey lighten-1"></v-textarea>
 
-                            <v-btn block elevation="2" v-on:click="enterVu()"> Execute </v-btn>
+                            <v-btn block elevation="2" v-on:click="postVu()"> Post </v-btn>
 
                             <!-- 出力 -->
                             <v-textarea name="po_output" required v-model="outputText.value" label="Output"></v-textarea>
@@ -186,8 +186,8 @@ docker-compose up
                     /**
                      * po_input 欄のコマンドを入力します
                      */
-                    enterVu() {
-                        // console.log(`[methods enterVu]`);
+                    postVu() {
+                        // console.log(`[methods postVu]`);
                     },
                 },
             });

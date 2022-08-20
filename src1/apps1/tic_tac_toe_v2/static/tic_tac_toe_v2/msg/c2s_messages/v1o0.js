@@ -1,4 +1,4 @@
-// OA16o3o0g2o0
+// BOF OA16o3o0g2o0
 
 /**
  * 送信メッセージ一覧
@@ -58,3 +58,5 @@ class C2sMessages {
         };
     }
 }
+
+// EOF OA16o3o0g2o0

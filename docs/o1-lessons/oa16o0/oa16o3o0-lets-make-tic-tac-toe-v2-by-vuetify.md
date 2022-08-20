@@ -116,7 +116,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA16o3o0g2o0 送信メッセージ実装 - gui/c2s_messages/v1o0.js ファイル
+## Step OA16o3o0g2o0 送信メッセージ実装 - msg/c2s_messages/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -126,13 +126,13 @@ docker-compose up
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 └── 📂 static
                     └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-                        └── 📂 gui
+                        └── 📂 msg
                             └── 📂 c2s_messages
-                                └── 📄 v1o0.js
+👉                              └── 📄 v1o0.js
 ```
 
 ```js
-// OA16o3o0g2o0
+// BOF OA16o3o0g2o0
 
 /**
  * 送信メッセージ一覧
@@ -192,6 +192,8 @@ class C2sMessages {
         };
     }
 }
+
+// EOF OA16o3o0g2o0
 ```
 
 ## Step OA16o3o0g3o0 受信メッセージ実装 - gui/s2c_messages/v1o0.js ファイル
@@ -204,15 +206,15 @@ class C2sMessages {
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 └── 📂 static
                     └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-                        └── 📂 gui
+                        └── 📂 msg
                             ├── 📂 c2s_messages
-👉                          │   └── 📄 v1o0.js
+                            │   └── 📄 v1o0.js
                             └── 📂 s2c_messages
-                                └── 📄 v1o0.js
+👉                              └── 📄 v1o0.js
 ```
 
 ```js
-// OA16o3o0g3o0
+// BOF OA16o3o0g3o0
 
 /**
  * 受信メッセージ一覧
@@ -309,6 +311,8 @@ class S2cMessages {
         this._onMoved(message, parseInt(sq), piece_moved);
     }
 }
+
+// EOF OA16o3o0g3o0
 ```
 
 ## Step OA16o3o0g4o0 Webソケット接続の実装 - gui/connection/v1o0.js ファイル
@@ -321,10 +325,11 @@ class S2cMessages {
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 └── 📂 static
                     └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-                        └── 📂 gui
+                        ├── 📂 gui
+                        │   └── 📂 connection
+👉                      │       └── 📄 v1o0.js
+                        └── 📂 msg
                             ├── 📂 c2s_messages
-👉                          │   └── 📄 v1o0.js
-                            ├── 📂 connection
                             │   └── 📄 v1o0.js
                             └── 📂 s2c_messages
                                 └── 📄 v1o0.js
@@ -490,10 +495,11 @@ class Connection {
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
-                │       └── 📂 gui
+                │       ├── 📂 gui
+                │       │   └── 📂 connection
+                │       │       └── 📄 v1o0.js
+                │       └── 📂 msg
                 │           ├── 📂 c2s_messages
-                │           │   └── 📄 v1o0.js
-                │           ├── 📂 connection
                 │           │   └── 📄 v1o0.js
                 │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
@@ -586,10 +592,11 @@ class Connection {
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
-                │       └── 📂 gui
+                │       ├── 📂 gui
+                │       │   └── 📂 connection
+                │       │       └── 📄 v1o0.js
+                │       └── 📂 msg
                 │           ├── 📂 c2s_messages
-                │           │   └── 📄 v1o0.js
-                │           ├── 📂 connection
                 │           │   └── 📄 v1o0.js
                 │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
@@ -603,7 +610,7 @@ class Connection {
 ```
 
 ```html
-{# OA16o3o0g6o0 #}
+{# BOF OA16o3o0g6o0 #}
 <!-- -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
@@ -688,11 +695,11 @@ class Connection {
         <script src="{% static 'tic_tac_toe_v2/think/judge_ctrl/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/think/engine/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/gui/connection/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/gui/s2c_messages/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/gui/c2s_messages/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/msg/s2c_messages/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/msg/c2s_messages/v1o0.js' %}"></script>
         <!--            ===============================================
                         1
-        1. src1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/gui/c2s_messages/v1o0.js
+        1. src1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/msg/c2s_messages/v1o0.js
                                      ==============================================
         -->
 
@@ -1062,6 +1069,7 @@ class Connection {
         </script>
     </body>
 </html>
+{# EOF OA16o3o0g6o0 #}
 ```
 
 ## Step OA16o3o0g7o0 対局画面作成 - gui/playing/v1o1o0.html.txt ファイル
@@ -1074,10 +1082,11 @@ class Connection {
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
-                │       └── 📂 gui
+                │       ├── 📂 gui
+                │       │   └── 📂 connection
+                │       │       └── 📄 v1o0.js
+                │       └── 📂 msg
                 │           ├── 📂 c2s_messages
-                │           │   └── 📄 v1o0.js
-                │           ├── 📂 connection
                 │           │   └── 📄 v1o0.js
                 │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
@@ -1146,10 +1155,11 @@ class Connection {
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
-                │       └── 📂 gui
+                │       ├── 📂 gui
+                │       │   └── 📂 connection
+                │       │       └── 📄 v1o0.js
+                │       └── 📂 msg
                 │           ├── 📂 c2s_messages
-                │           │   └── 📄 v1o0.js
-                │           ├── 📂 connection
                 │           │   └── 📄 v1o0.js
                 │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
@@ -1253,10 +1263,11 @@ class TicTacToeV2MessageConverter():
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
-                │       └── 📂 gui
+                │       ├── 📂 gui
+                │       │   └── 📂 connection
+                │       │       └── 📄 v1o0.js
+                │       └── 📂 msg
                 │           ├── 📂 c2s_messages
-                │           │   └── 📄 v1o0.js
-                │           ├── 📂 connection
                 │           │   └── 📄 v1o0.js
                 │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
@@ -1354,10 +1365,11 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
-                │       └── 📂 gui
+                │       ├── 📂 gui
+                │       │   └── 📂 connection
+                │       │       └── 📄 v1o0.js
+                │       └── 📂 msg
                 │           ├── 📂 c2s_messages
-                │           │   └── 📄 v1o0.js
-                │           ├── 📂 connection
                 │           │   └── 📄 v1o0.js
                 │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
@@ -1428,10 +1440,11 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
-                │       └── 📂 gui
+                │       ├── 📂 gui
+                │       │   └── 📂 connection
+                │       │       └── 📄 v1o0.js
+                │       └── 📂 msg
                 │           ├── 📂 c2s_messages
-                │           │   └── 📄 v1o0.js
-                │           ├── 📂 connection
                 │           │   └── 📄 v1o0.js
                 │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
@@ -1530,10 +1543,11 @@ class MatchApplicationV():
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
-                │       └── 📂 gui
+                │       ├── 📂 gui
+                │       │   └── 📂 connection
+                │       │       └── 📄 v1o0.js
+                │       └── 📂 msg
                 │           ├── 📂 c2s_messages
-                │           │   └── 📄 v1o0.js
-                │           ├── 📂 connection
                 │           │   └── 📄 v1o0.js
                 │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
@@ -1605,10 +1619,11 @@ def render_match_application(request, playing_web_path, match_application_tp, on
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
-                │       └── 📂 gui
+                │       ├── 📂 gui
+                │       │   └── 📂 connection
+                │       │       └── 📄 v1o0.js
+                │       └── 📂 msg
                 │           ├── 📂 c2s_messages
-                │           │   └── 📄 v1o0.js
-                │           ├── 📂 connection
                 │           │   └── 📄 v1o0.js
                 │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
@@ -1698,10 +1713,11 @@ class PlayingV():
             └── 📂 tic_tac_toe_v2    # アプリケーション
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
-                │       └── 📂 gui
+                │       ├── 📂 gui
+                │       │   └── 📂 connection
+                │       │       └── 📄 v1o0.js
+                │       └── 📂 msg
                 │           ├── 📂 c2s_messages
-                │           │   └── 📄 v1o0.js
-                │           ├── 📂 connection
                 │           │   └── 📄 v1o0.js
                 │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
@@ -1777,10 +1793,11 @@ def render_playing(request, kw_room_name, wsp_playing, playing_tp, on_update, ex
         │   └── 📂 tic_tac_toe_v2    # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 gui
+        │       │       ├── 📂 gui
+        │       │       │   └── 📂 connection
+        │       │       │       └── 📄 v1o0.js
+        │       │       └── 📂 msg
         │       │           ├── 📂 c2s_messages
-        │       │           │   └── 📄 v1o0.js
-        │       │           ├── 📂 connection
         │       │           │   └── 📄 v1o0.js
         │       │           └── 📂 s2c_messages
         │       │               └── 📄 v1o0.js
@@ -1877,10 +1894,11 @@ urlpatterns = [
         │   └── 📂 tic_tac_toe_v2    # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 gui
+        │       │       ├── 📂 gui
+        │       │       │   └── 📂 connection
+        │       │       │       └── 📄 v1o0.js
+        │       │       └── 📂 msg
         │       │           ├── 📂 c2s_messages
-        │       │           │   └── 📄 v1o0.js
-        │       │           ├── 📂 connection
         │       │           │   └── 📄 v1o0.js
         │       │           └── 📂 s2c_messages
         │       │               └── 📄 v1o0.js
@@ -1959,10 +1977,11 @@ websocket_urlpatterns = [
         │   └── 📂 tic_tac_toe_v2    # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 gui
+        │       │       ├── 📂 gui
+        │       │       │   └── 📂 connection
+        │       │       │       └── 📄 v1o0.js
+        │       │       └── 📂 msg
         │       │           ├── 📂 c2s_messages
-        │       │           │   └── 📄 v1o0.js
-        │       │           ├── 📂 connection
         │       │           │   └── 📄 v1o0.js
         │       │           └── 📂 s2c_messages
         │       │               └── 📄 v1o0.js
@@ -2052,10 +2071,11 @@ websocket_urlpatterns_merged.extend(
         │   └── 📂 tic_tac_toe_v2                # アプリケーション
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
-        │       │       └── 📂 gui
+        │       │       ├── 📂 gui
+        │       │       │   └── 📂 connection
+        │       │       │       └── 📄 v1o0.js
+        │       │       └── 📂 msg
         │       │           ├── 📂 c2s_messages
-        │       │           │   └── 📄 v1o0.js
-        │       │           ├── 📂 connection
         │       │           │   └── 📄 v1o0.js
         │       │           └── 📂 s2c_messages
         │       │               └── 📄 v1o0.js

@@ -1,4 +1,4 @@
-// OA16o3o0g3o0
+// BOF OA16o3o0g3o0
 
 /**
  * 受信メッセージ一覧
@@ -95,3 +95,5 @@ class S2cMessages {
         this._onMoved(message, parseInt(sq), piece_moved);
     }
 }
+
+// EOF OA16o3o0g3o0
