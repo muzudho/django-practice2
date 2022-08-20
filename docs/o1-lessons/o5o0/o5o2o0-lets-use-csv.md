@@ -261,6 +261,8 @@ path,label
 ```
 
 ```py
+# BOF O5o2o0g7o0
+
 import pandas as pd
 
 from django.shortcuts import render
@@ -273,10 +275,10 @@ class Portal():
         """描画"""
 
         # * `lp_` - Local path
-        lp_this_page = 'portal_v1/v2o0.html'
-        #                          ^two
-        #               -------------------
-        #               1
+        template_path = 'portal_v1/v2o0.html'
+        #                           ^two
+        #                -------------------
+        #                1
         # 1. src1/apps1/portal_v1/templates/portal_v1/v2o0.html を取得
         #                                   -------------------
 
@@ -318,7 +320,9 @@ class Portal():
             "dj_finished_lesson_list": finished_lesson_list,
         }
 
-        return render(request, lp_this_page, context)
+        return render(request, template_path, context)
+
+# EOF O5o2o0g7o0
 ```
 
 ## Step O5o2o0g8o0 サブ ルート編集 - urls_portal.py

@@ -1,3 +1,5 @@
+# BOF O3o1o0g9o0
+
 from django.shortcuts import render
 
 
@@ -8,15 +10,14 @@ class PageTheHello():
     def render(request):
         """描画"""
 
-        # * `lp_` - Local path
-        lp_this_page = 'practice_v1/page_the_hello/v1o0.html'
-        #               ------------------------------------
-        #               1
+        template_path = 'practice_v1/page_the_hello/v1o0.html'
+        #                ------------------------------------
+        #                1
         # 1. src1/apps1/practice_v1/templates/practice_v1/page_the_hello/v1o0.html を取得
         #                                     ------------------------------------
 
         context = {}
-        return render(request, lp_this_page, context)
+        return render(request, template_path, context)
 
         # テンプレートを使わず、HTMLをハードコーディングすることもできる
         # return HttpResponse("""Hello, world.<br/>
@@ -28,3 +29,5 @@ class PageTheHello():
         # template = loader.get_template('this/is/a/local/path/example.html')
         # context = {}
         # HttpResponse(template.render(context, request))
+
+# EOF O3o1o0g9o0

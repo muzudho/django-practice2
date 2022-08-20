@@ -1,3 +1,5 @@
+# BOF O5o1o0gA10o0
+
 from django.shortcuts import render
 
 
@@ -8,9 +10,9 @@ class Portal():
         """描画"""
 
         # * `lp_` - Local path
-        lp_this_page = 'portal_v1/v1o0.html'
-        #               -------------------
-        #               1
+        template_path = 'portal_v1/v1o0.html'
+        #                -------------------
+        #                1
         # 1. src1/apps1/practice_v1/templates/portal_v1/v1o0.html を取得
         #                                     -------------------
 
@@ -20,4 +22,6 @@ class Portal():
             "dj_path_of_page_to_be_added_2": "/practice/v1/page-to-be-added-2",
         }
 
-        return render(request, lp_this_page, context)
+        return render(request, template_path, context)
+
+# EOF O5o1o0gA10o0

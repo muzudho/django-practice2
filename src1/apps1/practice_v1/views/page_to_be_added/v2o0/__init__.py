@@ -1,3 +1,5 @@
+# BOF O3o2o0g4o0
+
 from django.shortcuts import render
 
 
@@ -7,8 +9,7 @@ class PageToBeAdded():
     def render(request):
         """描画"""
 
-        # * `lp_` - Local path
-        lp_this_page = 'practice_v1/page_to_be_added/v2o0.html.txt'
+        template_path = 'practice_v1/page_to_be_added/v2o0.html.txt'
         #                                             ^two
         #               ------------------------------------------
         #               1
@@ -16,4 +17,6 @@ class PageToBeAdded():
         #                                     ------------------------------------------
 
         context = {}
-        return render(request, lp_this_page, context)
+        return render(request, template_path, context)
+
+# EOF O3o2o0g4o0
