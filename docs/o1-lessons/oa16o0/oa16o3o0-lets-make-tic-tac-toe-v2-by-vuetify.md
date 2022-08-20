@@ -142,86 +142,32 @@ Moved to OA16o3o_1o0g_1o0
  * 受信メッセージ駆動
  */
 class S2cMessageDriven {
+    constructor() {
+        this._handlers = {};
+    }
+
+    addHandler(eventName, handler) {
+        this._handlers[eventName] = handler;
+    }
+
     /**
      * サーバーからクライアントへ送られてきたメッセージをセットする関数を返します
      * @returns 関数
      */
-    setMessageFromServer(message) {
+    execute(message) {
         // `s2c_` は サーバーからクライアントへ送られてきた変数の目印
-        // イベント
-        let event = message["s2c_event"];
-        console.log(`[S2cMessageDriven setMessageFromServer] サーバーからのメッセージを受信しました event:${event}`);
+        // イベント名
+        let eventName = message["s2c_event"];
+        console.log(`[S2cMessageDriven execute] サーバーからのメッセージを受信しました eventName:${eventName}`);
 
-        switch (event) {
-            case "S2C_Start":
-                this.start(message);
-                break;
-
-            case "S2C_End":
-                this.end(message);
-                break;
-
-            case "S2C_Moved":
-                this.moved(message);
-                break;
-
-            default:
-                // Undefined behavior
-                console.log(`[S2cMessageDriven setMessageFromServer] ignored. event=[${event}]`);
+        if (eventName in this._handlers) {
+            // 実行
+            const execute2 = this._handlers[eventName];
+            execute2(message);
+        } else {
+            // Undefined behavior
+            console.log(`[S2cMessageDriven execute] ignored. eventName=[${eventName}]`);
         }
-    }
-
-    set onStart(value) {
-        this._onStart = value;
-    }
-
-    set onEnd(value) {
-        this._onEnd = value;
-    }
-
-    set onMoved(value) {
-        this._onMoved = value;
-    }
-
-    /**
-     * 対局開始時
-     *
-     * @param {*} message
-     */
-    start(message) {
-        if (this._onStart == null) {
-            // undefined も null も弾きます
-            return;
-        }
-
-        console.log(`[S2cMessageDriven start]`);
-        this._onStart(message);
-    }
-
-    /**
-     * 対局終了時
-     *
-     * @param {*} message
-     */
-    end(message) {
-        if (this._onEnd == null) {
-            return;
-        }
-
-        this._onEnd(message);
-    }
-
-    /**
-     * 指し手受信時
-     *
-     * @param {*} message
-     */
-    moved(message) {
-        if (this._onMoved == null) {
-            return;
-        }
-
-        this._onMoved(message);
     }
 }
 
@@ -247,7 +193,7 @@ class S2cMessageDriven {
 ```
 
 ```js
-// OA16o3o0g4o0
+// BOF OA16o3o0g4o0
 
 // 参考にした記事
 // -------------
@@ -267,14 +213,14 @@ class Connection {
      *
      * @param {string} roomName - 部屋名
      * @param {strint} connectionString - Webソケット接続文字列
-     * @param {IncommingMessages} incommingMessages - 受信メッセージ一覧
+     * @param {IncommingMessages} s2cMessageDriven - 受信メッセージ駆動
      * @param {function} onOpenWebSocket - Webソケットを開かれたとき
      * @param {function} onCloseWebSocket - Webソケットが閉じられたとき。 例: サーバー側にエラーがあって接続が切れたりなど
      * @param {function} onWebSocketError - Webソケットエラー時のメッセージ
      * @param {function} onRetryWaiting - 再接続のためのインターバルの定期的なメッセージ
      * @param {function} onGiveUp - 再接続を諦めたとき
      */
-    constructor(roomName, connectionString, incommingMessages, onOpenWebSocket, onCloseWebSocket, onWebSocketError, onRetryWaiting, onGiveUp) {
+    constructor(roomName, connectionString, s2cMessageDriven, onOpenWebSocket, onCloseWebSocket, onWebSocketError, onRetryWaiting, onGiveUp) {
         // console.log(`[Connection constructor] roomName=[${roomName}] connectionString=[${connectionString}]`);
 
         // 部屋名
@@ -291,7 +237,7 @@ class Connection {
         // 再接続のために記憶しておきます
         this._onOpenWebSocket = onOpenWebSocket;
         this._onCloseWebSocket = onCloseWebSocket;
-        this._incommingMessages = incommingMessages;
+        this._s2cMsgDrv = s2cMessageDriven;
         this._onWebSocketError = onWebSocketError;
         this._onRetryWaiting = onRetryWaiting;
         this._onGiveUp = onGiveUp;
@@ -328,7 +274,7 @@ class Connection {
                 // JSON を解析、メッセージだけ抽出
                 let data1 = JSON.parse(e.data);
                 let message = data1["message"];
-                this._incommingMessages.setMessageFromServer(message);
+                this._s2cMsgDrv.execute(message);
             };
 
             this.#webSock1.addEventListener("open", (event1) => {
@@ -394,6 +340,8 @@ class Connection {
         }, 5000);
     }
 }
+
+// EOF OA16o3o0g4o0
 ```
 
 ## Step OA16o3o0g5o0 対局申込画面作成 - gui/match_application/v1o0.html ファイル
@@ -626,17 +574,20 @@ class Connection {
             console.log(`[HTML] convertPartsToConnectionString roomName=${roomName} connectionString=${connectionString}`);
 
             // サーバーからクライアントへメッセージ送信
-            const s2cMessages = new S2cMessageDriven();
-            s2cMessages.onStart = (message)=>{
+            const s2cMsgDrv = new S2cMessageDriven();
+            // 対局開始時
+            s2cMsgDrv.addHandler("S2C_Start", (message)=>{
                 vue1.onStart();
-            }
-            s2cMessages.onEnd = (message)=>{
+            });
+            // 対局終了時
+            s2cMsgDrv.addHandler("S2C_End", (message)=>{
                 // 勝者
                 let winner = message["s2c_winner"];
                 console.log(`[HTML onEnd] winner:${winner}`);
                 vue1.onGameover(winner);
-            }
-            s2cMessages.onMoved = (message)=>{
+            });
+            // 指し手受信時
+            s2cMsgDrv.addHandler("S2C_Moved", (message)=>{
                 // 升番号
                 let sq = parseInt(message["s2c_sq"]);
                 // 手番。 "X" か "O"
@@ -653,7 +604,7 @@ class Connection {
 
                 // ゲームオーバー判定
                 vue1.engine.judgeCtrl.doJudge(vue1.engine.position);
-            }
+            });
 
             // クライアントからサーバーへ送るJSON生成
             const c2sMessages = new C2sJsonGen();
@@ -663,7 +614,7 @@ class Connection {
                 roomName,
                 connectionString,
                 // サーバーからのメッセージを受信したとき
-                s2cMessages,
+                s2cMsgDrv,
                 // Webソケットを開かれたとき
                 () => {
                     console.log("WebSockets connection created.");

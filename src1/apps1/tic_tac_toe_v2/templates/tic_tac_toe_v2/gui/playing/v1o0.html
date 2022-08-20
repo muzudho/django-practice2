@@ -107,17 +107,20 @@
             console.log(`[HTML] convertPartsToConnectionString roomName=${roomName} connectionString=${connectionString}`);
 
             // サーバーからクライアントへメッセージ送信
-            const s2cMessages = new S2cMessageDriven();
-            s2cMessages.onStart = (message)=>{
+            const s2cMsgDrv = new S2cMessageDriven();
+            // 対局開始時
+            s2cMsgDrv.addHandler("S2C_Start", (message)=>{
                 vue1.onStart();
-            }
-            s2cMessages.onEnd = (message)=>{
+            });
+            // 対局終了時
+            s2cMsgDrv.addHandler("S2C_End", (message)=>{
                 // 勝者
                 let winner = message["s2c_winner"];
                 console.log(`[HTML onEnd] winner:${winner}`);
                 vue1.onGameover(winner);
-            }
-            s2cMessages.onMoved = (message)=>{
+            });
+            // 指し手受信時
+            s2cMsgDrv.addHandler("S2C_Moved", (message)=>{
                 // 升番号
                 let sq = parseInt(message["s2c_sq"]);
                 // 手番。 "X" か "O"
@@ -134,7 +137,7 @@
 
                 // ゲームオーバー判定
                 vue1.engine.judgeCtrl.doJudge(vue1.engine.position);
-            }
+            });
 
             // クライアントからサーバーへ送るJSON生成
             const c2sMessages = new C2sJsonGen();
@@ -144,7 +147,7 @@
                 roomName,
                 connectionString,
                 // サーバーからのメッセージを受信したとき
-                s2cMessages,
+                s2cMsgDrv,
                 // Webソケットを開かれたとき
                 () => {
                     console.log("WebSockets connection created.");
