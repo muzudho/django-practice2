@@ -22,18 +22,16 @@
             <v-app>
                 <v-main>
                     <v-container fluid>
-                        <h1>Tic Tac Toe Message Test</h1>
+                        <h1>Tic Tac Toe - C2S Json Generator</h1>
                         <v-form method="POST">
                             {% csrf_token %}
 
                             <!-- `po_` は POST送信するパラメーター名の目印 -->
-                            <!-- 入力 -->
-                            <v-textarea name="po_input" required v-model="inputTextbox.value" label="Input" background-color="blue-grey lighten-1"></v-textarea>
 
                             <!-- リスト -->
-                            <v-select v-model="c2sMessageTypeList.value" :items="c2sMessageTypeItems" label="クライアントからサーバーへ送るメッセージの種類一覧"></v-select>
-                            <v-select v-model="sqList.value" :items="sqItems" label="マス番号一覧"></v-select>
-                            <v-select v-model="playerList.value" :items="playerItems" label="プレイヤー一覧"></v-select>
+                            <v-select v-model="c2sMessageTypeListbox.value" :items="c2sMessageTypeItems" label="クライアントからサーバーへ送るメッセージの種類一覧"></v-select>
+                            <v-select v-model="sqListbox.value" :items="sqItems" label="マス番号一覧"></v-select>
+                            <v-select v-model="playerListbox.value" :items="playerItems" label="プレイヤー一覧"></v-select>
 
                             <!-- ボタン -->
                             <v-btn block elevation="2" v-on:click="postVu()"> Generate JSON </v-btn>
@@ -63,31 +61,30 @@
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
         <script>
+            // クライアントからサーバーへ送るメッセージを生成できる
             const c2sJsonGen1 = new C2sJsonGen();
 
             const vue1 = new Vue({
                 el: "#app",
                 vuetify: new Vuetify(),
                 data: {
-                    // 入力
-                    inputTextbox: {
-                        value: `# W.I.P`,
-                    },
                     // 出力
                     outputTextbox: {
                         value: 'Please push "Execute" button.',
                     },
-                    // リスト
-                    c2sMessageTypeList: {
+                    // メッセージの種類リストボックス
+                    c2sMessageTypeListbox: {
                         value: "DoMove",
                     },
-                    sqList: {
+                    // マス番号リストボックス
+                    sqListbox: {
                         value: "",
                     },
-                    playerList: {
+                    // プレイヤーリストボックス
+                    playerListbox: {
                         value: "",
                     },
-                    // クライアントからサーバーへ送るメッセージの種類一覧
+                    // メッセージの種類一覧
                     c2sMessageTypeItems: ["DoMove", "Draw", "Start", "Won"],
                     // マス番号の一覧
                     sqItems: ["", 0, 1, 2, 3, 4, 5, 6, 7, 8],
@@ -102,11 +99,11 @@
                     postVu() {
                         // console.log(`[methods postVu]`);
                         let doc = null;
-                        switch (this.c2sMessageTypeList.value) {
+                        switch (this.c2sMessageTypeListbox.value) {
                             case "DoMove":
                                 {
-                                    const sq = this.sqList.value;
-                                    const myTurn = this.playerList.value;
+                                    const sq = this.sqListbox.value;
+                                    const myTurn = this.playerListbox.value;
                                     doc = c2sJsonGen1.createDoMove(sq, myTurn);
                                 }
                                 break;
@@ -120,7 +117,7 @@
                                 break;
 
                             case "Won":
-                                const winner = this.playerList.value;
+                                const winner = this.playerListbox.value;
                                 doc = c2sJsonGen1.createWon(winner);
                                 break;
 
