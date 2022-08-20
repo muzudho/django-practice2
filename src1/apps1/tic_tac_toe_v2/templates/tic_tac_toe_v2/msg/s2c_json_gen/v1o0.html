@@ -83,7 +83,7 @@
                     // 出力
                     outputTextbox: {
                         // `dj_` は Djangoでレンダーするパラメーター名の目印
-                        value: '{{dj_output_json}}',
+                        value: '{{ dj_output_json|escapejs }}',
                     },
                     // メッセージの種類リストボックス
                     c2sMessageTypeListbox: {

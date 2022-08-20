@@ -33,8 +33,8 @@ def render_main(request, template_path):
             "sq1": request.POST.get("po_sq1"),
             "piece1": request.POST.get("po_piece1"),
         }
-        print(
-            f'[render_main] messageType:{messageType} player1:{args["player1"]} sq1:{args["sq1"]} piece1:{args["piece1"]}')
+        # print(
+        #     f'[render_main] messageType:{messageType} player1:{args["player1"]} sq1:{args["sq1"]} piece1:{args["piece1"]}')
         # TODO バリデーションチェックしたい
 
         json_gen = {
@@ -47,7 +47,8 @@ def render_main(request, template_path):
         dj_output_json = json.dumps(doc)
 
     else:
-        dj_output_json = "W.I.P"
+        # 空っぽのJSON文字列
+        dj_output_json = "{}"
 
     context = {
         # `dj_` は Djangoでレンダーするパラメーター名の目印
