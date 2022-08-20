@@ -1,4 +1,4 @@
-// BOF OA16o3o0g2o0
+// BOF OA16o3o_1o0g_1o0
 
 /**
  * 送信JSONジェネレーター
@@ -59,4 +59,4 @@ class C2sJsonGen {
     }
 }
 
-// EOF OA16o3o0g2o0
+// EOF OA16o3o_1o0g_1o0
