@@ -30,6 +30,8 @@
                             <!-- 入力 -->
                             <v-textarea name="po_input" required v-model="inputText.value" label="Input" background-color="blue-grey lighten-1"></v-textarea>
 
+                            <v-select v-model="c2sMessageTypeList.value" :items="c2sMessageTypeItems" label="クライアントからサーバーへ送るメッセージの種類一覧"></v-select>
+                            <!-- -->
                             <v-btn block elevation="2" v-on:click="postVu()"> Post </v-btn>
 
                             <!-- 出力 -->
@@ -62,6 +64,11 @@
                     // 出力
                     outputText: {
                         value: 'Please push "Execute" button.',
+                    },
+                    // クライアントからサーバーへ送るメッセージの種類一覧
+                    c2sMessageTypeItems: ["DoMove", "Draw", "Start", "Won"],
+                    c2sMessageTypeList: {
+                        value: "DoMove",
                     },
                 },
                 methods: {

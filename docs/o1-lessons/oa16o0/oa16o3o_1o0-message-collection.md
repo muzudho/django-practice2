@@ -409,3 +409,9 @@ urlpatterns = [
 👇 適宜、部屋名，自分が持つ手番 を付けてアクセスしてほしい  
 
 📖 [http://localhost:8000/tic-tac-toe/v2/msg-test/Elephant/?&myturn=X](http://localhost:8000/tic-tac-toe/v2/msg-test/Elephant/?&myturn=X)  
+
+# 参考にした記事
+
+## Vuetify
+
+📖 [Set initial vuetify v-select value](https://stackoverflow.com/questions/51392719/set-initial-vuetify-v-select-value)  
