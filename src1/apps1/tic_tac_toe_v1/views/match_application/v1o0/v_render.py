@@ -1,15 +1,17 @@
+# BOF OA16o1o0gA14o0
+
 from django.shortcuts import render, redirect
 
 
-def render_match_application(request, upf_playing, lp_match_application):
+def render_match_application(request, upf_playing, match_application_tp):
     """OA16o1o0gA14o0 描画 - 対局申込
 
     Parameters
     ----------
     upf_playing : str
         Url Path Format
-    lp_match_application : str
-        Local Path
+    match_application_tp : str
+        Template path
     """
 
     if request.method == "POST":
@@ -20,4 +22,6 @@ def render_match_application(request, upf_playing, lp_match_application):
         return redirect(upf_playing.format(room_name, myPiece))
 
     # 訪問後
-    return render(request, lp_match_application, {})
+    return render(request, match_application_tp, {})
+
+# EOF OA16o1o0gA14o0

@@ -1,3 +1,5 @@
+# BOF OA20o1o0g6o0
+
 import json
 from django.shortcuts import render
 
@@ -23,13 +25,13 @@ from apps1.practice_v1.models_helper.session.v1o0 import MhSession
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
-def render_lobby(request, lp_lobby):
+def render_lobby(request, lobby_tp):
     """OA20o1o0g6o0 ロビー（待合室）
 
     Parameters
     ----------
-    lp_lobby : str
-        ローカルパス
+    lobby_tp : str
+        Template path
     """
 
     # 部屋の一覧
@@ -47,4 +49,6 @@ def render_lobby(request, lp_lobby):
         "dj_path_of_rooms_read": "/practice/v1/rooms/read/",
     }
 
-    return render(request, lp_lobby, context)
+    return render(request, lobby_tp, context)
+
+# EOF OA20o1o0g6o0

@@ -1,3 +1,5 @@
+# BOF OA18o5o0g5o0
+
 from django.shortcuts import get_object_or_404, redirect, render
 
 # 部屋モデル
@@ -21,13 +23,13 @@ from apps1.practice_v1.forms.f_room import RoomForm
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
-def render_upsert(request, id, lp_of_room_upsert):
+def render_upsert(request, id, room_upsert_tp):
     """OA18o5o0g5o0 新規作成または更新のページ
 
     Parameters
     ----------
-    lp_of_room_upsert : str
-        ローカルパス
+    room_upsert_tp : str
+        Template path
     """
 
     if id:  # idがあるとき（更新の時）
@@ -53,4 +55,6 @@ def render_upsert(request, id, lp_of_room_upsert):
         form = RoomForm(instance=room)
 
     # 作成・更新画面を表示
-    return render(request, lp_of_room_upsert, dict(form=form, id=id))
+    return render(request, room_upsert_tp, dict(form=form, id=id))
+
+# EOF OA18o5o0g5o0

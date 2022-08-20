@@ -1,3 +1,5 @@
+# BOF OA18o3o0g4o0
+
 from django.shortcuts import render
 
 # 部屋モデル
@@ -21,13 +23,13 @@ from apps1.practice_v1.models_helper.user.v1o0 import MhUser
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
-def render_read(request, room_pk, lp_room_read):
+def render_read(request, room_pk, room_read_tp):
     """OA18o3o0g4o0 読取ページ
 
     Parameters
     ----------
-    lp_room_read : str
-        ローカルパス
+    room_read_tp : str
+        Template path
     """
 
     # idを指定してメンバーを１人取得
@@ -66,4 +68,6 @@ def render_read(request, room_pk, lp_room_read):
     context = {
         'room': room_dic,
     }
-    return render(request, lp_room_read, context)
+    return render(request, room_read_tp, context)
+
+# EOF OA18o3o0g4o0

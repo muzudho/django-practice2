@@ -1,3 +1,5 @@
+# BOF OA11o2o0g3o0
+
 from django.shortcuts import render, get_object_or_404
 
 # 都道府県モデル
@@ -22,8 +24,8 @@ def render_read(request, id=id):
         URLのGETストリングの ?id= の値
     """
 
-    # * `lp_` - Local path
-    lp_prefecture_read = 'practice_v1/prefecture/v1o0/read.html'
+    # Template path
+    prefecture_read_tp = 'practice_v1/prefecture/v1o0/read.html'
     #                     -------------------------------------
     #                     1
     # 1. `src1/apps1/practice_v1/templates/practice_v1/prefecture/v1o0/read.html` を取得
@@ -37,4 +39,6 @@ def render_read(request, id=id):
     context = {
         'prefecture': prefecture,
     }
-    return render(request, lp_prefecture_read, context)
+    return render(request, prefecture_read_tp, context)
+
+# EOF OA11o2o0g3o0

@@ -345,20 +345,24 @@ class AutoReloadV():
 ```
 
 ```py
+# BOF OA21o1o0g6o0
+
 from django.shortcuts import render
 
 
-def render_auto_reload(request, lp_auto_reload):
+def render_auto_reload(request, auto_reload_tp):
     """OA21o1o0g6o0 描画 - 自動再読込
 
     Parameters
     ----------
-    lp_auto_reload : str
-        ローカルパス
+    auto_reload_tp : str
+        Template path
     """
 
     context = {}
-    return render(request, lp_auto_reload, context)
+    return render(request, auto_reload_tp, context)
+
+# EOF OA21o1o0g6o0
 ```
 
 ## Step OA21o1o0g7o0 ルート編集 - urls_practice.py ファイル

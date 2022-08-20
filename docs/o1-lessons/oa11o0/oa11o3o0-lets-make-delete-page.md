@@ -171,6 +171,8 @@ docker-compose up
 ```
 
 ```py
+# BOF OA11o3o0g3o0
+
 from django.shortcuts import render, get_object_or_404
 
 # 都道府県モデル
@@ -195,8 +197,8 @@ def render_delete(request, id=id):
         URLのGETストリングの ?id= の値
     """
 
-    # * `lp_` - Local path
-    lp_prefecture_delete = 'practice_v1/prefecture/v1o0/delete.html'
+    # Template path
+    prefecture_delete_tp = 'practice_v1/prefecture/v1o0/delete.html'
     #                       ---------------------------------------
     #                       1
     # 1. `src1/apps1/practice_v1/templates/practice_v1/prefecture/v1o0/delete.html` を取得
@@ -213,7 +215,9 @@ def render_delete(request, id=id):
             'name': name
         }
     }
-    return render(request, lp_prefecture_delete, context)
+    return render(request, prefecture_delete_tp, context)
+
+# EOF OA11o3o0g3o0
 ```
 
 ## Step OA11o3o0g4o0 ビュー編集 - prefecture モジュール

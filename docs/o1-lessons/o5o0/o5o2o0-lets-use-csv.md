@@ -274,7 +274,6 @@ class Portal():
     def render(request):
         """描画"""
 
-        # * `lp_` - Local path
         template_path = 'portal_v1/v2o0.html'
         #                           ^two
         #                -------------------

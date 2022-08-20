@@ -1709,21 +1709,25 @@ class EngineManual():
 ```
 
 ```py
+# BOF OA16o2o0gA15o0
+
 from django.shortcuts import render
 
 
-def render_engine_manual(request, lp_engine_manual):
+def render_engine_manual(request, engine_manual_tp):
     """OA16o2o0gA15o0 描画 - エンジン手動
 
     Parameters
     ----------
-    lp_engine_manual : str
-        Local Path
+    engine_manual_tp : str
+        Template path
     """
 
     context = {}
 
-    return render(request, lp_engine_manual, context)
+    return render(request, engine_manual_tp, context)
+
+# EOF OA16o2o0gA15o0
 ```
 
 ## Step OA16o2o0gA16o0 サブ ルート新規作成 - urls_tic_tac_toe_v2.py ファイル

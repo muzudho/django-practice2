@@ -291,6 +291,8 @@ docker-compose up
 ```
 
 ```py
+# BOF OA13o1o0g4o0
+
 import json
 from django.shortcuts import render
 
@@ -298,8 +300,8 @@ from django.shortcuts import render
 def render_desserts1(request):
     """OA13o1o0g4o0 ビューティファイのデザート１"""
 
-    # * `lp_` - Local path
-    lp_desserts1 = 'practice_v1/vuetifies/desserts1/v1o0.html'
+    # Template path
+    desserts1_tp = 'practice_v1/vuetifies/desserts1/v1o0.html'
     #               -----------------------------------------
     #               1
     # 1. `src1/apps1/practice_v1/templates/practice_v1/vuetifies/desserts1/v1o0.html` を取得
@@ -315,7 +317,9 @@ def render_desserts1(request):
     context = {
         'dessertsStr': json.dumps(doc)
     }
-    return render(request, lp_desserts1, context)
+    return render(request, desserts1_tp, context)
+
+# EOF OA13o1o0g4o0
 ```
 
 ## Step OA13o1o0g5o0 ビュー編集 - VuetifyV モジュール

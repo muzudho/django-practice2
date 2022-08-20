@@ -1,13 +1,15 @@
+# BOF OA19o1o0g4o0
+
 from django.shortcuts import render
 
 
-def render_my(request, lp_my_page):
+def render_my(request, my_page_tp):
     """OA19o1o0g4o0 描画 - マイ ページ
 
     Parameters
     ----------
-    lp_my_page : str
-        ローカルパス
+    my_page_tp : str
+        Template path
     """
 
     context = {
@@ -39,4 +41,6 @@ def render_my(request, lp_my_page):
         #                      --------------------
     }
 
-    return render(request, lp_my_page, context)
+    return render(request, my_page_tp, context)
+
+# EOF OA19o1o0g4o0

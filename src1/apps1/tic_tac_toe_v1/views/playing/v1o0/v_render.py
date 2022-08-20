@@ -1,14 +1,16 @@
+# BOF OA16o1o0gA16o0
+
 from django.http import Http404
 from django.shortcuts import render
 
 
-def render_playing(request, room_name, lp_playing):
+def render_playing(request, room_name, playing_tp):
     """OA16o1o0gA16o0 描画 - 対局
 
     Parameters
     ----------
-    lp_playing : str
-        Local Path
+    playing_tp : str
+        Template path
     """
 
     myPiece = request.GET.get("mypiece")
@@ -19,4 +21,6 @@ def render_playing(request, room_name, lp_playing):
         "my_piece": myPiece,
         "room_name": room_name
     }
-    return render(request, lp_playing, context)
+    return render(request, playing_tp, context)
+
+# EOF OA16o1o0gA16o0

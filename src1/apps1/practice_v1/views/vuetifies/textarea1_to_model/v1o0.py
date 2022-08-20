@@ -1,3 +1,5 @@
+# BOF OA13o4o0gA11o0
+
 import json
 from django.http import JsonResponse
 from django.shortcuts import render
@@ -16,8 +18,8 @@ from apps1.practice_v1.models.dessert.v1o0 import Dessert
 def render_textarea1_to_model(request):
     """OA13o4o0gA11o0 ビューティファイのテキストエリア１ to model"""
 
-    # * `lp_` - Local path
-    lp_textarea1_to_model = 'practice_v1/vuetifies/textarea1_to_model/v1o0.html.txt'
+    # Template path
+    textarea1_to_model_tp = 'practice_v1/vuetifies/textarea1_to_model/v1o0.html.txt'
     #                        ------------------------------------------------------
     #                        1
     # 1. `src1/apps1/practice_v1/templates/practice_v1/vuetifies/textarea1_to_model/v1o0.html.txt` を取得
@@ -33,7 +35,7 @@ def render_textarea1_to_model(request):
     context = {
         'dessertsStr': json.dumps(doc)
     }
-    return render(request, lp_textarea1_to_model, context)
+    return render(request, textarea1_to_model_tp, context)
 
 
 def render_save_result_of_desserts1_from_textarea1(request):
@@ -55,3 +57,5 @@ def render_save_result_of_desserts1_from_textarea1(request):
         'result': "Success"
     }
     return JsonResponse(doc2)
+
+# EOF OA13o4o0gA11o0

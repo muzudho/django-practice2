@@ -148,7 +148,6 @@ class PageToBeAdded():
     def render(request):
         """描画"""
 
-        # * `lp_` - Local path
         template_path = 'practice_v1/page_to_be_added/v3o0.html.txt'
         #                                             ^three
         #               ------------------------------------------

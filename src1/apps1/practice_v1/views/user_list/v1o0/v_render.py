@@ -1,3 +1,5 @@
+# BOF O9o1o0g6o0
+
 import json
 from django.shortcuts import render
 
@@ -12,13 +14,13 @@ from apps1.practice_v1.models_helper.user.v1o0 import MhUser
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
-def render_user_list(request, lp_user_list):
+def render_user_list(request, user_list_tp):
     """O9o1o0g6o0 描画 - 会員一覧
 
     Parameters
     ----------
-    lp_user_list : str
-        ローカルパス
+    user_list_tp : str
+        Template path
     """
 
     context = {
@@ -27,4 +29,6 @@ def render_user_list(request, lp_user_list):
         'dj_user_dic': json.dumps(MhUser.get_user_dic())
     }
 
-    return render(request, lp_user_list, context)
+    return render(request, user_list_tp, context)
+
+# EOF O9o1o0g6o0

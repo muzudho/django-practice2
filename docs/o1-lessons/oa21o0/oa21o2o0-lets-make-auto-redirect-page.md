@@ -289,17 +289,19 @@ class AutoRedirectV():
 ```
 
 ```py
+# BOF OA21o2o0g5o0
+
 import datetime
 from django.shortcuts import render
 
 
-def render_auto_redirect(request, lp_auto_redirect):
+def render_auto_redirect(request, auto_redirect_tp):
     """OA21o2o0g5o0 描画 - 自動リダイレクト ページ
 
     Parameters
     ----------
-    lp_auto_redirect : str
-        ローカルパス
+    auto_redirect_tp : str
+        Template path
     """
 
     # 現在日時
@@ -324,7 +326,9 @@ def render_auto_redirect(request, lp_auto_redirect):
         "dj_redirect_path": redirect_path,
     }
 
-    return render(request, lp_auto_redirect, context)
+    return render(request, auto_redirect_tp, context)
+
+# EOF OA21o2o0g5o0
 ```
 
 ## Step OA21o2o0g6o0 ルート編集 - urls_practice.py ファイル

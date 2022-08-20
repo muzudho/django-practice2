@@ -485,6 +485,8 @@ class ExtendsUserListV():
 ```
 
 ```py
+# BOF O9o2o0gA11o0
+
 import json
 from django.shortcuts import render
 
@@ -499,12 +501,12 @@ from apps1.practice_v1.models_helper.user.v1o0 import MhUser
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
-def render_extends_user_list(request, lp_extends_user_list):
+def render_extends_user_list(request, extends_user_list_tp):
     """O9o2o0gA11o0 描画 - （拡張済）会員登録ユーザー一覧
 
     Parameters
     ----------
-    lp_extends_user_list : str
+    extends_user_list_tp : str
         ローカルパス
     """
 
@@ -515,7 +517,9 @@ def render_extends_user_list(request, lp_extends_user_list):
         #   --------                                 --------
     }
 
-    return render(request, lp_extends_user_list, context)
+    return render(request, extends_user_list_tp, context)
+
+# EOF O9o2o0gA11o0
 ```
 
 ## Step O9o2o0gA12o0 ルート編集 - urls_practice.py ファイル

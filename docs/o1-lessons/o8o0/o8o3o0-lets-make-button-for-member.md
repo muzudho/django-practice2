@@ -263,16 +263,18 @@ class ButtonForMember():
 ```
 
 ```py
+# BOF O8o3o0g4o0
+
 from django.shortcuts import render
 
 
-def render_button_for_member(request, lp_button_for_member_page, path_of_portal, path_of_login_required, path_of_login, path_of_logout):
+def render_button_for_member(request, button_for_member_page_tp, path_of_portal, path_of_login_required, path_of_login, path_of_logout):
     """O8o3o0g4o0 描画 - 会員にだけ見えるボタンを説明するページ
 
     Parameters
     ----------
-    lp_button_for_member_page : str
-        ローカルパス
+    button_for_member_page_tp : str
+        Template path
     """
 
     context = {
@@ -283,7 +285,9 @@ def render_button_for_member(request, lp_button_for_member_page, path_of_portal,
         'dj_path_of_login': path_of_login,
         'dj_path_of_logout': path_of_logout,
     }
-    return render(request, lp_button_for_member_page, context)
+    return render(request, button_for_member_page_tp, context)
+
+# EOF O8o3o0g4o0
 ```
 
 ## Step O8o3o0g5o0 ルート編集 - urls_practice.py ファイル

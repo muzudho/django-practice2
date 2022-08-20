@@ -761,6 +761,8 @@ board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
 ```
 
 ```py
+# BOF OAAA1001o1o0ga14o0
+
 from django.shortcuts import render
 
 
@@ -771,15 +773,16 @@ class BoardView():
     def render(request):
         """描画"""
 
-        # * `_lp` - Local path
-        this_page_lp = 'lifegame_v1/board/v0o3o0.html.txt'
+        template_path = 'lifegame_v1/board/v0o3o0.html.txt'
         #               ---------------------------------
         #               1
         # 1. `src1/apps1/lifegame_v1/templates/lifegame_v1/board/v0o3o0.html.txt` を取得
         #                                      ---------------------------------
 
         context = {}
-        return render(request, this_page_lp, context)
+        return render(request, template_path, context)
+
+# EOF OAAA1001o1o0ga14o0
 ```
 
 # Step OAAA1001o1o0ga15o0 サブ ルート作成 - urls_lifegame.py

@@ -1,3 +1,5 @@
+# BOF OA11o1o0g3o0
+
 from django.shortcuts import render
 
 # 都道府県モデル
@@ -14,8 +16,8 @@ from apps1.practice_v1.models.prefecture.v1o0 import Prefecture
 def render_list(request):
     """OA11o1o0g3o0 一覧画面の描画"""
 
-    # * `lp_` - Local path
-    lp_prefecture_list = 'practice_v1/prefecture/v1o0/list.html'
+    # Template path
+    prefecture_list_tp = 'practice_v1/prefecture/v1o0/list.html'
     #                     -------------------------------------
     #                     1
     # 1. `src1/apps1/practice_v1/templates/practice_v1/prefecture/v1o0/list.html` を取得
@@ -24,4 +26,6 @@ def render_list(request):
     context = {
         'prefectures': Prefecture.objects.all().order_by('pk'),  # pk順にメンバーを全部取得
     }
-    return render(request, lp_prefecture_list, context)
+    return render(request, prefecture_list_tp, context)
+
+# EOF OA11o1o0g3o0

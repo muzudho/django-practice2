@@ -419,6 +419,8 @@ class RoomV():
 ```
 
 ```py
+# BOF OA18o2o0g6o0
+
 import json
 from django.shortcuts import render
 
@@ -443,13 +445,13 @@ from apps1.practice_v1.models_helper.user.v1o0 import MhUser
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
-def render_list(request, lp_room_list):
+def render_list(request, room_list_tp):
     """OA18o2o0g6o0 一覧ページ
 
     Parameters
     ----------
-    lp_room_list : str
-        ローカルパス
+    room_list_tp : str
+        Template path
     """
 
     room_resultset = Room.objects.all().order_by('id')
@@ -500,7 +502,9 @@ def render_list(request, lp_room_list):
         # FIXME URL を urls.py で変更しても、こちらに反映されないが、どうするか？
         "dj_read_room_path": "/practice/v1/rooms/read/",
     }
-    return render(request, lp_room_list, context)
+    return render(request, room_list_tp, context)
+
+# EOF OA18o2o0g6o0
 ```
 
 ## Step OA18o2o0g7o0 ルート編集 - urls_practice.py ファイル

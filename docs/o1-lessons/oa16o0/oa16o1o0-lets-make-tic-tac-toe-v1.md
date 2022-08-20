@@ -916,18 +916,20 @@ class MatchApplicationV():
 ```
 
 ```py
+# BOF OA16o1o0gA14o0
+
 from django.shortcuts import render, redirect
 
 
-def render_match_application(request, upf_playing, lp_match_application):
+def render_match_application(request, upf_playing, match_application_tp):
     """OA16o1o0gA14o0 描画 - 対局申込
 
     Parameters
     ----------
     upf_playing : str
         Url Path Format
-    lp_match_application : str
-        Local Path
+    match_application_tp : str
+        Template path
     """
 
     if request.method == "POST":
@@ -938,7 +940,9 @@ def render_match_application(request, upf_playing, lp_match_application):
         return redirect(upf_playing.format(room_name, myPiece))
 
     # 訪問後
-    return render(request, lp_match_application, {})
+    return render(request, match_application_tp, {})
+
+# EOF OA16o1o0gA14o0
 ```
 
 ## Step OA16o1o0gA15o0 ビュー作成 - playing/v1o0 フォルダー
@@ -1050,17 +1054,19 @@ class PlayingV():
 ```
 
 ```py
+# BOF OA16o1o0gA16o0
+
 from django.http import Http404
 from django.shortcuts import render
 
 
-def render_playing(request, room_name, lp_playing):
+def render_playing(request, room_name, playing_tp):
     """OA16o1o0gA16o0 描画 - 対局
 
     Parameters
     ----------
-    lp_playing : str
-        Local Path
+    playing_tp : str
+        Template path
     """
 
     myPiece = request.GET.get("mypiece")
@@ -1071,7 +1077,9 @@ def render_playing(request, room_name, lp_playing):
         "my_piece": myPiece,
         "room_name": room_name
     }
-    return render(request, lp_playing, context)
+    return render(request, playing_tp, context)
+
+# EOF OA16o1o0gA16o0
 ```
 
 ## Step OA16o1o0gA17o0 ルート新規作成 - urls_tic_tac_toe_v1.py ファイル
