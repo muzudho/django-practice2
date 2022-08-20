@@ -34,7 +34,6 @@ class TicTacToeV2MessageConverter():
             # TODO 現状、クライアント側から勝者を送ってきているが、勝敗判定のロジックはサーバー側に置きたい
             winner = doc_received.get("c2s_winner", None)
 
-            # `s2c_` は サーバーからクライアントへ送る変数の目印
             return S2cJsonGen.create_end(winner)
 
         elif event == 'C2S_Moved':
@@ -47,12 +46,7 @@ class TicTacToeV2MessageConverter():
 
             await self.on_move(scope, doc_received)
 
-            return {
-                'type': 'send_message',  # type属性は必須
-                's2c_event': 'S2C_Moved',
-                's2c_sq': c2s_sq,
-                's2c_pieceMoved': piece_moved,
-            }
+            return S2cJsonGen.create_moved(c2s_sq, piece_moved)
 
         elif event == 'C2S_Start':
             # 対局開始時
@@ -60,11 +54,7 @@ class TicTacToeV2MessageConverter():
 
             self.on_start(scope, doc_received)
 
-            # `s2c_` は サーバーからクライアントへ送る変数の目印
-            return {
-                'type': 'send_message',  # type属性は必須
-                's2c_event': "S2C_Start",
-            }
+            return S2cJsonGen.create_start()
 
         raise ValueError(f"Unknown event: {event}")
 
