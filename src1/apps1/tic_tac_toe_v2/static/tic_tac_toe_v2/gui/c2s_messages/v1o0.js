@@ -5,7 +5,7 @@
  *
  * * クライアントからサーバーへ送る
  */
-class OutgoingMessages {
+class C2sMessages {
     /**
      * どちらかのプレイヤーが駒を置いたとき
      * @param {int} sq - 升番号
@@ -14,7 +14,7 @@ class OutgoingMessages {
      */
     createDoMove(sq, pieceMoved) {
         // `c2s_` は クライアントからサーバーへ送る変数の目印
-        console.log(`[OutgoingMessages createDoMove] sq=${sq} pieceMoved=${pieceMoved}`);
+        console.log(`[C2sMessages createDoMove] sq=${sq} pieceMoved=${pieceMoved}`);
         return {
             c2s_event: "C2S_Moved",
             c2s_sq: sq,

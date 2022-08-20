@@ -116,7 +116,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA16o3o0g2o0 送信メッセージ実装 - gui/outgoing_messages/v1o0.js ファイル
+## Step OA16o3o0g2o0 送信メッセージ実装 - gui/c2s_messages/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -127,7 +127,7 @@ docker-compose up
                 └── 📂 static
                     └── 📂 tic_tac_toe_v2    # アプリケーションと同名
                         └── 📂 gui
-                            └── 📂 outgoing_messages
+                            └── 📂 c2s_messages
                                 └── 📄 v1o0.js
 ```
 
@@ -139,7 +139,7 @@ docker-compose up
  *
  * * クライアントからサーバーへ送る
  */
-class OutgoingMessages {
+class C2sMessages {
     /**
      * どちらかのプレイヤーが駒を置いたとき
      * @param {int} sq - 升番号
@@ -148,7 +148,7 @@ class OutgoingMessages {
      */
     createDoMove(sq, pieceMoved) {
         // `c2s_` は クライアントからサーバーへ送る変数の目印
-        console.log(`[OutgoingMessages createDoMove] sq=${sq} pieceMoved=${pieceMoved}`);
+        console.log(`[C2sMessages createDoMove] sq=${sq} pieceMoved=${pieceMoved}`);
         return {
             c2s_event: "C2S_Moved",
             c2s_sq: sq,
@@ -194,7 +194,7 @@ class OutgoingMessages {
 }
 ```
 
-## Step OA16o3o0g3o0 受信メッセージ実装 - gui/incoming_messages/v1o0.js ファイル
+## Step OA16o3o0g3o0 受信メッセージ実装 - gui/s2c_messages/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -205,9 +205,9 @@ class OutgoingMessages {
                 └── 📂 static
                     └── 📂 tic_tac_toe_v2    # アプリケーションと同名
                         └── 📂 gui
-                            ├── 📂 incoming_messages
+                            ├── 📂 c2s_messages
 👉                          │   └── 📄 v1o0.js
-                            └── 📂 outgoing_messages
+                            └── 📂 s2c_messages
                                 └── 📄 v1o0.js
 ```
 
@@ -217,7 +217,7 @@ class OutgoingMessages {
 /**
  * 受信メッセージ一覧
  */
-class IncomingMessages {
+class S2cMessages {
     /**
      * サーバーからクライアントへ送られてきたメッセージをセットする関数を返します
      * @returns 関数
@@ -226,7 +226,7 @@ class IncomingMessages {
         // `s2c_` は サーバーからクライアントへ送られてきた変数の目印
         // イベント
         let event = message["s2c_event"];
-        console.log(`[IncomingMessages setMessageFromServer] サーバーからのメッセージを受信しました event:${event}`);
+        console.log(`[S2cMessages setMessageFromServer] サーバーからのメッセージを受信しました event:${event}`);
 
         switch (event) {
             case "S2C_Start":
@@ -243,7 +243,7 @@ class IncomingMessages {
 
             default:
                 // Undefined behavior
-                console.log(`[IncomingMessages setMessageFromServer] ignored. event=[${event}]`);
+                console.log(`[S2cMessages setMessageFromServer] ignored. event=[${event}]`);
         }
     }
 
@@ -270,7 +270,7 @@ class IncomingMessages {
             return;
         }
 
-        console.log(`[IncomingMessages start]`);
+        console.log(`[S2cMessages start]`);
         this._onStart(message);
     }
 
@@ -286,7 +286,7 @@ class IncomingMessages {
 
         // 勝者
         let winner = message["s2c_winner"];
-        console.log(`[IncomingMessages end] winner:${winner}`);
+        console.log(`[S2cMessages end] winner:${winner}`);
         this._onEnd(message, winner);
     }
 
@@ -304,7 +304,7 @@ class IncomingMessages {
         let sq = message["s2c_sq"];
         // 手番。 "X" か "O"
         let piece_moved = message["s2c_pieceMoved"];
-        console.log(`[IncomingMessages onMoved] sq:${sq} piece_moved:${piece_moved}`);
+        console.log(`[S2cMessages onMoved] sq:${sq} piece_moved:${piece_moved}`);
 
         this._onMoved(message, parseInt(sq), piece_moved);
     }
@@ -322,11 +322,11 @@ class IncomingMessages {
                 └── 📂 static
                     └── 📂 tic_tac_toe_v2    # アプリケーションと同名
                         └── 📂 gui
-                            ├── 📂 connection
+                            ├── 📂 c2s_messages
 👉                          │   └── 📄 v1o0.js
-                            ├── 📂 incoming_messages
+                            ├── 📂 connection
                             │   └── 📄 v1o0.js
-                            └── 📂 outgoing_messages
+                            └── 📂 s2c_messages
                                 └── 📄 v1o0.js
 ```
 
@@ -491,11 +491,11 @@ class Connection {
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
                 │       └── 📂 gui
+                │           ├── 📂 c2s_messages
+                │           │   └── 📄 v1o0.js
                 │           ├── 📂 connection
                 │           │   └── 📄 v1o0.js
-                │           ├── 📂 incoming_messages
-                │           │   └── 📄 v1o0.js
-                │           └── 📂 outgoing_messages
+                │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
                 └── 📂 templates
                     └── 📂 tic_tac_toe_v2    # アプリケーションと同名
@@ -587,11 +587,11 @@ class Connection {
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
                 │       └── 📂 gui
+                │           ├── 📂 c2s_messages
+                │           │   └── 📄 v1o0.js
                 │           ├── 📂 connection
                 │           │   └── 📄 v1o0.js
-                │           ├── 📂 incoming_messages
-                │           │   └── 📄 v1o0.js
-                │           └── 📂 outgoing_messages
+                │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
                 └── 📂 templates
                     └── 📂 tic_tac_toe_v2    # アプリケーションと同名
@@ -688,12 +688,12 @@ class Connection {
         <script src="{% static 'tic_tac_toe_v2/think/judge_ctrl/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/think/engine/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/gui/connection/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/gui/incoming_messages/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/gui/outgoing_messages/v1o0.js' %}"></script>
-        <!--            ====================================================
+        <script src="{% static 'tic_tac_toe_v2/gui/s2c_messages/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/gui/c2s_messages/v1o0.js' %}"></script>
+        <!--            ===============================================
                         1
-        1. src1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/gui/outgoing_messages/v1o0.js
-                                     ===================================================
+        1. src1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/gui/c2s_messages/v1o0.js
+                                     ==============================================
         -->
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
@@ -711,15 +711,15 @@ class Connection {
             // 3. パス
             console.log(`[HTML] convertPartsToConnectionString roomName=${roomName} connectionString=${connectionString}`);
 
-            // 受信メッセージ作成者
-            const incomingMessages = new IncomingMessages();
-            incomingMessages.onStart = (message)=>{
+            // サーバーからクライアントへメッセージ送信
+            const s2cMessages = new S2cMessages();
+            s2cMessages.onStart = (message)=>{
                 vue1.onStart();
             }
-            incomingMessages.onEnd = (message, winner)=>{
+            s2cMessages.onEnd = (message, winner)=>{
                 vue1.onGameover(winner);
             }
-            incomingMessages.onMoved = (message, sq, piece_moved)=>{
+            s2cMessages.onMoved = (message, sq, piece_moved)=>{
                 console.log(`[HTML onMoved] 自分の手番:${vue1.engine.position.turn.me}`);
 
                 if (piece_moved != vue1.engine.position.turn.me) {
@@ -734,19 +734,19 @@ class Connection {
                 vue1.engine.judgeCtrl.doJudge(vue1.engine.position);
             }
 
-            // 送信メッセージ作成者
-            const outgoingMessages = new OutgoingMessages();
+            // クライアントからサーバーへ、メッセージ作成
+            const c2sMessages = new C2sMessages();
 
             // 接続
             var connection = new Connection(
                 roomName,
                 connectionString,
                 // サーバーからのメッセージを受信したとき
-                incomingMessages,
+                s2cMessages,
                 // Webソケットを開かれたとき
                 () => {
                     console.log("WebSockets connection created.");
-                    let response = outgoingMessages.createStart();
+                    let response = c2sMessages.createStart();
                     connection.send(response);
                 },
                 // Webソケットが閉じられたとき
@@ -808,7 +808,7 @@ class Connection {
 
                                 // 自分の指し手なら送信
                                 if (vue1.engine.position.turn.me == pieceMoved) {
-                                    let response = outgoingMessages.createDoMove(sq, pieceMoved);
+                                    let response = c2sMessages.createDoMove(sq, pieceMoved);
                                     connection.send(response);
                                 }
 
@@ -830,12 +830,12 @@ class Connection {
                                 switch (gameoverSet.value) {
                                     case GameoverSet.won:
                                         // 自分が勝ったとき
-                                        response = outgoingMessages.createWon(vue1.engine.position.turn.me);
+                                        response = c2sMessages.createWon(vue1.engine.position.turn.me);
                                         connection.send(response);
                                         break;
                                     case GameoverSet.draw:
                                         // 引き分けたとき
-                                        response = outgoingMessages.createDraw();
+                                        response = c2sMessages.createDraw();
                                         connection.send(response);
                                         break;
                                     case GameoverSet.lost:
@@ -1075,11 +1075,11 @@ class Connection {
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
                 │       └── 📂 gui
+                │           ├── 📂 c2s_messages
+                │           │   └── 📄 v1o0.js
                 │           ├── 📂 connection
                 │           │   └── 📄 v1o0.js
-                │           ├── 📂 incoming_messages
-                │           │   └── 📄 v1o0.js
-                │           └── 📂 outgoing_messages
+                │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
                 └── 📂 templates
                     └── 📂 tic_tac_toe_v2    # アプリケーションと同名
@@ -1147,11 +1147,11 @@ class Connection {
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
                 │       └── 📂 gui
+                │           ├── 📂 c2s_messages
+                │           │   └── 📄 v1o0.js
                 │           ├── 📂 connection
                 │           │   └── 📄 v1o0.js
-                │           ├── 📂 incoming_messages
-                │           │   └── 📄 v1o0.js
-                │           └── 📂 outgoing_messages
+                │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
@@ -1254,11 +1254,11 @@ class TicTacToeV2MessageConverter():
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
                 │       └── 📂 gui
+                │           ├── 📂 c2s_messages
+                │           │   └── 📄 v1o0.js
                 │           ├── 📂 connection
                 │           │   └── 📄 v1o0.js
-                │           ├── 📂 incoming_messages
-                │           │   └── 📄 v1o0.js
-                │           └── 📂 outgoing_messages
+                │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
@@ -1355,11 +1355,11 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
                 │       └── 📂 gui
+                │           ├── 📂 c2s_messages
+                │           │   └── 📄 v1o0.js
                 │           ├── 📂 connection
                 │           │   └── 📄 v1o0.js
-                │           ├── 📂 incoming_messages
-                │           │   └── 📄 v1o0.js
-                │           └── 📂 outgoing_messages
+                │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
@@ -1429,11 +1429,11 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
                 │       └── 📂 gui
+                │           ├── 📂 c2s_messages
+                │           │   └── 📄 v1o0.js
                 │           ├── 📂 connection
                 │           │   └── 📄 v1o0.js
-                │           ├── 📂 incoming_messages
-                │           │   └── 📄 v1o0.js
-                │           └── 📂 outgoing_messages
+                │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
@@ -1531,11 +1531,11 @@ class MatchApplicationV():
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
                 │       └── 📂 gui
+                │           ├── 📂 c2s_messages
+                │           │   └── 📄 v1o0.js
                 │           ├── 📂 connection
                 │           │   └── 📄 v1o0.js
-                │           ├── 📂 incoming_messages
-                │           │   └── 📄 v1o0.js
-                │           └── 📂 outgoing_messages
+                │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
@@ -1606,11 +1606,11 @@ def render_match_application(request, playing_web_path, match_application_tp, on
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
                 │       └── 📂 gui
+                │           ├── 📂 c2s_messages
+                │           │   └── 📄 v1o0.js
                 │           ├── 📂 connection
                 │           │   └── 📄 v1o0.js
-                │           ├── 📂 incoming_messages
-                │           │   └── 📄 v1o0.js
-                │           └── 📂 outgoing_messages
+                │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
@@ -1699,11 +1699,11 @@ class PlayingV():
                 ├── 📂 static
                 │   └── 📂 tic_tac_toe_v2
                 │       └── 📂 gui
+                │           ├── 📂 c2s_messages
+                │           │   └── 📄 v1o0.js
                 │           ├── 📂 connection
                 │           │   └── 📄 v1o0.js
-                │           ├── 📂 incoming_messages
-                │           │   └── 📄 v1o0.js
-                │           └── 📂 outgoing_messages
+                │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
@@ -1778,11 +1778,11 @@ def render_playing(request, kw_room_name, wsp_playing, playing_tp, on_update, ex
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
         │       │       └── 📂 gui
+        │       │           ├── 📂 c2s_messages
+        │       │           │   └── 📄 v1o0.js
         │       │           ├── 📂 connection
         │       │           │   └── 📄 v1o0.js
-        │       │           ├── 📂 incoming_messages
-        │       │           │   └── 📄 v1o0.js
-        │       │           └── 📂 outgoing_messages
+        │       │           └── 📂 s2c_messages
         │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
@@ -1878,11 +1878,11 @@ urlpatterns = [
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
         │       │       └── 📂 gui
+        │       │           ├── 📂 c2s_messages
+        │       │           │   └── 📄 v1o0.js
         │       │           ├── 📂 connection
         │       │           │   └── 📄 v1o0.js
-        │       │           ├── 📂 incoming_messages
-        │       │           │   └── 📄 v1o0.js
-        │       │           └── 📂 outgoing_messages
+        │       │           └── 📂 s2c_messages
         │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
@@ -1960,11 +1960,11 @@ websocket_urlpatterns = [
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
         │       │       └── 📂 gui
+        │       │           ├── 📂 c2s_messages
+        │       │           │   └── 📄 v1o0.js
         │       │           ├── 📂 connection
         │       │           │   └── 📄 v1o0.js
-        │       │           ├── 📂 incoming_messages
-        │       │           │   └── 📄 v1o0.js
-        │       │           └── 📂 outgoing_messages
+        │       │           └── 📂 s2c_messages
         │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
@@ -2053,11 +2053,11 @@ websocket_urlpatterns_merged.extend(
         │       ├── 📂 static
         │       │   └── 📂 tic_tac_toe_v2
         │       │       └── 📂 gui
+        │       │           ├── 📂 c2s_messages
+        │       │           │   └── 📄 v1o0.js
         │       │           ├── 📂 connection
         │       │           │   └── 📄 v1o0.js
-        │       │           ├── 📂 incoming_messages
-        │       │           │   └── 📄 v1o0.js
-        │       │           └── 📂 outgoing_messages
+        │       │           └── 📂 s2c_messages
         │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_v2
