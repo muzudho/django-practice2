@@ -321,20 +321,28 @@ class C2sJsonGen {
                                 break;
 
                             case "Draw":
-                                doc = c2sJsonGen1.createDraw();
+                                {
+                                    doc = c2sJsonGen1.createDraw();
+                                }
                                 break;
 
                             case "Start":
-                                doc = c2sJsonGen1.createStart();
+                                {
+                                    doc = c2sJsonGen1.createStart();
+                                }
                                 break;
 
                             case "Won":
-                                const winner = this.playerListbox.value;
-                                doc = c2sJsonGen1.createWon(winner);
+                                {
+                                    const winner = this.playerListbox.value;
+                                    doc = c2sJsonGen1.createWon(winner);
+                                }
                                 break;
 
                             default:
-                                doc = {};
+                                {
+                                    doc = {};
+                                }
                                 break;
                         }
 
