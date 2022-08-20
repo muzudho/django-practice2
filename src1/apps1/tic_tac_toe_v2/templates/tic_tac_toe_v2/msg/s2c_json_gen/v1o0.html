@@ -54,7 +54,7 @@
                             <v-btn type="submit" block elevation="2" v-on:click="pullVu()"> Pull </v-btn>
 
                             <!-- 出力 -->
-                            <v-textarea required v-model="outputTextbox.value" label="Output" rows="10"></v-textarea>
+                            <v-textarea required v-model="outputTextbox.value" label="Output" rows="10"/>
                         </v-form>
                     </v-container>
                 </v-main>
@@ -82,7 +82,8 @@
                 data: {
                     // 出力
                     outputTextbox: {
-                        value: 'Please push "Pull" button.',
+                        // `dj_` は Djangoでレンダーするパラメーター名の目印
+                        value: '{{dj_output_json}}',
                     },
                     // メッセージの種類リストボックス
                     c2sMessageTypeListbox: {
@@ -127,7 +128,6 @@
                      * po_input 欄のコマンドを入力します
                      */
                     pullVu() {
-                        let doc = null;
                         switch (this.c2sMessageTypeListbox.value) {
                             case "End":
                                 {

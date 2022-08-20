@@ -275,7 +275,7 @@ class S2cJsonGenCommands:
                             <v-btn type="submit" block elevation="2" v-on:click="pullVu()"> Pull </v-btn>
 
                             <!-- 出力 -->
-                            <v-textarea required v-model="outputTextbox.value" label="Output" rows="10"></v-textarea>
+                            <v-textarea required v-model="outputTextbox.value" label="Output" rows="10"/>
                         </v-form>
                     </v-container>
                 </v-main>
@@ -303,7 +303,8 @@ class S2cJsonGenCommands:
                 data: {
                     // 出力
                     outputTextbox: {
-                        value: 'Please push "Pull" button.',
+                        // `dj_` は Djangoでレンダーするパラメーター名の目印
+                        value: '{{dj_output_json}}',
                     },
                     // メッセージの種類リストボックス
                     c2sMessageTypeListbox: {
@@ -348,7 +349,6 @@ class S2cJsonGenCommands:
                      * po_input 欄のコマンドを入力します
                      */
                     pullVu() {
-                        let doc = null;
                         switch (this.c2sMessageTypeListbox.value) {
                             case "End":
                                 {
@@ -420,7 +420,18 @@ def render_main(request, template_path):
         Template path
     """
 
-    context = {}
+    if request.method == "POST":
+        # 送信後
+        player1 = request.POST.get("po_player1")
+        sq1 = request.POST.get("po_sq1")
+        piece1 = request.POST.get("po_piece1")
+        print(f"[render_main] player1:{player1} sq1:{sq1} piece1:{piece1}")
+        # TODO バリデーションチェックしたい
+
+    context = {
+        # `dj_` は Djangoでレンダーするパラメーター名の目印
+        "dj_output_json": "W.I.P",
+    }
 
     return render(request, template_path, context)
 
