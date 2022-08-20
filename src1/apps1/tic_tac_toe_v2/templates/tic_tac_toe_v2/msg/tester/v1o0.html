@@ -28,20 +28,26 @@
 
                             <!-- `po_` は POST送信するパラメーター名の目印 -->
                             <!-- 入力 -->
-                            <v-textarea name="po_input" required v-model="inputText.value" label="Input" background-color="blue-grey lighten-1"></v-textarea>
+                            <v-textarea name="po_input" required v-model="inputTextbox.value" label="Input" background-color="blue-grey lighten-1"></v-textarea>
 
                             <v-select v-model="c2sMessageTypeList.value" :items="c2sMessageTypeItems" label="クライアントからサーバーへ送るメッセージの種類一覧"></v-select>
                             <!-- -->
                             <v-btn block elevation="2" v-on:click="postVu()"> Post </v-btn>
 
                             <!-- 出力 -->
-                            <v-textarea name="po_output" required v-model="outputText.value" label="Output"></v-textarea>
+                            <v-textarea name="po_output" required v-model="outputTextbox.value" label="Output" rows="10"></v-textarea>
                         </v-form>
                     </v-container>
                 </v-main>
             </v-app>
         </div>
 
+        <script src="{% static 'tic_tac_toe_v2/think/things/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/concepts/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/position/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/user_ctrl/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/judge_ctrl/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/think/engine/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/msg/s2c_messages/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/msg/c2s_json_gen/v1o0.js' %}"></script>
         <!--            ===============================================
@@ -53,16 +59,18 @@
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
         <script>
+            const c2sJsonGen1 = new C2sJsonGen();
+
             const vue1 = new Vue({
                 el: "#app",
                 vuetify: new Vuetify(),
                 data: {
                     // 入力
-                    inputText: {
+                    inputTextbox: {
                         value: `# W.I.P`,
                     },
                     // 出力
-                    outputText: {
+                    outputTextbox: {
                         value: 'Please push "Execute" button.',
                     },
                     // クライアントからサーバーへ送るメッセージの種類一覧
@@ -78,6 +86,30 @@
                      */
                     postVu() {
                         // console.log(`[methods postVu]`);
+                        let doc = null;
+                        switch (this.c2sMessageTypeList.value) {
+                            case "DoMove":
+                                doc = c2sJsonGen1.createDoMove(0, "X");
+                                break;
+
+                            case "Draw":
+                                doc = c2sJsonGen1.createDraw();
+                                break;
+
+                            case "Start":
+                                doc = c2sJsonGen1.createStart();
+                                break;
+
+                            case "Won":
+                                doc = c2sJsonGen1.createWon("X");
+                                break;
+
+                            default:
+                                doc = {};
+                                break;
+                        }
+
+                        this.outputTextbox.value = JSON.stringify(doc, null, "    ");
                     },
                 },
             });
