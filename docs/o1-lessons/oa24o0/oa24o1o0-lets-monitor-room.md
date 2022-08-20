@@ -117,6 +117,8 @@ docker-compose up
 ```
 
 ```py
+# BOF OA24o1o0g2o0
+
 from asgiref.sync import sync_to_async
 
 # 〇×ゲーム v2 メッセージコンバーター v1.0
@@ -143,7 +145,7 @@ from apps1.practice_v1.models.room.v1o0 import Room
 class TicTacToeV3g1o0MessageConverter(TicTacToeV2MessageConverter):
     """OA24o1o0g2o0 サーバープロトコル"""
 
-    def on_end(self, scope, doc_received):
+    async def on_end(self, scope, doc_received):
         """対局終了時"""
         pass
 
@@ -210,7 +212,7 @@ class TicTacToeV3g1o0MessageConverter(TicTacToeV2MessageConverter):
 
         print(f"[TicTacToeV3g1o0MessageConverter on_move] saved")
 
-    def on_start(self, scope, doc_received):
+    async def on_start(self, scope, doc_received):
         """対局開始時"""
 
         print(
@@ -227,6 +229,8 @@ def get_room_by_name(name):
 @sync_to_async
 def save_room(room):
     room.save()
+
+# EOF OA24o1o0g2o0
 ```
 
 ## Step OA24o1o0g3o0 Webソケットの通信プロトコル作成 - consumer_custom/v1o0.py ファイル

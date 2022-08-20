@@ -30,7 +30,7 @@ class TicTacToeV2MessageConverter():
             # 対局終了時
             print(f"[TicTacToeV2MessageConverter on_receive] C2S_End")
 
-            self.on_end(scope, doc_received)
+            await self.on_end(scope, doc_received)
 
             # TODO 現状、クライアント側から勝者を送ってきているが、勝敗判定のロジックはサーバー側に置きたい
             winner = doc_received.get("c2s_winner", None)
@@ -62,7 +62,7 @@ class TicTacToeV2MessageConverter():
             # 対局開始時
             print(f"[TicTacToeV2MessageConverter on_receive] C2S_Start")
 
-            self.on_start(scope, doc_received)
+            await self.on_start(scope, doc_received)
 
             args = {}
 
@@ -70,7 +70,7 @@ class TicTacToeV2MessageConverter():
 
         raise ValueError(f"Unknown event: {event}")
 
-    def on_end(self, scope, doc_received):
+    async def on_end(self, scope, doc_received):
         """対局終了時"""
         # print("[TicTacToeV2MessageConverter on_end] ignored")
         pass
@@ -80,7 +80,7 @@ class TicTacToeV2MessageConverter():
         # print("[TicTacToeV2MessageConverter on_move] ignored")
         pass
 
-    def on_start(self, scope, doc_received):
+    async def on_start(self, scope, doc_received):
         """対局開始時"""
         # print("[TicTacToeV2MessageConverter on_start] ignored")
         pass
