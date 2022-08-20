@@ -1,14 +1,14 @@
-# BOF OA16o3o0gA12o0
+# BOF OA16o3o_1o0g2o0
 
 from django.shortcuts import render, redirect
 
 
-def render_match_application(request, playing_web_path, match_application_tp, on_sent, on_open):
-    """OA16o3o0gA12o0 対局申込 - 描画
+def render_tester(request, room_name, template_path, on_open, on_sent):
+    """OA16o3o_1o0g2o0 テスター - 描画
 
     Parameters
     ----------
-    match_application_tp : str
+    tester_tp : str
         Template path
     """
     if request.method == "POST":
@@ -22,11 +22,13 @@ def render_match_application(request, playing_web_path, match_application_tp, on
 
         # TODO バリデーションチェックしたい
 
-        return redirect(playing_web_path.format(po_room_name, my_turn))
+        return redirect(template_path.format(po_room_name, my_turn))
 
     # 訪問後
     context = on_open(request)
 
-    return render(request, match_application_tp, context)
+    turn = request.GET.get("myturn")
 
-# EOF OA16o3o0gA12o0
+    return render(request, template_path.format(room_name, turn), context)
+
+# EOF OA16o3o_1o0g2o0

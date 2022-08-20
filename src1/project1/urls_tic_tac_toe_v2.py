@@ -10,6 +10,17 @@ from apps1.tic_tac_toe_v2.views.think.engine_manual.v1o0 import EngineManual
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
+# OA16o3o_1o0g4o0 〇×ゲーム v2 メッセージ テスター
+from apps1.tic_tac_toe_v2.views.msg.tester.v1o0 import TesterV as MsgTesterV
+#          --------------                  ----        -------    ----------
+#          11                              12          2          3
+#    ------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
+# 3. `2.` の別名
+
 # OA16o3o0gA15o0 〇×ゲーム v2 対局申込ページ
 from apps1.tic_tac_toe_v2.views.gui.match_application.v1o0 import MatchApplicationV
 #          --------------                             ----        -----------------
@@ -43,6 +54,18 @@ urlpatterns = [
     # 1. 例えば `http://example.com/tic-tac-toe/v2/engine-manual/` のような URL のパスの部分
     #                              -----------------------------
     # 2. EngineManual クラスの render 静的メソッド
+
+    # OA16o3o_1o0g4o0 〇×ゲーム v2 メッセージ テスター
+    path('tic-tac-toe/v2/msg-test/<str:kw_room_name>/',
+         # ------------------------------------------
+         # 1
+         MsgTesterV.render),
+    #    -----------------
+    #    2
+    # 1. 例えば `http://example.com/tic-tac-toe/v2/msg-test/<部屋名>/` のような URL のパスの部分。
+    #                              ---------------------------------
+    #    <部屋名> に入った文字列は kw_room_name 変数に渡されます
+    # 2. MsgTesterV クラスの render 静的メソッド
 
     # OA16o3o0gA15o0 対局申込
     path('tic-tac-toe/v2/match-application/',

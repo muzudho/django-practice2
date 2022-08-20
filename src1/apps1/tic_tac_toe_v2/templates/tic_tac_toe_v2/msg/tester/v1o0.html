@@ -1,0 +1,72 @@
+{# BOF OA16o3o_1o0g1o0 #}
+<!-- -->
+{% load static %} {# 👈あとで static "URL" を使うので load static します #}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+        <title>Tic Tac Toe</title>
+        <style>
+            /* 等幅 */
+            .v-textarea textarea {
+                font-family: monospace, monospace;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <v-app>
+                <v-main>
+                    <v-container fluid>
+                        <h1>Tic Tac Toe Message Test</h1>
+                        <v-form method="POST">
+                            {% csrf_token %}
+
+                            <!-- `po_` は POST送信するパラメーター名の目印 -->
+                            <!-- 入力 -->
+                            <v-textarea name="po_input" required v-model="inputText.value" label="Input"></v-textarea>
+
+                            <v-btn block elevation="2" v-on:click="enterVu()"> Execute </v-btn>
+
+                            <!-- 出力 -->
+                            <v-textarea name="po_output" required v-model="outputText.value" label="Output"></v-textarea>
+                        </v-form>
+                    </v-container>
+                </v-main>
+            </v-app>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+        <script>
+            const vue1 = new Vue({
+                el: "#app",
+                vuetify: new Vuetify(),
+                data: {
+                    // 入力
+                    inputText: {
+                        value: `# W.I.P`,
+                    },
+                    // 出力
+                    outputText: {
+                        value: 'Please push "Execute" button.',
+                    },
+                },
+                methods: {
+                    // 関数名の末尾の Vu は vue1 のメソッドであることを表す目印
+                    /**
+                     * po_input 欄のコマンドを入力します
+                     */
+                    enterVu() {
+                        // console.log(`[methods enterVu]`);
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>
+{# EOF OA16o3o_1o0g1o0 #}

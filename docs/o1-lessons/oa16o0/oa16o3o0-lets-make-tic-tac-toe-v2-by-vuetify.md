@@ -1566,13 +1566,13 @@ class MatchApplicationV():
 from django.shortcuts import render, redirect
 
 
-def render_match_application(request, playing_web_path, match_application_tp, on_sent, open):
+def render_match_application(request, playing_web_path, match_application_tp, on_sent, on_open):
     """OA16o3o0gA12o0 対局申込 - 描画
 
     Parameters
     ----------
     match_application_tp : str
-        Local Path
+        Template path
     """
     if request.method == "POST":
         # 送信後
@@ -1588,7 +1588,7 @@ def render_match_application(request, playing_web_path, match_application_tp, on
         return redirect(playing_web_path.format(po_room_name, my_turn))
 
     # 訪問後
-    context = open(request)
+    context = on_open(request)
 
     return render(request, match_application_tp, context)
 
