@@ -84,10 +84,10 @@
         <script src="{% static 'tic_tac_toe_v2/think/engine/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/gui/connection/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/msg/s2c_messages/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/msg/c2s_messages/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/msg/c2s_json_gen/v1o0.js' %}"></script>
         <!--            ===============================================
                         1
-        1. src1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/msg/c2s_messages/v1o0.js
+        1. src1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/msg/c2s_json_gen/v1o0.js
                                      ==============================================
         -->
 
@@ -129,8 +129,8 @@
                 vue1.engine.judgeCtrl.doJudge(vue1.engine.position);
             }
 
-            // クライアントからサーバーへ、メッセージ作成
-            const c2sMessages = new C2sMessages();
+            // クライアントからサーバーへ送るJSON生成
+            const c2sMessages = new C2sJsonGen();
 
             // 接続
             var connection = new Connection(

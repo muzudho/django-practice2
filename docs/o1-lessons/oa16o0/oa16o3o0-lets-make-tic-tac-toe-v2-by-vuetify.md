@@ -116,7 +116,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA16o3o0g2o0 送信メッセージ実装 - msg/c2s_messages/v1o0.js ファイル
+## Step OA16o3o0g2o0 送信メッセージ実装 - msg/c2s_json_gen/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -127,7 +127,7 @@ docker-compose up
                 └── 📂 static
                     └── 📂 tic_tac_toe_v2    # アプリケーションと同名
                         └── 📂 msg
-                            └── 📂 c2s_messages
+                            └── 📂 c2s_json_gen
 👉                              └── 📄 v1o0.js
 ```
 
@@ -135,11 +135,11 @@ docker-compose up
 // BOF OA16o3o0g2o0
 
 /**
- * 送信メッセージ一覧
+ * 送信JSONジェネレーター
  *
  * * クライアントからサーバーへ送る
  */
-class C2sMessages {
+class C2sJsonGen {
     /**
      * どちらかのプレイヤーが駒を置いたとき
      * @param {int} sq - 升番号
@@ -148,7 +148,7 @@ class C2sMessages {
      */
     createDoMove(sq, pieceMoved) {
         // `c2s_` は クライアントからサーバーへ送る変数の目印
-        console.log(`[C2sMessages createDoMove] sq=${sq} pieceMoved=${pieceMoved}`);
+        console.log(`[C2sJsonGen createDoMove] sq=${sq} pieceMoved=${pieceMoved}`);
         return {
             c2s_event: "C2S_Moved",
             c2s_sq: sq,
@@ -207,7 +207,7 @@ class C2sMessages {
                 └── 📂 static
                     └── 📂 tic_tac_toe_v2    # アプリケーションと同名
                         └── 📂 msg
-                            ├── 📂 c2s_messages
+                            ├── 📂 c2s_json_gen
                             │   └── 📄 v1o0.js
                             └── 📂 s2c_messages
 👉                              └── 📄 v1o0.js
@@ -329,7 +329,7 @@ class S2cMessages {
                         │   └── 📂 connection
 👉                      │       └── 📄 v1o0.js
                         └── 📂 msg
-                            ├── 📂 c2s_messages
+                            ├── 📂 c2s_json_gen
                             │   └── 📄 v1o0.js
                             └── 📂 s2c_messages
                                 └── 📄 v1o0.js
@@ -499,7 +499,7 @@ class Connection {
                 │       │   └── 📂 connection
                 │       │       └── 📄 v1o0.js
                 │       └── 📂 msg
-                │           ├── 📂 c2s_messages
+                │           ├── 📂 c2s_json_gen
                 │           │   └── 📄 v1o0.js
                 │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
@@ -596,7 +596,7 @@ class Connection {
                 │       │   └── 📂 connection
                 │       │       └── 📄 v1o0.js
                 │       └── 📂 msg
-                │           ├── 📂 c2s_messages
+                │           ├── 📂 c2s_json_gen
                 │           │   └── 📄 v1o0.js
                 │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
@@ -696,10 +696,10 @@ class Connection {
         <script src="{% static 'tic_tac_toe_v2/think/engine/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/gui/connection/v1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_v2/msg/s2c_messages/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/msg/c2s_messages/v1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_v2/msg/c2s_json_gen/v1o0.js' %}"></script>
         <!--            ===============================================
                         1
-        1. src1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/msg/c2s_messages/v1o0.js
+        1. src1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/msg/c2s_json_gen/v1o0.js
                                      ==============================================
         -->
 
@@ -741,8 +741,8 @@ class Connection {
                 vue1.engine.judgeCtrl.doJudge(vue1.engine.position);
             }
 
-            // クライアントからサーバーへ、メッセージ作成
-            const c2sMessages = new C2sMessages();
+            // クライアントからサーバーへ送るJSON生成
+            const c2sMessages = new C2sJsonGen();
 
             // 接続
             var connection = new Connection(
@@ -1086,7 +1086,7 @@ class Connection {
                 │       │   └── 📂 connection
                 │       │       └── 📄 v1o0.js
                 │       └── 📂 msg
-                │           ├── 📂 c2s_messages
+                │           ├── 📂 c2s_json_gen
                 │           │   └── 📄 v1o0.js
                 │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
@@ -1159,7 +1159,7 @@ class Connection {
                 │       │   └── 📂 connection
                 │       │       └── 📄 v1o0.js
                 │       └── 📂 msg
-                │           ├── 📂 c2s_messages
+                │           ├── 📂 c2s_json_gen
                 │           │   └── 📄 v1o0.js
                 │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
@@ -1267,7 +1267,7 @@ class TicTacToeV2MessageConverter():
                 │       │   └── 📂 connection
                 │       │       └── 📄 v1o0.js
                 │       └── 📂 msg
-                │           ├── 📂 c2s_messages
+                │           ├── 📂 c2s_json_gen
                 │           │   └── 📄 v1o0.js
                 │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
@@ -1369,7 +1369,7 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
                 │       │   └── 📂 connection
                 │       │       └── 📄 v1o0.js
                 │       └── 📂 msg
-                │           ├── 📂 c2s_messages
+                │           ├── 📂 c2s_json_gen
                 │           │   └── 📄 v1o0.js
                 │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
@@ -1444,7 +1444,7 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
                 │       │   └── 📂 connection
                 │       │       └── 📄 v1o0.js
                 │       └── 📂 msg
-                │           ├── 📂 c2s_messages
+                │           ├── 📂 c2s_json_gen
                 │           │   └── 📄 v1o0.js
                 │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
@@ -1547,7 +1547,7 @@ class MatchApplicationV():
                 │       │   └── 📂 connection
                 │       │       └── 📄 v1o0.js
                 │       └── 📂 msg
-                │           ├── 📂 c2s_messages
+                │           ├── 📂 c2s_json_gen
                 │           │   └── 📄 v1o0.js
                 │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
@@ -1623,7 +1623,7 @@ def render_match_application(request, playing_web_path, match_application_tp, on
                 │       │   └── 📂 connection
                 │       │       └── 📄 v1o0.js
                 │       └── 📂 msg
-                │           ├── 📂 c2s_messages
+                │           ├── 📂 c2s_json_gen
                 │           │   └── 📄 v1o0.js
                 │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
@@ -1717,7 +1717,7 @@ class PlayingV():
                 │       │   └── 📂 connection
                 │       │       └── 📄 v1o0.js
                 │       └── 📂 msg
-                │           ├── 📂 c2s_messages
+                │           ├── 📂 c2s_json_gen
                 │           │   └── 📄 v1o0.js
                 │           └── 📂 s2c_messages
                 │               └── 📄 v1o0.js
@@ -1797,7 +1797,7 @@ def render_playing(request, kw_room_name, wsp_playing, playing_tp, on_update, ex
         │       │       │   └── 📂 connection
         │       │       │       └── 📄 v1o0.js
         │       │       └── 📂 msg
-        │       │           ├── 📂 c2s_messages
+        │       │           ├── 📂 c2s_json_gen
         │       │           │   └── 📄 v1o0.js
         │       │           └── 📂 s2c_messages
         │       │               └── 📄 v1o0.js
@@ -1898,7 +1898,7 @@ urlpatterns = [
         │       │       │   └── 📂 connection
         │       │       │       └── 📄 v1o0.js
         │       │       └── 📂 msg
-        │       │           ├── 📂 c2s_messages
+        │       │           ├── 📂 c2s_json_gen
         │       │           │   └── 📄 v1o0.js
         │       │           └── 📂 s2c_messages
         │       │               └── 📄 v1o0.js
@@ -1981,7 +1981,7 @@ websocket_urlpatterns = [
         │       │       │   └── 📂 connection
         │       │       │       └── 📄 v1o0.js
         │       │       └── 📂 msg
-        │       │           ├── 📂 c2s_messages
+        │       │           ├── 📂 c2s_json_gen
         │       │           │   └── 📄 v1o0.js
         │       │           └── 📂 s2c_messages
         │       │               └── 📄 v1o0.js
@@ -2075,7 +2075,7 @@ websocket_urlpatterns_merged.extend(
         │       │       │   └── 📂 connection
         │       │       │       └── 📄 v1o0.js
         │       │       └── 📂 msg
-        │       │           ├── 📂 c2s_messages
+        │       │           ├── 📂 c2s_json_gen
         │       │           │   └── 📄 v1o0.js
         │       │           └── 📂 s2c_messages
         │       │               └── 📄 v1o0.js
