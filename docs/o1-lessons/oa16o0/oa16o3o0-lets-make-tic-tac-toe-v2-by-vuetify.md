@@ -1055,8 +1055,8 @@ class TicTacToeV2MessageDriven():
         サーバーからクライアントへ送信するメッセージの作成"""
 
         # ログインしていなければ AnonymousUser
-        user = scope["user"]
-        print(f"[TicTacToeV2MessageDriven execute] user=[{user}]")
+        # user = scope["user"]
+        # print(f"[TicTacToeV2MessageDriven execute] user=[{user}]")
 
         # `c2s_` は クライアントからサーバーへ送られてきた変数の目印
         eventName = doc_received.get("c2s_event", None)
@@ -1149,7 +1149,7 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
         """クライアントからのメッセージの受信"""
 
         # ちゃんと動いているようなら消す
-        print(f"[TicTacToeV2ConsumerBase receive] text_data={text_data}")
+        # print(f"[TicTacToeV2ConsumerBase receive] text_data={text_data}")
 
         doc_received = json.loads(text_data)
 

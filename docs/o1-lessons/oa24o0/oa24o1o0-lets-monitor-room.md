@@ -192,7 +192,7 @@ class TicTacToeV3o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
 
     async def on_end(self, scope, doc_received):
         """対局終了時"""
-        print("[TicTacToeV3o1o0ConsumerCustom on_end] ignored")
+        # print("[TicTacToeV3o1o0ConsumerCustom on_end] ignored")
         # TODO 現状、クライアント側から勝者を送ってきているが、勝敗判定のロジックはサーバー側に置きたい
         winner = doc_received.get("c2s_winner", None)
 
@@ -207,16 +207,17 @@ class TicTacToeV3o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
 
         # ログインしていなければ AnonymousUser
         user = scope["user"]
-        print(
-            f"[TicTacToeV3o1o0ConsumerCustom on_move 1] user=[{user}] doc_received={doc_received}")
+        # print(
+        #     f"[TicTacToeV3o1o0ConsumerCustom on_move 1] user=[{user}] doc_received={doc_received}")
         if user.is_anonymous:
             # ログインしていないユーザーの操作は記録しません
-            print(
-                f"[TicTacToeV3o1o0ConsumerCustom on_move 1.5] ログインしていないので操作の記録を省きます")
+            # print(
+            #    f"[TicTacToeV3o1o0ConsumerCustom on_move 1.5] ログインしていないので操作の記録を省きます")
+            pass
 
         else:
 
-            print(f"[TicTacToeV3o1o0ConsumerCustom on_move 1.75] ログインしています")
+            # print(f"[TicTacToeV3o1o0ConsumerCustom on_move 1.75] ログインしています")
 
             # 部屋名
             #
@@ -273,8 +274,8 @@ class TicTacToeV3o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
         # `s2c_` は サーバーからクライアントへ送る変数の目印
         c2s_sq = doc_received.get("c2s_sq", None)
         piece_moved = doc_received.get("c2s_pieceMoved", None)
-        print(
-            f"[TicTacToeV3o1o0ConsumerCustom on_move 11] C2S_Moved c2s_sq=[{c2s_sq}] piece_moved=[{piece_moved}]")
+        # print(
+        #     f"[TicTacToeV3o1o0ConsumerCustom on_move 11] C2S_Moved c2s_sq=[{c2s_sq}] piece_moved=[{piece_moved}]")
 
         args = {
             "sq1": c2s_sq,
@@ -286,8 +287,8 @@ class TicTacToeV3o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
     async def on_start(self, scope, doc_received):
         """対局開始時"""
 
-        print(
-            f"[TicTacToeV3o1o0ConsumerCustom on_start] ignored. doc_received={doc_received}")
+        # print(
+        #     f"[TicTacToeV3o1o0ConsumerCustom on_start] ignored. doc_received={doc_received}")
         args = {}
 
         return CommandsGen.create_start(args)

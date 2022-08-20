@@ -14,8 +14,8 @@ class TicTacToeV2MessageDriven():
         サーバーからクライアントへ送信するメッセージの作成"""
 
         # ログインしていなければ AnonymousUser
-        user = scope["user"]
-        print(f"[TicTacToeV2MessageDriven execute] user=[{user}]")
+        # user = scope["user"]
+        # print(f"[TicTacToeV2MessageDriven execute] user=[{user}]")
 
         # `c2s_` は クライアントからサーバーへ送られてきた変数の目印
         eventName = doc_received.get("c2s_event", None)
