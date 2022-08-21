@@ -24,6 +24,7 @@ from apps1.practice_v1.views.vuetifies import VuetifyV
 from apps1.practice_v1.views.vuetifies import VuetifyV
 from apps1.practice_v1.views.vuetifies import VuetifyV
 from apps1.practice_v1.views.my.v1o0 import MyV
+from apps1.practice_v1.views.lobby.v1o0 import LobbyV
 
 
 urlpatterns = [
@@ -92,6 +93,9 @@ urlpatterns = [
 
     # OA19o1o0g5o1o0 マイページ ビュー
     path('practice/v1/my/', MyV.render_my, name='practice_v1_my'),
+
+    # OA20o1o0g7o1o0 ロビー ビュー
+    path('practice/v1/lobby/', LobbyV.render_lobby, name='practice_v1_lobby'),
 ]
 
 # EOF O3o2o_1o0g4o0
