@@ -30,16 +30,6 @@ from apps1.practice_v1.views.button_for_member.v1o0 import ButtonForMember
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# OA10o2o0g6o0 デバッグ用。モデルをダンプ出力
-from apps1.practice_v1.views.debug.v1o0 import DebugV
-#          -----------             ----        ------
-#          11                      12          2
-#    ----------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-
 # OA11o1o0g5o0 都道府県
 from apps1.practice_v1.views.prefecture.v1o0 import PrefectureV
 #          -----------                  ----        -----------
@@ -244,18 +234,6 @@ urlpatterns = [
     # 1. 例えば `http://example.com/practice/v1/buttom_for_member/` のような URL のパスの部分
     #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
-
-    # OA10o2o0g6o0 デバッグ用。モデルをダンプ出力
-    path('practice/v1/from-object-to-json-str/',
-         # -----------------------------------
-         # 1
-         DebugV.render_model_as_json, name='practice_v1_from_object_to_json_str'),
-    #    ---------------------------        -----------------------------------
-    #    2                                  3
-    # 1. 例えば `http://example.com/practice/v1/from-object-to-json-str/` のような URL のパスの部分
-    #                              ------------------------------------
-    # 2. DebugV クラスの render_model_as_json 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_from_object_to_json_str' %} のような形でURLを取得するのに使える
 
     # OA11o1o0g5o0 都道府県の一覧
     path('practice/v1/prefectures/',

@@ -197,58 +197,56 @@ class DebugV():
         return HttpResponse(f"<pre>{json_str}</pre>")
 ```
 
-## Step OA10o2o0g6o0 ルート編集 - urls_practice.py ファイル
+## ~~Step OA10o2o0g6o0~~
+
+Merged to OA10o2o0g6o1o0  
+
+## Step OA10o2o0g6o1o0 ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 src1
-        ├── 📂 apps1
-        │   └── 📂 practice_v1                 # アプリケーション
-        │       ├── 📂 models_helper
-        │       │   └── 📂 json
-        │       │       └── 📂 v1o0
-        │       │           ├── 📄 __init__.py
-        │       │           └── 📄 m_from_model_to_doc.py
-        │       └── 📂 views
-        │           └── 📂 debug
-        │               └── 📂 v1o0
-        │                   └── 📄 __init__.py
-        └── 📂 project1                         # プロジェクト
-👉          └── 📄 urls_practice.py
+    ├── 📂 src1
+    │   └── 📂 apps1
+    │       └── 📂 practice_v1                 # アプリケーション
+    │           ├── 📂 models_helper
+    │           │   └── 📂 json
+    │           │       └── 📂 v1o0
+    │           │           ├── 📄 __init__.py
+    │           │           └── 📄 m_from_model_to_doc.py
+    │           └── 📂 views
+    │               └── 📂 debug
+    │                   └── 📂 v1o0
+    │                       └── 📄 __init__.py
+    └── 📂 src1_meta
+        └── 📂 data
+👉          └── 📄 urls.csv
 ```
 
-```py
-# ...略...
+```csv
+...略... file,path,name,comment,module,class,alias,method
+...略...
 
 
-# OA10o2o0g6o0 デバッグ用。モデルをダンプ出力
-from apps1.practice_v1.views.debug.v1o0 import DebugV
-#          -----------             ----        ------
-#          11                      12          2
-#    ----------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
+../src1/project1/urls_practice_autogen.py,practice/v1/from-object-to-json-str/,practice_v1_from_object_to_json_str,"OA10o2o0g6o1o0 デバッグ用。モデルをダンプ出力",apps1.practice_v1.views.debug.v1o0,DebugV,,render_model_as_json
+```
 
+## Step OA10o2o0g6o2o0 ルート編集 - コマンド打鍵
 
-urlpatterns = [
-    # ...略...
+👇 以下のコマンドを打鍵してほしい  
 
+```shell
+# がんばって、ディレクトリーを移動してほしい
+# cd ../src1_meta
 
-    # OA10o2o0g6o0 デバッグ用。モデルをダンプ出力
-    path('practice/v1/from-object-to-json-str/',
-         # -----------------------------------
-         # 1
-         DebugV.render_model_as_json, name='practice_v1_from_object_to_json_str'),
-    #    ---------------------------        -----------------------------------
-    #    2                                  3
-    # 1. 例えば `http://example.com/practice/v1/from-object-to-json-str/` のような URL のパスの部分
-    #                              ------------------------------------
-    # 2. DebugV クラスの render_model_as_json 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_from_object_to_json_str' %} のような形でURLを取得するのに使える
-]
+# See also: O3o2o_1o0g2o0
+python -m scripts.auto_generators.urls
+
+# がんばって、ディレクトリーを移動してほしい
+# cd ../src1
+
+# 設定ファイルを変更したから、サーバーを再起動してほしい
+docker-compose restart
 ```
 
 ## Step OA10o2o0g7o0 Web画面へアクセス

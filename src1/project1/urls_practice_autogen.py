@@ -8,6 +8,7 @@ from apps1.practice_v1.views.page_to_be_added.v3o0 import PageToBeAdded as PageT
 from apps1.practice_v1.views.user_list.v1o0 import UserListV
 from apps1.practice_v1.views.extends_user_list.v1o0 import ExtendsUserListV
 from apps1.practice_v1.views.session.v1o0 import SessionV
+from apps1.practice_v1.views.debug.v1o0 import DebugV
 
 
 urlpatterns = [
@@ -28,6 +29,9 @@ urlpatterns = [
 
     # O9o3o0g7o1o0 アクティブユーザー一覧
     path('practice/v1/active-user-list/', SessionV.render, name='practice_v1_active_user_list'),
+
+    # OA10o2o0g6o1o0 デバッグ用。モデルをダンプ出力
+    path('practice/v1/from-object-to-json-str/', DebugV.render_model_as_json, name='practice_v1_from_object_to_json_str'),
 ]
 
 # EOF O3o2o_1o0g4o0

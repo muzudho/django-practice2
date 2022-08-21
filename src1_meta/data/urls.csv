@@ -7,3 +7,4 @@ file,path,name,comment,module,class,alias,method
 ../src1/project1/urls_practice_autogen.py,practice/v1/user-list/,practice_v1_user_list,"O9o1o0g7o1o0 会員一覧",apps1.practice_v1.views.user_list.v1o0,UserListV,,render
 ../src1/project1/urls_practice_autogen.py,practice/v1/extends-user-list/,practice_v1_extends_user_list,"O9o2o0gA12o1o0 （拡張済）会員一覧",apps1.practice_v1.views.extends_user_list.v1o0,ExtendsUserListV,,render
 ../src1/project1/urls_practice_autogen.py,practice/v1/active-user-list/,practice_v1_active_user_list,"O9o3o0g7o1o0 アクティブユーザー一覧",apps1.practice_v1.views.session.v1o0,SessionV,,render
+../src1/project1/urls_practice_autogen.py,practice/v1/from-object-to-json-str/,practice_v1_from_object_to_json_str,"OA10o2o0g6o1o0 デバッグ用。モデルをダンプ出力",apps1.practice_v1.views.debug.v1o0,DebugV,,render_model_as_json
