@@ -590,90 +590,58 @@ class PlayingV():
 # EOF OA24o1o0g7o0
 ```
 
-## Step OA24o1o0g8o0 ルート編集 - urls_practice.py ファイル
+## ~~Step OA24o1o0g8o0~~
 
-👇 以下の既存ファイルを編集してほしい  
+Marged to OA24o1o0g8o1o0  
+
+## Step OA24o1o0g8o1o0 ルート編集 - urls.csv ファイル
+
+👇 以下の既存ファイルの末尾に追記してほしい  
 
 ```plaintext
-    └── 📂 src1
-        ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v3                   # アプリケーション Three
-        │       ├── 📂 views
-        │       │   └── 📂 o3o0                     # Three
-        │       │       ├── 📂 match_application
-        │       │       │   └── 📄 __init__.py
-        │       │       └── 📂 playing
-        │       │           └── 📄 __init__.py
-        │       └── 📂 websocks
-        │           └── 📂 consumer_custom
-        │               └── 📄 v1o0.py
-        └── 📂 project1                             # プロジェクト
-            ├── 📄 asgi.py
-👉          ├── 📄 urls_practice.py
-            └── 📄 ws_urls_tic_tac_toe_v3.py        # Three
+    ├── 📂 src1
+    │   ├── 📂 apps1
+    │   │   └── 📂 tic_tac_toe_v3                   # アプリケーション Three
+    │   │       ├── 📂 views
+    │   │       │   └── 📂 o3o0                     # Three
+    │   │       │       ├── 📂 match_application
+    │   │       │       │   └── 📄 __init__.py
+    │   │       │       └── 📂 playing
+    │   │       │           └── 📄 __init__.py
+    │   │       └── 📂 websocks
+    │   │           └── 📂 consumer_custom
+    │   │               └── 📄 v1o0.py
+    │   └── 📂 project1                             # プロジェクト
+    │       ├── 📄 asgi.py
+    │       └── 📄 ws_urls_tic_tac_toe_v3.py        # Three
+    └── 📂 src1_meta
+        └── 📂 data
+👉          └── 📄 urls.csv
 ```
 
-```py
-# ...略...
+```csv
+...略... file,path,name,comment,module,class,alias,method
+...略...
 
 
-# OA24o1o0g8o0 〇×ゲーム v3.3 対局申込中
-from apps1.tic_tac_toe_v3.views.match_application.v3o0 import MatchApplicationV as TicTacToeV3g3o0MatchApplicationV
-#                       ^three                     ^three
-#          --------------                         ----        -----------------    --------------------------------
-#          11                                     12          2                    3
-#    -------------------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-# 3. `2.` の別名
-
-# OA24o1o0g8o0 〇×ゲーム v3.3 対局中
-from apps1.tic_tac_toe_v3.views.playing.v3o0 import PlayingV as TicTacToeV3g3o0PlayingV
-#                       ^three           ^three
-#          ----------------             ----        --------    -----------------------
-#          11                           12          2           3
-#    ---------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-# 3. `2.` の別名
-
-
-urlpatterns = [
-    # ...略...
-
-
-    # OA24o1o0g8o0 〇×ゲーム v3.3 対局申込中
-    path('tic-tac-toe/v3.3/match-application/', TicTacToeV3g3o0MatchApplicationV.render,
-         # ----------------------------------   ---------------------------------------
-         # 1                                    2
-         name='tic_tac_toe_v3g3o0_match_application'),
-    #          ------------------------------------
-    #          3
-    #
-    # 1. 例えば `http://example.com/tic-tac-toe/v3.3/match-application/` のような URL のパスの部分
-    #                              -----------------------------------
-    # 2. TicTacToeV3g3o0MatchApplicationV （別名）クラスの render メソッド
-    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3g3o0_match_application' %} のような形でURLを取得するのに使える
-
-    # OA24o1o0g8o0 〇×ゲーム v3.3 対局中
-    path('tic-tac-toe/v3.3/playing/<str:kw_room_name>/', TicTacToeV3g3o0PlayingV.render,
-         # -------------------------------------------   ------------------------------
-         # 1                                             2
-         name='tic_tac_toe_v3g3o0_playing'),
-    #          --------------------------
-    #          3
-    #
-    # 1. 例えば `http://example.com/tic-tac-toe/v3.3/playing/<部屋名>/` のような URL のパスの部分
-    #                              ----------------------------------
-    #    <部屋名> に入った文字列は `2.` のメソッドの kw_room_name 引数に渡されます
-    # 2. TicTacToeV3g3o0PlayingV （別名）クラスの render メソッド
-    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3g3o0_playing' %} のような形でURLを取得するのに使える
-]
+../src1/project1/urls_tic_tac_toe_v3_autogen.py,tic-tac-toe/v3.3/match-application/,tic_tac_toe_v3g3o0_match_application,"OA24o1o0g8o1o0 〇×ゲーム v3.3 対局申込中",apps1.tic_tac_toe_v3.views.match_application.v3o0,MatchApplicationV,TicTacToeV3g3o0MatchApplicationV,render
+../src1/project1/urls_tic_tac_toe_v3_autogen.py,tic-tac-toe/v3.3/playing/<str:kw_room_name>/,tic_tac_toe_v3g3o0_playing,"OA24o1o0g8o1o0 〇×ゲーム v3.3 対局中",apps1.tic_tac_toe_v3.views.playing.v3o0,PlayingV,TicTacToeV3g3o0PlayingV,render
 ```
+
+## Step OA24o1o0g8o2o0 ルート編集 - コマンド打鍵
+
+👇 以下のコマンドを打鍵してほしい  
+
+```shell
+cd ../src1_meta
+python -m scripts.auto_generators.urls
+cd ../src1
+docker-compose restart
+```
+
+* ディレクトリーは、がんばって移動してほしい
+* スクリプトについて See also: O3o2o_1o0g2o0
+* 設定ファイルを変更したら、サーバーの再起動が必要
 
 ## Step OA24o1o0g9o0 Web画面へアクセス
 
