@@ -1,15 +1,5 @@
 from django.urls import path
 
-# OA16o2o0gA16o0 〇×ゲーム v2 思考エンジン
-from apps1.tic_tac_toe_v2.views.think.engine_manual.v1o0 import EngineManual
-#          --------------                           ----        ------------
-#          11                                       12          2
-#    ---------------------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-
 # OA16o3o_1o0g4o0 〇×ゲーム v2 C2S JSON ジェネレーター
 from apps1.tic_tac_toe_v2.views.msg.c2s_json_gen.v1o0 import C2sJsonGenView as C2sJsonGenViewV1o0
 #          --------------                        ----        --------------    ------------------
@@ -54,17 +44,6 @@ from apps1.tic_tac_toe_v2.views.gui.playing.v1o0 import PlayingV
 
 
 urlpatterns = [
-
-    # OA16o2o0gA16o0 エンジン手動
-    path('tic-tac-toe/v2/engine-manual/',
-         # ----------------------------
-         # 1
-         EngineManual.render),
-    #    -------------------
-    #    2
-    # 1. 例えば `http://example.com/tic-tac-toe/v2/engine-manual/` のような URL のパスの部分
-    #                              -----------------------------
-    # 2. EngineManual クラスの render 静的メソッド
 
     # OA16o3o_1o0g4o0 〇×ゲーム v2 C2S JSON ジェネレーター
     path('tic-tac-toe/v2/c2s-json-gen/',
