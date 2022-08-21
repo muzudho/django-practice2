@@ -46,7 +46,6 @@ def main():
         module = row["module"]
         class_name = row["class"]
         alias = row['alias']
-        print(f"alias:[{alias}]")
         if pd.isnull(alias):
             alias_phrase = ""
             virtual_class_name = class_name
@@ -54,9 +53,9 @@ def main():
             alias_phrase = f" as {alias}"
             virtual_class_name = alias
 
-        head_text_of_files[file_to_export] += f"# from {module} import {class_name}{alias_phrase}\n"
+        head_text_of_files[file_to_export] += f"from {module} import {class_name}{alias_phrase}\n"
 
-        comment = row["module"]
+        comment = row["comment"]
         path = row["path"]
         method = row["method"]
         name = row["name"]
@@ -67,7 +66,7 @@ def main():
 
         body_text_of_files[file_to_export] += f"""
     # {comment}
-    # path('{path}', {virtual_class_name}.{method}{name_phrase}),
+    path('{path}', {virtual_class_name}.{method}{name_phrase}),
 """
 
     # 各ファイル書出し
