@@ -30,16 +30,6 @@ from apps1.practice_v1.views.button_for_member.v1o0 import ButtonForMember
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# O9o3o0g7o0 アクティブユーザー一覧
-from apps1.practice_v1.views.session.v1o0 import SessionV
-#          -----------               ----        --------
-#          11                        12          2
-#    ------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-
 # OA10o2o0g6o0 デバッグ用。モデルをダンプ出力
 from apps1.practice_v1.views.debug.v1o0 import DebugV
 #          -----------             ----        ------
@@ -254,18 +244,6 @@ urlpatterns = [
     # 1. 例えば `http://example.com/practice/v1/buttom_for_member/` のような URL のパスの部分
     #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
-
-    # O9o3o0g7o0 アクティブユーザー一覧
-    path('practice/v1/active-user-list/',
-         # ----------------------------
-         # 1
-         SessionV.render, name='practice_v1_active_user_list'),
-    #    ---------------        ----------------------------
-    #    2                      3
-    # 1. 例えば `http://example.com/practice/v1/active-user-list/` のような URL のパスの部分
-    #                              -----------------------------
-    # 2. UserListV クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_active_user_list' %} のような形でURLを取得するのに使える
 
     # OA10o2o0g6o0 デバッグ用。モデルをダンプ出力
     path('practice/v1/from-object-to-json-str/',
