@@ -10,6 +10,8 @@ from apps1.tic_tac_toe_v2.views.gui.playing.v1o0 import PlayingV
 from apps1.practice_v1.views.room.v1o0 import RoomV as RoomVV1o0
 from apps1.practice_v1.views.room.v1o0 import RoomV as RoomVV1o0
 from apps1.practice_v1.views.room.v1o0 import RoomV as RoomVV1o0
+from apps1.practice_v1.views.room.v1o0 import RoomV as RoomVV1o0
+from apps1.practice_v1.views.room.v1o0 import RoomV as RoomVV1o0
 
 
 urlpatterns = [
@@ -36,6 +38,12 @@ urlpatterns = [
 
     # OA18o4o0g5o1o0 対局部屋の削除
     path('practice/v1/rooms/delete/<int:id>/', RoomVV1o0.render_delete, name='practice_v1_rooms_delete'),
+
+    # OA18o5o0g6o1o0 対局部屋の新規作成
+    path('practice/v1/rooms/upsert/', RoomVV1o0.render_upsert, name='practice_v1_rooms_create'),
+
+    # OA18o5o0g6o1o0 対局部屋の更新
+    path('practice/v1/rooms/upsert/<int:id>/', RoomVV1o0.render_upsert, name='practice_v1_rooms_update'),
 ]
 
 # EOF O3o2o_1o0g4o0

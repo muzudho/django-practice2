@@ -30,27 +30,6 @@ from apps1.practice_v1.views.button_for_member.v1o0 import ButtonForMember
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# OA12o1o0g5o0 ビューティファイ練習
-from apps1.practice_v1.views.vuetifies import VuetifyV
-#          -----------       ---------        --------
-#          11                12               2
-#    ---------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-
-# OA18o2o0g7o0 部屋ビュー v1.0
-from apps1.practice_v1.views.room.v1o0 import RoomV as RoomVV1o0
-#          -----------            ----        -----    ---------
-#          11                     12          2        3
-#    ---------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-# 3. `2.` の別名
-
 # OA19o1o0g5o0 マイページ ビュー
 from apps1.practice_v1.views.my.v1o0 import MyV
 #          -----------          ----        ---
@@ -224,31 +203,6 @@ urlpatterns = [
     # 1. 例えば `http://example.com/practice/v1/buttom_for_member/` のような URL のパスの部分
     #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
-
-    # OA18o5o0g6o0 対局部屋の新規作成
-    path('practice/v1/rooms/upsert/', RoomVV1o0.render_upsert,
-         # ------------------------   -----------------------
-         # 1                          2
-         name='practice_v1_rooms_create'),
-    #          ------------------------
-    #          3
-    # 1. 例えば `http://example.com/practice/v1/rooms/upsert/` のような URL のパスの部分
-    #                              -------------------------
-    # 2. RoomVV1o0 クラスの render_upsert 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_create' %} のような形でURLを取得するのに使える
-
-    # OA18o5o0g6o0 対局部屋の更新
-    path('practice/v1/rooms/upsert/<int:id>/', RoomVV1o0.render_upsert,
-         # ---------------------------------   -----------------------
-         # 1                                   2
-         name='practice_v1_rooms_update'),
-    #          ------------------------
-    #          3
-    # 1. 例えば `http://example.com/practice/v1/rooms/upsert/<数字列>/` のような URL のパスの部分
-    #                              ----------------------------------
-    #    数字列は `2.` の関数の引数 id で取得できる
-    # 2. RoomVV1o0 クラスの render_upsert 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_update' %} のような形でURLを取得するのに使える
 
     # OA19o1o0g5o0 マイ ページ
     path('practice/v1/my/', MyV.render_my, name='practice_v1_my'),

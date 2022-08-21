@@ -377,65 +377,59 @@ def render_upsert(request, id, room_upsert_tp):
 # EOF OA18o5o0g5o0
 ```
 
-## Step OA18o5o0g6o0 ルート編集 - urls_practice.py ファイル
+## ~~Step OA18o5o0g6o0~~
 
-👇 以下の既存ファイルを編集してほしい  
+Merged to OA18o5o0g6o1o0  
+
+## Step OA18o5o0g6o1o0 ルート編集 - urls.csv ファイル
+
+👇 以下の既存ファイルの末尾に追記してほしい  
 
 ```plaintext
-    └── 📂 src1
-        ├── 📂 apps1
-        │   └── 📂 practice_v1                      # アプリケーション
-        │       ├── 📂 forms
-        │       │   └── 📄 f_room.py
-        │       ├── 📂 templates
-        │       │   └── 📂 practice_v1
-        │       │       └── 📂 room
-        │       │           └── 📂 upsert
-        │       │               └── 📄 v1o0.html
-        │       └── 📂 views
-        │           └── 📂 room
-        │               ├── 📂 upsert
-        │               │   └── 📄 v1o0.py
-        │               └── 📂 v1o0
-        │                   └── 📄 __init__.py
-        └── 📂 project1                          # プロジェクト
-👉          └── 📄 urls_practice.py
+    ├── 📂 src1
+    │   └── 📂 apps1
+    │       └── 📂 practice_v1                      # アプリケーション
+    │           ├── 📂 forms
+    │           │   └── 📄 f_room.py
+    │           ├── 📂 templates
+    │           │   └── 📂 practice_v1
+    │           │       └── 📂 room
+    │           │           └── 📂 upsert
+    │           │               └── 📄 v1o0.html
+    │           └── 📂 views
+    │               └── 📂 room
+    │                   ├── 📂 upsert
+    │                   │   └── 📄 v1o0.py
+    │                   └── 📂 v1o0
+    │                       └── 📄 __init__.py
+    └── 📂 src1_meta
+        └── 📂 data
+👉          └── 📄 urls.csv
 ```
 
-```py
-# ...略...
+```csv
+...略... file,path,name,comment,module,class,alias,method
+...略...
 
 
-urlpatterns = [
-    # ...略...
-
-
-    # OA18o5o0g6o0 対局部屋の新規作成
-    path('practice/v1/rooms/upsert/', RoomVV1o0.render_upsert,
-         # ------------------------   -----------------------
-         # 1                          2
-         name='practice_v1_rooms_create'),
-    #          ------------------------
-    #          3
-    # 1. 例えば `http://example.com/practice/v1/rooms/upsert/` のような URL のパスの部分
-    #                              -------------------------
-    # 2. RoomVV1o0 クラスの render_upsert 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_create' %} のような形でURLを取得するのに使える
-
-    # OA18o5o0g6o0 対局部屋の更新
-    path('practice/v1/rooms/upsert/<int:id>/', RoomVV1o0.render_upsert,
-         # ---------------------------------   -----------------------
-         # 1                                   2
-         name='practice_v1_rooms_update'),
-    #          ------------------------
-    #          3
-    # 1. 例えば `http://example.com/practice/v1/rooms/upsert/<数字列>/` のような URL のパスの部分
-    #                              ----------------------------------
-    #    数字列は `2.` の関数の引数 id で取得できる
-    # 2. RoomVV1o0 クラスの render_upsert 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_update' %} のような形でURLを取得するのに使える
-]
+../src1/project1/urls_tic_tac_toe_v2_autogen.py,practice/v1/rooms/upsert/,practice_v1_rooms_create,"OA18o5o0g6o1o0 対局部屋の新規作成",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_upsert
+../src1/project1/urls_tic_tac_toe_v2_autogen.py,practice/v1/rooms/upsert/<int:id>/,practice_v1_rooms_update,"OA18o5o0g6o1o0 対局部屋の更新",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_upsert
 ```
+
+## Step OA18o4o0g5o2o0 ルート編集 - コマンド打鍵
+
+👇 以下のコマンドを打鍵してほしい  
+
+```shell
+cd ../src1_meta
+python -m scripts.auto_generators.urls
+cd ../src1
+docker-compose restart
+```
+
+* ディレクトリーは、がんばって移動してほしい
+* スクリプトについて See also: O3o2o_1o0g2o0
+* 設定ファイルを変更したら、サーバーの再起動が必要
 
 ## Step OA18o5o0g7o0 Web画面へアクセス
 
