@@ -103,6 +103,12 @@
     │   ├── 🐳 Dockerfile
     │   ├── 📄 manage.py
     │   └── 📄 requirements.txt
+    ├── 📂 src1_meta
+    │   ├── 📂 data
+    │   │   └── 📄 urls.csv
+    │   └── 📂 scripts
+    │       └── 📂 auto_generators
+    │           └── 📄 urls.py
     └── 📄 .gitignore
 ```
 
