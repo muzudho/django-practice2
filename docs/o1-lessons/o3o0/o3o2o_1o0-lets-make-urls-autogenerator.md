@@ -113,17 +113,18 @@ class UrlsAutoGenerator:
     def execute(self):
         # CSV 読取
         df = pd.read_csv('data/urls.csv')
-        #                 ----------------------
+        #                 -------------
         #                 1
-        # 1. `src1_meta/data/urls_practice.csv` を読取
-        #               ----------------------
+        # 1. `src1_meta/data/urls.csv` を読取
+        #               -------------
 
         # print(df)
         """
         Examples
         --------
-                                                file                        path            name                comment                                       module         class  alias  method
-        0  src1/project1/urls_practice_autogen.py  practice/v1/page-the-hello  page_the_hello  O3o1o0gA10o0 こんにちわページ  apps1.practice_v1.views.page_the_hello.v1o0  PageTheHello    NaN  render
+                                                file                path                name  ...         class alias  method
+        0           ../src1/project1/urls_autogen.py                 NaN                 NaN  ...           NaN   NaN     NaN
+        1  ../src1/project1/urls_practice_autogen.py  practice/v1/hello2  practice_v1_hello2  ...  PageTheHello   NaN  render
         """
 
         print(f"Current working directory:{os.getcwd()}")
