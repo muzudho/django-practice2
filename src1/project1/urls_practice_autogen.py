@@ -17,6 +17,7 @@ from apps1.practice_v1.views.prefecture.v1o0 import PrefectureV
 from apps1.practice_v1.views.vuetifies import VuetifyV
 from apps1.practice_v1.views.vuetifies import VuetifyV
 from apps1.practice_v1.views.vuetifies import VuetifyV
+from apps1.practice_v1.views.vuetifies import VuetifyV
 
 
 urlpatterns = [
@@ -64,6 +65,9 @@ urlpatterns = [
 
     # OA12o3o0g5o1o0 ビューティファイでバリデーション１
     path('practice/v1/vuetify/validation1', VuetifyV.render_validation1, name='practice_v1_vuetify_validation1'),
+
+    # OA13o1o0g6o1o0 ビューティファイでデザート１
+    path('practice/v1/vuetify/desserts1', VuetifyV.render_desserts1, name='practice_v1_vuetify_desserts1'),
 ]
 
 # EOF O3o2o_1o0g4o0

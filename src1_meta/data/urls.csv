@@ -16,3 +16,4 @@ file,path,name,comment,module,class,alias,method
 ../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/hello1,practice_v1_vuetify_hello1,"OA12o1o0g5o1o0 ビューティファイでハロー",apps1.practice_v1.views.vuetifies,VuetifyV,,render_hello1
 ../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/data-table1,practice_v1_vuetify_data_table1,"OA12o2o0g5o1o0 ビューティファイでデータテーブル１",apps1.practice_v1.views.vuetifies,VuetifyV,,render_data_table1
 ../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/validation1,practice_v1_vuetify_validation1,"OA12o3o0g5o1o0 ビューティファイでバリデーション１",apps1.practice_v1.views.vuetifies,VuetifyV,,render_validation1
+../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/desserts1,practice_v1_vuetify_desserts1,"OA13o1o0g6o1o0 ビューティファイでデザート１",apps1.practice_v1.views.vuetifies,VuetifyV,,render_desserts1
