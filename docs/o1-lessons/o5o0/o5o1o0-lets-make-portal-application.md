@@ -506,7 +506,7 @@ Merged to O5o1o0gA11o1o0
 ...略...
 
 
-../src1/project1/urls_portal_autogen.py,practice/v1/portal,practice_v1_portal,"O5o1o0gA11o1o0 ポータルの練習",apps1.portal_v1.views.portal.v1o0,Portal,PortalO1o0,render
+../src1/project1/urls_practice_autogen.py,practice/v1/portal,practice_v1_portal,"O5o1o0gA11o1o0 ポータルの練習",apps1.portal_v1.views.portal.v1o0,Portal,PortalO1o0,render
 ```
 
 ## Step O5o1o0gA11o2o0 ルート編集 - コマンド打鍵
