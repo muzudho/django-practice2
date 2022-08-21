@@ -508,80 +508,67 @@ class VuetifyV(object):
     from .textarea1_to_model.v1o0 import render_textarea1_to_model, render_save_result_of_desserts1_from_textarea1
 ```
 
-## Step OA13o4o0gA13o0 ルート編集 - urls_practice.py ファイル
+## ~~Step OA13o4o0gA13o0~~
 
-👇 以下の既存ファイルを編集してほしい  
+## Step OA13o4o0gA13o1o0 ルート編集 - urls.csv ファイル
+
+👇 以下の既存ファイルの末尾に追記してほしい  
 
 ```plaintext
-    └── 📂 src1
-        ├── 📂 apps1
-        │   └── 📂 practice_v1          # アプリケーション
-        │       ├── 📂 migrations
-        │       │   ├── 📄 __init__.py
-        │       │   ├── ...略...
-        │       │   └── 📄 0002_dessert.py
-        │       ├── 📂 models
-        │       │   └── 📂 dessert
-        │       │       └── 📄 v1o0.py
-        │       ├── 📂 static
-        │       │   └── 📂 practice_v1
-        │       │       └── 📂 o1o0
-        │       │           └── 📂 desserts1_placeholder
-        │       │               └── 📄 v1o0.json
-        │       ├── 📂 templates
-        │       │   └── 📂 practice_v1
-        │       │       └── 📂 vuetifies
-        │       │           └── 📂 textarea1_to_model
-        │       │               └── 📄 v1o0.html.txt
-        │       ├── 📂 views
-        │       │   └── 📂 vuetifies
-        │       │       ├── 📂 textarea1_to_model
-        │       │       │   └── 📄 v1o0.py
-        │       │       └── 📄 __init__.py
-        │       └── admin.py
-        └── 📂 project1                          # プロジェクト
-👉          ├── 📄 urls_practice.py              # こちら
-❌          └── 📄 urls.py                       # これではない
+    ├── 📂 src1
+    │   └── 📂 apps1
+    │       └── 📂 practice_v1          # アプリケーション
+    │           ├── 📂 migrations
+    │           │   ├── 📄 __init__.py
+    │           │   ├── ...略...
+    │           │   └── 📄 0002_dessert.py
+    │           ├── 📂 models
+    │           │   └── 📂 dessert
+    │           │       └── 📄 v1o0.py
+    │           ├── 📂 static
+    │           │   └── 📂 practice_v1
+    │           │       └── 📂 o1o0
+    │           │           └── 📂 desserts1_placeholder
+    │           │               └── 📄 v1o0.json
+    │           ├── 📂 templates
+    │           │   └── 📂 practice_v1
+    │           │       └── 📂 vuetifies
+    │           │           └── 📂 textarea1_to_model
+    │           │               └── 📄 v1o0.html.txt
+    │           ├── 📂 views
+    │           │   └── 📂 vuetifies
+    │           │       ├── 📂 textarea1_to_model
+    │           │       │   └── 📄 v1o0.py
+    │           │       └── 📄 __init__.py
+    │           └── admin.py
+    └── 📂 src1_meta
+        └── 📂 data
+👉          └── 📄 urls.csv
 ```
 
-```py
-# ...略...
+```csv
+...略... file,path,name,comment,module,class,alias,method
+...略...
 
 
-urlpatterns = [
-
-
-    # ...略...
-
-
-    # OA13o4o0gA13o0 ビューティファイでテキストエリア入力から保存まで . 入力
-    path('practice/v1/vuetify/textarea1-to-model',
-         # -------------------------------------
-         # 1
-         VuetifyV.render_textarea1_to_model, name='practice_v1_vuetify_textarea1_to_model'),
-    #    ----------------------------------        --------------------------------------
-    #    2                                         3
-    # 1. 例えば `http://example.com/practice/v1/vuetify/textarea1-to-model` のような URL のパスの部分
-    #                              --------------------------------------
-    # 2. VuetifyV クラスの render_textarea1_to_model 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_textarea1_to_model' %} のような形でURLを取得するのに使える
-
-    # OA13o4o0gA13o0 ビューティファイでテキストエリア入力から保存まで . 保存
-    path('practice/v1/vuetify/save-desserts1-from-textarea1',
-         # ------------------------------------------------
-         # 1
-         VuetifyV.render_save_result_of_desserts1_from_textarea1,
-         # -----------------------------------------------------
-         # 2
-         name='vuetify_save_desserts1_from_textarea1'),
-    #          -------------------------------------
-    #          3
-    # 1. 例えば `http://example.com/practice/v1/vuetify/save-desserts1-from-textarea1` のような URL のパスの部分
-    #                              -------------------------------------------------
-    # 2. VuetifyV クラスの render_save_result_of_desserts1_from_textarea1 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'vuetify_save_desserts1_from_textarea1' %} のような形でURLを取得するのに使える
-]
+../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/textarea1-to-model,practice_v1_vuetify_textarea1_to_model,"OA13o4o0gA13o1o0 ビューティファイでテキストエリア入力から保存まで . 入力",apps1.practice_v1.views.vuetifies,VuetifyV,,render_textarea1_to_model
+../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/save-desserts1-from-textarea1,vuetify_save_desserts1_from_textarea1,"OA13o4o0gA13o1o0 ビューティファイでテキストエリア入力から保存まで . 保存",apps1.practice_v1.views.vuetifies,VuetifyV,,render_save_result_of_desserts1_from_textarea1
 ```
+
+## Step OA13o4o0gA13o2o0 ルート編集 - コマンド打鍵
+
+👇 以下のコマンドを打鍵してほしい  
+
+```shell
+cd ../src1_meta
+python -m scripts.auto_generators.urls
+cd ../src1
+docker-compose restart
+```
+
+* ディレクトリーは、がんばって移動してほしい
+* スクリプトについて See also: O3o2o_1o0g2o0
+* 設定ファイルを変更したら、サーバーの再起動が必要
 
 ## Step OA13o4o0gA14o0 Web画面へアクセス
 

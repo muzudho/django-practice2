@@ -225,33 +225,6 @@ urlpatterns = [
     #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
 
-    # OA13o4o0gA13o0 ビューティファイでテキストエリア入力から保存まで . 入力
-    path('practice/v1/vuetify/textarea1-to-model',
-         # -------------------------------------
-         # 1
-         VuetifyV.render_textarea1_to_model, name='practice_v1_vuetify_textarea1_to_model'),
-    #    ----------------------------------        --------------------------------------
-    #    2                                         3
-    # 1. 例えば `http://example.com/practice/v1/vuetify/textarea1-to-model` のような URL のパスの部分
-    #                              --------------------------------------
-    # 2. VuetifyV クラスの render_textarea1_to_model 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_textarea1_to_model' %} のような形でURLを取得するのに使える
-
-    # OA13o4o0gA13o0 ビューティファイでテキストエリア入力から保存まで . 保存
-    path('practice/v1/vuetify/save-desserts1-from-textarea1',
-         # ------------------------------------------------
-         # 1
-         VuetifyV.render_save_result_of_desserts1_from_textarea1,
-         # -----------------------------------------------------
-         # 2
-         name='vuetify_save_desserts1_from_textarea1'),
-    #          -------------------------------------
-    #          3
-    # 1. 例えば `http://example.com/practice/v1/vuetify/save-desserts1-from-textarea1` のような URL のパスの部分
-    #                              -------------------------------------------------
-    # 2. VuetifyV クラスの render_save_result_of_desserts1_from_textarea1 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'vuetify_save_desserts1_from_textarea1' %} のような形でURLを取得するのに使える
-
     # OA18o2o0g7o0 対局部屋の一覧
     path('practice/v1/rooms/', RoomVV1o0.render_list, name='practice_v1_rooms'),
     #     ------------------   ---------------------        -----------------
