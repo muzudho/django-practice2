@@ -35,7 +35,20 @@ from .urls_autogen import urlpatterns as urlpatterns_autogen
 # 3. `2.` に含まれる変数
 # 4. `3.` の別名
 
+# O5o2o0g8o1o0 ポータル
+from apps1.portal_v1.views.portal.v2o0 import Portal as PortalO2o0
+#                                  ^two
+#          ---------              ----        ------    ----------
+#          11                     12          2         3
+#    ---------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
+# 3. `2.` の別名
+
 urlpatterns = [
+
     # 最初から Django の管理画面は用意されている
     path('admin/', admin.site.urls),
     #     ------   ---------------
@@ -60,6 +73,16 @@ urlpatterns = [
     # 1. 例えば `http://example.com/` のような URLの直下
     # 2. `src1/projectN/urls_practice.py` の urlpatterns を `1.` にぶら下げる
     #          ----------------------
+
+    # O5o2o0g8o1o0 ポータル
+    # あとで allauth のURLをインクルードしたとき、そちらのルートパスのURL と衝突するようだから、
+    # それより先に並べる必要がある
+    path('', PortalO2o0.render, name='portal'),
+    #    --  -----------------        ------
+    #    1   2                        3
+    # 1. 例えば `http://example.com/` のようなURLの直下
+    # 2. PortalO2o0 (別名)クラスの render 静的メソッド
+    # 3. HTMLテンプレートの中で {% url 'portal' %} のような形でURLを取得するのに使える
 
     # O6o1o0gA13o0 ユーザー認証
     path('', include(f'{PROJECT_NAME}.urls_accounts')),

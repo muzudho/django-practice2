@@ -58,6 +58,12 @@ Pythonコードを編集しなくても、ポータルページのリンクを�
     │   ├── 🐳 Dockerfile
     │   ├── 📄 manage.py
     │   └── 📄 requirements.txt
+    ├── 📂 src1_meta
+    │   ├── 📂 data
+    │   │   └── 📄 urls.csv
+    │   └── 📂 scripts
+    │       └── 📂 auto_generators
+    │           └── 📄 urls.py
     └── 📄 .gitignore
 ```
 
@@ -287,7 +293,7 @@ class Portal():
         # 1. `src1/apps1/portal_v1/data/finished-lessons.csv` を読取
         #          -----------------------------------------
 
-        print(df)
+        # print(df)
         #
         # Example
         # -------
@@ -296,7 +302,7 @@ class Portal():
         # 1  /practice/v1/page-to-be-added-1  １回追加されたページ
         # 2  /practice/v1/page-to-be-added-2  ２回追加されたページ
 
-        print(df.columns)
+        # print(df.columns)
         #
         # Example
         # -------
@@ -311,8 +317,8 @@ class Portal():
                 "label": row['label'],
             })
 
-        for item in finished_lesson_list:
-            print(f"{item['path']} , {item['label']}")
+        # for item in finished_lesson_list:
+        #    print(f"{item['path']} , {item['label']}")
 
         # "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
         context = {
@@ -324,7 +330,13 @@ class Portal():
 # EOF O5o2o0g7o0
 ```
 
-## Step O5o2o0g8o0 サブ ルート編集 - urls_portal.py
+## ~~Step O5o2o0g8o0~~
+
+Merged to O5o2o0g8o1o0  
+
+## Step O5o2o0g8o1o0 総合ルート編集 - urls.py
+
+URLの設定は自動化したいところだが、ルートパスの設定には煩雑な事情があるので、細かく行う  
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -342,8 +354,7 @@ class Portal():
         │               └── 📂 v2o0
         │                   └── 📄 __init__.py
         ├── 📂 project1
-👉      │   ├── 📄 urls_portal.py           # こちら
-❌      │   └── 📄 urls.py                  # これではない
+👉      │   └── 📄 urls.py                   # こっち
         └── 📄 requirements.txt
 ```
 
@@ -351,11 +362,11 @@ class Portal():
 # ...略...
 
 
-# O5o2o0g8o0 ポータル
+# O5o2o0g8o1o0 ポータル
 from apps1.portal_v1.views.portal.v2o0 import Portal as PortalO2o0
 #                                  ^two
-#          ---------            ------        ------    ----------
-#          11                   12            2         3
+#          ---------              ----        ------    ----------
+#          11                     12          2         3
 #    ---------------------------------
 #    10
 # 10, 12. ディレクトリー
@@ -364,14 +375,18 @@ from apps1.portal_v1.views.portal.v2o0 import Portal as PortalO2o0
 # 3. `2.` の別名
 
 
-# ..略...
+# ...略...
 
 
 urlpatterns = [
-    # ..略...
 
 
-    # ポータル
+    # ...中略...
+
+
+    # O5o2o0g8o1o0 ポータル
+    # あとで allauth のURLをインクルードしたとき、そちらのルートパスのURL と衝突するようだから、
+    # それより先に並べる必要がある
     path('', PortalO2o0.render, name='portal'),
     #    --  -----------------        ------
     #    1   2                        3
@@ -390,6 +405,10 @@ urlpatterns = [
 📖 [Djangoでユーザー認証を付けよう！](https://qiita.com/muzudho1/items/55cb7ac55299afd51887)  
 
 # 参考にした記事
+
+## Python
+
+📖 [Is there a built-in function to print all the current properties and values of an object?](https://stackoverflow.com/questions/192109/is-there-a-built-in-function-to-print-all-the-current-properties-and-values-of-a)  
 
 ## CSV
 
