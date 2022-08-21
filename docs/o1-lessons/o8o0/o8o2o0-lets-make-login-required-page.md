@@ -196,79 +196,59 @@ def loggingOut_render(request):
 # EOF O8o2o0g3o0
 ```
 
-## Step O8o2o0g4o0 ルート編集 - urls_practice.py ファイル
+## ~~Step O8o2o0g4o0~~
 
-👇 以下のファイルの該当箇所を追記してほしい  
+Merged to O8o2o0g4o1o0  
+
+## Step O8o2o0g4o1o0 ルート編集 - urls.csv ファイル
+
+👇 以下の既存ファイルの末尾に追記してほしい  
 
 ```plaintext
-    └── 📂 src1
-        ├── 📂 apps1
-        │   └── 📂 practice_v1              # アプリケーション
-        │       └── 📂 templates
-        │           ├── 📂 practice_v1
-        │           │   └── 📂 login_required
-        │           │       └── 📄 v1o0.html
-        │           └── 📂 views
-        │               └── 📂 login_required
-        │                   └── 📂 v1o0
-        │                       └── 📄 __init__.py
-        └── 📂 project1
-👉          ├── 📄 urls_practice.py          # こちら
-❌          └── 📄 urls.py                   # これではない
+    ├── 📂 src1
+    │   └── 📂 apps1
+    │       └── 📂 practice_v1              # アプリケーション
+    │           └── 📂 templates
+    │               ├── 📂 practice_v1
+    │               │   └── 📂 login_required
+    │               │       └── 📄 v1o0.html
+    │               └── 📂 views
+    │                   └── 📂 login_required
+    │                       └── 📂 v1o0
+    │                           └── 📄 __init__.py
+    └── 📂 src1_meta
+        └── 📂 data
+👉          └── 📄 urls.csv
 ```
 
-```py
-# ...略...
+```csv
+...略... file,path,name,comment,module,class,alias,method
+...略...
 
 
-# O8o2o0g4o0 ログイン必須ページ
-from apps1.practice_v1.views.login_required.v1o0 import LoggingIn, LoggingOut
-#          -----------                      ----        ---------------------
-#          11                               12          2
-#    -------------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-
-
-# ...略...
-
-
-urlpatterns = [
-    # ...略...
-
-
-    # O8o2o0g4o0 ログイン中
-    path('practice/v1/login-required', LoggingIn.render,
-         # -------------------------   ----------------
-         # 1                           2
-         name='practice_v1_login_required'),
-    #          --------------------------
-    #          3
-    # 1. 例えば `http://example.com/practice/v1/login-required` のような URL のパスの部分
-    #                              --------------------------
-    # 2. LoggingIn クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_login_required' %} のような形でURLを取得するのに使える
-
-    # O8o2o0g4o0 ログアウト中
-    path('practice/v1/logout', LoggingOut.render,
-         # -----------------   -----------------
-         # 1                   2
-         name='practice_v1_logout'),
-    #          ------------------
-    #          3
-    # 1. 例えば `http://example.com/practice/v1/logout` のような URL のパスの部分
-    #                              ------------------
-    # 2. LoggingOut クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_logout' %} のような形でURLを取得するのに使える
-]
+../src1/project1/urls_practice_autogen.py,practice/v1/login-required,practice_v1_login_required,"O8o2o0g4o1o0 ログイン必須ページでログイン中",apps1.practice_v1.views.login_required.v1o0,LoggingIn,,render
+../src1/project1/urls_practice_autogen.py,practice/v1/logout,practice_v1_logout,"O8o2o0g4o1o0 ログイン必須ページでログアウト中",apps1.practice_v1.views.login_required.v1o0,LoggingOut,,render
 ```
+
+## Step O8o2o0g4o2o0 ルート編集 - コマンド打鍵
+
+👇 以下のコマンドを打鍵してほしい  
+
+```shell
+cd ../src1_meta
+python -m scripts.auto_generators.urls
+cd ../src1
+docker-compose restart
+```
+
+* ディレクトリーは、がんばって移動してほしい
+* スクリプトについて See also: O3o2o_1o0g2o0
+* 設定ファイルを変更したら、サーバーの再起動が必要
 
 ## Step O8o2o0g5o0 Webページへアクセス
 
 👇　ログインしているときは、ログイン情報が見えます。  
-　　ログインしていないときは、ログイン画面が出ます
+　　ログインしていないときに（ページを開いたり、画面を再更新したりすると）、ログイン画面が出ます
 
 📖 [http://localhost:8000/practice/v1/login-required](http://localhost:8000/practice/v1/login-required)  
 

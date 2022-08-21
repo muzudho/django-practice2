@@ -5,6 +5,8 @@ from django.urls import path
 from apps1.practice_v1.views.page_the_hello.v1o0 import PageTheHello
 from apps1.practice_v1.views.page_to_be_added.v2o0 import PageToBeAdded as PageToBeAdded1
 from apps1.practice_v1.views.page_to_be_added.v3o0 import PageToBeAdded as PageToBeAdded2
+from apps1.practice_v1.views.login_required.v1o0 import LoggingIn
+from apps1.practice_v1.views.login_required.v1o0 import LoggingOut
 from apps1.practice_v1.views.button_for_member.v1o0 import ButtonForMember
 from apps1.practice_v1.views.user_list.v1o0 import UserListV
 from apps1.practice_v1.views.extends_user_list.v1o0 import ExtendsUserListV
@@ -39,6 +41,12 @@ urlpatterns = [
 
     # O3o3o0g4o1o0 練習ページ ２回追加されたページ
     path('practice/v1/page-to-be-added-2', PageToBeAdded2.render, name='page_to_be_added_2'),
+
+    # O8o2o0g4o1o0 ログイン必須ページでログイン中
+    path('practice/v1/login-required', LoggingIn.render, name='practice_v1_login_required'),
+
+    # O8o2o0g4o1o0 ログイン必須ページでログアウト中
+    path('practice/v1/logout', LoggingOut.render, name='practice_v1_logout'),
 
     # O8o3o0g5o1o0 会員にだけ見えるボタンを説明するページ
     path('practice/v1/buttom_for_member/', ButtonForMember.render),
