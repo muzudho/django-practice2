@@ -24,7 +24,7 @@ class Portal():
         # 1. `src1/apps1/portal_v1/data/finished-lessons.csv` を読取
         #          -----------------------------------------
 
-        print(df)
+        # print(df)
         #
         # Example
         # -------
@@ -33,7 +33,7 @@ class Portal():
         # 1  /practice/v1/page-to-be-added-1  １回追加されたページ
         # 2  /practice/v1/page-to-be-added-2  ２回追加されたページ
 
-        print(df.columns)
+        # print(df.columns)
         #
         # Example
         # -------
@@ -48,8 +48,8 @@ class Portal():
                 "label": row['label'],
             })
 
-        for item in finished_lesson_list:
-            print(f"{item['path']} , {item['label']}")
+        # for item in finished_lesson_list:
+        #    print(f"{item['path']} , {item['label']}")
 
         # "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
         context = {
