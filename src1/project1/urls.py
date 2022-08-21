@@ -92,14 +92,6 @@ urlpatterns = [
     # 2. `src1/projectN/urls_accounts.py` の urlpatterns を `1.` にぶら下げる
     #          ----------------------
 
-    # OA16o1o0gA18o0 〇×ゲーム v1
-    path('', include(f'{PROJECT_NAME}.urls_tic_tac_toe_v1')),
-    #    --            ----------------------------------
-    #    1             2
-    # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `src1/projectN/urls_tic_tac_toe_v1.py` の urlpatterns を `1.` にぶら下げる
-    #          ----------------------------
-
     # OA16o2o0gA17o0 〇×ゲーム v2
     path('', include(f'{PROJECT_NAME}.urls_tic_tac_toe_v2')),
     #    --            ----------------------------------

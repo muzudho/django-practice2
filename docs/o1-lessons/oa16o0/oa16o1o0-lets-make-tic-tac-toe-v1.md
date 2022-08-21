@@ -1082,161 +1082,80 @@ def render_playing(request, room_name, playing_tp):
 # EOF OA16o1o0gA16o0
 ```
 
-## Step OA16o1o0gA17o0 ルート新規作成 - urls_tic_tac_toe_v1.py ファイル
+## ~~Step OA16o1o0gA17o0~~
 
-👇 以下のファイルを新規作成してほしい  
+Merged to OA16o1o0gA17o1o0  
 
-```plaintext
-    └── 📂 src1
-        ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v1            # アプリケーション
-        │       ├── 📂 migrations
-        │       │   └── 📄 __init__.py
-        │       ├── 📂 static
-        │       │   └── 📂 tic_tac_toe_v1
-        │       │       ├── 📂 style
-        │       │       │   └── 📂 main
-        │       │       │       └── 📄 v1o0.css
-        │       │       └── 📂 scripts
-        │       │           └── 📂 play
-        │       │               └── 📄 v1o0.js
-        │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v1
-        │       │       ├── 📂 match_application
-        │       │       │   └── 📄 v1o0.html
-        │       │       └── 📂 playing
-        │       │           └── 📄 v1o0.html
-        │       ├── 📂 views
-        │       │   ├── 📂 match_application
-        │       │   │   └── 📂 v1o0
-        │       │   │       ├── 📄 __init__.py
-        │       │   │       └── 📄 v_render.py
-        │       │   └── 📂 playing
-        │       │       └── 📂 v1o0
-        │       │           ├── 📄 __init__.py
-        │       │           └── 📄 v_render.py
-        │       ├── 📄 __init__.py
-        │       ├── 📄 admin.py
-        │       ├── 📄 apps.py
-        │       └── 📄 tests.py
-        ├── 📂 project1                      # プロジェクト
-👉      │   └── 📄 urls_tic_tac_toe_v1.py
-        └── 📄 requirements.txt
-```
+## Step OA16o1o0gA17o1o0 ルート編集 - urls.csv ファイル
 
-```py
-from django.urls import path
-
-# OA16o1o0gA17o0 対局申込
-from apps1.tic_tac_toe_v1.views.match_application.v1o0 import MatchApplicationV
-#          --------------                         ----        -----------------
-#          11                                     12          2
-#    -------------------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-
-# OA16o1o0gA17o0 対局中
-from apps1.tic_tac_toe_v1.views.playing.v1o0 import PlayingV
-#          --------------               ----        --------
-#          11                           12          2
-#    ---------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-
-
-urlpatterns = [
-
-    # OA16o1o0gA17o0 対局申込
-    path('tic-tac-toe/v1/match-application/',
-         # --------------------------------
-         # 1
-         MatchApplicationV.render),
-    #    ------------------------
-    #    2
-    # 1. 例えば `http://example.com/tic-tac-toe/v1/match-application/` のような URL のパスの部分
-    #                              ---------------------------------
-    # 2. MatchApplicationV クラスの render 静的メソッド
-
-    # OA16o1o0gA17o0 対局中
-    path('tic-tac-toe/v1/playing/<str:room_name>/',
-         # --------------------------------------
-         # 1
-         PlayingV.render),
-    #    ---------------
-    #    2
-    # 1. 例えば `http://example.com/tic-tac-toe/v1/playing/<部屋名>/` のような URL のパスの部分。
-    #                              --------------------------------
-    #    <部屋名> に入った文字列は room_name 変数に渡されます
-    # 2. PlayingV クラスの render 静的メソッド
-]
-```
-
-## Step OA16o1o0gA18o0 総合ルート編集 - urls.py
-
-👇 以下のファイルを編集してほしい  
+👇 以下の既存ファイルの末尾に追記してほしい  
 
 ```plaintext
-    └── 📂 src1
-        ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v1            # アプリケーション
-        │       ├── 📂 migrations
-        │       │   └── 📄 __init__.py
-        │       ├── 📂 static
-        │       │   └── 📂 tic_tac_toe_v1
-        │       │       ├── 📂 style
-        │       │       │   └── 📂 main
-        │       │       │       └── 📄 v1o0.css
-        │       │       └── 📂 scripts
-        │       │           └── 📂 play
-        │       │               └── 📄 v1o0.js
-        │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v1
-        │       │       ├── 📂 match_application
-        │       │       │   └── 📄 v1o0.html
-        │       │       └── 📂 playing
-        │       │           └── 📄 v1o0.html
-        │       ├── 📂 views
-        │       │   ├── 📂 match_application
-        │       │   │   └── 📂 v1o0
-        │       │   │       ├── 📄 __init__.py
-        │       │   │       └── 📄 v_render.py
-        │       │   └── 📂 playing
-        │       │       └── 📂 v1o0
-        │       │           ├── 📄 __init__.py
-        │       │           └── 📄 v_render.py
-        │       ├── 📄 __init__.py
-        │       ├── 📄 admin.py
-        │       ├── 📄 apps.py
-        │       └── 📄 tests.py
-        ├── 📂 project1                      # プロジェクト
-        │   ├── 📄 urls_tic_tac_toe_v1.py
-👉      │   └── 📄 urls.py
-        └── 📄 requirements.txt
+    ├── 📂 src1
+    │   ├── 📂 apps1
+    │   │   └── 📂 tic_tac_toe_v1            # アプリケーション
+    │   │       ├── 📂 migrations
+    │   │       │   └── 📄 __init__.py
+    │   │       ├── 📂 static
+    │   │       │   └── 📂 tic_tac_toe_v1
+    │   │       │       ├── 📂 style
+    │   │       │       │   └── 📂 main
+    │   │       │       │       └── 📄 v1o0.css
+    │   │       │       └── 📂 scripts
+    │   │       │           └── 📂 play
+    │   │       │               └── 📄 v1o0.js
+    │   │       ├── 📂 templates
+    │   │       │   └── 📂 tic_tac_toe_v1
+    │   │       │       ├── 📂 match_application
+    │   │       │       │   └── 📄 v1o0.html
+    │   │       │       └── 📂 playing
+    │   │       │           └── 📄 v1o0.html
+    │   │       ├── 📂 views
+    │   │       │   ├── 📂 match_application
+    │   │       │   │   └── 📂 v1o0
+    │   │       │   │       ├── 📄 __init__.py
+    │   │       │   │       └── 📄 v_render.py
+    │   │       │   └── 📂 playing
+    │   │       │       └── 📂 v1o0
+    │   │       │           ├── 📄 __init__.py
+    │   │       │           └── 📄 v_render.py
+    │   │       ├── 📄 __init__.py
+    │   │       ├── 📄 admin.py
+    │   │       ├── 📄 apps.py
+    │   │       └── 📄 tests.py
+    │   └── 📄 requirements.txt
+    └── 📂 src1_meta
+        └── 📂 data
+👉          └── 📄 urls.csv
 ```
 
-```py
-# ...略...
+```csv
+...略... file,path,name,comment,module,class,alias,method
+...略...
 
 
-urlpatterns = [
-
-
-    # ...略...
-
-
-    # OA16o1o0gA18o0 〇×ゲーム v1
-    path('', include(f'{PROJECT_NAME}.urls_tic_tac_toe_v1')),
-    #    --            ----------------------------------
-    #    1             2
-    # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `src1/projectN/urls_tic_tac_toe_v1.py` の urlpatterns を `1.` にぶら下げる
-    #          ----------------------------
-]
+../src1/project1/urls_tic_tac_toe_v1_autogen.py,tic-tac-toe/v1/match-application/,practice_v1_vuetify_textarea1_to_model,"OA16o1o0gA17o1o0 対局申込",apps1.tic_tac_toe_v1.views.match_application.v1o0,MatchApplicationV,,render
+../src1/project1/urls_tic_tac_toe_v1_autogen.py,tic-tac-toe/v1/playing/<str:room_name>/,practice_v1_vuetify_textarea1_to_model,"OA16o1o0gA17o1o0 対局中",apps1.tic_tac_toe_v1.views.playing.v1o0,PlayingV,,render
 ```
+
+## Step OA16o1o0gA17o2o0 ルート編集 - コマンド打鍵
+
+👇 以下のコマンドを打鍵してほしい  
+
+```shell
+cd ../src1_meta
+python -m scripts.auto_generators.urls
+cd ../src1
+docker-compose restart
+```
+
+* ディレクトリーは、がんばって移動してほしい
+* スクリプトについて See also: O3o2o_1o0g2o0
+* 設定ファイルを変更したら、サーバーの再起動が必要
+
+## ~~Step OA16o1o0gA18o0~~
+
+Merged to OA16o1o0gA17o1o0  
 
 ## Step OA16o1o0gA19o0 consumer/v1o0.py ファイルの作成
 
