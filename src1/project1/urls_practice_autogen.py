@@ -14,6 +14,7 @@ from apps1.practice_v1.views.prefecture.v1o0 import PrefectureV
 from apps1.practice_v1.views.prefecture.v1o0 import PrefectureV
 from apps1.practice_v1.views.prefecture.v1o0 import PrefectureV
 from apps1.practice_v1.views.prefecture.v1o0 import PrefectureV
+from apps1.practice_v1.views.vuetifies import VuetifyV
 
 
 urlpatterns = [
@@ -52,6 +53,9 @@ urlpatterns = [
 
     # OA11o4o0g6o1o0 都道府県の更新
     path('practice/v1/prefectures/update/<int:id>/', PrefectureV.render_upsert, name='practice_v1_refectures_update'),
+
+    # OA12o1o0g5o1o0 ビューティファイでハロー
+    path('practice/v1/vuetify/hello1', VuetifyV.render_hello1, name='practice_v1_vuetify_hello1'),
 ]
 
 # EOF O3o2o_1o0g4o0

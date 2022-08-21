@@ -30,16 +30,6 @@ from apps1.practice_v1.views.button_for_member.v1o0 import ButtonForMember
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# OA11o1o0g5o0 都道府県
-from apps1.practice_v1.views.prefecture.v1o0 import PrefectureV
-#          -----------                  ----        -----------
-#          11                           12          2
-#    ---------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-
 # OA12o1o0g5o0 ビューティファイ練習
 from apps1.practice_v1.views.vuetifies import VuetifyV
 #          -----------       ---------        --------
@@ -234,18 +224,6 @@ urlpatterns = [
     # 1. 例えば `http://example.com/practice/v1/buttom_for_member/` のような URL のパスの部分
     #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
-
-    # OA12o1o0g5o0 ビューティファイでハロー
-    path('practice/v1/vuetify/hello1', VuetifyV.render_hello1,
-         # -------------------------   ----------------------
-         # 1                           2
-         name='practice_v1_vuetify_hello1'),
-    #          --------------------------
-    #          3
-    # 1. 例えば `http://example.com/practice/v1/vuetify/hello1` のような URL のパスの部分
-    #                              --------------------------
-    # 2. VuetifyV クラスの render_hello1 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_hello1' %} のような形でURLを取得するのに使える
 
     # OA12o2o0g5o0 ビューティファイでデータテーブル１
     path('practice/v1/vuetify/data-table1',

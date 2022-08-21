@@ -13,3 +13,4 @@ file,path,name,comment,module,class,alias,method
 ../src1/project1/urls_practice_autogen.py,practice/v1/prefectures/delete/<int:id>/,practice_v1_prefectures_delete,"OA11o3o0g5o1o0 都道府県の削除",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_delete
 ../src1/project1/urls_practice_autogen.py,practice/v1/prefectures/create/,practice_v1_prefectures_create,"OA11o4o0g6o1o0 都道府県の新規作成",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_upsert
 ../src1/project1/urls_practice_autogen.py,practice/v1/prefectures/update/<int:id>/,practice_v1_refectures_update,"OA11o4o0g6o1o0 都道府県の更新",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_upsert
+../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/hello1,practice_v1_vuetify_hello1,"OA12o1o0g5o1o0 ビューティファイでハロー",apps1.practice_v1.views.vuetifies,VuetifyV,,render_hello1
