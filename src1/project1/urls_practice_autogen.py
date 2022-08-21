@@ -23,6 +23,7 @@ from apps1.practice_v1.views.vuetifies import VuetifyV
 from apps1.practice_v1.views.vuetifies import VuetifyV
 from apps1.practice_v1.views.vuetifies import VuetifyV
 from apps1.practice_v1.views.vuetifies import VuetifyV
+from apps1.practice_v1.views.my.v1o0 import MyV
 
 
 urlpatterns = [
@@ -88,6 +89,9 @@ urlpatterns = [
 
     # OA13o4o0gA13o1o0 ビューティファイでテキストエリア入力から保存まで . 保存
     path('practice/v1/vuetify/save-desserts1-from-textarea1', VuetifyV.render_save_result_of_desserts1_from_textarea1, name='vuetify_save_desserts1_from_textarea1'),
+
+    # OA19o1o0g5o1o0 マイページ ビュー
+    path('practice/v1/my/', MyV.render_my, name='practice_v1_my'),
 ]
 
 # EOF O3o2o_1o0g4o0
