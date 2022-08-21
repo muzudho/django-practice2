@@ -10,3 +10,4 @@ file,path,name,comment,module,class,alias,method
 ../src1/project1/urls_practice_autogen.py,practice/v1/from-object-to-json-str/,practice_v1_from_object_to_json_str,"OA10o2o0g6o1o0 デバッグ用。モデルをダンプ出力",apps1.practice_v1.views.debug.v1o0,DebugV,,render_model_as_json
 ../src1/project1/urls_practice_autogen.py,practice/v1/prefectures/,practice_v1_prefectures,"OA11o1o0g5o1o0 都道府県",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_list
 ../src1/project1/urls_practice_autogen.py,practice/v1/prefectures/read/<int:id>/,practice_v1_prefectures_read,"OA11o2o0g5o1o0 都道府県の詳細",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_read
+../src1/project1/urls_practice_autogen.py,practice/v1/prefectures/delete/<int:id>/,practice_v1_prefectures_delete,"OA11o3o0g5o1o0 都道府県の削除",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_delete

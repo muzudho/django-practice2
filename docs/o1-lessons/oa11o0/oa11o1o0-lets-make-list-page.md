@@ -253,7 +253,7 @@ class PrefectureV(object):
 
 Merged to OA11o1o0g5o1o0  
 
-## Step OA11o1o0g5o1o0 ルート編集 - urls_practice.py ファイル
+## Step OA11o1o0g5o1o0 ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 

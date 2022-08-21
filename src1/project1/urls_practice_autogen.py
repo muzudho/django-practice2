@@ -11,6 +11,7 @@ from apps1.practice_v1.views.session.v1o0 import SessionV
 from apps1.practice_v1.views.debug.v1o0 import DebugV
 from apps1.practice_v1.views.prefecture.v1o0 import PrefectureV
 from apps1.practice_v1.views.prefecture.v1o0 import PrefectureV
+from apps1.practice_v1.views.prefecture.v1o0 import PrefectureV
 
 
 urlpatterns = [
@@ -40,6 +41,9 @@ urlpatterns = [
 
     # OA11o2o0g5o1o0 都道府県の詳細
     path('practice/v1/prefectures/read/<int:id>/', PrefectureV.render_read, name='practice_v1_prefectures_read'),
+
+    # OA11o3o0g5o1o0 都道府県の削除
+    path('practice/v1/prefectures/delete/<int:id>/', PrefectureV.render_delete, name='practice_v1_prefectures_delete'),
 ]
 
 # EOF O3o2o_1o0g4o0

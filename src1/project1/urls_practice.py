@@ -235,20 +235,6 @@ urlpatterns = [
     #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
 
-    # OA11o3o0g5o0 都道府県の削除
-    path('practice/v1/prefectures/delete/<int:id>/',
-         # ---------------------------------------
-         # 1
-         PrefectureV.render_delete, name='practice_v1_prefectures_delete'),
-    #    -------------------------        ------------------------------
-    #    2                                3
-    #
-    # 1. 例えば `http://example.com/practice/v1/prefectures/delete/<数字列>/` のような URL のパスの部分
-    #                              ----------------------------------------
-    #    数字列は `2.` のメソッドの引数 id で取得できる
-    # 2. PrefectureV クラスの render_delete メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_prefectures_delete' %} のような形でURLを取得するのに使える
-
     # OA11o4o0g6o0 都道府県の新規作成
     path('practice/v1/prefectures/create/',
          # ------------------------------
