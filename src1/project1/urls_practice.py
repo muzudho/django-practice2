@@ -225,15 +225,6 @@ urlpatterns = [
     #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
 
-    # OA18o2o0g7o0 対局部屋の一覧
-    path('practice/v1/rooms/', RoomVV1o0.render_list, name='practice_v1_rooms'),
-    #     ------------------   ---------------------        -----------------
-    #     1                    2                            3
-    # 1. 例えば `http://example.com/practice/v1/rooms/` のような URL のパスの部分
-    #                              ------------------
-    # 2. RoomVV1o0 クラスの render_list 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms' %} のような形でURLを取得するのに使える
-
     # OA18o3o0g5o0 対局部屋の詳細
     path('practice/v1/rooms/read/<int:id>/',
          # -------------------------------
