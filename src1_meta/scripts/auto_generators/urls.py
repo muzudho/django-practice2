@@ -1,4 +1,4 @@
-# BOF o3o2o_1o0g2o0
+# BOF O3o2o_1o0g2o0
 
 import os
 import pandas as pd
@@ -93,17 +93,23 @@ class UrlsAutoGenerator:
             # ファイル書出し
             with open(file_to_export, 'w', encoding="utf8") as f:
                 print(f"Write... {file_to_export}")
-                f.write(f'''from django.urls import path
+                f.write(f'''# BOF O3o2o_1o0g4o0
+
+from django.urls import path
 
 {head_text_of_files[file_to_export]}
 
 urlpatterns = [{body_text_of_files[file_to_export]}]
+
+# EOF O3o2o_1o0g4o0
 ''')
 
     def write_url_summary_file(self, df):
         """集約ファイル自動生成"""
 
-        text = """from django.urls import include, path
+        text = """# BOF O3o2o_1o0g4o0
+
+from django.urls import include, path
 
 # O3o1o0gA11o0 総合ルート編集
 from .settings import PROJECT_NAME
@@ -145,6 +151,8 @@ urlpatterns = [
 """
 
         text += """]
+
+# EOF O3o2o_1o0g4o0
 """
 
         # ファイル書出し
@@ -157,4 +165,4 @@ if __name__ == "__main__":
     urlsAutoGenerator = UrlsAutoGenerator()
     urlsAutoGenerator.execute()
 
-# EOF o3o2o_1o0g2o0
+# EOF O3o2o_1o0g2o0
