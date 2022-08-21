@@ -30,30 +30,6 @@ from apps1.practice_v1.views.button_for_member.v1o0 import ButtonForMember
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# OA22o1o0gA10o0 〇×ゲーム v3.1 対局申込中
-from apps1.tic_tac_toe_v3.views.match_application.v1o0 import MatchApplicationV as TicTacToeV3g1o0MatchApplicationV
-#                       ^three                     ^one
-#          --------------                         ----        -----------------    --------------------------------
-#          11                                     12          2                    3
-#    -------------------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-# 3. `2.` の別名
-
-# OA22o1o0gA10o0 〇×ゲーム v3.1 対局中
-from apps1.tic_tac_toe_v3.views.playing.v1o0 import PlayingV as TicTacToeV3g1o0PlayingV
-#                       ^three           ^one
-#          --------------               ----        --------    -----------------------
-#          11                           12          2           3
-#    ---------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-# 3. `2.` の別名
-
 # OA23o1o0g4o0 〇×ゲーム v3.2 対局申込中
 from apps1.tic_tac_toe_v3.views.match_application.v2o0 import MatchApplicationV as TicTacToeV3g2o0MatchApplicationV
 #                       ^three                     ^two
@@ -163,31 +139,6 @@ urlpatterns = [
     # 1. 例えば `http://example.com/practice/v1/buttom_for_member/` のような URL のパスの部分
     #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
-
-    # OA22o1o0gA10o0 〇×ゲーム v3.1 対局申込中
-    path('tic-tac-toe/v3.1/match-application/', TicTacToeV3g1o0MatchApplicationV.render,
-         # ----------------------------------   ---------------------------------------
-         # 1                                    2
-         name='tic_tac_toe_v3g1o0_match_application'),
-    #          ------------------------------------
-    #          3
-    # 1. 例えば `http://example.com/tic-tac-toe/v3.1/match-application/` のような URL のパスの部分
-    #                              -----------------------------------
-    # 2. TicTacToeV3g1o0MatchApplicationV （別名）クラスの render メソッド
-    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3g1o0_match_application' %} のような形でURLを取得するのに使える
-
-    # OA22o1o0gA10o0 〇×ゲーム v3.1 対局中
-    path('tic-tac-toe/v3.1/playing/<str:kw_room_name>/', TicTacToeV3g1o0PlayingV.render,
-         # -------------------------------------------   ------------------------------
-         # 1                                             2
-         name='tic_tac_toe_v3g1o0_playing'),
-    #          --------------------------
-    #          3
-    # 1. 例えば `http://example.com/tic-tac-toe/v3.1/playing/<部屋名>/` のような URL のパスの部分
-    #                              ----------------------------------
-    #    <部屋名> に入った文字列は `2.` のメソッドの kw_room_name 引数に渡されます
-    # 2. TicTacToeV3g1o0PlayingV （別名）クラスの render メソッド
-    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3g1o0_playing' %} のような形でURLを取得するのに使える
 
     # OA23o1o0g4o0 〇×ゲーム v3.2 対局申込中
     path('tic-tac-toe/v3.2/match-application/', TicTacToeV3g2o0MatchApplicationV.render,
