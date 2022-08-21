@@ -82,7 +82,7 @@ docker-compose up
 ```csv
 file,path,name,comment,module,class,alias,method
 ../src1/project1/urls_autogen.py,,,"集約ファイル",,,,
-../src1/project1/urls_practice_autogen.py,practice/v1/hello2,practice_v1_hello2,"O3o1o0gA10o0 こんにちわページ",apps1.practice_v1.views.page_the_hello.v1o0,PageTheHello,,render
+../src1/project1/urls_practice_autogen.py,practice/v1/hello2,practice_v1_hello2,"o3o2o_1o0g1o0 こんにちわページ",apps1.practice_v1.views.page_the_hello.v1o0,PageTheHello,,render
 ```
 
 ## Step O3o2o_1o0g2o_1o0 Pythonパッケージインストール - pandas
@@ -287,6 +287,7 @@ if __name__ == "__main__":
 # ディレクトリーを移動してほしい
 # cd src1_meta
 
+# See also: O3o2o_1o0g2o0
 python -m scripts.auto_generators.urls
 ```
 
@@ -297,7 +298,7 @@ Current working directory:C:\Users\むずでょ\Documents\GitHub\django-practice
 Write... ../src1/project1/urls_practice_autogen.py
 ```
 
-## Step O3o2o_1o0g4o0 コマンド実行
+## Step O3o2o_1o0g4o0 確認
 
 👇 以下のファイルが自動生成されていることを確認してほしい  
 

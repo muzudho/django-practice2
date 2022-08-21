@@ -10,17 +10,6 @@ from apps1.practice_v1.views.page_the_hello.v1o0 import PageTheHello
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# O3o2o0g5o0 練習ページ １回追加されたページ
-from apps1.practice_v1.views.page_to_be_added.v2o0 import PageToBeAdded as PageToBeAdded1
-#          -----------            ----------------        -------------    --------------
-#          11                     12                      2                3
-#    ---------------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-# 3. `2.` の別名
-
 # O3o3o0g4o0 練習ページ ２回追加されたページ
 from apps1.practice_v1.views.page_to_be_added.v3o0 import PageToBeAdded as PageToBeAdded2
 #                                              ^three
@@ -262,19 +251,6 @@ urlpatterns = [
     #                              --------------------------
     # 2. PageTheHello クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'page_the_hello' %} のような形でURLを取得するのに使える
-
-    # O3o2o0g5o0 練習ページ２ １回追加されたページ
-    path('practice/v1/page-to-be-added-1',
-         # -----------------------------
-         # 1
-         PageToBeAdded1.render, name='page_to_be_added_1'),
-    #    ---------------------        ------------------
-    #    2                            3
-    #
-    # 1. 例えば `http://example.com/practice/v1/page-to-be-added-1` のようなURLのパスの部分
-    #                              ------------------------------
-    # 2. PageToBeAdded1 (別名)クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'page_to_be_added_1' %} のような形でURLを取得するのに使える
 
     # O3o3o0g4o0 練習ページ２ ２回追加されたページ
     path('practice/v1/page-to-be-added-2',
