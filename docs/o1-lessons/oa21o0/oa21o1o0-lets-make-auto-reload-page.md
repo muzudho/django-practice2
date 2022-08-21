@@ -371,66 +371,60 @@ def render_auto_reload(request, auto_reload_tp):
 # EOF OA21o1o0g6o0
 ```
 
-## Step OA21o1o0g7o0 ルート編集 - urls_practice.py ファイル
+## ~~Step OA21o1o0g7o0~~
 
-👇 以下の既存ファイルを編集してほしい  
+Merged to OA21o1o0g7o1o0  
+
+## Step OA21o1o0g7o1o0 ルート編集 - urls.csv ファイル
+
+👇 以下の既存ファイルの末尾に追記してほしい  
 
 ```plaintext
-    └── 📂 src1
-        ├── 📂 apps1
-        │   └── 📂 practice_v1                  # アプリケーション
-        │       ├── 📂 static
-        │       │   └── 📂 practice_v1
-        │       │       ├── 📂 auto_reload
-        │       │       │   └── 📄 v1o0.js
-        │       │       └── 📂 clock
-        │       │           └── 📄 v1o0.js
-        │       ├── 📂 templates
-        │       │   └── 📂 practice_v1
-        │       │       └── 📂 auto_reload
-        │       │           └── 📄 v1o0.html
-        │       └── 📂 views
-        │           └── 📂 auto_reload
-        │               └── 📂 v1o0
-        │                   ├── 📄 __init__.py
-        │                   └── 📄 v_auto_reload.py
-        └── 📂 project1                      # プロジェクト
-👉          └── 📄 urls_practice.py
+    ├── 📂 src1
+    │   └── 📂 apps1
+    │       └── 📂 practice_v1                  # アプリケーション
+    │           ├── 📂 static
+    │           │   └── 📂 practice_v1
+    │           │       ├── 📂 auto_reload
+    │           │       │   └── 📄 v1o0.js
+    │           │       └── 📂 clock
+    │           │           └── 📄 v1o0.js
+    │           ├── 📂 templates
+    │           │   └── 📂 practice_v1
+    │           │       └── 📂 auto_reload
+    │           │           └── 📄 v1o0.html
+    │           └── 📂 views
+    │               └── 📂 auto_reload
+    │                   └── 📂 v1o0
+    │                       ├── 📄 __init__.py
+    │                       └── 📄 v_auto_reload.py
+    └── 📂 src1_meta
+        └── 📂 data
+👉          └── 📄 urls.csv
 ```
 
-```py
-# ...略...
+```csv
+...略... file,path,name,comment,module,class,alias,method
+...略...
 
 
-# OA21o1o0g7o0 自動リロード ビュー
-from apps1.practice_v1.views.auto_reload.v1o0 import AutoReloadV
-#          -----------                   ----        -----------
-#          11                            12          2
-#    ----------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-
-
-urlpatterns = [
-    # ...略...
-
-
-    # OA21o1o0g7o0 自動再読込
-    path('practice/v1/auto_reload/', AutoReloadV.render_auto_reload,
-         # -----------------------   ------------------------------
-         # 1                         2
-         name='practice_v1_auto_reload'),
-    #          -----------------------
-    #          3
-    #
-    # 1. 例えば `http://example.com/practice/v1/auto_reload/` のような URL のパスの部分
-    #                              ------------------------
-    # 2. AutoReloadV クラスの render_auto_reload 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_auto_reload' %} のような形でURLを取得するのに使える
-]
+../src1/project1/urls_practice_autogen.py,practice/v1/auto_reload/,practice_v1_auto_reload,"OA21o1o0g7o1o0 自動リロードページ",apps1.practice_v1.views.auto_reload.v1o0,AutoReloadV,,render_auto_reload
 ```
+
+## Step OA21o1o0g7o2o0 ルート編集 - コマンド打鍵
+
+👇 以下のコマンドを打鍵してほしい  
+
+```shell
+cd ../src1_meta
+python -m scripts.auto_generators.urls
+cd ../src1
+docker-compose restart
+```
+
+* ディレクトリーは、がんばって移動してほしい
+* スクリプトについて See also: O3o2o_1o0g2o0
+* 設定ファイルを変更したら、サーバーの再起動が必要
 
 ## Step OA21o1o0g8o0 Web画面へアクセス
 

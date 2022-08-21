@@ -30,16 +30,6 @@ from apps1.practice_v1.views.button_for_member.v1o0 import ButtonForMember
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# OA21o1o0g7o0 自動リロード ビュー
-from apps1.practice_v1.views.auto_reload.v1o0 import AutoReloadV
-#          -----------                   ----        -----------
-#          11                            12          2
-#    ----------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-
 # OA21o2o0g6o0 自動リダイレクト ビュー
 from apps1.practice_v1.views.auto_redirect.v1o0 import AutoRedirectV
 #          -----------                     ----        -------------
@@ -183,19 +173,6 @@ urlpatterns = [
     # 1. 例えば `http://example.com/practice/v1/buttom_for_member/` のような URL のパスの部分
     #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
-
-    # OA21o1o0g7o0 自動再読込
-    path('practice/v1/auto_reload/', AutoReloadV.render_auto_reload,
-         # -----------------------   ------------------------------
-         # 1                         2
-         name='practice_v1_auto_reload'),
-    #          -----------------------
-    #          3
-    #
-    # 1. 例えば `http://example.com/practice/v1/auto_reload/` のような URL のパスの部分
-    #                              ------------------------
-    # 2. AutoReloadV クラスの render_auto_reload 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_auto_reload' %} のような形でURLを取得するのに使える
 
     # OA21o2o0g6o0 自動リダイレクト
     path('practice/v1/auto_redirect/', AutoRedirectV.render_auto_redirect,

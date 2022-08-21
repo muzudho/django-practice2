@@ -25,6 +25,7 @@ from apps1.practice_v1.views.vuetifies import VuetifyV
 from apps1.practice_v1.views.vuetifies import VuetifyV
 from apps1.practice_v1.views.my.v1o0 import MyV
 from apps1.practice_v1.views.lobby.v1o0 import LobbyV
+from apps1.practice_v1.views.auto_reload.v1o0 import AutoReloadV
 
 
 urlpatterns = [
@@ -96,6 +97,9 @@ urlpatterns = [
 
     # OA20o1o0g7o1o0 ロビー ビュー
     path('practice/v1/lobby/', LobbyV.render_lobby, name='practice_v1_lobby'),
+
+    # OA21o1o0g7o1o0 自動リロードページ
+    path('practice/v1/auto_reload/', AutoReloadV.render_auto_reload, name='practice_v1_auto_reload'),
 ]
 
 # EOF O3o2o_1o0g4o0
