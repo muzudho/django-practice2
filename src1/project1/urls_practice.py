@@ -225,30 +225,6 @@ urlpatterns = [
     #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
 
-    # OA13o2o0g7o0 ビューティファイでテキストエリア１
-    path('practice/v1/vuetify/textarea1',
-         # ----------------------------
-         # 1
-         VuetifyV.render_textarea1, name='practice_v1_vuetify_textarea1'),
-    #    -------------------------        -----------------------------
-    #    2                                3
-    # 1. 例えば `http://example.com/practice/v1/vuetify/textarea1` のような URL のパスの部分
-    #                              -----------------------------
-    # 2. VuetifyV クラスの render_textarea1 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_textarea1' %} のような形でURLを取得するのに使える
-
-    # OA13o2o0g7o0 ビューティファイでデザート１ . テキストエリア１から
-    path('practice/v1/vuetify/desserts1-from-textarea1',
-         # -------------------------------------------
-         # 1
-         VuetifyV.render_desserts1_from_textarea1, name='practice_v1_vuetify_desserts1_from_textarea1'),
-    #    ----------------------------------------        --------------------------------------------
-    #    2                                               3
-    # 1. 例えば `http://example.com/practice/v1/vuetify/desserts1-from-textarea1` のような URL のパスの部分
-    #                              ---------------------------------------------
-    # 2. VuetifyV クラスの render_desserts1_from_textarea1 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_desserts1_from_textarea1' %} のような形でURLを取得するのに使える
-
     # OA13o3o0g5o0 ビューティファイでJSON形式のデザート１
     path('practice/v1/vuetify/desserts1-as-json',
          # ------------------------------------
