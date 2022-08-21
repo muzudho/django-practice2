@@ -314,58 +314,50 @@ def match_application_on_sent(request):
         pass
 ```
 
-## Step OA23o1o0g4o0 ルート編集 - urls_practice.py ファイル
+## ~~Step OA23o1o0g4o0~~
 
-👇 以下の既存ファイルを編集してほしい  
+Merged to OA23o1o0g4o1o0  
+
+## Step OA23o1o0g4o1o0 ルート編集 - urls.csv ファイル
+
+👇 以下の既存ファイルの末尾に追記してほしい  
 
 ```plaintext
-    └── 📂 src1
-        ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v3                   # アプリケーション Three
-        │       └── 📂 views
-        │           └── 📂 match_application
-        │               └── 📂 v2o0
-        │                   ├── 📄 __init__.py
-        │                   └── 📄 v_on_sent.py
-        └── 📂 project1                             # プロジェクト
-👉          └── 📄 urls_practice.py
+    ├── 📂 src1
+    │   └── 📂 apps1
+    │       └── 📂 tic_tac_toe_v3                   # アプリケーション Three
+    │           └── 📂 views
+    │               └── 📂 match_application
+    │                   └── 📂 v2o0
+    │                       ├── 📄 __init__.py
+    │                       └── 📄 v_on_sent.py
+    └── 📂 src1_meta
+        └── 📂 data
+👉          └── 📄 urls.csv
 ```
 
-```py
-# ...略...
+```csv
+...略... file,path,name,comment,module,class,alias,method
+...略...
 
 
-# OA23o1o0g4o0 〇×ゲーム v3.2 対局申込中
-from apps1.tic_tac_toe_v3.views.match_application.v2o0 import MatchApplicationV as TicTacToeV3g2o0MatchApplicationV
-#                       ^three                     ^two
-#          --------------                         ----        -----------------    --------------------------------
-#          11                                     12          2                    3
-#    -------------------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-# 3. `2.` の別名
-
-
-urlpatterns = [
-    # ...略...
-
-
-    # OA23o1o0g4o0 〇×ゲーム v3.2 対局申込中
-    path('tic-tac-toe/v3.2/match-application/', TicTacToeV3g2o0MatchApplicationV.render,
-         # ----------------------------------   ---------------------------------------
-         # 1                                    2
-         name='tic_tac_toe_v3g2o0_match_application'),
-    #          ------------------------------------
-    #          3
-    #
-    # 1. 例えば `http://example.com/tic-tac-toe/v3.2/match-application/` のような URL のパスの部分
-    #                              -------------------------------------
-    # 2. TicTacToeV3g2o0MatchApplicationV （別名）クラスの render メソッド
-    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3g2o0_match_application' %} のような形でURLを取得するのに使える
-]
+../src1/project1/urls_tic_tac_toe_v3_autogen.py,tic-tac-toe/v3.2/match-application/,tic_tac_toe_v3g2o0_match_application,"OA23o1o0g4o1o0 〇×ゲーム v3.2 対局申込中",apps1.tic_tac_toe_v3.views.match_application.v2o0,MatchApplicationV,TicTacToeV3g2o0MatchApplicationV,render
 ```
+
+## Step OA23o1o0g4o2o0 ルート編集 - コマンド打鍵
+
+👇 以下のコマンドを打鍵してほしい  
+
+```shell
+cd ../src1_meta
+python -m scripts.auto_generators.urls
+cd ../src1
+docker-compose restart
+```
+
+* ディレクトリーは、がんばって移動してほしい
+* スクリプトについて See also: O3o2o_1o0g2o0
+* 設定ファイルを変更したら、サーバーの再起動が必要
 
 ## Step OA23o1o0g5o0 Web画面へアクセス
 

@@ -30,18 +30,6 @@ from apps1.practice_v1.views.button_for_member.v1o0 import ButtonForMember
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# OA23o1o0g4o0 〇×ゲーム v3.2 対局申込中
-from apps1.tic_tac_toe_v3.views.match_application.v2o0 import MatchApplicationV as TicTacToeV3g2o0MatchApplicationV
-#                       ^three                     ^two
-#          --------------                         ----        -----------------    --------------------------------
-#          11                                     12          2                    3
-#    -------------------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-# 3. `2.` の別名
-
 # OA24o1o0g8o0 〇×ゲーム v3.3 対局申込中
 from apps1.tic_tac_toe_v3.views.match_application.v3o0 import MatchApplicationV as TicTacToeV3g3o0MatchApplicationV
 #                       ^three                     ^three
@@ -139,19 +127,6 @@ urlpatterns = [
     # 1. 例えば `http://example.com/practice/v1/buttom_for_member/` のような URL のパスの部分
     #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
-
-    # OA23o1o0g4o0 〇×ゲーム v3.2 対局申込中
-    path('tic-tac-toe/v3.2/match-application/', TicTacToeV3g2o0MatchApplicationV.render,
-         # ----------------------------------   ---------------------------------------
-         # 1                                    2
-         name='tic_tac_toe_v3g2o0_match_application'),
-    #          ------------------------------------
-    #          3
-    #
-    # 1. 例えば `http://example.com/tic-tac-toe/v3.2/match-application/` のような URL のパスの部分
-    #                              -------------------------------------
-    # 2. TicTacToeV3g2o0MatchApplicationV （別名）クラスの render メソッド
-    # 3. HTMLテンプレートの中で {% url 'tic_tac_toe_v3g2o0_match_application' %} のような形でURLを取得するのに使える
 
     # OA24o1o0g8o0 〇×ゲーム v3.3 対局申込中
     path('tic-tac-toe/v3.3/match-application/', TicTacToeV3g3o0MatchApplicationV.render,
