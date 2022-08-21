@@ -61,15 +61,6 @@ urlpatterns = [
     # 2. `src1/projectN/urls_practice.py` の urlpatterns を `1.` にぶら下げる
     #          ----------------------
 
-
-    # O5o1o0gA12o0 ポータル
-    path('', include(f'{PROJECT_NAME}.urls_portal')),
-    #    --            --------------------------
-    #    1             2
-    # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `src1/projectN/urls_portal.py` の urlpatterns を `1.` にぶら下げる
-    #          --------------------
-
     # O6o1o0gA13o0 ユーザー認証
     path('', include(f'{PROJECT_NAME}.urls_accounts')),
     #    --            ----------------------------
