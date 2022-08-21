@@ -22,6 +22,11 @@ def main():
 
     print(f"Current working directory:{os.getcwd()}")
 
+    write_url_files(df)
+
+
+def write_url_files(df):
+
     # 書き出すテキスト
     head_text_of_files = {}
     body_text_of_files = {}
