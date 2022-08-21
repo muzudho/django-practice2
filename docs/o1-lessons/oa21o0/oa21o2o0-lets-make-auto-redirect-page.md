@@ -337,64 +337,58 @@ def render_auto_redirect(request, auto_redirect_tp):
 # EOF OA21o2o0g5o0
 ```
 
-## Step OA21o2o0g6o0 ルート編集 - urls_practice.py ファイル
+## ~~Step OA21o2o0g6o0~~
 
-👇 以下の既存ファイルを編集してほしい  
+Merged to OA21o2o0g6o1o0  
+
+## Step OA21o2o0g6o1o0 ルート編集 - urls.csv ファイル
+
+👇 以下の既存ファイルの末尾に追記してほしい  
 
 ```plaintext
-    └── 📂 src1
-        ├── 📂 apps1
-        │   └── 📂 practice_v1                  # アプリケーション
-        │       ├── 📂 static
-        │       │   └── 📂 practice_v1
-        │       │       └── 📂 auto_reload
-        │       │           └── 📄 v2o0.js
-        │       ├── 📂 templates
-        │       │   └── 📂 practice_v1
-        │       │       └── 📂 auto_reload
-        │       │           └── 📄 v1o1o0.html.txt
-        │       └── 📂 views
-        │           └── 📂 auto_redirect
-        │               └── 📂 v1o0
-        │                   ├── 📄 __init__.py
-        │                   └── 📄 v_redirect.py
-        └── 📂 project1                      # プロジェクト
-👉          └── 📄 urls_practice.py
+    ├── 📂 src1
+    │   └── 📂 apps1
+    │       └── 📂 practice_v1                  # アプリケーション
+    │           ├── 📂 static
+    │           │   └── 📂 practice_v1
+    │           │       └── 📂 auto_reload
+    │           │           └── 📄 v2o0.js
+    │           ├── 📂 templates
+    │           │   └── 📂 practice_v1
+    │           │       └── 📂 auto_reload
+    │           │           └── 📄 v1o1o0.html.txt
+    │           └── 📂 views
+    │               └── 📂 auto_redirect
+    │                   └── 📂 v1o0
+    │                       ├── 📄 __init__.py
+    │                       └── 📄 v_redirect.py
+    └── 📂 src1_meta
+        └── 📂 data
+👉          └── 📄 urls.csv
 ```
 
-```py
-# ...略...
+```csv
+...略... file,path,name,comment,module,class,alias,method
+...略...
 
 
-# OA21o2o0g6o0 自動リダイレクト ビュー
-from apps1.practice_v1.views.auto_redirect.v1o0 import AutoRedirectV
-#          -----------                     ----        -------------
-#          11                              12          2
-#    ------------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-
-
-urlpatterns = [
-    # ...略...
-
-
-    # OA21o2o0g6o0 自動リダイレクト
-    path('practice/v1/auto_redirect/', AutoRedirectV.render_auto_redirect,
-         # -------------------------   ----------------------------------
-         # 1                           2
-         name='practice_v1_auto_redirect'),
-    #          -------------------------
-    #          3
-    #
-    # 1. 例えば `http://example.com/practice/v1/auto_redirect/` のような URL のパスの部分
-    #                              --------------------------
-    # 2. AutoRedirectV クラスの render_auto_redirect メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_auto_redirect' %} のような形でURLを取得するのに使える
-]
+../src1/project1/urls_practice_autogen.py,practice/v1/auto_redirect/,practice_v1_auto_redirect,"OA21o2o0g6o1o0 自動リダイレクトページ",apps1.practice_v1.views.auto_redirect.v1o0,AutoRedirectV,,render_auto_redirect
 ```
+
+## Step OA21o1o0g7o2o0 ルート編集 - コマンド打鍵
+
+👇 以下のコマンドを打鍵してほしい  
+
+```shell
+cd ../src1_meta
+python -m scripts.auto_generators.urls
+cd ../src1
+docker-compose restart
+```
+
+* ディレクトリーは、がんばって移動してほしい
+* スクリプトについて See also: O3o2o_1o0g2o0
+* 設定ファイルを変更したら、サーバーの再起動が必要
 
 ## Step OA21o2o0g7o0 Web画面へアクセス
 

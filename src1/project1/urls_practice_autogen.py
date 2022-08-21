@@ -26,6 +26,7 @@ from apps1.practice_v1.views.vuetifies import VuetifyV
 from apps1.practice_v1.views.my.v1o0 import MyV
 from apps1.practice_v1.views.lobby.v1o0 import LobbyV
 from apps1.practice_v1.views.auto_reload.v1o0 import AutoReloadV
+from apps1.practice_v1.views.auto_redirect.v1o0 import AutoRedirectV
 
 
 urlpatterns = [
@@ -100,6 +101,9 @@ urlpatterns = [
 
     # OA21o1o0g7o1o0 自動リロードページ
     path('practice/v1/auto_reload/', AutoReloadV.render_auto_reload, name='practice_v1_auto_reload'),
+
+    # OA21o2o0g6o1o0 自動リダイレクトページ
+    path('practice/v1/auto_redirect/', AutoRedirectV.render_auto_redirect, name='practice_v1_auto_redirect'),
 ]
 
 # EOF O3o2o_1o0g4o0

@@ -30,16 +30,6 @@ from apps1.practice_v1.views.button_for_member.v1o0 import ButtonForMember
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# OA21o2o0g6o0 自動リダイレクト ビュー
-from apps1.practice_v1.views.auto_redirect.v1o0 import AutoRedirectV
-#          -----------                     ----        -------------
-#          11                              12          2
-#    ------------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-
 # OA22o1o0gA10o0 〇×ゲーム v3.1 対局申込中
 from apps1.tic_tac_toe_v3.views.match_application.v1o0 import MatchApplicationV as TicTacToeV3g1o0MatchApplicationV
 #                       ^three                     ^one
@@ -173,19 +163,6 @@ urlpatterns = [
     # 1. 例えば `http://example.com/practice/v1/buttom_for_member/` のような URL のパスの部分
     #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
-
-    # OA21o2o0g6o0 自動リダイレクト
-    path('practice/v1/auto_redirect/', AutoRedirectV.render_auto_redirect,
-         # -------------------------   ----------------------------------
-         # 1                           2
-         name='practice_v1_auto_redirect'),
-    #          -------------------------
-    #          3
-    #
-    # 1. 例えば `http://example.com/practice/v1/auto_redirect/` のような URL のパスの部分
-    #                              --------------------------
-    # 2. AutoRedirectV クラスの render_auto_redirect メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_auto_redirect' %} のような形でURLを取得するのに使える
 
     # OA22o1o0gA10o0 〇×ゲーム v3.1 対局申込中
     path('tic-tac-toe/v3.1/match-application/', TicTacToeV3g1o0MatchApplicationV.render,
