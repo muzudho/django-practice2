@@ -271,6 +271,10 @@ urlpatterns = [
 
             file_stems_to_export.add(file_stem)
 
+        # 辞書順ソート
+        file_stems_to_export = list(file_stems_to_export)
+        file_stems_to_export.sort()
+
         # 各ファイル
         for file_stem_to_export in file_stems_to_export:
             text += f"""    path('', include(f'{{PROJECT_NAME}}.{file_stem_to_export}')),
