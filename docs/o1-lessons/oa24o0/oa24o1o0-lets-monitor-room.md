@@ -357,7 +357,7 @@ websocket_urlpatterns = [
 ]
 ```
 
-## Step OA24o1o0g5o0 Webソケット用総合ルート設定 - asgi.py ファイル
+## Step OA24o1o0g5o0 Webソケット用総合ルート編集 - asgi.py ファイル
 
 👇 以下の既存のファイルを編集してほしい  
 

@@ -2,3 +2,4 @@ file,path,name,comment,module,class,alias,method
 ../src1/project1/urls_autogen.py,,,"集約ファイル",,,,
 ../src1/project1/urls_practice_autogen.py,practice/v1/hello2,practice_v1_hello2,"o3o2o_1o0g1o0 こんにちわページ",apps1.practice_v1.views.page_the_hello.v1o0,PageTheHello,,render
 ../src1/project1/urls_practice_autogen.py,practice/v1/page-to-be-added-1,page_to_be_added_1,"O3o2o0g5o1o0 練習ページ １回追加されたページ",apps1.practice_v1.views.page_to_be_added.v2o0,PageToBeAdded,PageToBeAdded1,render
+../src1/project1/urls_practice_autogen.py,practice/v1/page-to-be-added-2,page_to_be_added_2,"O3o3o0g4o1o0 練習ページ ２回追加されたページ",apps1.practice_v1.views.page_to_be_added.v3o0,PageToBeAdded,PageToBeAdded2,render

@@ -48,6 +48,8 @@
     │   │   ├── 📄 asgi.py
     │   │   ├── 📄 settings_secrets.py
     │   │   ├── 📄 settings.py
+    │   │   ├── 📄 urls_autogen.py
+    │   │   ├── 📄 urls_practice_autogen.py
     │   │   ├── 📄 urls_practice.py
     │   │   ├── 📄 urls.py
     │   │   └── 📄 wsgi.py
@@ -161,69 +163,55 @@ class PageToBeAdded():
 # EOF O3o3o0g3o0
 ```
 
-## Step O3o3o0g4o0 サブ ルート編集 - urls_practice.py
+## ~~Step O3o3o0g4o0~~
+
+Merged to O3o3o0g4o1o0  
+
+## Step O3o3o0g4o1o0 ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 src1
-        ├── 📂 apps1
-        │   └── 📂 practice_v1              # アプリケーション名
-        │       ├── 📂 templates
-        │       │   └── 📂 practice_v1
-        │       │       └── 📂 page_to_be_added
-        │       │           └── 📄 v3o0.html.txt
-        │       └── 📂 views
-        │           └── 📂 page_to_be_added
-        │               └── 📂 v3o0
-        │                   └── 📄 __init__.py
-        └── 📂 project1
-👉          ├── 📄 urls_practice.py          # こちら
-❌          └── 📄 urls.py                   # これではない
+    ├── 📂 src1
+    │   └── 📂 apps1
+    │       └── 📂 practice_v1              # アプリケーション名
+    │           ├── 📂 templates
+    │           │   └── 📂 practice_v1
+    │           │       └── 📂 page_to_be_added
+    │           │           └── 📄 v3o0.html.txt
+    │           └── 📂 views
+    │               └── 📂 page_to_be_added
+    │                   └── 📂 v3o0
+    │                       └── 📄 __init__.py
+    └── 📂 src1_meta
+        └── 📂 data
+👉          └── 📄 urls.csv
 ```
 
-```py
-from django.urls import path
+```csv
+...略... file,path,name,comment,module,class,alias,method
+...略...
 
 
-# ...中略...
+../src1/project1/urls_practice_autogen.py,practice/v1/page-to-be-added-2,page_to_be_added_2,"O3o3o0g4o1o0 練習ページ ２回追加されたページ",apps1.practice_v1.views.page_to_be_added.v3o0,PageToBeAdded,PageToBeAdded2,render
+```
 
+## Step O3o2o0g5o2o0 ルート編集 - コマンド打鍵
 
-# O3o3o0g4o0 練習ページ ２回追加されたページ
-from apps1.practice_v1.views.page_to_be_added.v3o0 import PageToBeAdded as PageToBeAdded2
-#                                              ^three
-#          -----------            ----------------        -------------    --------------
-#          11                     12                      2                3
-#    ---------------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-# 3. `2.` の別名
+👇 以下のコマンドを打鍵してほしい  
 
+```shell
+# がんばって、ディレクトリーを移動してほしい
+# cd src1_meta
 
-# ...中略...
+# See also: O3o2o_1o0g2o0
+python -m scripts.auto_generators.urls
 
+# がんばって、ディレクトリーを移動してほしい
+# cd src1
 
-urlpatterns = [
-
-
-    # ...中略...
-
-
-    # O3o3o0g4o0 練習ページ２ ２回追加されたページ
-    path('practice/v1/page-to-be-added-2',
-         # -----------------------------
-         # 1
-         PageToBeAdded2.render, name='page_to_be_added_2'),
-    #    ---------------------        ------------------
-    #    2                            3
-    #
-    # 1. 例えば `http://example.com/practice/v1/page-to-be-added-2` のようなURLのパスの部分
-    #                              ------------------------------
-    # 2. PageToBeAdded2 (別名)クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'page_to_be_added_2' %} のような形でURLを取得するのに使える
-]
+# 設定ファイルを変更したから、サーバーを再起動してほしい
+docker-compose restart
 ```
 
 ## Step O3o3o0g5o0 Webページにアクセスする

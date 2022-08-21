@@ -42,6 +42,8 @@
     │   │   ├── 📄 asgi.py
     │   │   ├── 📄 settings_secrets.py
     │   │   ├── 📄 settings.py
+    │   │   ├── 📄 urls_autogen.py
+    │   │   ├── 📄 urls_practice_autogen.py
     │   │   ├── 📄 urls_practice.py
     │   │   ├── 📄 urls.py
     │   │   └── 📄 wsgi.py
@@ -222,7 +224,7 @@ class PageToBeAdded():
 
 Merged to O3o2o0g5o1o0
 
-## Step O3o2o0g5o1o0 ルート設定 - urls.csv ファイル
+## Step O3o2o0g5o1o0 ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -254,19 +256,23 @@ Merged to O3o2o0g5o1o0
 ../src1/project1/urls_practice_autogen.py,practice/v1/page-to-be-added-1,page_to_be_added_1,"O3o2o0g5o1o0 練習ページ １回追加されたページ",apps1.practice_v1.views.page_to_be_added.v2o0,PageToBeAdded,PageToBeAdded1,render
 ```
 
-## Step O3o2o0g5o2o0 ルート設定 - コマンド打鍵
+## Step O3o2o0g5o2o0 ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
 ```shell
-# ディレクトリーを移動してほしい
+# がんばって、ディレクトリーを移動してほしい
 # cd src1_meta
 
 # See also: O3o2o_1o0g2o0
 python -m scripts.auto_generators.urls
-```
 
-TODO ★ Dockerコンテナの再起動がいるかもしれません  
+# がんばって、ディレクトリーを移動してほしい
+# cd src1
+
+# 設定ファイルを変更したから、サーバーを再起動してほしい
+docker-compose restart
+```
 
 ## Step O3o2o0g6o0 Webページにアクセスする
 
