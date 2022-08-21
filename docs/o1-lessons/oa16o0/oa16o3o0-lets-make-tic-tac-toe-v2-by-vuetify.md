@@ -1269,7 +1269,7 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
         response
         """
 
-        return await self._messageDriven.on_receive(self.scope, doc_received)
+        return await self._messageDriven.execute(self.scope, doc_received)
 
     async def on_end(self, scope, doc_received):
         """対局終了時"""
@@ -1655,104 +1655,79 @@ def render_playing(request, kw_room_name, wsp_playing, playing_tp, on_update, ex
 # EOF OA16o3o0gA14o0
 ```
 
-## Step OA16o3o0gA15o0 ルート編集 - urls_tic_tac_toe_v2.py ファイル
+## ~~Step OA16o3o0gA15o0~~
 
-👇 以下の既存ファイルを編集してほしい  
+Merged to OA16o3o0gA15o1o0  
+
+## Step OA16o3o0gA15o1o0 ルート編集 - urls.csv ファイル
+
+👇 以下の既存ファイルの末尾に追記してほしい  
 
 ```plaintext
-    └── 📂 src1
-        ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v2    # アプリケーション
-        │       ├── 📂 static
-        │       │   └── 📂 tic_tac_toe_v2
-        │       │       ├── 📂 gui
-        │       │       │   └── 📂 connection
-        │       │       │       └── 📄 v1o0.js
-        │       │       └── 📂 msg
-        │       │           └── 📂 s2c_message_driven
-        │       │               └── 📄 v1o0.js
-        │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
-        │       │       └── 📂 gui
-        │       │           ├── 📂 match_application
-        │       │           │   └── 📄 v1o0.html
-        │       │           └── 📂 playing
-        │       │               ├── 📄 v1o0.html
-        │       │               └── 📄 v1o1o0.html.txt
-        │       ├── 📂 views
-        │       │   └── 📂 gui
-        │       │       ├── 📂 match_application
-        │       │       │   └── 📂 v1o0
-        │       │       │       ├── 📄 __init__.py
-        │       │       │       └── 📄 v_render.py
-        │       │       └── 📂 playing
-        │       │           └── 📂 v1o0
-        │       │               ├── 📄 __init__.py
-        │       │               └── 📄 v_render.py
-        │       └── 📂 websocks
-        │           └── 📂 gui
-        │               ├── 📂 consumer
-        │               │   ├── 📄 v1o0.py
-        │               │   └── 📄 v1o1o0.py
-        │               └── 📂 message_driven
-        │                   └── 📄 v1o0.py
-        └── 📂 project1                      # プロジェクト
-👉          └── 📄 urls_tic_tac_toe_v2.py
+    ├── 📂 src1
+    │   └── 📂 apps1
+    │       └── 📂 tic_tac_toe_v2    # アプリケーション
+    │           ├── 📂 static
+    │           │   └── 📂 tic_tac_toe_v2
+    │           │       ├── 📂 gui
+    │           │       │   └── 📂 connection
+    │           │       │       └── 📄 v1o0.js
+    │           │       └── 📂 msg
+    │           │           └── 📂 s2c_message_driven
+    │           │               └── 📄 v1o0.js
+    │           ├── 📂 templates
+    │           │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
+    │           │       └── 📂 gui
+    │           │           ├── 📂 match_application
+    │           │           │   └── 📄 v1o0.html
+    │           │           └── 📂 playing
+    │           │               ├── 📄 v1o0.html
+    │           │               └── 📄 v1o1o0.html.txt
+    │           ├── 📂 views
+    │           │   └── 📂 gui
+    │           │       ├── 📂 match_application
+    │           │       │   └── 📂 v1o0
+    │           │       │       ├── 📄 __init__.py
+    │           │       │       └── 📄 v_render.py
+    │           │       └── 📂 playing
+    │           │           └── 📂 v1o0
+    │           │               ├── 📄 __init__.py
+    │           │               └── 📄 v_render.py
+    │           └── 📂 websocks
+    │               └── 📂 gui
+    │                   ├── 📂 consumer
+    │                   │   ├── 📄 v1o0.py
+    │                   │   └── 📄 v1o1o0.py
+    │                   └── 📂 message_driven
+    │                       └── 📄 v1o0.py
+    └── 📂 src1_meta
+        └── 📂 data
+👉          └── 📄 urls.csv
 ```
 
-```py
-# ...略...
+```csv
+...略... file,path,name,comment,module,class,alias,method
+...略...
 
 
-# OA16o3o0gA15o0 〇×ゲーム v2 対局申込ページ
-from apps1.tic_tac_toe_v2.views.gui.match_application.v1o0 import MatchApplicationV
-#          --------------                             ----        -----------------
-#          11                                         12          2
-#    -----------------------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-
-# OA16o3o0gA15o0 〇×ゲーム v2 対局中ページ
-from apps1.tic_tac_toe_v2.views.gui.playing.v1o0 import PlayingV
-#          --------------                   ----        --------
-#          11                               12          2
-#    -------------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-
-
-urlpatterns = [
-    # ...略...
-
-
-    # OA16o3o0gA15o0 対局申込
-    path('tic-tac-toe/v2/match-application/',
-         # --------------------------------
-         # 1
-         MatchApplicationV.render),
-    #    ------------------------
-    #    2
-    # 1. 例えば `http://example.com/tic-tac-toe/v2/match-application/` のような URL のパスの部分
-    #                              ---------------------------------
-    # 2. MatchApplicationV クラスの render 静的メソッド
-
-    # OA16o3o0gA15o0 対局中
-    path('tic-tac-toe/v2/playing/<str:kw_room_name>/',
-         # -----------------------------------------
-         # 1
-         PlayingV.render),
-    #    ---------------
-    #    2
-    # 1. 例えば `http://example.com/tic-tac-toe/v2/playing/<部屋名>/` のような URL のパスの部分。
-    #                              --------------------------------
-    #    <部屋名> に入った文字列は kw_room_name 変数に渡されます
-    # 2. PlayingV クラスの render 静的メソッド
-]
+../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/v2/match-application/,,"OA16o3o0gA15o1o0 〇×ゲーム v2 対局申込ページ",apps1.tic_tac_toe_v2.views.gui.match_application.v1o0,MatchApplicationV,,render
+../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/v2/playing/<str:kw_room_name>/,,"OA16o3o0gA15o1o0 〇×ゲーム v2 対局中ページ",apps1.tic_tac_toe_v2.views.gui.playing.v1o0,PlayingV,,render
 ```
+
+## Step OA16o3o_2o0g5o2o0 ルート編集 - コマンド打鍵
+
+👇 以下のコマンドを打鍵してほしい  
+
+```shell
+cd ../src1_meta
+python -m scripts.auto_generators.urls
+cd ../src1
+docker-compose restart
+```
+
+* ディレクトリーは、がんばって移動してほしい
+* スクリプトについて See also: O3o2o_1o0g2o0
+* 設定ファイルを変更したら、サーバーの再起動が必要
 
 ## Step OA16o3o0gA16o0 Webソケット用ルート新規作成 - ws_urls_tic_tac_toe_v2.py ファイル
 

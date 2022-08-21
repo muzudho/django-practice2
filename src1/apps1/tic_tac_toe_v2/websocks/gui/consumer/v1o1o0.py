@@ -51,7 +51,7 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
         response
         """
 
-        return await self._messageDriven.on_receive(self.scope, doc_received)
+        return await self._messageDriven.execute(self.scope, doc_received)
 
     async def on_end(self, scope, doc_received):
         """対局終了時"""

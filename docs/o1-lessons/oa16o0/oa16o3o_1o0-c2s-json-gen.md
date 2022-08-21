@@ -507,7 +507,7 @@ Merged to OA16o3o_1o0g4o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/v2/c2s-json-gen/,practice_v1_vuetify_textarea1_to_model,"OA16o3o_1o0g4o1o0 〇×ゲーム v2 C2S JSON ジェネレーター",apps1.tic_tac_toe_v2.views.msg.c2s_json_gen.v1o0,C2sJsonGenView,C2sJsonGenViewV1o0,render
+../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/v2/c2s-json-gen/,,"OA16o3o_1o0g4o1o0 〇×ゲーム v2 C2S JSON ジェネレーター",apps1.tic_tac_toe_v2.views.msg.c2s_json_gen.v1o0,C2sJsonGenView,C2sJsonGenViewV1o0,render
 ```
 
 ## Step OA16o3o_1o0g4o2o0 ルート編集 - コマンド打鍵
