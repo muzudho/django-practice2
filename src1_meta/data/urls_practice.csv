@@ -1,0 +1,2 @@
+file,path,name,comment,module,class,alias,method
+../src1/project1/urls_practice_autogen.py,practice/v1/page-the-hello,page_the_hello,"O3o1o0gA10o0 こんにちわページ",apps1.practice_v1.views.page_the_hello.v1o0,PageTheHello,,render
