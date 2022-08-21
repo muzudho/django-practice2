@@ -1,0 +1,15 @@
+from django.urls import include, path
+
+# O3o1o0gA11o0 総合ルート編集
+from .settings import PROJECT_NAME
+#    ]--------        ------------
+#    12               3
+# 1. 同じディレクトリー
+# 2. `src1/projectN/settings.py`
+#                   --------
+# 3. 変数
+
+
+urlpatterns = [
+    path('', include(f'{PROJECT_NAME}.urls_practice_autogen')),
+]
