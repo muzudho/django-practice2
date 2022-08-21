@@ -225,18 +225,6 @@ urlpatterns = [
     #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
 
-    # OA13o3o0g5o0 ビューティファイでJSON形式のデザート１
-    path('practice/v1/vuetify/desserts1-as-json',
-         # ------------------------------------
-         # 1
-         VuetifyV.render_desserts1_as_json, name='practice_v1_vuetify_desserts1_as_json'),
-    #    ---------------------------------        -------------------------------------
-    #    2                                        3
-    # 1. 例えば `http://example.com/practice/v1/vuetify/desserts1-as-json` のような URL のパスの部分
-    #                              -------------------------------------
-    # 2. VuetifyV クラスの render_desserts1_as_json 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_desserts1_as_json' %} のような形でURLを取得するのに使える
-
     # OA13o4o0gA13o0 ビューティファイでテキストエリア入力から保存まで . 入力
     path('practice/v1/vuetify/textarea1-to-model',
          # -------------------------------------

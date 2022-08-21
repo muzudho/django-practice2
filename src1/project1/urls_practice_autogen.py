@@ -20,6 +20,7 @@ from apps1.practice_v1.views.vuetifies import VuetifyV
 from apps1.practice_v1.views.vuetifies import VuetifyV
 from apps1.practice_v1.views.vuetifies import VuetifyV
 from apps1.practice_v1.views.vuetifies import VuetifyV
+from apps1.practice_v1.views.vuetifies import VuetifyV
 
 
 urlpatterns = [
@@ -76,6 +77,9 @@ urlpatterns = [
 
     # OA13o2o0g7o1o0 ビューティファイでデザート１ . テキストエリア１から
     path('practice/v1/vuetify/desserts1-from-textarea1', VuetifyV.render_desserts1_from_textarea1, name='practice_v1_vuetify_desserts1_from_textarea1'),
+
+    # OA13o3o0g5o1o0 ビューティファイでJSON形式のデザート１
+    path('practice/v1/vuetify/desserts1-as-json', VuetifyV.render_desserts1_as_json, name='practice_v1_vuetify_desserts1_as_json'),
 ]
 
 # EOF O3o2o_1o0g4o0
