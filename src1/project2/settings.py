@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # プロジェクト名を親ディレクトリー名から取得
 PROJECT_NAME = os.path.basename(Path(__file__).resolve().parent)
-print(f"PROJECT_NAME:{PROJECT_NAME}")
+# print(f"[projectN settings.py] PROJECT_NAME:{PROJECT_NAME}")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
