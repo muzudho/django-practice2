@@ -109,6 +109,8 @@ Lesson OA16o0 Tic tac toe
 
 * 📖 [OA16o1o0 Webブラウザ越しに２人対戦できる〇×ゲームを作ろう！](https://qiita.com/muzudho1/items/3bd5e55fbea2c0598e8b)
 * 📖 [OA16o2o0 Tic-Tac-Toeの思考エンジンを作ろう！](https://qiita.com/muzudho1/items/69021deb9ec541406cfb)
+* 📖 [DjangoとDocker練習OA16o3o_1o0 Tic-Tac-Toeのクライアントからサーバーへ送る通信メッセージを取り決めしよう！](https://qiita.com/muzudho1/items/931982d06927dd17e353)
+* 📖 [DjangoとDocker練習OA16o3o_2o0 Tic-Tac-Toeのサーバーからクライアントへ送る通信メッセージを取り決めしよう！](https://qiita.com/muzudho1/items/b8522ca256e329977288)
 * 📖 [OA16o3o0 Webブラウザ越しに２人対戦できる〇×ゲームを作ろう！ Vuetify編](https://qiita.com/muzudho1/items/f302bdb40fb5c13f9603)
 
 Lesson OA17o0 Open server  

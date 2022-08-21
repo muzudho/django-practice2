@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/v2/c2s-json-gen/)  
+
 # 目標
 
 〇×ゲーム（Tic tac toe）の通信対戦をしたい  
@@ -523,6 +527,10 @@ urlpatterns = [
 ## Step. Web画面へアクセス
 
 📖 [http://localhost:8000/tic-tac-toe/v2/c2s-json-gen/](http://localhost:8000/tic-tac-toe/v2/c2s-json-gen/)  
+
+# 次の記事
+
+📖 [DjangoとDocker練習OA16o3o_2o0 Tic-Tac-Toeのサーバーからクライアントへ送る通信メッセージを取り決めしよう！](https://qiita.com/muzudho1/items/b8522ca256e329977288)  
 
 # 参考にした記事
 

@@ -1,3 +1,7 @@
+# サンプルを見る
+
+📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/v2/s2c-json-gen/)  
+
 # 目標
 
 〇×ゲーム（Tic tac toe）の通信対戦をしたい  
@@ -586,6 +590,10 @@ urlpatterns = [
 ## Step. Web画面へアクセス
 
 📖 [http://localhost:8000/tic-tac-toe/v2/s2c-json-gen/](http://localhost:8000/tic-tac-toe/v2/s2c-json-gen/)  
+
+# 次の記事
+
+📖 [OA16o3o0 Webブラウザ越しに２人対戦できる〇×ゲームを作ろう！ Vuetify編](https://qiita.com/muzudho1/items/f302bdb40fb5c13f9603)  
 
 # 参考にした記事
 

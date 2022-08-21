@@ -1980,7 +1980,7 @@ websocket_urlpatterns_merged.extend(
 
 # 次の記事
 
-* 📖 [Django さくらVPS 備忘録](https://qiita.com/muzudho1/items/1d3b4b5608716463184c)
+📖 [Django さくらVPS 備忘録](https://qiita.com/muzudho1/items/1d3b4b5608716463184c)  
 
 # 参考にした記事
 
