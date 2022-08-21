@@ -236,18 +236,15 @@ Merged to OA10o2o0g6o1o0
 👇 以下のコマンドを打鍵してほしい  
 
 ```shell
-# がんばって、ディレクトリーを移動してほしい
-# cd ../src1_meta
-
-# See also: O3o2o_1o0g2o0
+cd ../src1_meta
 python -m scripts.auto_generators.urls
-
-# がんばって、ディレクトリーを移動してほしい
-# cd ../src1
-
-# 設定ファイルを変更したから、サーバーを再起動してほしい
+cd ../src1
 docker-compose restart
 ```
+
+* ディレクトリーは、がんばって移動してほしい
+* スクリプトについて See also: O3o2o_1o0g2o0
+* 設定ファイルを変更したら、サーバーの再起動が必要
 
 ## Step OA10o2o0g7o0 Web画面へアクセス
 

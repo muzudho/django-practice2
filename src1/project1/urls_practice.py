@@ -235,18 +235,6 @@ urlpatterns = [
     #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
 
-    # OA11o1o0g5o0 都道府県の一覧
-    path('practice/v1/prefectures/',
-         # -----------------------
-         # 1
-         PrefectureV.render_list, name='practice_v1_prefectures'),
-    #    -----------------------        -----------------------
-    #    2                              3
-    # 1. 例えば `http://example.com/practice/v1/prefectures/` のような URL のパスの部分
-    #                              ------------------------
-    # 2. PrefectureV クラスの render_list 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_prefectures' %} のような形でURLを取得するのに使える
-
     # OA11o2o0g5o0 都道府県の詳細
     path('practice/v1/prefectures/read/<int:id>/',
          # -------------------------------------
