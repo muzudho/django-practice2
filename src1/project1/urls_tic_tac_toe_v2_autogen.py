@@ -9,6 +9,7 @@ from apps1.tic_tac_toe_v2.views.gui.match_application.v1o0 import MatchApplicati
 from apps1.tic_tac_toe_v2.views.gui.playing.v1o0 import PlayingV
 from apps1.practice_v1.views.room.v1o0 import RoomV as RoomVV1o0
 from apps1.practice_v1.views.room.v1o0 import RoomV as RoomVV1o0
+from apps1.practice_v1.views.room.v1o0 import RoomV as RoomVV1o0
 
 
 urlpatterns = [
@@ -32,6 +33,9 @@ urlpatterns = [
 
     # OA18o3o0g5o1o0 対局部屋の詳細
     path('practice/v1/rooms/read/<int:id>/', RoomVV1o0.render_read, name='practice_v1_rooms_read'),
+
+    # OA18o4o0g5o1o0 対局部屋の削除
+    path('practice/v1/rooms/delete/<int:id>/', RoomVV1o0.render_delete, name='practice_v1_rooms_delete'),
 ]
 
 # EOF O3o2o_1o0g4o0
