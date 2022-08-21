@@ -16,6 +16,7 @@ from apps1.practice_v1.views.prefecture.v1o0 import PrefectureV
 from apps1.practice_v1.views.prefecture.v1o0 import PrefectureV
 from apps1.practice_v1.views.vuetifies import VuetifyV
 from apps1.practice_v1.views.vuetifies import VuetifyV
+from apps1.practice_v1.views.vuetifies import VuetifyV
 
 
 urlpatterns = [
@@ -60,6 +61,9 @@ urlpatterns = [
 
     # OA12o2o0g5o1o0 ビューティファイでデータテーブル１
     path('practice/v1/vuetify/data-table1', VuetifyV.render_data_table1, name='practice_v1_vuetify_data_table1'),
+
+    # OA12o3o0g5o1o0 ビューティファイでバリデーション１
+    path('practice/v1/vuetify/validation1', VuetifyV.render_validation1, name='practice_v1_vuetify_validation1'),
 ]
 
 # EOF O3o2o_1o0g4o0

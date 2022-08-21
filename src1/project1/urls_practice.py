@@ -225,18 +225,6 @@ urlpatterns = [
     #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
 
-    # OA12o3o0g5o0 ビューティファイでバリデーション１
-    path('practice/v1/vuetify/validation1',
-         # ------------------------------
-         # 1
-         VuetifyV.render_validation1, name='practice_v1_vuetify_validation1'),
-    #    ---------------------------        -------------------------------
-    #    2                                  3
-    # 1. 例えば `http://example.com/practice/v1/vuetify/validation1` のような URL のパスの部分
-    #                              -------------------------------
-    # 2. VuetifyV クラスの render_validation1 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_validation1' %} のような形でURLを取得するのに使える
-
     # OA13o1o0g6o0 ビューティファイでデザート１
     path('practice/v1/vuetify/desserts1',
          # ----------------------------

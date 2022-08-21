@@ -15,3 +15,4 @@ file,path,name,comment,module,class,alias,method
 ../src1/project1/urls_practice_autogen.py,practice/v1/prefectures/update/<int:id>/,practice_v1_refectures_update,"OA11o4o0g6o1o0 都道府県の更新",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_upsert
 ../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/hello1,practice_v1_vuetify_hello1,"OA12o1o0g5o1o0 ビューティファイでハロー",apps1.practice_v1.views.vuetifies,VuetifyV,,render_hello1
 ../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/data-table1,practice_v1_vuetify_data_table1,"OA12o2o0g5o1o0 ビューティファイでデータテーブル１",apps1.practice_v1.views.vuetifies,VuetifyV,,render_data_table1
+../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/validation1,practice_v1_vuetify_validation1,"OA12o3o0g5o1o0 ビューティファイでバリデーション１",apps1.practice_v1.views.vuetifies,VuetifyV,,render_validation1
