@@ -1,2 +1,4 @@
 file,path,name,comment,module,class,alias,method
 ../src1/project1/urls_practice_autogen.py,practice/v1/page-the-hello,page_the_hello,"O3o1o0gA10o0 こんにちわページ",apps1.practice_v1.views.page_the_hello.v1o0,PageTheHello,,render
+../src1/project1/urls_practice_autogen.py,practice/v1/page-the-hello2,page_the_hello2,"O3o1o0gA10o0 こんにちわページ2",apps1.practice_v1.views.page_the_hello.v2o0,PageTheHello,PageTheHello2,render2
+../src1/project1/urls_practice_autogen.py,practice/v1/page-the-hello3,page_the_hello3,"O3o1o0gA10o0 こんにちわページ3",apps1.practice_v1.views.page_the_hello.v3o0,PageTheHello,PageTheHello3,render3

@@ -22,6 +22,10 @@ def main():
 
     print(f"Current working directory:{os.getcwd()}")
 
+    # 書き出すテキスト
+    head_text_of_files = {}
+    body_text_of_files = {}
+
     # 各行
     df = df.reset_index()  # make sure indexes pair with number of rows
     for index, row in df.iterrows():
@@ -33,10 +37,50 @@ def main():
             print(f"書き出すファイル名の末尾は `_autogen.py` にしてください。 basename:{basename}")
             continue
 
+        if not file_to_export in head_text_of_files:
+            # 新規ファイル
+            head_text_of_files[file_to_export] = ""
+            body_text_of_files[file_to_export] = ""
+
+        # 追記
+        module = row["module"]
+        class_name = row["class"]
+        alias = row['alias']
+        print(f"alias:[{alias}]")
+        if pd.isnull(alias):
+            alias_phrase = ""
+            virtual_class_name = class_name
+        else:
+            alias_phrase = f" as {alias}"
+            virtual_class_name = alias
+
+        head_text_of_files[file_to_export] += f"# from {module} import {class_name}{alias_phrase}\n"
+
+        comment = row["module"]
+        path = row["path"]
+        method = row["method"]
+        name = row["name"]
+        if pd.isnull(name):
+            name_phrase = ""
+        else:
+            name_phrase = f", name='{name}'"
+
+        body_text_of_files[file_to_export] += f"""
+    # {comment}
+    # path('{path}', {virtual_class_name}.{method}{name_phrase}),
+"""
+
+    # 各ファイル書出し
+    for file_to_export in head_text_of_files.keys():
         # ファイル書出し
         with open(file_to_export, 'w') as f:
             print(f"Write... {file_to_export}")
-            f.write('W.I.P\n')
+            f.write(f'''from django.urls import path
+
+{head_text_of_files[file_to_export]}
+
+urlpatterns = [{body_text_of_files[file_to_export]}]
+''')
 
 
 if __name__ == "__main__":
