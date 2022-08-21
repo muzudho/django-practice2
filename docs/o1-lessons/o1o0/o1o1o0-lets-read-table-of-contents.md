@@ -35,6 +35,7 @@ Lesson O2o0 Install
 Lesson O3o0 Web page  
 
 * 📖 [O3o1o0 Webページを追加しよう！](https://qiita.com/muzudho1/items/06fe071c1147b4b8f062)
+* 📖 [o3o2o_1o0 URL設定を自動化しよう！](https://qiita.com/muzudho1/items/eed6f70c0c1502942738)
 * 📖 [O3o2o0 HTMLのボイラープレートを減らすテンプレートを使おう！](https://qiita.com/muzudho1/items/7dcfc068e0bec009d371)
 * 📖 [O3o3o0 HTMLのボイラープレートを減らすテンプレートを作るのも減らそう！](https://qiita.com/muzudho1/items/606d314c01543666c51b)
 

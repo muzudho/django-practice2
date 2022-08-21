@@ -4,7 +4,7 @@
 
 # 目標
 
-Webサイトのページを追加したい。  
+Webサイトのページを追加したい  
 
 ## 詳細
 
@@ -61,7 +61,7 @@ http://example.com/practice/v1/page-the-hello
 
 ## Step O3o1o0g1o0 Dockerコンテナの起動
 
-（していなければ） Docker コンテナを起動しておいてほしい  
+👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
 ```shell
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
@@ -213,7 +213,7 @@ INSTALLED_APPS = [
 
 ## Step O3o1o0g7o0 画面作成 - page_the_hello/v1o0.html ファイル
 
-👇 以下のファイルを作成してほしい  
+👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 src1
@@ -249,7 +249,7 @@ INSTALLED_APPS = [
 
 ## Step O3o1o0g8o0 設定変更 - settings.py ファイル
 
-👇 以下のファイルを編集してほしい  
+👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
     └── 📂 src1
@@ -428,7 +428,7 @@ urlpatterns = [
 
 ## Step O3o1o0gA11o0 総合ルート編集 - urls.py
 
-👇 以下のファイルを編集してほしい  
+👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
     └── 📂 src1
@@ -495,7 +495,7 @@ urlpatterns = [
 
 # 次の記事
 
-📖 [DjangoのHTMLのボイラープレートを減らすテンプレートを使おう！](https://qiita.com/muzudho1/items/7dcfc068e0bec009d371)  
+📖 [o3o2o_1o0 URL設定を自動化しよう！](https://qiita.com/muzudho1/items/eed6f70c0c1502942738)  
 
 # 参考にした記事
 

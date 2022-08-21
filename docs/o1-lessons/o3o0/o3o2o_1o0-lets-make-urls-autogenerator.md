@@ -85,6 +85,14 @@ file,path,name,comment,module,class,alias,method
 ../src1/project1/urls_practice_autogen.py,practice/v1/hello2,practice_v1_hello2,"O3o1o0gA10o0 こんにちわページ",apps1.practice_v1.views.page_the_hello.v1o0,PageTheHello,,render
 ```
 
+## Step O3o2o_1o0g2o_1o0 Pythonパッケージインストール - pandas
+
+👇 以下のコマンドを打鍵してほしい  
+
+```shell
+pip install pandas
+```
+
 ## Step O3o2o_1o0g2o0 スクリプト作成 - src1_meta/scripts/auto_generators/urls.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
@@ -272,6 +280,8 @@ if __name__ == "__main__":
 ```
 
 ## Step O3o2o_1o0g3o0 コマンド実行
+
+👇 以下のコマンドを打鍵してほしい  
 
 ```shell
 # ディレクトリーを移動してほしい
