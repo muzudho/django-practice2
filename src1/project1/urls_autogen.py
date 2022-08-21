@@ -13,6 +13,7 @@ from .settings import PROJECT_NAME
 
 
 urlpatterns = [
+    path('', include(f'{PROJECT_NAME}.urls_lifegame_v1_autogen')),
     path('', include(f'{PROJECT_NAME}.urls_portal_autogen')),
     path('', include(f'{PROJECT_NAME}.urls_practice_autogen')),
     path('', include(f'{PROJECT_NAME}.urls_tic_tac_toe_v1_autogen')),
