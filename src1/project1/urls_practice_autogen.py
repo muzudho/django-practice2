@@ -10,6 +10,7 @@ from apps1.practice_v1.views.extends_user_list.v1o0 import ExtendsUserListV
 from apps1.practice_v1.views.session.v1o0 import SessionV
 from apps1.practice_v1.views.debug.v1o0 import DebugV
 from apps1.practice_v1.views.prefecture.v1o0 import PrefectureV
+from apps1.practice_v1.views.prefecture.v1o0 import PrefectureV
 
 
 urlpatterns = [
@@ -36,6 +37,9 @@ urlpatterns = [
 
     # OA11o1o0g5o1o0 都道府県
     path('practice/v1/prefectures/', PrefectureV.render_list, name='practice_v1_prefectures'),
+
+    # OA11o2o0g5o1o0 都道府県の詳細
+    path('practice/v1/prefectures/read/<int:id>/', PrefectureV.render_read, name='practice_v1_prefectures_read'),
 ]
 
 # EOF O3o2o_1o0g4o0

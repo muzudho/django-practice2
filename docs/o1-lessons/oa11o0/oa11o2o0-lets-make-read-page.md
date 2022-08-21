@@ -269,54 +269,55 @@ class PrefectureV(object):
     from .v_read import render_read
 ```
 
-## Step OA11o2o0g5o0 ルート編集 - urls_practice.py ファイル
+## ~~Step OA11o2o0g5o0~~
+
+Merged to OA11o2o0g5o1o0  
+
+## Step OA11o2o0g5o1o0
 
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 src1
-        ├── 📂 apps1
-        │   └── 📂 practice_v1                      # アプリケーション
-        │       ├── 📂 templates
-        │       │   └── 📂 practice_v1
-        │       │       └── 📂 prefecture
-        │       │           └── 📂 v1o0
-        │       │               └── 📄 read.html
-        │       └── 📂 views
-        │           └── 📂 prefecture
-        │               └── 📂 v1o0
-        │                   ├── 📄 __init__.py
-        │                   └── 📄 v_read.py
-        └── 📂 project1                          # プロジェクト
-👉          ├── 📄 urls_practice.py              # こちら
-❌          └── 📄 urls.py                       # これではない
+    ├── 📂 src1
+    │   └── 📂 apps1
+    │       └── 📂 practice_v1                      # アプリケーション
+    │           ├── 📂 templates
+    │           │   └── 📂 practice_v1
+    │           │       └── 📂 prefecture
+    │           │           └── 📂 v1o0
+    │           │               └── 📄 read.html
+    │           └── 📂 views
+    │               └── 📂 prefecture
+    │                   └── 📂 v1o0
+    │                       ├── 📄 __init__.py
+    │                       └── 📄 v_read.py
+    └── 📂 src1_meta
+        └── 📂 data
+👉          └── 📄 urls.csv
 ```
 
-```py
-# ...略...
+```csv
+...略... file,path,name,comment,module,class,alias,method
+...略...
 
 
-urlpatterns = [
-
-
-    # ...略...
-
-
-    # OA11o2o0g5o0 都道府県の詳細
-    path('practice/v1/prefectures/read/<int:id>/',
-         # -------------------------------------
-         # 1
-         PrefectureV.render_read, name='practice_v1_prefectures_read'),
-    #    -----------------------        ----------------------------
-    #    2                              3
-    #
-    # 1. 例えば `http://example.com/practice/v1/prefectures/read/<数字列>/` のような URL のパスの部分
-    #                              --------------------------------------
-    #    数字列は `2.` のメソッドの引数 id で取得できる
-    # 2. PrefectureV クラスの render_read 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_prefectures_read' %} のような形でURLを取得するのに使える
-]
+../src1/project1/urls_practice_autogen.py,practice/v1/prefectures/read/<int:id>/,practice_v1_prefectures_read,"OA11o2o0g5o1o0 都道府県の詳細",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_read
 ```
+
+## Step OA11o2o0g5o2o0 ルート編集 - コマンド打鍵
+
+👇 以下のコマンドを打鍵してほしい  
+
+```shell
+cd ../src1_meta
+python -m scripts.auto_generators.urls
+cd ../src1
+docker-compose restart
+```
+
+* ディレクトリーは、がんばって移動してほしい
+* スクリプトについて See also: O3o2o_1o0g2o0
+* 設定ファイルを変更したら、サーバーの再起動が必要
 
 ## Step OA11o2o0g6o0 Web画面へアクセス
 
