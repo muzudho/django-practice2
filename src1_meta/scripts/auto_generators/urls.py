@@ -63,7 +63,6 @@ class UrlsAutoGenerator:
                 head_text_of_files[file_to_export] = ""
                 body_text_of_files[file_to_export] = ""
 
-            # 追記
             module = row["module"]
             class_name = row["class"]
             alias = row['alias']
@@ -79,13 +78,29 @@ class UrlsAutoGenerator:
             comment = row["comment"]
             path = row["path"]
             name = row["name"]
+
+            # コメント
+            if pd.isnull(comment):
+                # 省略可
+                comment_phrase = ""
+            else:
+                comment_phrase = f"""
+    # {comment}"""
+
+            # パス
+            if pd.isnull(path):
+                # 空文字列の指定があり得ます。
+                # pandas は空文字列と NaN を区別せず NaN にするので、空文字列に変換します
+                path = ""
+
+            # 名前
             if pd.isnull(name):
+                # 省略可
                 name_phrase = ""
             else:
                 name_phrase = f", name='{name}'"
 
-            body_text_of_files[file_to_export] += f"""
-    # {comment}
+            body_text_of_files[file_to_export] += f"""{comment_phrase}
     path('{path}', {virtual_class_name}.{method}{name_phrase}),
 """
 
