@@ -13,10 +13,13 @@
 
 使うもの:  
 
-* Python
-* Django
-* Docker
-* Web Socket
+| This is            | Price |
+| ------------------ | ----- |
+| Visual Studio Code | 無料  |
+| Python             | 無料  |
+| Django             | 無料  |
+| Docker             | 無料  |
+| Web Socket         | 無料  |
 
 # ここは目次
 
