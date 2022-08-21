@@ -225,19 +225,6 @@ urlpatterns = [
     #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
 
-    # OA18o3o0g5o0 対局部屋の詳細
-    path('practice/v1/rooms/read/<int:id>/',
-         # -------------------------------
-         # 1
-         RoomVV1o0.render_read, name='practice_v1_rooms_read'),
-    #    ---------------------        ----------------------
-    #    2                            3
-    # 1. 例えば `http://example.com/practice/v1/rooms/read/<数字列>/` のような URL のパスの部分。
-    #                              --------------------------------
-    #    数字列は `2.` の関数の引数 id で取得できる
-    # 2. RoomVV1o0 クラスの render_read 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_rooms_read' %} のような形でURLを取得するのに使える
-
     # OA18o4o0g5o0 対局部屋の削除
     path('practice/v1/rooms/delete/<int:id>/', RoomVV1o0.render_delete,
          # ---------------------------------   -----------------------
