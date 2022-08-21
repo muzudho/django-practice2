@@ -352,66 +352,57 @@ class PrefectureV(object):
     from .v_upsert import render_upsert
 ```
 
-## Step OA11o4o0g6o0 ルート編集 - urls_practice.py ファイル
+## ~~Step OA11o4o0g6o0~~
 
-👇 以下の既存ファイルを編集してほしい  
+Merged to OA11o4o0g6o1o0  
+
+## Step OA11o4o0g6o1o0 ルート編集 - urls.csv ファイル
+
+👇 以下の既存ファイルの末尾に追記してほしい  
 
 ```plaintext
-    └── 📂 src1
-        ├── 📂 apps1
-        │   └── 📂 practice_v1                      # アプリケーション
-        │       ├── 📂 forms
-        │       │   └── 📄 f_prefecture.py
-        │       ├── 📂 templates
-        │       │   └── 📂 practice_v1
-        │       │       └── 📂 prefecture
-        │       │           └── 📂 v1o0
-        │       │               └── 📄 delete.html
-        │       └── 📂 views
-        │           └── 📂 prefecture
-        │               └── 📂 v1o0
-        │                   └── 📄 v_delete.py
-        └── 📂 project1                          # プロジェクト
-👉          ├── 📄 urls_practice.py              # こちら
-❌          └── 📄 urls.py                       # これではない
+    ├── 📂 src1
+    │   └── 📂 apps1
+    │       └── 📂 practice_v1                      # アプリケーション
+    │           ├── 📂 forms
+    │           │   └── 📄 f_prefecture.py
+    │           ├── 📂 templates
+    │           │   └── 📂 practice_v1
+    │           │       └── 📂 prefecture
+    │           │           └── 📂 v1o0
+    │           │               └── 📄 delete.html
+    │           └── 📂 views
+    │               └── 📂 prefecture
+    │                   └── 📂 v1o0
+    │                       └── 📄 v_delete.py
+    └── 📂 src1_meta
+        └── 📂 data
+👉          └── 📄 urls.csv
 ```
 
-```py
-# ...略...
+```csv
+...略... file,path,name,comment,module,class,alias,method
+...略...
 
 
-urlpatterns = [
-
-
-    # ...略...
-
-
-    # OA11o4o0g6o0 都道府県の新規作成
-    path('practice/v1/prefectures/create/',
-         # ------------------------------
-         # 1
-         PrefectureV.render_upsert, name='practice_v1_prefectures_create'),
-    #    -------------------------        ------------------------------
-    #    2                                3
-    # 1. 例えば `http://example.com/practice/v1/prefectures/create/` のような URL のパスの部分
-    #                              -------------------------------
-    # 2. PrefectureV クラスの render_upsert 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_prefectures_create' %} のような形でURLを取得するのに使える
-
-    # OA11o4o0g6o0 都道府県の更新
-    path('practice/v1/prefectures/update/<int:id>/',
-         # ---------------------------------------
-         # 1
-         PrefectureV.render_upsert, name='practice_v1_refectures_update'),
-    #    -------------------------        -----------------------------
-    #    2                                3
-    # 1. 例えば `http://example.com/practice/v1/prefectures/update/<数字列>/` のような URL のパスの部分
-    #                              ----------------------------------------
-    #    数字列は `2.` のメソッドの引数 id で取得できる
-    # 2. PrefectureV クラスの render_upsert 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_refectures_update' %} のような形でURLを取得するのに使える
-]
+../src1/project1/urls_practice_autogen.py,practice/v1/prefectures/create/,practice_v1_prefectures_create,"OA11o4o0g6o1o0 都道府県の新規作成",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_upsert
+../src1/project1/urls_practice_autogen.py,practice/v1/prefectures/update/<int:id>/,practice_v1_refectures_update,"OA11o4o0g6o1o0 都道府県の更新",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_upsert
 ```
+
+## Step OA11o4o0g6o2o0 ルート編集 - コマンド打鍵
+
+👇 以下のコマンドを打鍵してほしい  
+
+```shell
+cd ../src1_meta
+python -m scripts.auto_generators.urls
+cd ../src1
+docker-compose restart
+```
+
+* ディレクトリーは、がんばって移動してほしい
+* スクリプトについて See also: O3o2o_1o0g2o0
+* 設定ファイルを変更したら、サーバーの再起動が必要
 
 ## Step OA11o4o0g7o0 Web画面へアクセス
 
