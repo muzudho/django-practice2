@@ -30,16 +30,6 @@ from apps1.practice_v1.views.button_for_member.v1o0 import ButtonForMember
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# O9o1o0g7o0 会員一覧
-from apps1.practice_v1.views.user_list.v1o0 import UserListV
-#          -----------            ---------        ---------
-#          11                     12               2
-#    --------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-
 # O9o2o0gA12o0 （拡張済）会員一覧
 from apps1.practice_v1.views.extends_user_list.v1o0 import ExtendsUserListV
 #          -----------                         ----        ----------------
@@ -274,18 +264,6 @@ urlpatterns = [
     # 1. 例えば `http://example.com/practice/v1/buttom_for_member/` のような URL のパスの部分
     #                              ------------------------------
     # 2. ButtonForMember クラスの render 静的メソッド
-
-    # O9o1o0g7o0 会員一覧
-    path('practice/v1/user-list/',
-         # ---------------------
-         # 1
-         UserListV.render, name='practice_v1_user_list'),
-    #    ----------------        ---------------------
-    #    2                       3
-    # 1. 例えば `http://example.com/practice/v1/user-list/` のような URL のパスの部分
-    #                              ----------------------
-    # 2. UserListV クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_user_list' %} のような形でURLを取得するのに使える
 
     # O9o2o0gA12o0 （拡張済）会員一覧
     path('practice/v1/extends-user-list/',

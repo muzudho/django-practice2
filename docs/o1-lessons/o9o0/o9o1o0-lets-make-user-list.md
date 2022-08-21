@@ -347,63 +347,61 @@ def render_user_list(request, user_list_tp):
 # EOF O9o1o0g6o0
 ```
 
-## Step O9o1o0g7o0 ルート編集 - urls_practice.py ファイル
+## ~~Step O9o1o0g7o0~~
+
+Merged to O9o1o0g7o1o0  
+
+## Step O9o1o0g7o1o0 ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 src1
-        ├── 📂 apps1
-        │   └── 📂 practice_v1                  # アプリケーション
-        │       ├── 📂 models_helper
-        │       │   └── 📂 user
-        │       │       └── 📂 v1o0
-        │       │           ├── 📄 __init__.py
-        │       │           └── 📄 mh_get_user_dic.py
-        │       ├── 📂 templates
-        │       │   └── 📂 practice_v1
-        │       │       └── 📂 user_list
-        │       │           └── 📄 v1o0.html
-        │       └── 📂 views
-        │           └── 📂 o1o0
-        │               └── 📂 user_list
-        │                   ├── 📄 __init__.py
-        │                   └── 📄 v_render.py
-        └── 📂 project1                      # プロジェクト
-👉          └── 📄 urls_practice.py
+    ├── 📂 src1
+    │   └── 📂 apps1
+    │       └── 📂 practice_v1                  # アプリケーション
+    │           ├── 📂 models_helper
+    │           │   └── 📂 user
+    │           │       └── 📂 v1o0
+    │           │           ├── 📄 __init__.py
+    │           │           └── 📄 mh_get_user_dic.py
+    │           ├── 📂 templates
+    │           │   └── 📂 practice_v1
+    │           │       └── 📂 user_list
+    │           │           └── 📄 v1o0.html
+    │           └── 📂 views
+    │               └── 📂 o1o0
+    │                   └── 📂 user_list
+    │                       ├── 📄 __init__.py
+    │                       └── 📄 v_render.py
+    └── 📂 src1_meta
+        └── 📂 data
+👉          └── 📄 urls.csv
 ```
 
-```py
-# ...略...
+```csv
+...略... file,path,name,comment,module,class,alias,method
+...略...
 
 
-# O9o1o0g7o0 会員一覧
-from apps1.practice_v1.views.user_list.v1o0 import UserListV
-#          -----------            ---------        ---------
-#          11                     12               2
-#    --------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
+../src1/project1/urls_practice_autogen.py,practice/v1/user-list/,practice_v1_user_list,"O9o1o0g7o1o0 会員一覧",apps1.practice_v1.views.user_list.v1o0,UserListV,,render
+```
 
+## Step O9o1o0g7o2o0 ルート編集 - コマンド打鍵
 
-urlpatterns = [
-    # ...略...
+👇 以下のコマンドを打鍵してほしい  
 
+```shell
+# がんばって、ディレクトリーを移動してほしい
+# cd ../src1_meta
 
-    # O9o1o0g7o0 会員一覧
-    path('practice/v1/user-list/',
-         # ---------------------
-         # 1
-         UserListV.render, name='practice_v1_user_list'),
-    #    ----------------        ---------------------
-    #    2                       3
-    # 1. 例えば `http://example.com/practice/v1/user-list/` のような URL のパスの部分
-    #                              ----------------------
-    # 2. UserListV クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_user_list' %} のような形でURLを取得するのに使える
-]
+# See also: O3o2o_1o0g2o0
+python -m scripts.auto_generators.urls
+
+# がんばって、ディレクトリーを移動してほしい
+# cd ../src1
+
+# 設定ファイルを変更したから、サーバーを再起動してほしい
+docker-compose restart
 ```
 
 ## Step O9o1o0g8o0 Web画面へアクセス
