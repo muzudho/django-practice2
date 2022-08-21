@@ -647,7 +647,7 @@ import os
 
 # プロジェクト名を親ディレクトリー名から取得
 PROJECT_NAME = os.path.basename(Path(__file__).resolve().parent)
-print(f"PROJECT_NAME:{PROJECT_NAME}")
+# print(f"[projectN settings.py] PROJECT_NAME:{PROJECT_NAME}")
 
 
 # ...略...
