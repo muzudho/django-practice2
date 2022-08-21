@@ -268,13 +268,13 @@ Merged to O3o2o0g5o1o0
 
 ```shell
 # がんばって、ディレクトリーを移動してほしい
-# cd src1_meta
+# cd ../src1_meta
 
 # See also: O3o2o_1o0g2o0
 python -m scripts.auto_generators.urls
 
 # がんばって、ディレクトリーを移動してほしい
-# cd src1
+# cd ../src1
 
 # 設定ファイルを変更したから、サーバーを再起動してほしい
 docker-compose restart
