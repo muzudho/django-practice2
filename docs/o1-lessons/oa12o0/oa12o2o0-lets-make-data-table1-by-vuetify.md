@@ -325,52 +325,55 @@ class VuetifyV(object):
     from .data_table1.v1o0 import render_data_table1
 ```
 
-## Step OA12o2o0g5o0 ルート編集 - urls_practice.py ファイル
+## ~~Step OA12o2o0g5o0~~
+
+Merged to OA12o2o0g5o1o0  
+
+## Step OA12o2o0g5o1o0 ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 src1
-        ├── 📂 apps1
-        │   └── 📂 practice_v1                  # アプリケーション
-        │       ├── 📂 templates
-        │       │   └── 📂 practice_v1
-        │       │       └── 📂 vuetifies
-        │       │           └── 📂 data_table1
-        │       │               └── 📄 v1o0.html
-        │       └── 📂 views
-        │           └── 📂 vuetifies
-        │               ├── 📂 data_table1
-        │               │   └── 📄 v1o0.py
-        │               └── 📄 __init__.py
-        └── 📂 project1                          # プロジェクト
-👉          ├── 📄 urls_practice.py              # こちら
-❌          └── 📄 urls.py                       # これではない
+    ├── 📂 src1
+    │   └── 📂 apps1
+    │       └── 📂 practice_v1                  # アプリケーション
+    │           ├── 📂 templates
+    │           │   └── 📂 practice_v1
+    │           │       └── 📂 vuetifies
+    │           │           └── 📂 data_table1
+    │           │               └── 📄 v1o0.html
+    │           └── 📂 views
+    │               └── 📂 vuetifies
+    │                   ├── 📂 data_table1
+    │                   │   └── 📄 v1o0.py
+    │                   └── 📄 __init__.py
+    └── 📂 src1_meta
+        └── 📂 data
+👉          └── 📄 urls.csv
 ```
 
-```py
-# ...略...
+```csv
+...略... file,path,name,comment,module,class,alias,method
+...略...
 
 
-urlpatterns = [
-
-
-    # ...略...
-
-
-    # OA12o2o0g5o0 ビューティファイでデータテーブル１
-    path('practice/v1/vuetify/data-table1',
-         # ------------------------------
-         # 1
-         VuetifyV.render_data_table1, name='practice_v1_vuetify_data_table1'),
-    #    ---------------------------        -------------------------------
-    #    2                                  3
-    # 1. 例えば `http://example.com/practice/v1/vuetify/data-table1` のような URL のパスの部分
-    #                              -------------------------------
-    # 2. VuetifyV クラスの render_data_table1 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_vuetify_data_table1' %} のような形でURLを取得するのに使える
-]
+../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/data-table1,practice_v1_vuetify_data_table1,"OA12o2o0g5o1o0 ビューティファイでデータテーブル１",apps1.practice_v1.views.vuetifies,VuetifyV,,render_data_table1
 ```
+
+## Step OA12o1o0g5o2o0 ルート編集 - コマンド打鍵
+
+👇 以下のコマンドを打鍵してほしい  
+
+```shell
+cd ../src1_meta
+python -m scripts.auto_generators.urls
+cd ../src1
+docker-compose restart
+```
+
+* ディレクトリーは、がんばって移動してほしい
+* スクリプトについて See also: O3o2o_1o0g2o0
+* 設定ファイルを変更したら、サーバーの再起動が必要
 
 ## Step OA12o2o0g6o0 Web画面へアクセス
 
