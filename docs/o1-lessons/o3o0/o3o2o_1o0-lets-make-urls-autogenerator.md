@@ -264,6 +264,10 @@ urlpatterns.append(path('', include(f'{PROJECT_NAME}.urls_practice_autogen')))
 
 # 参考にした記事
 
+## Python
+
+📖 [Writing Unicode text to a text file?](https://stackoverflow.com/questions/6048085/writing-unicode-text-to-a-text-file)  
+
 ## Pandas
 
 📖 [pandas.isnull](https://pandas.pydata.org/docs/reference/api/pandas.isnull.html)  
