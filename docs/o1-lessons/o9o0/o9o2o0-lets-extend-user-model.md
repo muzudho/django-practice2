@@ -528,66 +528,64 @@ def render_extends_user_list(request, extends_user_list_tp):
 # EOF O9o2o0gA11o0
 ```
 
-## Step O9o2o0gA12o0 ルート編集 - urls_practice.py ファイル
+## ~~Step O9o2o0gA12o0~~
+
+Merged to O9o2o0gA12o1o0  
+
+## Step O9o2o0gA12o1o0 ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
-    └── 📂 src1
-        ├── 📂 apps1
-        │   └── 📂 practice_v1                  # アプリケーション
-        │       ├── 📂 models
-        │       │   └── 📂 user_profile
-        │       │       └── 📄 v1o0.py
-        │       ├── 📂 models_helper
-        │       │   └── 📂 user
-        │       │       └── 📂 v1o0
-        │       │           ├── 📄 __init__.py
-        │       │           └── 📄 mh_get_extends_user_dic.py
-        │       ├── 📂 templates
-        │       │   └── 📂 practice_v1
-        │       │       └── 📂 v1o0
-        │       │           └── 📄 extends_user_list.html
-        │       └── 📂 views
-        │           └── 📂 extends_user_list
-        │               └── 📂 v1o0
-        │                   ├── 📄 __init__.py
-        │                   └── 📄 v_render.py
-        └── 📂 project1                      # プロジェクト
-👉          └── 📄 urls_practice.py
+    ├── 📂 src1
+    │   └── 📂 apps1
+    │       └── 📂 practice_v1                  # アプリケーション
+    │           ├── 📂 models
+    │           │   └── 📂 user_profile
+    │           │       └── 📄 v1o0.py
+    │           ├── 📂 models_helper
+    │           │   └── 📂 user
+    │           │       └── 📂 v1o0
+    │           │           ├── 📄 __init__.py
+    │           │           └── 📄 mh_get_extends_user_dic.py
+    │           ├── 📂 templates
+    │           │   └── 📂 practice_v1
+    │           │       └── 📂 v1o0
+    │           │           └── 📄 extends_user_list.html
+    │           └── 📂 views
+    │               └── 📂 extends_user_list
+    │                   └── 📂 v1o0
+    │                       ├── 📄 __init__.py
+    │                       └── 📄 v_render.py
+    └── 📂 src1_meta
+        └── 📂 data
+👉          └── 📄 urls.csv
 ```
 
-```py
-# ...略...
+```csv
+...略... file,path,name,comment,module,class,alias,method
+...略...
 
 
-# O9o2o0gA12o0 （拡張済）会員一覧
-from apps1.practice_v1.views.extends_user_list.v1o0 import ExtendsUserListV
-#          -----------                         ----        ----------------
-#          11                                  12          2
-#    ----------------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
+../src1/project1/urls_practice_autogen.py,practice/v1/extends-user-list/,practice_v1_extends_user_list,"O9o2o0gA12o1o0 （拡張済）会員一覧",apps1.practice_v1.views.extends_user_list.v1o0,ExtendsUserListV,,render
+```
 
+## Step O9o2o0gA12o2o0 ルート編集 - コマンド打鍵
 
-urlpatterns = [
-    # ...略...
+👇 以下のコマンドを打鍵してほしい  
 
+```shell
+# がんばって、ディレクトリーを移動してほしい
+# cd ../src1_meta
 
-    # O9o2o0gA12o0 （拡張済）会員一覧
-    path('practice/v1/extends-user-list/',
-         # -----------------------------
-         # 1
-         ExtendsUserListV.render, name='practice_v1_extends_user_list'),
-    #    -----------------------        -----------------------------
-    #    2                              3
-    # 1. 例えば `http://example.com/practice/v1/extends-user-list/` のような URL のパスの部分
-    #                              ------------------------------
-    # 2. ExtendsUserListV クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'practice_v1_extends_user_list' %} のような形でURLを取得するのに使える
-]
+# See also: O3o2o_1o0g2o0
+python -m scripts.auto_generators.urls
+
+# がんばって、ディレクトリーを移動してほしい
+# cd ../src1
+
+# 設定ファイルを変更したから、サーバーを再起動してほしい
+docker-compose restart
 ```
 
 ## Step O9o2o0gA13o0 管理画面へモデル登録 - admin.py ファイル編集

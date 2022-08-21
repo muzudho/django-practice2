@@ -6,6 +6,7 @@ from apps1.practice_v1.views.page_the_hello.v1o0 import PageTheHello
 from apps1.practice_v1.views.page_to_be_added.v2o0 import PageToBeAdded as PageToBeAdded1
 from apps1.practice_v1.views.page_to_be_added.v3o0 import PageToBeAdded as PageToBeAdded2
 from apps1.practice_v1.views.user_list.v1o0 import UserListV
+from apps1.practice_v1.views.extends_user_list.v1o0 import ExtendsUserListV
 
 
 urlpatterns = [
@@ -20,6 +21,9 @@ urlpatterns = [
 
     # O9o1o0g7o1o0 会員一覧
     path('practice/v1/user-list/', UserListV.render, name='practice_v1_user_list'),
+
+    # O9o2o0gA12o1o0 （拡張済）会員一覧
+    path('practice/v1/extends-user-list/', ExtendsUserListV.render, name='practice_v1_extends_user_list'),
 ]
 
 # EOF O3o2o_1o0g4o0
