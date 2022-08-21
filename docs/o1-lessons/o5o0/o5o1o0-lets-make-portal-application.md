@@ -473,7 +473,7 @@ Merged to O5o1o0gA11o1o0
 
 ## Step O5o1o0gA11o1o0 ルート編集 - urls.csv ファイル
 
-👇 以下のファイルを新規作成してほしい  
+👇 以下の既存ファイルの末尾に追記してほしい  
 
 ```plaintext
     ├── 📂 src1
