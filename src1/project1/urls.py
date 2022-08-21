@@ -92,3 +92,5 @@ urlpatterns = [
     # 2. `src1/projectN/urls_lifegame.py` の urlpatterns を `1.` にぶら下げる
     #          ----------------------
 ]
+
+urlpatterns.append(path('', include(f'{PROJECT_NAME}.urls_practice_autogen')))

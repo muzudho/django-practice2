@@ -4,6 +4,6 @@ from apps1.practice_v1.views.page_the_hello.v1o0 import PageTheHello
 
 
 urlpatterns = [
-    # O3o1o0gA10o0 ‚±‚ñ‚É‚¿‚íƒy[ƒW
-    path('practice/v1/page-the-hello', PageTheHello.render, name='page_the_hello'),
+    # O3o1o0gA10o0 ã“ã‚“ã«ã¡ã‚ãƒšãƒ¼ã‚¸
+    path('practice/v1/hello2', PageTheHello.render, name='practice_v1_hello2'),
 ]

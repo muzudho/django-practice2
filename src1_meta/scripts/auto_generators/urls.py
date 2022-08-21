@@ -72,7 +72,7 @@ def main():
     # 各ファイル書出し
     for file_to_export in head_text_of_files.keys():
         # ファイル書出し
-        with open(file_to_export, 'w') as f:
+        with open(file_to_export, 'w', encoding="utf8") as f:
             print(f"Write... {file_to_export}")
             f.write(f'''from django.urls import path
 
