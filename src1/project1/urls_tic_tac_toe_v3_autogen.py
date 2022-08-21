@@ -7,6 +7,8 @@ from apps1.tic_tac_toe_v3.views.playing.v1o0 import PlayingV as TicTacToeV3g1o0P
 from apps1.tic_tac_toe_v3.views.match_application.v2o0 import MatchApplicationV as TicTacToeV3g2o0MatchApplicationV
 from apps1.tic_tac_toe_v3.views.match_application.v3o0 import MatchApplicationV as TicTacToeV3g3o0MatchApplicationV
 from apps1.tic_tac_toe_v3.views.playing.v3o0 import PlayingV as TicTacToeV3g3o0PlayingV
+from apps1.tic_tac_toe_v3.views.match_application.v4o0 import MatchApplicationV as TicTacToeV3g4o0MatchApplicationV
+from apps1.tic_tac_toe_v3.views.playing.v4o0 import PlayingV as TicTacToeV3g4o0PlayingV
 
 
 urlpatterns = [
@@ -24,6 +26,12 @@ urlpatterns = [
 
     # OA24o1o0g8o1o0 〇×ゲーム v3.3 対局中
     path('tic-tac-toe/v3.3/playing/<str:kw_room_name>/', TicTacToeV3g3o0PlayingV.render, name='tic_tac_toe_v3g3o0_playing'),
+
+    # OA25o1o0g5o1o0 〇×ゲーム v3.4 対局申込中
+    path('tic-tac-toe/v3.4/match-application/', TicTacToeV3g4o0MatchApplicationV.render, name='tic_tac_toe_v3g4o0_match_application'),
+
+    # OA25o1o0g5o1o0 〇×ゲーム v3.4 対局中
+    path('tic-tac-toe/v3.4/playing/<str:kw_room_name>/', TicTacToeV3g4o0PlayingV.render, name='tic_tac_toe_v3g4o0_playing'),
 ]
 
 # EOF O3o2o_1o0g4o0
