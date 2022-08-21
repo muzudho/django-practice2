@@ -4,6 +4,7 @@ file,path,name,comment,module,class,alias,method
 ../src1/project1/urls_practice_autogen.py,practice/v1/page-to-be-added-1,page_to_be_added_1,"O3o2o0g5o1o0 練習ページ １回追加されたページ",apps1.practice_v1.views.page_to_be_added.v2o0,PageToBeAdded,PageToBeAdded1,render
 ../src1/project1/urls_practice_autogen.py,practice/v1/page-to-be-added-2,page_to_be_added_2,"O3o3o0g4o1o0 練習ページ ２回追加されたページ",apps1.practice_v1.views.page_to_be_added.v3o0,PageToBeAdded,PageToBeAdded2,render
 ../src1/project1/urls_portal_autogen.py,practice/v1/portal,practice_v1_portal,"O5o1o0gA11o1o0 ポータルの練習",apps1.portal_v1.views.portal.v1o0,Portal,PortalO1o0,render
+../src1/project1/urls_practice_autogen.py,practice/v1/buttom_for_member/,,"O8o3o0g5o1o0 会員にだけ見えるボタンを説明するページ",apps1.practice_v1.views.button_for_member.v1o0,ButtonForMember,,render
 ../src1/project1/urls_practice_autogen.py,practice/v1/user-list/,practice_v1_user_list,"O9o1o0g7o1o0 会員一覧",apps1.practice_v1.views.user_list.v1o0,UserListV,,render
 ../src1/project1/urls_practice_autogen.py,practice/v1/extends-user-list/,practice_v1_extends_user_list,"O9o2o0gA12o1o0 （拡張済）会員一覧",apps1.practice_v1.views.extends_user_list.v1o0,ExtendsUserListV,,render
 ../src1/project1/urls_practice_autogen.py,practice/v1/active-user-list/,practice_v1_active_user_list,"O9o3o0g7o1o0 アクティブユーザー一覧",apps1.practice_v1.views.session.v1o0,SessionV,,render

@@ -20,16 +20,6 @@ from apps1.practice_v1.views.login_required.v1o0 import LoggingIn, LoggingOut
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# O8o3o0g5o0 会員用ボタン
-from apps1.practice_v1.views.button_for_member.v1o0 import ButtonForMember
-#          -----------                         ----        ---------------
-#          11                                  12          2
-#    ----------------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-
 
 urlpatterns = [
 
@@ -68,15 +58,4 @@ urlpatterns = [
     #                              ------------------
     # 2. LoggingOut クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'practice_v1_logout' %} のような形でURLを取得するのに使える
-
-    # O8o3o0g5o0 会員にだけ見えるボタンを説明するページ
-    path('practice/v1/buttom_for_member/',
-         # -----------------------------
-         # 1
-         ButtonForMember.render),
-    #    ----------------------
-    #    2
-    # 1. 例えば `http://example.com/practice/v1/buttom_for_member/` のような URL のパスの部分
-    #                              ------------------------------
-    # 2. ButtonForMember クラスの render 静的メソッド
 ]
