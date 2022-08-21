@@ -298,6 +298,8 @@ class AccountsV1LoginView(LoginView):
 
 ## Step O8o1o0g4o0 サブ ルート作成 - urls_accounts.py
 
+URLの自動生成をしたくても、作りが他と異なるので、手作業で設定してほしい  
+
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
