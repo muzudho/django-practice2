@@ -16,7 +16,7 @@ http://example.com/
 それは後にすることにし、まずは練習として以下のURLとする  
 
 ```plain
-http://example.com/practice/v1/portal
+http://example.com/launcher/vol1.0/ver1.0/
 ```
 
 # 目的
