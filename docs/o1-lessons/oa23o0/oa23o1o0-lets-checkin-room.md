@@ -369,11 +369,11 @@ docker-compose restart
 
 👇 以下のリンクから `サインアップ` して２人目のアカウントを用意してほしい  
 
-📖 [http://localhost:8000/accounts/v1/signup/](http://localhost:8000/accounts/v1/signup/)  
+📖 [http://localhost:8000/accounts/vol1.0/ver1.0/signup/](http://localhost:8000/accounts/vol1.0/ver1.0/signup/)  
 
 👇 サインアップしたら、ログインしてほしい  
 
-📖 [http://localhost:8000/accounts/v1/login/](http://localhost:8000/accounts/v1/login/)  
+📖 [http://localhost:8000/accounts/vol1.0/ver1.0/login/](http://localhost:8000/accounts/vol1.0/ver1.0/login/)  
 
 👇 そして `Elephant` 部屋に `X` 番として入ってほしい  
 
@@ -383,11 +383,11 @@ docker-compose restart
 
 👇 それをいいことに、対局部屋のブラウザ画面を残したまま 今のユーザーをログアウトしてほしい  
 
-📖 [http://localhost:8000/accounts/v1/login/](http://localhost:8000/accounts/v1/logout/)  
+📖 [http://localhost:8000/accounts/vol1.0/ver1.0/login/](http://localhost:8000/accounts/vol1.0/ver1.0/logout/)  
 
 👇 スーパーユーザー でログインしなおして、  
 
-📖 [http://localhost:8000/accounts/v1/login/](http://localhost:8000/accounts/v1/login/)  
+📖 [http://localhost:8000/accounts/vol1.0/ver1.0/login/](http://localhost:8000/accounts/vol1.0/ver1.0/login/)  
 
 👇 `Elephant` 部屋に `O` 番として入ってほしい  
 

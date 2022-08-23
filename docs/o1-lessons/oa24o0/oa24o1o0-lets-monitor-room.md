@@ -649,8 +649,8 @@ docker-compose restart
 * テストするためには `サインアップ` してアカウントを作ってから、 `ログイン` してください
 * 最初のテストは　既存でない部屋名で、次のテストは　既存の部屋名　で行うといいかもしれません
 
-📖 [http://localhost:8000/accounts/v1/signup/](http://localhost:8000/accounts/v1/signup/)  
-📖 [http://localhost:8000/accounts/v1/login/](http://localhost:8000/accounts/v1/login/)  
+📖 [http://localhost:8000/accounts/vol1.0/ver1.0/signup/](http://localhost:8000/accounts/vol1.0/ver1.0/signup/)  
+📖 [http://localhost:8000/accounts/vol1.0/ver1.0/login/](http://localhost:8000/accounts/vol1.0/ver1.0/login/)  
 📖 [http://localhost:8000/tic-tac-toe/v3.3/match-application/](http://localhost:8000/tic-tac-toe/v3.3/match-application/)  
 
 部屋、ユーザーを確認するには、管理画面を使うのが確実です:  

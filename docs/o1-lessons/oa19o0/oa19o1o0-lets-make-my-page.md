@@ -312,17 +312,17 @@ def render_my(request, my_page_tp):
         # 1. http://example.com/tic-tac-toe/v2/match-application/
         #                      ----------------------------------
 
-        'dj_loginPath': '/accounts/v1/login/',
-        #                -------------------
+        'dj_loginPath': '/accounts/vol1.0/ver1.0/login/',
+        #                ------------------------------
         #                1
-        # 1. http://example.com/accounts/v1/login/
-        #                      -------------------
+        # 1. http://example.com/accounts/vol1.0/ver1.0/login/
+        #                      -----------------------------
 
-        'dj_logoutPath': '/accounts/v1/logout/',
-        #                 --------------------
+        'dj_logoutPath': '/accounts/vol1.0/ver1.0/logout/',
+        #                 -------------------------------
         #                 1
-        # 1. http://example.com/accounts/v1/logout/
-        #                      --------------------
+        # 1. http://example.com/accounts/vol1.0/ver1.0/logout/
+        #                      ------------------------------
     }
 
     return render(request, my_page_tp, context)

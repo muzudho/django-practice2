@@ -1,7 +1,7 @@
 # サンプルを見る
 
-📖 [この記事のゴール：ログイン](http://tic.warabenture.com:8000/accounts/v1/login/)  
-📖 [この記事のゴール：ログアウト](http://tic.warabenture.com:8000/accounts/v1/logout/)  
+📖 [この記事のゴール：ログイン](http://tic.warabenture.com:8000/accounts/vol1.0/ver1.0/login/)  
+📖 [この記事のゴール：ログアウト](http://tic.warabenture.com:8000/accounts/vol1.0/ver1.0/logout/)  
 
 # 目標
 
@@ -330,15 +330,15 @@ urlpatterns = [
     # ...中略...
 
 
-    # ログイン（ユーザー認証）
-    path("accounts/v1/login/", view=AccountsV1LoginView.as_view(),
-         # -----------------        -----------------------------
-         # 1                        2
+    # O8o1o0g4o0 ログイン（ユーザー認証）
+    path("accounts/vol1.0/ver1.0/login/", view=AccountsV1LoginView.as_view(),
+         # ----------------------------        -----------------------------
+         # 1                                   2
          name="login"),
     #          -----
     #          3
-    # 1. 例えば `http://example.com/accounts/v1/login/` のような URL のパスの部分
-    #                              -------------------
+    # 1. 例えば `http://example.com/accounts/vol1.0/ver1.0/login/` のような URL のパスの部分
+    #                              ------------------------------
     # 2. allauth の LoginView をカスタマイズしたオブジェクト
     # 3. HTMLテンプレートの中で {% url 'login' %} のような形でURLを取得するのに使える
 ]
@@ -346,13 +346,13 @@ urlpatterns = [
 
 ## Step O8o1o0g5o0 Web画面へアクセス
 
-📖 [http://localhost:8000/accounts/v1/login/](http://localhost:8000/accounts/v1/login/)  
+📖 [http://localhost:8000/accounts/vol1.0/ver1.0/login/](http://localhost:8000/accounts/vol1.0/ver1.0/login/)  
 
 👆 ログイン ページを開く  
 
 既にログインしているなら、  
 
-📖 [http://localhost:8000/accounts/v1/logout/](http://localhost:8000/accounts/v1/logout/)  
+📖 [http://localhost:8000/accounts/vol1.0/ver1.0/logout/](http://localhost:8000/accounts/vol1.0/ver1.0/logout/)  
 
 👆 ログアウトを試してほしい  
 
@@ -382,7 +382,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/accounts/v1/login/,ログイン（入場）
+/accounts/vol1.0/ver1.0/login/,ログイン（ユーザー認証）
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

@@ -110,7 +110,7 @@ docker-compose run --rm web python3 manage.py migrate
 
 ## Step O7o1o0g6o0 Webページへアクセス
 
-📖 [http://localhost:8000/accounts/v1/signup/](http://localhost:8000/accounts/v1/signup/)  
+📖 [http://localhost:8000/accounts/vol1.0/ver1.0/signup/](http://localhost:8000/accounts/vol1.0/ver1.0/signup/)  
 
 👆 allauth など、正常に動いているか　確認してほしい。  
 もし動いていなければ Webサイト は破壊してしまった。 連載を１からやり直してほしい  

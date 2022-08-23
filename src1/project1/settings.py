@@ -312,11 +312,11 @@ LOGIN_REDIRECT_URL = 'home'  # ログイン後に遷移するURL, または name
 LOGIN_URL = 'login'  # ログインしていないときに飛ばされる先のURL, または name の指定
 
 # ログアウト後に遷移するURL, または name の指定
-# ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/v1/login/'
-#                                -------------------
+# ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/vol1.0/ver1.0/login/'
+#                                ------------------------------
 #                                1
-# 1. 例えば `http://example.com/accounts/v1/login/` というURLのパスの部分
-#                             -------------------
+# 1. 例えば `http://example.com/accounts/vol1.0/ver1.0/login/` というURLのパスの部分
+#                             -------------------------------
 ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
 
 EMAIL_HOST = 'smtp.gmail.com'  # メールサーバの指定

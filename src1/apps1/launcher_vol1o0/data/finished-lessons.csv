@@ -5,9 +5,9 @@ path,label
 /practice/v1/page-the-hello,こんにちわページ
 /practice/v1/page-to-be-added-1,１回追加されたページ
 /practice/v1/page-to-be-added-2,２回追加されたページ
-/accounts/v1/signup/,サインアップ
-/accounts/v1/logout/,サインアウト
-/accounts/v1/login/,ログイン（ユーザー認証）
+/accounts/vol1.0/ver1.0/signup/,サインアップ
+/accounts/vol1.0/ver1.0/logout/,サインアウト
+/accounts/vol1.0/ver1.0/login/,ログイン（ユーザー認証）
 /practice/v1/login-required,ログイン必須
 /practice/v1/logout,ログアウト
 /practice/v1/buttom_for_member/,会員にだけ見えるボタンを説明するページ

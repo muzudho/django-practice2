@@ -37,36 +37,36 @@ urlpatterns = [
     # # 3. このパスを 'home' という名前で覚えておく
 
     # allauth の URLのパスのコピー
-    path('accounts/v1/', include('allauth.urls')),
-    #     ------------   -----------------------
+    path('accounts/vol1.0/ver1.0/', include('allauth.urls')),
+    #     -----------------------   -----------------------
     #     1
-    # 1. 例えば `http://example.com/accounts/v1/` のような URLのパスの部分
-    #                              ------------
+    # 1. 例えば `http://example.com/accounts/vol1.0/ver1.0/` のような URLのパスの部分
+    #                              ------------------------
     # 2. allauth アプリケーションに含まれる `allauth/urls.py` の urlpatterns 、
     #                                     ------------
     #    例えば `login/` のようなパスを (1.) のパスにぶら下げる形で全てコピーします
 
     # サインアップ（会員登録）
-    path("accounts/v1/signup/", view=AccountsV1SignupView.as_view(),
-         # ------------------        ------------------------------
-         # 1                        2
+    path("accounts/vol1.0/ver1.0/signup/", view=AccountsV1SignupView.as_view(),
+         # -----------------------------        ------------------------------
+         # 1                                    2
          name="signup"),
     #          ------
     #          3
-    # 1. 例えば `http://example.com/accounts/v1/signup/` のような URL のパスの部分にマッチする
-    #                              -------------------
+    # 1. 例えば `http://example.com/accounts/vol1.0/ver1.0/signup/` のような URL のパスの部分にマッチする
+    #                              -------------------------------
     # 2. allauth の SignupView をカスタマイズしたオブジェクト
     # 3. HTMLテンプレートの中で {% url 'signup' %} のような形でURLを取得するのに使える
 
-    # ログイン（入場）
-    path("accounts/v1/login/", view=AccountsV1LoginView.as_view(),
-         # -----------------        -----------------------------
-         # 1                        2
+    # O8o1o0g4o0 ログイン（ユーザー認証）
+    path("accounts/vol1.0/ver1.0/login/", view=AccountsV1LoginView.as_view(),
+         # ----------------------------        -----------------------------
+         # 1                                   2
          name="login"),
     #          -----
     #          3
-    # 1. 例えば `http://example.com/accounts/v1/login/` のような URL のパスの部分
-    #                              -------------------
+    # 1. 例えば `http://example.com/accounts/vol1.0/ver1.0/login/` のような URL のパスの部分
+    #                              ------------------------------
     # 2. allauth の LoginView をカスタマイズしたオブジェクト
     # 3. HTMLテンプレートの中で {% url 'login' %} のような形でURLを取得するのに使える
 ]

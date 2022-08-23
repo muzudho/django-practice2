@@ -1,7 +1,7 @@
 # サンプルを見る
 
-📖 [この記事のゴール：サインアップ](http://tic.warabenture.com:8000/accounts/v1/signup/)  
-📖 [この記事のゴール：ログアウト](http://tic.warabenture.com:8000/accounts/v1/logout/)  
+📖 [この記事のゴール：サインアップ](http://tic.warabenture.com:8000/accounts/vol1.0/ver1.0/signup/)  
+📖 [この記事のゴール：ログアウト](http://tic.warabenture.com:8000/accounts/vol1.0/ver1.0/logout/)  
 
 # 目標
 
@@ -274,11 +274,11 @@ LOGIN_REDIRECT_URL = 'home' # ログイン後に遷移するURL, または name 
 LOGIN_URL = 'login' # ログインしていないときに飛ばされる先のURL, または name の指定
 
 # ログアウト後に遷移するURL, または name の指定
-# ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/v1/login/'
-#                                -------------------
+# ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/vol1.0/ver1.0/login/'
+#                                ------------------------------
 #                                1
-# 1. 例えば `http://example.com/accounts/v1/login/` というURLのパスの部分
-#                             -------------------
+# 1. 例えば `http://example.com/accounts/vol1.0/ver1.0/login/` というURLのパスの部分
+#                             -------------------------------
 ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
 
 EMAIL_HOST = 'smtp.gmail.com' # メールサーバの指定
@@ -798,36 +798,36 @@ urlpatterns = [
     # # 3. このパスを 'home' という名前で覚えておく
 
     # allauth の URLのパスのコピー
-    path('accounts/v1/', include('allauth.urls')),
-    #     ------------   -----------------------
+    path('accounts/vol1.0/ver1.0/', include('allauth.urls')),
+    #     -----------------------   -----------------------
     #     1
-    # 1. 例えば `http://example.com/accounts/v1/` のような URLのパスの部分
-    #                              ------------
+    # 1. 例えば `http://example.com/accounts/vol1.0/ver1.0/` のような URLのパスの部分
+    #                              ------------------------
     # 2. allauth アプリケーションに含まれる `allauth/urls.py` の urlpatterns 、
     #                                     ------------
     #    例えば `login/` のようなパスを (1.) のパスにぶら下げる形で全てコピーします
 
     # サインアップ（会員登録）
-    path("accounts/v1/signup/", view=AccountsV1SignupView.as_view(),
-         # ------------------        ------------------------------
-         # 1                        2
+    path("accounts/vol1.0/ver1.0/signup/", view=AccountsV1SignupView.as_view(),
+         # -----------------------------        ------------------------------
+         # 1                                    2
          name="signup"),
     #          ------
     #          3
-    # 1. 例えば `http://example.com/accounts/v1/signup/` のような URL のパスの部分にマッチする
-    #                              -------------------
+    # 1. 例えば `http://example.com/accounts/vol1.0/ver1.0/signup/` のような URL のパスの部分にマッチする
+    #                              -------------------------------
     # 2. allauth の SignupView をカスタマイズしたオブジェクト
     # 3. HTMLテンプレートの中で {% url 'signup' %} のような形でURLを取得するのに使える
 
     # ログイン（入場）
-    path("accounts/v1/login/", view=AccountsV1LoginView.as_view(),
-         # -----------------        -----------------------------
-         # 1                        2
+    path("accounts/vol1.0/ver1.0/login/", view=AccountsV1LoginView.as_view(),
+         # ----------------------------        -----------------------------
+         # 1                                   2
          name="login"),
     #          -----
     #          3
-    # 1. 例えば `http://example.com/accounts/v1/login/` のような URL のパスの部分
-    #                              -------------------
+    # 1. 例えば `http://example.com/accounts/vol1.0/ver1.0/login/` のような URL のパスの部分
+    #                              ------------------------------
     # 2. allauth の LoginView をカスタマイズしたオブジェクト
     # 3. HTMLテンプレートの中で {% url 'login' %} のような形でURLを取得するのに使える
 ]
@@ -885,7 +885,7 @@ urlpatterns = [
 
 ## Step O6o1o0gA14o0 Webページへアクセス
 
-📖 [http://localhost:8000/accounts/v1/signup/](http://localhost:8000/accounts/v1/signup/)  
+📖 [http://localhost:8000/accounts/vol1.0/ver1.0/signup/](http://localhost:8000/accounts/vol1.0/ver1.0/signup/)  
 
 👆 サインアップ ページを開く  
 メールが届くことも確認してほしい  
@@ -894,7 +894,7 @@ urlpatterns = [
 
 // 既にログインしているなら、  
 //
-// 📖 [http://localhost:8000/accounts/v1/logout/](http://localhost:8000/accounts/v1/logout/)  
+// 📖 [http://localhost:8000/accounts/vol1.0/ver1.0/logout/](http://localhost:8000/accounts/vol1.0/ver1.0/logout/)  
 //
 // 👆 ログアウトを試してほしい  
 
@@ -932,8 +932,8 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/accounts/v1/signup/,サインアップ
-/accounts/v1/logout/,サインアウト
+/accounts/vol1.0/ver1.0/signup/,サインアップ
+/accounts/vol1.0/ver1.0/logout/,サインアウト
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 
