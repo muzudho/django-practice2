@@ -1,7 +1,7 @@
 # サンプルを見る
 
-📚 [この連載のゴール](http://tic.warabenture.com:8000/lifegame/v0.3/board)  
-📖 [この記事のゴール](http://tic.warabenture.com:8000/lifegame/v0.1/board)  
+📚 [この連載のゴール](http://tic.warabenture.com:8000/lifegame/vol1.0/ver0.3/board)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/lifegame/vol1.0/ver0.1/board)  
 
 # 目標
 
@@ -36,14 +36,14 @@ cd src1
 docker-compose up
 ```
 
-# Step OAAA1001o1o0g2o0 フォルダー作成 - apps1/lifegame_v1 フォルダー
+# Step OAAA1001o1o0g2o0 フォルダー作成 - apps1/lifegame_vol1o0 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
 ```plaintext
     └── 📂 src1
         └── 📂 apps1                # 複数のアプリケーションを入れるフォルダー
-            └── 📂 lifegame_v1      # アプリケーション
+            └── 📂 lifegame_vol1o0      # アプリケーション
 ```
 
 # Step OAAA1001o1o0g3o0 アプリケーション作成
@@ -51,9 +51,9 @@ docker-compose up
 👇 以下のコマンドを打鍵してほしい  
 
 ```shell
-docker-compose run --rm web python manage.py startapp lifegame_v1 ./apps1/lifegame_v1 --settings=project1.settings
-#                                                     ----------- -------------------            -----------------
-#                                                     1           2                              3
+docker-compose run --rm web python manage.py startapp lifegame_vol1o0 ./apps1/lifegame_vol1o0 --settings=project1.settings
+#                                                     --------------- -----------------------            -----------------
+#                                                     1               2                                  3
 # 1. 任意のDjangoアプリケーション名
 # 2. アプリケーション フォルダーへのパス
 # 3. `src1/project1/settings.py` 設定ファイルに従う
@@ -65,7 +65,7 @@ docker-compose run --rm web python manage.py startapp lifegame_v1 ./apps1/lifega
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 lifegame_v1              # アプリケーション
+            └── 📂 lifegame_vol1o0              # アプリケーション
 👉              ├── 📂 migrations
 👉              │   └── 📄 __init__.py
 👉              ├── 📄 __init__.py
@@ -101,7 +101,7 @@ docker-compose run --rm web python manage.py startapp lifegame_v1 ./apps1/lifega
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 lifegame_v1              # アプリケーション
+            └── 📂 lifegame_vol1o0              # アプリケーション
                 ├── 📂 migrations
                 │   └── 📄 __init__.py
                 ├── 📄 __init__.py
@@ -117,13 +117,13 @@ from django.apps import AppConfig
 class LifegameV1Config(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     # * 変更前
-    # name = 'lifegame_v1'
+    # name = 'lifegame_vol1o0'
     # * OAAA1001o1o0g5o0 変更後
-    name = 'apps1.lifegame_v1'
+    name = 'apps1.lifegame_vol1o0'
     #       -----------------
     #       1
-    # 1. `src1/apps1/lifegame_v1/apps.py`
-    #          -----------------
+    # 1. `src1/apps1/lifegame_vol1o0/apps.py`
+    #          ---------------------
 ```
 
 # Step OAAA1001o1o0g6o0 アプリケーション登録 - settings.py ファイル
@@ -133,7 +133,7 @@ class LifegameV1Config(AppConfig):
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 lifegame_v1              # アプリケーション
+        │   └── 📂 lifegame_vol1o0              # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📄 __init__.py
@@ -154,8 +154,8 @@ INSTALLED_APPS = [
     # ...略...
 
 
-    # OAAA1001o1o0g6o0 ライフゲーム v1
-    'apps1.lifegame_v1',
+    # OAAA1001o1o0g6o0 ライフゲーム1.0巻
+    'apps1.lifegame_vol1o0',
 
 
     # ...略...
@@ -167,20 +167,20 @@ INSTALLED_APPS = [
 # ...略...
 ```
 
-# Step OAAA1001o1o0g7o0 画面作成 - board/v0o1o0.html ファイル
+# Step OAAA1001o1o0g7o0 画面作成 - board/ver0o1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 lifegame_v1              # アプリケーション
+        │   └── 📂 lifegame_vol1o0              # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
-        │       │   └── 📂 lifegame_v1      # アプリケーションと同名
+        │       │   └── 📂 lifegame_vol1o0      # アプリケーションと同名
         │       │       └── 📂 board
-👉      │       │           └── 📄 v0o1o0.html
+👉      │       │           └── 📄 ver0o1o0.html
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -225,13 +225,13 @@ INSTALLED_APPS = [
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 lifegame_v1              # アプリケーション
+        │   └── 📂 lifegame_vol1o0              # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
-        │       │   └── 📂 lifegame_v1      # アプリケーションと同名
+        │       │   └── 📂 lifegame_vol1o0      # アプリケーションと同名
         │       │       └── 📂 board
-        │       │           └── 📄 v0o1o0.html
+        │       │           └── 📄 ver0o1o0.html
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -252,19 +252,19 @@ TEMPLATES = [
             # ...略...
 
 
-            # OAAA1001o1o0g8o0 ライフゲーム v1
-            os.path.join(BASE_DIR, 'apps1/lifegame_v1/templates'),
-            #                       ---------------------------
+            # OAAA1001o1o0g8o0 ライフゲーム1.0巻
+            os.path.join(BASE_DIR, 'apps1/lifegame_vol1.0/templates'),
+            #                       -------------------------------
             #                       10
-            # Example: /src1/apps1/lifegame_v1/templates/lifegame_v1/board/v0o1o0.html
-            #                      -----------          ------------
-            #                      11                   2
+            # Example: /src1/apps1/lifegame_vol1o0/templates/lifegame_vol1o0/board/ver0o1o0.html
+            #                      ---------------          ----------------
+            #                      11                       2
             #                ---------------------------
             #                10
             # 10. テンプレート ディレクトリーへのパス
             # 11. アプリケーション
-            # 2. まるで `http://example.com/lifegame_v1` という素材フォルダーがあるかのように扱われる
-            #                             ------------
+            # 2. まるで `http://example.com/lifegame_vol1o0` という素材フォルダーがあるかのように扱われる
+            #                             ----------------
         ],
 
 
@@ -280,16 +280,16 @@ TEMPLATES = [
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 lifegame_v1              # アプリケーション
+        │   └── 📂 lifegame_vol1o0              # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
-        │       │   └── 📂 lifegame_v1      # アプリケーションと同名
+        │       │   └── 📂 lifegame_vol1o0      # アプリケーションと同名
         │       │       └── 📂 board
-        │       │           └── 📄 v0o1o0.html
+        │       │           └── 📄 ver0o1o0.html
         │       ├── 📂 views
         │       │   └── 📂 board
-        │       │       └── 📂 v0o1o0
+        │       │       └── 📂 ver0o1o0
 👉      │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -312,11 +312,11 @@ class BoardView():
     def render(request):
         """描画"""
 
-        template_path = 'lifegame_v1/board/v0o1o0.html'
-        #               -----------------------------
-        #               1
-        # 1. `src1/apps1/lifegame_v1/templates/lifegame_v1/board/v0o1o0.html` を取得
-        #                                      -----------------------------
+        template_path = 'lifegame_vol1o0/board/ver0o1o0.html'
+        #                -----------------------------------
+        #                1
+        # 1. `src1/apps1/lifegame_vol1o0/templates/lifegame_vol1o0/board/ver0o1o0.html` を取得
+        #                                          -----------------------------------
 
         context = {}
         return render(request, template_path, context)
@@ -335,16 +335,16 @@ Merged to OAAA1001o1o0ga10o1o0
 ```plaintext
     ├── 📂 src1
     │   ├── 📂 apps1
-    │   │   └── 📂 lifegame_v1              # アプリケーション
+    │   │   └── 📂 lifegame_vol1o0              # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 templates
-    │   │       │   └── 📂 lifegame_v1      # アプリケーションと同名
+    │   │       │   └── 📂 lifegame_vol1o0      # アプリケーションと同名
     │   │       │       └── 📂 board
-    │   │       │           └── 📄 v0o1o0.html
+    │   │       │           └── 📄 ver0o1o0.html
     │   │       ├── 📂 views
     │   │       │   └── 📂 board
-    │   │       │       └── 📂 v0o1o0
+    │   │       │       └── 📂 ver0o1o0
     │   │       │           └── 📄 __init__.py
     │   │       ├── 📄 __init__.py
     │   │       ├── 📄 admin.py
@@ -362,7 +362,7 @@ Merged to OAAA1001o1o0ga10o1o0
 ...略...
 
 
-../src1/project1/urls_lifegame_v1_autogen.py,lifegame/v0.1/board,lifegame_v0o1o0_board,"OAAA1001o1o0ga10o1o0 ライフゲーム v0.1 の盤",apps1.lifegame_v1.views.board.v0o1o0,BoardView,BoardViewV0o1o0,render
+../src1/project1/urls_lifegame_vol1o0_autogen.py,lifegame/vol1.0/ver0.1/board,lifegame_1o0g0o1o0_board,"OAAA1001o1o0ga10o1o0 ライフゲーム v0.1 の盤",apps1.lifegame_vol1o0.views.board.ver0o1o0,BoardView,BoardViewV0o1o0,render
 ```
 
 ## Step OAAA1001o1o0ga10o2o0 ルート編集 - コマンド打鍵
@@ -388,7 +388,7 @@ Merged to OAAA1001o1o0ga10o1o0
 
 👇 接続の確認だけしてほしい  
 
-📖 [http://localhost:8000/lifegame/v0.1/board](http://localhost:8000/lifegame/v0.1/board)  
+📖 [http://localhost:8000/lifegame/vol1.0/ver0.1/board](http://localhost:8000/lifegame/vol1.0/ver0.1/board)  
 
 # 続きの記事
 

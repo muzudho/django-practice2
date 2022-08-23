@@ -1,10 +1,9 @@
-{# OAAA1001o1o0ga12o_5o0 #}
-<!-- -->
-{% extends "lifegame_v1/board/v0o1o0.html" %}
-{#          -----------------------------
+<!-- BOF OAAA1001o1o0ga12o_5o0 -->
+{% extends "lifegame_vol1o0/board/ver0o1o0.html" %}
+{#          -----------------------------------
             1
-1. src1/apps1/lifegame_v1/templates/lifegame_v1/board/v0o1o0.html
-                                    -----------------------------
+1. src1/apps1/lifegame_vol1o0/templates/lifegame_vol1o0/board/ver0o1o0.html
+                                        -----------------------------------
 #}
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 
@@ -31,16 +30,16 @@
             </v-app>
         </div>
 
-        <script src="{% static 'lifegame_v1/think/engine/parser/v1o0.js' %}"></script>
-        <script src="{% static 'lifegame_v1/think/engine/v1o0.js' %}"></script>
-        <script src="{% static 'lifegame_v1/think/position/v1o0.js' %}"></script>
-        <script src="{% static 'lifegame_v1/think/things/v1o0.js' %}"></script>
-        <script src="{% static 'lifegame_v1/think/things/board/v1o0.js' %}"></script>
-        <script src="{% static 'lifegame_v1/think/user_ctrl/v1o0.js' %}"></script>
-        <!--            ===========================================
+        <script src="{% static 'lifegame_vol1o0/think/engine/parser/v1o0.js' %}"></script>
+        <script src="{% static 'lifegame_vol1o0/think/engine/v1o0.js' %}"></script>
+        <script src="{% static 'lifegame_vol1o0/think/position/v1o0.js' %}"></script>
+        <script src="{% static 'lifegame_vol1o0/think/things/v1o0.js' %}"></script>
+        <script src="{% static 'lifegame_vol1o0/think/things/board/v1o0.js' %}"></script>
+        <script src="{% static 'lifegame_vol1o0/think/user_ctrl/v1o0.js' %}"></script>
+        <!--            ===============================================
                         1
-        1. src1/apps1/lifegame_v1/static/lifegame_v1/think/user_ctrl/v1o0.js
-                                  ==========================================
+        1. src1/apps1/lifegame_vol1o0/static/lifegame_vol1o0/think/user_ctrl/v1o0.js
+                                      ==============================================
         -->
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
@@ -163,3 +162,4 @@ board 0
             });
         </script>
 {% endblock body %}
+<!-- EOF OAAA1001o1o0ga12o_5o0 -->

@@ -1,7 +1,7 @@
 # サンプルを見る
 
-📚 [この連載のゴール](http://tic.warabenture.com:8000/lifegame/v0.3/board)  
-📖 [この記事のゴール](http://tic.warabenture.com:8000/lifegame/v0.2/board)  
+📚 [この連載のゴール](http://tic.warabenture.com:8000/lifegame/vol1.0/ver0.3/board)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/lifegame/vol1.0/ver0.2/board)  
 
 # 目標
 
@@ -26,21 +26,21 @@
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 lifegame_v1                  # アプリケーション
+        │   └── 📂 lifegame_vol1o0                  # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 📂 lifegame_v1          # アプリケーションと同名
+        │       │   └── 📂 lifegame_vol1o0          # アプリケーションと同名
         │       │       └── 📂 think
         │       │           └── 📂 things
 👉      │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
-        │       │   └── 📂 lifegame_v1
+        │       │   └── 📂 lifegame_vol1o0
         │       │       └── 📂 board
-        │       │           └── 📄 v0o1o0.html
+        │       │           └── 📄 ver0o1o0.html
         │       ├── 📂 views
         │       │   └── 📂 board
-        │       │       └── 📂 v0o1o0
+        │       │       └── 📂 ver0o1o0
         │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -135,23 +135,23 @@ function flip_pc(pc) {
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 lifegame_v1                  # アプリケーション
+        │   └── 📂 lifegame_vol1o0                  # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 📂 lifegame_v1          # アプリケーションと同名
+        │       │   └── 📂 lifegame_vol1o0          # アプリケーションと同名
         │       │       └── 📂 think
         │       │           └── 📂 things
         │       │               ├── 📂 board
 👉      │       │               │   └── 📄 v1o0.js
         │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
-        │       │   └── 📂 lifegame_v1
+        │       │   └── 📂 lifegame_vol1o0
         │       │       └── 📂 board
-        │       │           └── 📄 v0o1o0.html
+        │       │           └── 📄 ver0o1o0.html
         │       ├── 📂 views
         │       │   └── 📂 board
-        │       │       └── 📂 v0o1o0
+        │       │       └── 📂 ver0o1o0
         │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -512,23 +512,23 @@ ${indent}`;
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 lifegame_v1                  # アプリケーション
+        │   └── 📂 lifegame_vol1o0                  # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 📂 lifegame_v1          # アプリケーションと同名
+        │       │   └── 📂 lifegame_vol1o0          # アプリケーションと同名
         │       │       └── 📂 think
         │       │           ├── 📂 position
 👉      │       │           │   └── 📄 v1o0.js
         │       │           └── 📂 things
         │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
-        │       │   └── 📂 lifegame_v1
+        │       │   └── 📂 lifegame_vol1o0
         │       │       └── 📂 board
-        │       │           └── 📄 v0o1o0.html
+        │       │           └── 📄 ver0o1o0.html
         │       ├── 📂 views
         │       │   └── 📂 board
-        │       │       └── 📂 v0o1o0
+        │       │       └── 📂 ver0o1o0
         │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -594,11 +594,11 @@ ${indent}${this._boards[boardIndex].dump(indent + "    ")}`;
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 lifegame_v1                  # アプリケーション
+        │   └── 📂 lifegame_vol1o0                  # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 📂 lifegame_v1          # アプリケーションと同名
+        │       │   └── 📂 lifegame_vol1o0          # アプリケーションと同名
         │       │       └── 📂 think
         │       │           ├── 📂 position
         │       │           │   └── 📄 v1o0.js
@@ -607,12 +607,12 @@ ${indent}${this._boards[boardIndex].dump(indent + "    ")}`;
         │       │           └── 📂 user_ctrl
 👉      │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
-        │       │   └── 📂 lifegame_v1
+        │       │   └── 📂 lifegame_vol1o0
         │       │       └── 📂 board
-        │       │           └── 📄 v0o1o0.html
+        │       │           └── 📄 ver0o1o0.html
         │       ├── 📂 views
         │       │   └── 📂 board
-        │       │       └── 📂 v0o1o0
+        │       │       └── 📂 ver0o1o0
         │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -675,11 +675,11 @@ class UserCtrl {
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 lifegame_v1                  # アプリケーション
+        │   └── 📂 lifegame_vol1o0                  # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 📂 lifegame_v1          # アプリケーションと同名
+        │       │   └── 📂 lifegame_vol1o0          # アプリケーションと同名
         │       │       └── 📂 think
         │       │           ├── 📂 engine
         │       │           │   └── 📂 parser
@@ -691,12 +691,12 @@ class UserCtrl {
         │       │           └── 📂 user_ctrl
         │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
-        │       │   └── 📂 lifegame_v1
+        │       │   └── 📂 lifegame_vol1o0
         │       │       └── 📂 board
-        │       │           └── 📄 v0o1o0.html
+        │       │           └── 📄 ver0o1o0.html
         │       ├── 📂 views
         │       │   └── 📂 board
-        │       │       └── 📂 v0o1o0
+        │       │       └── 📂 ver0o1o0
         │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -872,11 +872,11 @@ class Parser {
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 lifegame_v1                  # アプリケーション
+        │   └── 📂 lifegame_vol1o0                  # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 📂 lifegame_v1          # アプリケーションと同名
+        │       │   └── 📂 lifegame_vol1o0          # アプリケーションと同名
         │       │       └── 📂 think
         │       │           ├── 📂 engine
         │       │           │   ├── 📂 parser
@@ -889,12 +889,12 @@ class Parser {
         │       │           └── 📂 user_ctrl
         │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
-        │       │   └── 📂 lifegame_v1
+        │       │   └── 📂 lifegame_vol1o0
         │       │       └── 📂 board
-        │       │           └── 📄 v0o1o0.html
+        │       │           └── 📄 ver0o1o0.html
         │       ├── 📂 views
         │       │   └── 📂 board
-        │       │       └── 📂 v0o1o0
+        │       │       └── 📂 ver0o1o0
         │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -1072,18 +1072,18 @@ ${indent}${this._position.dump(indent + "    ")}`;
 }
 ```
 
-# Step OAAA1001o1o0ga12o_5o0 画面作成 - board/v0o2o0.html ファイル
+# Step OAAA1001o1o0ga12o_5o0 画面作成 - board/ver0o2o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 lifegame_v1                  # アプリケーション
+        │   └── 📂 lifegame_vol1o0                  # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 📂 lifegame_v1          # アプリケーションと同名
+        │       │   └── 📂 lifegame_vol1o0          # アプリケーションと同名
         │       │       └── 📂 think
         │       │           ├── 📂 engine
         │       │           │   ├── 📂 parser
@@ -1096,13 +1096,13 @@ ${indent}${this._position.dump(indent + "    ")}`;
         │       │           └── 📂 user_ctrl
         │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
-        │       │   └── 📂 lifegame_v1
+        │       │   └── 📂 lifegame_vol1o0
         │       │       └── 📂 board
-        │       │           ├── 📄 v0o1o0.html
-👉      │       │           └── 📄 v0o2o0.html.txt
+        │       │           ├── 📄 ver0o1o0.html
+👉      │       │           └── 📄 ver0o2o0.html.txt
         │       ├── 📂 views
         │       │   └── 📂 board
-        │       │       └── 📂 v0o1o0
+        │       │       └── 📂 ver0o1o0
         │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -1115,13 +1115,12 @@ ${indent}${this._position.dump(indent + "    ")}`;
 ```
 
 ```html
-{# OAAA1001o1o0ga12o_5o0 #}
-<!-- -->
-{% extends "lifegame_v1/board/v0o1o0.html" %}
-{#          -----------------------------
+<!-- BOF OAAA1001o1o0ga12o_5o0 -->
+{% extends "lifegame_vol1o0/board/ver0o1o0.html" %}
+{#          -----------------------------------
             1
-1. src1/apps1/lifegame_v1/templates/lifegame_v1/board/v0o1o0.html
-                                    -----------------------------
+1. src1/apps1/lifegame_vol1o0/templates/lifegame_vol1o0/board/ver0o1o0.html
+                                        -----------------------------------
 #}
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 
@@ -1148,16 +1147,16 @@ ${indent}${this._position.dump(indent + "    ")}`;
             </v-app>
         </div>
 
-        <script src="{% static 'lifegame_v1/think/engine/parser/v1o0.js' %}"></script>
-        <script src="{% static 'lifegame_v1/think/engine/v1o0.js' %}"></script>
-        <script src="{% static 'lifegame_v1/think/position/v1o0.js' %}"></script>
-        <script src="{% static 'lifegame_v1/think/things/v1o0.js' %}"></script>
-        <script src="{% static 'lifegame_v1/think/things/board/v1o0.js' %}"></script>
-        <script src="{% static 'lifegame_v1/think/user_ctrl/v1o0.js' %}"></script>
-        <!--            ===========================================
+        <script src="{% static 'lifegame_vol1o0/think/engine/parser/v1o0.js' %}"></script>
+        <script src="{% static 'lifegame_vol1o0/think/engine/v1o0.js' %}"></script>
+        <script src="{% static 'lifegame_vol1o0/think/position/v1o0.js' %}"></script>
+        <script src="{% static 'lifegame_vol1o0/think/things/v1o0.js' %}"></script>
+        <script src="{% static 'lifegame_vol1o0/think/things/board/v1o0.js' %}"></script>
+        <script src="{% static 'lifegame_vol1o0/think/user_ctrl/v1o0.js' %}"></script>
+        <!--            ===============================================
                         1
-        1. src1/apps1/lifegame_v1/static/lifegame_v1/think/user_ctrl/v1o0.js
-                                  ==========================================
+        1. src1/apps1/lifegame_vol1o0/static/lifegame_vol1o0/think/user_ctrl/v1o0.js
+                                      ==============================================
         -->
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
@@ -1280,20 +1279,21 @@ board 0
             });
         </script>
 {% endblock body %}
+<!-- EOF OAAA1001o1o0ga12o_5o0 -->
 ```
 
-# Step OAAA1001o1o0ga12o_6o0 ビュー作成 - board/v0o2o0 フォルダー
+# Step OAAA1001o1o0ga12o_6o0 ビュー作成 - board/ver0o2o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 lifegame_v1                  # アプリケーション
+        │   └── 📂 lifegame_vol1o0                  # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 📂 lifegame_v1          # アプリケーションと同名
+        │       │   └── 📂 lifegame_vol1o0          # アプリケーションと同名
         │       │       └── 📂 think
         │       │           ├── 📂 engine
         │       │           │   ├── 📂 parser
@@ -1306,15 +1306,15 @@ board 0
         │       │           └── 📂 user_ctrl
         │       │               └── 📄 v1o0.js
         │       ├── 📂 templates
-        │       │   └── 📂 lifegame_v1
+        │       │   └── 📂 lifegame_vol1o0
         │       │       └── 📂 board
-        │       │           ├── 📄 v0o1o0.html
-        │       │           └── 📄 v0o2o0.html.txt
+        │       │           ├── 📄 ver0o1o0.html
+        │       │           └── 📄 ver0o2o0.html.txt
         │       ├── 📂 views
         │       │   └── 📂 board
-        │       │       ├── 📂 v0o1o0
+        │       │       ├── 📂 ver0o1o0
         │       │       │   └── 📄 __init__.py
-        │       │       └── 📂 v0o2o0
+        │       │       └── 📂 ver0o2o0
 👉      │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -1340,11 +1340,11 @@ class BoardView():
         """描画"""
 
         # Template path
-        this_page_tp = 'lifegame_v1/board/v0o2o0.html.txt'
-        #               ---------------------------------
+        this_page_tp = 'lifegame_vol1o0/board/ver0o2o0.html.txt'
+        #               ---------------------------------------
         #               1
-        # 1. `src1/apps1/lifegame_v1/templates/lifegame_v1/board/v0o2o0.html.txt` を取得
-        #                                      ---------------------------------
+        # 1. `src1/apps1/lifegame_vol1o0/templates/lifegame_vol1o0/board/ver0o2o0.html.txt` を取得
+        #                                          ---------------------------------------
 
         context = {}
         return render(request, this_page_tp, context)
@@ -1363,11 +1363,11 @@ Merged to OAAA1001o1o0ga12o_7o1o0
 ```plaintext
     ├── 📂 src1
     │   ├── 📂 apps1
-    │   │   └── 📂 lifegame_v1                  # アプリケーション
+    │   │   └── 📂 lifegame_vol1o0                  # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
-    │   │       │   └── 📂 lifegame_v1          # アプリケーションと同名
+    │   │       │   └── 📂 lifegame_vol1o0          # アプリケーションと同名
     │   │       │       └── 📂 think
     │   │       │           ├── 📂 engine
     │   │       │           │   ├── 📂 parser
@@ -1380,15 +1380,15 @@ Merged to OAAA1001o1o0ga12o_7o1o0
     │   │       │           └── 📂 user_ctrl
     │   │       │               └── 📄 v1o0.js
     │   │       ├── 📂 templates
-    │   │       │   └── 📂 lifegame_v1
+    │   │       │   └── 📂 lifegame_vol1o0
     │   │       │       └── 📂 board
-    │   │       │           ├── 📄 v0o1o0.html
-    │   │       │           └── 📄 v0o2o0.html.txt
+    │   │       │           ├── 📄 ver0o1o0.html
+    │   │       │           └── 📄 ver0o2o0.html.txt
     │   │       ├── 📂 views
     │   │       │   └── 📂 board
-    │   │       │       ├── 📂 v0o1o0
+    │   │       │       ├── 📂 ver0o1o0
     │   │       │       │   └── 📄 __init__.py
-    │   │       │       └── 📂 v0o2o0
+    │   │       │       └── 📂 ver0o2o0
     │   │       │           └── 📄 __init__.py
     │   │       ├── 📄 __init__.py
     │   │       ├── 📄 admin.py
@@ -1407,7 +1407,7 @@ Merged to OAAA1001o1o0ga12o_7o1o0
 ...略...
 
 
-../src1/project1/urls_lifegame_v1_autogen.py,lifegame/v0.2/board,lifegame_v0o2o0_board,"OAAA1001o1o0ga12o_7o1o0 ライフゲーム v0.2 の盤",apps1.lifegame_v1.views.board.v0o2o0,BoardView,BoardViewV0o2o0,render
+../src1/project1/urls_lifegame_vol1o0_autogen.py,lifegame/vol1.0/ver0.2/board,lifegame_1o0g0o2o0_board,"OAAA1001o1o0ga12o_7o1o0 ライフゲーム v0.2 の盤",apps1.lifegame_vol1o0.views.board.ver0o2o0,BoardView,BoardViewV0o2o0,render
 ```
 
 ## Step OAAA1001o1o0ga10o2o0 ルート編集 - コマンド打鍵
@@ -1427,7 +1427,7 @@ docker-compose restart
 
 # Step OAAA1001o1o0ga12o0 Webページにアクセスする
 
-📖 [http://localhost:8000/lifegame/v0.2/board](http://localhost:8000/lifegame/v0.2/board)  
+📖 [http://localhost:8000/lifegame/vol1.0/ver0.2/board](http://localhost:8000/lifegame/vol1.0/ver0.2/board)  
 
 # 続きの記事
 

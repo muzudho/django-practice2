@@ -57,8 +57,8 @@ INSTALLED_APPS = [
     # OA22o1o0g6o0 〇×ゲーム v3
     'apps1.tic_tac_toe_v3',
 
-    # OAAA1001o1o0g6o0 ライフゲーム v1
-    'apps1.lifegame_v1',
+    # OAAA1001o1o0g6o0 ライフゲーム1.0巻
+    'apps1.lifegame_vol1o0',
 
     # Djangoの標準アプリケーション
     'django.contrib.admin',
@@ -162,19 +162,19 @@ TEMPLATES = [
             # 2. まるで `http://example.com/tic_tac_toe_v1` という素材フォルダーがあるかのように扱われる
             #                             ---------------
 
-            # OAAA1001o1o0g8o0 ライフゲーム v1
-            os.path.join(BASE_DIR, 'apps1/lifegame_v1/templates'),
-            #                       ---------------------------
+            # OAAA1001o1o0g8o0 ライフゲーム1.0巻
+            os.path.join(BASE_DIR, 'apps1/lifegame_vol1.0/templates'),
+            #                       -------------------------------
             #                       10
-            # Example: /src1/apps1/lifegame_v1/templates/lifegame_v1/board/v0o1o0.html
-            #                      -----------          ------------
-            #                      11                   2
+            # Example: /src1/apps1/lifegame_vol1o0/templates/lifegame_vol1o0/board/ver0o1o0.html
+            #                      ---------------          ----------------
+            #                      11                       2
             #                ---------------------------
             #                10
             # 10. テンプレート ディレクトリーへのパス
             # 11. アプリケーション
-            # 2. まるで `http://example.com/lifegame_v1` という素材フォルダーがあるかのように扱われる
-            #                             ------------
+            # 2. まるで `http://example.com/lifegame_vol1o0` という素材フォルダーがあるかのように扱われる
+            #                             ----------------
         ],
         'APP_DIRS': True,
         'OPTIONS': {
