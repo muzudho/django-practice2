@@ -31,7 +31,7 @@ Django に最初から入っている HTMLレンダラー に満足できない�
 ```plaintext
     ├── 📂 src1
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized_v1    # アプリケーション
+    │   │   ├── 📂 allauth_customized_vol1o0    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
     │   │   └── 📂 practice_v1              # アプリケーション
     │   │       ├── 📂 management

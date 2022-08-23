@@ -31,7 +31,7 @@ Webサーバーとクライアント間で通知したい。
 ```plaintext
     ├── 📂 src1
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized_v1    # アプリケーション
+    │   │   ├── 📂 allauth_customized_vol1o0    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
     │   │   └── 📂 practice_v1              # アプリケーション
     │   │       ├── 📂 management

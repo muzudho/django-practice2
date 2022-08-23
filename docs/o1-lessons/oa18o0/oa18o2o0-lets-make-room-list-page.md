@@ -52,7 +52,7 @@ ID    部屋名        先手Id  先手名  後手Id  後手名  盤面       �
 ```plaintext
     ├── 📂 src1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized_v1    # アプリケーション
+    │   │   ├── 📂 allauth_customized_vol1o0    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
     │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations

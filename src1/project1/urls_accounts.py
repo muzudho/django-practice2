@@ -5,20 +5,20 @@ from django.urls import include, path
 # from django.views.generic import TemplateView  # 追加
 
 # O6o1o0gA12o0 サインアップ（会員登録）
-from apps1.allauth_customized_v1.views.accounts.v1o0 import AccountsV1SignupView
-#          ---------------------                ----        --------------------
-#          11                                   12          2
-#    -----------------------------------------------
+from apps1.allauth_customized_vol1o0.views.accounts.ver1o0 import AccountsV1SignupView
+#          -------------------------                ------        --------------------
+#          11                                       12            2
+#    -----------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. クラス
 
 # O8o1o0g4o0 ログイン（ユーザー認証）
-from apps1.allauth_customized_v1.views.login.v1o0 import AccountsV1LoginView
-#          ---------------------             ----        -------------------
-#          11                                12          2
-#    --------------------------------------------
+from apps1.allauth_customized_vol1o0.views.login.ver1o0 import AccountsV1LoginView
+#          -------------------------             ------        -------------------
+#          11                                    12            2
+#    --------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション

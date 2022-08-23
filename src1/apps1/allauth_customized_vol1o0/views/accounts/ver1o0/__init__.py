@@ -1,3 +1,5 @@
+# BOF O6o1o0gA11o0
+
 # See also: 📖[Custom Signup View in django-allauth](https://tech.serhatteker.com/post/2020-06/custom-signup-view-in-django-allauth/)
 from allauth.account.views import SignupView
 
@@ -11,8 +13,8 @@ class AccountsV1SignupView(SignupView):
     template_name = "account/signup.html"
     #                -------------------
     #                1
-    # 1. `src1/apps1/allauth_customized_v1/templates/account/signup.html` を取得
-    #                                                -------------------
+    # 1. `src1/apps1/allauth_customized_vol1o0/templates/account/signup.html` を取得
+    #                                                    -------------------
 
     # You can also override some other methods of SignupView
     # Like below:
@@ -21,3 +23,5 @@ class AccountsV1SignupView(SignupView):
     #
     # def get_context_data(self, **kwargs):
     #     ...
+
+# EOF O6o1o0gA11o0

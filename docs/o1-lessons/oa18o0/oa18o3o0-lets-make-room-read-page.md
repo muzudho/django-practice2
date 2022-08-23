@@ -79,7 +79,7 @@ Elephant
 ```plaintext
     ├── 📂 src1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized_v1    # アプリケーション
+    │   │   ├── 📂 allauth_customized_vol1o0    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
     │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations

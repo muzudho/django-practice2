@@ -74,13 +74,14 @@ docker-compose up
 ```plaintext
     └── 📂 src1                            # あなたの開発用ディレクトリー。任意の名前
         └── 📂 apps1
-            └── 📂 allauth_customized_v1    # アプリケーション
+            └── 📂 allauth_customized_vol1o0    # アプリケーション
                 └── 📂 templates
                     └── 📂 account          # allauth のディレクトリー構成を真似ます
 👉                      └── 📄 login.html
 ```
 
 ```html
+<!-- BOF O8o1o0g2o0 -->
 <!--
     📖[login.html](https://github.com/pennersr/django-allauth/blob/master/allauth/templates/account/login.html)
 -->
@@ -189,11 +190,11 @@ docker-compose up
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 
-        <script src="{% static 'allauth_customized_v1/form_html_parser/v1o0.js' %}"></script>
-        <!--            ======================================================
+        <script src="{% static 'allauth_customized_vol1o0/form_html_parser/v1o0.js' %}"></script>
+        <!--            ==========================================================
                         1
-            1. `src1/apps1/allauth_customized_v1/static/allauth_customized_v1/form_html_parser/v1o0.js`
-                                                 =====================================================
+            1. `src1/apps1/allauth_customized_vol1o0/static/allauth_customized_vol1o0/form_html_parser/v1o0.js`
+                                                     =========================================================
         -->
 
         <script>
@@ -259,6 +260,7 @@ docker-compose up
         </script>
     </body>
 </html>
+<!-- EOF O8o1o0g2o0 -->
 ```
 
 ## Step O8o1o0g3o0 ビュー作成 - login フォルダー
@@ -268,7 +270,7 @@ docker-compose up
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 allauth_customized_v1    # アプリケーション
+            └── 📂 allauth_customized_vol1o0    # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 account
                 │       └── 📄 login.html
@@ -279,6 +281,8 @@ docker-compose up
 ```
 
 ```py
+# BOF O8o1o0g3o0
+
 # See also: 📖[Custom Signup View in django-allauth](https://tech.serhatteker.com/post/2020-06/custom-signup-view-in-django-allauth/)
 from allauth.account.views import LoginView
 
@@ -289,11 +293,13 @@ class AccountsV1LoginView(LoginView):
     """
 
     # ファイルパス（使ってるか分からない）
-    template_name = "allauth_customized_v1/templates/account/login.html"
-    #                --------------------------------------------------
+    template_name = "allauth_customized_vol1o0/templates/account/login.html"
+    #                ------------------------------------------------------
     #                1
-    # 1. src1/apps1/allauth_customized_v1/templates/account/login.html を取得
-    #               --------------------------------------------------
+    # 1. src1/apps1/allauth_customized_vol1o0/templates/account/login.html を取得
+    #               ------------------------------------------------------
+
+# EOF O8o1o0g3o0
 ```
 
 ## Step O8o1o0g4o0 サブ ルート作成 - urls_accounts.py
@@ -303,7 +309,7 @@ URLの自動生成をしたくても、作りが他と異なるので、手作�
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 allauth_customized_v1    # アプリケーション
+        │   └── 📂 allauth_customized_vol1o0    # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 account
         │       │       └── 📄 login.html
@@ -318,17 +324,6 @@ URLの自動生成をしたくても、作りが他と異なるので、手作�
 
 ```py
 # ...略...
-
-
-# O8o1o0g4o0 ログイン（ユーザー認証）
-from apps1.allauth_customized_v1.views.login.v1o0 import AccountsV1LoginView
-#          ---------------------            -----        -------------------
-#          11                               12           2
-#    --------------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. クラス
 
 
 urlpatterns = [
@@ -371,7 +366,7 @@ urlpatterns = [
         │   ├── 📂 portal_v1
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 allauth_customized_v1    # アプリケーション
+        │   └── 📂 allauth_customized_vol1o0    # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 account
         │       │       └── 📄 login.html
