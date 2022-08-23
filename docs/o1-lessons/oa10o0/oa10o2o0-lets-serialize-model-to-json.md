@@ -250,7 +250,7 @@ docker-compose restart
 
 📖 [http://localhost:8000/practice/v1/from-object-to-json-str/](http://localhost:8000/practice/v1/from-object-to-json-str/)  
 
-## Step OA10o2o0g8o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+## Step OA10o2o0g8o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
@@ -280,7 +280,7 @@ docker-compose restart
 /practice/v1/from-object-to-json-str/,モデルをダンプ出力する
 ```
 
-👇 ポータルにリンクが追加されていることを確認してほしい 
+👇 ランチャーにリンクが追加されていることを確認してほしい 
 
 📖 [http://localhost:8000/](http://localhost:8000/)  
 

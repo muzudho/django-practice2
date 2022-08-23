@@ -3,17 +3,17 @@
 from django.shortcuts import render
 
 
-class Portal():
-    """O5o1o0gA10o0 ポータル ページ"""
+class Launcher():
+    """O5o1o0gA10o0 ランチャー"""
 
     def render(request):
         """描画"""
 
-        template_path = 'portal_v1/v1o0.html'
-        #                -------------------
+        template_path = 'launcher_vol1o0/ver1o0.html'
+        #                ---------------------------
         #                1
-        # 1. src1/apps1/practice_v1/templates/portal_v1/v1o0.html を取得
-        #                                     -------------------
+        # 1. `src1/apps1/practice_v1/templates/launcher_vol1o0/ver1o0.html` を取得
+        #                                      ---------------------------
 
         context = {
             "dj_path_of_page_the_hello": "/practice/v1/page-the-hello",

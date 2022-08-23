@@ -680,7 +680,7 @@ User: [あなたの名前]▽ 🖊 ➕
 
 📖 [http://localhost:8000/practice/v1/extends-user-list/](http://localhost:8000/practice/v1/extends-user-list/)  
 
-## Step O9o2o0gA16o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+## Step O9o2o0gA16o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
@@ -719,7 +719,7 @@ User: [あなたの名前]▽ 🖊 ➕
 /practice/v1/extends-user-list/,（拡張済）会員一覧
 ```
 
-👇 ポータルにリンクが追加されていることを確認してほしい 
+👇 ランチャーにリンクが追加されていることを確認してほしい 
 
 📖 [http://localhost:8000/](http://localhost:8000/)  
 

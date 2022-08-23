@@ -1899,7 +1899,7 @@ websocket_urlpatterns_merged.extend(
 
 📖 [http://localhost:8000/tic-tac-toe/v2/match-application/](http://localhost:8000/tic-tac-toe/v2/match-application/)  
 
-## Step OA16o3o0gA19o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+## Step OA16o3o0gA19o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
@@ -1955,7 +1955,7 @@ websocket_urlpatterns_merged.extend(
 /tic-tac-toe/v2/match-application/,〇×ゲーム v2
 ```
 
-👇 ポータルにリンクが追加されていることを確認してほしい 
+👇 ランチャーにリンクが追加されていることを確認してほしい 
 
 📖 [http://localhost:8000/](http://localhost:8000/)  
 

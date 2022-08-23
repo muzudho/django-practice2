@@ -181,7 +181,7 @@ docker-compose run --rm web python3 manage.py custom_createsuperuser --username 
 
 # 次の記事
 
-📖 [Djangoでポータルページを作成しよう！](https://qiita.com/muzudho1/items/ad2299cf94a9a5b1c254)  
+📖 [Djangoでランチャーを作成しよう！](https://qiita.com/muzudho1/items/ad2299cf94a9a5b1c254)  
 
 # 参考にした記事
 

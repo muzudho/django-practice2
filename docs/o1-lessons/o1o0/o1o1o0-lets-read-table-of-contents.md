@@ -49,7 +49,7 @@ Lesson O4o0 Super-user
 Lesson O5o0 Launcher  
 
 * 📖 [O5o1o0 ランチャーを作成しよう！](https://qiita.com/muzudho1/items/ad2299cf94a9a5b1c254)
-* 📖 [O5o2o0 CSVとpandasを使ってPythonコードを編集しなくてもポータルページのリンクを増減できるようにしよう！](https://qiita.com/muzudho1/items/19c44296501c29c41d31)
+* 📖 [O5o2o0 CSVとpandasを使ってPythonコードを編集しなくてもランチャーのリンクを増減できるようにしよう！](https://qiita.com/muzudho1/items/19c44296501c29c41d31)
 
 Lesson O6o0 Auth, Sign up  
 

@@ -4,7 +4,7 @@
 
 # 目標
 
-Pythonコードを編集しなくても、ポータルページのリンクを増減できるようにする  
+Pythonコードを編集しなくても、ランチャーのボタン（リンク）を増減できるようにする  
 
 # 情報
 
@@ -27,17 +27,17 @@ Pythonコードを編集しなくても、ポータルページのリンクを�
 ```plaintext
     ├── 📂 src1
     │   ├── 📂 apps1
-    │   │   ├── 📂 portal_v1                # アプリケーション
+    │   │   ├── 📂 launcher_vol1o0                # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   │   └── 📄 __init__.py
     │   │   │   ├── 📂 static
     │   │   │   │   └── 🚀 favicon.ico      # アプリケーション毎にアイコンを作るのがめんどくさいので static の直下に置いた
     │   │   │   ├── 📂 templates
-    │   │   │   │   └── 📂 portal_v1        # アプリケーションと同名
-    │   │   │   │       └── 📄 v1o0.html
+    │   │   │   │   └── 📂 launcher_vol1o0        # アプリケーションと同名
+    │   │   │   │       └── 📄 ver1o0.html
     │   │   │   ├── 📂 views
-    │   │   │   │   └── 📂 portal
-    │   │   │   │       └── 📂 v1o0
+    │   │   │   │   └── 📂 launcher
+    │   │   │   │       └── 📂 ver1o0
     │   │   │   │           └── 📄 __init__.py
     │   │   │   ├── 📄 __init__.py
     │   │   │   ├── 📄 admin.py
@@ -150,7 +150,7 @@ docker-compose up
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 portal_v1
+        │   └── 📂 launcher_vol1o0
         │       └── 📂 data
         │           └── 📄 finished-lessons.csv
         └── 📄 requirements.txt
@@ -160,42 +160,49 @@ docker-compose up
 
 ```csv
 path,label
-/practice/v1/portal,ポータルの練習
-/,ポータル
+/launcher/vol1.0/ver1.0/,ランチャー1.0巻 1.0版
+/,ポータル（ランチャー1.0巻 2.0版）
 /admin,管理画面
 /practice/v1/page-the-hello,こんにちわページ
 /practice/v1/page-to-be-added-1,１回追加されたページ
 /practice/v1/page-to-be-added-2,２回追加されたページ
 ```
 
-## Step O5o2o0g6o0 画面作成 - portal_base.html ファイル
+## Step O5o2o0g6o0 画面作成 - launcher_vol1o0/ver2o0.html ファイル
 
 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 portal_v1                    # アプリケーション名
+        │   └── 📂 launcher_vol1o0                  # アプリケーション
         │       ├── 📂 data
         │       │   └── 📄 finished-lesson.csv
         │       └── 📂 templates
-        │           └── 📂 portal_v1            # アプリケーション名と同名
-👉      │               └── 📄 v2o0.html
+        │           └── 📂 launcher_vol1o0          # アプリケーションと同名
+👉      │               └── 📄 ver2o0.html
         └── 📄 requirements.txt
 ```
 
 ```html
+{# BOF O5o2o0g6o0 #}
+<!-- -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <html lang="ja">
     <head>
         <meta charset="utf-8" />
-        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>ポータル</title>
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+        <!--                                                ===================
+                                                            1
+            1. Example: `http://example.com/static/favicon.ico`
+                                            ==================
+        -->
+        <title>ランチャー</title>
     </head>
     <body>
         <div id="app">
@@ -243,25 +250,25 @@ path,label
         </script>
     </body>
 </html>
+{# EOF O5o2o0g6o0 #}
 ```
 
-## Step O5o2o0g7o0 ビュー作成 - o2o0/portal フォルダー
+## Step O5o2o0g7o0 ビュー作成 - launcher/ver2o0 フォルダー
 
-以下のファイルを新規作成してほしい  
+👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 portal_v1            # アプリケーション名
+        │   └── 📂 launcher_vol1o0            # アプリケーション名
         │       ├── 📂 data
         │       │   └── 📄 finished-lesson.csv
         │       ├── 📂 templates
-        │       │   └── 📂 portal_v1    # アプリケーション名と同名
-        │       │       └── 📂 o2o0
-        │       │           └── 📄 portal_base.html
+        │       │   └── 📂 launcher_vol1o0    # アプリケーション名と同名
+        │       │       └── 📄 ver2o0.html
         │       └── 📂 views
-        │           └── 📂 portal
-        │               └── 📂 v2o0
+        │           └── 📂 launcher
+        │               └── 📂 ver2o0
 👉      │                   └── 📄 __init__.py
         └── 📄 requirements.txt
 ```
@@ -274,24 +281,24 @@ import pandas as pd
 from django.shortcuts import render
 
 
-class Portal():
-    """O5o2o0g7o0 ポータル ページ"""
+class Launcher():
+    """O5o2o0g7o0 ランチャー1.0巻 2.0版"""
 
     def render(request):
         """描画"""
 
-        template_path = 'portal_v1/v2o0.html'
-        #                           ^two
-        #                -------------------
+        template_path = 'launcher_vol1o0/ver2o0.html'
+        #                                   ^two
+        #                ---------------------------
         #                1
-        # 1. src1/apps1/portal_v1/templates/portal_v1/v2o0.html を取得
-        #                                   -------------------
+        # 1. src1/apps1/launcher_vol1o0/templates/launcher_vol1o0/ver2o0.html を取得
+        #                                         ---------------------------
 
-        df = pd.read_csv('apps1/portal_v1/data/finished-lessons.csv')
-        #                 -----------------------------------------
+        df = pd.read_csv('apps1/launcher_vol1o0/data/finished-lessons.csv')
+        #                 -----------------------------------------------
         #                 1
-        # 1. `src1/apps1/portal_v1/data/finished-lessons.csv` を読取
-        #          -----------------------------------------
+        # 1. `src1/apps1/launcher_vol1o0/data/finished-lessons.csv` を読取
+        #          -----------------------------------------------
 
         # print(df)
         #
@@ -343,18 +350,18 @@ URLの設定は自動化したいところだが、ルートパスの設定に�
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 portal_v1                # アプリケーション
+        │   └── 📂 launcher_vol1o0              # アプリケーション
         │       ├── 📂 data
         │       │   └── 📄 finished-lesson.csv
         │       ├── 📂 templates
-        │       │   └── 📂 portal_v1        # アプリケーションと同名
-        │       │       └── 📄 v2o0.html
+        │       │   └── 📂 launcher             # アプリケーションと同名
+        │       │       └── 📄 ver2o0.html
         │       └── 📂 views
-        │           └── 📂 portal
-        │               └── 📂 v2o0
+        │           └── 📂 launcher
+        │               └── 📂 ver2o0
         │                   └── 📄 __init__.py
         ├── 📂 project1
-👉      │   └── 📄 urls.py                   # こっち
+👉      │   └── 📄 urls.py                      # こっち
         └── 📄 requirements.txt
 ```
 
@@ -362,12 +369,12 @@ URLの設定は自動化したいところだが、ルートパスの設定に�
 # ...略...
 
 
-# O5o2o0g8o1o0 ポータル
-from apps1.portal_v1.views.portal.v2o0 import Portal as PortalO2o0
-#                                  ^two
-#          ---------              ----        ------    ----------
-#          11                     12          2         3
-#    ---------------------------------
+# O5o2o0g8o1o0 ランチャー1.0巻 2.0版
+from apps1.launcher_vol1o0.views.launcher.ver2o0 import Launcher as LauncherView1o0g2o0
+#                                            ^two
+#          ---------------                ------        --------    -------------------
+#          11                             12            2           3
+#    ------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -384,14 +391,14 @@ urlpatterns = [
     # ...中略...
 
 
-    # O5o2o0g8o1o0 ポータル
+    # O5o2o0g8o1o0 ランチャー1.0巻 2.0版
     # あとで allauth のURLをインクルードしたとき、そちらのルートパスのURL と衝突するようだから、
     # それより先に並べる必要がある
-    path('', PortalO2o0.render, name='portal'),
-    #    --  -----------------        ------
-    #    1   2                        3
+    path('', LauncherView1o0g2o0.render, name='portal'),
+    #    --  --------------------------        ------
+    #    1   2                                 3
     # 1. 例えば `http://example.com/` のようなURLの直下
-    # 2. PortalO2o0 (別名)クラスの render 静的メソッド
+    # 2. LauncherView1o0g2o0 クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'portal' %} のような形でURLを取得するのに使える
 ]
 ```

@@ -405,7 +405,7 @@ docker-compose restart
 
 📖 [http://localhost:8000/practice/v1/user-list/](http://localhost:8000/practice/v1/user-list/)  
 
-## Step O9o1o0g9o0 ポータルページのリンク用データ追加 - finished-lessons.csv ファイル
+## Step O9o1o0g9o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 
@@ -440,7 +440,7 @@ docker-compose restart
 /practice/v1/user-list/,会員一覧
 ```
 
-👇 ポータルにリンクが追加されていることを確認してほしい 
+👇 ランチャーにリンクが追加されていることを確認してほしい 
 
 📖 [http://localhost:8000/](http://localhost:8000/)  
 

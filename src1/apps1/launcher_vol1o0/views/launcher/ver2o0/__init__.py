@@ -5,24 +5,24 @@ import pandas as pd
 from django.shortcuts import render
 
 
-class Portal():
-    """O5o2o0g7o0 ポータル ページ"""
+class Launcher():
+    """O5o2o0g7o0 ランチャー1.0巻 2.0版"""
 
     def render(request):
         """描画"""
 
-        template_path = 'portal_v1/v2o0.html'
-        #                           ^two
-        #                -------------------
+        template_path = 'launcher_vol1o0/ver2o0.html'
+        #                                   ^two
+        #                ---------------------------
         #                1
-        # 1. src1/apps1/portal_v1/templates/portal_v1/v2o0.html を取得
-        #                                   -------------------
+        # 1. src1/apps1/launcher_vol1o0/templates/launcher_vol1o0/ver2o0.html を取得
+        #                                         ---------------------------
 
-        df = pd.read_csv('apps1/portal_v1/data/finished-lessons.csv')
-        #                 -----------------------------------------
+        df = pd.read_csv('apps1/launcher_vol1o0/data/finished-lessons.csv')
+        #                 -----------------------------------------------
         #                 1
-        # 1. `src1/apps1/portal_v1/data/finished-lessons.csv` を読取
-        #          -----------------------------------------
+        # 1. `src1/apps1/launcher_vol1o0/data/finished-lessons.csv` を読取
+        #          -----------------------------------------------
 
         # print(df)
         #

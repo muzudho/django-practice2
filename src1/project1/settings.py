@@ -45,7 +45,10 @@ DEBUG = True
 INSTALLED_APPS = [
     # あなたが追加したアプリケーション
     'apps1.practice_v1',
-    'apps1.portal_v1',
+
+    # O5o1o0g6o0 ランチャー1.0巻
+    'apps1.launcher_vol1o0',
+
     'apps1.allauth_customized_v1',
     # OA16o1o0g8o0 〇×ゲーム v1
     'apps1.tic_tac_toe_v1',
@@ -116,19 +119,19 @@ TEMPLATES = [
             # 2. まるで `http://example.com/practice_v1` という素材フォルダーがあるかのように扱われる
             #                             ------------
 
-            # ポータル
-            os.path.join(BASE_DIR, 'apps1/portal_v1/templates'),
-            #                       -------------------------
+            # O5o1o0g9o0 ランチャー1.0巻
+            os.path.join(BASE_DIR, 'apps1/launcher_vol1o0/templates'),
+            #                       ---------------------------
             #                       10
-            # Example: /src1/apps1/portal_v1/templates/portal_v1/v1o0.html
-            #                      ---------          ----------
-            #                      11                 2
-            #                -------------------------
+            # Example: /src1/apps1/launcher_vol1o0/templates/launcher_vol1o0/ver1o0.html
+            #                      ---------------          ----------------
+            #                      11                       2
+            #                -------------------------------
             #                10
             # 10. テンプレート ディレクトリーへのパス
             # 11. アプリケーション
-            # 2. まるで `http://example.com/practice_v1` という素材フォルダーがあるかのように扱われる
-            #                             ------------
+            # 2. まるで `http://example.com/launcher_vol1o0` という素材フォルダーがあるかのように扱われる
+            #                             -----------------
 
             # allauth
             os.path.join(BASE_DIR, 'apps1/allauth_customized_v1/templates'),
