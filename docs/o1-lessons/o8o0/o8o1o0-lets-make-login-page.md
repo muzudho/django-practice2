@@ -335,7 +335,7 @@ urlpatterns = [
     # ...中略...
 
 
-    # ログイン（入場）
+    # ログイン（ユーザー認証）
     path("accounts/v1/login/", view=AccountsV1LoginView.as_view(),
          # -----------------        -----------------------------
          # 1                        2

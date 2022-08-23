@@ -394,12 +394,12 @@ urlpatterns = [
     # O5o2o0g8o1o0 ランチャー1.0巻 2.0版
     # あとで allauth のURLをインクルードしたとき、そちらのルートパスのURL と衝突するようだから、
     # それより先に並べる必要がある
-    path('', LauncherView1o0g2o0.render, name='portal'),
-    #    --  --------------------------        ------
+    path('', LauncherView1o0g2o0.render, name='home'),
+    #    --  --------------------------        ----
     #    1   2                                 3
     # 1. 例えば `http://example.com/` のようなURLの直下
     # 2. LauncherView1o0g2o0 クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'portal' %} のような形でURLを取得するのに使える
+    # 3. HTMLテンプレートの中で {% url 'home' %} のような形でURLを取得するのに使える
 ]
 ```
 

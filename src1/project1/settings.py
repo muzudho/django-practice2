@@ -300,7 +300,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # +----
-# | Allauth
+# | O6o1o0g7o0 Allauth
 # |
 # https://sinyblog.com/django/django-allauth/
 
