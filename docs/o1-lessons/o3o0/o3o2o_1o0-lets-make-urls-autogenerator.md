@@ -420,6 +420,12 @@ urlpatterns.extend(urlpatterns_autogen)
 
 📖 [http://localhost:8000/practice/v1/hello2](http://localhost:8000/practice/v1/hello2)  
 
+## トラブルシューティング
+
+もし、 `TemplateDoesNotExist at /` といったエラーメッセージが出てきた場合、  
+同じURLを指す複数の `path( ... )` が urlpatterns変数に設定されていることが考えられる。  
+がんばって重複しないようにしてほしい  
+
 # 次の記事
 
 📖 [DjangoのHTMLのボイラープレートを減らすテンプレートを使おう！](https://qiita.com/muzudho1/items/7dcfc068e0bec009d371)  

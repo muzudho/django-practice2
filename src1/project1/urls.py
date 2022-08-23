@@ -74,6 +74,14 @@ urlpatterns = [
     # 2. `src1/projectN/urls_practice.py` の urlpatterns を `1.` にぶら下げる
     #          ----------------------
 
+    # O6o1o0gA13o0 ユーザー認証
+    path('', include(f'{PROJECT_NAME}.urls_accounts')),
+    #    --            ----------------------------
+    #    1             2
+    # 1. 例えば `http://example.com/` のような URLの直下
+    # 2. `src1/projectN/urls_accounts.py` の urlpatterns を `1.` にぶら下げる
+    #          ----------------------
+
     # O5o2o0g8o1o0 ランチャー1.0巻 2.0版
     # あとで allauth のURLをインクルードしたとき、そちらのルートパスのURL と衝突するようだから、
     # それより先に並べる必要がある
@@ -83,14 +91,6 @@ urlpatterns = [
     # 1. 例えば `http://example.com/` のようなURLの直下
     # 2. LauncherView1o0g2o0 クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'home' %} のような形でURLを取得するのに使える
-
-    # O6o1o0gA13o0 ユーザー認証
-    path('', include(f'{PROJECT_NAME}.urls_accounts')),
-    #    --            ----------------------------
-    #    1             2
-    # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `src1/projectN/urls_accounts.py` の urlpatterns を `1.` にぶら下げる
-    #          ----------------------
 ]
 
 # O3o2o_1o0g5o0 自動生成されたURL設定
