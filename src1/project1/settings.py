@@ -52,8 +52,8 @@ INSTALLED_APPS = [
     # O6o1o0g7o0 Allauthカスタマイズド1.0巻
     'apps1.allauth_customized_vol1o0',
 
-    # OA16o1o0g8o0 〇×ゲーム v1
-    'apps1.tic_tac_toe_v1',
+    # OA16o1o0g8o0 〇×ゲーム1.0巻
+    'apps1.tic_tac_toe_vol1o0',
     # OA16o2o0g6o0 〇×ゲーム v2
     'apps1.tic_tac_toe_v2',
     # OA22o1o0g6o0 〇×ゲーム v3
@@ -150,20 +150,20 @@ TEMPLATES = [
             # 2. まるで `http://example.com/account` という素材フォルダーがあるかのように扱われる
             #                             --------
 
-            # OA16o1o0gA22o0 〇×ゲーム v1
-            os.path.join(BASE_DIR, 'apps1/tic_tac_toe_v1/templates'),
-            #                       ------------------------------
+            # OA16o1o0gA22o0 〇×ゲーム1.0巻
+            os.path.join(BASE_DIR, 'apps1/tic_tac_toe_vol1o0/templates'),
+            #                       ----------------------------------
             #                       10
             #
-            # Example: `/src1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/match_application/v1o0.html`
-            #                       --------------          ---------------
-            #                       11                      2
-            #                 ------------------------------
+            # Example: `/src1/apps1/tic_tac_toe_vol1o0/templates/tic_tac_toe_vol1o0/match_application/ver1o0.html`
+            #                       ------------------          -------------------
+            #                       11                          2
+            #                 ----------------------------------
             #                 10
             # 10. テンプレート ディレクトリーへのパス
             # 11. アプリケーション
-            # 2. まるで `http://example.com/tic_tac_toe_v1` という素材フォルダーがあるかのように扱われる
-            #                             ---------------
+            # 2. まるで `http://example.com/tic_tac_toe_vol1o0` という素材フォルダーがあるかのように扱われる
+            #                             --------------------
 
             # OAAA1001o1o0g8o0 ライフゲーム1.0巻
             os.path.join(BASE_DIR, 'apps1/lifegame_vol1.0/templates'),

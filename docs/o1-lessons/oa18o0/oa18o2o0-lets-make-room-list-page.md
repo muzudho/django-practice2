@@ -59,7 +59,7 @@ ID    部屋名        先手Id  先手名  後手Id  後手名  盤面       �
     │   │   │   └── 📂 models
     │   │   │       └── 📂 room
     │   │   │           └── 📄 v1o0.py
-    │   │   ├── 📂 tic_tac_toe_v1           # アプリケーション
+    │   │   ├── 📂 tic_tac_toe_vol1o0           # アプリケーション
     │   │   └── 📂 tic_tac_toe_v2           # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py

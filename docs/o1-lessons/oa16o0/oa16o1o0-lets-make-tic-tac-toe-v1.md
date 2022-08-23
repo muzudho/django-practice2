@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/v1/match-application/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/vol1.0/ver1.0/match-application/)  
 
 # 目標
 
@@ -59,7 +59,7 @@ Webサーバーと、クライアント側のアプリ間で通信する練習�
     │   │       │   └── 📂 vuetifies
     │   │       ├── 📂 websocks
     │   │       │   └── 📂 consumer
-    │   │       │       └── 📄 v1o0.py
+    │   │       │       └── 📄 ver1o0.py
     │   │       ├── 📄 __init__.py
     │   │       ├── 📄 admin.py
     │   │       ├── 📄 apps.py
@@ -144,14 +144,14 @@ docker-compose up
 
 👆 これで Dockerコンテナに channels_redis パッケージをインストールした  
 
-## Step OA16o1o0g4o0 フォルダー作成 - apps1/tic_tac_toe_v1 フォルダー
+## Step OA16o1o0g4o0 フォルダー作成 - apps1/tic_tac_toe_vol1o0 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-👉      │   └── 📂 tic_tac_toe_v1    # アプリケーション
+👉      │   └── 📂 tic_tac_toe_vol1o0    # アプリケーション
         └── 📄 requirements.txt
 ```
 
@@ -163,9 +163,9 @@ docker-compose up
 👇 以下のコマンドを打鍵してほしい  
 
 ```shell
-docker-compose run --rm web python manage.py startapp tic_tac_toe_v1 ./apps1/tic_tac_toe_v1
-#                                                     -------------- ----------------------
-#                                                     1              2
+docker-compose run --rm web python manage.py startapp tic_tac_toe_vol1o0 ./apps1/tic_tac_toe_vol1o0
+#                                                     ------------------ --------------------------
+#                                                     1                  2
 # 1. 任意のDjangoアプリケーション名
 # 2. 既存のアプリケーション ディレクトリーへのパス
 ```
@@ -175,7 +175,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v1 ./apps1/tic
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-👉          └── 📂 tic_tac_toe_v1    # アプリケーション
+👉          └── 📂 tic_tac_toe_vol1o0    # アプリケーション
 👉              ├── 📂 migrations
 👉              │   └── 📄 __init__.py
 👉              ├── 📄 __init__.py
@@ -193,7 +193,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v1 ./apps1/tic
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v1    # アプリケーション
+            └── 📂 tic_tac_toe_vol1o0    # アプリケーション
                 ├── 📂 migrations
                 │   └── 📄 __init__.py
                 ├── 📄 __init__.py
@@ -211,7 +211,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v1 ./apps1/tic
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v1    # アプリケーション
+            └── 📂 tic_tac_toe_vol1o0    # アプリケーション
                 ├── 📂 migrations
                 │   └── 📄 __init__.py
                 ├── 📄 __init__.py
@@ -227,13 +227,13 @@ from django.apps import AppConfig
 class TicTacToeV1Config(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     # * 変更前
-    # name = 'tic_tac_toe_v1'
+    # name = 'tic_tac_toe_vol1o0'
     # * OA16o1o0g7o0 変更後
-    name = 'apps1.tic_tac_toe_v1'
-    #       --------------------
+    name = 'apps1.tic_tac_toe_vol1o0'
+    #       ------------------------
     #       1
-    # 1. `src1/apps1/tic_tac_toe_v1/apps.py`
-    #          --------------------
+    # 1. `src1/apps1/tic_tac_toe_vol1o0/apps.py`
+    #          ------------------------
 ```
 
 ## Step OA16o1o0g8o0 アプリケーション登録 - settings.py ファイル
@@ -243,7 +243,7 @@ class TicTacToeV1Config(AppConfig):
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v1    # アプリケーション
+        │   └── 📂 tic_tac_toe_vol1o0    # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📄 __init__.py
@@ -265,29 +265,29 @@ INSTALLED_APPS = [
     # ...略...
 
 
-    # OA16o1o0g8o0 〇×ゲーム v1
-    'apps1.tic_tac_toe_v1',
+    # OA16o1o0g8o0 〇×ゲーム1.0巻
+    'apps1.tic_tac_toe_vol1o0',
 
 
     # ...略...
 ]
 ```
 
-## Step OA16o1o0g9o0 Web ページのスタイル作成 - style/main/v1o0.css ファイル
+## Step OA16o1o0g9o0 Web ページのスタイル作成 - style/main/ver1o0.css ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v1            # アプリケーション
+        │   └── 📂 tic_tac_toe_vol1o0            # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 📂 tic_tac_toe_v1        # アプリケーションと同名
+        │       │   └── 📂 tic_tac_toe_vol1o0        # アプリケーションと同名
         │       │       └── 📂 style                 # ただのフォルダー
         │       │           └── 📂 main              # ただのフォルダー
-👉      │       │               └── 📄 v1o0.css
+👉      │       │               └── 📄 ver1o0.css
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -361,24 +361,24 @@ select {
 }
 ```
 
-## Step OA16o1o0gA10o0 機能作成 - scripts/play/v1o0.js ファイル
+## Step OA16o1o0gA10o0 機能作成 - scripts/play/ver1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v1            # アプリケーション
+        │   └── 📂 tic_tac_toe_vol1o0            # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 📂 tic_tac_toe_v1
+        │       │   └── 📂 tic_tac_toe_vol1o0
         │       │       ├── 📂 style
         │       │       │   └── 📂 main
-        │       │       │       └── 📄 v1o0.css
+        │       │       │       └── 📄 ver1o0.css
         │       │       └── 📂 scripts
         │       │           └── 📂 play
-👉      │       │               └── 📄 v1o0.js
+👉      │       │               └── 📄 ver1o0.js
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -387,13 +387,14 @@ select {
 ```
 
 ```js
-// OA16o1o0gA10o0
+// BOF OA16o1o0gA10o0
+
 // See also: 📖[Django Channels and WebSockets](https://blog.logrocket.com/django-channels-and-websockets/)
 
-var roomName = document.getElementById("board").getAttribute("room_name");
-var myPiece = document.getElementById("board").getAttribute("my_piece");
+let roomName = document.getElementById("board").getAttribute("room_name");
+let myPiece = document.getElementById("board").getAttribute("my_piece");
 
-var connectionString = `ws://${window.location.host}/tic-tac-toe/v1/playing/${roomName}/`;
+let connectionString = `ws://${window.location.host}/tic-tac-toe/v1/playing/${roomName}/`;
 //                      ----]----------------------- -----------------------------------
 //                      11   12                      13
 //                      ----------------------------------------------------------------
@@ -403,11 +404,11 @@ var connectionString = `ws://${window.location.host}/tic-tac-toe/v1/playing/${ro
 // 12. ホスト アドレス
 // 13. パス
 
-var webSock1 = new WebSocket(connectionString);
+let webSock1 = new WebSocket(connectionString);
 
 const PC_EMPTY = -1; // A square without piece; PC is piece
 // Game board for maintaing the state of the game
-var board = [PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY];
+let board = [PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY, PC_EMPTY];
 
 // SQ is square
 // +---------+
@@ -651,30 +652,32 @@ function connect() {
 
 //call the connect function at the start.
 connect();
+
+// EOF OA16o1o0gA10o0
 ```
 
-## Step OA16o1o0gA11o0 対局申込画面作成 - match_application/v1o0.html ファイル
+## Step OA16o1o0gA11o0 対局申込画面作成 - match_application/ver1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v1            # アプリケーション
+        │   └── 📂 tic_tac_toe_vol1o0            # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 📂 tic_tac_toe_v1
+        │       │   └── 📂 tic_tac_toe_vol1o0
         │       │       ├── 📂 style
         │       │       │   └── 📂 main
-        │       │       │       └── 📄 v1o0.css
+        │       │       │       └── 📄 ver1o0.css
         │       │       └── 📂 scripts
         │       │           └── 📂 play
-        │       │               └── 📄 v1o0.js
+        │       │               └── 📄 ver1o0.js
         │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v1        # アプリケーションと同名
+        │       │   └── 📂 tic_tac_toe_vol1o0        # アプリケーションと同名
         │       │       └── 📂 match_application
-👉      │       │           └── 📄 v1o0.html
+👉      │       │           └── 📄 ver1o0.html
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -683,8 +686,7 @@ connect();
 ```
 
 ```html
-{# OA16o1o0gA11o0 #}
-<!-- -->
+<!-- BOF OA16o1o0gA11o0 -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <html lang="en">
@@ -692,11 +694,11 @@ connect();
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Tic Tac Toe</title>
-        <link rel="stylesheet" href='{% static "tic_tac_toe_v1/style/main/v1o0.css" %}' />
-        <!--                            ==========================================
+        <link rel="stylesheet" href='{% static "tic_tac_toe_vol1o0/style/main/ver1o0.css" %}' />
+        <!--                            ================================================
                                         1
-        1. `src1/apps1/tic_tac_toe_v1/static/tic_tac_toe_v1/style/main/v1o0.css`
-                                      =========================================
+        1. `src1/apps1/tic_tac_toe_vol1o0/static/tic_tac_toe_vol1o0/style/main/ver1o0.css`
+                                          ===============================================
         -->
     </head>
     <body>
@@ -723,32 +725,33 @@ connect();
         </div>
     </body>
 </html>
+<!-- EOF OA16o1o0gA11o0 -->
 ```
 
-## Step OA16o1o0gA12o0 対局画面作成 - playing/v1o0.html ファイル
+## Step OA16o1o0gA12o0 対局画面作成 - playing/ver1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v1            # アプリケーション
+        │   └── 📂 tic_tac_toe_vol1o0            # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 📂 tic_tac_toe_v1
+        │       │   └── 📂 tic_tac_toe_vol1o0
         │       │       ├── 📂 style
         │       │       │   └── 📂 main
-        │       │       │       └── 📄 v1o0.css
+        │       │       │       └── 📄 ver1o0.css
         │       │       └── 📂 scripts
         │       │           └── 📂 play
-        │       │               └── 📄 v1o0.js
+        │       │               └── 📄 ver1o0.js
         │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v1        # アプリケーションと同名
+        │       │   └── 📂 tic_tac_toe_vol1o0        # アプリケーションと同名
         │       │       ├── 📂 match_application
-        │       │       │   └── 📄 v1o0.html
+        │       │       │   └── 📄 ver1o0.html
         │       │       └── 📂 playing
-👉      │       │           └── 📄 v1o0.html
+👉      │       │           └── 📄 ver1o0.html
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -757,8 +760,7 @@ connect();
 ```
 
 ```html
-{# OA16o1o0gA12o0 #}
-<!-- -->
+<!-- BOF OA16o1o0gA12o0 -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <html lang="en">
@@ -766,11 +768,11 @@ connect();
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Tic Tac Toe</title>
-        <link rel="stylesheet" href='{% static "tic_tac_toe_v1/style/main/v1o0.css" %}' />
-        <!--                            ==========================================
+        <link rel="stylesheet" href='{% static "tic_tac_toe_vol1o0/style/main/ver1o0.css" %}' />
+        <!--                            ================================================
                                         1
-        1. `src1/apps1/tic_tac_toe/static/tic_tac_toe_v1/style/main/v1o0.css`
-                                   =========================================
+        1. `src1/apps1/tic_tac_toe/static/tic_tac_toe_vol1o0/style/main/ver1o0.css`
+                                   ===============================================
         -->
     </head>
     <body>
@@ -793,15 +795,16 @@ connect();
             <div id="alert_move">Your turn. Place your move <strong>{{my_piece}}</strong></div>
         </div>
 
-        <script src="{% static 'tic_tac_toe_v1/scripts/play/v1o0.js' %}"></script>
-        <!--            ===========================================
+        <script src="{% static 'tic_tac_toe_vol1o0/scripts/play/ver1o0.js' %}"></script>
+        <!--            =================================================
                         1
-        1. `src1/apps1/tic_tac_toe_v1/static/tic_tac_toe_v1/scripts/play/v1o0.js`
-                                      ==========================================
+        1. `src1/apps1/tic_tac_toe_vol1o0/static/tic_tac_toe_vol1o0/scripts/play/ver1o0.js`
+                                          ================================================
         -->
         {% block javascript %} {% endblock javascript %}
     </body>
 </html>
+<!-- EOF OA16o1o0gA12o0 -->
 ```
 
 ## Step OA16o1o0gA13o0 ビュー作成 - match_application/v1o0 フォルダー
@@ -811,23 +814,23 @@ connect();
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v1            # アプリケーション
+        │   └── 📂 tic_tac_toe_vol1o0            # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 📂 tic_tac_toe_v1
+        │       │   └── 📂 tic_tac_toe_vol1o0
         │       │       ├── 📂 style
         │       │       │   └── 📂 main
-        │       │       │       └── 📄 v1o0.css
+        │       │       │       └── 📄 ver1o0.css
         │       │       └── 📂 scripts
         │       │           └── 📂 play
-        │       │               └── 📄 v1o0.js
+        │       │               └── 📄 ver1o0.js
         │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v1        # アプリケーションと同名
+        │       │   └── 📂 tic_tac_toe_vol1o0        # アプリケーションと同名
         │       │       ├── 📂 match_application
-        │       │       │   └── 📄 v1o0.html
+        │       │       │   └── 📄 ver1o0.html
         │       │       └── 📂 playing
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 ver1o0.html
         │       ├── 📂 views
         │       │   └── 📂 match_application
         │       │       └── 📂 v1o0
@@ -845,19 +848,19 @@ connect();
 class MatchApplicationV():
     """OA16o1o0gA13o0 対局申込ビュー"""
 
-    playing_web_path = "/tic-tac-toe/v1/playing/{0}/?&mypiece={1}"
-    #                                 ^one
-    #                   -----------------------------------------
+    playing_web_path = "/tic-tac-toe/vol1.0/ver1.0/playing/{0}/?&mypiece={1}"
+    #                                   ^one
+    #                   ----------------------------------------------------
     #                   1
-    # 1. `http://example.com:8000/tic-tac-toe/v1/playing/Elephant/?&mypiece=X`
-    #                            --------------------------------------------
+    # 1. `http://example.com:8000/tic-tac-toe/vol1.0/ver1.0/playing/Elephant/?&mypiece=X`
+    #                            -------------------------------------------------------
 
-    template_path = "tic_tac_toe_v1/match_application/v1o0.html"
-    #                             ^one
-    #                ------------------------------------------
+    template_path = "tic_tac_toe_vol1o0/match_application/ver1o0.html"
+    #                               ^one
+    #                ------------------------------------------------
     #                1
-    # 1. src1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/match_application/v1o0.html
-    #                                        ------------------------------------------
+    # 1. src1/apps1/tic_tac_toe_vol1o0/templates/tic_tac_toe_vol1o0/match_application/ver1o0.html
+    #                                            ------------------------------------------------
 
     def render(request):
         """描画"""
@@ -866,8 +869,8 @@ class MatchApplicationV():
         from .v_render import render_match_application
         #    ---------        ------------------------
         #    1                2
-        # 1. `src1/apps1/tic_tac_toe_v1/views/match_application/v1o0/v_render.py`
-        #                                                            --------
+        # 1. `src1/apps1/tic_tac_toe_vol1o0/views/match_application/v1o0/v_render.py`
+        #                                                                --------
         # 2. `1.` に含まれる関数
 
         return render_match_application(
@@ -886,23 +889,23 @@ class MatchApplicationV():
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v1            # アプリケーション
+        │   └── 📂 tic_tac_toe_vol1o0            # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 📂 tic_tac_toe_v1
+        │       │   └── 📂 tic_tac_toe_vol1o0
         │       │       ├── 📂 style
         │       │       │   └── 📂 main
-        │       │       │       └── 📄 v1o0.css
+        │       │       │       └── 📄 ver1o0.css
         │       │       └── 📂 scripts
         │       │           └── 📂 play
-        │       │               └── 📄 v1o0.js
+        │       │               └── 📄 ver1o0.js
         │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v1        # アプリケーションと同名
+        │       │   └── 📂 tic_tac_toe_vol1o0        # アプリケーションと同名
         │       │       ├── 📂 match_application
-        │       │       │   └── 📄 v1o0.html
+        │       │       │   └── 📄 ver1o0.html
         │       │       └── 📂 playing
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 ver1o0.html
         │       ├── 📂 views
         │       │   └── 📂 match_application
         │       │       └── 📂 v1o0
@@ -952,23 +955,23 @@ def render_match_application(request, upf_playing, match_application_tp):
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v1            # アプリケーション
+        │   └── 📂 tic_tac_toe_vol1o0            # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 📂 tic_tac_toe_v1
+        │       │   └── 📂 tic_tac_toe_vol1o0
         │       │       ├── 📂 style
         │       │       │   └── 📂 main
-        │       │       │       └── 📄 v1o0.css
+        │       │       │       └── 📄 ver1o0.css
         │       │       └── 📂 scripts
         │       │           └── 📂 play
-        │       │               └── 📄 v1o0.js
+        │       │               └── 📄 ver1o0.js
         │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v1        # アプリケーションと同名
+        │       │   └── 📂 tic_tac_toe_vol1o0        # アプリケーションと同名
         │       │       ├── 📂 match_application
-        │       │       │   └── 📄 v1o0.html
+        │       │       │   └── 📄 ver1o0.html
         │       │       └── 📂 playing
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 ver1o0.html
         │       ├── 📂 views
         │       │   ├── 📂 match_application
         │       │   │   └── 📂 v1o0
@@ -990,12 +993,12 @@ def render_match_application(request, upf_playing, match_application_tp):
 class PlayingV():
     """OA16o1o0gA15o0 対局中ビュー"""
 
-    template_path = "tic_tac_toe_v1/playing/v1o0.html"
-    #                                        ^one
-    #                --------------------------------
+    template_path = "tic_tac_toe_vol1o0/playing/ver1o0.html"
+    #                                              ^one
+    #                --------------------------------------
     #                1
-    # 1. `src1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/playing/v1o0.html`
-    #                                         --------------------------------
+    # 1. `src1/apps1/tic_tac_toe_vol1o0/templates/tic_tac_toe_vol1o0/playing/ver1o0.html`
+    #                                             --------------------------------------
 
     def render(request, room_name):
         """描画"""
@@ -1004,8 +1007,8 @@ class PlayingV():
         from .v_render import render_playing
         #    ---------        --------------
         #    1                2
-        # 1. `src1/apps1/tic_tac_toe_v1/views/playing/v1o0/v_render.py`
-        #                                                  --------
+        # 1. `src1/apps1/tic_tac_toe_vol1o0/views/playing/v1o0/v_render.py`
+        #                                                      --------
         # 2. `1.` に含まれる関数
 
         return render_playing(request, room_name, PlayingV.template_path)
@@ -1020,23 +1023,23 @@ class PlayingV():
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v1            # アプリケーション
+        │   └── 📂 tic_tac_toe_vol1o0            # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 📂 tic_tac_toe_v1
+        │       │   └── 📂 tic_tac_toe_vol1o0
         │       │       ├── 📂 style
         │       │       │   └── 📂 main
-        │       │       │       └── 📄 v1o0.css
+        │       │       │       └── 📄 ver1o0.css
         │       │       └── 📂 scripts
         │       │           └── 📂 play
-        │       │               └── 📄 v1o0.js
+        │       │               └── 📄 ver1o0.js
         │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v1
+        │       │   └── 📂 tic_tac_toe_vol1o0
         │       │       ├── 📂 match_application
-        │       │       │   └── 📄 v1o0.html
+        │       │       │   └── 📄 ver1o0.html
         │       │       └── 📂 playing
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 ver1o0.html
         │       ├── 📂 views
         │       │   ├── 📂 match_application
         │       │   │   └── 📂 v1o0
@@ -1093,23 +1096,23 @@ Merged to OA16o1o0gA17o1o0
 ```plaintext
     ├── 📂 src1
     │   ├── 📂 apps1
-    │   │   └── 📂 tic_tac_toe_v1            # アプリケーション
+    │   │   └── 📂 tic_tac_toe_vol1o0            # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
-    │   │       │   └── 📂 tic_tac_toe_v1
+    │   │       │   └── 📂 tic_tac_toe_vol1o0
     │   │       │       ├── 📂 style
     │   │       │       │   └── 📂 main
-    │   │       │       │       └── 📄 v1o0.css
+    │   │       │       │       └── 📄 ver1o0.css
     │   │       │       └── 📂 scripts
     │   │       │           └── 📂 play
-    │   │       │               └── 📄 v1o0.js
+    │   │       │               └── 📄 ver1o0.js
     │   │       ├── 📂 templates
-    │   │       │   └── 📂 tic_tac_toe_v1
+    │   │       │   └── 📂 tic_tac_toe_vol1o0
     │   │       │       ├── 📂 match_application
-    │   │       │       │   └── 📄 v1o0.html
+    │   │       │       │   └── 📄 ver1o0.html
     │   │       │       └── 📂 playing
-    │   │       │           └── 📄 v1o0.html
+    │   │       │           └── 📄 ver1o0.html
     │   │       ├── 📂 views
     │   │       │   ├── 📂 match_application
     │   │       │   │   └── 📂 v1o0
@@ -1134,8 +1137,8 @@ Merged to OA16o1o0gA17o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_v1_autogen.py,tic-tac-toe/v1/match-application/,,"OA16o1o0gA17o1o0 対局申込",apps1.tic_tac_toe_v1.views.match_application.v1o0,MatchApplicationV,,render
-../src1/project1/urls_tic_tac_toe_v1_autogen.py,tic-tac-toe/v1/playing/<str:room_name>/,,"OA16o1o0gA17o1o0 対局中",apps1.tic_tac_toe_v1.views.playing.v1o0,PlayingV,,render
+../src1/project1/urls_tic_tac_toe_v1_autogen.py,tic-tac-toe/vol1.0/ver1.0/match-application/,,"OA16o1o0gA17o1o0 対局申込",apps1.tic_tac_toe_vol1o0.views.match_application.v1o0,MatchApplicationV,,render
+../src1/project1/urls_tic_tac_toe_v1_autogen.py,tic-tac-toe/vol1.0/ver1.0/playing/<str:room_name>/,,"OA16o1o0gA17o1o0 対局中",apps1.tic_tac_toe_vol1o0.views.playing.v1o0,PlayingV,,render
 ```
 
 ## Step OA16o1o0gA17o2o0 ルート編集 - コマンド打鍵
@@ -1157,30 +1160,30 @@ docker-compose restart
 
 Merged to OA16o1o0gA17o1o0  
 
-## Step OA16o1o0gA19o0 consumer/v1o0.py ファイルの作成
+## Step OA16o1o0gA19o0 consumer/ver1o0.py ファイルの作成
 
 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v1            # アプリケーション
+        │   └── 📂 tic_tac_toe_vol1o0            # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 📂 tic_tac_toe_v1
+        │       │   └── 📂 tic_tac_toe_vol1o0
         │       │       ├── 📂 style
         │       │       │   └── 📂 main
-        │       │       │       └── 📄 v1o0.css
+        │       │       │       └── 📄 ver1o0.css
         │       │       └── 📂 scripts
         │       │           └── 📂 play
-        │       │               └── 📄 v1o0.js
+        │       │               └── 📄 ver1o0.js
         │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v1
+        │       │   └── 📂 tic_tac_toe_vol1o0
         │       │       ├── 📂 match_application
-        │       │       │   └── 📄 v1o0.html
+        │       │       │   └── 📄 ver1o0.html
         │       │       └── 📂 playing
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 ver1o0.html
         │       ├── 📂 views
         │       │   ├── 📂 match_application
         │       │   │   └── 📂 v1o0
@@ -1192,7 +1195,7 @@ Merged to OA16o1o0gA17o1o0
         │       │           └── 📄 v_render.py
         │       ├── 📂 websocks
         │       │   └── 📂 consumer
-👉      │       │       └── 📄 v1o0.py
+👉      │       │       └── 📄 ver1o0.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -1284,23 +1287,23 @@ class TicTacToeV1Consumer(AsyncJsonWebsocketConsumer):
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v1            # アプリケーション
+        │   └── 📂 tic_tac_toe_vol1o0            # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 📂 tic_tac_toe_v1
+        │       │   └── 📂 tic_tac_toe_vol1o0
         │       │       ├── 📂 style
         │       │       │   └── 📂 main
-        │       │       │       └── 📄 v1o0.css
+        │       │       │       └── 📄 ver1o0.css
         │       │       └── 📂 scripts
         │       │           └── 📂 play
-        │       │               └── 📄 v1o0.js
+        │       │               └── 📄 ver1o0.js
         │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v1
+        │       │   └── 📂 tic_tac_toe_vol1o0
         │       │       ├── 📂 match_application
-        │       │       │   └── 📄 v1o0.html
+        │       │       │   └── 📄 ver1o0.html
         │       │       └── 📂 playing
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 ver1o0.html
         │       ├── 📂 views
         │       │   ├── 📂 match_application
         │       │   │   └── 📂 v1o0
@@ -1312,7 +1315,7 @@ class TicTacToeV1Consumer(AsyncJsonWebsocketConsumer):
         │       │           └── 📄 v_render.py
         │       ├── 📂 websocks
         │       │   └── 📂 consumer
-        │       │       └── 📄 v1o0.py
+        │       │       └── 📄 ver1o0.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -1325,14 +1328,16 @@ class TicTacToeV1Consumer(AsyncJsonWebsocketConsumer):
 ```
 
 ```py
+# BOF OA16o1o0gA20o0
+
 # See also: 📖 [Channels - Consumers](https://channels.readthedocs.io/en/latest/topics/consumers.html)
 from django.conf.urls import url
 
-# OA16o1o0gA20o0 〇×ゲーム v1
-from apps1.tic_tac_toe_v1.websocks.consumer.v1o0 import TicTacToeV1Consumer
-#          --------------                   ----        -------------------
-#          11                               12          2
-#    -------------------------------------------
+# OA16o1o0gA20o0 〇×ゲーム1.0巻 1.0版
+from apps1.tic_tac_toe_vol1o0.websocks.consumer.ver1o0 import TicTacToeV1Consumer
+#          ------------------                   ------        -------------------
+#          11                                   12            2
+#    -------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -1341,7 +1346,7 @@ from apps1.tic_tac_toe_v1.websocks.consumer.v1o0 import TicTacToeV1Consumer
 
 websocket_urlpatterns = [
 
-    # OA16o1o0gA20o0 〇×ゲーム v1
+    # OA16o1o0gA20o0 〇×ゲーム1.0巻 1.0版
     url(r'^tic-tac-toe/v1/playing/(?P<room_name>\w+)/$',
         # --------------------------------------------
         # 1
@@ -1353,6 +1358,8 @@ websocket_urlpatterns = [
     #    room_name は変数として渡される
     # 2. クラス名とメソッド。 URL を ASGI形式にする
 ]
+
+# EOF OA16o1o0gA20o0
 ```
 
 ## Step OA16o1o0gA21o0 Webソケット用総合ルート編集 - asgi.py ファイル＜その２＞
@@ -1362,23 +1369,23 @@ websocket_urlpatterns = [
 ```plaintext
     ├── 📂 src1
     │   ├── 📂 apps1
-    │   │   └── 📂 tic_tac_toe_v1            # アプリケーション
+    │   │   └── 📂 tic_tac_toe_vol1o0            # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
-    │   │       │   └── 📂 tic_tac_toe_v1
+    │   │       │   └── 📂 tic_tac_toe_vol1o0
     │   │       │       ├── 📂 style
     │   │       │       │   └── 📂 main
-    │   │       │       │       └── 📄 v1o0.css
+    │   │       │       │       └── 📄 ver1o0.css
     │   │       │       └── 📂 scripts
     │   │       │           └── 📂 play
-    │   │       │               └── 📄 v1o0.js
+    │   │       │               └── 📄 ver1o0.js
     │   │       ├── 📂 templates
-    │   │       │   └── 📂 tic_tac_toe_v1
+    │   │       │   └── 📂 tic_tac_toe_vol1o0
     │   │       │       ├── 📂 match_application
-    │   │       │       │   └── 📄 v1o0.html
+    │   │       │       │   └── 📄 ver1o0.html
     │   │       │       └── 📂 playing
-    │   │       │           └── 📄 v1o0.html
+    │   │       │           └── 📄 ver1o0.html
     │   │       ├── 📂 views
     │   │       │   ├── 📂 match_application
     │   │       │   │   └── 📂 v1o0
@@ -1390,7 +1397,7 @@ websocket_urlpatterns = [
     │   │       │           └── 📄 v_render.py
     │   │       ├── 📂 websocks
     │   │       │   └── 📂 consumer
-    │   │       │       └── 📄 v1o0.py
+    │   │       │       └── 📄 ver1o0.py
     │   │       ├── 📄 __init__.py
     │   │       ├── 📄 admin.py
     │   │       ├── 📄 apps.py
@@ -1453,23 +1460,23 @@ websocket_urlpatterns_merged.extend(
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v1            # アプリケーション
+        │   └── 📂 tic_tac_toe_vol1o0            # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 📂 tic_tac_toe_v1
+        │       │   └── 📂 tic_tac_toe_vol1o0
         │       │       ├── 📂 style
         │       │       │   └── 📂 main
-        │       │       │       └── 📄 v1o0.css
+        │       │       │       └── 📄 ver1o0.css
         │       │       └── 📂 scripts
         │       │           └── 📂 play
-        │       │               └── 📄 v1o0.js
+        │       │               └── 📄 ver1o0.js
         │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v1
+        │       │   └── 📂 tic_tac_toe_vol1o0
         │       │       ├── 📂 match_application
-        │       │       │   └── 📄 v1o0.html
+        │       │       │   └── 📄 ver1o0.html
         │       │       └── 📂 playing
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 ver1o0.html
         │       ├── 📂 views
         │       │   ├── 📂 match_application
         │       │   │   └── 📂 v1o0
@@ -1481,7 +1488,7 @@ websocket_urlpatterns_merged.extend(
         │       │           └── 📄 v_render.py
         │       ├── 📂 websocks
         │       │   └── 📂 consumer
-        │       │       └── 📄 v1o0.py
+        │       │       └── 📄 ver1o0.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -1509,20 +1516,20 @@ TEMPLATES = [
 
 
             # * 以下を追加
-            # OA16o1o0gA22o0 〇×ゲーム v1
-            os.path.join(BASE_DIR, 'apps1/tic_tac_toe_v1/templates'),
-            #                       ------------------------------
+            # OA16o1o0gA22o0 〇×ゲーム1.0巻
+            os.path.join(BASE_DIR, 'apps1/tic_tac_toe_vol1o0/templates'),
+            #                       ----------------------------------
             #                       10
             #
-            # Example: `/src1/apps1/tic_tac_toe_v1/templates/tic_tac_toe_v1/match_application/v1o0.html`
-            #                       --------------          ---------------
-            #                       11                      2
-            #                 ------------------------------
+            # Example: `/src1/apps1/tic_tac_toe_vol1o0/templates/tic_tac_toe_vol1o0/match_application/ver1o0.html`
+            #                       ------------------          -------------------
+            #                       11                          2
+            #                 ----------------------------------
             #                 10
             # 10. テンプレート ディレクトリーへのパス
             # 11. アプリケーション
-            # 2. まるで `http://example.com/tic_tac_toe_v1` という素材フォルダーがあるかのように扱われる
-            #                             ---------------
+            # 2. まるで `http://example.com/tic_tac_toe_vol1o0` という素材フォルダーがあるかのように扱われる
+            #                             --------------------
         ],
 
 
@@ -1537,7 +1544,7 @@ TEMPLATES = [
 
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでください  
 
-📖 [http://localhost:8000/tic-tac-toe/v1/match-application/](http://localhost:8000/tic-tac-toe/v1/match-application/)  
+📖 [http://localhost:8000/tic-tac-toe/vol1.0/ver1.0/match-application/](http://localhost:8000/tic-tac-toe/vol1.0/ver1.0/match-application/)  
 
 ## Step OA16o1o0gA24o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -1549,23 +1556,23 @@ TEMPLATES = [
         │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 tic_tac_toe_v1                # アプリケーション
+        │   └── 📂 tic_tac_toe_vol1o0                # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 static
-        │       │   └── 📂 tic_tac_toe_v1
+        │       │   └── 📂 tic_tac_toe_vol1o0
         │       │       ├── 📂 style
         │       │       │   └── 📂 main
-        │       │       │       └── 📄 v1o0.css
+        │       │       │       └── 📄 ver1o0.css
         │       │       └── 📂 scripts
         │       │           └── 📂 play
-        │       │               └── 📄 v1o0.js
+        │       │               └── 📄 ver1o0.js
         │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v1
+        │       │   └── 📂 tic_tac_toe_vol1o0
         │       │       ├── 📂 match_application
-        │       │       │   └── 📄 v1o0.html
+        │       │       │   └── 📄 ver1o0.html
         │       │       └── 📂 playing
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 ver1o0.html
         │       ├── 📂 views
         │       │   ├── 📂 match_application
         │       │   │   └── 📂 v1o0
@@ -1577,7 +1584,7 @@ TEMPLATES = [
         │       │           └── 📄 v_render.py
         │       ├── 📂 websocks
         │       │   └── 📂 consumer
-        │       │       └── 📄 v1o0.py
+        │       │       └── 📄 ver1o0.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -1592,7 +1599,7 @@ TEMPLATES = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/tic-tac-toe/v1/match-application/,〇×ゲーム v1
+/tic-tac-toe/vol1.0/ver1.0/match-application/,〇×ゲーム1.0巻 1.0版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

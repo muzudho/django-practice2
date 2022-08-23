@@ -59,7 +59,7 @@ id が 4 の部屋を削除したい
     │   │   │   └── 📂 models
     │   │   │       └── 📂 room
     │   │   │           └── 📄 v1o0.py
-    │   │   ├── 📂 tic_tac_toe_v1        # アプリケーション
+    │   │   ├── 📂 tic_tac_toe_vol1o0        # アプリケーション
     │   │   └── 📂 tic_tac_toe_v2        # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py

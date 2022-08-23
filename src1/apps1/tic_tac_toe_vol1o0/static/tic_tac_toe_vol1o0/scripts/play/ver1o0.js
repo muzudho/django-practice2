@@ -1,4 +1,5 @@
-// OA16o1o0gA10o0
+// BOF OA16o1o0gA10o0
+
 // See also: 📖[Django Channels and WebSockets](https://blog.logrocket.com/django-channels-and-websockets/)
 
 let roomName = document.getElementById("board").getAttribute("room_name");
@@ -262,3 +263,5 @@ function connect() {
 
 //call the connect function at the start.
 connect();
+
+// EOF OA16o1o0gA10o0

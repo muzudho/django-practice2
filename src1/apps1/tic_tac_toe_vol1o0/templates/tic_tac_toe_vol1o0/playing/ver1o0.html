@@ -1,5 +1,4 @@
-{# OA16o1o0gA12o0 #}
-<!-- -->
+<!-- BOF OA16o1o0gA12o0 -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <html lang="en">
@@ -7,11 +6,11 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Tic Tac Toe</title>
-        <link rel="stylesheet" href='{% static "tic_tac_toe_v1/style/main/v1o0.css" %}' />
-        <!--                            ==========================================
+        <link rel="stylesheet" href='{% static "tic_tac_toe_vol1o0/style/main/ver1o0.css" %}' />
+        <!--                            ================================================
                                         1
-        1. `src1/apps1/tic_tac_toe/static/tic_tac_toe_v1/style/main/v1o0.css`
-                                   =========================================
+        1. `src1/apps1/tic_tac_toe/static/tic_tac_toe_vol1o0/style/main/ver1o0.css`
+                                   ===============================================
         -->
     </head>
     <body>
@@ -34,12 +33,13 @@
             <div id="alert_move">Your turn. Place your move <strong>{{my_piece}}</strong></div>
         </div>
 
-        <script src="{% static 'tic_tac_toe_v1/scripts/play/v1o0.js' %}"></script>
-        <!--            ===========================================
+        <script src="{% static 'tic_tac_toe_vol1o0/scripts/play/ver1o0.js' %}"></script>
+        <!--            =================================================
                         1
-        1. `src1/apps1/tic_tac_toe_v1/static/tic_tac_toe_v1/scripts/play/v1o0.js`
-                                      ==========================================
+        1. `src1/apps1/tic_tac_toe_vol1o0/static/tic_tac_toe_vol1o0/scripts/play/ver1o0.js`
+                                          ================================================
         -->
         {% block javascript %} {% endblock javascript %}
     </body>
 </html>
+<!-- EOF OA16o1o0gA12o0 -->
