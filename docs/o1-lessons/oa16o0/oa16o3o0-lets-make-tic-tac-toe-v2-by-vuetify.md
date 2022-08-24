@@ -1717,8 +1717,8 @@ Merged to OA16o3o0gA15o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/vol2.0/ver1.0/match-application/,,"OA16o3o0gA15o1o0 〇×ゲーム2.0巻 1.0版 対局申込",apps1.tic_tac_toe_vol2o0.views.gui.match_application.v1o0,MatchApplicationV,,render
-../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/vol2.0/ver1.0/playing/<str:kw_room_name>/,,"OA16o3o0gA15o1o0 〇×ゲーム2.0巻 1.0版 対局中",apps1.tic_tac_toe_vol2o0.views.gui.playing.v1o0,PlayingV,,render
+../src1/project1/urls_tic_tac_toe_vol2o0_autogen.py,tic-tac-toe/vol2.0/ver1.0/match-application/,,"OA16o3o0gA15o1o0 〇×ゲーム2.0巻 1.0版 対局申込",apps1.tic_tac_toe_vol2o0.views.gui.match_application.v1o0,MatchApplicationV,,render
+../src1/project1/urls_tic_tac_toe_vol2o0_autogen.py,tic-tac-toe/vol2.0/ver1.0/playing/<str:kw_room_name>/,,"OA16o3o0gA15o1o0 〇×ゲーム2.0巻 1.0版 対局中",apps1.tic_tac_toe_vol2o0.views.gui.playing.v1o0,PlayingV,,render
 ```
 
 ## Step OA16o3o_2o0g5o2o0 ルート編集 - コマンド打鍵

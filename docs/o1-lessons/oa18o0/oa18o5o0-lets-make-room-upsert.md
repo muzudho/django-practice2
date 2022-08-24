@@ -412,8 +412,8 @@ Merged to OA18o5o0g6o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_v2_autogen.py,practice/v1/rooms/upsert/,practice_v1_rooms_create,"OA18o5o0g6o1o0 対局部屋の新規作成",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_upsert
-../src1/project1/urls_tic_tac_toe_v2_autogen.py,practice/v1/rooms/upsert/<int:id>/,practice_v1_rooms_update,"OA18o5o0g6o1o0 対局部屋の更新",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_upsert
+../src1/project1/urls_practice_autogen.py,practice/v1/rooms/upsert/,practice_v1_rooms_create,"OA18o5o0g6o1o0 対局部屋の新規作成",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_upsert
+../src1/project1/urls_practice_autogen.py,practice/v1/rooms/upsert/<int:id>/,practice_v1_rooms_update,"OA18o5o0g6o1o0 対局部屋の更新",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_upsert
 ```
 
 ## Step OA18o4o0g5o2o0 ルート編集 - コマンド打鍵

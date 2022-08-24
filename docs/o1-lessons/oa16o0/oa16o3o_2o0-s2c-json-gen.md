@@ -569,7 +569,7 @@ Merged to OA16o3o_2o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/vol2.0/ver1.0/s2c-json-gen/,,"OA16o3o_2o0g5o1o0 〇×ゲーム2.0巻 1.0版 S2C JSON ジェネレーター",apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.v1o0,S2cJsonGenView,S2cJsonGenViewV1o0,render
+../src1/project1/urls_tic_tac_toe_vol2o0_autogen.py,tic-tac-toe/vol2.0/ver1.0/s2c-json-gen/,,"OA16o3o_2o0g5o1o0 〇×ゲーム2.0巻 1.0版 S2C JSON ジェネレーター",apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.v1o0,S2cJsonGenView,S2cJsonGenViewV1o0,render
 ```
 
 ## Step OA16o3o_2o0g5o2o0 ルート編集 - コマンド打鍵

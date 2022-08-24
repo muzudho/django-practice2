@@ -47,11 +47,11 @@ class MatchApplicationV():
         ]),
     }
 
-    playing_web_path = "/tic-tac-toe/vol3.0/ver3.4/playing/{0}/?&myturn={1}"
-    #                                          ^three
+    playing_web_path = "/tic-tac-toe/vol3.0/playing/ver4.0/{0}/?&myturn={1}"
+    #                                                  ^four
     #                   ---------------------------------------------------
     #                   1
-    # 1. `http://example.com:8000/tic-tac-toe/vol3.0/ver3.4/playing/Elephant/?&myturn=X`
+    # 1. `http://example.com:8000/tic-tac-toe/vol3.0/playing/ver4.0/Elephant/?&myturn=X`
     #                            ------------------------------------------------------
 
     @staticmethod

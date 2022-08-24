@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/vol3.0/ver3.2/match-application/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/vol3.0/match-application/ver2.0/)  
 
 # 目標
 
@@ -345,7 +345,7 @@ Merged to OA23o1o0g4o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_v3_autogen.py,tic-tac-toe/vol3.0/ver3.2/match-application/,tic_tac_toe_v3g2o0_match_application,"OA23o1o0g4o1o0 〇×ゲーム3.0巻 対局申込中3.2版",apps1.tic_tac_toe_vol3o0.views.match_application.v2o0,MatchApplicationV,TicTacToeV3g2o0MatchApplicationV,render
+../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/match-application/ver2.0/,,"OA23o1o0g4o1o0 〇×ゲーム3.0巻 対局申込中2.0版",apps1.tic_tac_toe_vol3o0.views.match_application.v2o0,MatchApplicationV,TicTacToeV3g2o0MatchApplicationV,render
 ```
 
 ## Step OA23o1o0g4o2o0 ルート編集 - コマンド打鍵
@@ -381,7 +381,7 @@ docker-compose restart
 
 👇 そして `Elephant` 部屋に `X` 番として入ってほしい  
 
-📖 [http://localhost:8000/tic-tac-toe/vol3.0/ver3.2/match-application/](http://localhost:8000/tic-tac-toe/vol3.0/ver3.2/match-application/)  
+📖 [http://localhost:8000/tic-tac-toe/vol3.0/match-application/ver2.0/](http://localhost:8000/tic-tac-toe/vol3.0/match-application/ver2.0/)  
 
 ここで、ログアウトしたなら対局部屋を追い出されるべきだが、まだそこまで作っていない。  
 
@@ -395,7 +395,7 @@ docker-compose restart
 
 👇 `Elephant` 部屋に `O` 番として入ってほしい  
 
-📖 [http://localhost:8000/tic-tac-toe/vol3.0/ver3.2/match-application/](http://localhost:8000/tic-tac-toe/vol3.0/ver3.2/match-application/)  
+📖 [http://localhost:8000/tic-tac-toe/vol3.0/match-application/ver2.0/](http://localhost:8000/tic-tac-toe/vol3.0/match-application/ver2.0/)  
 
 👇 部屋、ユーザーを確認するには、管理画面を使うのが確実だ。  
 スーパーユーザーのまま、管理画面に入っていてほしい  
@@ -429,7 +429,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/tic-tac-toe/vol3.0/ver3.2/match-application/,〇×ゲーム3.0巻 対局申込中3.2版
+/tic-tac-toe/vol3.0/match-application/ver2.0/,〇×ゲーム3.0巻 対局申込中2.0版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

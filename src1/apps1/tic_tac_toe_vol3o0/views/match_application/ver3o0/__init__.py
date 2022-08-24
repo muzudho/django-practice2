@@ -32,11 +32,12 @@ from apps1.tic_tac_toe_vol3o0.views.match_application.ver1o0 import MatchApplica
 class MatchApplicationV():
     """OA24o1o0g6o0 対局申込ビュー"""
 
-    playing_web_path = "/tic-tac-toe/vol3.0/ver3.3/playing/{0}/?&myturn={1}"
+    # 〇×ゲーム3.0巻 対局中3.0版
+    playing_web_path = "/tic-tac-toe/vol3.0/playing/ver3.0/{0}/?&myturn={1}"
     #                                   ^three
     #                   ---------------------------------------------------
     #                   1
-    # 1. `http://example.com:8000/tic-tac-toe/vol3.0/ver3.3/playing/Elephant/?&myturn=X`
+    # 1. `http://example.com:8000/tic-tac-toe/vol3.0/playing/ver3.0/Elephant/?&myturn=X`
     #                            ------------------------------------------------------
 
     @staticmethod

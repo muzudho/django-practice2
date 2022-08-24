@@ -1792,7 +1792,7 @@ Merged to OA16o2o0gA16o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/vol2.0/ver1.0/engine-manual/,,"OA16o2o0gA16o1o0 〇×ゲーム2.0巻 1.0版 思考エンジン手動",apps1.tic_tac_toe_vol2o0.views.think.engine_manual.v1o0,EngineManual,,render
+../src1/project1/urls_tic_tac_toe_vol2o0_autogen.py,tic-tac-toe/vol2.0/ver1.0/engine-manual/,,"OA16o2o0gA16o1o0 〇×ゲーム2.0巻 1.0版 思考エンジン手動",apps1.tic_tac_toe_vol2o0.views.think.engine_manual.v1o0,EngineManual,,render
 ```
 
 ## Step OA16o2o0gA16o2o0 ルート編集 - コマンド打鍵

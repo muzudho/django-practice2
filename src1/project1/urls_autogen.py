@@ -16,9 +16,9 @@ urlpatterns = [
     path('', include(f'{PROJECT_NAME}.urls_launcher_vol1o0_autogen')),
     path('', include(f'{PROJECT_NAME}.urls_lifegame_vol1o0_autogen')),
     path('', include(f'{PROJECT_NAME}.urls_practice_autogen')),
-    path('', include(f'{PROJECT_NAME}.urls_tic_tac_toe_v1_autogen')),
-    path('', include(f'{PROJECT_NAME}.urls_tic_tac_toe_v2_autogen')),
-    path('', include(f'{PROJECT_NAME}.urls_tic_tac_toe_v3_autogen')),
+    path('', include(f'{PROJECT_NAME}.urls_tic_tac_toe_vol1o0_autogen')),
+    path('', include(f'{PROJECT_NAME}.urls_tic_tac_toe_vol2o0_autogen')),
+    path('', include(f'{PROJECT_NAME}.urls_tic_tac_toe_vol3o0_autogen')),
 ]
 
 # EOF O3o2o_1o0g4o0

@@ -26,6 +26,11 @@ from apps1.practice_v1.views.vuetifies import VuetifyV
 from apps1.practice_v1.views.vuetifies import VuetifyV
 from apps1.practice_v1.views.vuetifies import VuetifyV
 from apps1.practice_v1.views.vuetifies import VuetifyV
+from apps1.practice_v1.views.room.v1o0 import RoomV as RoomVV1o0
+from apps1.practice_v1.views.room.v1o0 import RoomV as RoomVV1o0
+from apps1.practice_v1.views.room.v1o0 import RoomV as RoomVV1o0
+from apps1.practice_v1.views.room.v1o0 import RoomV as RoomVV1o0
+from apps1.practice_v1.views.room.v1o0 import RoomV as RoomVV1o0
 from apps1.practice_v1.views.my.v1o0 import MyV
 from apps1.practice_v1.views.lobby.v1o0 import LobbyV
 from apps1.practice_v1.views.auto_reload.v1o0 import AutoReloadV
@@ -104,6 +109,21 @@ urlpatterns = [
 
     # OA13o4o0gA13o1o0 ビューティファイでテキストエリア入力から保存まで . 保存
     path('practice/v1/vuetify/save-desserts1-from-textarea1', VuetifyV.render_save_result_of_desserts1_from_textarea1, name='vuetify_save_desserts1_from_textarea1'),
+
+    # OA18o2o0g7o1o0 対局部屋の一覧 v1.0
+    path('practice/v1/rooms/', RoomVV1o0.render_list, name='practice_v1_rooms'),
+
+    # OA18o3o0g5o1o0 対局部屋の詳細
+    path('practice/v1/rooms/read/<int:id>/', RoomVV1o0.render_read, name='practice_v1_rooms_read'),
+
+    # OA18o4o0g5o1o0 対局部屋の削除
+    path('practice/v1/rooms/delete/<int:id>/', RoomVV1o0.render_delete, name='practice_v1_rooms_delete'),
+
+    # OA18o5o0g6o1o0 対局部屋の新規作成
+    path('practice/v1/rooms/upsert/', RoomVV1o0.render_upsert, name='practice_v1_rooms_create'),
+
+    # OA18o5o0g6o1o0 対局部屋の更新
+    path('practice/v1/rooms/upsert/<int:id>/', RoomVV1o0.render_upsert, name='practice_v1_rooms_update'),
 
     # OA19o1o0g5o1o0 マイページ ビュー
     path('practice/v1/my/', MyV.render_my, name='practice_v1_my'),

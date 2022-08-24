@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/vol3.0/ver3.1/match-application/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/vol3.0/match-application/ver1.0/)  
 
 # 目標
 
@@ -308,11 +308,11 @@ class MatchApplicationV():
     """OA22o1o0g8o0 対局申込ビュー"""
 
     # 〇×ゲーム3.0巻 対局中3.1版
-    playing_web_path = "/tic-tac-toe/vol3.0/ver3.1/playing/{0}/?&myturn={1}"
+    playing_web_path = "/tic-tac-toe/vol3.0/playing/ver1.0/{0}/?&myturn={1}"
     #                                   ^three
     #                   ---------------------------------------------------
     #                   1
-    # 1. `http://example.com:8000/tic-tac-toe/vol3.0/ver3.1/playing/Elephant/?&myturn=X`
+    # 1. `http://example.com:8000/tic-tac-toe/vol3.0/playing/ver1.0/Elephant/?&myturn=X`
     #                            ------------------------------------------------------
 
     @staticmethod
@@ -485,17 +485,17 @@ Merged to OA22o1o0gA10o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_v3_autogen.py,tic-tac-toe/vol3.0/ver3.1/match-application/,tic_tac_toe_v3g1o0_match_application,"OA22o1o0gA10o1o0 〇×ゲーム3.0巻 対局申込中1.0版",apps1.tic_tac_toe_vol3o0.views.match_application.ver1o0,MatchApplicationV,TicTacToeV3g1o0MatchApplicationV,render
-../src1/project1/urls_tic_tac_toe_v3_autogen.py,tic-tac-toe/vol3.0/ver3.1/match-application/,tic_tac_toe_v3g1o0_playing,"OA22o1o0gA10o1o0 〇×ゲーム3.0巻 対局中1.0版",apps1.tic_tac_toe_vol3o0.views.playing.v1o0,PlayingV,TicTacToeV3g1o0PlayingV,render
+../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/match-application/ver1.0/,,"OA22o1o0gA10o1o0 〇×ゲーム3.0巻 対局申込中1.0版",apps1.tic_tac_toe_vol3o0.views.match_application.ver1o0,MatchApplicationV,TicTacToeV3g1o0MatchApplicationV,render
+../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/match-application/ver1.0/,,"OA22o1o0gA10o1o0 〇×ゲーム3.0巻 対局中1.0版",apps1.tic_tac_toe_vol3o0.views.playing.v1o0,PlayingV,TicTacToeV3g1o0PlayingV,render
 ```
 
 備考:  
 
 ```plaintext
-path('tic-tac-toe/vol3.0/ver3.1/playing/<str:kw_room_name>/', XxxView.render, name="playing")
+path('tic-tac-toe/vol3.0/playing/ver1.0/<str:kw_room_name>/', XxxView.render, name="playing")
       -----------------------------------------------------   --------------        -------
       1                                                       2                     3
-1. 例えば `http://example.com/tic-tac-toe/vol3.0/ver3.1/playing/<部屋名>/` のような URL のパスの部分にマッチする
+1. 例えば `http://example.com/tic-tac-toe/vol3.0/playing/ver1.0/<部屋名>/` のような URL のパスの部分にマッチする
                              -------------------------------------------
    <部屋名> に入った文字列は `2.` のメソッドの kw_room_name 引数に渡される
 2. XxxView クラスの render メソッド
@@ -521,7 +521,7 @@ docker-compose restart
 
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでください  
 
-📖 [http://localhost:8000/tic-tac-toe/vol3.0/ver3.1/match-application/](http://localhost:8000/tic-tac-toe/vol3.0/ver3.1/match-application/)  
+📖 [http://localhost:8000/tic-tac-toe/vol3.0/match-application/ver1.0/](http://localhost:8000/tic-tac-toe/vol3.0/match-application/ver1.0/)  
 
 ## Step OA22o1o0gA12o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -559,7 +559,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/tic-tac-toe/vol3.0/ver3.1/match-application/,〇×ゲーム3.0巻 対局申込中3.1版
+/tic-tac-toe/vol3.0/match-application/ver1.0/,〇×ゲーム3.0巻 対局申込中1.0版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

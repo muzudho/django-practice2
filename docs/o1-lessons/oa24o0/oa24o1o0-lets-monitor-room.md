@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/vol3.0/ver3.3/match-application/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/vol3.0/match-application/ver3.0/)  
 
 # 目標
 
@@ -474,11 +474,12 @@ from apps1.tic_tac_toe_vol3o0.views.match_application.ver1o0 import MatchApplica
 class MatchApplicationV():
     """OA24o1o0g6o0 対局申込ビュー"""
 
-    playing_web_path = "/tic-tac-toe/vol3.0/ver3.3/playing/{0}/?&myturn={1}"
+    # 〇×ゲーム3.0巻 対局中3.0版
+    playing_web_path = "/tic-tac-toe/vol3.0/playing/ver3.0/{0}/?&myturn={1}"
     #                                   ^three
     #                   ---------------------------------------------------
     #                   1
-    # 1. `http://example.com:8000/tic-tac-toe/vol3.0/ver3.3/playing/Elephant/?&myturn=X`
+    # 1. `http://example.com:8000/tic-tac-toe/vol3.0/playing/ver3.0/Elephant/?&myturn=X`
     #                            ------------------------------------------------------
 
     @staticmethod
@@ -627,8 +628,8 @@ Marged to OA24o1o0g8o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_v3_autogen.py,tic-tac-toe/vol3.0/ver3.3/match-application/,tic_tac_toe_v3g3o0_match_application,"OA24o1o0g8o1o0 〇×ゲーム3.0巻 対局申込中3.3版",apps1.tic_tac_toe_vol3o0.views.match_application.ver3o0,MatchApplicationV,TicTacToeV3g3o0MatchApplicationV,render
-../src1/project1/urls_tic_tac_toe_v3_autogen.py,tic-tac-toe/vol3.0/ver3.3/playing/<str:kw_room_name>/,tic_tac_toe_v3g3o0_playing,"OA24o1o0g8o1o0 〇×ゲーム3.0巻 対局中3.3版",apps1.tic_tac_toe_vol3o0.views.playing.ver3o0,PlayingV,TicTacToeV3g3o0PlayingV,render
+../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/match-application/ver3.0/,,"OA24o1o0g8o1o0 〇×ゲーム3.0巻 対局申込中3.0版",apps1.tic_tac_toe_vol3o0.views.match_application.ver3o0,MatchApplicationV,TicTacToeV3g3o0MatchApplicationV,render
+../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/playing/ver3.0/<str:kw_room_name>/,,"OA24o1o0g8o1o0 〇×ゲーム3.0巻 対局中3.0版",apps1.tic_tac_toe_vol3o0.views.playing.ver3o0,PlayingV,TicTacToeV3g3o0PlayingV,render
 ```
 
 ## Step OA24o1o0g8o2o0 ルート編集 - コマンド打鍵
@@ -654,7 +655,7 @@ docker-compose restart
 
 📖 [http://localhost:8000/accounts/vol1.0/ver1.0/signup/](http://localhost:8000/accounts/vol1.0/ver1.0/signup/)  
 📖 [http://localhost:8000/accounts/vol1.0/ver1.0/login/](http://localhost:8000/accounts/vol1.0/ver1.0/login/)  
-📖 [http://localhost:8000/tic-tac-toe/vol3.0/ver3.3/match-application/](http://localhost:8000/tic-tac-toe/vol3.0/ver3.3/match-application/)  
+📖 [http://localhost:8000/tic-tac-toe/vol3.0/match-application/ver3.0/](http://localhost:8000/tic-tac-toe/vol3.0/match-application/ver3.0/)  
 
 部屋、ユーザーを確認するには、管理画面を使うのが確実です:  
 
@@ -689,7 +690,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/tic-tac-toe/vol3.0/ver3.3/match-application/,〇×ゲーム3.0巻 対局申込中3.3版
+/tic-tac-toe/vol3.0/match-application/ver4.0/,〇×ゲーム3.0巻 対局申込中4.0版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 
