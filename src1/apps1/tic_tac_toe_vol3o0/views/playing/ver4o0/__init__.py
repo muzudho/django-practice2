@@ -1,26 +1,26 @@
 # BOF OA25o1o0g4o0
 
-# 〇×ゲーム v3 対局中 v1.0
-from apps1.tic_tac_toe_v3.views.playing.v1o0 import PlayingV as PlayingVV3o1o0
-#          --------------               ----        --------    --------------
-#          11                           12          2           3
-#    ---------------------------------------
+# 〇×ゲーム3.0巻 対局中1.0版
+from apps1.tic_tac_toe_vol3o0.views.playing.ver1o0 import PlayingV as PlayingVV3o1o0
+#          ------------------               ------        --------    --------------
+#          11                               12            2           3
+#    ---------------------------------------------
 #    10
-# 10. `src1/apps1/tic_tac_toe_v3/views/playing/v1o0/__init__.py`
-#           ---------------------------------------
+# 10. `src1/apps1/tic_tac_toe_vol3o0/views/playing/ver1o0/__init__.py`
+#           ---------------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 # 3. '2.' の別名
 
-# 〇×ゲーム v3 対局中 v3.0
-from apps1.tic_tac_toe_v3.views.playing.v3o0 import PlayingV as PlayingVV3o3o0
-#          --------------               ----        --------    --------------
-#          11                           12          2           3
-#    ---------------------------------------
+# 〇×ゲーム3.0巻 対局中3.0版
+from apps1.tic_tac_toe_vol3o0.views.playing.ver3o0 import PlayingV as PlayingVV3o3o0
+#          ------------------               ------        --------    --------------
+#          11                               12            2           3
+#    ---------------------------------------------
 #    10
-# 10. `src1/apps1/tic_tac_toe_v3/views/playing/v3o0/__init__.py`
-#           ---------------------------------------
+# 10. `src1/apps1/tic_tac_toe_vol3o0/views/playing/ver3o0/__init__.py`
+#           ---------------------------------------------
 # 11. アプリケーション
 # 12. ただのディレクトリー
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
@@ -33,12 +33,12 @@ class PlayingV():
     # 駒
     expected_pieces = ['X', 'O', '_']
 
-    template_path = "tic_tac_toe_v3/playing/v4o0.html.txt"
-    #                                        ^four
-    #                ------------------------------------
+    template_path = "tic_tac_toe_vol3o0/playing/ver4o0.html.txt"
+    #                                              ^four
+    #                ------------------------------------------
     #                1
-    # 1. `src1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/playing/v4o0.html.txt`
-    #                                         ------------------------------------
+    # 1. `src1/apps1/tic_tac_toe_vol3o0/templates/tic_tac_toe_vol3o0/playing/ver4o0.html.txt`
+    #                                             ------------------------------------------
 
     @staticmethod
     def render(request, kw_room_name):

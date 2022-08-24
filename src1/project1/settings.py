@@ -58,8 +58,8 @@ INSTALLED_APPS = [
     # OA16o2o0g6o0 〇×ゲーム2.0巻
     'apps1.tic_tac_toe_vol2o0',
 
-    # OA22o1o0g6o0 〇×ゲーム v3
-    'apps1.tic_tac_toe_v3',
+    # OA22o1o0g6o0 〇×ゲーム3.0巻
+    'apps1.tic_tac_toe_vol3o0',
 
     # OAAA1001o1o0g6o0 ライフゲーム1.0巻
     'apps1.lifegame_vol1o0',

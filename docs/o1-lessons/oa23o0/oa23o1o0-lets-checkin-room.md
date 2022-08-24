@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/v3.2/match-application/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/vol3.0/ver3.2/match-application/)  
 
 # 目標
 
@@ -124,7 +124,7 @@ docker-compose up
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v3                 # アプリケーション Three
+            └── 📂 tic_tac_toe_vol3o0                 # アプリケーション Three
                 └── 📂 views
                     └── 📂 match_application
                         └── 📂 v2o0
@@ -144,15 +144,15 @@ from apps1.tic_tac_toe_vol2o0.views.gui.match_application.ver1o0 import MatchApp
 # 2. `1.` の __init__.py ファイルに含まれるクラス
 # 3. '2.' の別名
 
-# 〇×ゲーム v3.1
-from apps1.tic_tac_toe_v3.views.match_application.v1o0 import MatchApplicationV as MatchApplicationVV3g1o0
-#                       ^three                     ^one
-#          --------------                         ----        -----------------    -----------------------
-#          11                                     12          2                    3
-#    -------------------------------------------------
+# 〇×ゲーム3.0巻 対局申込1.0版
+from apps1.tic_tac_toe_vol3o0.views.match_application.ver1o0 import MatchApplicationV as MatchApplicationVV3g1o0
+#                         ^three                         ^one
+#          ------------------                         ------        -----------------    -----------------------
+#          11                                         12            2                    3
+#    -------------------------------------------------------
 #    10
-# 10. `src1/apps1/tic_tac_toe_v3/views/match_application/v1o0/__init__.py`
-#           -------------------------------------------------
+# 10. `src1/apps1/tic_tac_toe_vol3o0/views/match_application/ver1o0/__init__.py`
+#           -------------------------------------------------------
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
@@ -190,8 +190,8 @@ class MatchApplicationV():
         from .v_on_sent import match_application_on_sent
         #    ----------        -------------------------
         #    1                 2
-        # 1. `src1/apps1/tic_tac_toe_v3/views/o2o0/match_application/v_on_sent.py`
-        #                                                            ---------
+        # 1. `src1/apps1/tic_tac_toe_vol3o0/views/match_application/ver2o0/v_on_sent.py`
+        #                                                                  ---------
         # 2. `1.` に含まれる関数
 
         return match_application_on_sent(request)
@@ -211,7 +211,7 @@ class MatchApplicationV():
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v3                   # アプリケーション Three
+            └── 📂 tic_tac_toe_vol3o0                   # アプリケーション Three
                 └── 📂 views
                     └── 📂 match_application
                         └── 📂 v2o0
@@ -329,7 +329,7 @@ Merged to OA23o1o0g4o1o0
 ```plaintext
     ├── 📂 src1
     │   └── 📂 apps1
-    │       └── 📂 tic_tac_toe_v3                   # アプリケーション Three
+    │       └── 📂 tic_tac_toe_vol3o0                   # アプリケーション Three
     │           └── 📂 views
     │               └── 📂 match_application
     │                   └── 📂 v2o0
@@ -345,7 +345,7 @@ Merged to OA23o1o0g4o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_v3_autogen.py,tic-tac-toe/v3.2/match-application/,tic_tac_toe_v3g2o0_match_application,"OA23o1o0g4o1o0 〇×ゲーム v3.2 対局申込中",apps1.tic_tac_toe_v3.views.match_application.v2o0,MatchApplicationV,TicTacToeV3g2o0MatchApplicationV,render
+../src1/project1/urls_tic_tac_toe_v3_autogen.py,tic-tac-toe/vol3.0/ver3.2/match-application/,tic_tac_toe_v3g2o0_match_application,"OA23o1o0g4o1o0 〇×ゲーム3.0巻 対局申込中3.2版",apps1.tic_tac_toe_vol3o0.views.match_application.v2o0,MatchApplicationV,TicTacToeV3g2o0MatchApplicationV,render
 ```
 
 ## Step OA23o1o0g4o2o0 ルート編集 - コマンド打鍵
@@ -381,7 +381,7 @@ docker-compose restart
 
 👇 そして `Elephant` 部屋に `X` 番として入ってほしい  
 
-📖 [http://localhost:8000/tic-tac-toe/v3.2/match-application/](http://localhost:8000/tic-tac-toe/v3.2/match-application/)  
+📖 [http://localhost:8000/tic-tac-toe/vol3.0/ver3.2/match-application/](http://localhost:8000/tic-tac-toe/vol3.0/ver3.2/match-application/)  
 
 ここで、ログアウトしたなら対局部屋を追い出されるべきだが、まだそこまで作っていない。  
 
@@ -395,7 +395,7 @@ docker-compose restart
 
 👇 `Elephant` 部屋に `O` 番として入ってほしい  
 
-📖 [http://localhost:8000/tic-tac-toe/v3.2/match-application/](http://localhost:8000/tic-tac-toe/v3.2/match-application/)  
+📖 [http://localhost:8000/tic-tac-toe/vol3.0/ver3.2/match-application/](http://localhost:8000/tic-tac-toe/vol3.0/ver3.2/match-application/)  
 
 👇 部屋、ユーザーを確認するには、管理画面を使うのが確実だ。  
 スーパーユーザーのまま、管理画面に入っていてほしい  
@@ -416,7 +416,7 @@ docker-compose restart
         │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 tic_tac_toe_v3                   # アプリケーション Three
+        │   └── 📂 tic_tac_toe_vol3o0                   # アプリケーション Three
         │       └── 📂 views
         │           └── 📂 match_application
         │               └── 📂 v2o0
@@ -429,7 +429,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/tic-tac-toe/v3.2/match-application/,〇×ゲーム v3.2 対局申込中
+/tic-tac-toe/vol3.0/ver3.2/match-application/,〇×ゲーム3.0巻 対局申込中3.2版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

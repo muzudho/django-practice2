@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📚 [この連載のレッスンのゴール：〇×ゲーム](http://tic.warabenture.com:8000/tic-tac-toe/v3.4/match-application/)  
+📚 [この連載のレッスンのゴール：〇×ゲーム](http://tic.warabenture.com:8000/tic-tac-toe/vol3.0/ver3.4/match-application/)  
 📖 [この連載のレッスン終了後の自由課題の例：ライフゲーム](http://tic.warabenture.com:8000/lifegame/vol1.0/ver0.3/board)  
 📖 [この記事のゴール](http://tic.warabenture.com:8000/)  
 

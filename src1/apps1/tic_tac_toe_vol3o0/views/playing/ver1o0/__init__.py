@@ -1,6 +1,6 @@
-# BOF OA24o1o0g7o0
+# BOF OA22o1o0g9o0
 
-# 〇×ゲーム2.0巻 対局中1.0巻
+# 〇×ゲーム2.0巻 1.0版
 from apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0 import PlayingV as PlayingVV2g1o0
 #                         ^two
 #          ------------------                   ------        --------    --------------
@@ -14,30 +14,23 @@ from apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0 import PlayingV as Playin
 # 2. `12.` に含まれる `__init__.py` ファイルにさらに含まれるクラス
 # 3. `2.` の別名
 
-# 〇×ゲーム v3 対局中 v1.0
-from apps1.tic_tac_toe_v3.views.playing.v1o0 import PlayingV as PlayingVV3g1o0
-#                       ^three
-#          --------------               ----        --------    --------------
-#          11                           12          2           3
-#    ---------------------------------------
-#    10
-# 10. `src1/apps1/tic_tac_toe_v3/views/o1o0/playing/__init__.py`
-#           ---------------------------------------
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる `__init__.py` ファイルにさらに含まれるクラス
-# 3. `2.` の別名
-
 
 class PlayingV():
-    """OA24o1o0g7o0 対局中ビュー"""
+    """OA22o1o0g9o0 対局中ビュー"""
 
-    web_socket_path = "/tic-tac-toe/v3.3/playing/"
-    #                                ^three
-    #                  --------------------------
+    web_socket_path = "/tic-tac-toe/v2/playing/"
+    #                                ^two
+    #                  ------------------------
     #                  1
-    # 1. `ws://example.com/tic-tac-toe/v3.3/playing/Elephant/`
-    #                     --------------------------
+    # 1. `ws://example.com:8000/tic-tac-toe/v2/playing/`
+    #                          ------------------------
+
+    template_path = "tic_tac_toe_vol3o0/playing/ver1o0.html.txt"
+    #                               ^three
+    #                ------------------------------------------
+    #                1
+    # 1. `src1/apps1/tic_tac_toe_vol3o0/templates/tic_tac_toe_vol3o0/playing/ver1o0.html.txt`
+    #                                             ------------------------------------------
 
     @staticmethod
     def render(request, kw_room_name):
@@ -56,8 +49,14 @@ class PlayingV():
             request,
             kw_room_name,
             PlayingV.web_socket_path,
-            PlayingVV3g1o0.template_path,
-            PlayingVV3g1o0.on_update,
+            PlayingV.template_path,
+            PlayingV.on_update,
             PlayingVV2g1o0.expected_pieces)
 
-# EOF OA24o1o0g7o0
+    @staticmethod
+    def on_update(request):
+        """訪問後または送信後"""
+        # 何もしません
+        pass
+
+# EOF OA22o1o0g9o0

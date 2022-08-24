@@ -4,10 +4,10 @@ from django.apps import AppConfig
 class TicTacToeV3Config(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     # * 変更前
-    # name = 'tic_tac_toe_v3'
+    # name = 'tic_tac_toe_vol3o0'
     # * OA22o1o0g5o0 変更後
-    name = 'apps1.tic_tac_toe_v3'
+    name = 'apps1.tic_tac_toe_vol3o0'
     #       --------------------
     #       1
-    # 1. `src1/apps1/tic_tac_toe_v3/apps.py`
+    # 1. `src1/apps1/tic_tac_toe_vol3o0/apps.py`
     #          --------------------

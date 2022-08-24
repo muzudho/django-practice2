@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/v3.1/match-application/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/vol3.0/ver3.1/match-application/)  
 
 # 目標
 
@@ -106,14 +106,14 @@ cd src1
 docker-compose up
 ```
 
-## Step OA22o1o0g2o0 フォルダー作成 - apps1/tic_tac_toe_v3 フォルダー
+## Step OA22o1o0g2o0 フォルダー作成 - apps1/tic_tac_toe_vol3o0 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v3                     # アプリケーション Three
+            └── 📂 tic_tac_toe_vol3o0                     # アプリケーション Three
 ```
 
 ## Step OA22o1o0g3o0 アプリケーション作成
@@ -121,9 +121,9 @@ docker-compose up
 👇 以下のコマンドを打鍵してほしい  
 
 ```shell
-docker-compose run --rm web python manage.py startapp tic_tac_toe_v3 ./apps1/tic_tac_toe_v3
-#                                                     -------------- ----------------------
-#                                                     1              2
+docker-compose run --rm web python manage.py startapp tic_tac_toe_vol3o0 ./apps1/tic_tac_toe_vol3o0
+#                                                     ------------------ --------------------------
+#                                                     1                  2
 # 1. 任意のDjangoアプリケーション名
 # 2. 既存のディレクトリーへのパス
 ```
@@ -135,7 +135,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v3 ./apps1/tic
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v3                     # アプリケーション Three
+            └── 📂 tic_tac_toe_vol3o0                     # アプリケーション Three
                 ├── 📂 migrations
                 │   └── 📄 __init__.py
                 ├── 📄 __init__.py
@@ -153,7 +153,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_v3 ./apps1/tic
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v3                 # アプリケーション Three
+            └── 📂 tic_tac_toe_vol3o0                 # アプリケーション Three
                 ├── 📂 migrations
                 │   └── 📄 __init__.py
                 ├── 📄 __init__.py
@@ -169,12 +169,12 @@ from django.apps import AppConfig
 class TicTacToeV3Config(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     # * 変更前
-    # name = 'tic_tac_toe_v3'
+    # name = 'tic_tac_toe_vol3o0'
     # * OA22o1o0g5o0 変更後
-    name = 'apps1.tic_tac_toe_v3'
+    name = 'apps1.tic_tac_toe_vol3o0'
     #       --------------------
     #       1
-    # 1. `src1/apps1/tic_tac_toe_v3/apps.py`
+    # 1. `src1/apps1/tic_tac_toe_vol3o0/apps.py`
     #          --------------------
 ```
 
@@ -185,7 +185,7 @@ class TicTacToeV3Config(AppConfig):
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v3                     # アプリケーション Three
+        │   └── 📂 tic_tac_toe_vol3o0                     # アプリケーション Three
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📄 __init__.py
@@ -204,8 +204,8 @@ INSTALLED_APPS = [
     # ...中略...
 
 
-    # OA22o1o0g6o0 〇×ゲーム v3
-    'apps1.tic_tac_toe_v3',
+    # OA22o1o0g6o0 〇×ゲーム3.0巻
+    'apps1.tic_tac_toe_vol3o0',
 
 
     # ...中略...
@@ -214,8 +214,8 @@ INSTALLED_APPS = [
 ]
 ```
 
-これで、 `src1/apps1/tic_tac_toe_v3` フォルダーは tic_tac_toe_v3 アプリケーションとして認識される。  
-例えば、 tic_tac_toe_v3 フォルダーの直下に置いた static フォルダーが Django の静的リソースの検索対象のパスになるといったメリットがある  
+これで、 `src1/apps1/tic_tac_toe_vol3o0` フォルダーは tic_tac_toe_vol3o0 アプリケーションとして認識される。  
+例えば、 tic_tac_toe_vol3o0 フォルダーの直下に置いた static フォルダーが Django の静的リソースの検索対象のパスになるといったメリットがある  
 
 ## Step OA22o1o0g7o0 対局画面作成 - playing/v1o0.html.txt ファイル
 
@@ -224,11 +224,11 @@ INSTALLED_APPS = [
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v3                 # アプリケーション Three
+        │   └── 📂 tic_tac_toe_vol3o0                 # アプリケーション Three
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v3         # アプリケーションと同名
+        │       │   └── 📂 tic_tac_toe_vol3o0         # アプリケーションと同名
         │       │       └── 📂 playing
 👉      │       │           └── 📄 v1o0.html.txt
         │       ├── 📄 __init__.py
@@ -271,11 +271,11 @@ INSTALLED_APPS = [
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v3                   # アプリケーション Four
+        │   └── 📂 tic_tac_toe_vol3o0                   # アプリケーション Four
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v3           # アプリケーションと同名
+        │       │   └── 📂 tic_tac_toe_vol3o0           # アプリケーションと同名
         │       │       └── 📂 playing
         │       │           └── 📄 v1o0.html.txt
         │       ├── 📂 views
@@ -307,13 +307,13 @@ from apps1.tic_tac_toe_vol2o0.views.gui.match_application.ver1o0 import MatchApp
 class MatchApplicationV():
     """OA22o1o0g8o0 対局申込ビュー"""
 
-    # 〇×ゲーム v3.1
-    playing_web_path = "/tic-tac-toe/v3.1/playing/{0}/?&myturn={1}"
-    #                                 ^three
-    #                   ------------------------------------------
+    # 〇×ゲーム3.0巻 対局中3.1版
+    playing_web_path = "/tic-tac-toe/vol3.0/ver3.1/playing/{0}/?&myturn={1}"
+    #                                   ^three
+    #                   ---------------------------------------------------
     #                   1
-    # 1. `http://example.com:8000/tic-tac-toe/v3.1/playing/Elephant/?&myturn=X`
-    #                            ---------------------------------------------
+    # 1. `http://example.com:8000/tic-tac-toe/vol3.0/ver3.1/playing/Elephant/?&myturn=X`
+    #                            ------------------------------------------------------
 
     @staticmethod
     def render(request):
@@ -357,11 +357,11 @@ class MatchApplicationV():
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 tic_tac_toe_v3                 # アプリケーション .Three
+        │   └── 📂 tic_tac_toe_vol3o0                 # アプリケーション .Three
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v3         # アプリケーションと同名
+        │       │   └── 📂 tic_tac_toe_vol3o0         # アプリケーションと同名
         │       │       └── 📂 playing
         │       │           └── 📄 v1o0.html.txt
         │       ├── 📂 views
@@ -382,7 +382,7 @@ class MatchApplicationV():
 ```py
 # BOF OA22o1o0g9o0
 
-# 〇×ゲーム v2
+# 〇×ゲーム2.0巻 1.0版
 from apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0 import PlayingV as PlayingVV2g1o0
 #                         ^two
 #          ------------------                   ------        --------    --------------
@@ -407,12 +407,12 @@ class PlayingV():
     # 1. `ws://example.com:8000/tic-tac-toe/v2/playing/`
     #                          ------------------------
 
-    template_path = "tic_tac_toe_v3/playing/v1o0.html.txt"
-    #                             ^three
-    #                ------------------------------------
+    template_path = "tic_tac_toe_vol3o0/playing/ver1o0.html.txt"
+    #                               ^three
+    #                ------------------------------------------
     #                1
-    # 1. `src1/apps1/tic_tac_toe_v3/templates/tic_tac_toe_v3/playing/v1o0.html.txt`
-    #                                         ------------------------------------
+    # 1. `src1/apps1/tic_tac_toe_vol3o0/templates/tic_tac_toe_vol3o0/playing/ver1o0.html.txt`
+    #                                             ------------------------------------------
 
     @staticmethod
     def render(request, kw_room_name):
@@ -455,11 +455,11 @@ Merged to OA22o1o0gA10o1o0
 ```plaintext
     ├── 📂 src1
     │   ├── 📂 apps1
-    │   │   └── 📂 tic_tac_toe_v3                   # アプリケーション Four
+    │   │   └── 📂 tic_tac_toe_vol3o0                   # アプリケーション Four
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 templates
-    │   │       │   └── 📂 tic_tac_toe_v3           # アプリケーションと同名
+    │   │       │   └── 📂 tic_tac_toe_vol3o0           # アプリケーションと同名
     │   │       │       └── 📂 playing
     │   │       │           └── 📄 v1o0.html.txt
     │   │       ├── 📂 views
@@ -485,18 +485,18 @@ Merged to OA22o1o0gA10o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_v3_autogen.py,tic-tac-toe/v3.1/match-application/,tic_tac_toe_v3g1o0_match_application,"OA22o1o0gA10o1o0 〇×ゲーム v3.1 対局申込中",apps1.tic_tac_toe_v3.views.match_application.v1o0,MatchApplicationV,TicTacToeV3g1o0MatchApplicationV,render
-../src1/project1/urls_tic_tac_toe_v3_autogen.py,tic-tac-toe/v3.1/match-application/,tic_tac_toe_v3g1o0_playing,"OA22o1o0gA10o1o0 〇×ゲーム v3.1 対局中",apps1.tic_tac_toe_v3.views.playing.v1o0,PlayingV,TicTacToeV3g1o0PlayingV,render
+../src1/project1/urls_tic_tac_toe_v3_autogen.py,tic-tac-toe/vol3.0/ver3.1/match-application/,tic_tac_toe_v3g1o0_match_application,"OA22o1o0gA10o1o0 〇×ゲーム3.0巻 対局申込中1.0版",apps1.tic_tac_toe_vol3o0.views.match_application.ver1o0,MatchApplicationV,TicTacToeV3g1o0MatchApplicationV,render
+../src1/project1/urls_tic_tac_toe_v3_autogen.py,tic-tac-toe/vol3.0/ver3.1/match-application/,tic_tac_toe_v3g1o0_playing,"OA22o1o0gA10o1o0 〇×ゲーム3.0巻 対局中1.0版",apps1.tic_tac_toe_vol3o0.views.playing.v1o0,PlayingV,TicTacToeV3g1o0PlayingV,render
 ```
 
 備考:  
 
 ```plaintext
-path('tic-tac-toe/v3.1/playing/<str:kw_room_name>/', XxxView.render, name="playing")
-      --------------------------------------------   --------------        -------
-      1                                              2                     3
-1. 例えば `http://example.com/tic-tac-toe/v3.1/playing/<部屋名>/` のような URL のパスの部分にマッチする
-                              ----------------------------------
+path('tic-tac-toe/vol3.0/ver3.1/playing/<str:kw_room_name>/', XxxView.render, name="playing")
+      -----------------------------------------------------   --------------        -------
+      1                                                       2                     3
+1. 例えば `http://example.com/tic-tac-toe/vol3.0/ver3.1/playing/<部屋名>/` のような URL のパスの部分にマッチする
+                             -------------------------------------------
    <部屋名> に入った文字列は `2.` のメソッドの kw_room_name 引数に渡される
 2. XxxView クラスの render メソッド
 3. HTMLテンプレートの中で {% url 'playing' %} のような形でURLを取得するのに使える
@@ -521,7 +521,7 @@ docker-compose restart
 
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでください  
 
-📖 [http://localhost:8000/tic-tac-toe/v3.1/match-application/](http://localhost:8000/tic-tac-toe/v3.1/match-application/)  
+📖 [http://localhost:8000/tic-tac-toe/vol3.0/ver3.1/match-application/](http://localhost:8000/tic-tac-toe/vol3.0/ver3.1/match-application/)  
 
 ## Step OA22o1o0gA12o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -533,11 +533,11 @@ docker-compose restart
         │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 tic_tac_toe_v3                 # アプリケーション Four
+        │   └── 📂 tic_tac_toe_vol3o0                 # アプリケーション Four
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
-        │       │   └── 📂 tic_tac_toe_v3         # アプリケーションと同名
+        │       │   └── 📂 tic_tac_toe_vol3o0         # アプリケーションと同名
         │       │       └── 📂 playing
         │       │           └── 📄 v1o0.html.txt
         │       ├── 📂 views
@@ -559,7 +559,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/tic-tac-toe/v3.1/match-application/,〇×ゲーム v3.1 対局申込中
+/tic-tac-toe/vol3.0/ver3.1/match-application/,〇×ゲーム3.0巻 対局申込中3.1版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 
