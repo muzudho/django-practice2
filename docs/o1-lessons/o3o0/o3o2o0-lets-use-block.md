@@ -259,7 +259,7 @@ Merged to O3o2o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_autogen.py,practice/v1/page-to-be-added-1,page_to_be_added_1,"O3o2o0g5o1o0 練習ページ １回追加されたページ",apps1.practice_v1.views.page_to_be_added.v2o0,PageToBeAdded,PageToBeAdded1,render
+../src1/project1/urls_practice_autogen.py,practice/v1/page-to-be-added-1,,"O3o2o0g5o1o0 練習ページ １回追加されたページ",apps1.practice_v1.views.page_to_be_added.v2o0,PageToBeAdded,PageToBeAdded1,render
 ```
 
 ## Step O3o2o0g5o2o0 ルート編集 - コマンド打鍵

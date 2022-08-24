@@ -376,8 +376,8 @@ Merged to OA13o2o0g7o1o0
 ...略...
 
 
-../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/textarea1,practice_v1_vuetify_textarea1,"OA13o2o0g7o1o0 ビューティファイでテキストエリア１",apps1.practice_v1.views.vuetifies,VuetifyV,,render_textarea1
-../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/desserts1-from-textarea1,practice_v1_vuetify_desserts1_from_textarea1,"OA13o2o0g7o1o0 ビューティファイでデザート１ . テキストエリア１から",apps1.practice_v1.views.vuetifies,VuetifyV,,render_desserts1_from_textarea1
+../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/textarea1,,"OA13o2o0g7o1o0 ビューティファイでテキストエリア１",apps1.practice_v1.views.vuetifies,VuetifyV,,render_textarea1
+../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/desserts1-from-textarea1,,"OA13o2o0g7o1o0 ビューティファイでデザート１ . テキストエリア１から",apps1.practice_v1.views.vuetifies,VuetifyV,,render_desserts1_from_textarea1
 ```
 
 ## Step OA13o2o0g7o2o0 ルート編集 - コマンド打鍵

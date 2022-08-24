@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📚 [この連載のゴール](http://tic.warabenture.com:8000/lifegame/vol1.0/ver0.3/board)  
+📚 [この連載のゴール](http://tic.warabenture.com:8000/lifegame/vol1.0/board/ver0.3)  
 📖 `この記事のゴール` - 同上  
 
 # 目標
@@ -846,7 +846,7 @@ Merged to OAAA1001o1o0ga15o1o0
 ...略...
 
 
-../src1/project1/urls_lifegame_vol1o0_autogen.py,lifegame/vol1.0/ver0.3/board,lifegame_1o0g0o3o0_board,"OAAA1001o1o0ga15o1o0 ライフゲーム v0.3 の盤",apps1.lifegame_vol1o0.views.board.ver0o3o0,BoardView,BoardViewV0o3o0,render
+../src1/project1/urls_lifegame_vol1o0_autogen.py,lifegame/vol1.0/board/ver0.3,,"OAAA1001o1o0ga15o1o0 ライフゲーム1.0巻 盤0.3版",apps1.lifegame_vol1o0.views.board.ver0o3o0,BoardView,Lifegame1o0BoardView0o3o0,render
 ```
 
 ## Step OAAA1001o1o0ga10o2o0 ルート編集 - コマンド打鍵
@@ -866,4 +866,4 @@ docker-compose restart
 
 # Step OAAA1001o1o0ga16o0 Webページにアクセスする
 
-📖 [http://localhost:8000/lifegame/vol1.0/ver0.3/board](http://localhost:8000/lifegame/vol1.0/ver0.3/board)  
+📖 [http://localhost:8000/lifegame/vol1.0/board/ver0.3](http://localhost:8000/lifegame/vol1.0/board/ver0.3)  

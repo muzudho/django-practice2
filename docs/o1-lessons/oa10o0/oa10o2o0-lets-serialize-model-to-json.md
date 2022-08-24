@@ -228,7 +228,7 @@ Merged to OA10o2o0g6o1o0
 ...略...
 
 
-../src1/project1/urls_practice_autogen.py,practice/v1/from-object-to-json-str/,practice_v1_from_object_to_json_str,"OA10o2o0g6o1o0 デバッグ用。モデルをダンプ出力",apps1.practice_v1.views.debug.v1o0,DebugV,,render_model_as_json
+../src1/project1/urls_practice_autogen.py,practice/v1/from-object-to-json-str/,,"OA10o2o0g6o1o0 デバッグ用。モデルをダンプ出力",apps1.practice_v1.views.debug.v1o0,DebugV,,render_model_as_json
 ```
 
 ## Step OA10o2o0g6o2o0 ルート編集 - コマンド打鍵

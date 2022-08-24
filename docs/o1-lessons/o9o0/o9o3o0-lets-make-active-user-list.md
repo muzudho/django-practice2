@@ -410,7 +410,7 @@ Merged to O9o3o0g7o1o0
 ...略...
 
 
-../src1/project1/urls_practice_autogen.py,practice/v1/active-user-list/,practice_v1_active_user_list,"O9o3o0g7o1o0 アクティブユーザー一覧",apps1.practice_v1.views.session.v1o0,SessionV,,render
+../src1/project1/urls_practice_autogen.py,practice/v1/active-user-list/,,"O9o3o0g7o1o0 アクティブユーザー一覧",apps1.practice_v1.views.session.v1o0,SessionV,,render
 ```
 
 ## Step O9o3o0g7o2o0 ルート編集 - コマンド打鍵

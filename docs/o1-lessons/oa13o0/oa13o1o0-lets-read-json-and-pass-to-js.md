@@ -403,7 +403,7 @@ Merged to OA13o1o0g6o1o0
 ...略...
 
 
-../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/desserts1,practice_v1_vuetify_desserts1,"OA13o1o0g6o1o0 ビューティファイでデザート１",apps1.practice_v1.views.vuetifies,VuetifyV,,render_desserts1
+../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/desserts1,,"OA13o1o0g6o1o0 ビューティファイでデザート１",apps1.practice_v1.views.vuetifies,VuetifyV,,render_desserts1
 ```
 
 ## Step OA13o1o0g6o2o0 ルート編集 - コマンド打鍵

@@ -210,7 +210,7 @@ Merged to OA13o3o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/desserts1-as-json,practice_v1_vuetify_desserts1_as_json,"OA13o3o0g5o1o0 ビューティファイでJSON形式のデザート１",apps1.practice_v1.views.vuetifies,VuetifyV,,render_desserts1_as_json
+../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/desserts1-as-json,,"OA13o3o0g5o1o0 ビューティファイでJSON形式のデザート１",apps1.practice_v1.views.vuetifies,VuetifyV,,render_desserts1_as_json
 ```
 
 ## Step OA13o3o0g5o2o0 ルート編集 - コマンド打鍵

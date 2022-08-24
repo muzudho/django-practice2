@@ -357,7 +357,7 @@ Merged to OA12o2o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/data-table1,practice_v1_vuetify_data_table1,"OA12o2o0g5o1o0 ビューティファイでデータテーブル１",apps1.practice_v1.views.vuetifies,VuetifyV,,render_data_table1
+../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/data-table1,,"OA12o2o0g5o1o0 ビューティファイでデータテーブル１",apps1.practice_v1.views.vuetifies,VuetifyV,,render_data_table1
 ```
 
 ## Step OA12o1o0g5o2o0 ルート編集 - コマンド打鍵

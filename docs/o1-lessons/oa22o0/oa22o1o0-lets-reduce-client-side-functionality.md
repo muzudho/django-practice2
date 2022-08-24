@@ -485,8 +485,8 @@ Merged to OA22o1o0gA10o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/match-application/ver1.0/,,"OA22o1o0gA10o1o0 〇×ゲーム3.0巻 対局申込中1.0版",apps1.tic_tac_toe_vol3o0.views.match_application.ver1o0,MatchApplicationV,TicTacToeV3g1o0MatchApplicationV,render
-../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/match-application/ver1.0/,,"OA22o1o0gA10o1o0 〇×ゲーム3.0巻 対局中1.0版",apps1.tic_tac_toe_vol3o0.views.playing.v1o0,PlayingV,TicTacToeV3g1o0PlayingV,render
+../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/match-application/ver1.0/,,"OA22o1o0gA10o1o0 〇×ゲーム3.0巻 対局申込中1.0版",apps1.tic_tac_toe_vol3o0.views.match_application.ver1o0,MatchApplicationV,TicTacToe3o0MatchApplicationView1o0,render
+../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/match-application/ver1.0/,,"OA22o1o0gA10o1o0 〇×ゲーム3.0巻 対局中1.0版",apps1.tic_tac_toe_vol3o0.views.playing.v1o0,PlayingV,TicTacToe3o0PlayingView1o0,render
 ```
 
 備考:  

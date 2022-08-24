@@ -345,7 +345,7 @@ Merged to OA23o1o0g4o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/match-application/ver2.0/,,"OA23o1o0g4o1o0 〇×ゲーム3.0巻 対局申込中2.0版",apps1.tic_tac_toe_vol3o0.views.match_application.v2o0,MatchApplicationV,TicTacToeV3g2o0MatchApplicationV,render
+../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/match-application/ver2.0/,,"OA23o1o0g4o1o0 〇×ゲーム3.0巻 対局申込中2.0版",apps1.tic_tac_toe_vol3o0.views.match_application.v2o0,MatchApplicationV,TicTacToe3o0MatchApplicationView2o0,render
 ```
 
 ## Step OA23o1o0g4o2o0 ルート編集 - コマンド打鍵

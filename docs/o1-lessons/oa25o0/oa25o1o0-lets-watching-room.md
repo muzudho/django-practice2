@@ -387,8 +387,8 @@ Merged to OA25o1o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/match-application/ver4.0/,,"OA25o1o0g5o1o0 〇×ゲーム3.0巻 対局申込中4.0版",apps1.tic_tac_toe_vol3o0.views.match_application.v4o0,MatchApplicationV,TicTacToeV3g4o0MatchApplicationV,render
-../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/playing/ver4.0/<str:kw_room_name>/,,"OA25o1o0g5o1o0 〇×ゲーム3.0巻 対局中4.0版",apps1.tic_tac_toe_vol3o0.views.playing.v4o0,PlayingV,TicTacToeV3g4o0PlayingV,render
+../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/match-application/ver4.0/,,"OA25o1o0g5o1o0 〇×ゲーム3.0巻 対局申込中4.0版",apps1.tic_tac_toe_vol3o0.views.match_application.v4o0,MatchApplicationV,TicTacToe3o0MatchApplicationView4o0,render
+../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/playing/ver4.0/<str:kw_room_name>/,,"OA25o1o0g5o1o0 〇×ゲーム3.0巻 対局中4.0版",apps1.tic_tac_toe_vol3o0.views.playing.v4o0,PlayingV,TicTacToe3o0PlayingView4o0,render
 ```
 
 ## Step OA24o1o0g8o2o0 ルート編集 - コマンド打鍵

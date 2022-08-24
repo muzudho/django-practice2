@@ -567,7 +567,7 @@ Merged to O9o2o0gA12o1o0
 ...略...
 
 
-../src1/project1/urls_practice_autogen.py,practice/v1/extends-user-list/,practice_v1_extends_user_list,"O9o2o0gA12o1o0 （拡張済）会員一覧",apps1.practice_v1.views.extends_user_list.v1o0,ExtendsUserListV,,render
+../src1/project1/urls_practice_autogen.py,practice/v1/extends-user-list/,,"O9o2o0gA12o1o0 （拡張済）会員一覧",apps1.practice_v1.views.extends_user_list.v1o0,ExtendsUserListV,,render
 ```
 
 ## Step O9o2o0gA12o2o0 ルート編集 - コマンド打鍵

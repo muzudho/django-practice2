@@ -372,7 +372,7 @@ Merged to OA21o2o0g6o1o0
 ...略...
 
 
-../src1/project1/urls_practice_autogen.py,practice/v1/auto_redirect/,practice_v1_auto_redirect,"OA21o2o0g6o1o0 自動リダイレクトページ",apps1.practice_v1.views.auto_redirect.v1o0,AutoRedirectV,,render_auto_redirect
+../src1/project1/urls_practice_autogen.py,practice/v1/auto_redirect/,,"OA21o2o0g6o1o0 自動リダイレクトページ",apps1.practice_v1.views.auto_redirect.v1o0,AutoRedirectV,,render_auto_redirect
 ```
 
 ## Step OA21o1o0g7o2o0 ルート編集 - コマンド打鍵

@@ -383,7 +383,7 @@ Merged to O9o1o0g7o1o0
 ...略...
 
 
-../src1/project1/urls_practice_autogen.py,practice/v1/user-list/,practice_v1_user_list,"O9o1o0g7o1o0 会員一覧",apps1.practice_v1.views.user_list.v1o0,UserListV,,render
+../src1/project1/urls_practice_autogen.py,practice/v1/user-list/,,"O9o1o0g7o1o0 会員一覧",apps1.practice_v1.views.user_list.v1o0,UserListV,,render
 ```
 
 ## Step O9o1o0g7o2o0 ルート編集 - コマンド打鍵

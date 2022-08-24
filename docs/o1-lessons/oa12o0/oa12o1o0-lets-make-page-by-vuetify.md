@@ -261,7 +261,7 @@ Merged to Step OA12o1o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/hello1,practice_v1_vuetify_hello1,"OA12o1o0g5o1o0 ビューティファイでハロー",apps1.practice_v1.views.vuetifies,VuetifyV,,render_hello1
+../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/hello1,,"OA12o1o0g5o1o0 ビューティファイでハロー",apps1.practice_v1.views.vuetifies,VuetifyV,,render_hello1
 ```
 
 ## Step OA12o1o0g5o2o0 ルート編集 - コマンド打鍵
