@@ -3,11 +3,11 @@
 # See also: 📖 [Channels - Consumers](https://channels.readthedocs.io/en/latest/topics/consumers.html)
 from django.conf.urls import url
 
-# OA16o3o0gA16o0 〇×ゲーム v2
-from apps1.tic_tac_toe_v2.websocks.gui.consumer.v1o1o0 import TicTacToeV2o1o0ConsumerCustom
-#          --------------                       ------        -----------------------------
-#          11                                   12            2
-#    -------------------------------------------------
+# OA16o3o0gA16o0 〇×ゲーム2.0巻 ウェブソケットGUIコンシューマー ver1.1.0
+from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o1o0 import TicTacToeV2o1o0ConsumerCustom
+#          ------------------                       --------        -----------------------------
+#          11                                       12              2
+#    -------------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション

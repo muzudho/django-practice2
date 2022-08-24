@@ -1,11 +1,10 @@
-{# OA22o1o0g7o0 #}
-<!-- -->
-{% extends "tic_tac_toe_v2/gui/playing/v1o0.html" %}
-{#                       ^two
-            ------------------------------------
+<!-- BOF OA22o1o0g7o0 -->
+{% extends "tic_tac_toe_vol2o0/gui/playing/ver1o0.html" %}
+{#                         ^two
+            ------------------------------------------
             1
-1. `src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/gui/playing/v1o0.html`
-                                        ------------------------------------
+1. `src1/apps1/tic_tac_toe_vol2o0/templates/tic_tac_toe_vol2o0/gui/playing/ver1o0.html`
+                                            ------------------------------------------
 
     自動フォーマットしないでください
     Do not auto fomatting
@@ -20,3 +19,4 @@
 {% block methods_footer %}
     // フッターのボタンは除きました
 {% endblock methods_footer %}
+<!-- EOF OA22o1o0g7o0 -->

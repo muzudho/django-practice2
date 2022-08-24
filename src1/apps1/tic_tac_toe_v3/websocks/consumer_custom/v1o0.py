@@ -12,32 +12,32 @@ from apps1.practice_v1.models.room.v1o0 import Room
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# 〇×ゲーム v2 コンシューマー v1.0
-from apps1.tic_tac_toe_v2.websocks.gui.consumer.v1o0 import TicTacToeV2ConsumerBase
-#                       ^two
-#          --------------                       ----        -----------------------
-#          11                                   12          2
-#    -----------------------------------------------
+# 〇×ゲーム2.0巻 ウェブソケットGUIコンシューマー1.0版
+from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o0 import TicTacToeV2ConsumerBase
+#                         ^two
+#          ------------------                       ------        -----------------------
+#          11                                       12            2
+#    -----------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれている __init__.py ファイルにさらに含まれるクラス
 
-# 〇×ゲーム v2 Webソケット メッセージ駆動 v1.0
-from apps1.tic_tac_toe_v2.websocks.gui.message_driven.v1o0 import TicTacToeV2MessageDriven
-#          --------------                             ----        ------------------------
-#          11                                         12          2
-#    -----------------------------------------------------
+# 〇×ゲーム2.0巻 ウェブソケットGUIメッセージ駆動1.0版
+from apps1.tic_tac_toe_vol2o0.websocks.gui.message_driven.ver1o0 import TicTacToeV2MessageDriven
+#          ------------------                             ------        ------------------------
+#          11                                             12            2
+#    -----------------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py にさらに含まれるクラス
 
-# OA16o3o_2o0g1o0 S2C JSON ジェネレーター
-from apps1.tic_tac_toe_v2.views.msg.s2c_json_gen.commands.v1o0 import S2cJsonGenCommands as CommandsGen
-#          --------------                                 ----        ------------------    -----------
-#          11                                             12          2                     3
-#    ---------------------------------------------------------
+# OA16o3o_2o0g1o0 〇×ゲーム2.0巻 メッセージS2C JSONジェネレーター1.0版
+from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.commands.ver1o0 import S2cJsonGenCommands as CommandsGen
+#          ------------------                                 ------        ------------------    -----------
+#          11                                                 12            2                     3
+#    ---------------------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション

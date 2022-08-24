@@ -45,12 +45,12 @@ class PlayingV():
         """描画"""
 
         # 以下のファイルは既存です
-        from apps1.tic_tac_toe_v2.views.gui.playing.v1o0.v_render import render_playing
-        #                       ^two
-        #    ----------------------------------------------------        --------------
-        #    1                                                           2
-        # 1. `src1/apps1/tic_tac_toe_v2/views/gui/playing/v1o0/v_render.py`
-        #          ----------------------------------------------------
+        from apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0.v_render import render_playing
+        #                         ^two
+        #    ----------------------------------------------------------        --------------
+        #    1                                                                 2
+        # 1. `src1/apps1/tic_tac_toe_vol2o0/views/gui/playing/ver1o0/v_render.py`
+        #          ----------------------------------------------------------
         # 2. `1.` のファイルに含まれる render_playing 関数
 
         return render_playing(

@@ -28,11 +28,11 @@ file,path,name,comment,module,class,alias,method
 ../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/save-desserts1-from-textarea1,vuetify_save_desserts1_from_textarea1,"OA13o4o0gA13o1o0 ビューティファイでテキストエリア入力から保存まで . 保存",apps1.practice_v1.views.vuetifies,VuetifyV,,render_save_result_of_desserts1_from_textarea1
 ../src1/project1/urls_tic_tac_toe_v1_autogen.py,tic-tac-toe/vol1.0/ver1.0/match-application/,,"OA16o1o0gA17o1o0 対局申込",apps1.tic_tac_toe_vol1o0.views.match_application.v1o0,MatchApplicationV,,render
 ../src1/project1/urls_tic_tac_toe_v1_autogen.py,tic-tac-toe/vol1.0/ver1.0/playing/<str:room_name>/,,"OA16o1o0gA17o1o0 対局中",apps1.tic_tac_toe_vol1o0.views.playing.v1o0,PlayingV,,render
-../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/v2/engine-manual/,,"OA16o2o0gA16o1o0 〇×ゲーム v2 思考エンジン手動",apps1.tic_tac_toe_v2.views.think.engine_manual.v1o0,EngineManual,,render
-../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/v2/c2s-json-gen/,,"OA16o3o_1o0g4o1o0 〇×ゲーム v2 C2S JSON ジェネレーター",apps1.tic_tac_toe_v2.views.msg.c2s_json_gen.v1o0,C2sJsonGenView,C2sJsonGenViewV1o0,render
-../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/v2/s2c-json-gen/,,"OA16o3o_2o0g5o1o0 〇×ゲーム v2 S2C JSON ジェネレーター",apps1.tic_tac_toe_v2.views.msg.s2c_json_gen.v1o0,S2cJsonGenView,S2cJsonGenViewV1o0,render
-../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/v2/match-application/,,"OA16o3o0gA15o1o0 〇×ゲーム v2 対局申込ページ",apps1.tic_tac_toe_v2.views.gui.match_application.v1o0,MatchApplicationV,,render
-../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/v2/playing/<str:kw_room_name>/,,"OA16o3o0gA15o1o0 〇×ゲーム v2 対局中ページ",apps1.tic_tac_toe_v2.views.gui.playing.v1o0,PlayingV,,render
+../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/vol2.0/ver1.0/engine-manual/,,"OA16o2o0gA16o1o0 〇×ゲーム v2 思考エンジン手動",apps1.tic_tac_toe_vol2o0.views.think.engine_manual.ver1o0,EngineManual,,render
+../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/vol2.0/ver1.0/c2s-json-gen/,,"OA16o3o_1o0g4o1o0 〇×ゲーム v2 C2S JSON ジェネレーター",apps1.tic_tac_toe_vol2o0.views.msg.c2s_json_gen.ver1o0,C2sJsonGenView,C2sJsonGenViewV1o0,render
+../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/vol2.0/ver1.0/s2c-json-gen/,,"OA16o3o_2o0g5o1o0 〇×ゲーム v2 S2C JSON ジェネレーター",apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.ver1o0,S2cJsonGenView,S2cJsonGenViewV1o0,render
+../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/vol2.0/ver1.0/match-application/,,"OA16o3o0gA15o1o0 〇×ゲーム v2 対局申込ページ",apps1.tic_tac_toe_vol2o0.views.gui.match_application.ver1o0,MatchApplicationV,,render
+../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/vol2.0/ver1.0/playing/<str:kw_room_name>/,,"OA16o3o0gA15o1o0 〇×ゲーム v2 対局中ページ",apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0,PlayingV,,render
 ../src1/project1/urls_tic_tac_toe_v2_autogen.py,practice/v1/rooms/,practice_v1_rooms,"OA18o2o0g7o1o0 対局部屋の一覧 v1.0",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_list
 ../src1/project1/urls_tic_tac_toe_v2_autogen.py,practice/v1/rooms/read/<int:id>/,practice_v1_rooms_read,"OA18o3o0g5o1o0 対局部屋の詳細",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_read
 ../src1/project1/urls_tic_tac_toe_v2_autogen.py,practice/v1/rooms/delete/<int:id>/,practice_v1_rooms_delete,"OA18o4o0g5o1o0 対局部屋の削除",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_delete

@@ -1,14 +1,14 @@
 # BOF OA24o1o0g7o0
 
-# 〇×ゲーム v2 対局中 v1.0
-from apps1.tic_tac_toe_v2.views.gui.playing.v1o0 import PlayingV as PlayingVV2g1o0
-#                       ^two
-#          --------------                -------        --------    --------------
-#          11                            12             2           3
-#    -------------------------------------------
+# 〇×ゲーム2.0巻 対局中1.0巻
+from apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0 import PlayingV as PlayingVV2g1o0
+#                         ^two
+#          ------------------                   ------        --------    --------------
+#          11                                   12            2           3
+#    -------------------------------------------------
 #    10
-# 10. `src1/apps1/tic_tac_toe_v2/views/gui/playing/v1o0/__init__.py`
-#           -------------------------------------------
+# 10. `src1/apps1/tic_tac_toe_vol2o0/views/gui/playing/ver1o0/__init__.py`
+#           -------------------------------------------------
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる `__init__.py` ファイルにさらに含まれるクラス
@@ -44,12 +44,12 @@ class PlayingV():
         """描画"""
 
         # 以下のファイルは既存です
-        from apps1.tic_tac_toe_v2.views.gui.playing.v1o0.v_render import render_playing
-        #                       ^two
-        #    ----------------------------------------------------        --------------
-        #    1                                                           2
-        # 1. `src1/apps1/tic_tac_toe_v2/views/gui/playing/v1o0/v_render.py`
-        #          ----------------------------------------------------
+        from apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0.v_render import render_playing
+        #                         ^two
+        #    ----------------------------------------------------------        --------------
+        #    1                                                                 2
+        # 1. `src1/apps1/tic_tac_toe_vol2o0/views/gui/playing/ver1o0/v_render.py`
+        #          ----------------------------------------------------------
         # 2. `1.` のファイルに含まれる render_playing 関数
 
         return render_playing(

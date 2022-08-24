@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/v2/s2c-json-gen/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/vol2.0/ver1.0/s2c-json-gen/)  
 
 # 目標
 
@@ -43,11 +43,11 @@
     │   │   ├── 📂 portal_v1                # アプリケーション
     │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   ├── 📂 tic_tac_toe_vol1o0           # アプリケーション
-    │   │   └── 📂 tic_tac_toe_v2           # アプリケーション
+    │   │   └── 📂 tic_tac_toe_vol2o0           # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
-    │   │       │   └── 📂 tic_tac_toe_v2
+    │   │       │   └── 📂 tic_tac_toe_vol2o0
     │   │       │       └── 📂 think
     │   │       │           ├── 📂 concepts
     │   │       │           │   └── 📄 v1o0.js
@@ -62,7 +62,7 @@
     │   │       │           └── 📂 user_ctrl
     │   │       │               └── 📄 v1o0.js
     │   │       ├── 📂 templates
-    │   │       │   └── 📂 tic_tac_toe_v2
+    │   │       │   └── 📂 tic_tac_toe_vol2o0
     │   │       │       └── 📂 think
     │   │       │           └── 📂 engine_manual
     │   │       │               └── 📄 v1o0.html
@@ -128,7 +128,7 @@ docker-compose up
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v2    # アプリケーション
+            └── 📂 tic_tac_toe_vol2o0    # アプリケーション
                 └── 📂 views
                     └── 📂 msg
                         └── 📂 s2c_json_gen
@@ -214,9 +214,9 @@ class S2cJsonGenCommands:
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v2    # アプリケーション
+            └── 📂 tic_tac_toe_vol2o0    # アプリケーション
                 ├── 📂 templates
-                │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
+                │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
                 │       └── 📂 msg
                 │           └── 📂 s2c_json_gen
 👉              │               └── 📄 v1o0.html
@@ -229,8 +229,7 @@ class S2cJsonGenCommands:
 ```
 
 ```html
-{# BOF OA16o3o_2o0g2o0 #}
-<!-- -->
+<!-- BOF OA16o3o_2o0g2o0 -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <html>
@@ -258,8 +257,8 @@ class S2cJsonGenCommands:
                             <!--                    =
                                                     1
                             1. 宛先を間違えないように
-                               `http://example.com/tic-tac-toe/v2/`
-                                                                  =
+                               `http://example.com/tic-tac-toe/vol2.0/ver1.0/`
+                                                                             =
                             -->
 
                             {% csrf_token %}
@@ -292,16 +291,16 @@ class S2cJsonGenCommands:
             </v-app>
         </div>
 
-        <script src="{% static 'tic_tac_toe_v2/think/things/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/think/concepts/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/think/position/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/think/user_ctrl/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/think/judge_ctrl/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/think/engine/v1o0.js' %}"></script>
-        <!--            ===========================================
+        <script src="{% static 'tic_tac_toe_vol2o0/think/things/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/think/concepts/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/think/position/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/think/user_ctrl/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/think/judge_ctrl/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/think/engine/ver1o0.js' %}"></script>
+        <!--            =================================================
                         1
-        1. src1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/think/engine/v1o0.js
-                                     ==========================================
+        1. src1/apps1/tic_tac_toe_vol2o0/static/tic_tac_toe_vol2o0/think/engine/ver1o0.js
+                                         ================================================
         -->
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
@@ -389,7 +388,7 @@ class S2cJsonGenCommands:
         </script>
     </body>
 </html>
-{# EOF OA16o3o_2o0g2o0 #}
+<!-- EOF OA16o3o_2o0g2o0 -->
 ```
 
 ## Step OA16o3o_2o0g3o0 ビュー作成 - msg/s2c_json_gen/v1o0/v_render.py ファイル
@@ -399,9 +398,9 @@ class S2cJsonGenCommands:
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v2    # アプリケーション
+            └── 📂 tic_tac_toe_vol2o0    # アプリケーション
                 ├── 📂 templates
-                │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
+                │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
                 │       └── 📂 msg
                 │           └── 📂 s2c_json_gen
                 │               └── 📄 v1o0.html
@@ -422,10 +421,10 @@ import json
 from django.shortcuts import render
 
 # OA16o3o_2o0g1o0 S2C JSON ジェネレーター
-from apps1.tic_tac_toe_v2.views.msg.s2c_json_gen.commands.v1o0 import S2cJsonGenCommands as CommandsGen
-#          --------------                                 ----        ------------------    -----------
-#          11                                             12          2                     3
-#    ---------------------------------------------------------
+from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.commands.ver1o0 import S2cJsonGenCommands as CommandsGen
+#          ------------------                                 ------        ------------------    -----------
+#          11                                                 12            2                     3
+#    ---------------------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -485,9 +484,9 @@ def render_main(request, template_path):
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v2    # アプリケーション
+            └── 📂 tic_tac_toe_vol2o0    # アプリケーション
                 ├── 📂 templates
-                │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
+                │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
                 │       └── 📂 msg
                 │           └── 📂 s2c_json_gen
                 │               └── 📄 v1o0.html
@@ -508,12 +507,12 @@ def render_main(request, template_path):
 class S2cJsonGenView():
     """OA16o3o_2o0g4o0 S2C Json ジェネレーター ビュー"""
 
-    template_path = "tic_tac_toe_v2/msg/s2c_json_gen/v1o0.html"
-    #                             ^two
-    #                -----------------------------------------
+    template_path = "tic_tac_toe_vol2o0/msg/s2c_json_gen/ver1o0.html"
+    #                               ^two
+    #                -----------------------------------------------
     #                1
-    # 1. src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/msg/c2s_json_gen/v1o0.html
-    #                                        -----------------------------------------
+    # 1. src1/apps1/tic_tac_toe_vol2o0/templates/tic_tac_toe_vol2o0/msg/c2s_json_gen/ver1o0.html
+    #                                            -----------------------------------------------
 
     @staticmethod
     def render(request):
@@ -523,8 +522,8 @@ class S2cJsonGenView():
         from .v_render import render_main
         #    ---------        -----------
         #    1                2
-        # 1. `src1/apps1/tic_tac_toe_v2/views/msg/c2s_json_gen/v1o0/v_render.py`
-        #                                                           --------
+        # 1. `src1/apps1/tic_tac_toe_vol2o0/views/msg/c2s_json_gen/v1o0/v_render.py`
+        #                                                               --------
         # 2. `1.` に含まれる関数
 
         return render_main(
@@ -545,9 +544,9 @@ Merged to OA16o3o_2o0g5o1o0
 ```plaintext
     ├── 📂 src1
     │   └── 📂 apps1
-    │       └── 📂 tic_tac_toe_v2    # アプリケーション
+    │       └── 📂 tic_tac_toe_vol2o0    # アプリケーション
     │           ├── 📂 templates
-    │           │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
+    │           │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
     │           │       └── 📂 msg
     │           │           └── 📂 s2c_json_gen
     │           │               └── 📄 v1o0.html
@@ -570,7 +569,7 @@ Merged to OA16o3o_2o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/v2/s2c-json-gen/,,"OA16o3o_2o0g5o1o0 〇×ゲーム v2 S2C JSON ジェネレーター",apps1.tic_tac_toe_v2.views.msg.s2c_json_gen.v1o0,S2cJsonGenView,S2cJsonGenViewV1o0,render
+../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/vol2.0/ver1.0/s2c-json-gen/,,"OA16o3o_2o0g5o1o0 〇×ゲーム2.0巻 1.0版 S2C JSON ジェネレーター",apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.v1o0,S2cJsonGenView,S2cJsonGenViewV1o0,render
 ```
 
 ## Step OA16o3o_2o0g5o2o0 ルート編集 - コマンド打鍵
@@ -590,7 +589,7 @@ docker-compose restart
 
 ## Step. Web画面へアクセス
 
-📖 [http://localhost:8000/tic-tac-toe/v2/s2c-json-gen/](http://localhost:8000/tic-tac-toe/v2/s2c-json-gen/)  
+📖 [http://localhost:8000/tic-tac-toe/vol2.0/ver1.0/s2c-json-gen/](http://localhost:8000/tic-tac-toe/vol2.0/ver1.0/s2c-json-gen/)  
 
 # 次の記事
 

@@ -1,0 +1,142 @@
+<!-- BOF OA16o3o_1o0g1o0 -->
+{% load static %} {# 👈あとで static "URL" を使うので load static します #}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+        <title>Tic Tac Toe</title>
+        <style>
+            /* 等幅 */
+            .v-textarea textarea {
+                font-family: monospace, monospace;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <v-app>
+                <v-main>
+                    <v-container fluid>
+                        <h1>Tic Tac Toe - C2S Json Generator</h1>
+                        <v-form method="POST">
+                            {% csrf_token %}
+
+                            <!-- `po_` は POST送信するパラメーター名の目印 -->
+
+                            <!-- リスト -->
+                            <v-select v-model="c2sMessageTypeListbox.value" :items="c2sMessageTypeItems" label="クライアントからサーバーへ送るメッセージの種類一覧"></v-select>
+                            <v-select v-model="sqListbox.value" :items="sqItems" label="マス番号一覧"></v-select>
+                            <v-select v-model="playerListbox.value" :items="playerItems" label="プレイヤー一覧"></v-select>
+
+                            <!-- ボタン -->
+                            <v-btn block elevation="2" v-on:click="postVu()"> Generate JSON </v-btn>
+
+                            <!-- 出力 -->
+                            <v-textarea name="po_output" required v-model="outputTextbox.value" label="Output" rows="10"></v-textarea>
+                        </v-form>
+                    </v-container>
+                </v-main>
+            </v-app>
+        </div>
+
+        <script src="{% static 'tic_tac_toe_vol2o0/think/things/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/think/concepts/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/think/position/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/think/user_ctrl/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/think/judge_ctrl/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/think/engine/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/ver1o0.js' %}"></script>
+        <!--            =====================================================
+                        1
+        1. src1/apps1/tic_tac_toe_vol2o0/static/tic_tac_toe_vol2o0/msg/c2s_json_gen/ver1o0.js
+                                         ====================================================
+        -->
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+        <script>
+            // クライアントからサーバーへ送るメッセージを生成できる
+            const c2sJsonGen1 = new C2sJsonGen();
+
+            const vue1 = new Vue({
+                el: "#app",
+                vuetify: new Vuetify(),
+                data: {
+                    // 出力
+                    outputTextbox: {
+                        value: 'Please push "Generate JSON" button.',
+                    },
+                    // メッセージの種類リストボックス
+                    c2sMessageTypeListbox: {
+                        value: "DoMove",
+                    },
+                    // マス番号リストボックス
+                    sqListbox: {
+                        value: "",
+                    },
+                    // プレイヤーリストボックス
+                    playerListbox: {
+                        value: "",
+                    },
+                    // メッセージの種類一覧
+                    c2sMessageTypeItems: ["DoMove", "Draw", "Start", "Won"],
+                    // マス番号の一覧
+                    sqItems: ["", 0, 1, 2, 3, 4, 5, 6, 7, 8],
+                    // プレイヤーの一覧
+                    playerItems: ["", "X", "O"],
+                },
+                methods: {
+                    // 関数名の末尾の Vu は vue1 のメソッドであることを表す目印
+                    /**
+                     * po_input 欄のコマンドを入力します
+                     */
+                    postVu() {
+                        // console.log(`[methods postVu]`);
+                        let doc = null;
+                        switch (this.c2sMessageTypeListbox.value) {
+                            case "DoMove":
+                                {
+                                    const sq = this.sqListbox.value;
+                                    const myTurn = this.playerListbox.value;
+                                    doc = c2sJsonGen1.createDoMove(sq, myTurn);
+                                }
+                                break;
+
+                            case "Draw":
+                                {
+                                    doc = c2sJsonGen1.createDraw();
+                                }
+                                break;
+
+                            case "Start":
+                                {
+                                    doc = c2sJsonGen1.createStart();
+                                }
+                                break;
+
+                            case "Won":
+                                {
+                                    const winner = this.playerListbox.value;
+                                    doc = c2sJsonGen1.createWon(winner);
+                                }
+                                break;
+
+                            default:
+                                {
+                                    doc = {};
+                                }
+                                break;
+                        }
+
+                        this.outputTextbox.value = JSON.stringify(doc, null, "    ");
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>
+<!-- EOF OA16o3o_1o0g1o0 -->

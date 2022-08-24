@@ -21,11 +21,11 @@ def render_auto_redirect(request, auto_redirect_tp):
 
     # 5 で割り切れる分なら、リダイレクト
     if dt_minute % 5 == 0:
-        redirect_path = "/tic-tac-toe/v2/match-application/"
-        #                ----------------------------------
+        redirect_path = "/tic-tac-toe/vol2.0/ver1.0/match-application/"
+        #                ---------------------------------------------
         #                1
-        # 1. `http://example.com/tic-tac-toe/v2/match-application/`
-        #                       ----------------------------------
+        # 1. `http://example.com/tic-tac-toe/vol2.0/ver1.0/match-application/`
+        #                       ---------------------------------------------
     else:
         # リダイレクトしたくないときは空文字列を送る、と取り決めておきます
         redirect_path = ""

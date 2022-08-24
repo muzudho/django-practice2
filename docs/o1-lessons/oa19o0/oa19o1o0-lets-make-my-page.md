@@ -52,15 +52,15 @@
     │   │   │       └── 📂 room
     │   │   │           └── 📄 v1o0.py
     │   │   ├── 📂 tic_tac_toe_vol1o0           # アプリケーション
-    │   │   └── 📂 tic_tac_toe_v2           # アプリケーション
+    │   │   └── 📂 tic_tac_toe_vol2o0           # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
-    │   │       │   └── 📂 tic_tac_toe_v2
+    │   │       │   └── 📂 tic_tac_toe_vol2o0
     │   │       │       ├── 📂 gui
     │   │       │       └── 📂 think
     │   │       ├── 📂 templates
-    │   │       │   └── 📂 tic_tac_toe_v2
+    │   │       │   └── 📂 tic_tac_toe_vol2o0
     │   │       │       ├── 📂 gui
     │   │       │       └── 📂 think
     │   │       ├── 📂 views
@@ -306,11 +306,11 @@ def render_my(request, my_page_tp):
         # 1. http://example.com/practice/v1/lobby/
         #                      -------------------
 
-        'dj_ticTacToePath': '/tic-tac-toe/v2/match-application/',
-        #                    ----------------------------------
+        'dj_ticTacToePath': '/tic-tac-toe/vol2.0/ver1.0/match-application/',
+        #                    ---------------------------------------------
         #                    1
-        # 1. http://example.com/tic-tac-toe/v2/match-application/
-        #                      ----------------------------------
+        # 1. http://example.com/tic-tac-toe/vol2.0/ver1.0/match-application/
+        #                      ---------------------------------------------
 
         'dj_loginPath': '/accounts/vol1.0/ver1.0/login/',
         #                ------------------------------

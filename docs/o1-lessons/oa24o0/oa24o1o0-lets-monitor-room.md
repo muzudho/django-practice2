@@ -46,15 +46,15 @@
     │   │   │       └── 📂 room
     │   │   │           └── 📄 v1o0.py
     │   │   ├── 📂 tic_tac_toe_vol1o0           # アプリケーション
-    │   │   └── 📂 tic_tac_toe_v2           # アプリケーション
+    │   │   └── 📂 tic_tac_toe_vol2o0           # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
-    │   │       │   └── 📂 tic_tac_toe_v2
+    │   │       │   └── 📂 tic_tac_toe_vol2o0
     │   │       │       ├── 📂 gui
     │   │       │       └── 📂 think
     │   │       ├── 📂 templates
-    │   │       │   └── 📂 tic_tac_toe_v2
+    │   │       │   └── 📂 tic_tac_toe_vol2o0
     │   │       │       ├── 📂 gui
     │   │       │       └── 📂 think
     │   │       ├── 📂 views
@@ -141,32 +141,32 @@ from apps1.practice_v1.models.room.v1o0 import Room
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# 〇×ゲーム v2 コンシューマー v1.0
-from apps1.tic_tac_toe_v2.websocks.gui.consumer.v1o0 import TicTacToeV2ConsumerBase
-#                       ^two
-#          --------------                       ----        -----------------------
-#          11                                   12          2
-#    -----------------------------------------------
+# 〇×ゲーム2.0巻 ウェブソケットGUIコンシューマー1.0版
+from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o0 import TicTacToeV2ConsumerBase
+#                         ^two
+#          ------------------                       ------        -----------------------
+#          11                                       12            2
+#    -----------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれている __init__.py ファイルにさらに含まれるクラス
 
-# 〇×ゲーム v2 Webソケット メッセージ駆動 v1.0
-from apps1.tic_tac_toe_v2.websocks.gui.message_driven.v1o0 import TicTacToeV2MessageDriven
-#          --------------                             ----        ------------------------
-#          11                                         12          2
-#    -----------------------------------------------------
+# 〇×ゲーム2.0巻 ウェブソケットGUIメッセージ駆動1.0版
+from apps1.tic_tac_toe_vol2o0.websocks.gui.message_driven.ver1o0 import TicTacToeV2MessageDriven
+#          ------------------                             ------        ------------------------
+#          11                                             12            2
+#    -----------------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py にさらに含まれるクラス
 
-# OA16o3o_2o0g1o0 S2C JSON ジェネレーター
-from apps1.tic_tac_toe_v2.views.msg.s2c_json_gen.commands.v1o0 import S2cJsonGenCommands as CommandsGen
-#          --------------                                 ----        ------------------    -----------
-#          11                                             12          2                     3
-#    ---------------------------------------------------------
+# OA16o3o_2o0g1o0 〇×ゲーム2.0巻 メッセージS2C JSONジェネレーター1.0版
+from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.commands.ver1o0 import S2cJsonGenCommands as CommandsGen
+#          ------------------                                 ------        ------------------    -----------
+#          11                                                 12            2                     3
+#    ---------------------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -439,15 +439,15 @@ websocket_urlpatterns_merged.extend(
 ```py
 # BOF OA24o1o0g6o0
 
-# 〇×ゲーム v2 対局申込 v1.0
-from apps1.tic_tac_toe_v2.views.gui.match_application.v1o0 import MatchApplicationV as MatchApplicationVV2g1o0
-#                       ^two
-#          --------------                -----------------        -----------------    -----------------------
-#          11                            12                       2                    3
-#    -----------------------------------------------------
+# 〇×ゲーム2.0巻 対局申込1.0版
+from apps1.tic_tac_toe_vol2o0.views.gui.match_application.ver1o0 import MatchApplicationV as MatchApplicationVV2g1o0
+#                         ^two
+#          ------------------                             ------        -----------------    -----------------------
+#          11                                             12            2                    3
+#    -----------------------------------------------------------
 #    10
-# 10. `src1/apps1/tic_tac_toe_v2/views/gui/match_application/v1o0/__init__.py`
-#           -----------------------------------------------------
+# 10. `src1/apps1/tic_tac_toe_vol2o0/views/gui/match_application/ver1o0/__init__.py`
+#           -----------------------------------------------------------
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `1.` の __init__.py ファイルに含まれるクラス
@@ -483,12 +483,12 @@ class MatchApplicationV():
         """描画"""
 
         # 以下のファイルは既存です
-        from apps1.tic_tac_toe_v2.views.gui.match_application.v1o0.v_render import render_match_application
-        #                       ^two
-        #    --------------------------------------------------------------        ------------------------
-        #    1                                                                     2
-        # 1. `src1/apps1/tic_tac_toe_v2/views/gui/match_application/v1o0/v_render.py`
-        #                                                                --------
+        from apps1.tic_tac_toe_vol2o0.views.gui.match_application.ver1o0.v_render import render_match_application
+        #                         ^two
+        #    --------------------------------------------------------------------        ------------------------
+        #    1                                                                           2
+        # 1. `src1/apps1/tic_tac_toe_vol2o0/views/gui/match_application/ver1o0/v_render.py`
+        #          --------------------------------------------------------------------
         # 2. `1.` に含まれる関数
 
         return render_match_application(
@@ -527,15 +527,15 @@ class MatchApplicationV():
 ```py
 # BOF OA24o1o0g7o0
 
-# 〇×ゲーム v2 対局中 v1.0
-from apps1.tic_tac_toe_v2.views.gui.playing.v1o0 import PlayingV as PlayingVV2g1o0
-#                       ^two
-#          --------------                -------        --------    --------------
-#          11                            12             2           3
-#    -------------------------------------------
+# 〇×ゲーム2.0巻 対局中1.0巻
+from apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0 import PlayingV as PlayingVV2g1o0
+#                         ^two
+#          ------------------                   ------        --------    --------------
+#          11                                   12            2           3
+#    -------------------------------------------------
 #    10
-# 10. `src1/apps1/tic_tac_toe_v2/views/gui/playing/v1o0/__init__.py`
-#           -------------------------------------------
+# 10. `src1/apps1/tic_tac_toe_vol2o0/views/gui/playing/ver1o0/__init__.py`
+#           -------------------------------------------------
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる `__init__.py` ファイルにさらに含まれるクラス
@@ -571,12 +571,12 @@ class PlayingV():
         """描画"""
 
         # 以下のファイルは既存です
-        from apps1.tic_tac_toe_v2.views.gui.playing.v1o0.v_render import render_playing
-        #                       ^two
-        #    ----------------------------------------------------        --------------
-        #    1                                                           2
-        # 1. `src1/apps1/tic_tac_toe_v2/views/gui/playing/v1o0/v_render.py`
-        #          ----------------------------------------------------
+        from apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0.v_render import render_playing
+        #                         ^two
+        #    ----------------------------------------------------------        --------------
+        #    1                                                                 2
+        # 1. `src1/apps1/tic_tac_toe_vol2o0/views/gui/playing/ver1o0/v_render.py`
+        #          ----------------------------------------------------------
         # 2. `1.` のファイルに含まれる render_playing 関数
 
         return render_playing(

@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/v2/c2s-json-gen/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/vol2.0/ver1.0/c2s-json-gen/)  
 
 # 目標
 
@@ -40,11 +40,11 @@
     │   │   ├── 📂 portal_v1                # アプリケーション
     │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   ├── 📂 tic_tac_toe_vol1o0           # アプリケーション
-    │   │   └── 📂 tic_tac_toe_v2           # アプリケーション
+    │   │   └── 📂 tic_tac_toe_vol2o0           # アプリケーション
     │   │       ├── 📂 migrations
     │   │       │   └── 📄 __init__.py
     │   │       ├── 📂 static
-    │   │       │   └── 📂 tic_tac_toe_v2
+    │   │       │   └── 📂 tic_tac_toe_vol2o0
     │   │       │       └── 📂 think
     │   │       │           ├── 📂 concepts
     │   │       │           │   └── 📄 v1o0.js
@@ -59,7 +59,7 @@
     │   │       │           └── 📂 user_ctrl
     │   │       │               └── 📄 v1o0.js
     │   │       ├── 📂 templates
-    │   │       │   └── 📂 tic_tac_toe_v2
+    │   │       │   └── 📂 tic_tac_toe_vol2o0
     │   │       │       └── 📂 think
     │   │       │           └── 📂 engine_manual
     │   │       │               └── 📄 v1o0.html
@@ -127,9 +127,9 @@ Moved from OA16o3o0g2o0
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v2    # アプリケーション
+            └── 📂 tic_tac_toe_vol2o0    # アプリケーション
                 └── 📂 static
-                    └── 📂 tic_tac_toe_v2    # アプリケーションと同名
+                    └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
                         └── 📂 msg
                             └── 📂 c2s_json_gen
 👉                              └── 📄 v1o0.js
@@ -207,22 +207,21 @@ class C2sJsonGen {
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v2    # アプリケーション
+            └── 📂 tic_tac_toe_vol2o0    # アプリケーション
                 ├── 📂 static
-                │   └── 📂 tic_tac_toe_v2
+                │   └── 📂 tic_tac_toe_vol2o0
                 │       └── 📂 msg
                 │           └── 📂 c2s_json_gen
                 │               └── 📄 v1o0.js
                 └── 📂 templates
-                    └── 📂 tic_tac_toe_v2    # アプリケーションと同名
+                    └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
                         └── 📂 msg
                             └── 📂 c2s_json_gen
 👉                              └── 📄 v1o0.html
 ```
 
 ```html
-{# BOF OA16o3o_1o0g1o0 #}
-<!-- -->
+<!-- BOF OA16o3o_1o0g1o0 -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <html>
@@ -267,17 +266,17 @@ class C2sJsonGen {
             </v-app>
         </div>
 
-        <script src="{% static 'tic_tac_toe_v2/think/things/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/think/concepts/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/think/position/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/think/user_ctrl/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/think/judge_ctrl/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/think/engine/v1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_v2/msg/c2s_json_gen/v1o0.js' %}"></script>
-        <!--            ===============================================
+        <script src="{% static 'tic_tac_toe_vol2o0/think/things/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/think/concepts/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/think/position/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/think/user_ctrl/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/think/judge_ctrl/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/think/engine/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/ver1o0.js' %}"></script>
+        <!--            =====================================================
                         1
-        1. src1/apps1/tic_tac_toe_v2/static/tic_tac_toe_v2/msg/c2s_json_gen/v1o0.js
-                                     ==============================================
+        1. src1/apps1/tic_tac_toe_vol2o0/static/tic_tac_toe_vol2o0/msg/c2s_json_gen/ver1o0.js
+                                         ====================================================
         -->
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
@@ -363,7 +362,7 @@ class C2sJsonGen {
         </script>
     </body>
 </html>
-{# EOF OA16o3o_1o0g1o0 #}
+<!-- EOF OA16o3o_1o0g1o0 -->
 ```
 
 ## Step OA16o3o_1o0g2o0 ビュー作成 - msg/c2s_json_gen/v1o0/v_render.py ファイル
@@ -373,14 +372,14 @@ class C2sJsonGen {
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v2    # アプリケーション
+            └── 📂 tic_tac_toe_vol2o0    # アプリケーション
                 ├── 📂 static
-                │   └── 📂 tic_tac_toe_v2
+                │   └── 📂 tic_tac_toe_vol2o0
                 │       └── 📂 msg
                 │           └── 📂 c2s_json_gen
                 │               └── 📄 v1o0.js
                 ├── 📂 templates
-                │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
+                │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
                 │       └── 📂 msg
                 │           └── 📂 c2s_json_gen
                 │               └── 📄 v1o0.html
@@ -420,14 +419,14 @@ def render_main(request, template_path):
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 tic_tac_toe_v2    # アプリケーション
+            └── 📂 tic_tac_toe_vol2o0    # アプリケーション
                 ├── 📂 static
-                │   └── 📂 tic_tac_toe_v2
+                │   └── 📂 tic_tac_toe_vol2o0
                 │       └── 📂 msg
                 │           └── 📂 c2s_json_gen
                 │               └── 📄 v1o0.js
                 ├── 📂 templates
-                │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
+                │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
                 │       └── 📂 msg
                 │           └── 📂 c2s_json_gen
                 │               └── 📄 v1o0.html
@@ -444,12 +443,12 @@ def render_main(request, template_path):
 class C2sJsonGenView():
     """OA16o3o_1o0g3o0 C2S Json ジェネレーター ビュー"""
 
-    template_path = "tic_tac_toe_v2/msg/c2s_json_gen/v1o0.html"
-    #                             ^two
-    #                -----------------------------------------
+    template_path = "tic_tac_toe_vol2o0/msg/c2s_json_gen/ver1o0.html"
+    #                               ^two
+    #                -----------------------------------------------
     #                1
-    # 1. src1/apps1/tic_tac_toe_v2/templates/tic_tac_toe_v2/msg/c2s_json_gen/v1o0.html
-    #                                        -----------------------------------------
+    # 1. src1/apps1/tic_tac_toe_vol2o0/templates/tic_tac_toe_vol2o0/msg/c2s_json_gen/ver1o0.html
+    #                                            -----------------------------------------------
 
     @staticmethod
     def render(request):
@@ -459,8 +458,8 @@ class C2sJsonGenView():
         from .v_render import render_main
         #    ---------        -----------
         #    1                2
-        # 1. `src1/apps1/tic_tac_toe_v2/views/msg/c2s_json_gen/v1o0/v_render.py`
-        #                                                           --------
+        # 1. `src1/apps1/tic_tac_toe_vol2o0/views/msg/c2s_json_gen/ver1o0/v_render.py`
+        #                                                                 --------
         # 2. `1.` に含まれる関数
 
         return render_main(
@@ -481,14 +480,14 @@ Merged to OA16o3o_1o0g4o1o0
 ```plaintext
     ├── 📂 src1
     │   └── 📂 apps1
-    │       └── 📂 tic_tac_toe_v2    # アプリケーション
+    │       └── 📂 tic_tac_toe_vol2o0    # アプリケーション
     │           ├── 📂 static
-    │           │   └── 📂 tic_tac_toe_v2
+    │           │   └── 📂 tic_tac_toe_vol2o0
     │           │       └── 📂 msg
     │           │           └── 📂 c2s_json_gen
     │           │               └── 📄 v1o0.js
     │           ├── 📂 templates
-    │           │   └── 📂 tic_tac_toe_v2    # アプリケーションと同名
+    │           │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
     │           │       └── 📂 msg
     │           │           └── 📂 c2s_json_gen
     │           │               └── 📄 v1o0.html
@@ -507,7 +506,7 @@ Merged to OA16o3o_1o0g4o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/v2/c2s-json-gen/,,"OA16o3o_1o0g4o1o0 〇×ゲーム v2 C2S JSON ジェネレーター",apps1.tic_tac_toe_v2.views.msg.c2s_json_gen.v1o0,C2sJsonGenView,C2sJsonGenViewV1o0,render
+../src1/project1/urls_tic_tac_toe_v2_autogen.py,tic-tac-toe/vol2.0/ver1.0/c2s-json-gen/,,"OA16o3o_1o0g4o1o0 〇×ゲーム2.0巻 1.0版 C2S JSON ジェネレーター",apps1.tic_tac_toe_vol2o0.views.msg.c2s_json_gen.v1o0,C2sJsonGenView,C2sJsonGenViewV1o0,render
 ```
 
 ## Step OA16o3o_1o0g4o2o0 ルート編集 - コマンド打鍵
@@ -527,7 +526,7 @@ docker-compose restart
 
 ## Step. Web画面へアクセス
 
-📖 [http://localhost:8000/tic-tac-toe/v2/c2s-json-gen/](http://localhost:8000/tic-tac-toe/v2/c2s-json-gen/)  
+📖 [http://localhost:8000/tic-tac-toe/vol2.0/ver1.0/c2s-json-gen/](http://localhost:8000/tic-tac-toe/vol2.0/ver1.0/c2s-json-gen/)  
 
 # 次の記事
 
