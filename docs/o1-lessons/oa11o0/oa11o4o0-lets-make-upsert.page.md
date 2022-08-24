@@ -62,7 +62,7 @@
 ```plaintext
     ├── 📂 src1
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized_vol1o0    # アプリケーション
+    │   │   ├── 📂 accounts_vol1o0    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
     │   │   └── 📂 practice_v1              # アプリケーション
     │   │       ├── 📂 management
@@ -93,7 +93,7 @@
     │   │   ├── 📄 asgi.py
     │   │   ├── 📄 settings_secrets_example.txt
     │   │   ├── 📄 settings.py
-    │   │   ├── 📄 urls_accounts.py
+    │   │   ├── 📄 urls_accounts_vol1o0.py
     │   │   ├── 📄 urls_practice.py
     │   │   ├── 📄 urls.py
     │   │   └── 📄 wsgi.py
@@ -385,8 +385,8 @@ Merged to OA11o4o0g6o1o0
 ...略...
 
 
-../src1/project1/urls_practice_autogen.py,practice/v1/prefectures/create/,practice_v1_prefectures_create,"OA11o4o0g6o1o0 都道府県の新規作成",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_upsert
-../src1/project1/urls_practice_autogen.py,practice/v1/prefectures/update/<int:id>/,practice_v1_refectures_update,"OA11o4o0g6o1o0 都道府県の更新",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_upsert
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/prefectures/create/,practice_v1_prefectures_create,"OA11o4o0g6o1o0 都道府県の新規作成",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_upsert
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/prefectures/update/<int:id>/,practice_v1_refectures_update,"OA11o4o0g6o1o0 都道府県の更新",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_upsert
 ```
 
 ## Step OA11o4o0g6o2o0 ルート編集 - コマンド打鍵

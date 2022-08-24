@@ -52,7 +52,7 @@ ID    部屋名        先手Id  先手名  後手Id  後手名  盤面       �
 ```plaintext
     ├── 📂 src1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized_vol1o0    # アプリケーション
+    │   │   ├── 📂 accounts_vol1o0    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
     │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations
@@ -80,7 +80,7 @@ ID    部屋名        先手Id  先手名  後手Id  後手名  盤面       �
     │   │   ├── 📄 asgi.py
     │   │   ├── 📄 settings_secrets_example.txt
     │   │   ├── 📄 settings.py
-    │   │   ├── 📄 urls_accounts.py
+    │   │   ├── 📄 urls_accounts_vol1o0.py
     │   │   ├── 📄 urls_practice.py
     │   │   ├── 📄 urls_tic_tac_toe_v1.py
     │   │   ├── 📄 urls_tic_tac_toe_v2.py
@@ -510,7 +510,7 @@ Merged to OA18o2o0g7o1o0
 ...略...
 
 
-../src1/project1/urls_practice_autogen.py,practice/v1/rooms/,practice_v1_rooms,"OA18o2o0g7o1o0 対局部屋の一覧 v1.0",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_list
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/rooms/,practice_v1_rooms,"OA18o2o0g7o1o0 対局部屋の一覧 v1.0",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_list
 ```
 
 ## Step OA18o2o0g7o2o0 ルート編集 - コマンド打鍵

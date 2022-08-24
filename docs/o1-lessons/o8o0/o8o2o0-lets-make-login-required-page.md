@@ -43,7 +43,7 @@ Login user.
 ```plaintext
     ├── 📂 src1
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized_vol1o0        # アプリケーション
+    │   │   ├── 📂 accounts_vol1o0        # アプリケーション
     │   │   ├── 📂 portal_v1                    # アプリケーション
     │   │   └── 📂 practice_v1                  # アプリケーション
     │   ├── 📂 data
@@ -52,7 +52,7 @@ Login user.
     │   │   ├── 📄 asgi.py
     │   │   ├── 📄 settings_secrets_example.txt
     │   │   ├── 📄 settings.py
-    │   │   ├── 📄 urls_accounts.py
+    │   │   ├── 📄 urls_accounts_vol1o0.py
     │   │   ├── 📄 urls_practice.py
     │   │   ├── 📄 urls.py
     │   │   └── 📄 wsgi.py
@@ -226,8 +226,8 @@ Merged to O8o2o0g4o1o0
 ...略...
 
 
-../src1/project1/urls_practice_autogen.py,practice/v1/login-required,,"O8o2o0g4o1o0 ログイン必須ページでログイン中",apps1.practice_v1.views.login_required.v1o0,LoggingIn,,render
-../src1/project1/urls_practice_autogen.py,practice/v1/logout,,"O8o2o0g4o1o0 ログイン必須ページでログアウト中",apps1.practice_v1.views.login_required.v1o0,LoggingOut,,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/login-required,,"O8o2o0g4o1o0 ログイン必須ページでログイン中",apps1.practice_v1.views.login_required.v1o0,LoggingIn,,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/logout,,"O8o2o0g4o1o0 ログイン必須ページでログアウト中",apps1.practice_v1.views.login_required.v1o0,LoggingOut,,render
 ```
 
 ## Step O8o2o0g4o2o0 ルート編集 - コマンド打鍵

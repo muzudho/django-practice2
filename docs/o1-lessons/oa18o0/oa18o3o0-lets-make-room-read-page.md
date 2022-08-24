@@ -79,7 +79,7 @@ Elephant
 ```plaintext
     ├── 📂 src1                            # あなたのDjangoサーバー開発用ディレクトリー。任意の名前
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized_vol1o0    # アプリケーション
+    │   │   ├── 📂 accounts_vol1o0    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
     │   │   ├── 📂 practice_v1              # アプリケーション
     │   │   │   ├── 📂 migrations
@@ -111,7 +111,7 @@ Elephant
     │   │   ├── 📄 asgi.py
     │   │   ├── 📄 settings_secrets_example.txt
     │   │   ├── 📄 settings.py
-    │   │   ├── 📄 urls_accounts.py
+    │   │   ├── 📄 urls_accounts_vol1o0.py
     │   │   ├── 📄 urls_practice.py
     │   │   ├── 📄 urls_tic_tac_toe_v1.py
     │   │   ├── 📄 urls_tic_tac_toe_v2.py
@@ -470,7 +470,7 @@ Merged to OA18o3o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_autogen.py,practice/v1/rooms/read/<int:id>/,practice_v1_rooms_read,"OA18o3o0g5o1o0 対局部屋の詳細",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_read
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/rooms/read/<int:id>/,practice_v1_rooms_read,"OA18o3o0g5o1o0 対局部屋の詳細",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_read
 ```
 
 ## Step OA18o2o0g7o2o0 ルート編集 - コマンド打鍵

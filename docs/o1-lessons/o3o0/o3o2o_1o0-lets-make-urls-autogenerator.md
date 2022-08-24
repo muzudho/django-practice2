@@ -82,7 +82,7 @@ docker-compose up
 ```csv
 file,path,name,comment,module,class,alias,method
 ../src1/project1/urls_autogen.py,,,"集約ファイル",,,,
-../src1/project1/urls_practice_autogen.py,practice/v1/hello2,practice_v1_hello2,"o3o2o_1o0g1o0 こんにちわページ",apps1.practice_v1.views.page_the_hello.v1o0,PageTheHello,,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/hello2,practice_v1_hello2,"o3o2o_1o0g1o0 こんにちわページ",apps1.practice_v1.views.page_the_hello.v1o0,PageTheHello,,render
 ```
 
 ## Step O3o2o_1o0g2o_1o0 Pythonパッケージインストール - pandas
@@ -130,9 +130,9 @@ class UrlsAutoGenerator:
         """
         Examples
         --------
-                                                file                path                name  ...         class alias  method
-        0           ../src1/project1/urls_autogen.py                 NaN                 NaN  ...           NaN   NaN     NaN
-        1  ../src1/project1/urls_practice_autogen.py  practice/v1/hello2  practice_v1_hello2  ...  PageTheHello   NaN  render
+                                                       file                path                name  ...         class alias  method
+        0                  ../src1/project1/urls_autogen.py                 NaN                 NaN  ...           NaN   NaN     NaN
+        1  ../src1/project1/urls_practice_vol1o0_autogen.py  practice/v1/hello2  practice_v1_hello2  ...  PageTheHello   NaN  render
         """
 
         print(f"Current working directory:{os.getcwd()}")
@@ -314,7 +314,7 @@ Output:
 
 ```plaintext
 Current working directory:C:\Users\むずでょ\Documents\GitHub\django-practice2\src1_meta
-Write... ../src1/project1/urls_practice_autogen.py
+Write... ../src1/project1/urls_practice_vol1o0_autogen.py
 ```
 
 ## Step O3o2o_1o0g4o0 確認
@@ -325,7 +325,7 @@ Write... ../src1/project1/urls_practice_autogen.py
     ├── 📂 src1
     │   └── 📂 project1
 👉  │       ├── 📄 urls_autogen.py
-👉  │       └── 📄 urls_practice_autogen.py
+👉  │       └── 📄 urls_practice_vol1o0_autogen.py
     └── 📂 src1_meta
         ├── 📂 data
         │   └── 📄 urls.csv
@@ -352,13 +352,13 @@ from .settings import PROJECT_NAME
 
 
 urlpatterns = [
-    path('', include(f'{PROJECT_NAME}.urls_practice_autogen')),
+    path('', include(f'{PROJECT_NAME}.urls_practice_vol1o0_autogen')),
 ]
 
 # EOF O3o2o_1o0g4o0
 ```
 
-📄 urls_practice_autogen.py
+📄 urls_practice_vol1o0_autogen.py
 
 ```py
 # BOF O3o2o_1o0g4o0
@@ -383,7 +383,7 @@ urlpatterns = [
 ```plaintext
     ├── 📂 src1
     │   └── 📂 project1
-    │       ├── 📄 urls_practice_autogen.py
+    │       ├── 📄 urls_practice_vol1o0_autogen.py
 👉  │       └── 📄 urls.py                   # こっち
     └── 📂 src1_meta
         ├── 📂 data

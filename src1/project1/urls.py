@@ -74,13 +74,13 @@ urlpatterns = [
     # 2. `src1/projectN/urls_practice.py` の urlpatterns を `1.` にぶら下げる
     #          ----------------------
 
-    # O6o1o0gA13o0 ユーザー認証
-    path('', include(f'{PROJECT_NAME}.urls_accounts')),
-    #    --            ----------------------------
+    # O6o1o0gA13o0 アカウント1.0巻
+    path('', include(f'{PROJECT_NAME}.urls_accounts_vol1o0')),
+    #    --            -----------------------------------
     #    1             2
     # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `src1/projectN/urls_accounts.py` の urlpatterns を `1.` にぶら下げる
-    #          ----------------------
+    # 2. `src1/projectN/urls_accounts_vol1o0.py` の urlpatterns を `1.` にぶら下げる
+    #          -----------------------------
 
     # O5o2o0g8o1o0 ランチャー1.0巻 2.0版
     # あとで allauth のURLをインクルードしたとき、そちらのルートパスのURL と衝突するようだから、

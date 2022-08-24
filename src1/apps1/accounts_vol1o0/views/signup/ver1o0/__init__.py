@@ -4,17 +4,18 @@
 from allauth.account.views import SignupView
 
 
-class AccountsV1SignupView(SignupView):
+class CustomizedSignupView(SignupView):
     """django-allauth のサインアップ ビューをカスタマイズします
     📖[views.py](https://github.com/pennersr/django-allauth/blob/master/allauth/socialaccount/views.py)
     """
 
-    # ファイルパス
+    # ファイルパス（使っているか分からない）
     template_name = "account/signup.html"
     #                -------------------
     #                1
-    # 1. `src1/apps1/allauth_customized_vol1o0/templates/account/signup.html` を取得
-    #                                                    -------------------
+    # 1. Allauthのディレクトリー構成に合わせる
+    #    `src1/apps1/accounts_vol1o0/templates/account/signup.html` を取得
+    #                                          -------------------
 
     # You can also override some other methods of SignupView
     # Like below:

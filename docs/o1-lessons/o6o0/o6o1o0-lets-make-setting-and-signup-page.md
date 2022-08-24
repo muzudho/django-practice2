@@ -1,7 +1,7 @@
 # サンプルを見る
 
-📖 [この記事のゴール：サインアップ](http://tic.warabenture.com:8000/accounts/vol1.0/ver1.0/signup/)  
-📖 [この記事のゴール：ログアウト](http://tic.warabenture.com:8000/accounts/vol1.0/ver1.0/logout/)  
+📖 [この記事のゴール：サインアップ](http://tic.warabenture.com:8000/accounts/vol1.0/signup/)  
+📖 [この記事のゴール：ログアウト](http://tic.warabenture.com:8000/accounts/vol1.0/logout/)  
 
 # 目標
 
@@ -203,8 +203,8 @@ INSTALLED_APPS = [
 
 
     # 以下を追加
-    # O6o1o0g7o0 Allauthカスタマイズド1.0巻
-    'apps1.allauth_customized_vol1o0',
+    # O6o1o0g7o0 アカウント1.0巻
+    'apps1.accounts_vol1o0',
 
 
     # ...略...
@@ -239,19 +239,21 @@ TEMPLATES = [
             # ...略...
 
 
-            # O6o1o0g7o0 Allauthカスタマイズド1.0巻
-            os.path.join(BASE_DIR, 'apps1/allauth_customized_vol1o0/templates'),
-            #                       -----------------------------------------
-            #                       10
-            # Example: `/src1/apps1/allauth_customized_vol1o0/templates/account/signup.html`
-            #                       -------------------------          --------
-            #                       11                                 2
-            #                 -----------------------------------------
+            # O6o1o0g7o0 アカウント1.0巻
+            os.path.join(
+                BASE_DIR, 'apps1/accounts_vol1o0/templates'),
+            #                    -------------------------
+            #                    10
+            # Example: `/src1/apps1/accounts_vol1o0/templates/account/signup.html`
+            #                       ---------------          --------
+            #                       11                       2
+            #                 -------------------------------
             #                 10
             # 10. テンプレート ディレクトリーへのパス
             # 11. アプリケーション
-            # 2. まるで `http://example.com/account` という素材フォルダーがあるかのように扱われる
-            #                             --------
+            # 2. Allauthのディレクトリー構成に合わせる
+            #    まるで `http://example.com/account` という素材フォルダーがあるかのように扱われる
+            #                             ---------
         ],
 
 
@@ -274,11 +276,11 @@ LOGIN_REDIRECT_URL = 'home' # ログイン後に遷移するURL, または name 
 LOGIN_URL = 'login' # ログインしていないときに飛ばされる先のURL, または name の指定
 
 # ログアウト後に遷移するURL, または name の指定
-# ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/vol1.0/ver1.0/login/'
-#                                ------------------------------
+# ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/vol1.0/login/'
+#                                -----------------------
 #                                1
-# 1. 例えば `http://example.com/accounts/vol1.0/ver1.0/login/` というURLのパスの部分
-#                             -------------------------------
+# 1. 例えば `http://example.com/accounts/vol1.0/login/` というURLのパスの部分
+#                             ------------------------
 ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
 
 EMAIL_HOST = 'smtp.gmail.com' # メールサーバの指定
@@ -318,9 +320,9 @@ docker-compose run --rm web python3 manage.py migrate --settings project1.settin
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 allauth_customized_vol1o0            # アプリケーション
+        │   └── 📂 accounts_vol1o0            # アプリケーション
         │       └── 📂 static
-        │           └── 📂 allauth_customized_vol1o0    # アプリケーションと同名
+        │           └── 📂 accounts_vol1o0    # アプリケーションと同名
         │               └── 📂 form_html_parser
 👉      │                   └── 📄 o1o0.js
         ├── 📂 project1
@@ -500,9 +502,9 @@ class DjangoAllauthFormParser {
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 allauth_customized_vol1o0            # アプリケーション
+        │   └── 📂 accounts_vol1o0            # アプリケーション
         │       ├── 📂 static
-        │       │   └── 📂 allauth_customized_vol1o0    # アプリケーションと同名
+        │       │   └── 📂 accounts_vol1o0    # アプリケーションと同名
         │       │       └── 📂 form_html_parser
         │       │           └── 📄 ver1o0.js
         │       └── 📂 templates
@@ -599,11 +601,11 @@ class DjangoAllauthFormParser {
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 
-        <script src="{% static 'allauth_customized_vol1o0/form_html_parser/ver1o0.js' %}"></script>
-        <!--            ============================================================
+        <script src="{% static 'accounts_vol1o0/form_html_parser/ver1o0.js' %}"></script>
+        <!--            ==================================================
                         1
-            1. src1/apps1/allauth_customized_vol1o0/static/allauth_customized_vol1o0/form_html_parser/ver1o0.js
-                                                    ===========================================================
+            1. src1/apps1/accounts_vol1o0/static/accounts_vol1o0/form_html_parser/ver1o0.js
+                                          =================================================
         -->
 
         <script>
@@ -674,23 +676,23 @@ class DjangoAllauthFormParser {
 <!-- EOF O6o1o0gA10o0 -->
 ```
 
-## Step O6o1o0gA11o0 ビュー作成 - accounts フォルダー
+## Step O6o1o0gA11o0 ビュー作成 - signup/ver1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 allauth_customized_vol1o0            # アプリケーション
+        │   └── 📂 accounts_vol1o0            # アプリケーション
         │       ├── 📂 static
-        │       │   └── 📂 allauth_customized_vol1o0        # アプリケーションと同名
+        │       │   └── 📂 accounts_vol1o0        # アプリケーションと同名
         │       │       └── 📂 form_html_parser
         │       │           └── 📄 ver1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 account                   # ディレクトリ構成を allauth アプリケーション に合わせる
         │       │       └── 📄 signup.html
         │       └── 📂 views
-        │           └── 📂 accounts
+        │           └── 📂 signup
         │               └── 📂 ver1o0
 👉      │                   └── 📄 __init__.py
         ├── 📂 project1
@@ -707,17 +709,18 @@ class DjangoAllauthFormParser {
 from allauth.account.views import SignupView
 
 
-class AccountsV1SignupView(SignupView):
+class CustomizedSignupView(SignupView):
     """django-allauth のサインアップ ビューをカスタマイズします
     📖[views.py](https://github.com/pennersr/django-allauth/blob/master/allauth/socialaccount/views.py)
     """
 
-    # ファイルパス
+    # ファイルパス（使っているか分からない）
     template_name = "account/signup.html"
     #                -------------------
     #                1
-    # 1. `src1/apps1/allauth_customized_vol1o0/templates/account/signup.html` を取得
-    #                                                    -------------------
+    # 1. Allauthのディレクトリー構成に合わせる
+    #    `src1/apps1/accounts_vol1o0/templates/account/signup.html` を取得
+    #                                          -------------------
 
     # You can also override some other methods of SignupView
     # Like below:
@@ -730,28 +733,28 @@ class AccountsV1SignupView(SignupView):
 # EOF O6o1o0gA11o0
 ```
 
-## Step O6o1o0gA12o0 サブ ルート作成 - urls_accounts.py
+## Step O6o1o0gA12o0 サブ ルート作成 - urls_accounts_vol1o0.py
 
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 allauth_customized_vol1o0            # アプリケーション
+        │   └── 📂 accounts_vol1o0            # アプリケーション
         │       ├── 📂 static
-        │       │   └── 📂 allauth_customized_vol1o0        # アプリケーションと同名
+        │       │   └── 📂 accounts_vol1o0        # アプリケーションと同名
         │       │       └── 📂 form_html_parser
         │       │           └── 📄 ver1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 account                   # ディレクトリ構成を allauth アプリケーション に合わせる
         │       │       └── 📄 signup.html
         │       └── 📂 views
-        │           └── 📂 accounts
+        │           └── 📂 signup
         │               └── 📂 ver1o0
         │                   └── 📄 __init__.py
         ├── 📂 project1
         │   ├── 📄 settings.py
-👉      │   ├── 📄 urls_accounts.py          # 新規作成
+👉      │   ├── 📄 urls_accounts_vol1o0.py          # 新規作成
 ❌      │   └── 📄 urls.py                   # これではない
         ├── 📄 .env
         ├── 🐳 docker-compose.yml
@@ -765,25 +768,27 @@ from django.urls import include, path
 #                       --------追加
 # from django.views.generic import TemplateView  # 追加
 
-# O6o1o0gA12o0 サインアップ（会員登録）
-from apps1.allauth_customized_vol1o0.views.accounts.ver1o0 import AccountsV1SignupView
-#          -------------------------                ------        --------------------
-#          11                                       12            2
-#    -----------------------------------------------------
+# O6o1o0gA12o0 アカウント1.0巻 サインアップ（会員登録）1.0版
+from apps1.accounts_vol1o0.views.signup.ver1o0 import CustomizedSignupView as Accounts1o0SignupView1o0
+#          ---------------              ------        --------------------    ------------------------
+#          11                           12            2                       3
+#    -----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. クラス
+# 3. `2.` の別名
 
-# O8o1o0g4o0 ログイン（ユーザー認証）
-from apps1.allauth_customized_vol1o0.views.login.ver1o0 import AccountsV1LoginView
-#          -------------------------             ------        -------------------
-#          11                                    12            2
-#    --------------------------------------------------
+# O8o1o0g4o0 アカウント1.0巻 ログイン（ユーザー認証）1.0版
+from apps1.accounts_vol1o0.views.login.ver1o0 import CustomizedLoginView as Accounts1o0LoginView1o0
+#          ---------------             ------        -------------------    -----------------------
+#          11                          12            2                      3
+#    ----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. クラス
+# 3. `2.` の別名
 
 
 urlpatterns = [
@@ -797,37 +802,37 @@ urlpatterns = [
     # # 2. 最初から用意されているビュー
     # # 3. このパスを 'home' という名前で覚えておく
 
-    # allauth の URLのパスのコピー
-    path('accounts/vol1.0/ver1.0/', include('allauth.urls')),
-    #     -----------------------   -----------------------
+    # AllauthのURLのパスをぶらさげる
+    path('accounts/vol1.0/', include('allauth.urls')),
+    #     ----------------   -----------------------
     #     1
-    # 1. 例えば `http://example.com/accounts/vol1.0/ver1.0/` のような URLのパスの部分
-    #                              ------------------------
+    # 1. 例えば `http://example.com/accounts/vol1.0/` のような URLのパスの部分
+    #                              -----------------
     # 2. allauth アプリケーションに含まれる `allauth/urls.py` の urlpatterns 、
     #                                     ------------
     #    例えば `login/` のようなパスを (1.) のパスにぶら下げる形で全てコピーします
 
     # サインアップ（会員登録）
-    path("accounts/vol1.0/ver1.0/signup/", view=AccountsV1SignupView.as_view(),
-         # -----------------------------        ------------------------------
-         # 1                                    2
+    path("accounts/vol1.0/signup/", view=Accounts1o0SignupView1o0.as_view(),
+         # ----------------------        ----------------------------------
+         # 1                             2
          name="signup"),
     #          ------
     #          3
-    # 1. 例えば `http://example.com/accounts/vol1.0/ver1.0/signup/` のような URL のパスの部分にマッチする
-    #                              -------------------------------
+    # 1. 例えば `http://example.com/accounts/vol1.0/signup/` のような URL のパスの部分にマッチする
+    #                              ------------------------
     # 2. allauth の SignupView をカスタマイズしたオブジェクト
     # 3. HTMLテンプレートの中で {% url 'signup' %} のような形でURLを取得するのに使える
 
-    # ログイン（入場）
-    path("accounts/vol1.0/ver1.0/login/", view=AccountsV1LoginView.as_view(),
-         # ----------------------------        -----------------------------
-         # 1                                   2
+    # O8o1o0g4o0 ログイン（ユーザー認証）
+    path("accounts/vol1.0/login/", view=Accounts1o0LoginView1o0.as_view(),
+         # ---------------------        ---------------------------------
+         # 1                            2
          name="login"),
     #          -----
     #          3
-    # 1. 例えば `http://example.com/accounts/vol1.0/ver1.0/login/` のような URL のパスの部分
-    #                              ------------------------------
+    # 1. 例えば `http://example.com/accounts/vol1.0/login/` のような URL のパスの部分
+    #                              -----------------------
     # 2. allauth の LoginView をカスタマイズしたオブジェクト
     # 3. HTMLテンプレートの中で {% url 'login' %} のような形でURLを取得するのに使える
 ]
@@ -842,21 +847,21 @@ urlpatterns = [
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 allauth_customized_vol1o0                # アプリケーション
+        │   └── 📂 accounts_vol1o0                # アプリケーション
         │       ├── 📂 static
-        │       │   └── 📂 allauth_customized_vol1o0        # アプリケーションと同名
+        │       │   └── 📂 accounts_vol1o0        # アプリケーションと同名
         │       │       └── 📂 form_html_parser
         │       │           └── 📄 ver1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 account                      # ディレクトリ構成を allauth アプリケーション に合わせる
         │       │       └── 📄 signup.html
         │       └── 📂 views
-        │           └── 📂 accounts
+        │           └── 📂 signup
         │               └── 📂 ver1o0
         │                   └── 📄 __init__.py
         ├── 📂 project1
         │   ├── 📄 settings.py
-❌      │   ├── 📄 urls_accounts.py          # これではない
+❌      │   ├── 📄 urls_accounts_vol1o0.py          # これではない
 👉      │   └── 📄 urls.py                   # こっち
         ├── 📄 .env
         ├── 🐳 docker-compose.yml
@@ -873,19 +878,19 @@ urlpatterns = [
     # ...略...
 
 
-    # O6o1o0gA13o0 ユーザー認証
-    path('', include(f'{PROJECT_NAME}.urls_accounts')),
-    #    --            ----------------------------
+    # O6o1o0gA13o0 アカウント1.0巻
+    path('', include(f'{PROJECT_NAME}.urls_accounts_vol1o0')),
+    #    --            -----------------------------------
     #    1             2
     # 1. 例えば `http://example.com/` のような URLの直下
-    # 2. `src1/projectN/urls_accounts.py` の urlpatterns を `1.` にぶら下げる
-    #          ----------------------
+    # 2. `src1/projectN/urls_accounts_vol1o0.py` の urlpatterns を `1.` にぶら下げる
+    #          -----------------------------
 ]
 ```
 
 ## Step O6o1o0gA14o0 Webページへアクセス
 
-📖 [http://localhost:8000/accounts/vol1.0/ver1.0/signup/](http://localhost:8000/accounts/vol1.0/ver1.0/signup/)  
+📖 [http://localhost:8000/accounts/vol1.0/signup/](http://localhost:8000/accounts/vol1.0/signup/)  
 
 👆 サインアップ ページを開く  
 メールが届くことも確認してほしい  
@@ -894,7 +899,7 @@ urlpatterns = [
 
 // 既にログインしているなら、  
 //
-// 📖 [http://localhost:8000/accounts/vol1.0/ver1.0/logout/](http://localhost:8000/accounts/vol1.0/ver1.0/logout/)  
+// 📖 [http://localhost:8000/accounts/vol1.0/logout/](http://localhost:8000/accounts/vol1.0/logout/)  
 //
 // 👆 ログアウトを試してほしい  
 
@@ -908,21 +913,21 @@ urlpatterns = [
         │   ├── 📂 portal_v1
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 allauth_customized_vol1o0            # アプリケーション
+        │   └── 📂 accounts_vol1o0            # アプリケーション
         │       ├── 📂 static
-        │       │   └── 📂 allauth_customized_vol1o0
+        │       │   └── 📂 accounts_vol1o0
         │       │       └── 📂 form_html_parser
         │       │           └── 📄 ver1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 account
         │       │       └── 📄 signup.html
         │       └── 📂 views
-        │           └── 📂 accounts
+        │           └── 📂 signup
         │               └── 📂 ver1o0
         │                   └── 📄 __init__.py
         ├── 📂 project1
         │   ├── 📄 settings.py
-        │   ├── 📄 urls_accounts.py
+        │   ├── 📄 urls_accounts_vol1o0.py
         │   └── 📄 urls.py
         ├── 📄 .env
         ├── 🐳 docker-compose.yml
@@ -932,8 +937,8 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/accounts/vol1.0/ver1.0/signup/,サインアップ
-/accounts/vol1.0/ver1.0/logout/,サインアウト
+/accounts/vol1.0/signup/,アカウント1.0巻 サインアップ
+/accounts/vol1.0/logout/,アカウント1.0巻 サインアウト
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

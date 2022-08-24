@@ -31,7 +31,7 @@ Django に最初から入っている HTMLレンダラー に満足できない�
 ```plaintext
     ├── 📂 src1
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized_vol1o0    # アプリケーション
+    │   │   ├── 📂 accounts_vol1o0    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
     │   │   └── 📂 practice_v1              # アプリケーション
     │   │       ├── 📂 management
@@ -64,7 +64,7 @@ Django に最初から入っている HTMLレンダラー に満足できない�
     │   │   ├── 📄 asgi.py
     │   │   ├── 📄 settings_secrets_example.txt
     │   │   ├── 📄 settings.py
-    │   │   ├── 📄 urls_accounts.py
+    │   │   ├── 📄 urls_accounts_vol1o0.py
     │   │   ├── 📄 urls_practice.py
     │   │   ├── 📄 urls.py
     │   │   └── 📄 wsgi.py
@@ -261,7 +261,7 @@ Merged to Step OA12o1o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/hello1,,"OA12o1o0g5o1o0 ビューティファイでハロー",apps1.practice_v1.views.vuetifies,VuetifyV,,render_hello1
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/vuetify/hello1,,"OA12o1o0g5o1o0 ビューティファイでハロー",apps1.practice_v1.views.vuetifies,VuetifyV,,render_hello1
 ```
 
 ## Step OA12o1o0g5o2o0 ルート編集 - コマンド打鍵

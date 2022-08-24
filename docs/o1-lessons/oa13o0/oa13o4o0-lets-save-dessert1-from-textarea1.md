@@ -30,7 +30,7 @@
 ```plaintext
     ├── 📂 src1
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized_vol1o0    # アプリケーション
+    │   │   ├── 📂 accounts_vol1o0    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
     │   │   └── 📂 practice_v1              # アプリケーション
     │   │       ├── 📂 management
@@ -58,7 +58,7 @@
     │   │   ├── 📄 asgi.py
     │   │   ├── 📄 settings_secrets_example.txt
     │   │   ├── 📄 settings.py
-    │   │   ├── 📄 urls_accounts.py
+    │   │   ├── 📄 urls_accounts_vol1o0.py
     │   │   ├── 📄 urls_practice.py
     │   │   ├── 📄 urls.py
     │   │   └── 📄 wsgi.py
@@ -551,8 +551,8 @@ class VuetifyV(object):
 ...略...
 
 
-../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/textarea1-to-model,,"OA13o4o0gA13o1o0 ビューティファイでテキストエリア入力から保存まで . 入力",apps1.practice_v1.views.vuetifies,VuetifyV,,render_textarea1_to_model
-../src1/project1/urls_practice_autogen.py,practice/v1/vuetify/save-desserts1-from-textarea1,,"OA13o4o0gA13o1o0 ビューティファイでテキストエリア入力から保存まで . 保存",apps1.practice_v1.views.vuetifies,VuetifyV,,render_save_result_of_desserts1_from_textarea1
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/vuetify/textarea1-to-model,,"OA13o4o0gA13o1o0 ビューティファイでテキストエリア入力から保存まで . 入力",apps1.practice_v1.views.vuetifies,VuetifyV,,render_textarea1_to_model
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/vuetify/save-desserts1-from-textarea1,,"OA13o4o0gA13o1o0 ビューティファイでテキストエリア入力から保存まで . 保存",apps1.practice_v1.views.vuetifies,VuetifyV,,render_save_result_of_desserts1_from_textarea1
 ```
 
 ## Step OA13o4o0gA13o2o0 ルート編集 - コマンド打鍵

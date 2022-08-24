@@ -25,18 +25,18 @@ class ButtonForMember():
     #                      ---------------------------
 
     # 既存のログイン ページ
-    _path_of_login = "/accounts/vol1.0/ver1.0/login/"
-    #                 ------------------------------
+    _path_of_login = "/accounts/vol1.0/login/"
+    #                 -----------------------
     #                 1
-    # 1. http://example.com/accounts/vol1.0/ver1.0/login/
-    #                      -----------------------------
+    # 1. http://example.com/accounts/vol1.0/login/
+    #                      -----------------------
 
     # 既存のログアウト ページ
-    _path_of_logout = "/accounts/vol1.0/ver1.0/logout/"
-    #                  -------------------------------
+    _path_of_logout = "/accounts/vol1.0/logout/"
+    #                  ------------------------
     #                  1
-    # 1. http://example.com/accounts/vol1.0/ver1.0/logout/
-    #                      ------------------------------
+    # 1. http://example.com/accounts/vol1.0/logout/
+    #                      ------------------------
 
     @staticmethod
     def render(request):

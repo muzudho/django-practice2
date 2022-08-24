@@ -29,7 +29,7 @@
 ```plaintext
     ├── 📂 src1
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized_vol1o0        # アプリケーション
+    │   │   ├── 📂 accounts_vol1o0        # アプリケーション
     │   │   ├── 📂 portal_v1                    # アプリケーション
     │   │   └── 📂 practice_v1                  # アプリケーション
     │   ├── 📂 data
@@ -38,7 +38,7 @@
     │   │   ├── 📄 asgi.py
     │   │   ├── 📄 settings_secrets_example.txt
     │   │   ├── 📄 settings.py
-    │   │   ├── 📄 urls_accounts.py
+    │   │   ├── 📄 urls_accounts_vol1o0.py
     │   │   ├── 📄 urls_practice.py
     │   │   ├── 📄 urls.py
     │   │   └── 📄 wsgi.py
@@ -228,7 +228,7 @@ Merged to OA10o2o0g6o1o0
 ...略...
 
 
-../src1/project1/urls_practice_autogen.py,practice/v1/from-object-to-json-str/,,"OA10o2o0g6o1o0 デバッグ用。モデルをダンプ出力",apps1.practice_v1.views.debug.v1o0,DebugV,,render_model_as_json
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/from-object-to-json-str/,,"OA10o2o0g6o1o0 デバッグ用。モデルをダンプ出力",apps1.practice_v1.views.debug.v1o0,DebugV,,render_model_as_json
 ```
 
 ## Step OA10o2o0g6o2o0 ルート編集 - コマンド打鍵

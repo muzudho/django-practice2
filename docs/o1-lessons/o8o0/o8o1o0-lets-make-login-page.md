@@ -1,7 +1,7 @@
 # サンプルを見る
 
-📖 [この記事のゴール：ログイン](http://tic.warabenture.com:8000/accounts/vol1.0/ver1.0/login/)  
-📖 [この記事のゴール：ログアウト](http://tic.warabenture.com:8000/accounts/vol1.0/ver1.0/logout/)  
+📖 [この記事のゴール：ログイン](http://tic.warabenture.com:8000/accounts/vol1.0/login/)  
+📖 [この記事のゴール：ログアウト](http://tic.warabenture.com:8000/accounts/vol1.0/logout/)  
 
 # 目標
 
@@ -74,7 +74,7 @@ docker-compose up
 ```plaintext
     └── 📂 src1                            # あなたの開発用ディレクトリー。任意の名前
         └── 📂 apps1
-            └── 📂 allauth_customized_vol1o0    # アプリケーション
+            └── 📂 accounts_vol1o0    # アプリケーション
                 └── 📂 templates
                     └── 📂 account          # allauth のディレクトリー構成を真似ます
 👉                      └── 📄 login.html
@@ -190,11 +190,11 @@ docker-compose up
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 
-        <script src="{% static 'allauth_customized_vol1o0/form_html_parser/v1o0.js' %}"></script>
-        <!--            ==========================================================
+        <script src="{% static 'accounts_vol1o0/form_html_parser/ver1o0.js' %}"></script>
+        <!--            ==================================================
                         1
-            1. `src1/apps1/allauth_customized_vol1o0/static/allauth_customized_vol1o0/form_html_parser/v1o0.js`
-                                                     =========================================================
+            1. `src1/apps1/accounts_vol1o0/static/accounts_vol1o0/form_html_parser/ver1o0.js`
+                                           =================================================
         -->
 
         <script>
@@ -270,7 +270,7 @@ docker-compose up
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 allauth_customized_vol1o0    # アプリケーション
+            └── 📂 accounts_vol1o0    # アプリケーション
                 ├── 📂 templates
                 │   └── 📂 account
                 │       └── 📄 login.html
@@ -293,23 +293,26 @@ class AccountsV1LoginView(LoginView):
     """
 
     # ファイルパス（使ってるか分からない）
-    template_name = "allauth_customized_vol1o0/templates/account/login.html"
-    #                ------------------------------------------------------
+    template_name = "accounts_vol1o0/templates/account/login.html"
+    #                                          ------------------
+    #                                          11
+    #                --------------------------------------------
     #                1
-    # 1. src1/apps1/allauth_customized_vol1o0/templates/account/login.html を取得
-    #               ------------------------------------------------------
+    # 11. Allauthのディレクトリー構成に合わせる
+    # 1. `src1/apps1/accounts_vol1o0/templates/accounts/login.html` を取得
+    #                ---------------------------------------------
 
 # EOF O8o1o0g3o0
 ```
 
-## Step O8o1o0g4o0 サブ ルート作成 - urls_accounts.py
+## Step O8o1o0g4o0 サブ ルート作成 - urls_accounts_vol1o0.py
 
 URLの自動生成をしたくても、作りが他と異なるので、手作業で設定してほしい  
 
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 allauth_customized_vol1o0    # アプリケーション
+        │   └── 📂 accounts_vol1o0    # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 account
         │       │       └── 📄 login.html
@@ -318,7 +321,7 @@ URLの自動生成をしたくても、作りが他と異なるので、手作�
         │               └── 📂 v1o0
         │                   └── 📄 __init__.py
         └── 📂 project1
-👉          ├── 📄 urls_accounts.py          # こちら
+👉          ├── 📄 urls_accounts_vol1o0.py          # こちら
 ❌          └── 📄 urls.py                   # これではない
 ```
 
@@ -331,14 +334,14 @@ urlpatterns = [
 
 
     # O8o1o0g4o0 ログイン（ユーザー認証）
-    path("accounts/vol1.0/ver1.0/login/", view=AccountsV1LoginView.as_view(),
-         # ----------------------------        -----------------------------
-         # 1                                   2
+    path("accounts/vol1.0/login/", view=AccountsV1LoginView.as_view(),
+         # ---------------------        -----------------------------
+         # 1                            2
          name="login"),
     #          -----
     #          3
-    # 1. 例えば `http://example.com/accounts/vol1.0/ver1.0/login/` のような URL のパスの部分
-    #                              ------------------------------
+    # 1. 例えば `http://example.com/accounts/vol1.0/login/` のような URL のパスの部分
+    #                              -----------------------
     # 2. allauth の LoginView をカスタマイズしたオブジェクト
     # 3. HTMLテンプレートの中で {% url 'login' %} のような形でURLを取得するのに使える
 ]
@@ -346,13 +349,13 @@ urlpatterns = [
 
 ## Step O8o1o0g5o0 Web画面へアクセス
 
-📖 [http://localhost:8000/accounts/vol1.0/ver1.0/login/](http://localhost:8000/accounts/vol1.0/ver1.0/login/)  
+📖 [http://localhost:8000/accounts/vol1.0/login/](http://localhost:8000/accounts/vol1.0/login/)  
 
 👆 ログイン ページを開く  
 
 既にログインしているなら、  
 
-📖 [http://localhost:8000/accounts/vol1.0/ver1.0/logout/](http://localhost:8000/accounts/vol1.0/ver1.0/logout/)  
+📖 [http://localhost:8000/accounts/vol1.0/logout/](http://localhost:8000/accounts/vol1.0/logout/)  
 
 👆 ログアウトを試してほしい  
 
@@ -366,7 +369,7 @@ urlpatterns = [
         │   ├── 📂 portal_v1
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 allauth_customized_vol1o0    # アプリケーション
+        │   └── 📂 accounts_vol1o0    # アプリケーション
         │       ├── 📂 templates
         │       │   └── 📂 account
         │       │       └── 📄 login.html
@@ -375,14 +378,14 @@ urlpatterns = [
         │               └── 📂 v1o0
         │                   └── 📄 __init__.py
         └── 📂 project1
-            ├── 📄 urls_accounts.py
+            ├── 📄 urls_accounts_vol1o0.py
             └── 📄 urls.py
 ```
 
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/accounts/vol1.0/ver1.0/login/,ログイン（ユーザー認証）
+/accounts/vol1.0/login/,アカウント1.0巻 ログイン（ユーザー認証）
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

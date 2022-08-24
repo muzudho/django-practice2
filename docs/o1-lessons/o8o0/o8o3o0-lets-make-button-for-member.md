@@ -29,7 +29,7 @@
 ```plaintext
     ├── 📂 src1
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized_vol1o0        # アプリケーション
+    │   │   ├── 📂 accounts_vol1o0        # アプリケーション
     │   │   ├── 📂 portal_v1                    # アプリケーション
     │   │   └── 📂 practice_v1                  # アプリケーション
     │   ├── 📂 data
@@ -38,7 +38,7 @@
     │   │   ├── 📄 asgi.py
     │   │   ├── 📄 settings_secrets_example.txt
     │   │   ├── 📄 settings.py
-    │   │   ├── 📄 urls_accounts.py
+    │   │   ├── 📄 urls_accounts_vol1o0.py
     │   │   ├── 📄 urls_practice.py
     │   │   ├── 📄 urls.py
     │   │   └── 📄 wsgi.py
@@ -223,18 +223,18 @@ class ButtonForMember():
     #                      ---------------------------
 
     # 既存のログイン ページ
-    _path_of_login = "/accounts/vol1.0/ver1.0/login/"
-    #                 ------------------------------
+    _path_of_login = "/accounts/vol1.0/login/"
+    #                 -----------------------
     #                 1
-    # 1. http://example.com/accounts/vol1.0/ver1.0/login/
-    #                      -----------------------------
+    # 1. http://example.com/accounts/vol1.0/login/
+    #                      -----------------------
 
     # 既存のログアウト ページ
-    _path_of_logout = "/accounts/vol1.0/ver1.0/logout/"
-    #                  -------------------------------
+    _path_of_logout = "/accounts/vol1.0/logout/"
+    #                  ------------------------
     #                  1
-    # 1. http://example.com/accounts/vol1.0/ver1.0/logout/
-    #                      ------------------------------
+    # 1. http://example.com/accounts/vol1.0/logout/
+    #                      ------------------------
 
     @staticmethod
     def render(request):
@@ -331,7 +331,7 @@ Merged to O8o3o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_autogen.py,practice/v1/buttom_for_member/,,"O8o3o0g5o1o0 会員にだけ見えるボタンを説明するページ",apps1.practice_v1.views.button_for_member.v1o0,ButtonForMember,,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/buttom_for_member/,,"O8o3o0g5o1o0 会員にだけ見えるボタンを説明するページ",apps1.practice_v1.views.button_for_member.v1o0,ButtonForMember,,render
 ```
 
 ## Step O8o3o0g5o2o0 ルート編集 - コマンド打鍵

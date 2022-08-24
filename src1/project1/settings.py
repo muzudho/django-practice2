@@ -49,8 +49,8 @@ INSTALLED_APPS = [
     # O5o1o0g6o0 ランチャー1.0巻
     'apps1.launcher_vol1o0',
 
-    # O6o1o0g7o0 Allauthカスタマイズド1.0巻
-    'apps1.allauth_customized_vol1o0',
+    # O6o1o0g7o0 アカウント1.0巻
+    'apps1.accounts_vol1o0',
 
     # OA16o1o0g8o0 〇×ゲーム1.0巻
     'apps1.tic_tac_toe_vol1o0',
@@ -137,20 +137,21 @@ TEMPLATES = [
             # 2. まるで `http://example.com/launcher_vol1o0` という素材フォルダーがあるかのように扱われる
             #                             -----------------
 
-            # O6o1o0g7o0 Allauthカスタマイズド1.0巻
+            # O6o1o0g7o0 アカウント1.0巻
             os.path.join(
-                BASE_DIR, 'apps1/allauth_customized_vol1o0/templates'),
-            #                       -----------------------------------------
-            #                       10
-            # Example: `/src1/apps1/allauth_customized_vol1o0/templates/account/signup.html`
-            #                       -------------------------          --------
-            #                       11                                 2
-            #                 -----------------------------------------
+                BASE_DIR, 'apps1/accounts_vol1o0/templates'),
+            #                    -------------------------
+            #                    10
+            # Example: `/src1/apps1/accounts_vol1o0/templates/account/signup.html`
+            #                       ---------------          --------
+            #                       11                       2
+            #                 -------------------------------
             #                 10
             # 10. テンプレート ディレクトリーへのパス
             # 11. アプリケーション
-            # 2. まるで `http://example.com/account` という素材フォルダーがあるかのように扱われる
-            #                             --------
+            # 2. Allauthのディレクトリー構成に合わせる
+            #    まるで `http://example.com/account` という素材フォルダーがあるかのように扱われる
+            #                             ---------
 
             # OA16o1o0gA22o0 〇×ゲーム1.0巻
             os.path.join(BASE_DIR, 'apps1/tic_tac_toe_vol1o0/templates'),
@@ -314,11 +315,11 @@ LOGIN_REDIRECT_URL = 'home'  # ログイン後に遷移するURL, または name
 LOGIN_URL = 'login'  # ログインしていないときに飛ばされる先のURL, または name の指定
 
 # ログアウト後に遷移するURL, または name の指定
-# ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/vol1.0/ver1.0/login/'
-#                                ------------------------------
+# ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/vol1.0/login/'
+#                                -----------------------
 #                                1
-# 1. 例えば `http://example.com/accounts/vol1.0/ver1.0/login/` というURLのパスの部分
-#                             -------------------------------
+# 1. 例えば `http://example.com/accounts/vol1.0/login/` というURLのパスの部分
+#                             ------------------------
 ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
 
 EMAIL_HOST = 'smtp.gmail.com'  # メールサーバの指定

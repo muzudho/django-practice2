@@ -46,7 +46,7 @@ id が 2 のメンバーを削除したい。
 ```plaintext
     ├── 📂 src1
     │   ├── 📂 apps1
-    │   │   ├── 📂 allauth_customized_vol1o0    # アプリケーション
+    │   │   ├── 📂 accounts_vol1o0    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
     │   │   └── 📂 practice_v1              # アプリケーション
     │   │       ├── 📂 management
@@ -75,7 +75,7 @@ id が 2 のメンバーを削除したい。
     │   │   ├── 📄 asgi.py
     │   │   ├── 📄 settings_secrets_example.txt
     │   │   ├── 📄 settings.py
-    │   │   ├── 📄 urls_accounts.py
+    │   │   ├── 📄 urls_accounts_vol1o0.py
     │   │   ├── 📄 urls_practice.py
     │   │   ├── 📄 urls.py
     │   │   └── 📄 wsgi.py
@@ -291,7 +291,7 @@ Merged to OA11o3o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_autogen.py,practice/v1/prefectures/delete/<int:id>/,practice_v1_prefectures_delete,"OA11o3o0g5o1o0 都道府県の削除",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_delete
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/prefectures/delete/<int:id>/,practice_v1_prefectures_delete,"OA11o3o0g5o1o0 都道府県の削除",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_delete
 ```
 
 ## Step OA11o3o0g5o2o0 ルート編集 - コマンド打鍵
