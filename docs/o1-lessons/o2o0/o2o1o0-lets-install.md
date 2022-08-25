@@ -806,6 +806,9 @@ src1/data/db
 👇 以下のコマンドを叩いてほしい  
 
 ```shell
+# がんばって docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
+# cd src1
+
 docker-compose up
 ```
 

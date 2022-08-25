@@ -216,7 +216,7 @@ INSTALLED_APPS = [
 これで、 `src1/apps1/practice_vol1o0` フォルダーは practice_vol1o0 アプリケーションとして認識される。  
 そのメリットは　今後のレッスンで触れる  
 
-## Step O3o1o0g7o0 画面作成 - page_the_hello/v1o0.html ファイル
+## Step O3o1o0g7o0 画面作成 - page_the_hello/ver1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -229,7 +229,7 @@ INSTALLED_APPS = [
         │       ├── 📂 templates
         │       │   └── 📂 practice_vol1o0      # アプリケーションと同名
         │       │       └── 📂 page_the_hello
-👉      │       │           └── 📄 v1o0.html
+👉      │       │           └── 📄 ver1o0.html
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -265,7 +265,7 @@ INSTALLED_APPS = [
         │       ├── 📂 templates
         │       │   └── 📂 practice_vol1o0      # アプリケーションと同名
         │       │       └── 📂 page_the_hello
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 ver1o0.html
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -288,7 +288,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'apps1/practice_vol1o0/templates'),
             #                       -------------------------------
             #                       10
-            # Example: /src1/apps1/practice_vol1o0/templates/practice_vol1o0/page_the_hello/v1o0.html
+            # Example: /src1/apps1/practice_vol1o0/templates/practice_vol1o0/page_the_hello/ver1o0.html
             #                      ---------------          ----------------
             #                      11                       2
             #                -------------------------------
@@ -311,7 +311,7 @@ TEMPLATES = [
 ]
 ```
 
-## Step O3o1o0g9o0 ビュー作成 - page_the_hello/v1o0 フォルダー
+## Step O3o1o0g9o0 ビュー作成 - page_the_hello/ver1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -324,10 +324,10 @@ TEMPLATES = [
         │       ├── 📂 templates
         │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 page_the_hello
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 ver1o0.html
         │       ├── 📂 views
         │       │   └── 📂 page_the_hello
-        │       │       └── 📂 v1o0
+        │       │       └── 📂 ver1o0
 👉      │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -350,11 +350,11 @@ class PageTheHello():
     def render(request):
         """描画"""
 
-        template_path = 'practice_vol1o0/page_the_hello/v1o0.html'
-        #                ----------------------------------------
+        template_path = 'practice_vol1o0/page_the_hello/ver1o0.html'
+        #                ------------------------------------------
         #                1
-        # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/page_the_hello/v1o0.html` を取得
-        #                                          ----------------------------------------
+        # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/page_the_hello/ver1o0.html` を取得
+        #                                          ------------------------------------------
 
         context = {}
         return render(request, template_path, context)
@@ -386,10 +386,10 @@ class PageTheHello():
         │       ├── 📂 templates
         │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 page_the_hello
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 ver1o0.html
         │       ├── 📂 views
         │       │   └── 📂 page_the_hello
-        │       │       └── 📂 v1o0
+        │       │       └── 📂 ver1o0
         │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
@@ -448,10 +448,10 @@ urlpatterns = [
         │       ├── 📂 templates
         │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 page_the_hello
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 ver1o0.html
         │       ├── 📂 views
         │       │   └── 📂 page_the_hello
-        │       │       └── 📂 v1o0
+        │       │       └── 📂 ver1o0
         │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py

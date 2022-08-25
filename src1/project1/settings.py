@@ -114,7 +114,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'apps1/practice_vol1o0/templates'),
             #                       -------------------------------
             #                       10
-            # Example: /src1/apps1/practice_vol1o0/templates/practice_vol1o0/page_the_hello/v1o0.html
+            # Example: /src1/apps1/practice_vol1o0/templates/practice_vol1o0/page_the_hello/ver1o0.html
             #                      ---------------          ----------------
             #                      11                       2
             #                -------------------------------
