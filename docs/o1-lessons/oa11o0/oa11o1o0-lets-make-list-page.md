@@ -193,10 +193,10 @@ docker-compose up
 from django.shortcuts import render
 
 # 都道府県モデル
-from apps1.practice_v1.models.prefecture.v1o0 import Prefecture
-#          -----------                   ----        ----------
-#          11                            12          2
-#    ----------------------------------------
+from apps1.practice_vol1o0.models.prefecture.ver1o0 import Prefecture
+#          ---------------                   ------        ----------
+#          11                                12            2
+#    ----------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -207,11 +207,11 @@ def render_list(request):
     """OA11o1o0g3o0 一覧画面の描画"""
 
     # Template path
-    prefecture_list_tp = 'practice_v1/prefecture/v1o0/list.html'
-    #                     -------------------------------------
+    prefecture_list_tp = 'practice_vol1o0/prefecture/ver1o0/list.html'
+    #                     -------------------------------------------
     #                     1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/prefecture/v1o0/list.html` を取得
-    #                                      -------------------------------------
+    # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/prefecture/ver1o0/list.html` を取得
+    #                                          -------------------------------------------
 
     context = {
         'prefectures': Prefecture.objects.all().order_by('pk'),  # pk順にメンバーを全部取得
@@ -281,7 +281,7 @@ Merged to OA11o1o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/prefectures/ver1.0/,practice_v1_prefectures,"OA11o1o0g5o1o0 練習1.0巻 都道府県一覧1.0版",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_list
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/prefectures/ver1.0/,practice_vol1o0_prefectures,"OA11o1o0g5o1o0 練習1.0巻 都道府県一覧1.0版",apps1.practice_vol1o0.views.prefecture.ver1o0,PrefectureV,,render_list
 ```
 
 ## Step OA11o1o0g5o2o0 ルート編集 - コマンド打鍵

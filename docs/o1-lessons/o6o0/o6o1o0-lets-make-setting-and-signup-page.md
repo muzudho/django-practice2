@@ -228,8 +228,8 @@ INSTALLED_APPS = [
 
 # 調べ終わったら消す
 #print(
-#    f"os.path.join(BASE_DIR, 'apps1/practice_v1/templates')={os.path.join(BASE_DIR, 'apps1/practice_v1/templates')}")
-# Example: `/code/apps1/practice_v1/templates`
+#    f"os.path.join(BASE_DIR, 'apps1/practice_vol1o0/templates')={os.path.join(BASE_DIR, 'apps1/practice_vol1o0/templates')}")
+# Example: `/code/apps1/practice_vol1o0/templates`
 
 TEMPLATES = [
     {

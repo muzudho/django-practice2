@@ -2,11 +2,11 @@
 
 from django.shortcuts import render, get_object_or_404
 
-# 都道府県モデル
-from apps1.practice_v1.models.prefecture.v1o0 import Prefecture
-#          -----------                   ----        ----------
-#          11                            12          2
-#    ----------------------------------------
+# 練習1.0巻 都道府県モデル1.0版
+from apps1.practice_vol1o0.models.prefecture.ver1o0 import Prefecture
+#          ---------------                   ------        ----------
+#          11                                12            2
+#    ----------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -25,11 +25,11 @@ def render_read(request, id=id):
     """
 
     # Template path
-    prefecture_read_tp = 'practice_v1/prefecture/v1o0/read.html'
-    #                     -------------------------------------
+    prefecture_read_tp = 'practice_vol1o0/prefecture/ver1o0/read.html'
+    #                     -------------------------------------------
     #                     1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/prefecture/v1o0/read.html` を取得
-    #                                      -------------------------------------
+    # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/prefecture/ver1o0/read.html` を取得
+    #                                          -------------------------------------------
 
     # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得。無ければ 404 画面へ飛ぶ
     prefecture = get_object_or_404(Prefecture, pk=id)
