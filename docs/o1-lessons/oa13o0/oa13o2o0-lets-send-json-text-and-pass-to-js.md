@@ -108,7 +108,7 @@ docker-compose up
 👉                              └── 📄 ver1o0.json
 ```
 
-## Step OA13o2o0g3o0 画面作成 - vuetifies/textarea1/v1o0.html ファイル
+## Step OA13o2o0g3o0 画面作成 - vuetifies/textarea1/ver1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -221,7 +221,7 @@ docker-compose up
                                 └── 📄 ver1o0.html
 ```
 
-## Step OA13o2o0g5o0 ビュー作成 - vuetifies/textarea1/v1o0.py ファイル
+## Step OA13o2o0g5o0 ビュー作成 - vuetifies/textarea1/ver1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -258,17 +258,17 @@ def render_textarea1(request):
     """OA13o2o0g5o0 ビューティファイのテキストエリア１"""
 
     # Template path
-    textarea1_base_tp = 'practice_v1/vuetifies/textarea1/v1o0.html'
-    #                    -----------------------------------------
+    textarea1_base_tp = 'practice_vol1o0/vuetifies/textarea1/ver1o0.html'
+    #                    -----------------------------------------------
     #                    1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/vuetifies/textarea1/v1o0.html` を取得
-    #                                      -----------------------------------------
+    # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/vuetifies/textarea1/ver1o0.html` を取得
+    #                                          -----------------------------------------------
 
-    with open('apps1/practice_v1/static/practice_v1/data/desserts1/v1o0.json', mode='r', encoding='utf-8') as f:
-        #      -------------------------------------------------------------
+    with open('apps1/practice_vol1o0/static/practice_vol1o0/data/desserts1/ver1o0.json', mode='r', encoding='utf-8') as f:
+        #      -----------------------------------------------------------------------
         #      1
-        # 1. `src1/apps1/practice_v1/static/practice_v1/data/desserts1/v1o0.json` を取得
-        #          -------------------------------------------------------------
+        # 1. `src1/apps1/practice_vol1o0/static/practice_vol1o0/data/desserts1/ver1o0.json` を取得
+        #          -----------------------------------------------------------------------
         doc = json.load(f)
 
     context = {
@@ -283,11 +283,11 @@ def render_desserts1_from_textarea1(request):
     form1Textarea1 = request.POST["textarea1"]
 
     # Template path
-    desserts1_tp = 'practice_v1/vuetifies/desserts1/v1o0.html'
-    #               -----------------------------------------
+    desserts1_tp = 'practice_vol1o0/vuetifies/desserts1/ver1o0.html'
+    #               -----------------------------------------------
     #               1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/vuetifies/desserts1/v1o0.html` を取得
-    #                                      -----------------------------------------
+    # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/vuetifies/desserts1/ver1o0.html` を取得
+    #                                          -----------------------------------------------
 
     context = {
         'dessertsStr': form1Textarea1
@@ -334,7 +334,7 @@ class VuetifyV(object):
 
     # * 以下を追加
     # OA13o2o0g6o0 テキストエリア１
-    from .textarea1.v1o0 import render_textarea1, render_desserts1_from_textarea1
+    from .textarea1.ver1o0 import render_textarea1, render_desserts1_from_textarea1
 ```
 
 ## ~~Step OA13o2o0g7o0~~
@@ -376,8 +376,8 @@ Merged to OA13o2o0g7o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/textarea1/ver1.0/,,"OA13o2o0g7o1o0 練習1.0巻 ビューティファイでテキストエリア１ 1.0版",apps1.practice_v1.views.vuetifies,VuetifyV,,render_textarea1
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/desserts1-from-textarea1/ver1.0/,,"OA13o2o0g7o1o0 練習1.0巻 ビューティファイでデザート１ . テキストエリア１から 1.0版",apps1.practice_v1.views.vuetifies,VuetifyV,,render_desserts1_from_textarea1
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/textarea1/ver1.0/,,"OA13o2o0g7o1o0 練習1.0巻 ビューティファイでテキストエリア１ 1.0版",apps1.practice_vol1o0.views.vuetifies,VuetifyV,,render_textarea1
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/desserts1-from-textarea1/ver1.0/,,"OA13o2o0g7o1o0 練習1.0巻 ビューティファイでデザート１ . テキストエリア１から 1.0版",apps1.practice_vol1o0.views.vuetifies,VuetifyV,,render_desserts1_from_textarea1
 ```
 
 ## Step OA13o2o0g7o2o0 ルート編集 - コマンド打鍵

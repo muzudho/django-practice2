@@ -211,9 +211,9 @@ admin.site.register(Room)
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
 cd src1
 
-docker-compose run --rm web python3 manage.py makemigrations practice_v1 --settings project1.settings
-#                                                            -----------            -----------------
-#                                                            1                      2
+docker-compose run --rm web python3 manage.py makemigrations practice_vol1o0 --settings project1.settings
+#                                                            ---------------            -----------------
+#                                                            1                          2
 # 1. アプリケーション
 # 2. src1/project1/settings.py
 #         -----------------

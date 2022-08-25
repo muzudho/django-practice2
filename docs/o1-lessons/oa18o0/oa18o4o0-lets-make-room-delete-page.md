@@ -139,7 +139,7 @@ docker-compose up
 ```
 
 ```html
-{# OA18o4o0g2o0 #}
+<!-- BOF OA18o4o0g2o0 -->
 <!-- -->
 <!DOCTYPE html>
 <!-- See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92 -->
@@ -156,7 +156,7 @@ docker-compose up
         <div class="container">
             <h3>部屋の削除</h3>
             <div class="card" style="width: 18rem">「{{ room.name }}」を削除しました。</div>
-            <a href="{% url 'practice_v1_rooms' %}" class="btn btn-default btn-sm">戻る</a>
+            <a href="{% url 'practice_vol1o0_rooms' %}" class="btn btn-default btn-sm">戻る</a>
         </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -164,6 +164,7 @@ docker-compose up
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </body>
 </html>
+<!-- EOF OA18o4o0g2o0 -->
 ```
 
 ## Step OA18o4o0g3o0 ビュー編集 - room/v1o0 フォルダー
@@ -204,14 +205,14 @@ class RoomV():
 
     @staticmethod
     def render_delete(request, id):
-        """OA18o4o0g3o0 描画 - 削除"""
+        """OA18o4o0g3o0 練習1.0巻 削除1.0版"""
 
         # 以下のファイルはあとで作ります
-        from ..delete.v1o0 import render_delete
-        #    -------------        -------------
-        #    1                    2
-        # 1. `src1/apps1/practice_v1/views/room/delete/v1o0.py`
-        #                                       -----------
+        from ..delete.ver1o0 import render_delete
+        #    ---------------        -------------
+        #    1                      2
+        # 1. `src1/apps1/practice_vol1o0/views/room/delete/ver1o0.py`
+        #                                           -------------
         # 2. `1.` に含まれる関数
 
         return render_delete(request, id, RoomV._path_of_delete_page)
@@ -244,10 +245,10 @@ class RoomV():
 from django.shortcuts import render, get_object_or_404
 
 # 部屋モデル
-from apps1.practice_v1.models.room.v1o0 import Room
-#          -----------             ----        ----
-#          11                      12          2
-#    ----------------------------------
+from apps1.practice_vol1o0.models.room.ver1o0 import Room
+#          ---------------             ------        ----
+#          11                          12            2
+#    ----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -310,7 +311,7 @@ Merged to OA18o4o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/rooms/delete/ver1.0/<int:id>/,practice_v1_rooms_delete,"OA18o4o0g5o1o0 練習1.0巻 対局部屋の削除1.0版",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_delete
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/rooms/delete/ver1.0/<int:id>/,practice_vol1o0_rooms_delete,"OA18o4o0g5o1o0 練習1.0巻 対局部屋の削除1.0版",apps1.practice_vol1o0.views.room.ver1o0,RoomV,RoomVV1o0,render_delete
 ```
 
 ## Step OA18o4o0g5o2o0 ルート編集 - コマンド打鍵

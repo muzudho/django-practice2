@@ -510,7 +510,7 @@ Merged to OA18o2o0g7o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/rooms/ver1.0/,practice_v1_rooms,"OA18o2o0g7o1o0 練習1.0巻 対局部屋の一覧1.0版",apps1.practice_vol1o0.views.room.ver1o0,RoomV,RoomVV1o0,render_list
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/rooms/ver1.0/,practice_vol1o0_rooms,"OA18o2o0g7o1o0 練習1.0巻 対局部屋の一覧1.0版",apps1.practice_vol1o0.views.room.ver1o0,RoomV,RoomVV1o0,render_list
 ```
 
 ## Step OA18o2o0g7o2o0 ルート編集 - コマンド打鍵

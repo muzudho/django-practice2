@@ -138,7 +138,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA18o5o0g2o0 画面作成 - room/upsert/v1o0.html ファイル
+## Step OA18o5o0g2o0 画面作成 - room/upsert/ver1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -172,10 +172,10 @@ docker-compose up
 
             {% if id %}
             <h3 class="page-header">部屋の更新</h3>
-            <form action="{% url 'practice_v1_rooms_update' id=id %}" method="post" class="form-horizontal" role="form">
+            <form action="{% url 'practice_vol1o0_rooms_update' id=id %}" method="post" class="form-horizontal" role="form">
             {% else %}
             <h3 class="page-header">部屋の作成</h3>
-            <form action="{% url 'practice_v1_rooms_create' %}" method="post" class="form-horizontal" role="form">
+            <form action="{% url 'practice_vol1o0_rooms_create' %}" method="post" class="form-horizontal" role="form">
             {% endif %}
 
                 {% csrf_token %}
@@ -188,7 +188,7 @@ docker-compose up
                 </div>
 
             </form>
-            <a href="{% url 'practice_v1_rooms' %}" class="btn btn-default btn-sm">戻る</a>
+            <a href="{% url 'practice_vol1o0_rooms' %}" class="btn btn-default btn-sm">戻る</a>
         </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -218,13 +218,15 @@ HTMLタグの `<form>～</form>` の子要素を自動生成させよう。
 ```
 
 ```py
+# EOF OA18o5o0g3o0
+
 from django.forms import ModelForm
 
 # 部屋モデル
-from apps1.practice_v1.models.room.v1o0 import Room
-#          -----------             ----        ----
-#          11                      12          2
-#    ----------------------------------
+from apps1.practice_vol1o0.models.room.ver1o0 import Room
+#          ---------------             ------        ----
+#          11                          12            2
+#    ----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -237,6 +239,8 @@ class RoomForm(ModelForm):
     class Meta:
         model = Room  # モデル指定
         fields = ('name', 'board', 'record',)  # フィールド指定
+
+# BOF OA18o5o0g3o0
 ```
 
 ## Step OA18o5o0g4o0 ビュー編集 - room フォルダー
@@ -291,7 +295,7 @@ class RoomV():
         return render_upsert(request, id, RoomV._path_of_upsert_page)
 ```
 
-## Step OA18o5o0g5o0 ビュー作成 - room/upsert/v1o0 ファイル
+## Step OA18o5o0g5o0 ビュー作成 - room/upsert/ver1o0 ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -320,20 +324,20 @@ class RoomV():
 from django.shortcuts import get_object_or_404, redirect, render
 
 # 部屋モデル
-from apps1.practice_v1.models.room.v1o0 import Room
-#          -----------             ----        ----
-#          11                      12          2
-#    ----------------------------------
+from apps1.practice_vol1o0.models.room.ver1o0 import Room
+#          ---------------             ------        ----
+#          11                          12            2
+#    ----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # 部屋フォーム
-from apps1.practice_v1.forms.f_room import RoomForm
-#          -----------       ------        --------
-#          11                12            2
-#    ------------------------------
+from apps1.practice_vol1o0.forms.f_room import RoomForm
+#          ---------------       ------        --------
+#          11                    12            2
+#    ----------------------------------
 #    10
 # 10, 12. ディレクトリー名
 # 11. アプリケーション名
@@ -364,7 +368,7 @@ def render_upsert(request, id, room_upsert_tp):
         if form.is_valid():
             room = form.save(commit=False)
             room.save()
-            return redirect('practice_v1_rooms')
+            return redirect('practice_vol1o0_rooms')
 
         # Invalid ならフォームを引き継いで再び同じ画面表示へ
 
@@ -412,8 +416,8 @@ Merged to OA18o5o0g6o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/rooms/upsert/ver1.0/,practice_v1_rooms_create,"OA18o5o0g6o1o0 練習1.0巻 対局部屋の新規作成1.0版",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_upsert
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/rooms/upsert/ver1.0/<int:id>/,practice_v1_rooms_update,"OA18o5o0g6o1o0 練習1.0巻 対局部屋の更新1.0版",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_upsert
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/rooms/upsert/ver1.0/,practice_vol1o0_rooms_create,"OA18o5o0g6o1o0 練習1.0巻 対局部屋の新規作成1.0版",apps1.practice_vol1o0.views.room.ver1o0,RoomV,RoomVV1o0,render_upsert
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/rooms/upsert/ver1.0/<int:id>/,practice_vol1o0_rooms_update,"OA18o5o0g6o1o0 練習1.0巻 対局部屋の更新1.0版",apps1.practice_vol1o0.views.room.ver1o0,RoomV,RoomVV1o0,render_upsert
 ```
 
 ## Step OA18o4o0g5o2o0 ルート編集 - コマンド打鍵

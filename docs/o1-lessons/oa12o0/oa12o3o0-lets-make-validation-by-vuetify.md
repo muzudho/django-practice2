@@ -93,7 +93,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA12o3o0g2o0 画面作成 - vuetifies/validation1/v1o0.html ファイル
+## Step OA12o3o0g2o0 画面作成 - vuetifies/validation1/ver1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -215,11 +215,11 @@ def render_validation1(request):
     """OA12o3o0g3o0 バリデーション１の描画"""
 
     # Template path
-    validation1_tp = 'practice_v1/vuetifies/validation1/v1o0.html'
-    #                 -------------------------------------------
+    validation1_tp = 'practice_vol1o0/vuetifies/validation1/ver1o0.html'
+    #                 -------------------------------------------------
     #                 1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/vuetifies/validation1/v1o0.html` を取得
-    #                                      -------------------------------------------
+    # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/vuetifies/validation1/ver1o0.html` を取得
+    #                                          -------------------------------------------------
 
     context = {}
     return render(request, validation1_tp, context)
@@ -257,7 +257,7 @@ class VuetifyV(object):
 
     # 以下を追加
     # OA12o3o0g4o0 バリデーション１
-    from .validation1.v1o0 import render_validation1
+    from .validation1.ver1o0 import render_validation1
 ```
 
 ## ~~Step OA12o3o0g5o0~~
@@ -292,7 +292,7 @@ Merged to OA12o3o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/validation1/ver1.0/,,"OA12o3o0g5o1o0 練習1.0巻 ビューティファイでバリデーション１ 1.0版",apps1.practice_v1.views.vuetifies,VuetifyV,,render_validation1
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/validation1/ver1.0/,,"OA12o3o0g5o1o0 練習1.0巻 ビューティファイでバリデーション１ 1.0版",apps1.practice_vol1o0.views.vuetifies,VuetifyV,,render_validation1
 ```
 
 ## Step OA12o3o0g5o2o0 ルート編集 - コマンド打鍵

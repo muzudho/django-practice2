@@ -150,7 +150,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA18o3o0g2o0 画面作成 - room/read/v1o0.html ファイル
+## Step OA18o3o0g2o0 画面作成 - room/read/ver1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -254,7 +254,7 @@ docker-compose up
                                 </v-card>
                             </div>
                         </div>
-                        <a href="{% url 'practice_v1_rooms' %}" class="btn btn-default btn-sm">戻る</a>
+                        <a href="{% url 'practice_vol1o0_rooms' %}" class="btn btn-default btn-sm">戻る</a>
                     </v-container>
                 </v-main>
             </v-app>
@@ -287,7 +287,7 @@ docker-compose up
 </html>
 ```
 
-## Step OA18o3o0g3o0 ビュー編集 - room/v1o0 フォルダー
+## Step OA18o3o0g3o0 ビュー編集 - room/ver1o0 フォルダー
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -340,7 +340,7 @@ class RoomV():
         return render_read(request, id, RoomV._path_of_read_page)
 ```
 
-## Step OA18o3o0g4o0 ビュー作成 - room/read/v1o0.py ファイル
+## Step OA18o3o0g4o0 ビュー作成 - room/read/ver1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -367,20 +367,20 @@ class RoomV():
 from django.shortcuts import render
 
 # 部屋モデル
-from apps1.practice_v1.models.room.v1o0 import Room
-#          -----------             ----        ----
-#          11                      12          2
-#    ----------------------------------
+from apps1.practice_vol1o0.models.room.ver1o0 import Room
+#          ---------------             ------        ----
+#          11                          12            2
+#    ----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # ユーザー モデルヘルパー
-from apps1.practice_v1.models_helper.user.v1o0 import MhUser
-#          -----------                    ----        ------
-#          11                             12          2
-#    -----------------------------------------
+from apps1.practice_vol1o0.models_helper.user.ver1o0 import MhUser
+#          ---------------                    ------        ------
+#          11                                 12            2
+#    -----------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -470,7 +470,7 @@ Merged to OA18o3o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/rooms/read/ver1.0/<int:id>/,practice_v1_rooms_read,"OA18o3o0g5o1o0 練習1.0巻 対局部屋の詳細1.0版",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_read
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/rooms/read/ver1.0/<int:id>/,practice_vol1o0_rooms_read,"OA18o3o0g5o1o0 練習1.0巻 対局部屋の詳細1.0版",apps1.practice_vol1o0.views.room.ver1o0,RoomV,RoomVV1o0,render_read
 ```
 
 ## Step OA18o2o0g7o2o0 ルート編集 - コマンド打鍵

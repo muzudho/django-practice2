@@ -3,20 +3,20 @@
 from django.shortcuts import get_object_or_404, redirect, render
 
 # 部屋モデル
-from apps1.practice_v1.models.room.v1o0 import Room
-#          -----------             ----        ----
-#          11                      12          2
-#    ----------------------------------
+from apps1.practice_vol1o0.models.room.ver1o0 import Room
+#          ---------------             ------        ----
+#          11                          12            2
+#    ----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # 部屋フォーム
-from apps1.practice_v1.forms.f_room import RoomForm
-#          -----------       ------        --------
-#          11                12            2
-#    ------------------------------
+from apps1.practice_vol1o0.forms.f_room import RoomForm
+#          ---------------       ------        --------
+#          11                    12            2
+#    ----------------------------------
 #    10
 # 10, 12. ディレクトリー名
 # 11. アプリケーション名
@@ -47,7 +47,7 @@ def render_upsert(request, id, room_upsert_tp):
         if form.is_valid():
             room = form.save(commit=False)
             room.save()
-            return redirect('practice_v1_rooms')
+            return redirect('practice_vol1o0_rooms')
 
         # Invalid ならフォームを引き継いで再び同じ画面表示へ
 

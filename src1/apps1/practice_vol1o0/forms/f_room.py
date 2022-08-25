@@ -1,10 +1,12 @@
+# EOF OA18o5o0g3o0
+
 from django.forms import ModelForm
 
 # 部屋モデル
-from apps1.practice_v1.models.room.v1o0 import Room
-#          -----------             ----        ----
-#          11                      12          2
-#    ----------------------------------
+from apps1.practice_vol1o0.models.room.ver1o0 import Room
+#          ---------------             ------        ----
+#          11                          12            2
+#    ----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -17,3 +19,5 @@ class RoomForm(ModelForm):
     class Meta:
         model = Room  # モデル指定
         fields = ('name', 'board', 'record',)  # フィールド指定
+
+# BOF OA18o5o0g3o0
