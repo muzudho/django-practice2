@@ -72,7 +72,7 @@ cd src1
 docker-compose up
 ```
 
-## Step O9o1o0g2o0 テンプレート編集 - user_list/v1o0.html ファイル
+## Step O9o1o0g2o0 テンプレート編集 - user_list/ver1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -83,7 +83,7 @@ docker-compose up
                 └── 📂 templates
                     └── 📂 practice_vol1o0          # アプリケーションと同名
                         └── 📂 user_list
-👉                          └── 📄 v1o0.html
+👉                          └── 📄 ver1o0.html
 ```
 
 ```html
@@ -154,7 +154,7 @@ docker-compose up
 </html>
 ```
 
-## Step O9o1o0g3o0 モデルヘルパー モジュール作成 - user/v1o0 フォルダー
+## Step O9o1o0g3o0 モデルヘルパー モジュール作成 - user/ver1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -164,12 +164,12 @@ docker-compose up
             └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models_helper
                 │   └── 📂 user
-                │       └── 📂 v1o0
+                │       └── 📂 ver1o0
 👉              │           └── 📄 __init__.py
                 └── 📂 templates
                     └── 📂 practice_vol1o0
                         └── 📂 user_list
-                            └── 📄 v1o0.html
+                            └── 📄 ver1o0.html
 ```
 
 ```py
@@ -180,8 +180,8 @@ class MhUser():
     from .mh_get_user_dic import get_user_dic
     #    ----------------        ------------
     #    1                       2
-    # 1. `src1/apps1/practice_v1/model_helper/user/v1o0/mh_get_user_dic.py`
-    #                                                   ---------------
+    # 1. `src1/apps1/practice_vol1o0/model_helper/user/ver1o0/mh_get_user_dic.py`
+    #                                                         ---------------
     # 2. `1.` に含まれる関数
 ```
 
@@ -195,13 +195,13 @@ class MhUser():
             └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models_helper
                 │   └── 📂 user
-                │       └── 📂 v1o0
+                │       └── 📂 ver1o0
                 │           ├── 📄 __init__.py
 👉              │           └── 📄 mh_get_user_dic.py
                 └── 📂 templates
                     └── 📂 practice_vol1o0
                         └── 📂 user_list
-                            └── 📄 v1o0.html
+                            └── 📄 ver1o0.html
 ```
 
 ```py
@@ -237,7 +237,7 @@ def get_user_dic():
     return user_dic
 ```
 
-## Step O9o1o0g5o0 ビュー作成 - user_list/v1o0 フォルダー
+## Step O9o1o0g5o0 ビュー作成 - user_list/ver1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -247,40 +247,40 @@ def get_user_dic():
             └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models_helper
                 │   └── 📂 user
-                │       └── 📂 v1o0
+                │       └── 📂 ver1o0
                 │           ├── 📄 __init__.py
                 │           └── 📄 mh_get_user_dic.py
                 ├── 📂 templates
                 │   └── 📂 practice_vol1o0
                 │       └── 📂 user_list
-                │           └── 📄 v1o0.html
+                │           └── 📄 ver1o0.html
                 └── 📂 views
                     └── 📂 user_list
-                        └── 📂 v1o0
+                        └── 📂 ver1o0
 👉                          └── 📄 __init__.py
 ```
 
 ```py
 class UserListV():
-    """O9o1o0g5o0 会員一覧ビュー"""
+    """O9o1o0g5o0 練習1.0巻 会員一覧1.0版"""
 
     # そのページ
-    _path_of_this_page = "practice_v1/user_list/v1o0.html"
-    #                     -------------------------------
+    _path_of_this_page = "practice_vol1o0/user_list/ver1o0.html"
+    #                     -------------------------------------
     #                     1
-    # 1. src1/apps1/practice_v1/templates/practice_v1/user_list/v1o0.html を取得
-    #                                     -------------------------------
+    # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/user_list/ver1o0.html` を取得
+    #                                          -------------------------------------
 
     @staticmethod
     def render(request):
-        """描画"""
+        """O9o1o0g5o0 練習1.0巻 会員一覧1.0版 描画"""
 
         # 以下のファイルはあとで作ります
         from .v_render import render_user_list
         #    ---------        ----------------
         #    1                2
-        # 1. `src1/apps1/practice_v1/views/user_list/v1o0/v_render.py`
-        #                                                 --------
+        # 1. `src1/apps1/practice_vol1o0/views/user_list/ver1o0/v_render.py`
+        #                                                       --------
         # 2. `1.` に含まれる関数
 
         return render_user_list(request, UserListV._path_of_this_page)
@@ -296,16 +296,16 @@ class UserListV():
             └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models_helper
                 │   └── 📂 user
-                │       └── 📂 v1o0
+                │       └── 📂 ver1o0
                 │           ├── 📄 __init__.py
                 │           └── 📄 mh_get_user_dic.py
                 ├── 📂 templates
                 │   └── 📂 practice_vol1o0
                 │       └── 📂 user_list
-                │           └── 📄 v1o0.html
+                │           └── 📄 ver1o0.html
                 └── 📂 views
                     └── 📂 user_list
-                        └── 📂 v1o0
+                        └── 📂 ver1o0
                             ├── 📄 __init__.py
 👉                          └── 📄 v_render.py       # 頭の `v_` は、これはビューだと分かるよう目印に付けているだけなので、無くてもいい
 ```
@@ -316,11 +316,11 @@ class UserListV():
 import json
 from django.shortcuts import render
 
-# ユーザー モデルヘルパー
-from apps1.practice_v1.models_helper.user.v1o0 import MhUser
-#          -----------                    ----        ------
-#          11                             12          2
-#    -----------------------------------------
+# 練習1.0巻 ユーザー モデルヘルパー1.0版
+from apps1.practice_vol1o0.models_helper.user.ver1o0 import MhUser
+#          ---------------                    ------        ------
+#          11                                 12            2
+#    -----------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -328,7 +328,7 @@ from apps1.practice_v1.models_helper.user.v1o0 import MhUser
 
 
 def render_user_list(request, user_list_tp):
-    """O9o1o0g6o0 描画 - 会員一覧
+    """O9o1o0g6o0 練習1.0巻 会員一覧1.0版 - 描画
 
     Parameters
     ----------
@@ -361,13 +361,13 @@ Merged to O9o1o0g7o1o0
     │       └── 📂 practice_vol1o0                  # アプリケーション
     │           ├── 📂 models_helper
     │           │   └── 📂 user
-    │           │       └── 📂 v1o0
+    │           │       └── 📂 ver1o0
     │           │           ├── 📄 __init__.py
     │           │           └── 📄 mh_get_user_dic.py
     │           ├── 📂 templates
     │           │   └── 📂 practice_vol1o0
     │           │       └── 📂 user_list
-    │           │           └── 📄 v1o0.html
+    │           │           └── 📄 ver1o0.html
     │           └── 📂 views
     │               └── 📂 o1o0
     │                   └── 📂 user_list
@@ -383,7 +383,7 @@ Merged to O9o1o0g7o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/user-list/ver1.0/,,"O9o1o0g7o1o0 練習1.0巻 会員一覧1.0版",apps1.practice_v1.views.user_list.v1o0,UserListV,,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/user-list/ver1.0/,,"O9o1o0g7o1o0 練習1.0巻 会員一覧1.0版",apps1.practice_vol1o0.views.user_list.ver1o0,UserListV,,render
 ```
 
 ## Step O9o1o0g7o2o0 ルート編集 - コマンド打鍵
@@ -418,13 +418,13 @@ docker-compose restart
         │   └── 📂 practice_vol1o0                  # アプリケーション
         │       ├── 📂 models_helper
         │       │   └── 📂 mh_user
-        │       │       └── 📂 v1o0
+        │       │       └── 📂 ver1o0
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 mh_get_user_dic.py
         │       ├── 📂 templates
         │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 user_list
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 ver1o0.html
         │       └── 📂 views
         │           └── 📂 o1o0
         │               └── 📂 user_list

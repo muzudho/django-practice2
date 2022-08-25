@@ -3,11 +3,11 @@
 import json
 from django.shortcuts import render
 
-# ユーザー モデルヘルパー
-from apps1.practice_v1.models_helper.user.v1o0 import MhUser
-#          -----------                    ----        ------
-#          11                             12          2
-#    -----------------------------------------
+# 練習1.0巻 ユーザー モデルヘルパー1.0版
+from apps1.practice_vol1o0.models_helper.user.ver1o0 import MhUser
+#          ---------------                    ------        ------
+#          11                                 12            2
+#    -----------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -15,7 +15,7 @@ from apps1.practice_v1.models_helper.user.v1o0 import MhUser
 
 
 def render_user_list(request, user_list_tp):
-    """O9o1o0g6o0 描画 - 会員一覧
+    """O9o1o0g6o0 練習1.0巻 会員一覧1.0版 - 描画
 
     Parameters
     ----------

@@ -85,7 +85,7 @@ cd src1
 docker-compose up
 ```
 
-## Step O8o2o0g2o0 画面作成 - login_required/v1o0.html ファイル
+## Step O8o2o0g2o0 画面作成 - login_required/ver1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -96,7 +96,7 @@ docker-compose up
                 └── 📂 templates
                     └── 📂 practice_vol1o0              # アプリケーションと同名
                         └── 📂 login_required
-👉                          └── 📄 v1o0.html
+👉                          └── 📄 ver1o0.html
 ```
 
 ```html
@@ -123,10 +123,10 @@ docker-compose up
                 └── 📂 templates
                     ├── 📂 practice_vol1o0
                     │   └── 📂 login_required
-👉                  │       └── 📄 v1o0.html
+👉                  │       └── 📄 ver1o0.html
                     └── 📂 views
                         └── 📂 login_required
-                            └── 📂 v1o0
+                            └── 📂 ver1o0
 👉                              └── 📄 __init__.py
 ```
 
@@ -142,11 +142,11 @@ class LoggingIn():
     """O8o2o0g3o0 ログイン中"""
 
     # Template path
-    login_required_tp = "practice_v1/login_required/v1o0.html"
-    #                    ------------------------------------
+    login_required_tp = "practice_v1/login_required/ver1o0.html"
+    #                    --------------------------------------
     #                    1
-    # 1. src1/apps1/practice_v1/templates/practice_v1/login_required/v1o0.html を取得
-    #                                     ------------------------------------
+    # 1. src1/apps1/practice_v1/templates/practice_v1/login_required/ver1o0.html を取得
+    #                                     --------------------------------------
 
     # 👇 このデコレーターを付けると、ログインしていないなら、 settings.py の LOGIN_URL で指定した URL に飛ばします。
     # インスタンスのメソッドや、クラスメソッドには付けられません。
@@ -211,10 +211,10 @@ Merged to O8o2o0g4o1o0
     │           └── 📂 templates
     │               ├── 📂 practice_vol1o0
     │               │   └── 📂 login_required
-    │               │       └── 📄 v1o0.html
+    │               │       └── 📄 ver1o0.html
     │               └── 📂 views
     │                   └── 📂 login_required
-    │                       └── 📂 v1o0
+    │                       └── 📂 ver1o0
     │                           └── 📄 __init__.py
     └── 📂 src1_meta
         └── 📂 data
@@ -226,8 +226,8 @@ Merged to O8o2o0g4o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1o0/login-required/ver1o0/,,"O8o2o0g4o1o0 ログイン必須ページでログイン中",apps1.practice_v1.views.login_required.v1o0,LoggingIn,,render
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1o0/logout/ver1o0/,,"O8o2o0g4o1o0 ログイン必須ページでログアウト中",apps1.practice_v1.views.login_required.v1o0,LoggingOut,,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/login-required/ver1.0/,,"O8o2o0g4o1o0 練習1.0巻 ログイン必須ページでログイン中1.0版",apps1.practice_vol1o0.views.login_required.ver1o0,LoggingIn,,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/logout/ver1.0/,,"O8o2o0g4o1o0 練習1.0巻 ログイン必須ページでログアウト中1.0版",apps1.practice_vol1o0.views.login_required.ver1o0,LoggingOut,,render
 ```
 
 ## Step O8o2o0g4o2o0 ルート編集 - コマンド打鍵

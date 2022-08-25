@@ -31,10 +31,10 @@
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_vol1o0
     │   │       │       └── 📂 page_the_hello
-    │   │       │           └── 📄 v1o0.html
+    │   │       │           └── 📄 ver1o0.html
     │   │       └── 📂 views
     │   │           └── 📂 page_the_hello
-    │   │               └── 📂 v1o0
+    │   │               └── 📂 ver1o0
     │   │                   └── 📄 __init__.py
     │   ├── 📂 data
     │   ├── 📂 project1                  # プロジェクト名
@@ -76,7 +76,7 @@ cd src1
 docker-compose up
 ```
 
-## Step O3o2o0g2o0 画面作成 - page_to_be_added/v1o0.html ファイル
+## Step O3o2o0g2o0 画面作成 - page_to_be_added/ver1o0.html ファイル
 
 以下のファイルを作成してほしい。
 
@@ -87,7 +87,7 @@ docker-compose up
                 └── 📂 templates
                     └── 📂 practice_vol1o0
                         └── 📂 page_to_be_added
-👉                          └── 📄 v1o0.html
+👉                          └── 📄 ver1o0.html
 ```
 
 ```html
@@ -141,16 +141,18 @@ docker-compose up
                 └── 📂 templates
                     └── 📂 practice_vol1o0
                         └── 📂 page_to_be_added
-                            ├── 📄 v1o0.html
+                            ├── 📄 ver1o0.html
 👉                          └── 📄 v2o0.html.txt
 ```
 
 ```html
-{% extends "practice_v1/page_to_be_added/v1o0.html" %}
-{#          --------------------------------------
+<!-- BOF O3o2o0g3o0 -->
+
+{% extends "practice_v1/page_to_be_added/ver1o0.html" %}
+{#          ----------------------------------------
             1
-1. src1/apps1/practice_v1/templates/practice_v1/page_to_be_added/v1o0.html
-                                    --------------------------------------
+1. src1/apps1/practice_v1/templates/practice_v1/page_to_be_added/ver1o0.html
+                                    ----------------------------------------
 #}
 
 <!-- -->
@@ -178,6 +180,8 @@ docker-compose up
     {% block section2_footer_patch1 %}
     {% endblock section2_footer_patch1 %}
 {% endblock section2_footer %}
+
+<!-- EOF O3o2o0g3o0 -->
 ```
 
 ## Step O3o2o0g4o0 ビュー作成 - page_to_be_added/v2o0 フォルダー
@@ -191,7 +195,7 @@ docker-compose up
         │       ├── 📂 templates
         │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 page_to_be_added
-        │       │           ├── 📄 v1o0.html
+        │       │           ├── 📄 ver1o0.html
         │       │           └── 📄 v2o0.html.txt
         │       └── 📂 views
         │           └── 📂 page_to_be_added
@@ -241,7 +245,7 @@ Merged to O3o2o0g5o1o0
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_vol1o0
     │   │       │       └── 📂 page_to_be_added
-    │   │       │           ├── 📄 v1o0.html
+    │   │       │           ├── 📄 ver1o0.html
     │   │       │           └── 📄 v2o0.html.txt
     │   │       └── 📂 views
     │   │           └── 📂 page_to_be_added

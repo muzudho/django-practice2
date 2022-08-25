@@ -31,10 +31,10 @@ URLの設定はめんどうだ。自動化しよう
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_vol1o0
     │   │       │       └── 📂 page_the_hello
-    │   │       │           └── 📄 v1o0.html
+    │   │       │           └── 📄 ver1o0.html
     │   │       └── 📂 views
     │   │           └── 📂 page_the_hello
-    │   │               └── 📂 v1o0
+    │   │               └── 📂 ver1o0
     │   │                   └── 📄 __init__.py
     │   ├── 📂 data
     │   ├── 📂 project1                  # プロジェクト名
@@ -365,7 +365,7 @@ urlpatterns = [
 
 from django.urls import path
 
-from apps1.practice_v1.views.page_the_hello.v1o0 import PageTheHello
+from apps1.practice_vol1o0.views.page_the_hello.ver1o0 import PageTheHello
 
 
 urlpatterns = [

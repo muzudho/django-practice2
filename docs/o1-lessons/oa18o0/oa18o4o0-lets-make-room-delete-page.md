@@ -191,12 +191,12 @@ class RoomV():
     # ...略...
 
 
-    # OA18o4o0g3o0 削除ページ
-    _path_of_delete_page = "practice_v1/room/delete/v1o0.html"
-    #                       ---------------------------------
+    # OA18o4o0g3o0 練習1.0巻 削除1.0版
+    _path_of_delete_page = "practice_vol1o0/room/delete/ver1o0.html"
+    #                       ---------------------------------------
     #                       1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/room/delete/v1o0.html` を取得
-    #                                      ---------------------------------
+    # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/room/delete/ver1o0.html` を取得
+    #                                          ---------------------------------------
 
 
     # ...略...

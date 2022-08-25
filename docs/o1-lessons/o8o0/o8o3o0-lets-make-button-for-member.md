@@ -82,7 +82,7 @@ docker-compose up
                 └── 📂 templates
                     └── 📂 practice_vol1o0          # アプリケーションと同名
                         └── 📂 button_for_member
-👉                          └── 📄 v1o0.html
+👉                          └── 📄 ver1o0.html
 ```
 
 ```html
@@ -177,7 +177,7 @@ docker-compose up
 </html>
 ```
 
-## Step O8o3o0g3o0 ビュー作成 - button_for_member/v1o0 フォルダー
+## Step O8o3o0g3o0 ビュー作成 - button_for_member/ver1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -188,10 +188,10 @@ docker-compose up
                 ├── 📂 templates
                 │   └── 📂 practice_vol1o0
                 │       └── 📂 button_for_member
-                │           └── 📄 v1o0.html
+                │           └── 📄 ver1o0.html
                 └── 📂 views
                     └── 📂 button_for_member
-                        └── 📂 v1o0
+                        └── 📂 ver1o0
 👉                          └── 📄 __init__.py
 ```
 
@@ -202,11 +202,11 @@ class ButtonForMember():
     """O8o3o0g3o0 会員にだけ見えるボタンを説明するページ"""
 
     # そのページ
-    _path_of_this_page = "practice_v1/button_for_member/v1o0.html"
-    #                     ---------------------------------------
+    _path_of_this_page = "practice_vol1o0/button_for_member/ver1o0.html"
+    #                     ---------------------------------------------
     #                     1
-    # 1. src1/apps1/practice_v1/templates/practice_v1/button_for_member/v1o0.html を取得
-    #                                     ---------------------------------------
+    # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/button_for_member/ver1o0.html` を取得
+    #                                          ---------------------------------------------
 
     # 既存のポータルページ
     _path_of_portal = "/"
@@ -253,7 +253,7 @@ class ButtonForMember():
 # EOF O8o3o0g3o0
 ```
 
-## Step O8o3o0g4o0 ビュー作成 - button_for_member/v1o0/v_render.py ファイル
+## Step O8o3o0g4o0 ビュー作成 - button_for_member/ver1o0/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -264,10 +264,10 @@ class ButtonForMember():
                 ├── 📂 templates
                 │   └── 📂 practice_vol1o0
                 │       └── 📂 button_for_member
-                │           └── 📄 v1o0.html
+                │           └── 📄 ver1o0.html
                 └── 📂 views
                     └── 📂 button_for_member
-                        └── 📂 v1o0
+                        └── 📂 ver1o0
                             ├── 📄 __init__.py
 👉                          └── 📄 v_render.py       # 頭の `v_` は、これはビューだと分かるよう目印に付けているだけなので、無くてもいい
 ```
@@ -315,10 +315,10 @@ Merged to O8o3o0g5o1o0
     │           ├── 📂 templates
     │           │   └── 📂 practice_vol1o0
     │           │       └── 📂 button_for_member
-    │           │           └── 📄 v1o0.html
+    │           │           └── 📄 ver1o0.html
     │           └── 📂 views
     │               └── 📂 button_for_member
-    │                   └── 📂 v1o0
+    │                   └── 📂 ver1o0
     │                       ├── 📄 __init__.py
     │                       └── 📄 v_render.py
     └── 📂 src1_meta
@@ -367,10 +367,10 @@ docker-compose restart
         │       ├── 📂 templates
         │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 button_for_member
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 ver1o0.html
         │       └── 📂 views
         │           └── 📂 button_for_member
-        │               └── 📂 v1o0
+        │               └── 📂 ver1o0
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_render.py
         └── 📂 project1                      # プロジェクト

@@ -257,8 +257,8 @@ class MhUser():
     from .mh_get_extends_user_dic import get_extends_user_dic
     #    ------------------------        --------------------
     #    1                               2
-    # 1. `src1/apps1/practice_v1/model_helper/user/v1o0/mh_get_extends_user_dic.py`
-    #                                                   -----------------------
+    # 1. `src1/apps1/practice_vol1o0/model_helper/user/ver1o0/mh_get_extends_user_dic.py`
+    #                                                         -----------------------
     # 2. `1.` に含まれる関数
 ```
 

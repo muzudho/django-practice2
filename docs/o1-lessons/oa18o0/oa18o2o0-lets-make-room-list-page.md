@@ -58,7 +58,7 @@ ID    部屋名        先手Id  先手名  後手Id  後手名  盤面       �
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
     │   │   │       └── 📂 room
-    │   │   │           └── 📄 v1o0.py
+    │   │   │           └── 📄 ver1o0.py
     │   │   ├── 📂 tic_tac_toe_vol1o0           # アプリケーション
     │   │   └── 📂 tic_tac_toe_vol2o0           # アプリケーション
     │   │       ├── 📂 migrations
@@ -131,7 +131,7 @@ docker-compose up
                     └── 📂 practice_vol1o0          # アプリケーションと同名
                         └── 📂 room
                             └── 📂 list
-👉                              └── 📄 v1o0.html
+👉                              └── 📄 ver1o0.html
 ```
 
 ```html
@@ -234,7 +234,7 @@ docker-compose up
 </html>
 ```
 
-## Step OA18o2o0g3o0 モデルヘルパー モジュール編集 - user/v1o0 フォルダー
+## Step OA18o2o0g3o0 モデルヘルパー モジュール編集 - user/ver1o0 フォルダー
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -244,13 +244,13 @@ docker-compose up
             └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models_helper
                 │   └── 📂 user
-                │       └── 📂 v1o0
+                │       └── 📂 ver1o0
 👉              │           └── 📄 __init__.py
                 └── 📂 templates
                     └── 📂 practice_vol1o0
                         └── 📂 room
                             └── 📂 list
-                                └── 📄 v1o0.html
+                                └── 📄 ver1o0.html
 ```
 
 ```py
@@ -266,8 +266,8 @@ class MhUser():
     from .mh_get_name_by_pk import get_name_by_pk
     #    ------------------        --------------
     #    1                         2
-    # 1. `src1/apps1/practice_v1/model_helper/user/v1o0/mh_get_name_by_pk.py`
-    #                                                   -----------------
+    # 1. `src1/apps1/practice_vol1o0/model_helper/user/ver1o0/mh_get_name_by_pk.py`
+    #                                                         -----------------
     # 2. `1.` に含まれる関数
 ```
 
@@ -281,14 +281,14 @@ class MhUser():
             └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models_helper
                 │   └── 📂 user
-                │       └── 📂 v1o0
+                │       └── 📂 ver1o0
                 │           ├── 📄 __init__.py
 👉              │           └── 📄 mh_get_name_by_pk.py
                 └── 📂 templates
                     └── 📂 practice_vol1o0
                         └── 📂 room
                             └── 📂 list
-                                └── 📄 v1o0.html
+                                └── 📄 ver1o0.html
 ```
 
 ```py
@@ -317,17 +317,17 @@ def get_name_by_pk(id):
             └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models_helper
                 │   └── 📂 user
-                │       └── 📂 v1o0
+                │       └── 📂 ver1o0
                 │           ├── 📄 __init__.py
                 │           └── 📄 mh_get_name_by_pk.py
                 ├── 📂 templates
                 │   └── 📂 practice_vol1o0
                 │       └── 📂 room
                 │           └── 📂 list
-                │               └── 📄 v1o0.html
+                │               └── 📄 ver1o0.html
                 └── 📂 views
                     └── 📂 room
-                        └── 📂 v1o0
+                        └── 📂 ver1o0
 👉                          └── 📄 __init__.py
 ```
 
@@ -335,29 +335,29 @@ def get_name_by_pk(id):
 class RoomV():
     """OA18o2o0g5o0 対局部屋ビュー"""
 
-    # OA18o2o0g5o0 一覧ページ
-    _path_of_list_page = "practice_v1/room/list/v1o0.html"
-    #                     -------------------------------
+    # OA18o2o0g5o0 練習1.0巻 一覧ページ1.0版
+    _path_of_list_page = "practice_vol1o0/room/list/ver1o0.html"
+    #                     -------------------------------------
     #                     1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/room/list/v1o0.html` を取得
-    #                                      -------------------------------
+    # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/room/list/ver1o0.html` を取得
+    #                                          -------------------------------------
 
     @staticmethod
     def render_list(request):
-        """OA18o2o0g5o0 描画 - 一覧"""
+        """OA18o2o0g5o0 練習1.0巻 一覧ページ1.0版"""
 
         # 以下のファイルはあとで作ります
-        from ..list.v1o0 import render_list
-        #    -----------        -----------
-        #    1                  2
-        # 1. `src1/apps1/practice_v1/views/room/list/v1o0.py`
-        #                                       ---------
+        from ..list.ver1o0 import render_list
+        #    -------------        -----------
+        #    1                    2
+        # 1. `src1/apps1/practice_vol1o0/views/room/list/ver1o0.py`
+        #                                           -----------
         # 2. `1.` に含まれる関数
 
         return render_list(request, RoomV._path_of_list_page)
 ```
 
-## Step OA18o2o0g6o0 ビュー作成 - room/list/v1o0 ファイル
+## Step OA18o2o0g6o0 ビュー作成 - room/list/ver1o0 ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -367,19 +367,19 @@ class RoomV():
             └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models_helper
                 │   └── 📂 user
-                │       └── 📂 v1o0
+                │       └── 📂 ver1o0
                 │           ├── 📄 __init__.py
                 │           └── 📄 mh_get_name_by_pk.py
                 ├── 📂 templates
                 │   └── 📂 practice_vol1o0
                 │       └── 📂 room
                 │           └── 📂 list
-                │               └── 📄 v1o0.html
+                │               └── 📄 ver1o0.html
                 └── 📂 views
                     └── 📂 room
                         ├── 📂 list
-👉                      │   └── 📄 v1o0.py
-                        └── 📂 v1o0
+👉                      │   └── 📄 ver1o0.py
+                        └── 📂 ver1o0
                             └── 📄 __init__.py
 ```
 
@@ -486,19 +486,19 @@ Merged to OA18o2o0g7o1o0
     │       └── 📂 practice_vol1o0                      # アプリケーション
     │           ├── 📂 models_helper
     │           │   └── 📂 user
-    │           │       └── 📂 v1o0
+    │           │       └── 📂 ver1o0
     │           │           ├── 📄 __init__.py
     │           │           └── 📄 mh_get_name_by_pk.py
     │           ├── 📂 templates
     │           │   └── 📂 practice_vol1o0
     │           │       └── 📂 room
     │           │           └── 📂 list
-    │           │               └── 📄 v1o0.html
+    │           │               └── 📄 ver1o0.html
     │           └── 📂 views
     │               └── 📂 room
     │                   ├── 📂 list
-    │                   │   └── 📄 v1o0.py
-    │                   └── 📂 v1o0
+    │                   │   └── 📄 ver1o0.py
+    │                   └── 📂 ver1o0
     │                       └── 📄 __init__.py
     └── 📂 src1_meta
         └── 📂 data
@@ -510,7 +510,7 @@ Merged to OA18o2o0g7o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/rooms/ver1.0/,practice_v1_rooms,"OA18o2o0g7o1o0 練習1.0巻 対局部屋の一覧1.0版",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_list
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/rooms/ver1.0/,practice_v1_rooms,"OA18o2o0g7o1o0 練習1.0巻 対局部屋の一覧1.0版",apps1.practice_vol1o0.views.room.ver1o0,RoomV,RoomVV1o0,render_list
 ```
 
 ## Step OA18o2o0g7o2o0 ルート編集 - コマンド打鍵
@@ -545,19 +545,19 @@ docker-compose restart
         │   └── 📂 practice_vol1o0                      # アプリケーション
         │       ├── 📂 models_helper
         │       │   └── 📂 user
-        │       │       └── 📂 v1o0
+        │       │       └── 📂 ver1o0
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 mh_get_name_by_pk.py
         │       ├── 📂 templates
         │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 room
         │       │           └── 📂 list
-        │       │               └── 📄 v1o0.html
+        │       │               └── 📄 ver1o0.html
         │       └── 📂 views
         │           └── 📂 room
         │               ├── 📂 list
-        │               │   └── 📄 v1o0.py
-        │               └── 📂 v1o0
+        │               │   └── 📄 ver1o0.py
+        │               └── 📂 ver1o0
         │                   └── 📄 __init__.py
         └── 📂 project1                          # プロジェクト
             └── 📄 urls_practice.py              # こちら

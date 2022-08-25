@@ -314,12 +314,12 @@ class RoomV():
     # ...略...
 
 
-    # OA18o3o0g3o0 詳細ページ
-    _path_of_read_page = "practice_v1/room/read/v1o0.html"
-    #                     -------------------------------
+    # OA18o3o0g3o0 練習1.0巻 詳細ページ1.0版
+    _path_of_read_page = "practice_vol1o0/room/read/ver1o0.html"
+    #                     -------------------------------------
     #                     1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/room/read/v1o0.html` を取得
-    #                                      -------------------------------
+    # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/room/read/ver1o0.html` を取得
+    #                                          -------------------------------------
 
 
     # ...略...
@@ -327,14 +327,14 @@ class RoomV():
 
     @staticmethod
     def render_read(request, id):
-        """OA18o3o0g3o0 描画 - 詳細"""
+        """OA18o3o0g3o0 練習1.0巻 詳細ページ1.0版"""
 
         # 以下のファイルはあとで作ります
-        from ..read.v1o0 import render_read
-        #    -----------        -----------
-        #    1                  2
-        # 1. `src1/apps1/practice_v1/views/room/read/v1o0.py`
-        #                                       ---------
+        from ..read.ver1o0 import render_read
+        #    -------------        -----------
+        #    1                    2
+        # 1. `src1/apps1/practice_vol1o0/views/room/read/ver1o0.py`
+        #                                           -----------
         # 2. `1.` に含まれる関数
 
         return render_read(request, id, RoomV._path_of_read_page)
