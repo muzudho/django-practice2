@@ -295,7 +295,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
                 │           └── 📄 v1o0.html
                 └── 📂 views
                     └── 📂 auto_reload
-                        └── 📂 v1o0
+                        └── 📂 ver1o0
 👉                          └── 📄 __init__.py
 ```
 
@@ -345,7 +345,7 @@ class AutoReloadV():
                 │           └── 📄 v1o0.html
                 └── 📂 views
                     └── 📂 auto_reload
-                        └── 📂 v1o0
+                        └── 📂 ver1o0
                             ├── 📄 __init__.py
 👉                          └── 📄 v_auto_reload.py
 ```
@@ -395,7 +395,7 @@ Merged to OA21o1o0g7o1o0
     │           │           └── 📄 v1o0.html
     │           └── 📂 views
     │               └── 📂 auto_reload
-    │                   └── 📂 v1o0
+    │                   └── 📂 ver1o0
     │                       ├── 📄 __init__.py
     │                       └── 📄 v_auto_reload.py
     └── 📂 src1_meta
@@ -453,7 +453,7 @@ docker-compose restart
         │       │           └── 📄 v1o0.html
         │       └── 📂 views
         │           └── 📂 auto_reload
-        │               └── 📂 v1o0
+        │               └── 📂 ver1o0
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_auto_reload.py
         └── 📂 project1                          # プロジェクト

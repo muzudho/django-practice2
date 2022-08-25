@@ -127,7 +127,7 @@ docker-compose up
             └── 📂 tic_tac_toe_vol3o0                 # アプリケーション Three
                 └── 📂 views
                     └── 📂 match_application
-                        └── 📂 v2o0
+                        └── 📂 ver2o0
 👉                          └── 📄 __init__.py
 ```
 
@@ -214,7 +214,7 @@ class MatchApplicationV():
             └── 📂 tic_tac_toe_vol3o0                   # アプリケーション Three
                 └── 📂 views
                     └── 📂 match_application
-                        └── 📂 v2o0
+                        └── 📂 ver2o0
                             ├── 📄 __init__.py
 👉                          └── 📄 v_on_sent.py
 ```
@@ -332,7 +332,7 @@ Merged to OA23o1o0g4o1o0
     │       └── 📂 tic_tac_toe_vol3o0                   # アプリケーション Three
     │           └── 📂 views
     │               └── 📂 match_application
-    │                   └── 📂 v2o0
+    │                   └── 📂 ver2o0
     │                       ├── 📄 __init__.py
     │                       └── 📄 v_on_sent.py
     └── 📂 src1_meta
@@ -419,7 +419,7 @@ docker-compose restart
         │   └── 📂 tic_tac_toe_vol3o0                   # アプリケーション Three
         │       └── 📂 views
         │           └── 📂 match_application
-        │               └── 📂 v2o0
+        │               └── 📂 ver2o0
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_on_sent.py
         └── 📂 project1                             # プロジェクト

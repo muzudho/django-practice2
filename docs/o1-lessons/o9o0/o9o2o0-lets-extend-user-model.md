@@ -76,7 +76,7 @@ cd src1
 docker-compose up
 ```
 
-## Step O9o2o0g2o0 User モデル拡張 - user_profile/v1o0.py ファイル
+## Step O9o2o0g2o0 User モデル拡張 - user_profile/ver1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -86,7 +86,7 @@ docker-compose up
             └── 📂 practice_vol1o0                  # アプリケーション
                 └── 📂 models
                     └── 📂 user_profile
-👉                      └── 📄 v1o0.py
+👉                      └── 📄 ver1o0.py
 ```
 
 ```py
@@ -159,9 +159,9 @@ post_save.connect(create_user_profile, sender=User)
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
 # cd src1
 
-docker-compose run --rm web python3 manage.py makemigrations practice_v1 --settings project1.settings
-#                                                            -----------            -----------------
-#                                                            1                      2
+docker-compose run --rm web python3 manage.py makemigrations practice_vol1o0 --settings project1.settings
+#                                                            ---------------            -----------------
+#                                                            1                          2
 # 1. アプリケーション
 # 2. src1/project1/settings.py
 #         -----------------
@@ -180,7 +180,7 @@ docker-compose run --rm web python3 manage.py makemigrations practice_v1 --setti
 👉              │   └── 📄 0003_profile.py       # 名前は異なることがある
                 └── 📂 models
                     └── 📂 user_profile
-                        └── 📄 v1o0.py
+                        └── 📄 ver1o0.py
 ```
 
 👆 この生成されたファイルは マイグレーション ファイル と呼ぶらしい  
@@ -228,7 +228,7 @@ docker-compose run --rm web python3 manage.py showmigrations --settings project1
 
 👆 マイグレーションした後に、マイグレーションされたものを確認  
 
-## Step O9o2o0g7o0 モデルヘルパー編集 - user/v1o0/__init__.py ファイル
+## Step O9o2o0g7o0 モデルヘルパー編集 - user/ver1o0/__init__.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -238,10 +238,10 @@ docker-compose run --rm web python3 manage.py showmigrations --settings project1
             └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models
                 │   └── 📂 user_profile
-                │       └── 📄 v1o0.py
+                │       └── 📄 ver1o0.py
                 └── 📂 models_helper
                     └── 📂 user
-                        └── 📂 v1o0
+                        └── 📂 ver1o0
 👉                          └── 📄 __init__.py
 ```
 
@@ -272,10 +272,10 @@ class MhUser():
             └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models
                 │   └── 📂 user_profile
-                │       └── 📄 v1o0.py
+                │       └── 📄 ver1o0.py
                 └── 📂 models_helper
                     └── 📂 user
-                        └── 📂 v1o0
+                        └── 📂 ver1o0
                             ├── 📄 __init__.py
 👉                          └── 📄 mh_get_extends_user_dic.py
 ```
@@ -329,16 +329,16 @@ def get_extends_user_dic():
             └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models
                 │   └── 📂 user_profile
-                │       └── 📄 v1o0.py
+                │       └── 📄 ver1o0.py
                 ├── 📂 models_helper
                 │   └── 📂 user
-                │       └── 📂 v1o0
+                │       └── 📂 ver1o0
                 │           ├── 📄 __init__.py
                 │           └── 📄 mh_get_extends_user_dic.py
                 └── 📂 templates
                     └── 📂 practice_vol1o0          # アプリケーションと同名
                         └── 📂 extends_user_list
-👉                          └── 📄 v1o0.html
+👉                          └── 📄 ver1o0.html
 ```
 
 ```html
@@ -411,7 +411,7 @@ def get_extends_user_dic():
 </html>
 ```
 
-## Step O9o2o0gA10o0 ビュー作成 - extends_user_list/v1o0 フォルダー
+## Step O9o2o0gA10o0 ビュー作成 - extends_user_list/ver1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -421,43 +421,43 @@ def get_extends_user_dic():
             └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models
                 │   └── 📂 user_profile
-                │       └── 📄 v1o0.py
+                │       └── 📄 ver1o0.py
                 ├── 📂 models_helper
                 │   └── 📂 user
-                │       └── 📂 v1o0
+                │       └── 📂 ver1o0
                 │           ├── 📄 __init__.py
                 │           └── 📄 mh_get_extends_user_dic.py
                 ├── 📂 templates
                 │   └── 📂 practice_vol1o0
                 │       └── 📂 extends_user_list
-                │           └── 📄 v1o0.html
+                │           └── 📄 ver1o0.html
                 └── 📂 views
                     └── 📂 extends_user_list
-                        └── 📂 v1o0
+                        └── 📂 ver1o0
 👉                          └── 📄 __init__.py
 ```
 
 ```py
 class ExtendsUserListV():
-    """O9o2o0gA10o0 （拡張済）会員一覧ビュー"""
+    """O9o2o0gA10o0 練習1.0巻 拡張済み会員一覧1.0版"""
 
-    # そのページ
-    _path_of_this_page = "practice_v1/extends_user_list/v1o0.html"
-    #                     ---------------------------------------
+    # 練習1.0巻 拡張済み会員一覧1.0版 - HTMLページ
+    _path_of_this_page = "practice_vol1o0/extends_user_list/ver1o0.html"
+    #                     ---------------------------------------------
     #                     1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/extends_user_list/v1o0.html` を取得
-    #                                      ---------------------------------------
+    # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/extends_user_list/ver1o0.html` を取得
+    #                                          ---------------------------------------------
 
     @staticmethod
     def render(request):
-        """描画"""
+        """O9o2o0gA10o0 練習1.0巻 拡張済み会員一覧1.0版 - 描画"""
 
         # 以下のファイルはあとで作ります
         from .v_render import render_extends_user_list
         #    ---------        ------------------------
         #    1                2
-        # 1. `src1/apps1/practice_v1/views/extends_user_list/v1o0/v_render.py`
-        #                                                         --------
+        # 1. `src1/apps1/practice_vol1o0/views/extends_user_list/ver1o0/v_render.py`
+        #                                                               --------
         # 2. `1.` に含まれる関数
 
         return render_extends_user_list(request, ExtendsUserListV._path_of_this_page)
@@ -473,19 +473,19 @@ class ExtendsUserListV():
             └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models
                 │   └── 📂 user_profile
-                │       └── 📄 v1o0.py
+                │       └── 📄 ver1o0.py
                 ├── 📂 models_helper
                 │   └── 📂 user
-                │       └── 📂 v1o0
+                │       └── 📂 ver1o0
                 │           ├── 📄 __init__.py
                 │           └── 📄 mh_get_extends_user_dic.py
                 ├── 📂 templates
                 │   └── 📂 practice_vol1o0
                 │       └── 📂 extends_user_list
-                │           └── 📄 v1o0.html
+                │           └── 📄 ver1o0.html
                 └── 📂 views
                     └── 📂 extends_user_list
-                        └── 📂 v1o0
+                        └── 📂 ver1o0
                             ├── 📄 __init__.py
 👉                          └── 📄 v_render.py
 ```
@@ -496,11 +496,11 @@ class ExtendsUserListV():
 import json
 from django.shortcuts import render
 
-# ユーザー モデルヘルパー
-from apps1.practice_v1.models_helper.user.v1o0 import MhUser
-#          -----------                    ----        ------
-#          11                             12          2
-#    -----------------------------------------
+# 練習1.0巻 ユーザー モデルヘルパー1.0版
+from apps1.practice_vol1o0.models_helper.user.ver1o0 import MhUser
+#          ---------------                    ------        ------
+#          11                                 12            2
+#    -----------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -508,7 +508,7 @@ from apps1.practice_v1.models_helper.user.v1o0 import MhUser
 
 
 def render_extends_user_list(request, extends_user_list_tp):
-    """O9o2o0gA11o0 描画 - （拡張済）会員登録ユーザー一覧
+    """O9o2o0gA11o0 練習1.0巻 拡張済み会員登録ユーザー一覧1.0版 - 描画
 
     Parameters
     ----------
@@ -542,19 +542,19 @@ Merged to O9o2o0gA12o1o0
     │       └── 📂 practice_vol1o0                  # アプリケーション
     │           ├── 📂 models
     │           │   └── 📂 user_profile
-    │           │       └── 📄 v1o0.py
+    │           │       └── 📄 ver1o0.py
     │           ├── 📂 models_helper
     │           │   └── 📂 user
-    │           │       └── 📂 v1o0
+    │           │       └── 📂 ver1o0
     │           │           ├── 📄 __init__.py
     │           │           └── 📄 mh_get_extends_user_dic.py
     │           ├── 📂 templates
     │           │   └── 📂 practice_vol1o0
-    │           │       └── 📂 v1o0
+    │           │       └── 📂 ver1o0
     │           │           └── 📄 extends_user_list.html
     │           └── 📂 views
     │               └── 📂 extends_user_list
-    │                   └── 📂 v1o0
+    │                   └── 📂 ver1o0
     │                       ├── 📄 __init__.py
     │                       └── 📄 v_render.py
     └── 📂 src1_meta
@@ -567,7 +567,7 @@ Merged to O9o2o0gA12o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/extends-user-list/ver1.0/,,"O9o2o0gA12o1o0 練習1.0巻 （拡張済）会員一覧1.0版",apps1.practice_v1.views.extends_user_list.v1o0,ExtendsUserListV,,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/extends-user-list/ver1.0/,,"O9o2o0gA12o1o0 練習1.0巻 （拡張済）会員一覧1.0版",apps1.practice_vol1o0.views.extends_user_list.ver1o0,ExtendsUserListV,,render
 ```
 
 ## Step O9o2o0gA12o2o0 ルート編集 - コマンド打鍵
@@ -595,19 +595,19 @@ docker-compose restart
         │   └── 📂 practice_vol1o0                  # アプリケーション
         │       ├── 📂 models
         │       │   └── 📂 user_profile
-        │       │       └── 📄 v1o0.py
+        │       │       └── 📄 ver1o0.py
         │       ├── 📂 models_helper
         │       │   └── 📂 user
-        │       │       └── 📂 v1o0
+        │       │       └── 📂 ver1o0
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 mh_get_extends_user_dic.py
         │       ├── 📂 templates
         │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 extends_user_list
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 ver1o0.html
         │       ├── 📂 views
         │       │   └── 📂 extends_user_list
-        │       │       └── 📂 v1o0
+        │       │       └── 📂 ver1o0
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 v_render.py
 👉      │       └── 📄 admin.py
@@ -619,12 +619,12 @@ docker-compose restart
 # ...略...
 
 
-# O9o2o0gA13o0 Userの拡張
-from .models.user_profile.v1o0 import Profile
-#    -------------------------        -------
-#    1                                2
-# 1. このファイルと同じディレクトリにある `models/user_profile/v1o0.py` ファイルの拡張子抜き
-#                                      ------------------------
+# O9o2o0gA13o0 練習1.0巻 User拡張1.0版
+from .models.user_profile.ver1o0 import Profile
+#    ---------------------------        -------
+#    1                                  2
+# 1. このファイルと同じディレクトリにある `models/user_profile/ver1o0.py` ファイルの拡張子抜き
+#                                      --------------------------
 # 2. クラス
 
 
@@ -693,19 +693,19 @@ User: [あなたの名前]▽ 🖊 ➕
         │   └── 📂 practice_vol1o0                  # アプリケーション
         │       ├── 📂 models
         │       │   └── 📂 user_profile
-        │       │       └── 📄 v1o0.py
+        │       │       └── 📄 ver1o0.py
         │       ├── 📂 models_helper
         │       │   └── 📂 user
-        │       │       └── 📂 v1o0
+        │       │       └── 📂 ver1o0
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 mh_get_extends_user_dic.py
         │       ├── 📂 templates
         │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 extends_user_list
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 ver1o0.html
         │       ├── 📂 views
         │       │   └── 📂 extends_user_list
-        │       │       └── 📂 v1o0
+        │       │       └── 📂 ver1o0
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 v_render.py
         │       └── 📄 admin.py

@@ -72,7 +72,7 @@ cd src1
 docker-compose up
 ```
 
-## Step O9o3o0g2o0 画面作成 - active_user_list/v1o0.html ファイル
+## Step O9o3o0g2o0 画面作成 - active_user_list/ver1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -83,7 +83,7 @@ docker-compose up
                 └── 📂 templates
                     └── 📂 practice_vol1o0          # アプリケーションと同名
                         └── 📂 active_user_list
-👉                          └── 📄 v1o0.html
+👉                          └── 📄 ver1o0.html
 ```
 
 ```html
@@ -158,7 +158,7 @@ docker-compose up
 </html>
 ```
 
-## Step O9o3o0g3o0 モデル関連作成 - session/v1o0 フォルダー
+## Step O9o3o0g3o0 モデル関連作成 - session/ver1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -168,28 +168,28 @@ docker-compose up
             └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models_helper
                 │   └── 📂 session
-                │       └── 📂 v1o0
+                │       └── 📂 ver1o0
 👉              │           └── 📄 __init__.py
                 └── 📂 templates
                     └── 📂 practice_vol1o0          # アプリケーションと同名
                         └── 📂 active_user_list
-                            └── 📄 v1o0.html
+                            └── 📄 ver1o0.html
 ```
 
 ```py
 class MhSession():
-    """O9o3o0g3o0 セッション ヘルパー"""
+    """O9o3o0g3o0 練習1.0巻 セッション ヘルパー1.0版"""
 
     # O9o3o0g3o0 以下のファイルはあとで作ります
     from .v_get_all_logged_in_users import get_all_logged_in_users
     #    --------------------------        -----------------------
     #    1                                 2
-    # 1. `src1/apps1/practice_v1/model_helper/sesion/v1o0/v_get_all_logged_in_users.py`
-    #                                                     -------------------------
+    # 1. `src1/apps1/practice_vol1o0/model_helper/sesion/ver1o0/v_get_all_logged_in_users.py`
+    #                                                           -------------------------
     # 2. `1.` に含まれる関数
 ```
 
-## Step O9o3o0g4o0 ビュー作成 - session/v1o0/v_get_all_logged_in_users.py ファイル
+## Step O9o3o0g4o0 ビュー作成 - session/ver1o0/v_get_all_logged_in_users.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -199,13 +199,13 @@ class MhSession():
             └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models_helper
                 │   └── 📂 session
-                │       └── 📂 v1o0
+                │       └── 📂 ver1o0
                 │           ├── 📄 __init__.py
 👉              │           └── 📄 v_get_all_logged_in_users.py
                 └── 📂 templates
                     └── 📂 practice_vol1o0          # アプリケーションと同名
                         └── 📂 active_user_list
-                            └── 📄 v1o0.html
+                            └── 📄 ver1o0.html
 ```
 
 ```py
@@ -274,7 +274,7 @@ web_1  | ]
     return user_dic
 ```
 
-## Step O9o3o0g5o0 ビュー作成 - session/v1o0 フォルダー
+## Step O9o3o0g5o0 ビュー作成 - session/ver1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -284,40 +284,40 @@ web_1  | ]
             └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models_helper
                 │   └── 📂 session
-                │       └── 📂 v1o0
+                │       └── 📂 ver1o0
                 │           ├── 📄 __init__.py
                 │           └── 📄 v_get_all_logged_in_users.py
                 ├── 📂 templates
                 │   └── 📂 practice_vol1o0
                 │       └── 📂 active_user_list
-                │           └── 📄 v1o0.html
+                │           └── 📄 ver1o0.html
                 └── 📂 views
                     └── 📂 session
-                        └── 📂 v1o0
+                        └── 📂 ver1o0
 👉                          └── 📄 __init__.py
 ```
 
 ```py
 class SessionV():
-    """O9o3o0g5o0 セッション ビュー"""
+    """O9o3o0g5o0 練習1.0巻 セッション1.0版"""
 
-    # そのページ
-    _path_of_this_page = "practice_v1/active_user_list/v1o0.html"
-    #                     --------------------------------------
+    # このページ
+    _path_of_this_page = "practice_vol1o0/active_user_list/ver1o0.html"
+    #                     --------------------------------------------
     #                     1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/active_user_list/v1o0.html` を取得
-    #                                      --------------------------------------
+    # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/active_user_list/ver1o0.html` を取得
+    #                                          --------------------------------------------
 
     @staticmethod
     def render(request):
-        """描画"""
+        """O9o3o0g5o0 練習1.0巻 セッション1.0版 - 描画"""
 
         # 以下のファイルはあとで作ります
         from .v_render import render_active_user_list
         #    ---------        -----------------------
         #    1                2
-        # 1. `src1/apps1/practice_v1/views/session/v1o0/v_render.py`
-        #                                               --------
+        # 1. `src1/apps1/practice_vol1o0/views/session/ver1o0/v_render.py`
+        #                                                     --------
         # 2. `1.` に含まれる関数
 
         return render_active_user_list(request, SessionV._path_of_this_page)
@@ -333,16 +333,16 @@ class SessionV():
             └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models_helper
                 │   └── 📂 session
-                │       └── 📂 v1o0
+                │       └── 📂 ver1o0
                 │           ├── 📄 __init__.py
                 │           └── 📄 v_get_all_logged_in_users.py
                 ├── 📂 templates
                 │   └── 📂 practice_vol1o0
                 │       └── 📂 active_user_list
-                │           └── 📄 v1o0.html
+                │           └── 📄 ver1o0.html
                 └── 📂 views
                     └── 📂 session
-                        └── 📂 v1o0
+                        └── 📂 ver1o0
                             ├── 📄 __init__.py
 👉                          └── 📄 v_render.py
 ```
@@ -351,11 +351,11 @@ class SessionV():
 import json
 from django.shortcuts import render
 
-# セッション モデルヘルパー
-from apps1.practice_v1.models_helper.session.v1o0 import MhSession
-#          -----------                       ----        ---------
-#          11                                12          2
-#    --------------------------------------------
+# 練習1.0巻 セッション モデルヘルパー1.0版
+from apps1.practice_vol1o0.models_helper.session.ver1o0 import MhSession
+#          ---------------                       ------        ---------
+#          11                                    12            2
+#    --------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -363,7 +363,7 @@ from apps1.practice_v1.models_helper.session.v1o0 import MhSession
 
 
 def render_active_user_list(request, path_of_this_page):
-    """O9o3o0g6o0 描画 - アクティブ ユーザー一覧"""
+    """O9o3o0g6o0 練習1.0巻 アクティブ ユーザー一覧1.0版 - 描画"""
 
     context = {
         # * `dj_` - 「Djangoがレンダーに埋め込む変数」 の目印
@@ -388,13 +388,13 @@ Merged to O9o3o0g7o1o0
     │       └── 📂 practice_vol1o0                  # アプリケーション
     │           ├── 📂 models_helper
     │           │   └── 📂 session
-    │           │       └── 📂 v1o0
+    │           │       └── 📂 ver1o0
     │           │           ├── 📄 __init__.py
     │           │           └── 📄 v_get_all_logged_in_users.py
     │           ├── 📂 templates
     │           │   └── 📂 practice_vol1o0
     │           │       └── 📂 active_user_list
-    │           │           └── 📄 v1o0.html
+    │           │           └── 📄 ver1o0.html
     │           └── 📂 views
     │               └── 📂 o1o0
     │                   └── 📂 session
@@ -410,7 +410,7 @@ Merged to O9o3o0g7o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/active-user-list/ver1.0/,,"O9o3o0g7o1o0 練習1.0巻 アクティブユーザー一覧1.0版",apps1.practice_v1.views.session.v1o0,SessionV,,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/active-user-list/ver1.0/,,"O9o3o0g7o1o0 練習1.0巻 アクティブユーザー一覧1.0版",apps1.practice_vol1o0.views.session.ver1o0,SessionV,,render
 ```
 
 ## Step O9o3o0g7o2o0 ルート編集 - コマンド打鍵
@@ -445,16 +445,16 @@ docker-compose restart
         │   └── 📂 practice_vol1o0                  # アプリケーション
         │       ├── 📂 models_helper
         │       │   └── 📂 session
-        │       │       └── 📂 v1o0
+        │       │       └── 📂 ver1o0
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 v_get_all_logged_in_users.py
         │       ├── 📂 templates
         │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 active_user_list
-        │       │           └── 📄 v1o0.html
+        │       │           └── 📄 ver1o0.html
         │       └── 📂 views
         │           └── 📂 session
-        │               └── 📂 v1o0
+        │               └── 📂 ver1o0
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_render_active_user_list.py
         └── 📂 project1                      # プロジェクト

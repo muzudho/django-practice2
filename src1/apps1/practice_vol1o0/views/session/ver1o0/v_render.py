@@ -1,11 +1,11 @@
 import json
 from django.shortcuts import render
 
-# セッション モデルヘルパー
-from apps1.practice_v1.models_helper.session.v1o0 import MhSession
-#          -----------                       ----        ---------
-#          11                                12          2
-#    --------------------------------------------
+# 練習1.0巻 セッション モデルヘルパー1.0版
+from apps1.practice_vol1o0.models_helper.session.ver1o0 import MhSession
+#          ---------------                       ------        ---------
+#          11                                    12            2
+#    --------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -13,7 +13,7 @@ from apps1.practice_v1.models_helper.session.v1o0 import MhSession
 
 
 def render_active_user_list(request, path_of_this_page):
-    """O9o3o0g6o0 描画 - アクティブ ユーザー一覧"""
+    """O9o3o0g6o0 練習1.0巻 アクティブ ユーザー一覧1.0版 - 描画"""
 
     context = {
         # * `dj_` - 「Djangoがレンダーに埋め込む変数」 の目印

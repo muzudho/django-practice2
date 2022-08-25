@@ -1,11 +1,11 @@
 from django.contrib import admin
 
-# O9o2o0gA13o0 Userの拡張
-from .models.user_profile.v1o0 import Profile
-#    -------------------------        -------
-#    1                                2
-# 1. このファイルと同じディレクトリにある `models/user_profile/v1o0.py` ファイルの拡張子抜き
-#                                      ------------------------
+# O9o2o0gA13o0 練習1.0巻 User拡張1.0版
+from .models.user_profile.ver1o0 import Profile
+#    ---------------------------        -------
+#    1                                  2
+# 1. このファイルと同じディレクトリにある `models/user_profile/ver1o0.py` ファイルの拡張子抜き
+#                                      --------------------------
 # 2. クラス
 
 # OA10o1o0g3o0 都道府県

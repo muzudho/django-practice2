@@ -240,7 +240,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
                 │           └── 📄 v1o1o0.html.txt
                 └── 📂 views
                     └── 📂 auto_redirect
-                        └── 📂 v1o0
+                        └── 📂 ver1o0
 👉                          └── 📄 __init__.py
 ```
 
@@ -289,7 +289,7 @@ class AutoRedirectV():
                 │           └── 📄 v1o1o0.html.txt
                 └── 📂 views
                     └── 📂 auto_redirect
-                        └── 📂 v1o0
+                        └── 📂 ver1o0
                             ├── 📄 __init__.py
 👉                          └── 📄 v_redirect.py
 ```
@@ -359,7 +359,7 @@ Merged to OA21o2o0g6o1o0
     │           │           └── 📄 v1o1o0.html.txt
     │           └── 📂 views
     │               └── 📂 auto_redirect
-    │                   └── 📂 v1o0
+    │                   └── 📂 ver1o0
     │                       ├── 📄 __init__.py
     │                       └── 📄 v_redirect.py
     └── 📂 src1_meta
@@ -415,7 +415,7 @@ docker-compose restart
         │       │           └── 📄 v1o1o0.html.txt
         │       └── 📂 views
         │           └── 📂 auto_redirect
-        │               └── 📂 v1o0
+        │               └── 📂 ver1o0
         │                   ├── 📄 __init__.py
         │                   └── 📄 v_redirect.py
         └── 📂 project1                          # プロジェクト
