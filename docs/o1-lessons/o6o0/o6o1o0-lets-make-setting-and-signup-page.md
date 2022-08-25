@@ -35,7 +35,7 @@
     ├── 📂 src1
     │   ├── 📂 apps1
     │   │   ├── 📂 portal_v1                # アプリケーション名
-    │   │   └── 📂 practice_v1
+    │   │   └── 📂 practice_vol1o0
     │   ├── 📂 data
     │   ├── 📂 project1                  # プロジェクト名
     │   │   ├── 📄 __init__.py

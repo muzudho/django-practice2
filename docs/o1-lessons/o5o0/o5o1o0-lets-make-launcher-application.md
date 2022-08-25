@@ -31,9 +31,9 @@
 ```plaintext
     ├── 📂 src1
     │   ├── 📂 apps1
-    │   │   └── 📂 practice_v1              # アプリケーション名
+    │   │   └── 📂 practice_vol1o0              # アプリケーション名
     │   │       ├── 📂 templates
-    │   │       │   └── 📂 practice_v1
+    │   │       │   └── 📂 practice_vol1o0
     │   │       │       ├── 📂 page_the_hello
     │   │       │       │   └── 📄 v1o0.html
     │   │       │       └── 📂 page_to_be_added
@@ -447,9 +447,9 @@ class Launcher():
         #                                      ---------------------------
 
         context = {
-            "dj_path_of_page_the_hello": "/practice/v1/page-the-hello",
-            "dj_path_of_page_to_be_added_1": "/practice/v1/page-to-be-added-1",
-            "dj_path_of_page_to_be_added_2": "/practice/v1/page-to-be-added-2",
+            "dj_path_of_page_the_hello": "/practice/vol1o0/page-the-hello/ver1o0/",
+            "dj_path_of_page_to_be_added_1": "/practice/vol1o0/page-to-be-added-1/ver1o0/",
+            "dj_path_of_page_to_be_added_2": "/practice/vol1o0/page-to-be-added-2/ver1o0/",
         }
 
         return render(request, template_path, context)

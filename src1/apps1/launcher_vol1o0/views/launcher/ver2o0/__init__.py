@@ -28,10 +28,10 @@ class Launcher():
         #
         # Example
         # -------
-        #    path                             label
-        # 0  /practice/v1/page-the-hello      こんにちわページ
-        # 1  /practice/v1/page-to-be-added-1  １回追加されたページ
-        # 2  /practice/v1/page-to-be-added-2  ２回追加されたページ
+        #    path                                         label
+        # 0  /practice/vol1o0/page-the-hello/ver1o0/      こんにちわページ
+        # 1  /practice/vol1o0/page-to-be-added-1/ver1o0/  １回追加されたページ
+        # 2  /practice/vol1o0/page-to-be-added-2/ver1o0/  ２回追加されたページ
 
         # print(df.columns)
         #

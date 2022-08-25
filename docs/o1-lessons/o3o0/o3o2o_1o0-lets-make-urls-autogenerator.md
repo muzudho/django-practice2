@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/hello2)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1.0/hello2/ver1.0/)  
 
 # 目標
 
@@ -27,9 +27,9 @@ URLの設定はめんどうだ。自動化しよう
 ```plaintext
     ├── 📂 src1
     │   ├── 📂 apps1
-    │   │   └── 📂 practice_v1              # アプリケーション名
+    │   │   └── 📂 practice_vol1o0              # アプリケーション名
     │   │       ├── 📂 templates
-    │   │       │   └── 📂 practice_v1
+    │   │       │   └── 📂 practice_vol1o0
     │   │       │       └── 📂 page_the_hello
     │   │       │           └── 📄 v1o0.html
     │   │       └── 📂 views
@@ -82,7 +82,7 @@ docker-compose up
 ```csv
 file,path,name,comment,module,class,alias,method
 ../src1/project1/urls_autogen.py,,,"集約ファイル",,,,
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/hello2,practice_v1_hello2,"o3o2o_1o0g1o0 こんにちわページ",apps1.practice_v1.views.page_the_hello.v1o0,PageTheHello,,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1o0/hello2/ver1o0/,practice_v1_hello2,"o3o2o_1o0g1o0 こんにちわページ",apps1.practice_vol1o0.views.page_the_hello.ver1o0,PageTheHello,,render
 ```
 
 ## Step O3o2o_1o0g2o_1o0 Pythonパッケージインストール - pandas
@@ -130,9 +130,9 @@ class UrlsAutoGenerator:
         """
         Examples
         --------
-                                                       file                path                name  ...         class alias  method
-        0                  ../src1/project1/urls_autogen.py                 NaN                 NaN  ...           NaN   NaN     NaN
-        1  ../src1/project1/urls_practice_vol1o0_autogen.py  practice/v1/hello2  practice_v1_hello2  ...  PageTheHello   NaN  render
+                                                       file                           path                name  ...         class alias  method
+        0                  ../src1/project1/urls_autogen.py                            NaN                 NaN  ...           NaN   NaN     NaN
+        1  ../src1/project1/urls_practice_vol1o0_autogen.py  practice/vo1o0/hello2/ver1o0/  practice_v1_hello2  ...  PageTheHello   NaN  render
         """
 
         print(f"Current working directory:{os.getcwd()}")
@@ -370,7 +370,7 @@ from apps1.practice_v1.views.page_the_hello.v1o0 import PageTheHello
 
 urlpatterns = [
     # O3o1o0gA10o0 こんにちわページ
-    path('practice/v1/hello2', PageTheHello.render, name='practice_v1_hello2'),
+    path('practice/vol1o0/hello2/ver1o0/', PageTheHello.render),
 ]
 
 # EOF O3o2o_1o0g4o0
@@ -418,7 +418,7 @@ urlpatterns.extend(urlpatterns_autogen)
 
 ## Step o3o2o_1o0g6o0 Webページにアクセスする
 
-📖 [http://localhost:8000/practice/v1/hello2](http://localhost:8000/practice/v1/hello2)  
+📖 [http://localhost:8000/practice/vol1o0/hello2/ver1o0/](http://localhost:8000/practice/vol1o0/hello2/ver1o0/)  
 
 ## トラブルシューティング
 

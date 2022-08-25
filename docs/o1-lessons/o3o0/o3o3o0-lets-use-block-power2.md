@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/page-to-be-added-2)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/page-to-be-added-2/ver1o0/)  
 
 # 目標
 
@@ -27,9 +27,9 @@
 ```plaintext
     ├── 📂 src1
     │   ├── 📂 apps1
-    │   │   └── 📂 practice_v1              # アプリケーション名
+    │   │   └── 📂 practice_vol1o0              # アプリケーション名
     │   │       ├── 📂 templates
-    │   │       │   └── 📂 practice_v1
+    │   │       │   └── 📂 practice_vol1o0
     │   │       │       ├── 📂 page_the_hello
     │   │       │       │   └── 📄 v1o0.html
     │   │       │       └── 📂 page_to_be_added
@@ -90,9 +90,9 @@ docker-compose up
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1
+            └── 📂 practice_vol1o0
                 └── 📂 templates
-                    └── 📂 practice_v1
+                    └── 📂 practice_vol1o0
                         └── 📂 page_to_be_added
 👉                          └── 📄 v3o0.html.txt
 ```
@@ -133,9 +133,9 @@ docker-compose up
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1
+            └── 📂 practice_vol1o0
                 ├── 📂 templates
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       └── 📂 page_to_be_added
                 │           └── 📄 v3o0.html.txt
                 └── 📂 views
@@ -180,9 +180,9 @@ Merged to O3o3o0g4o1o0
 ```plaintext
     ├── 📂 src1
     │   └── 📂 apps1
-    │       └── 📂 practice_v1              # アプリケーション名
+    │       └── 📂 practice_vol1o0              # アプリケーション名
     │           ├── 📂 templates
-    │           │   └── 📂 practice_v1
+    │           │   └── 📂 practice_vol1o0
     │           │       └── 📂 page_to_be_added
     │           │           └── 📄 v3o0.html.txt
     │           └── 📂 views
@@ -199,7 +199,7 @@ Merged to O3o3o0g4o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/page-to-be-added-2,,"O3o3o0g4o1o0 練習ページ ２回追加されたページ",apps1.practice_v1.views.page_to_be_added.v3o0,PageToBeAdded,PageToBeAdded2,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1o0/page-to-be-added-2/ver1o0/,,"O3o3o0g4o1o0 練習ページ ２回追加されたページ",apps1.practice_v1.views.page_to_be_added.v3o0,PageToBeAdded,PageToBeAdded2,render
 ```
 
 ## Step O3o2o0g5o2o0 ルート編集 - コマンド打鍵
@@ -219,7 +219,7 @@ docker-compose restart
 
 ## Step O3o3o0g5o0 Webページにアクセスする
 
-📖 [http://localhost:8000/practice/v1/page-to-be-added-2](http://localhost:8000/practice/v1/page-to-be-added-2)  
+📖 [http://localhost:8000/practice/vol1o0/page-to-be-added-2/ver1o0/](http://localhost:8000/practice/vol1o0/page-to-be-added-2/ver1o0/)  
 
 # 次の記事
 

@@ -36,7 +36,7 @@ Django に最初から付いている User モデルを拡張したい
     │   ├── 📂 apps1
     │   │   ├── 📂 accounts_vol1o0        # アプリケーション
     │   │   ├── 📂 portal_v1                    # アプリケーション
-    │   │   └── 📂 practice_v1                  # アプリケーション
+    │   │   └── 📂 practice_vol1o0                  # アプリケーション
     │   ├── 📂 data
     │   ├── 📂 project1                         # プロジェクト
     │   │   ├── 📄 __init__.py
@@ -83,7 +83,7 @@ docker-compose up
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 └── 📂 models
                     └── 📂 user_profile
 👉                      └── 📄 v1o0.py
@@ -173,7 +173,7 @@ docker-compose run --rm web python3 manage.py makemigrations practice_v1 --setti
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 migrations
                 │   ├── 📄 __init__.py
                 │   ├── ...略...
@@ -235,7 +235,7 @@ docker-compose run --rm web python3 manage.py showmigrations --settings project1
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models
                 │   └── 📂 user_profile
                 │       └── 📄 v1o0.py
@@ -269,7 +269,7 @@ class MhUser():
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models
                 │   └── 📂 user_profile
                 │       └── 📄 v1o0.py
@@ -326,7 +326,7 @@ def get_extends_user_dic():
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models
                 │   └── 📂 user_profile
                 │       └── 📄 v1o0.py
@@ -336,7 +336,7 @@ def get_extends_user_dic():
                 │           ├── 📄 __init__.py
                 │           └── 📄 mh_get_extends_user_dic.py
                 └── 📂 templates
-                    └── 📂 practice_v1          # アプリケーションと同名
+                    └── 📂 practice_vol1o0          # アプリケーションと同名
                         └── 📂 extends_user_list
 👉                          └── 📄 v1o0.html
 ```
@@ -418,7 +418,7 @@ def get_extends_user_dic():
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models
                 │   └── 📂 user_profile
                 │       └── 📄 v1o0.py
@@ -428,7 +428,7 @@ def get_extends_user_dic():
                 │           ├── 📄 __init__.py
                 │           └── 📄 mh_get_extends_user_dic.py
                 ├── 📂 templates
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       └── 📂 extends_user_list
                 │           └── 📄 v1o0.html
                 └── 📂 views
@@ -470,7 +470,7 @@ class ExtendsUserListV():
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models
                 │   └── 📂 user_profile
                 │       └── 📄 v1o0.py
@@ -480,7 +480,7 @@ class ExtendsUserListV():
                 │           ├── 📄 __init__.py
                 │           └── 📄 mh_get_extends_user_dic.py
                 ├── 📂 templates
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       └── 📂 extends_user_list
                 │           └── 📄 v1o0.html
                 └── 📂 views
@@ -539,7 +539,7 @@ Merged to O9o2o0gA12o1o0
 ```plaintext
     ├── 📂 src1
     │   └── 📂 apps1
-    │       └── 📂 practice_v1                  # アプリケーション
+    │       └── 📂 practice_vol1o0                  # アプリケーション
     │           ├── 📂 models
     │           │   └── 📂 user_profile
     │           │       └── 📄 v1o0.py
@@ -549,7 +549,7 @@ Merged to O9o2o0gA12o1o0
     │           │           ├── 📄 __init__.py
     │           │           └── 📄 mh_get_extends_user_dic.py
     │           ├── 📂 templates
-    │           │   └── 📂 practice_v1
+    │           │   └── 📂 practice_vol1o0
     │           │       └── 📂 v1o0
     │           │           └── 📄 extends_user_list.html
     │           └── 📂 views
@@ -592,7 +592,7 @@ docker-compose restart
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 practice_v1                  # アプリケーション
+        │   └── 📂 practice_vol1o0                  # アプリケーション
         │       ├── 📂 models
         │       │   └── 📂 user_profile
         │       │       └── 📄 v1o0.py
@@ -602,7 +602,7 @@ docker-compose restart
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 mh_get_extends_user_dic.py
         │       ├── 📂 templates
-        │       │   └── 📂 practice_v1
+        │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 extends_user_list
         │       │           └── 📄 v1o0.html
         │       ├── 📂 views
@@ -690,7 +690,7 @@ User: [あなたの名前]▽ 🖊 ➕
         │   ├── 📂 portal_v1                    # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 practice_v1                  # アプリケーション
+        │   └── 📂 practice_vol1o0                  # アプリケーション
         │       ├── 📂 models
         │       │   └── 📂 user_profile
         │       │       └── 📄 v1o0.py
@@ -700,7 +700,7 @@ User: [あなたの名前]▽ 🖊 ➕
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 mh_get_extends_user_dic.py
         │       ├── 📂 templates
-        │       │   └── 📂 practice_v1
+        │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 extends_user_list
         │       │           └── 📄 v1o0.html
         │       ├── 📂 views

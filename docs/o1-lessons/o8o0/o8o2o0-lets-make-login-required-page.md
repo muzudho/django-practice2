@@ -1,7 +1,7 @@
 # サンプルを見る
 
-📖 [この記事のゴール：ログインが必要なページ](http://localhost:8000/practice/v1/login-required)  
-📖 [この記事のゴール：ログアウト](http://localhost:8000/practice/v1/logout)  
+📖 [この記事のゴール：ログインが必要なページ](http://localhost:8000/practice/vol1o0/login-required/ver1o0/)  
+📖 [この記事のゴール：ログアウト](http://localhost:8000/practice/vol1o0/logout/ver1o0/)  
 
 # 目標
 
@@ -45,7 +45,7 @@ Login user.
     │   ├── 📂 apps1
     │   │   ├── 📂 accounts_vol1o0        # アプリケーション
     │   │   ├── 📂 portal_v1                    # アプリケーション
-    │   │   └── 📂 practice_v1                  # アプリケーション
+    │   │   └── 📂 practice_vol1o0                  # アプリケーション
     │   ├── 📂 data
     │   ├── 📂 project1                         # プロジェクト名
     │   │   ├── 📄 __init__.py
@@ -92,9 +92,9 @@ docker-compose up
 ```plaintext
     └── 📂 src1                 # あなたの開発用ディレクトリー。任意の名前
         └── 📂 apps1
-            └── 📂 practice_v1              # アプリケーション
+            └── 📂 practice_vol1o0              # アプリケーション
                 └── 📂 templates
-                    └── 📂 practice_v1              # アプリケーションと同名
+                    └── 📂 practice_vol1o0              # アプリケーションと同名
                         └── 📂 login_required
 👉                          └── 📄 v1o0.html
 ```
@@ -119,9 +119,9 @@ docker-compose up
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1              # アプリケーション
+            └── 📂 practice_vol1o0              # アプリケーション
                 └── 📂 templates
-                    ├── 📂 practice_v1
+                    ├── 📂 practice_vol1o0
                     │   └── 📂 login_required
 👉                  │       └── 📄 v1o0.html
                     └── 📂 views
@@ -207,9 +207,9 @@ Merged to O8o2o0g4o1o0
 ```plaintext
     ├── 📂 src1
     │   └── 📂 apps1
-    │       └── 📂 practice_v1              # アプリケーション
+    │       └── 📂 practice_vol1o0              # アプリケーション
     │           └── 📂 templates
-    │               ├── 📂 practice_v1
+    │               ├── 📂 practice_vol1o0
     │               │   └── 📂 login_required
     │               │       └── 📄 v1o0.html
     │               └── 📂 views
@@ -226,8 +226,8 @@ Merged to O8o2o0g4o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/login-required,,"O8o2o0g4o1o0 ログイン必須ページでログイン中",apps1.practice_v1.views.login_required.v1o0,LoggingIn,,render
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/logout,,"O8o2o0g4o1o0 ログイン必須ページでログアウト中",apps1.practice_v1.views.login_required.v1o0,LoggingOut,,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1o0/login-required/ver1o0/,,"O8o2o0g4o1o0 ログイン必須ページでログイン中",apps1.practice_v1.views.login_required.v1o0,LoggingIn,,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1o0/logout/ver1o0/,,"O8o2o0g4o1o0 ログイン必須ページでログアウト中",apps1.practice_v1.views.login_required.v1o0,LoggingOut,,render
 ```
 
 ## Step O8o2o0g4o2o0 ルート編集 - コマンド打鍵
@@ -250,11 +250,11 @@ docker-compose restart
 👇　ログインしているときは、ログイン情報が見えます。  
 　　ログインしていないときに（ページを開いたり、画面を再更新したりすると）、ログイン画面が出ます
 
-📖 [http://localhost:8000/practice/v1/login-required](http://localhost:8000/practice/v1/login-required)  
+📖 [http://localhost:8000/practice/vol1o0/login-required/ver1o0/](http://localhost:8000/practice/vol1o0/login-required/ver1o0/)  
 
 👇 ログアウトするにはこちら  
 
-📖 [http://localhost:8000/practice/v1/logout](http://localhost:8000/practice/v1/logout)  
+📖 [http://localhost:8000/practice/vol1o0/logout/ver1o0/](http://localhost:8000/practice/vol1o0/logout/ver1o0/)  
 
 ## Step O8o2o0g6o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -266,9 +266,9 @@ docker-compose restart
         │   ├── 📂 portal_v1                # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 practice_v1              # アプリケーション
+        │   └── 📂 practice_vol1o0              # アプリケーション
         │       └── 📂 templates
-        │           ├── 📂 practice_v1
+        │           ├── 📂 practice_vol1o0
         │           │   └── 📂 o1o0
         │           │       └── 📄 login_required.html
         │           └── 📂 views
@@ -282,8 +282,8 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/login-required,ログイン必須
-/practice/v1/logout,ログアウト
+/practice/vol1o0/login-required/ver1o0/,ログイン必須
+/practice/vol1o0/logout/ver1o0/,ログアウト
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

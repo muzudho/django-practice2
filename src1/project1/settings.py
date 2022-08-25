@@ -44,7 +44,8 @@ DEBUG = True
 
 INSTALLED_APPS = [
     # あなたが追加したアプリケーション
-    'apps1.practice_v1',
+    # O3o1o0g6o0 練習1.0巻
+    'apps1.practice_vol1o0',
 
     # O5o1o0g6o0 ランチャー1.0巻
     'apps1.launcher_vol1o0',
@@ -109,19 +110,19 @@ TEMPLATES = [
         # 'DIRS': [],
         # * 変更後
         'DIRS': [
-            # 練習
-            os.path.join(BASE_DIR, 'apps1/practice_v1/templates'),
-            #                       ---------------------------
+            # O3o1o0g8o0 練習1.0巻
+            os.path.join(BASE_DIR, 'apps1/practice_vol1o0/templates'),
+            #                       -------------------------------
             #                       10
-            # Example: /src1/apps1/practice_v1/templates/practice_v1/page_the_hello/v1o0.html
-            #                      -----------          ------------
-            #                      11                   2
-            #                ---------------------------
+            # Example: /src1/apps1/practice_vol1o0/templates/practice_vol1o0/page_the_hello/v1o0.html
+            #                      ---------------          ----------------
+            #                      11                       2
+            #                -------------------------------
             #                10
             # 10. テンプレート ディレクトリーへのパス
             # 11. アプリケーション
-            # 2. まるで `http://example.com/practice_v1` という素材フォルダーがあるかのように扱われる
-            #                             ------------
+            # 2. まるで `http://example.com/practice_vol1o0` という素材フォルダーがあるかのように扱われる
+            #                             ----------------
 
             # O5o1o0g9o0 ランチャー1.0巻
             os.path.join(BASE_DIR, 'apps1/launcher_vol1o0/templates'),

@@ -11,19 +11,19 @@ from apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0 import PlayingV
 
 urlpatterns = [
     # OA16o2o0gA16o1o0 〇×ゲーム v2 思考エンジン手動
-    path('tic-tac-toe/vol2.0/ver1.0/engine-manual/', EngineManual.render),
+    path('tic-tac-toe/vol2.0/engine-manual/ver1.0/', EngineManual.render),
 
     # OA16o3o_1o0g4o1o0 〇×ゲーム v2 C2S JSON ジェネレーター
-    path('tic-tac-toe/vol2.0/ver1.0/c2s-json-gen/', C2sJsonGenViewV1o0.render),
+    path('tic-tac-toe/vol2.0/c2s-json-gen/ver1.0/', C2sJsonGenViewV1o0.render),
 
     # OA16o3o_2o0g5o1o0 〇×ゲーム v2 S2C JSON ジェネレーター
-    path('tic-tac-toe/vol2.0/ver1.0/s2c-json-gen/', S2cJsonGenViewV1o0.render),
+    path('tic-tac-toe/vol2.0/s2c-json-gen/ver1.0/', S2cJsonGenViewV1o0.render),
 
     # OA16o3o0gA15o1o0 〇×ゲーム v2 対局申込ページ
-    path('tic-tac-toe/vol2.0/ver1.0/match-application/', MatchApplicationV.render),
+    path('tic-tac-toe/vol2.0/match-application/ver1.0/', MatchApplicationV.render),
 
     # OA16o3o0gA15o1o0 〇×ゲーム v2 対局中ページ
-    path('tic-tac-toe/vol2.0/ver1.0/playing/<str:kw_room_name>/', PlayingV.render),
+    path('tic-tac-toe/vol2.0/playing/ver1.0/<str:kw_room_name>/', PlayingV.render),
 ]
 
 # EOF O3o2o_1o0g4o0

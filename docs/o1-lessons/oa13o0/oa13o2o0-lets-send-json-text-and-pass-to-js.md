@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/vuetify/textarea1)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1.0/vuetify/textarea1/ver1o0/)  
 
 # 目標
 
@@ -32,17 +32,17 @@ Web ページで表示する内容を、JSON形式のテキストで渡したい
     │   ├── 📂 apps1
     │   │   ├── 📂 accounts_vol1o0    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
-    │   │   └── 📂 practice_v1              # アプリケーション
+    │   │   └── 📂 practice_vol1o0              # アプリケーション
     │   │       ├── 📂 management
     │   │       ├── 📂 migrations
     │   │       ├── 📂 models
     │   │       ├── 📂 static
-    │   │       │   └── 📂 practice_v1
+    │   │       │   └── 📂 practice_vol1o0
     │   │       │       └── 📂 data
     │   │       │           └── 📂 desserts1
     │   │       │               └── 📄 v1o0.json
     │   │       ├── 📂 templates
-    │   │       │   └── 📂 practice_v1          # アプリケーションと同名
+    │   │       │   └── 📂 practice_vol1o0          # アプリケーションと同名
     │   │       │       ├── 📂 prefecture
     │   │       │       └── 📂 vuetifies
     │   │       ├── 📂 views
@@ -100,9 +100,9 @@ docker-compose up
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 └── 📂 static
-                    └── 📂 practice_v1              # アプリケーションと同名
+                    └── 📂 practice_vol1o0              # アプリケーションと同名
                         └── 📂 data
                             └── 📂 desserts1
 👉                              └── 📄 v1o0.json
@@ -115,22 +115,21 @@ docker-compose up
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 static
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       └── 📂 data
                 │           └── 📂 desserts1
                 │               └── 📄 v1o0.json
                 └── 📂 templates
-                    └── 📂 practice_v1              # アプリケーションと同名
+                    └── 📂 practice_vol1o0              # アプリケーションと同名
                         └── 📂 vuetifies
                             └── 📂 textarea1
 👉                              └── 📄 v1o0.html
 ```
 
 ```html
-{# OA13o2o0g3o0 #}
-<!-- -->
+<!-- BOF OA13o2o0g3o0 -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <!-- See also: https://vuetifyjs.com/en/components/textareas/#counter -->
@@ -160,8 +159,8 @@ docker-compose up
                             <!--                    ========================
                                                     1
                             1. 宛先を間違えないように
-                               `http://example.com/practice/v1/vuetify/desserts1-from-textarea1`
-                                                                       ========================
+                               `http://example.com/practice/vol1o0/vuetify/desserts1-from-textarea1`
+                                                                           ========================
                             -->
                             {% endblock form_signature %}
                             <!-- -->
@@ -195,6 +194,7 @@ docker-compose up
         </script>
     </body>
 </html>
+<!-- EOF OA13o2o0g3o0 -->
 ```
 
 ## Step OA13o2o0g4o0 HTMLファイルの再利用 - desserts1.html ファイル
@@ -206,14 +206,14 @@ docker-compose up
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 static
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       └── 📂 data
                 │           └── 📂 desserts1
                 │               └── 📄 v1o0.json
                 └── 📂 templates
-                    └── 📂 practice_v1              # アプリケーションと同名
+                    └── 📂 practice_vol1o0              # アプリケーションと同名
                         └── 📂 vuetifies
                             ├── 📂 desserts1
 👉                          │   └── 📄 v1o0.html
@@ -228,14 +228,14 @@ docker-compose up
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 static
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       └── 📂 data
                 │           └── 📂 desserts1
                 │               └── 📄 v1o0.json
                 ├── 📂 templates
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       └── 📂 vuetifies
                 │           ├── 📂 desserts1
                 │           │   └── 📄 v1o0.html
@@ -304,14 +304,14 @@ def render_desserts1_from_textarea1(request):
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 static
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       └── 📂 data
                 │           └── 📂 desserts1
                 │               └── 📄 v1o0.json
                 ├── 📂 templates
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       └── 📂 vuetifies
                 │           ├── 📂 desserts1
                 │           │   └── 📄 v1o0.html
@@ -348,14 +348,14 @@ Merged to OA13o2o0g7o1o0
 ```plaintext
     ├── 📂 src1
     │   └── 📂 apps1
-    │       └── 📂 practice_v1                  # アプリケーション
+    │       └── 📂 practice_vol1o0                  # アプリケーション
     │           ├── 📂 static
-    │           │   └── 📂 practice_v1
+    │           │   └── 📂 practice_vol1o0
     │           │       └── 📂 data
     │           │           └── 📂 desserts1
     │           │               └── 📄 v1o0.json
     │           ├── 📂 templates
-    │           │   └── 📂 practice_v1
+    │           │   └── 📂 practice_vol1o0
     │           │       └── 📂 vuetifies
     │           │           ├── 📂 desserts1
     │           │           │   └── 📄 v1o0.html
@@ -376,8 +376,8 @@ Merged to OA13o2o0g7o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/vuetify/textarea1,,"OA13o2o0g7o1o0 ビューティファイでテキストエリア１",apps1.practice_v1.views.vuetifies,VuetifyV,,render_textarea1
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/vuetify/desserts1-from-textarea1,,"OA13o2o0g7o1o0 ビューティファイでデザート１ . テキストエリア１から",apps1.practice_v1.views.vuetifies,VuetifyV,,render_desserts1_from_textarea1
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/textarea1/ver1.0/,,"OA13o2o0g7o1o0 練習1.0巻 ビューティファイでテキストエリア１ 1.0版",apps1.practice_v1.views.vuetifies,VuetifyV,,render_textarea1
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/desserts1-from-textarea1/ver1.0/,,"OA13o2o0g7o1o0 練習1.0巻 ビューティファイでデザート１ . テキストエリア１から 1.0版",apps1.practice_v1.views.vuetifies,VuetifyV,,render_desserts1_from_textarea1
 ```
 
 ## Step OA13o2o0g7o2o0 ルート編集 - コマンド打鍵
@@ -397,7 +397,7 @@ docker-compose restart
 
 ## Step OA13o2o0g8o0 Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/vuetify/textarea1](http://localhost:8000/practice/v1/vuetify/textarea1)  
+📖 [http://localhost:8000/practice/vol1o0/vuetify/textarea1/ver1o0/](http://localhost:8000/practice/vol1o0/vuetify/textarea1/ver1o0/)  
 
 ## Step OA13o2o0g9o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -409,14 +409,14 @@ docker-compose restart
         │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 practice_v1                      # アプリケーション
+        │   └── 📂 practice_vol1o0                      # アプリケーション
         │       ├── 📂 static
-        │       │   └── 📂 practice_v1
+        │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 data
         │       │           └── 📂 desserts1
         │       │               └── 📄 v1o0.json
         │       ├── 📂 templates
-        │       │   └── 📂 practice_v1
+        │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 vuetifies
         │       │           ├── 📂 desserts1
         │       │           │   └── 📄 v1o0.html
@@ -435,7 +435,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/vuetify/textarea1,ビューティファイでテキストエリア１
+/practice/vol1.0/vuetify/textarea1/ver1o0/,OA13o2o0g9o0 練習1.0巻 ビューティファイでテキストエリア１ 1.0版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

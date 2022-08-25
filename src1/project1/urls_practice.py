@@ -1,10 +1,12 @@
+# BOF O3o1o0gA10o0
+
 from django.urls import path
 
-# O3o1o0gA10o0 こんにちわページ
-from apps1.practice_v1.views.page_the_hello.v1o0 import PageTheHello
-#          -----------                      ----        ------------
-#          11                               12          2
-#    -------------------------------------------
+# O3o1o0gA10o0 練習1.0巻 こんにちわページ1.0版
+from apps1.practice_vol1o0.views.page_the_hello.ver1o0 import PageTheHello
+#          ---------------                      ------        ------------
+#          11                                   12            2
+#    -------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -13,15 +15,17 @@ from apps1.practice_v1.views.page_the_hello.v1o0 import PageTheHello
 
 urlpatterns = [
 
-    # O3o1o0gA10o0 こんにちわページ
-    path('practice/v1/page-the-hello',
-         # -------------------------
+    # O3o1o0gA10o0 練習1.0巻 こんにちわページ1.0版
+    path('practice/vol1.0/page-the-hello/ver1.0/',
+         # -------------------------------------
          # 1
          PageTheHello.render, name='page_the_hello'),
     #    -------------------        --------------
     #    2                          3
-    # 1. 例えば `http://example.com/practice/v1/page-the-hello` のようなURLのパスの部分
-    #                              --------------------------
+    # 1. 例えば `http://example.com/practice/vol1.0/page-the-hello/ver1.0/` のようなURLのパスの部分
+    #                              ---------------------------------------
     # 2. PageTheHello クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'page_the_hello' %} のような形でURLを取得するのに使える
 ]
+
+# EOF O3o1o0gA10o0

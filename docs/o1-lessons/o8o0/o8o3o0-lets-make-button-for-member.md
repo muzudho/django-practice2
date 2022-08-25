@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/buttom_for_member/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/buttom_for_member/ver1o0/)  
 
 # 目標
 
@@ -31,7 +31,7 @@
     │   ├── 📂 apps1
     │   │   ├── 📂 accounts_vol1o0        # アプリケーション
     │   │   ├── 📂 portal_v1                    # アプリケーション
-    │   │   └── 📂 practice_v1                  # アプリケーション
+    │   │   └── 📂 practice_vol1o0                  # アプリケーション
     │   ├── 📂 data
     │   ├── 📂 project1                         # プロジェクト
     │   │   ├── 📄 __init__.py
@@ -78,9 +78,9 @@ docker-compose up
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 └── 📂 templates
-                    └── 📂 practice_v1          # アプリケーションと同名
+                    └── 📂 practice_vol1o0          # アプリケーションと同名
                         └── 📂 button_for_member
 👉                          └── 📄 v1o0.html
 ```
@@ -184,9 +184,9 @@ docker-compose up
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 templates
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       └── 📂 button_for_member
                 │           └── 📄 v1o0.html
                 └── 📂 views
@@ -216,11 +216,11 @@ class ButtonForMember():
     #                           -
 
     # 既存のログイン必須ページ
-    _path_of_login_required = "/practice/v1/login-required"
-    #                          ---------------------------
+    _path_of_login_required = "/practice/vol1o0/login-required/ver1o0/"
+    #                          ---------------------------------------
     #                          1
-    # 1. http://example.com/practice/v1/login-required
-    #                      ---------------------------
+    # 1. `http://example.com/practice/vol1o0/login-required/ver1o0/`
+    #                       ---------------------------
 
     # 既存のログイン ページ
     _path_of_login = "/accounts/vol1.0/login/"
@@ -244,8 +244,8 @@ class ButtonForMember():
         from .v_render import render_button_for_member
         #    ---------        ------------------------
         #    1                2
-        # 1. `src1/apps1/practice_v1/views/button_for_member/v1o0/v_render.py`
-        #                                                         --------
+        # 1. `src1/apps1/practice_vol1o0/views/button_for_member/ver1o0/v_render.py`
+        #                                                               --------
         # 2. `1.` に含まれる関数
 
         return render_button_for_member(request, ButtonForMember._path_of_this_page, ButtonForMember._path_of_portal, ButtonForMember._path_of_login_required, ButtonForMember._path_of_login, ButtonForMember._path_of_logout)
@@ -260,9 +260,9 @@ class ButtonForMember():
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 templates
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       └── 📂 button_for_member
                 │           └── 📄 v1o0.html
                 └── 📂 views
@@ -311,9 +311,9 @@ Merged to O8o3o0g5o1o0
 ```plaintext
     ├── 📂 src1
     │   └── 📂 apps1
-    │       └── 📂 practice_v1                  # アプリケーション
+    │       └── 📂 practice_vol1o0                  # アプリケーション
     │           ├── 📂 templates
-    │           │   └── 📂 practice_v1
+    │           │   └── 📂 practice_vol1o0
     │           │       └── 📂 button_for_member
     │           │           └── 📄 v1o0.html
     │           └── 📂 views
@@ -331,7 +331,7 @@ Merged to O8o3o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/buttom_for_member/,,"O8o3o0g5o1o0 会員にだけ見えるボタンを説明するページ",apps1.practice_v1.views.button_for_member.v1o0,ButtonForMember,,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1o0/buttom_for_member/ver1o0/,,"O8o3o0g5o1o0 会員にだけ見えるボタンを説明するページ",apps1.practice_vol1o0.views.button_for_member.ver1o0,ButtonForMember,,render
 ```
 
 ## Step O8o3o0g5o2o0 ルート編集 - コマンド打鍵
@@ -351,7 +351,7 @@ docker-compose restart
 
 ## Step O8o3o0g6o0 Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/buttom_for_member/](http://localhost:8000/practice/v1/buttom_for_member/)  
+📖 [http://localhost:8000/practice/vol1o0/buttom_for_member/ver1o0/](http://localhost:8000/practice/vol1o0/buttom_for_member/ver1o0/)  
 
 ## Step O8o3o0g7o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -363,9 +363,9 @@ docker-compose restart
         │   ├── 📂 portal_v1                    # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 practice_v1                  # アプリケーション
+        │   └── 📂 practice_vol1o0                  # アプリケーション
         │       ├── 📂 templates
-        │       │   └── 📂 practice_v1
+        │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 button_for_member
         │       │           └── 📄 v1o0.html
         │       └── 📂 views
@@ -380,7 +380,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/buttom_for_member/,会員にだけ見えるボタンを説明するページ
+/practice/vol1o0/buttom_for_member/ver1o0/,会員にだけ見えるボタンを説明するページ
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

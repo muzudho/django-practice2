@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/auto_reload/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/auto_reload/ver1o0/)  
 
 # 目標
 
@@ -38,7 +38,7 @@
     │   ├── 📂 apps1
     │   │   ├── 📂 accounts_vol1o0    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
-    │   │   ├── 📂 practice_v1              # アプリケーション
+    │   │   ├── 📂 practice_vol1o0              # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
     │   │   │       └── 📂 room
@@ -114,9 +114,9 @@ docker-compose up
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 └── 📂 static
-                    └── 📂 practice_v1          # アプリケーションと同名
+                    └── 📂 practice_vol1o0          # アプリケーションと同名
                         └── 📂 clock
 👉                          └── 📄 v1o0.js
 ```
@@ -158,9 +158,9 @@ function getTimeStamp() {
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 └── 📂 static
-                    └── 📂 practice_v1          # アプリケーションと同名
+                    └── 📂 practice_vol1o0          # アプリケーションと同名
                         ├── 📂 auto_reload
 👉                      │   └── 📄 v1o0.js
                         └── 📂 clock
@@ -187,15 +187,15 @@ function startReloadingAutomatically(intervalMilliseconds) {
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 static
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       ├── 📂 auto_reload
                 │       │   └── 📄 v1o0.js
                 │       └── 📂 clock
                 │           └── 📄 v1o0.js
                 └── 📂 templates
-                    └── 📂 practice_v1          # アプリケーションと同名
+                    └── 📂 practice_vol1o0          # アプリケーションと同名
                         └── 📂 auto_reload
 👉                          └── 📄 v1o0.html
 ```
@@ -282,15 +282,15 @@ function startReloadingAutomatically(intervalMilliseconds) {
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 static
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       ├── 📂 auto_reload
                 │       │   └── 📄 v1o0.js
                 │       └── 📂 clock
                 │           └── 📄 v1o0.js
                 ├── 📂 templates
-                │   └── 📂 practice_v1          # アプリケーションと同名
+                │   └── 📂 practice_vol1o0          # アプリケーションと同名
                 │       └── 📂 auto_reload
                 │           └── 📄 v1o0.html
                 └── 📂 views
@@ -332,15 +332,15 @@ class AutoReloadV():
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 static
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       ├── 📂 auto_reload
                 │       │   └── 📄 v1o0.js
                 │       └── 📂 clock
                 │           └── 📄 v1o0.js
                 ├── 📂 templates
-                │   └── 📂 practice_v1          # アプリケーションと同名
+                │   └── 📂 practice_vol1o0          # アプリケーションと同名
                 │       └── 📂 auto_reload
                 │           └── 📄 v1o0.html
                 └── 📂 views
@@ -382,15 +382,15 @@ Merged to OA21o1o0g7o1o0
 ```plaintext
     ├── 📂 src1
     │   └── 📂 apps1
-    │       └── 📂 practice_v1                  # アプリケーション
+    │       └── 📂 practice_vol1o0                  # アプリケーション
     │           ├── 📂 static
-    │           │   └── 📂 practice_v1
+    │           │   └── 📂 practice_vol1o0
     │           │       ├── 📂 auto_reload
     │           │       │   └── 📄 v1o0.js
     │           │       └── 📂 clock
     │           │           └── 📄 v1o0.js
     │           ├── 📂 templates
-    │           │   └── 📂 practice_v1
+    │           │   └── 📂 practice_vol1o0
     │           │       └── 📂 auto_reload
     │           │           └── 📄 v1o0.html
     │           └── 📂 views
@@ -408,7 +408,7 @@ Merged to OA21o1o0g7o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/auto_reload/,,"OA21o1o0g7o1o0 自動リロードページ",apps1.practice_v1.views.auto_reload.v1o0,AutoReloadV,,render_auto_reload
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/auto_reload/ver1.0/,,"OA21o1o0g7o1o0 練習1.0巻 自動リロードページ1.0版",apps1.practice_v1.views.auto_reload.v1o0,AutoReloadV,,render_auto_reload
 ```
 
 ## Step OA21o1o0g7o2o0 ルート編集 - コマンド打鍵
@@ -428,7 +428,7 @@ docker-compose restart
 
 ## Step OA21o1o0g8o0 Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/auto_reload/](http://localhost:8000/practice/v1/auto_reload/)  
+📖 [http://localhost:8000/practice/vol1o0/auto_reload/ver1o0/](http://localhost:8000/practice/vol1o0/auto_reload/ver1o0/)  
 
 ## Step OA21o1o0g9o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -440,15 +440,15 @@ docker-compose restart
         │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 practice_v1                      # アプリケーション
+        │   └── 📂 practice_vol1o0                      # アプリケーション
         │       ├── 📂 static
-        │       │   └── 📂 practice_v1
+        │       │   └── 📂 practice_vol1o0
         │       │       ├── 📂 auto_reload
         │       │       │   └── 📄 v1o0.js
         │       │       └── 📂 clock
         │       │           └── 📄 v1o0.js
         │       ├── 📂 templates
-        │       │   └── 📂 practice_v1
+        │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 auto_reload
         │       │           └── 📄 v1o0.html
         │       └── 📂 views
@@ -463,7 +463,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/auto_reload/,自動再読込
+/practice/vol1.0/auto_reload/ver1o0/,OA21o1o0g9o0 練習1.0巻 自動再読込 1.0版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

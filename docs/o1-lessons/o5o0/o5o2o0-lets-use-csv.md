@@ -43,7 +43,7 @@ Pythonコードを編集しなくても、ランチャーのボタン（リン�
     │   │   │   ├── 📄 admin.py
     │   │   │   ├── 📄 apps.py
     │   │   │   └── 📄 tests.py
-    │   │   └── 📂 practice_v1
+    │   │   └── 📂 practice_vol1o0
     │   ├── 📂 data
     │   ├── 📂 project1                  # プロジェクト名
     │   │   ├── 📄 __init__.py
@@ -163,9 +163,9 @@ path,label
 /launcher/vol1.0/ver1.0/,ランチャー1.0巻 1.0版
 /,ポータル（ランチャー1.0巻 2.0版）
 /admin,管理画面
-/practice/v1/page-the-hello,こんにちわページ
-/practice/v1/page-to-be-added-1,１回追加されたページ
-/practice/v1/page-to-be-added-2,２回追加されたページ
+/practice/vol1o0/page-the-hello/ver1o0/,こんにちわページ
+/practice/vol1o0/page-to-be-added-1/ver1o0/,１回追加されたページ
+/practice/vol1o0/page-to-be-added-2/ver1o0/,２回追加されたページ
 ```
 
 ## Step O5o2o0g6o0 画面作成 - launcher_vol1o0/ver2o0.html ファイル
@@ -304,10 +304,10 @@ class Launcher():
         #
         # Example
         # -------
-        #    path                             label
-        # 0  /practice/v1/page-the-hello      こんにちわページ
-        # 1  /practice/v1/page-to-be-added-1  １回追加されたページ
-        # 2  /practice/v1/page-to-be-added-2  ２回追加されたページ
+        #    path                                         label
+        # 0  /practice/vol1o0/page-the-hello/ver1o0/      こんにちわページ
+        # 1  /practice/vol1o0/page-to-be-added-1/ver1o0/  １回追加されたページ
+        # 2  /practice/vol1o0/page-to-be-added-2/ver1o0/  ２回追加されたページ
 
         # print(df.columns)
         #

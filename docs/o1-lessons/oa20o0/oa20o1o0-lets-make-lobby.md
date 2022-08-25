@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/lobby/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/lobby/ver1o0/)  
 
 # 目標
 
@@ -61,7 +61,7 @@
     │   ├── 📂 apps1
     │   │   ├── 📂 accounts_vol1o0    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
-    │   │   ├── 📂 practice_v1              # アプリケーション
+    │   │   ├── 📂 practice_vol1o0              # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
     │   │   │       └── 📂 room
@@ -137,9 +137,9 @@ docker-compose up
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 └── 📂 templates
-                    └── 📂 practice_v1          # アプリケーションと同名
+                    └── 📂 practice_vol1o0          # アプリケーションと同名
                         └── 📂 lobby
 👉                          └── 📄 v1o0.html
 ```
@@ -277,13 +277,13 @@ docker-compose up
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models_helper
                 │   └── 📂 room
                 │       └── 📂 v1o0
 👉              │           └── 📄 __init__.py
                 └── 📂 templates
-                    └── 📂 practice_v1
+                    └── 📂 practice_vol1o0
                         └── 📂 lobby
                             └── 📄 v1o0.html
 ```
@@ -308,14 +308,14 @@ class MhRoom():
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models_helper
                 │   └── 📂 room
                 │       └── 📂 v1o0
                 │           ├── 📄 __init__.py
 👉              │           └── 📄 mh_get_all_rooms_as_dic.py
                 └── 📂 templates
-                    └── 📂 practice_v1
+                    └── 📂 practice_vol1o0
                         └── 📂 lobby
                             └── 📄 v1o0.html
 ```
@@ -361,14 +361,14 @@ def get_all_rooms_as_dic():
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models_helper
                 │   └── 📂 room
                 │       └── 📂 v1o0
                 │           ├── 📄 __init__.py
                 │           └── 📄 mh_get_all_rooms_as_dic.py
                 ├── 📂 templates
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       └── 📂 lobby
                 │           └── 📄 v1o0.html
                 └── 📂 views
@@ -410,14 +410,14 @@ class LobbyV():
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 models_helper
                 │   └── 📂 room
                 │       └── 📂 v1o0
                 │           ├── 📄 __init__.py
                 │           └── 📄 mh_get_all_rooms_as_dic.py
                 ├── 📂 templates
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       └── 📂 lobby
                 │           └── 📄 v1o0.html
                 └── 📂 views
@@ -433,22 +433,22 @@ class LobbyV():
 import json
 from django.shortcuts import render
 
-# 部屋モデルヘルパー
-from apps1.practice_v1.models_helper.room.v1o0 import MhRoom
-#          -----------                    ----        ------
-#          11                             12          2
-#    -----------------------------------------
+# 練習1.0巻 部屋モデルヘルパー1.0版
+from apps1.practice_vol1o0.models_helper.room.ver1o0 import MhRoom
+#          ---------------                    ------        ------
+#          11                                 12            2
+#    -----------------------------------------------
 #    10
 # 11, 12. ディレクトリー
 # 10. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 
-# セッション モデルヘルパー
-from apps1.practice_v1.models_helper.session.v1o0 import MhSession
-#          -----------                    -------        ---------
-#          11                             12             2
-#    --------------------------------------------
+# 練習1.0巻 セッション モデルヘルパー1.0版
+from apps1.practice_vol1o0.models_helper.session.ver1o0 import MhSession
+#          ---------------                       ------        ---------
+#          11                                    12            2
+#    --------------------------------------------------
 #    10
 # 11, 12. ディレクトリー
 # 10. アプリケーション
@@ -475,8 +475,8 @@ def render_lobby(request, lobby_tp):
         'dj_room_dic': json.dumps(room_dic),
         'dj_user_dic': json.dumps(user_dic),
         # FIXME URL を urls.py で変更しても、こちらに反映されないが、どうするか？
-        "dj_path_of_home": "/practice/v1/my/",
-        "dj_path_of_rooms_read": "/practice/v1/rooms/read/",
+        "dj_path_of_home": "/practice/vol1o0/my/",
+        "dj_path_of_rooms_read": "/practice/ver1o0/rooms/read/",
     }
 
     return render(request, lobby_tp, context)
@@ -495,14 +495,14 @@ Merged to OA20o1o0g7o1o0
 ```plaintext
     ├── 📂 src1
     │   └── 📂 apps1
-    │       └── 📂 practice_v1                      # アプリケーション
+    │       └── 📂 practice_vol1o0                      # アプリケーション
     │           ├── 📂 models_helper
     │           │   └── 📂 room
     │           │       └── 📂 v1o0
     │           │           ├── 📄 __init__.py
     │           │           └── 📄 mh_get_all_rooms_as_dic.py
     │           ├── 📂 templates
-    │           │   └── 📂 practice_v1
+    │           │   └── 📂 practice_vol1o0
     │           │       └── 📂 lobby
     │           │           └── 📄 v1o0.html
     │           └── 📂 views
@@ -520,7 +520,7 @@ Merged to OA20o1o0g7o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/lobby/,practice_v1_lobby,"OA20o1o0g7o1o0 ロビー ビュー",apps1.practice_v1.views.lobby.v1o0,LobbyV,,render_lobby
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/lobby/ver1.0/,practice_v1_lobby,"OA20o1o0g7o1o0 練習1.0巻 ロビー1.0版",apps1.practice_v1.views.lobby.v1o0,LobbyV,,render_lobby
 ```
 
 ## Step OA11o4o0g6o2o0 ルート編集 - コマンド打鍵
@@ -540,7 +540,7 @@ docker-compose restart
 
 ## Step OA20o1o0g8o0 Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/lobby/](http://localhost:8000/practice/v1/lobby/)  
+📖 [http://localhost:8000/practice/vol1o0/lobby/ver1o0/](http://localhost:8000/practice/vol1o0/lobby/ver1o0/)  
 
 ## Step OA20o1o0g9o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -552,14 +552,14 @@ docker-compose restart
         │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 practice_v1                      # アプリケーション
+        │   └── 📂 practice_vol1o0                      # アプリケーション
         │       ├── 📂 models_helper
         │       │   └── 📂 room
         │       │       └── 📂 v1o0
         │       │           ├── 📄 __init__.py
         │       │           └── 📄 mh_get_all_rooms_as_dic.py
         │       ├── 📂 templates
-        │       │   └── 📂 practice_v1
+        │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 lobby
         │       │           └── 📄 v1o0.html
         │       └── 📂 views
@@ -574,7 +574,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/lobby/,ロビー
+/practice/vol1.0/lobby/ver1o0/,OA20o1o0g9o0 練習1.0巻 ロビー1.0版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

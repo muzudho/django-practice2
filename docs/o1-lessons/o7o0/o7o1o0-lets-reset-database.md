@@ -45,7 +45,7 @@ allauthなど、他のDjangoサーバーのアプリケーションを混ぜる�
     ├── 📂 src1
     │   ├── 📂 apps1
     │   │   ├── 📂 portal_v1                # アプリケーション
-    │   │   └── 📂 practice_v1              # アプリケーション
+    │   │   └── 📂 practice_vol1o0              # アプリケーション
     │   ├── 📂 data
     │   ├── 📂 project1                     # プロジェクト
     │   │   ├── 📄 __init__.py

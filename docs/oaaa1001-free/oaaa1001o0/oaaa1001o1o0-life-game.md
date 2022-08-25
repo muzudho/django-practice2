@@ -83,7 +83,7 @@ docker-compose run --rm web python manage.py startapp lifegame_vol1o0 ./apps1/li
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1              # アプリケーション名
+            └── 📂 practice_vol1o0              # アプリケーション名
                 ├── 📂 migrations
                 │   └── 📄 __init__.py
                 ├── 📄 __init__.py

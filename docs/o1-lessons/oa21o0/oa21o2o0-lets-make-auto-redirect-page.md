@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/auto_redirect/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/auto_redirect/ver1o0/)  
 
 # 目標
 
@@ -42,7 +42,7 @@
     │   ├── 📂 apps1
     │   │   ├── 📂 accounts_vol1o0    # アプリケーション
     │   │   ├── 📂 portal_v1                # アプリケーション
-    │   │   ├── 📂 practice_v1              # アプリケーション
+    │   │   ├── 📂 practice_vol1o0              # アプリケーション
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
     │   │   │       └── 📂 room
@@ -118,9 +118,9 @@ docker-compose up
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 └── 📂 static
-                    └── 📂 practice_v1          # アプリケーションと同名
+                    └── 📂 practice_vol1o0          # アプリケーションと同名
                         └── 📂 auto_reload
 👉                          └── 📄 v2o0.js
 ```
@@ -159,13 +159,13 @@ function startReloadingAutomatically(intervalMilliseconds) {
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 static
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       └── 📂 auto_reload
                 │           └── 📄 v2o0.js
                 └── 📂 templates
-                    └── 📂 practice_v1          # アプリケーションと同名
+                    └── 📂 practice_vol1o0          # アプリケーションと同名
                         └── 📂 auto_reload
 👉                          └── 📄 v1o1o0.html.txt
 ```
@@ -229,13 +229,13 @@ function startReloadingAutomatically(intervalMilliseconds) {
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 static
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       └── 📂 auto_reload
                 │           └── 📄 v2o0.js
                 ├── 📂 templates
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       └── 📂 auto_reload
                 │           └── 📄 v1o1o0.html.txt
                 └── 📂 views
@@ -278,13 +278,13 @@ class AutoRedirectV():
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1                  # アプリケーション
+            └── 📂 practice_vol1o0                  # アプリケーション
                 ├── 📂 static
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       └── 📂 auto_reload
                 │           └── 📄 v2o0.js
                 ├── 📂 templates
-                │   └── 📂 practice_v1
+                │   └── 📂 practice_vol1o0
                 │       └── 📂 auto_reload
                 │           └── 📄 v1o1o0.html.txt
                 └── 📂 views
@@ -348,13 +348,13 @@ Merged to OA21o2o0g6o1o0
 ```plaintext
     ├── 📂 src1
     │   └── 📂 apps1
-    │       └── 📂 practice_v1                  # アプリケーション
+    │       └── 📂 practice_vol1o0                  # アプリケーション
     │           ├── 📂 static
-    │           │   └── 📂 practice_v1
+    │           │   └── 📂 practice_vol1o0
     │           │       └── 📂 auto_reload
     │           │           └── 📄 v2o0.js
     │           ├── 📂 templates
-    │           │   └── 📂 practice_v1
+    │           │   └── 📂 practice_vol1o0
     │           │       └── 📂 auto_reload
     │           │           └── 📄 v1o1o0.html.txt
     │           └── 📂 views
@@ -372,7 +372,7 @@ Merged to OA21o2o0g6o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/auto_redirect/,,"OA21o2o0g6o1o0 自動リダイレクトページ",apps1.practice_v1.views.auto_redirect.v1o0,AutoRedirectV,,render_auto_redirect
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/auto_redirect/ver1.0/,,"OA21o2o0g6o1o0 練習1.0巻 自動リダイレクトページ 1.0版",apps1.practice_v1.views.auto_redirect.v1o0,AutoRedirectV,,render_auto_redirect
 ```
 
 ## Step OA21o1o0g7o2o0 ルート編集 - コマンド打鍵
@@ -392,7 +392,7 @@ docker-compose restart
 
 ## Step OA21o2o0g7o0 Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/auto_redirect/](http://localhost:8000/practice/v1/auto_redirect/)  
+📖 [http://localhost:8000/practice/vol1o0/auto_redirect/ver1o0/](http://localhost:8000/practice/vol1o0/auto_redirect/ver1o0/)  
 
 ## Step OA21o2o0g8o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -404,13 +404,13 @@ docker-compose restart
         │   ├── 📂 portal_v1                        # アプリケーション
         │   │   └── 📂 data
 👉      │   │       └── 📄 finished-lessons.csv
-        │   └── 📂 practice_v1                      # アプリケーション
+        │   └── 📂 practice_vol1o0                      # アプリケーション
         │       ├── 📂 static
-        │       │   └── 📂 practice_v1
+        │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 auto_reload
         │       │           └── 📄 v2o0.js
         │       ├── 📂 templates
-        │       │   └── 📂 practice_v1
+        │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 auto_reload
         │       │           └── 📄 v1o1o0.html.txt
         │       └── 📂 views
@@ -425,7 +425,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/auto_redirect/,自動リダイレクト
+/practice/vol1.0/auto_redirect/ver1o0/,OA21o2o0g8o0 練習1.0巻 自動リダイレクト 1.0版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

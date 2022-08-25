@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/page-the-hello)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/page-the-hello/ver1o0/)  
 
 # 目標
 
@@ -11,8 +11,8 @@ Webサイトのページを追加したい
 以下のようなURLで表示させる  
 
 ```plain
-http://example.com/practice/v1/page-the-hello
-------]----------]---------------------------
+http://example.com/practice/vol1o0/page-the-hello/ver1o0/
+------]----------]---------------------------------------
 1      2          3
 
 1. スキーム（HTTPプロトコル）
@@ -71,27 +71,27 @@ cd src1
 docker-compose up
 ```
 
-## Step O3o1o0g2o0 フォルダー作成 - apps1/practice_v1 フォルダー
+## Step O3o1o0g2o0 フォルダー作成 - apps1/practice_vol1o0 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
 ```plaintext
     └── 📂 src1
         └── 📂 apps1                # 複数のアプリケーションを入れるフォルダー
-            └── 📂 practice_v1      # アプリケーション フォルダー
+            └── 📂 practice_vol1o0      # アプリケーション フォルダー
 ```
 
 * `apps1` - 末尾の `1` は文字列検索しやすいように付けているだけで特別な意味はない
-* `practice_v1` - 末尾の `_v1` はレッスンの都合で付けているだけで特別な意味はない
+* `practice_vol1o0` - 末尾の `_vol1o0` はレッスンの都合で付けている `1.0巻` という意味だが無くてもいい
 
 ## Step O3o1o0g3o0 アプリケーション作成
 
 👇 以下のコマンドを打鍵してほしい  
 
 ```shell
-docker-compose run --rm web python manage.py startapp practice_v1 ./apps1/practice_v1 --settings=project1.settings
-#                                                     ----------- -------------------            -----------------
-#                                                     1           2                              3
+docker-compose run --rm web python manage.py startapp practice_vol1o0 ./apps1/practice_vol1o0 --settings=project1.settings
+#                                                     --------------- -----------------------            -----------------
+#                                                     1               2                                  3
 # 1. 任意のDjangoアプリケーション名
 # 2. アプリケーション フォルダーへのパス
 # 3. `src1/project1/settings.py` 設定ファイルに従う
@@ -103,7 +103,7 @@ docker-compose run --rm web python manage.py startapp practice_v1 ./apps1/practi
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1              # アプリケーション名
+            └── 📂 practice_vol1o0              # アプリケーション名
 👉              ├── 📂 migrations
 👉              │   └── 📄 __init__.py
 👉              ├── 📄 __init__.py
@@ -121,7 +121,7 @@ docker-compose run --rm web python manage.py startapp practice_v1 ./apps1/practi
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1              # アプリケーション名
+            └── 📂 practice_vol1o0              # アプリケーション名
                 ├── 📂 migrations
                 │   └── 📄 __init__.py
                 ├── 📄 __init__.py
@@ -139,7 +139,7 @@ docker-compose run --rm web python manage.py startapp practice_v1 ./apps1/practi
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_v1              # アプリケーション名
+            └── 📂 practice_vol1o0              # アプリケーション名
                 ├── 📂 migrations
                 │   └── 📄 __init__.py
                 ├── 📄 __init__.py
@@ -149,6 +149,8 @@ docker-compose run --rm web python manage.py startapp practice_v1 ./apps1/practi
 ```
 
 ```py
+# BOF O3o1o0g5o0
+
 from django.apps import AppConfig
 
 
@@ -157,11 +159,13 @@ class PracticeConfig(AppConfig):
     # * 変更前
     #name = 'practice_v1'
     # * O3o1o0g5o0 変更後
-    name = 'apps1.practice_v1'
-    #       -----------------
+    name = 'apps1.practice_vol1o0'
+    #       ---------------------
     #       1
-    # 1. `src1/apps1/practice_v1/apps.py`
-    #          -----------------
+    # 1. `src1/apps1/practice_vol1o0/apps.py`
+    #          ---------------------
+
+# EOF O3o1o0g5o0
 ```
 
 ## Step O3o1o0g6o0 アプリケーション登録 - settings.py ファイル＜その２＞
@@ -171,7 +175,7 @@ class PracticeConfig(AppConfig):
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 practice_v1              # アプリケーション名
+        │   └── 📂 practice_vol1o0              # アプリケーション名
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📄 __init__.py
@@ -196,7 +200,8 @@ class PracticeConfig(AppConfig):
 # * 変更後
 INSTALLED_APPS = [
     # あなたが追加したアプリケーション
-    'apps1.practice_v1',
+    # O3o1o0g6o0 練習1.0巻
+    'apps1.practice_vol1o0',
 
     # Djangoの標準アプリケーション
     'django.contrib.admin',
@@ -208,7 +213,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-これで、 `src1/apps1/practice_v1` フォルダーは practice_v1 アプリケーションとして認識される。  
+これで、 `src1/apps1/practice_vol1o0` フォルダーは practice_vol1o0 アプリケーションとして認識される。  
 そのメリットは　今後のレッスンで触れる  
 
 ## Step O3o1o0g7o0 画面作成 - page_the_hello/v1o0.html ファイル
@@ -218,11 +223,11 @@ INSTALLED_APPS = [
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 practice_v1              # アプリケーション
+        │   └── 📂 practice_vol1o0              # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
-        │       │   └── 📂 practice_v1      # アプリケーションと同名
+        │       │   └── 📂 practice_vol1o0      # アプリケーションと同名
         │       │       └── 📂 page_the_hello
 👉      │       │           └── 📄 v1o0.html
         │       ├── 📄 __init__.py
@@ -254,11 +259,11 @@ INSTALLED_APPS = [
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 practice_v1              # アプリケーション
+        │   └── 📂 practice_vol1o0              # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
-        │       │   └── 📂 practice_v1      # アプリケーションと同名
+        │       │   └── 📂 practice_vol1o0      # アプリケーションと同名
         │       │       └── 📂 page_the_hello
         │       │           └── 📄 v1o0.html
         │       ├── 📄 __init__.py
@@ -279,19 +284,19 @@ TEMPLATES = [
         # 'DIRS': [],
         # * 変更後
         'DIRS': [
-            # 練習
-            os.path.join(BASE_DIR, 'apps1/practice_v1/templates'),
-            #                       ---------------------------
+            # O3o1o0g8o0 練習1.0巻
+            os.path.join(BASE_DIR, 'apps1/practice_vol1o0/templates'),
+            #                       -------------------------------
             #                       10
-            # Example: /src1/apps1/practice_v1/templates/practice_v1/page_the_hello/v1o0.html
-            #                      -----------          ------------
-            #                      11                   2
-            #                ---------------------------
+            # Example: /src1/apps1/practice_vol1o0/templates/practice_vol1o0/page_the_hello/v1o0.html
+            #                      ---------------          ----------------
+            #                      11                       2
+            #                -------------------------------
             #                10
             # 10. テンプレート ディレクトリーへのパス
             # 11. アプリケーション
-            # 2. まるで `http://example.com/practice_v1` という素材フォルダーがあるかのように扱われる
-            #                             ------------
+            # 2. まるで `http://example.com/practice_vol1o0` という素材フォルダーがあるかのように扱われる
+            #                             ----------------
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -313,11 +318,11 @@ TEMPLATES = [
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 practice_v1                  # アプリケーション
+        │   └── 📂 practice_vol1o0                  # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
-        │       │   └── 📂 practice_v1
+        │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 page_the_hello
         │       │           └── 📄 v1o0.html
         │       ├── 📂 views
@@ -345,11 +350,11 @@ class PageTheHello():
     def render(request):
         """描画"""
 
-        template_path = 'practice_v1/page_the_hello/v1o0.html'
-        #                ------------------------------------
+        template_path = 'practice_vol1o0/page_the_hello/v1o0.html'
+        #                ----------------------------------------
         #                1
-        # 1. src1/apps1/practice_v1/templates/practice_v1/page_the_hello/v1o0.html を取得
-        #                                     ------------------------------------
+        # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/page_the_hello/v1o0.html` を取得
+        #                                          ----------------------------------------
 
         context = {}
         return render(request, template_path, context)
@@ -375,11 +380,11 @@ class PageTheHello():
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 practice_v1                  # アプリケーション
+        │   └── 📂 practice_vol1o0                  # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
-        │       │   └── 📂 practice_v1
+        │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 page_the_hello
         │       │           └── 📄 v1o0.html
         │       ├── 📂 views
@@ -397,13 +402,15 @@ class PageTheHello():
 ```
 
 ```py
+# BOF O3o1o0gA10o0
+
 from django.urls import path
 
-# O3o1o0gA10o0 こんにちわページ
-from apps1.practice_v1.views.page_the_hello.v1o0 import PageTheHello
-#          -----------                      ----        ------------
-#          11                               12          2
-#    -------------------------------------------
+# O3o1o0gA10o0 練習1.0巻 こんにちわページ1.0版
+from apps1.practice_vol1o0.views.page_the_hello.ver1o0 import PageTheHello
+#          ---------------                      ------        ------------
+#          11                                   12            2
+#    -------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -412,18 +419,20 @@ from apps1.practice_v1.views.page_the_hello.v1o0 import PageTheHello
 
 urlpatterns = [
 
-    # O3o1o0gA10o0 こんにちわページ
-    path('practice/v1/page-the-hello',
-         # -------------------------
+    # O3o1o0gA10o0 練習1.0巻 こんにちわページ1.0版
+    path('practice/vol1.0/page-the-hello/ver1.0/',
+         # -------------------------------------
          # 1
          PageTheHello.render, name='page_the_hello'),
     #    -------------------        --------------
     #    2                          3
-    # 1. 例えば `http://example.com/practice/v1/page-the-hello` のようなURLのパスの部分
-    #                              --------------------------
+    # 1. 例えば `http://example.com/practice/vol1.0/page-the-hello/ver1.0/` のようなURLのパスの部分
+    #                              ---------------------------------------
     # 2. PageTheHello クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'page_the_hello' %} のような形でURLを取得するのに使える
 ]
+
+# EOF O3o1o0gA10o0
 ```
 
 ## Step O3o1o0gA11o0 総合ルート編集 - urls.py
@@ -433,11 +442,11 @@ urlpatterns = [
 ```plaintext
     └── 📂 src1
         ├── 📂 apps1
-        │   └── 📂 practice_v1                  # アプリケーション
+        │   └── 📂 practice_vol1o0                  # アプリケーション
         │       ├── 📂 migrations
         │       │   └── 📄 __init__.py
         │       ├── 📂 templates
-        │       │   └── 📂 practice_v1
+        │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 page_the_hello
         │       │           └── 📄 v1o0.html
         │       ├── 📂 views
@@ -491,7 +500,7 @@ urlpatterns = [
 
 ## Step O3o1o0gA12o0 Webページにアクセスする
 
-📖 [http://localhost:8000/practice/v1/page-the-hello](http://localhost:8000/practice/v1/page-the-hello)  
+📖 [http://localhost:8000/practice/vol1o0/page-the-hello/ver1o0/](http://localhost:8000/practice/vol1o0/page-the-hello/ver1o0/)  
 
 # 次の記事
 
