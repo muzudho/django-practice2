@@ -1,10 +1,10 @@
-{# OA13o4o0gA10o0 #}
+<!-- BOF OA13o4o0gA10o0 -->
 <!-- -->
-{% extends "practice_v1/vuetifies/textarea1/v1o0.html" %}
-{#          -----------------------------------------
+{% extends "practice_vol1o0/vuetifies/textarea1/ver1o0.html" %}
+{#          -----------------------------------------------
             1
-1. src1/apps1/practice_v1/templates/practice_v1/vuetifies/textarea1/v1o0.html
-                                    -----------------------------------------
+1. src1/apps1/practice_vol1o0/templates/practice_vol1o0/vuetifies/textarea1/ver1o0.html
+                                        -----------------------------------------------
 #}
 
 {% block form_signature %}
@@ -16,3 +16,4 @@
                                                  =============================
         -->
 {% endblock form_signature %}
+<!-- EOF OA13o4o0gA10o0 -->

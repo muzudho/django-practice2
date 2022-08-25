@@ -98,12 +98,14 @@ docker-compose up
 ```
 
 ```html
-{% extends "practice_v1/page_to_be_added/v2o0.html.txt" %}
+<!-- BOF O3o3o0g2o0 -->
+
+{% extends "practice_vol1o0/page_to_be_added/ver2o0.html.txt" %}
 <!-- -->
-{#          ------------------------------------------
+{#          ------------------------------------------------
             1
-1. src1/apps1/practice_v1/templates/practice_v1/page_to_be_added/v2o0.html.txt
-                                    ------------------------------------------
+1. src1/apps1/practice_vol1o0/templates/practice_vol1o0/page_to_be_added/ver2o0.html.txt
+                                        ------------------------------------------------
 #}
 
 <!-- 伸びることを想定したリスト -->
@@ -124,6 +126,8 @@ docker-compose up
 <h1>せくしょん　さん</h1>
 <p>こんてんつ　さん</p>
 {% endblock section3 %}
+
+<!-- EOF O3o3o0g2o0 -->
 ```
 
 ## Step O3o3o0g3o0 ビュー作成 - page_to_be_added/v3o0 フォルダー
@@ -151,17 +155,17 @@ from django.shortcuts import render
 
 
 class PageToBeAdded():
-    """O3o3o0g3o0 追加されるページ"""
+    """O3o3o0g3o0 練習1.0巻 追加される1.0版"""
 
     def render(request):
         """描画"""
 
-        template_path = 'practice_v1/page_to_be_added/v3o0.html.txt'
-        #                                             ^three
-        #               ------------------------------------------
-        #               1
-        # 1. src1/apps1/practice_v1/templates/practice_v1/page_to_be_added/v3o0.html.txt を取得
-        #                                     ------------------------------------------
+        template_path = 'practice_vol1o0/page_to_be_added/ver3o0.html.txt'
+        #                                                    ^three
+        #                ------------------------------------------------
+        #                1
+        # 1. 'src1/apps1/practice_vol1o0/templates/practice_vol1o0/page_to_be_added/ver3o0.html.txt' を取得
+        #                                          ------------------------------------------------
 
         context = {}
         return render(request, template_path, context)
@@ -199,7 +203,7 @@ Merged to O3o3o0g4o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1o0/page-to-be-added-2/ver1o0/,,"O3o3o0g4o1o0 練習ページ ２回追加されたページ",apps1.practice_v1.views.page_to_be_added.v3o0,PageToBeAdded,PageToBeAdded2,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/page-to-be-added-2/ver1.0/,,"O3o3o0g4o1o0 練習1.0巻 ２回追加されたページ1.0版",apps1.practice_vol1o0.views.page_to_be_added.ver3o0,PageToBeAdded,PageToBeAdded2,render
 ```
 
 ## Step O3o2o0g5o2o0 ルート編集 - コマンド打鍵

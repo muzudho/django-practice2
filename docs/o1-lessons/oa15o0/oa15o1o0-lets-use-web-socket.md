@@ -351,11 +351,11 @@ class WebsockPractice1V1Consumer(AsyncWebsocketConsumer):
 # See also: 📖 [Channels - Consumers](https://channels.readthedocs.io/en/latest/topics/consumers.html)
 from django.conf.urls import url
 
-# OA15o1o0g8o0 Webソケットの練習１
-from apps1.practice_v1.websocks.consumer.v1o0 import WebsockPractice1V1Consumer
-#          -----------                   ----        --------------------------
-#          11                            12          2
-#    ----------------------------------------
+# OA15o1o0g8o0 練習1.0巻 Webソケットの練習１ 1.0版
+from apps1.practice_vol1o0.websocks.consumer.ver1o0 import WebsockPractice1V1Consumer
+#          ---------------                   ------        --------------------------
+#          11                                12            2
+#    ----------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション

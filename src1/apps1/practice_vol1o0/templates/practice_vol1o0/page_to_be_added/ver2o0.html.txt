@@ -1,10 +1,10 @@
 <!-- BOF O3o2o0g3o0 -->
 
-{% extends "practice_v1/page_to_be_added/ver1o0.html" %}
-{#          ----------------------------------------
+{% extends "practice_vol1o0/page_to_be_added/ver1o0.html" %}
+{#          --------------------------------------------
             1
-1. src1/apps1/practice_v1/templates/practice_v1/page_to_be_added/ver1o0.html
-                                    ----------------------------------------
+1. src1/apps1/practice_vol1o0/templates/practice_vol1o0/page_to_be_added/ver1o0.html
+                                        ----------------------------------------
 #}
 
 <!-- -->

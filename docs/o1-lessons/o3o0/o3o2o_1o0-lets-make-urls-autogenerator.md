@@ -82,7 +82,7 @@ docker-compose up
 ```csv
 file,path,name,comment,module,class,alias,method
 ../src1/project1/urls_autogen.py,,,"集約ファイル",,,,
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1o0/hello2/ver1o0/,practice_v1_hello2,"o3o2o_1o0g1o0 こんにちわページ",apps1.practice_vol1o0.views.page_the_hello.ver1o0,PageTheHello,,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/hello2/ver1.0/,practice_vol1o0_hello2,"o3o2o_1o0g1o0 練習1.0巻 こんにちわ1.0版",apps1.practice_vol1o0.views.page_the_hello.ver1o0,PageTheHello,,render
 ```
 
 ## Step O3o2o_1o0g2o_1o0 Pythonパッケージインストール - pandas
@@ -130,9 +130,9 @@ class UrlsAutoGenerator:
         """
         Examples
         --------
-                                                       file                           path                name  ...         class alias  method
-        0                  ../src1/project1/urls_autogen.py                            NaN                 NaN  ...           NaN   NaN     NaN
-        1  ../src1/project1/urls_practice_vol1o0_autogen.py  practice/vo1o0/hello2/ver1o0/  practice_v1_hello2  ...  PageTheHello   NaN  render
+                                                       file                           path                    name  ...         class alias  method
+        0                  ../src1/project1/urls_autogen.py                            NaN                     NaN  ...           NaN   NaN     NaN
+        1  ../src1/project1/urls_practice_vol1o0_autogen.py  practice/vo1o0/hello2/ver1o0/  practice_vol1o0_hello2  ...  PageTheHello   NaN  render
         """
 
         print(f"Current working directory:{os.getcwd()}")

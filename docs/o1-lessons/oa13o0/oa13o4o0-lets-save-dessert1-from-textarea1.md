@@ -91,7 +91,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA13o4o0g2o0 モデル作成 - dessert/v1o0.py ファイル
+## Step OA13o4o0g2o0 モデル作成 - dessert/ver1o0.py ファイル
 
 JSONのデータを受け入れられる形をサーバー側で定義しておく必要がある。  
 おおまかに言って以下のような形だ。  
@@ -159,12 +159,12 @@ class Dessert(models.Model):
 # ...略...
 
 
-# OA13o4o0g3o0 デザート
-from .models.dessert.v1o0 import Dessert
-#    --------------------        -------
-#    1                           2
-# 1. このファイルと同じディレクトリにある `models/dessert/v1o0.py` ファイルの拡張子抜き
-#                                      ----------------------
+# OA13o4o0g3o0 練習1.0巻 デザート1.0版
+from .models.dessert.ver1o0 import Dessert
+#    ----------------------        -------
+#    1                             2
+# 1. このファイルと同じディレクトリにある `models/dessert/ver1o0.py` ファイルの拡張子抜き
+#                                      ---------------------
 # 2. クラス
 
 
@@ -190,9 +190,9 @@ admin.site.register(Dessert)
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
 # cd src1
 
-docker-compose run --rm web python3 manage.py makemigrations practice_v1 --settings project1.settings
-#                                                            -----------            -----------------
-#                                                            1                      2
+docker-compose run --rm web python3 manage.py makemigrations practice_vol1o0 --settings project1.settings
+#                                                            ---------------            -----------------
+#                                                            1                          2
 # 1. アプリケーション
 # 2. `src1/project1/settings.py`
 #          -----------------
@@ -281,7 +281,7 @@ Iron (%):
 
 `Desserts` ラベルをクリックすると、一覧画面が出てくる  
 
-## Step OA13o4o0g9o0 規定値の作成 - desserts1_placeholder/v1o0.json ファイル
+## Step OA13o4o0g9o0 規定値の作成 - desserts1_placeholder/ver1o0.json ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -317,7 +317,7 @@ Iron (%):
 
 👆 入力フォームの規定値にする  
 
-## Step OA13o4o0gA10o0 画面作成 - vuetifies/textarea1_to_model/v1o0.html.txt ファイル
+## Step OA13o4o0gA10o0 画面作成 - vuetifies/textarea1_to_model/ver1o0.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -346,13 +346,13 @@ Iron (%):
 ```
 
 ```html
-{# OA13o4o0gA10o0 #}
+<!-- BOF OA13o4o0gA10o0 -->
 <!-- -->
-{% extends "practice_v1/vuetifies/textarea1/v1o0.html" %}
-{#          -----------------------------------------
+{% extends "practice_vol1o0/vuetifies/textarea1/ver1o0.html" %}
+{#          -----------------------------------------------
             1
-1. src1/apps1/practice_v1/templates/practice_v1/vuetifies/textarea1/v1o0.html
-                                    -----------------------------------------
+1. src1/apps1/practice_vol1o0/templates/practice_vol1o0/vuetifies/textarea1/ver1o0.html
+                                        -----------------------------------------------
 #}
 
 {% block form_signature %}
@@ -364,6 +364,7 @@ Iron (%):
                                                  =============================
         -->
 {% endblock form_signature %}
+<!-- EOF OA13o4o0gA10o0 -->
 ```
 
 ## Step OA13o4o0gA11o0 ビュー作成 - v_textarea1_to_model.py ファイル
@@ -405,11 +406,11 @@ import json
 from django.http import JsonResponse
 from django.shortcuts import render
 
-# デザート
-from apps1.practice_v1.models.dessert.v1o0 import Dessert
-#          -----------                ----        -------
-#          11                         12          2
-#    -------------------------------------
+# 練習1.0巻 デザート1.0版
+from apps1.practice_vol1o0.models.dessert.ver1o0 import Dessert
+#          ---------------                ------        -------
+#          11                             12            2
+#    -------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -417,20 +418,20 @@ from apps1.practice_v1.models.dessert.v1o0 import Dessert
 
 
 def render_textarea1_to_model(request):
-    """OA13o4o0gA11o0 ビューティファイのテキストエリア１ to model"""
+    """OA13o4o0gA11o0 練習1.0巻 ビューティファイのテキストエリア１ 1.0版"""
 
     # Template path
-    textarea1_to_model_tp = 'practice_v1/vuetifies/textarea1_to_model/v1o0.html.txt'
-    #                        ------------------------------------------------------
+    textarea1_to_model_tp = 'practice_vol1o0/vuetifies/textarea1_to_model/ver1o0.html.txt'
+    #                        ------------------------------------------------------------
     #                        1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/vuetifies/textarea1_to_model/v1o0.html.txt` を取得
-    #                                      ------------------------------------------------------
+    # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/vuetifies/textarea1_to_model/ver1o0.html.txt` を取得
+    #                                          ------------------------------------------------------------
 
-    with open('apps1/practice_v1/static/practice_v1/data/desserts1_placeholder/v1o0.json', mode='r', encoding='utf-8') as f:
-        #      -------------------------------------------------------------------------
+    with open('apps1/practice_vol1o0/static/practice_vol1o0/data/desserts1_placeholder/ver1o0.json', mode='r', encoding='utf-8') as f:
+        #      -----------------------------------------------------------------------------------
         #      1
-        # 1. `src1/apps1/practice_v1/static/practice_v1/data/desserts1_placeholder/v1o0.json` を取得
-        #          -------------------------------------------------------------------------
+        # 1. `src1/apps1/practice_vol1o0/static/practice_vol1o0/data/desserts1_placeholder/ver1o0.json` を取得
+        #          -----------------------------------------------------------------------------------
         doc = json.load(f)
 
     context = {
@@ -505,7 +506,7 @@ class VuetifyV(object):
 
     # 以下を追加
     # OA13o4o0gA12o0 テキストエリア入力から保存まで
-    from .textarea1_to_model.v1o0 import render_textarea1_to_model, render_save_result_of_desserts1_from_textarea1
+    from .textarea1_to_model.ver1o0 import render_textarea1_to_model, render_save_result_of_desserts1_from_textarea1
 ```
 
 ## ~~Step OA13o4o0gA13o0~~
@@ -551,8 +552,8 @@ class VuetifyV(object):
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/textarea1-to-model/ver1.0/,,"OA13o4o0gA13o1o0 練習1.0巻 ビューティファイでテキストエリア入力から保存まで . 入力1.0版",apps1.practice_v1.views.vuetifies,VuetifyV,,render_textarea1_to_model
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/save-desserts1-from-textarea1/ver1.0/,,"OA13o4o0gA13o1o0 練習1.0巻 ビューティファイでテキストエリア入力から保存まで . 保存1.0版",apps1.practice_v1.views.vuetifies,VuetifyV,,render_save_result_of_desserts1_from_textarea1
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/textarea1-to-model/ver1.0/,,"OA13o4o0gA13o1o0 練習1.0巻 ビューティファイでテキストエリア入力から保存まで . 入力1.0版",apps1.practice_vol1o0.views.vuetifies,VuetifyV,,render_textarea1_to_model
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/save-desserts1-from-textarea1/ver1.0/,,"OA13o4o0gA13o1o0 練習1.0巻 ビューティファイでテキストエリア入力から保存まで . 保存1.0版",apps1.practice_vol1o0.views.vuetifies,VuetifyV,,render_save_result_of_desserts1_from_textarea1
 ```
 
 ## Step OA13o4o0gA13o2o0 ルート編集 - コマンド打鍵

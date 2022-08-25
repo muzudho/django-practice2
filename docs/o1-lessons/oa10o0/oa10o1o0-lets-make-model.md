@@ -117,12 +117,12 @@ class Prefecture(models.Model):
 # ...略...
 
 
-# OA10o1o0g3o0 都道府県
-from .models.prefecture.v1o0 import Prefecture
-#    -----------------------        ----------
-#    1                              2
-# 1. このファイルと同じディレクトリにある `models/prefecture/v1o0.py` ファイルの拡張子抜き
-#                                      ----------------------
+# OA10o1o0g3o0 練習1.0巻 都道府県1.0版
+from .models.prefecture.ver1o0 import Prefecture
+#    -------------------------        ----------
+#    1                                2
+# 1. このファイルと同じディレクトリにある `models/prefecture/ver1o0.py` ファイルの拡張子抜き
+#                                      ------------------------
 # 2. クラス
 
 
@@ -137,7 +137,7 @@ from .models.prefecture.v1o0 import Prefecture
 # ...略...
 
 
-# OA10o1o0g3o0 都道府県
+# OA10o1o0g3o0 練習1.0巻 都道府県1.0版
 admin.site.register(Prefecture)
 ```
 
@@ -149,11 +149,11 @@ admin.site.register(Prefecture)
 # docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
 # cd src1
 
-docker-compose run --rm web python3 manage.py makemigrations practice_v1
-#                                                            -----------
+docker-compose run --rm web python3 manage.py makemigrations practice_vol1o0
+#                                                            ---------------
 #                                                            1
 # 1. アプリケーション名
-#    settings.py に `apps1.practice_v1` と 書いていても、ここには `practice_v1` と書く
+#    settings.py に `apps1.practice_vol1o0` と 書いていても、ここには `practice_vol1o0` と書く
 ```
 
 以下のディレクトリーとファイルが生成される  

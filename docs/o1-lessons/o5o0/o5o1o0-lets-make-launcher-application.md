@@ -435,7 +435,7 @@ from django.shortcuts import render
 
 
 class Launcher():
-    """O5o1o0gA10o0 ランチャー"""
+    """O5o1o0gA10o0 練習1.0巻 ランチャー1.0版"""
 
     def render(request):
         """描画"""
@@ -443,8 +443,8 @@ class Launcher():
         template_path = 'launcher_vol1o0/ver1o0.html'
         #                ---------------------------
         #                1
-        # 1. `src1/apps1/practice_v1/templates/launcher_vol1o0/ver1o0.html` を取得
-        #                                      ---------------------------
+        # 1. `src1/apps1/practice_vol1o0/templates/launcher_vol1o0/ver1o0.html` を取得
+        #                                          ---------------------------
 
         context = {
             "dj_path_of_page_the_hello": "/practice/vol1o0/page-the-hello/ver1o0/",

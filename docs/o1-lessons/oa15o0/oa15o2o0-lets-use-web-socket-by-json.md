@@ -178,12 +178,12 @@ class WebsockPractice2V1Consumer(AsyncJsonWebsocketConsumer):
 
 
 # * 以下を追加
-# OA15o2o0g4o0 Webソケットの練習２
-from apps1.practice_v1.websocks.consumer_as_json.v1o0 import WebsockPractice2V1Consumer
+# OA15o2o0g4o0 Webソケットの練習２ 1.0版
+from apps1.practice_vol1o0.websocks.consumer_as_json.ver1o0 import WebsockPractice2V1Consumer
 #                                                                           ^two
-#          -----------                           ----        --------------------------
-#          11                                    12          2
-#    ------------------------------------------------
+#          ---------------                           ------        --------------------------
+#          11                                        12            2
+#    ------------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション

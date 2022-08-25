@@ -148,11 +148,11 @@ docker-compose up
 ```html
 <!-- BOF O3o2o0g3o0 -->
 
-{% extends "practice_v1/page_to_be_added/ver1o0.html" %}
-{#          ----------------------------------------
+{% extends "practice_vol1o0/page_to_be_added/ver1o0.html" %}
+{#          --------------------------------------------
             1
-1. src1/apps1/practice_v1/templates/practice_v1/page_to_be_added/ver1o0.html
-                                    ----------------------------------------
+1. src1/apps1/practice_vol1o0/templates/practice_vol1o0/page_to_be_added/ver1o0.html
+                                        ----------------------------------------
 #}
 
 <!-- -->
@@ -212,17 +212,17 @@ from django.shortcuts import render
 
 
 class PageToBeAdded():
-    """O3o2o0g4o0 追加されるページ"""
+    """O3o2o0g4o0 練習1.0巻 追加されるページ2.0版"""
 
     def render(request):
         """描画"""
 
-        template_path = 'practice_v1/page_to_be_added/v2o0.html.txt'
-        #                                             ^two
-        #               ------------------------------------------
-        #               1
-        # 1. src1/apps1/practice_v1/templates/practice_v1/page_to_be_added/v2o0.html.txt を取得
-        #                                     ------------------------------------------
+        template_path = 'practice_vol1o0/page_to_be_added/v2o0.html.txt'
+        #                                                  ^two
+        #                ----------------------------------------------
+        #                1
+        # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/page_to_be_added/v2o0.html.txt` を取得
+        #                                          ----------------------------------------------
 
         context = {}
         return render(request, template_path, context)
@@ -263,7 +263,7 @@ Merged to O3o2o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1o0/page-to-be-added-1/ver1o0/,,"O3o2o0g5o1o0 練習ページ １回追加されたページ",apps1.practice_v1.views.page_to_be_added.v2o0,PageToBeAdded,PageToBeAdded1,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/page-to-be-added-1/ver1.0/,,"O3o2o0g5o1o0 練習ページ １回追加されたページ",apps1.practice_vol1o0.views.page_to_be_added.ver2o0,PageToBeAdded,PageToBeAdded1,render
 ```
 
 ## Step O3o2o0g5o2o0 ルート編集 - コマンド打鍵

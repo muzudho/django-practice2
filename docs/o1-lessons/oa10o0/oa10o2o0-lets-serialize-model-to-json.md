@@ -97,8 +97,8 @@ class MhJson():
     from .m_from_model_to_json_str import from_model_to_json_str, from_model_to_json_str_with_indent
     #    -------------------------        ----------------------
     #    1                                2
-    # 1. `src1/apps1/practice_v1/model_helper/json/v1o0/m_from_model_to_json_str.py`
-    #                                                   ------------------------
+    # 1. `src1/apps1/practice_vol1o0/model_helper/json/ver1o0/m_from_model_to_json_str.py`
+    #                                                         ------------------------
     # 2. `1.` に含まれる関数
 ```
 
@@ -156,21 +156,21 @@ def from_model_to_json_str_with_indent(any_object):
 ```py
 from django.http import HttpResponse
 
-# OA10o2o0g5o0 JSONモデルヘルパー
-from apps1.practice_v1.models_helper.json.v1o0 import MhJson
-#          -----------                    ----        ------
-#          11                             12          2
-#    -----------------------------------------
+# OA10o2o0g5o0 練習1.0巻 JSONモデルヘルパー1.0版
+from apps1.practice_vol1o0.models_helper.json.ver1o0 import MhJson
+#          ---------------                    ------        ------
+#          11                                 12            2
+#    -----------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# OA10o2o0g5o0 都道府県モデル
-from apps1.practice_v1.models.prefecture.v1o0 import Prefecture
-#          -----------                   ----        ----------
-#          11                            12          2
-#    ----------------------------------------
+# OA10o2o0g5o0 練習1.0巻 都道府県モデル1.0版
+from apps1.practice_vol1o0.models.prefecture.ver1o0 import Prefecture
+#          ---------------                   ------        ----------
+#          11                                12            2
+#    ----------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -228,7 +228,7 @@ Merged to OA10o2o0g6o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/from-object-to-json-str/ver1.0/,,"OA10o2o0g6o1o0 練習1.0巻 デバッグ用。モデルをダンプ出力1.0版",apps1.practice_v1.views.debug.v1o0,DebugV,,render_model_as_json
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/from-object-to-json-str/ver1.0/,,"OA10o2o0g6o1o0 練習1.0巻 デバッグ用。モデルをダンプ出力1.0版",apps1.practice_vol1o0.views.debug.ver1o0,DebugV,,render_model_as_json
 ```
 
 ## Step OA10o2o0g6o2o0 ルート編集 - コマンド打鍵
