@@ -142,8 +142,7 @@ docker-compose up
 ```
 
 ```html
-{# OA11o4o0g2o0 #}
-<!-- -->
+<!-- BOF OA11o4o0g2o0 -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <!-- See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92 -->
@@ -166,10 +165,10 @@ docker-compose up
 
             {% if id %}
             <h3 class="page-header">都道府県の更新</h3>
-            <form action="{% url 'practice_v1_refectures_update' id=id %}" method="post" class="form-horizontal" role="form">
+            <form action="{% url 'practice_vol1o0_refectures_update' id=id %}" method="post" class="form-horizontal" role="form">
             {% else %}
             <h3 class="page-header">都道府県の新規作成</h3>
-            <form action="{% url 'practice_v1_prefectures_create' %}" method="post" class="form-horizontal" role="form">
+            <form action="{% url 'practice_vol1o0_prefectures_create' %}" method="post" class="form-horizontal" role="form">
             {% endif %}
 
                 {% csrf_token %}
@@ -182,7 +181,7 @@ docker-compose up
                 </div>
 
             </form>
-            <a href="{% url 'practice_v1_prefectures' %}" class="btn btn-default btn-sm">戻る</a>
+            <a href="{% url 'practice_vol1o0_prefectures' %}" class="btn btn-default btn-sm">戻る</a>
         </div>
         <!-- 覚えなくていい : jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -190,6 +189,7 @@ docker-compose up
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </body>
 </html>
+<!-- EOF OA11o4o0g2o0 -->
 ```
 
 ## Step OA11o4o0g3o0 入力フォーム作成 - f_prefecture.py ファイル
@@ -210,13 +210,15 @@ docker-compose up
 ```
 
 ```py
+# BOF OA11o4o0g3o0
+
 from django.forms import ModelForm
 
 # 都道府県モデル
-from apps1.practice_v1.models.prefecture.v1o0 import Prefecture
-#          -----------                   ----        ----------
-#          11                            12          2
-#    ----------------------------------------
+from apps1.practice_vol1o0.models.prefecture.ver1o0 import Prefecture
+#          ---------------                   ------        ----------
+#          11                                12            2
+#    ----------------------------------------------
 #    10
 # 10. ディレクトリー
 # 11 アプリケーション
@@ -225,11 +227,13 @@ from apps1.practice_v1.models.prefecture.v1o0 import Prefecture
 
 
 class PrefectureForm(ModelForm):
-    """OA11o4o0g3o0 都道府県フォーム"""
+    """OA11o4o0g3o0 練習1.0巻 都道府県フォーム1.0版"""
 
     class Meta:
         model = Prefecture  # モデル指定
         fields = ('seq', 'name',)  # フィールド指定
+
+# EOF OA11o4o0g3o0
 ```
 
 👆 HTMLタグの `<form>～</form>` の子要素を自動的に埋めてくれる  
@@ -261,20 +265,20 @@ class PrefectureForm(ModelForm):
 from django.shortcuts import render, get_object_or_404, redirect
 
 # 都道府県モデル
-from apps1.practice_v1.models.prefecture.v1o0 import Prefecture
-#          -----------                   ----        ----------
-#          11                            12          2
-#    ------------------------------------------
+from apps1.practice_vol1o0.models.prefecture.ver1o0 import Prefecture
+#          ---------------                   ------        ----------
+#          11                                12            2
+#    ----------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # 都道府県フォーム
-from apps1.practice_v1.forms.f_prefecture import PrefectureForm
-#          -----------       ------------        --------------
-#          11                12                  2
-#    ------------------------------------
+from apps1.practice_vol1o0.forms.f_prefecture import PrefectureForm
+#          ---------------       ------------        --------------
+#          11                    12                  2
+#    ----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -282,7 +286,7 @@ from apps1.practice_v1.forms.f_prefecture import PrefectureForm
 
 
 def render_upsert(request, id=None):
-    """OA11o4o0g4o0 新規作成または更新の画面の描画"""
+    """OA11o4o0g4o0 練習1.0巻 新規作成または更新1.0版 - 描画"""
 
     if id:  # idがあるとき（更新の時）
         # idで検索して、結果を戻すか、404エラー
@@ -299,7 +303,7 @@ def render_upsert(request, id=None):
         if form.is_valid():
             prefecture = form.save(commit=False)
             prefecture.save()
-            return redirect('practice_v1_prefectures')
+            return redirect('practice_vol1o0_prefectures')
 
         # Invalid ならフォームを引き継いで再び同じ画面表示へ
 
@@ -308,18 +312,18 @@ def render_upsert(request, id=None):
 
     # 作成・更新画面を表示
     # Template path
-    prefecture_upsert_tp = 'practice_v1/prefecture/v1o0/upsert.html'
-    #                       ---------------------------------------
+    prefecture_upsert_tp = 'practice_vol1o0/prefecture/ver1o0/upsert.html'
+    #                       ---------------------------------------------
     #                       1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/prefecture/v1o0/upsert.html` を取得
-    #                                      ---------------------------------------
+    # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/prefecture/ver1o0/upsert.html` を取得
+    #                                          ---------------------------------------------
 
     return render(request, prefecture_upsert_tp, dict(form=form, id=id))
 
 # EOF OA11o4o0g4o0
 ```
 
-## Step OA11o4o0g5o0 ビュー編集 - prefecture/v1o0 フォルダー
+## Step OA11o4o0g5o0 ビュー編集 - prefecture/ver1o0 フォルダー
 
 👇 以下のファイルを編集してほしい  
 
@@ -385,8 +389,8 @@ Merged to OA11o4o0g6o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/prefectures/create/ver1.0/,practice_v1_prefectures_create,"OA11o4o0g6o1o0 練習1.0巻 都道府県の新規作成 1.0版",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_upsert
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/prefectures/update/ver1.0/<int:id>/,practice_v1_refectures_update,"OA11o4o0g6o1o0 練習1.0巻 都道府県の更新 1.0版",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_upsert
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/prefectures/create/ver1.0/,practice_vol1o0_prefectures_create,"OA11o4o0g6o1o0 練習1.0巻 都道府県の新規作成 1.0版",apps1.practice_vol1o0.views.prefecture.ver1o0,PrefectureV,,render_upsert
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/prefectures/update/ver1.0/<int:id>/,practice_vol1o0_refectures_update,"OA11o4o0g6o1o0 練習1.0巻 都道府県の更新 1.0版",apps1.practice_vol1o0.views.prefecture.ver1o0,PrefectureV,,render_upsert
 ```
 
 ## Step OA11o4o0g6o2o0 ルート編集 - コマンド打鍵

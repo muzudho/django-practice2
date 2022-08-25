@@ -3,20 +3,20 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
 # 都道府県モデル
-from apps1.practice_v1.models.prefecture.v1o0 import Prefecture
-#          -----------                   ----        ----------
-#          11                            12          2
-#    ------------------------------------------
+from apps1.practice_vol1o0.models.prefecture.ver1o0 import Prefecture
+#          ---------------                   ------        ----------
+#          11                                12            2
+#    ----------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # 都道府県フォーム
-from apps1.practice_v1.forms.f_prefecture import PrefectureForm
-#          -----------       ------------        --------------
-#          11                12                  2
-#    ------------------------------------
+from apps1.practice_vol1o0.forms.f_prefecture import PrefectureForm
+#          ---------------       ------------        --------------
+#          11                    12                  2
+#    ----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -24,7 +24,7 @@ from apps1.practice_v1.forms.f_prefecture import PrefectureForm
 
 
 def render_upsert(request, id=None):
-    """OA11o4o0g4o0 新規作成または更新の画面の描画"""
+    """OA11o4o0g4o0 練習1.0巻 新規作成または更新1.0版 - 描画"""
 
     if id:  # idがあるとき（更新の時）
         # idで検索して、結果を戻すか、404エラー
@@ -41,7 +41,7 @@ def render_upsert(request, id=None):
         if form.is_valid():
             prefecture = form.save(commit=False)
             prefecture.save()
-            return redirect('practice_v1_prefectures')
+            return redirect('practice_vol1o0_prefectures')
 
         # Invalid ならフォームを引き継いで再び同じ画面表示へ
 
@@ -50,11 +50,11 @@ def render_upsert(request, id=None):
 
     # 作成・更新画面を表示
     # Template path
-    prefecture_upsert_tp = 'practice_v1/prefecture/v1o0/upsert.html'
-    #                       ---------------------------------------
+    prefecture_upsert_tp = 'practice_vol1o0/prefecture/ver1o0/upsert.html'
+    #                       ---------------------------------------------
     #                       1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/prefecture/v1o0/upsert.html` を取得
-    #                                      ---------------------------------------
+    # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/prefecture/ver1o0/upsert.html` を取得
+    #                                          ---------------------------------------------
 
     return render(request, prefecture_upsert_tp, dict(form=form, id=id))
 

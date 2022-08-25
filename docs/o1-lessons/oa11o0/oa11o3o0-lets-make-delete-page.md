@@ -124,8 +124,7 @@ docker-compose up
 ```
 
 ```html
-{# OA11o3o0g2o0 #}
-<!-- -->
+<!-- BOF OA11o3o0g2o0 -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <!-- See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92 -->
@@ -147,7 +146,7 @@ docker-compose up
         <div class="container">
             <h3>都道府県の削除</h3>
             <div class="card" style="width: 18rem">「{{ prefecture.name }}」を削除しました。</div>
-            <a href="{% url 'practice_v1_prefectures' %}" class="btn btn-default btn-sm">戻る</a>
+            <a href="{% url 'practice_vol1o0_prefectures' %}" class="btn btn-default btn-sm">戻る</a>
         </div>
         <!-- 覚えなくていい : jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -155,6 +154,7 @@ docker-compose up
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </body>
 </html>
+<!-- EOF OA11o3o0g2o0 -->
 ```
 
 ## Step OA11o3o0g3o0 ビュー編集 - v_delete.py ファイル
@@ -181,11 +181,11 @@ docker-compose up
 
 from django.shortcuts import render, get_object_or_404
 
-# 都道府県モデル
-from apps1.practice_v1.models.prefecture.v1o0 import Prefecture
-#          -----------                   ----        ----------
-#          11                            12          2
-#    ----------------------------------------
+# 練習1.0巻 都道府県モデル1.0版
+from apps1.practice_vol1o0.models.prefecture.ver1o0 import Prefecture
+#          ---------------                   ------        ----------
+#          11                                12            2
+#    ----------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -204,11 +204,11 @@ def render_delete(request, id=id):
     """
 
     # Template path
-    prefecture_delete_tp = 'practice_v1/prefecture/v1o0/delete.html'
-    #                       ---------------------------------------
+    prefecture_delete_tp = 'practice_vol1o0/prefecture/ver1o0/delete.html'
+    #                       ---------------------------------------------
     #                       1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/prefecture/v1o0/delete.html` を取得
-    #                                      ---------------------------------------
+    # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/prefecture/ver1o0/delete.html` を取得
+    #                                          ---------------------------------------------
 
     # GETストリングのidと、Prefectureテーブルのpkが一致するものを取得。無ければ 404 画面へ飛ぶ
     prefecture = get_object_or_404(Prefecture, pk=id)
@@ -291,7 +291,7 @@ Merged to OA11o3o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/prefectures/delete/ver1.0/<int:id>/,practice_v1_prefectures_delete,"OA11o3o0g5o1o0 練習1.0巻 都道府県の削除1.0版",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_delete
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/prefectures/delete/ver1.0/<int:id>/,practice_vol1o0_prefectures_delete,"OA11o3o0g5o1o0 練習1.0巻 都道府県の削除1.0版",apps1.practice_vol1o0.views.prefecture.ver1o0,PrefectureV,,render_delete
 ```
 
 ## Step OA11o3o0g5o2o0 ルート編集 - コマンド打鍵

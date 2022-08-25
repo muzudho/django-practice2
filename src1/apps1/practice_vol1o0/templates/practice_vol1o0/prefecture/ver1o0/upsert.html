@@ -1,5 +1,4 @@
-{# OA11o4o0g2o0 #}
-<!-- -->
+<!-- BOF OA11o4o0g2o0 -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <!-- See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92 -->
@@ -22,10 +21,10 @@
 
             {% if id %}
             <h3 class="page-header">都道府県の更新</h3>
-            <form action="{% url 'practice_v1_refectures_update' id=id %}" method="post" class="form-horizontal" role="form">
+            <form action="{% url 'practice_vol1o0_refectures_update' id=id %}" method="post" class="form-horizontal" role="form">
             {% else %}
             <h3 class="page-header">都道府県の新規作成</h3>
-            <form action="{% url 'practice_v1_prefectures_create' %}" method="post" class="form-horizontal" role="form">
+            <form action="{% url 'practice_vol1o0_prefectures_create' %}" method="post" class="form-horizontal" role="form">
             {% endif %}
 
                 {% csrf_token %}
@@ -38,7 +37,7 @@
                 </div>
 
             </form>
-            <a href="{% url 'practice_v1_prefectures' %}" class="btn btn-default btn-sm">戻る</a>
+            <a href="{% url 'practice_vol1o0_prefectures' %}" class="btn btn-default btn-sm">戻る</a>
         </div>
         <!-- 覚えなくていい : jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -46,3 +45,4 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </body>
 </html>
+<!-- EOF OA11o4o0g2o0 -->
