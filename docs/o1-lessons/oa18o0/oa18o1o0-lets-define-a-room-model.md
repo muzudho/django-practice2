@@ -106,7 +106,7 @@ docker-compose up
             └── 📂 practice_vol1o0              # アプリケーション
                 └── 📂 models
                     └── 📂 room
-👉                      └── 📄 v1o0.py
+👉                      └── 📄 ver1o0.py
 ```
 
 ```py
@@ -166,7 +166,7 @@ class Room(models.Model):
             └── 📂 practice_vol1o0              # アプリケーション
                 ├── 📂 models
                 │   └── 📂 room
-                │       └── 📄 v1o0.py
+                │       └── 📄 ver1o0.py
 👉              └── 📄 admin.py
 ```
 
@@ -230,7 +230,7 @@ docker-compose run --rm web python3 manage.py makemigrations practice_v1 --setti
 👉              │   └── 📄 0004_room.py          # ファイル名は一例です
                 ├── 📂 models
                 │   └── 📂 room
-                │       └── 📄 v1o0.py
+                │       └── 📄 ver1o0.py
                 └── 📄 admin.py
 ```
 

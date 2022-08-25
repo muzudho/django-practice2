@@ -40,7 +40,7 @@
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
     │   │   │       └── 📂 room
-    │   │   │           └── 📄 v1o0.py
+    │   │   │           └── 📄 ver1o0.py
     │   │   ├── 📂 tic_tac_toe_vol1o0           # アプリケーション
     │   │   └── 📂 tic_tac_toe_vol2o0           # アプリケーション
     │   │       ├── 📂 migrations
@@ -116,7 +116,7 @@ docker-compose up
                 └── 📂 templates
                     └── 📂 tic_tac_toe_vol3o0      # アプリケーションと同名
                         └── 📂 playing
-👉                          └── 📄 v4o0.html.txt
+👉                          └── 📄 ver4o0.html.txt
 ```
 
 ```html
@@ -178,7 +178,7 @@ docker-compose up
                 └── 📂 templates
                     └── 📂 tic_tac_toe_vol3o0      # アプリケーションと同名
                         └── 📂 playing
-                            └── 📄 v4o0.html.txt
+                            └── 📄 ver4o0.html.txt
 ```
 
 ```py
@@ -284,7 +284,7 @@ class MatchApplicationV():
                 └── 📂 templates
                     └── 📂 tic_tac_toe_vol3o0
                         └── 📂 playing
-                            └── 📄 v4o0.html.txt
+                            └── 📄 ver4o0.html.txt
 ```
 
 ```py
@@ -376,7 +376,7 @@ Merged to OA25o1o0g5o1o0
     │           └── 📂 templates
     │               └── 📂 tic_tac_toe_vol3o0
     │                   └── 📂 playing
-    │                       └── 📄 v4o0.html.txt
+    │                       └── 📄 ver4o0.html.txt
     └── 📂 src1_meta
         └── 📂 data
 👉          └── 📄 urls.csv
@@ -441,7 +441,7 @@ docker-compose restart
         │       └── 📂 templates
         │           └── 📂 tic_tac_toe_vol3o0
         │               └── 📂 playing
-        │                   └── 📄 v4o0.html.txt
+        │                   └── 📄 ver4o0.html.txt
         └── 📂 project1                             # プロジェクト
             └── 📄 urls_practice.py
 ```

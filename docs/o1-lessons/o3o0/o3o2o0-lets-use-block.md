@@ -142,7 +142,7 @@ docker-compose up
                     └── 📂 practice_vol1o0
                         └── 📂 page_to_be_added
                             ├── 📄 ver1o0.html
-👉                          └── 📄 v2o0.html.txt
+👉                          └── 📄 ver2o0.html.txt
 ```
 
 ```html
@@ -196,7 +196,7 @@ docker-compose up
         │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 page_to_be_added
         │       │           ├── 📄 ver1o0.html
-        │       │           └── 📄 v2o0.html.txt
+        │       │           └── 📄 ver2o0.html.txt
         │       └── 📂 views
         │           └── 📂 page_to_be_added
         │               └── 📂 ver2o0             # Two
@@ -246,7 +246,7 @@ Merged to O3o2o0g5o1o0
     │   │       │   └── 📂 practice_vol1o0
     │   │       │       └── 📂 page_to_be_added
     │   │       │           ├── 📄 ver1o0.html
-    │   │       │           └── 📄 v2o0.html.txt
+    │   │       │           └── 📄 ver2o0.html.txt
     │   │       └── 📂 views
     │   │           └── 📂 page_to_be_added
     │   │               └── 📂 ver2o0             # Two

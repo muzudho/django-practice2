@@ -44,7 +44,7 @@
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
     │   │   │       └── 📂 room
-    │   │   │           └── 📄 v1o0.py
+    │   │   │           └── 📄 ver1o0.py
     │   │   ├── 📂 tic_tac_toe_vol1o0           # アプリケーション
     │   │   └── 📂 tic_tac_toe_vol2o0           # アプリケーション
     │   │       ├── 📂 migrations
@@ -123,7 +123,7 @@ Merged to OA24o1o0g3o0
             └── 📂 tic_tac_toe_vol3o0                 # アプリケーション
                 └── 📂 websocks
                     └── 📂 consumer_custom
-👉                      └── 📄 v1o0.py
+👉                      └── 📄 ver1o0.py
 ```
 
 ```py
@@ -323,7 +323,7 @@ def save_room(room):
         │   └── 📂 tic_tac_toe_vol3o0               # アプリケーション
         │       └── 📂 websocks
         │           └── 📂 consumer_custom
-        │               └── 📄 v1o0.py
+        │               └── 📄 ver1o0.py
         └── 📂 project1                         # プロジェクト
 👉          └── 📄 ws_urls_tic_tac_toe_v3.py    # Three
 ```
@@ -376,7 +376,7 @@ websocket_urlpatterns = [
         │   └── 📂 tic_tac_toe_vol3o0               # アプリケーション
         │       └── 📂 websocks
         │           └── 📂 consumer_custom
-        │               └── 📄 v1o0.py
+        │               └── 📄 ver1o0.py
         └── 📂 project1                         # プロジェクト
 👉          ├── 📄 asgi.py
             └── 📄 ws_urls_tic_tac_toe_v3.py    # Three
@@ -433,7 +433,7 @@ websocket_urlpatterns_merged.extend(
 👉      │       │           └── 📄 __init__.py
         │       └── 📂 websocks
         │           └── 📂 consumer_custom
-        │               └── 📄 v1o0.py
+        │               └── 📄 ver1o0.py
         └── 📂 project1                             # プロジェクト
             ├── 📄 asgi.py
             └── 📄 ws_urls_tic_tac_toe_v3.py        # Three
@@ -522,7 +522,7 @@ class MatchApplicationV():
 👉      │       │           └── 📄 __init__.py
         │       └── 📂 websocks
         │           └── 📂 consumer_custom
-        │               └── 📄 v1o0.py
+        │               └── 📄 ver1o0.py
         └── 📂 project1                             # プロジェクト
             ├── 📄 asgi.py
             └── 📄 ws_urls_tic_tac_toe_v3.py        # Three
@@ -614,7 +614,7 @@ Marged to OA24o1o0g8o1o0
     │   │       │           └── 📄 __init__.py
     │   │       └── 📂 websocks
     │   │           └── 📂 consumer_custom
-    │   │               └── 📄 v1o0.py
+    │   │               └── 📄 ver1o0.py
     │   └── 📂 project1                             # プロジェクト
     │       ├── 📄 asgi.py
     │       └── 📄 ws_urls_tic_tac_toe_v3.py        # Three
@@ -680,7 +680,7 @@ docker-compose restart
         │       │           └── 📄 __init__.py
         │       └── 📂 websocks
         │           └── 📂 consumer_custom
-        │               └── 📄 v1o0.py
+        │               └── 📄 ver1o0.py
         └── 📂 project1                             # プロジェクト
             ├── 📄 asgi.py
             ├── 📄 urls_practice.py

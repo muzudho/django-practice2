@@ -34,7 +34,7 @@
     │   │       │       │   └── 📄 ver1o0.html
     │   │       │       └── 📂 page_to_be_added
     │   │       │           ├── 📄 ver1o0.html
-    │   │       │           └── 📄 v2o0.html.txt
+    │   │       │           └── 📄 ver2o0.html.txt
     │   │       └── 📂 views
     │   │           ├── 📂 page_the_hello
     │   │           │   └── 📂 ver1o0
@@ -94,7 +94,7 @@ docker-compose up
                 └── 📂 templates
                     └── 📂 practice_vol1o0
                         └── 📂 page_to_be_added
-👉                          └── 📄 v3o0.html.txt
+👉                          └── 📄 ver3o0.html.txt
 ```
 
 ```html
@@ -137,7 +137,7 @@ docker-compose up
                 ├── 📂 templates
                 │   └── 📂 practice_vol1o0
                 │       └── 📂 page_to_be_added
-                │           └── 📄 v3o0.html.txt
+                │           └── 📄 ver3o0.html.txt
                 └── 📂 views
                     └── 📂 page_to_be_added
                         └── 📂 ver3o0                 # Three
@@ -184,7 +184,7 @@ Merged to O3o3o0g4o1o0
     │           ├── 📂 templates
     │           │   └── 📂 practice_vol1o0
     │           │       └── 📂 page_to_be_added
-    │           │           └── 📄 v3o0.html.txt
+    │           │           └── 📄 ver3o0.html.txt
     │           └── 📂 views
     │               └── 📂 page_to_be_added
     │                   └── 📂 ver3o0

@@ -46,7 +46,7 @@
     │   │   │   ├── 📂 migrations
     │   │   │   └── 📂 models
     │   │   │       └── 📂 room
-    │   │   │           └── 📄 v1o0.py
+    │   │   │           └── 📄 ver1o0.py
     │   │   ├── 📂 tic_tac_toe_vol1o0           # アプリケーション
     │   │   └── 📂 tic_tac_toe_vol2o0           # アプリケーション
     │   │       ├── 📂 migrations
@@ -122,7 +122,7 @@ docker-compose up
                 └── 📂 static
                     └── 📂 practice_vol1o0          # アプリケーションと同名
                         └── 📂 auto_reload
-👉                          └── 📄 v2o0.js
+👉                          └── 📄 ver2o0.js
 ```
 
 ```js
@@ -163,7 +163,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
                 ├── 📂 static
                 │   └── 📂 practice_vol1o0
                 │       └── 📂 auto_reload
-                │           └── 📄 v2o0.js
+                │           └── 📄 ver2o0.js
                 └── 📂 templates
                     └── 📂 practice_vol1o0          # アプリケーションと同名
                         └── 📂 auto_reload
@@ -233,7 +233,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
                 ├── 📂 static
                 │   └── 📂 practice_vol1o0
                 │       └── 📂 auto_reload
-                │           └── 📄 v2o0.js
+                │           └── 📄 ver2o0.js
                 ├── 📂 templates
                 │   └── 📂 practice_vol1o0
                 │       └── 📂 auto_reload
@@ -282,7 +282,7 @@ class AutoRedirectV():
                 ├── 📂 static
                 │   └── 📂 practice_vol1o0
                 │       └── 📂 auto_reload
-                │           └── 📄 v2o0.js
+                │           └── 📄 ver2o0.js
                 ├── 📂 templates
                 │   └── 📂 practice_vol1o0
                 │       └── 📂 auto_reload
@@ -352,7 +352,7 @@ Merged to OA21o2o0g6o1o0
     │           ├── 📂 static
     │           │   └── 📂 practice_vol1o0
     │           │       └── 📂 auto_reload
-    │           │           └── 📄 v2o0.js
+    │           │           └── 📄 ver2o0.js
     │           ├── 📂 templates
     │           │   └── 📂 practice_vol1o0
     │           │       └── 📂 auto_reload
@@ -408,7 +408,7 @@ docker-compose restart
         │       ├── 📂 static
         │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 auto_reload
-        │       │           └── 📄 v2o0.js
+        │       │           └── 📄 ver2o0.js
         │       ├── 📂 templates
         │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 auto_reload
