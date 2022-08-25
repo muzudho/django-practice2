@@ -171,24 +171,23 @@ function startReloadingAutomatically(intervalMilliseconds) {
 ```
 
 ```html
-{# OA21o2o0g3o0 #}
-<!-- -->
-{% extends "practice_v1/auto_reload/v1o0.html" %}
-{#          ---------------------------------
+<!-- BOF OA21o2o0g3o0 -->
+{% extends "practice_vol1o0/auto_reload/ver1o0.html" %}
+{#          ---------------------------------------
             1
-1. src1/apps1/practice_v1/templates/practice_v1/auto_reload/v1o0.html
-                                    ---------------------------------
+1. src1/apps1/practice_vol1o0/templates/practice_vol1o0/auto_reload/ver1o0.html
+                                        ---------------------------------------
 #}
 
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 
 {% block script_src %}
-<script src="{% static 'practice_v1/clock/v1o0.js' %}"></script>
-<script src="{% static 'practice_v1/auto_reload/v2o0.js' %}"></script>
-<!--                                             ^two
-                =======================================
-    `src1/apps1/practice_v1/static/practice_v1/auto_reload/v2o0.js`
-                            ======================================
+<script src="{% static 'practice_vol1o0/clock/ver1o0.js' %}"></script>
+<script src="{% static 'practice_vol1o0/auto_reload/v2o0.js' %}"></script>
+<!--                                                 ^two
+                ===========================================
+    `src1/apps1/practice_vol1o0/static/practice_vol1o0/auto_reload/v2o0.js`
+                                ==========================================
 -->
 {% endblock script_src %}
 
@@ -220,9 +219,10 @@ function startReloadingAutomatically(intervalMilliseconds) {
         return url;
     },
 {% endblock methods_trailing %}
+<!-- EOF OA21o2o0g3o0 -->
 ```
 
-## Step OA21o2o0g4o0 ビュー作成 - auto_redirect/v1o0 フォルダー
+## Step OA21o2o0g4o0 ビュー作成 - auto_redirect/ver1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -245,16 +245,18 @@ function startReloadingAutomatically(intervalMilliseconds) {
 ```
 
 ```py
+# BOF OA21o2o0g4o0
+
 class AutoRedirectV():
     """OA21o2o0g4o0 リダイレクト ビュー"""
 
     # 自動リダイレクト ページ
-    _path_of_redirecter_page = "practice_v1/auto_reload/v1o1o0.html.txt"
-    #                                                    ^^^one o one
-    #                           ---------------------------------------
+    _path_of_redirecter_page = "practice_vol1o0/auto_reload/ver1o1o0.html.txt"
+    #                                                          ^^^one o one
+    #                           ---------------------------------------------
     #                           1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/auto_reload/o1o1o0.html.txt` を取得
-    #                                      ---------------------------------------
+    # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/auto_reload/ver1o1o0.html.txt` を取得
+    #                                          ---------------------------------------------
 
     @staticmethod
     def render_auto_redirect(request):
@@ -264,11 +266,13 @@ class AutoRedirectV():
         from .v_redirect import render_auto_redirect
         #    -----------        --------------------
         #    1                  2
-        # 1. `src1/apps1/practice_v1/views/auto_redirect/v1o0/v_redirect.py`
-        #                                                     ----------
+        # 1. `src1/apps1/practice_vol1o0/views/auto_redirect/ver1o0/v_redirect.py`
+        #                                                           ----------
         # 2. `1.` に含まれる関数
 
         return render_auto_redirect(request, AutoRedirectV._path_of_redirecter_page)
+
+# EOF OA21o2o0g4o0
 ```
 
 ## Step OA21o2o0g5o0 ビュー作成 - auto_redirect/v1o0/v_redirect.py ファイル
@@ -372,7 +376,7 @@ Merged to OA21o2o0g6o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/auto_redirect/ver1.0/,,"OA21o2o0g6o1o0 練習1.0巻 自動リダイレクトページ 1.0版",apps1.practice_v1.views.auto_redirect.v1o0,AutoRedirectV,,render_auto_redirect
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/auto_redirect/ver1.0/,,"OA21o2o0g6o1o0 練習1.0巻 自動リダイレクトページ 1.0版",apps1.practice_vol1o0.views.auto_redirect.ver1o0,AutoRedirectV,,render_auto_redirect
 ```
 
 ## Step OA21o1o0g7o2o0 ルート編集 - コマンド打鍵

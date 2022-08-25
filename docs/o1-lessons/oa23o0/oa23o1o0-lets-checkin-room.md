@@ -220,21 +220,23 @@ class MatchApplicationV():
 ```
 
 ```py
+# BOF OA23o1o0g3o0
+
 # 部屋モデル
-from apps1.practice_v1.models.room.v1o0 import Room
-#          -----------             ----        ----
-#          11                      12          2
-#    ----------------------------------
+from apps1.practice_vol1o0.models.room.ver1o0 import Room
+#          ---------------             ------        ----
+#          11                          12            2
+#    ----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # ユーザー拡張
-from apps1.practice_v1.models.user_profile.v1o0 import Profile
-#          -----------                     ----        -------
-#          11                              12          2
-#    ------------------------------------------
+from apps1.practice_vol1o0.models.user_profile.ver1o0 import Profile
+#          ---------------                     ------        -------
+#          11                                  12            2
+#    ------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -316,6 +318,8 @@ def match_application_on_sent(request):
         # ゲストだった
         # print(f"[match_application_on_sent] ★ ゲスト")
         pass
+
+# EOF OA23o1o0g3o0
 ```
 
 ## ~~Step OA23o1o0g4o0~~

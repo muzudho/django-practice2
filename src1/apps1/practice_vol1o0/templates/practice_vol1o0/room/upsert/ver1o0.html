@@ -1,5 +1,4 @@
-{# OA18o5o0g2o0 #}
-<!-- -->
+<!-- BOF OA18o5o0g2o0 -->
 <!DOCTYPE html>
 <!-- See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92 -->
 <html lang="ja">
@@ -16,10 +15,10 @@
 
             {% if id %}
             <h3 class="page-header">部屋の更新</h3>
-            <form action="{% url 'practice_v1_rooms_update' id=id %}" method="post" class="form-horizontal" role="form">
+            <form action="{% url 'practice_vol1o0_rooms_update' id=id %}" method="post" class="form-horizontal" role="form">
             {% else %}
             <h3 class="page-header">部屋の作成</h3>
-            <form action="{% url 'practice_v1_rooms_create' %}" method="post" class="form-horizontal" role="form">
+            <form action="{% url 'practice_vol1o0_rooms_create' %}" method="post" class="form-horizontal" role="form">
             {% endif %}
 
                 {% csrf_token %}
@@ -32,7 +31,7 @@
                 </div>
 
             </form>
-            <a href="{% url 'practice_v1_rooms' %}" class="btn btn-default btn-sm">戻る</a>
+            <a href="{% url 'practice_vol1o0_rooms' %}" class="btn btn-default btn-sm">戻る</a>
         </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -40,3 +39,4 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </body>
 </html>
+<!-- EOF OA18o5o0g2o0 -->

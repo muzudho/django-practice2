@@ -3,10 +3,10 @@
 from asgiref.sync import sync_to_async
 
 # 部屋モデル
-from apps1.practice_v1.models.room.v1o0 import Room
-#          -----------             ----        ----
-#          11                      12          2
-#    ----------------------------------
+from apps1.practice_vol1o0.models.room.ver1o0 import Room
+#          ---------------             ------        ----
+#          11                          12            2
+#    ----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション

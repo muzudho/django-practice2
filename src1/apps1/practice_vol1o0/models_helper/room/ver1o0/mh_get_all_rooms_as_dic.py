@@ -1,8 +1,10 @@
+# BOF OA20o1o0g4o0
+
 # 部屋モデル
-from apps1.practice_v1.models.room.v1o0 import Room
-#          -----------             ----        ----
-#          11                      12          2
-#    ----------------------------------
+from apps1.practice_vol1o0.models.room.ver1o0 import Room
+#          ---------------             ------        ----
+#          11                          12            2
+#    ----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -29,3 +31,5 @@ def get_all_rooms_as_dic():
         }
 
     return room_dic
+
+# EOF OA20o1o0g4o0

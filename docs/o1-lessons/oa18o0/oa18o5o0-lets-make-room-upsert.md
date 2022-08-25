@@ -154,8 +154,7 @@ docker-compose up
 ```
 
 ```html
-{# OA18o5o0g2o0 #}
-<!-- -->
+<!-- BOF OA18o5o0g2o0 -->
 <!DOCTYPE html>
 <!-- See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92 -->
 <html lang="ja">
@@ -196,6 +195,7 @@ docker-compose up
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </body>
 </html>
+<!-- EOF OA18o5o0g2o0 -->
 ```
 
 ## Step OA18o5o0g3o0 フォーム作成 - f_room.py ファイル

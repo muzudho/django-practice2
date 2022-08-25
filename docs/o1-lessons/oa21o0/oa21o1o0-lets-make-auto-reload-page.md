@@ -201,8 +201,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 ```
 
 ```html
-{# OA21o1o0g4o0 #}
-<!-- -->
+<!-- BOF OA21o1o0g4o0 -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <!-- See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92 -->
@@ -237,11 +236,11 @@ function startReloadingAutomatically(intervalMilliseconds) {
         </div>
 
         {% block script_src %}
-        <script src="{% static 'practice_v1/clock/v1o0.js' %}"></script>
-        <script src="{% static 'practice_v1/auto_reload/v1o0.js' %}"></script>
-        <!--            =======================================
-            `src1/apps1/practice_v1/static/practice_v1/auto_reload/v1o0.js`
-                                    ======================================
+        <script src="{% static 'practice_vol1o0/clock/ver1o0.js' %}"></script>
+        <script src="{% static 'practice_vol1o0/auto_reload/ver1o0.js' %}"></script>
+        <!--            =============================================
+            `src1/apps1/practice_vol1o0/static/practice_vol1o0/auto_reload/ver1o0.js`
+                                        ============================================
         -->
         {% endblock script_src %}
 
@@ -273,9 +272,10 @@ function startReloadingAutomatically(intervalMilliseconds) {
         </script>
     </body>
 </html>
+<!-- EOF OA21o1o0g4o0 -->
 ```
 
-## Step OA21o1o0g5o0 ビュー作成 - auto_reload/v1o0 フォルダー
+## Step OA21o1o0g5o0 ビュー作成 - auto_reload/ver1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -300,15 +300,17 @@ function startReloadingAutomatically(intervalMilliseconds) {
 ```
 
 ```py
+# BOF OA21o1o0g5o0
+
 class AutoReloadV():
     """OA21o1o0g5o0 自動再読込ビュー"""
 
     # 自動再読込ページ
-    _path_of_auto_reload_page = "practice_v1/auto_reload/v1o0.html"
-    #                            ---------------------------------
+    _path_of_auto_reload_page = "practice_vol1o0/auto_reload/ver1o0.html"
+    #                            ---------------------------------------
     #                            1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/auto_reload/v1o0.html` を取得
-    #                                      ---------------------------------
+    # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/auto_reload/ver1o0.html` を取得
+    #                                          ---------------------------------------
 
     @staticmethod
     def render_auto_reload(request):
@@ -318,11 +320,13 @@ class AutoReloadV():
         from .v_auto_reload import render_auto_reload
         #    --------------        ------------------
         #    1                     2
-        # 1. `src1/apps1/practice_v1/views/auto_reload/v1o0/v_auto_reload.py`
-        #                                                   -------------
+        # 1. `src1/apps1/practice_vol1o0/views/auto_reload/ver1o0/v_auto_reload.py`
+        #                                                         -------------
         # 2. `1.` に含まれる関数
 
         return render_auto_reload(request, AutoReloadV._path_of_auto_reload_page)
+
+# EOF OA21o1o0g5o0
 ```
 
 ## Step OA21o1o0g6o0 ビュー作成 - auto_reload/v1o0/v_auto_reload.py ファイル
@@ -408,7 +412,7 @@ Merged to OA21o1o0g7o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/auto_reload/ver1.0/,,"OA21o1o0g7o1o0 練習1.0巻 自動リロードページ1.0版",apps1.practice_v1.views.auto_reload.v1o0,AutoReloadV,,render_auto_reload
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/auto_reload/ver1.0/,,"OA21o1o0g7o1o0 練習1.0巻 自動リロードページ1.0版",apps1.practice_vol1o0.views.auto_reload.ver1o0,AutoReloadV,,render_auto_reload
 ```
 
 ## Step OA21o1o0g7o2o0 ルート編集 - コマンド打鍵

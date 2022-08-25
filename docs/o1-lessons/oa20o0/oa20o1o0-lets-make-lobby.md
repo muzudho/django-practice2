@@ -130,7 +130,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA20o1o0g2o0 画面作成 - lobby/v1o0.html ファイル
+## Step OA20o1o0g2o0 画面作成 - lobby/ver1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -270,7 +270,7 @@ docker-compose up
 </html>
 ```
 
-## Step OA20o1o0g3o0 モデルヘルパー作成 - room/v1o0 フォルダー
+## Step OA20o1o0g3o0 モデルヘルパー作成 - room/ver1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -289,6 +289,8 @@ docker-compose up
 ```
 
 ```py
+# BOF OA20o1o0g3o0
+
 class MhRoom():
     """OA20o1o0g3o0 部屋モデルヘルパー"""
 
@@ -296,12 +298,14 @@ class MhRoom():
     from .mh_get_all_rooms_as_dic import get_all_rooms_as_dic
     #    ------------------------        --------------------
     #    1                               2
-    # 1. `src1/apps1/practice_v1/model_helper/room/v1o0/mh_get_all_rooms_as_dic.py`
-    #                                                   -----------------------
+    # 1. `src1/apps1/practice_vol1o0/model_helper/room/ver1o0/mh_get_all_rooms_as_dic.py`
+    #                                                         -----------------------
     # 2. `1.` に含まれる関数
+
+# EOF OA20o1o0g3o0
 ```
 
-## Step OA20o1o0g4o0 モデルヘルパー作成 - room/v1o0/mh_get_all_rooms_as_dic.py ファイル
+## Step OA20o1o0g4o0 モデルヘルパー作成 - room/ver1o0/mh_get_all_rooms_as_dic.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -321,11 +325,13 @@ class MhRoom():
 ```
 
 ```py
+# BOF OA20o1o0g4o0
+
 # 部屋モデル
-from apps1.practice_v1.models.room.v1o0 import Room
-#          -----------             ----        ----
-#          11                      12          2
-#    ----------------------------------
+from apps1.practice_vol1o0.models.room.ver1o0 import Room
+#          ---------------             ------        ----
+#          11                          12            2
+#    ----------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -352,9 +358,11 @@ def get_all_rooms_as_dic():
         }
 
     return room_dic
+
+# EOF OA20o1o0g4o0
 ```
 
-## Step OA20o1o0g5o0 ビュー作成 - lobby/v1o0 フォルダー
+## Step OA20o1o0g5o0 ビュー作成 - lobby/ver1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -378,15 +386,17 @@ def get_all_rooms_as_dic():
 ```
 
 ```py
+# BOF OA20o1o0g5o0
+
 class LobbyV():
     """OA20o1o0g5o0 ロビー ビュー"""
 
     # 一覧ページ
-    _path_of_lobby_page = "practice_v1/lobby/v1o0.html"
-    #                      ---------------------------
+    _path_of_lobby_page = "practice_vol1o0/lobby/ver1o0.html"
+    #                      ---------------------------------
     #                      1
-    # 1. `src1/apps1/practice_v1/templates/practice_v1/lobby/v1o0.html` を取得
-    #                                      ---------------------------
+    # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/lobby/ver1o0.html` を取得
+    #                                          ---------------------------------
 
     @staticmethod
     def render_lobby(request):
@@ -396,14 +406,16 @@ class LobbyV():
         from .v_lobby import render_lobby
         #    --------        ------------
         #    1               2
-        # 1. `src1/apps1/practice_v1/views/lobby/v1o0/v_lobby.py`
-        #                                             -------
+        # 1. `src1/apps1/practice_vol1o0/views/lobby/ver1o0/v_lobby.py`
+        #                                                   -------
         # 2. `1.` に含まれる関数
 
         return render_lobby(request, LobbyV._path_of_lobby_page)
+
+# EOF OA20o1o0g5o0
 ```
 
-## Step OA20o1o0g6o0 ビュー作成 - lobby/v1o0/v_lobby.py ファイル
+## Step OA20o1o0g6o0 ビュー作成 - lobby/ver1o0/v_lobby.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -520,7 +532,7 @@ Merged to OA20o1o0g7o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/lobby/ver1.0/,practice_v1_lobby,"OA20o1o0g7o1o0 練習1.0巻 ロビー1.0版",apps1.practice_v1.views.lobby.v1o0,LobbyV,,render_lobby
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/lobby/ver1.0/,practice_vol1o0_lobby,"OA20o1o0g7o1o0 練習1.0巻 ロビー1.0版",apps1.practice_vol1o0.views.lobby.ver1o0,LobbyV,,render_lobby
 ```
 
 ## Step OA11o4o0g6o2o0 ルート編集 - コマンド打鍵

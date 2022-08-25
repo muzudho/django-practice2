@@ -166,8 +166,7 @@ docker-compose up
 ```
 
 ```html
-{# OA18o3o0g2o0 #}
-<!-- -->
+<!-- BOF OA18o3o0g2o0 -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <!-- See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92 -->
@@ -285,6 +284,7 @@ docker-compose up
         </script>
     </body>
 </html>
+<!-- EOF OA18o3o0g2o0 -->
 ```
 
 ## Step OA18o3o0g3o0 ビュー編集 - room/ver1o0 フォルダー
