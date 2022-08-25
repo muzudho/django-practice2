@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/vuetify/textarea1-to-model)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1/vuetify/textarea1-to-model/ver1o0/)  
 
 # 目標
 
@@ -551,8 +551,8 @@ class VuetifyV(object):
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/vuetify/textarea1-to-model,,"OA13o4o0gA13o1o0 ビューティファイでテキストエリア入力から保存まで . 入力",apps1.practice_v1.views.vuetifies,VuetifyV,,render_textarea1_to_model
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/vuetify/save-desserts1-from-textarea1,,"OA13o4o0gA13o1o0 ビューティファイでテキストエリア入力から保存まで . 保存",apps1.practice_v1.views.vuetifies,VuetifyV,,render_save_result_of_desserts1_from_textarea1
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/textarea1-to-model/ver1.0/,,"OA13o4o0gA13o1o0 練習1.0巻 ビューティファイでテキストエリア入力から保存まで . 入力1.0版",apps1.practice_v1.views.vuetifies,VuetifyV,,render_textarea1_to_model
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/save-desserts1-from-textarea1/ver1.0/,,"OA13o4o0gA13o1o0 練習1.0巻 ビューティファイでテキストエリア入力から保存まで . 保存1.0版",apps1.practice_v1.views.vuetifies,VuetifyV,,render_save_result_of_desserts1_from_textarea1
 ```
 
 ## Step OA13o4o0gA13o2o0 ルート編集 - コマンド打鍵
@@ -574,7 +574,7 @@ docker-compose restart
 
 👇 1件送信してほしい  
 
-📖 [http://localhost:8000/practice/v1/vuetify/textarea1-to-model](http://localhost:8000/practice/v1/vuetify/textarea1-to-model)  
+📖 [http://localhost:8000/practice/vol1/vuetify/textarea1-to-model/ver1o0](http://localhost:8000/practice/vol1/vuetify/textarea1-to-model/ver1o0)  
 
 ## Step OA13o4o0gA15o0 スーパーユーザーでWebの管理画面へアクセス
 
@@ -636,7 +636,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/vuetify/textarea1-to-model,ビューティファイでテキストエリアから保存まで . 入力
+/practice/vol1.0/vuetify/textarea1-to-model/ver1o0/,OA13o4o0gA16o0 練習1.0巻 ビューティファイでテキストエリアから保存まで . 入力 1.0版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

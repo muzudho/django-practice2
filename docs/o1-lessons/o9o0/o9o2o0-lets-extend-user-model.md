@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/extends-user-list/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/extends-user-list/ver1o0/)  
 
 # 目標
 
@@ -567,7 +567,7 @@ Merged to O9o2o0gA12o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/extends-user-list/,,"O9o2o0gA12o1o0 （拡張済）会員一覧",apps1.practice_v1.views.extends_user_list.v1o0,ExtendsUserListV,,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/extends-user-list/ver1.0/,,"O9o2o0gA12o1o0 練習1.0巻 （拡張済）会員一覧1.0版",apps1.practice_v1.views.extends_user_list.v1o0,ExtendsUserListV,,render
 ```
 
 ## Step O9o2o0gA12o2o0 ルート編集 - コマンド打鍵
@@ -678,7 +678,7 @@ User: [あなたの名前]▽ 🖊 ➕
 
 ## Step O9o2o0gA15o0 Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/extends-user-list/](http://localhost:8000/practice/v1/extends-user-list/)  
+📖 [http://localhost:8000/practice/vol1o0/extends-user-list/ver1o0/](http://localhost:8000/practice/vol1o0/extends-user-list/ver1o0/)  
 
 ## Step O9o2o0gA16o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -716,7 +716,7 @@ User: [あなたの名前]▽ 🖊 ➕
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/extends-user-list/,（拡張済）会員一覧
+/practice/vol1.0/extends-user-list/ver1o0/,O9o2o0gA16o0 （拡張済）会員一覧1.0版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

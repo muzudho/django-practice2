@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/prefectures/delete/2/) - IDは適宜変えてほしい  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/prefectures/delete/ver1o0/2/) - IDは適宜変えてほしい  
 
 # 目標
 
@@ -291,7 +291,7 @@ Merged to OA11o3o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/prefectures/delete/<int:id>/,practice_v1_prefectures_delete,"OA11o3o0g5o1o0 都道府県の削除",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_delete
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/prefectures/delete/ver1.0/<int:id>/,practice_v1_prefectures_delete,"OA11o3o0g5o1o0 練習1.0巻 都道府県の削除1.0版",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_delete
 ```
 
 ## Step OA11o3o0g5o2o0 ルート編集 - コマンド打鍵
@@ -313,7 +313,7 @@ docker-compose restart
 
 👇 IDの番号は適宜変えてほしい。  
 
-📖 [http://localhost:8000/practice/v1/prefectures/delete/2/](http://localhost:8000/practice/v1/prefectures/delete/2/)  
+📖 [http://localhost:8000/practice/vol1o0/prefectures/delete/ver1o0/2/](http://localhost:8000/practice/vol1o0/prefectures/delete/ver1o0/2/)  
 
 ## Step OA11o3o0g7o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -344,7 +344,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/prefectures/delete/2/,都道府県(2)の削除
+/practice/vol1.0/prefectures/delete/ver1o0/2/,OA11o3o0g7o0 練習1.0巻 都道府県の削除1.0版 Id=2
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

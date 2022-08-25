@@ -1,7 +1,7 @@
 # サンプルを見る
 
-📖 [この記事のゴール：新規作成](http://tic.warabenture.com:8000/practice/v1/prefectures/create/)  
-📖 [この記事のゴール：更新](http://tic.warabenture.com:8000/practice/v1/prefectures/update/4/) - IDは適宜変えてほしい  
+📖 [この記事のゴール：新規作成](http://tic.warabenture.com:8000/practice/vol1o0/prefectures/create/ver1o0/)  
+📖 [この記事のゴール：更新](http://tic.warabenture.com:8000/practice/vol1o0/prefectures/update/ver1o0/4/) - IDは適宜変えてほしい  
 
 # 目標
 
@@ -385,8 +385,8 @@ Merged to OA11o4o0g6o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/prefectures/create/,practice_v1_prefectures_create,"OA11o4o0g6o1o0 都道府県の新規作成",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_upsert
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/prefectures/update/<int:id>/,practice_v1_refectures_update,"OA11o4o0g6o1o0 都道府県の更新",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_upsert
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/prefectures/create/ver1.0/,practice_v1_prefectures_create,"OA11o4o0g6o1o0 練習1.0巻 都道府県の新規作成 1.0版",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_upsert
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/prefectures/update/ver1.0/<int:id>/,practice_v1_refectures_update,"OA11o4o0g6o1o0 練習1.0巻 都道府県の更新 1.0版",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_upsert
 ```
 
 ## Step OA11o4o0g6o2o0 ルート編集 - コマンド打鍵
@@ -408,11 +408,11 @@ docker-compose restart
 
 👇 作成するとき、IDは付けるな  
 
-📖 [http://localhost:8000/practice/v1/prefectures/create/](http://localhost:8000/practice/v1/prefectures/create/)  
+📖 [http://localhost:8000/practice/vol1o0/prefectures/create/ver1o0/](http://localhost:8000/practice/vol1o0/prefectures/create/ver1o0/)  
 
 👇 更新するとき、IDを付けろ。 IDは適宜変えてほしい  
 
-📖 [http://localhost:8000/practice/v1/prefectures/update/4/](http://localhost:8000/practice/v1/prefectures/update/4/)  
+📖 [http://localhost:8000/practice/vol1o0/prefectures/update/ver1o0/4/](http://localhost:8000/practice/vol1o0/prefectures/update/ver1o0/4/)  
 
 ## Step OA11o4o0g8o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -444,8 +444,8 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/prefectures/create/,都道府県の新規作成
-/practice/v1/prefectures/update/4/,都道府県(4)の更新
+/practice/vol1.0/prefectures/create/ver1o0/,OA11o4o0g8o0 練習1.0巻 都道府県の新規作成1.0版
+/practice/vol1.0/prefectures/update/ver1o0/4/,OA11o4o0g8o0 練習1.0巻 都道府県の更新1.0版 id=4
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

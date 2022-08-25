@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/rooms/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/rooms/ver1o0/)  
 
 # 目標
 
@@ -510,7 +510,7 @@ Merged to OA18o2o0g7o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/rooms/,practice_v1_rooms,"OA18o2o0g7o1o0 対局部屋の一覧 v1.0",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_list
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/rooms/ver1.0/,practice_v1_rooms,"OA18o2o0g7o1o0 練習1.0巻 対局部屋の一覧1.0版",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_list
 ```
 
 ## Step OA18o2o0g7o2o0 ルート編集 - コマンド打鍵
@@ -530,7 +530,7 @@ docker-compose restart
 
 ## Step OA18o2o0g8o0 Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/rooms/](http://localhost:8000/practice/v1/rooms/)  
+📖 [http://localhost:8000/practice/vol1o0/rooms/ver1o0/](http://localhost:8000/practice/vol1o0/rooms/ver1o0/)  
 
 ## Step OA18o2o0g9o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -566,7 +566,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/rooms/,対局部屋の一覧
+/practice/vol1.0/rooms/ver1o0/,OA18o2o0g9o0 練習1.0巻 対局部屋の一覧1.0版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

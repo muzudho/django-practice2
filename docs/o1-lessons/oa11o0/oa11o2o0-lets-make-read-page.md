@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/prefectures/read/1/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/prefectures/read/ver1o0/1/)  
 
 # 目標
 
@@ -301,7 +301,7 @@ Merged to OA11o2o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/prefectures/read/<int:id>/,practice_v1_prefectures_read,"OA11o2o0g5o1o0 都道府県の詳細",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_read
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/prefectures/read/ver1.0/<int:id>/,practice_v1_prefectures_read,"OA11o2o0g5o1o0 練習1.0巻 都道府県の詳細1.0版",apps1.practice_v1.views.prefecture.v1o0,PrefectureV,,render_read
 ```
 
 ## Step OA11o2o0g5o2o0 ルート編集 - コマンド打鍵
@@ -321,7 +321,7 @@ docker-compose restart
 
 ## Step OA11o2o0g6o0 Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/prefectures/read/1/](http://localhost:8000/practice/v1/prefectures/read/1/)  
+📖 [http://localhost:8000/practice/vol1o0/prefectures/read/ver1o0/1/](http://localhost:8000/practice/vol1o0/prefectures/read/ver1o0/1/)  
 
 ## Step OA11o2o0g7o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -352,7 +352,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/prefectures/read/1/,都道府県(1)の詳細
+/practice/vol1.0/prefectures/read/ver1o0/1/,OA11o2o0g7o0 練習1.0巻 都道府県の詳細1.0版 Id=1
 ```
 
 👇 ポータルにリンクが追加されていることを確認してほしい 

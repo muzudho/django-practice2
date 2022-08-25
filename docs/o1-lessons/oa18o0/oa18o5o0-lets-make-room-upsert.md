@@ -1,14 +1,14 @@
 # サンプルを見る
 
-📖 [この記事のゴール：新規作成](http://tic.warabenture.com:8000/practice/v1/rooms/upsert/)  
-📖 [この記事のゴール：更新](http://tic.warabenture.com:8000/practice/v1/rooms/upsert/5/) - 部屋ID は適宜変えてほしい  
+📖 [この記事のゴール：新規作成](http://tic.warabenture.com:8000/practice/vol1o0/rooms/upsert/ver1o0/)  
+📖 [この記事のゴール：更新](http://tic.warabenture.com:8000/practice/vol1o0/rooms/upsert/ver1o0/5/) - 部屋ID は適宜変えてほしい  
 
 # 目標
 
 （※いわゆる CRUD の C と U）  
 
-`http://localhost:8000/practice/v1/rooms/upsert/` へアクセスすると、部屋の新規作成を、  
-`http://localhost:8000/practice/v1/rooms/upsert/4/` へアクセスすると、主キーが 4 の部屋の更新をしたい  
+`http://localhost:8000/practice/vol1o0/rooms/upsert/ver1o0/` へアクセスすると、部屋の新規作成を、  
+`http://localhost:8000/practice/vol1o0/rooms/upsert/ver1o0/4/` へアクセスすると、主キーが 4 の部屋の更新をしたい  
 
 ## 詳細
 
@@ -412,8 +412,8 @@ Merged to OA18o5o0g6o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/rooms/upsert/,practice_v1_rooms_create,"OA18o5o0g6o1o0 対局部屋の新規作成",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_upsert
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/rooms/upsert/<int:id>/,practice_v1_rooms_update,"OA18o5o0g6o1o0 対局部屋の更新",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_upsert
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/rooms/upsert/ver1.0/,practice_v1_rooms_create,"OA18o5o0g6o1o0 練習1.0巻 対局部屋の新規作成1.0版",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_upsert
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/rooms/upsert/ver1.0/<int:id>/,practice_v1_rooms_update,"OA18o5o0g6o1o0 練習1.0巻 対局部屋の更新1.0版",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_upsert
 ```
 
 ## Step OA18o4o0g5o2o0 ルート編集 - コマンド打鍵
@@ -435,11 +435,11 @@ docker-compose restart
 
 👇 作成するとき、部屋ID は付けるな  
 
-📖 [http://localhost:8000/practice/v1/rooms/upsert/](http://localhost:8000/practice/v1/rooms/upsert/)  
+📖 [http://localhost:8000/practice/vol1o0/rooms/upsert/ver1o0/](http://localhost:8000/practice/vol1o0/rooms/upsert/ver1o0/)  
 
 👇 更新するとき、部屋ID を付けろ。 部屋ID は適宜変えてほしい  
 
-📖 [http://localhost:8000/practice/v1/rooms/upsert/5/](http://localhost:8000/practice/v1/rooms/upsert/5/)  
+📖 [http://localhost:8000/practice/vol1o0/rooms/upsert/ver1o0/5/](http://localhost:8000/practice/vol1o0/rooms/upsert/ver1o0/5/)  
 
 ## Step OA18o5o0g8o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -472,8 +472,8 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/rooms/upsert/,対局部屋の新規作成
-/practice/v1/rooms/upsert/5/,対局部屋の更新
+/practice/vol1.0/rooms/upsert/ver1o0/,OA18o5o0g8o0 練習1.0巻 対局部屋の新規作成1.0版
+/practice/vol1.0/rooms/upsert/ver1o0/5/,OA18o5o0g8o0 練習1.0巻 対局部屋の更新1.0版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

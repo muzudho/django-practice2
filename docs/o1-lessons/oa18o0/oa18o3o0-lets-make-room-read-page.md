@@ -1,12 +1,12 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/rooms/read/1/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/rooms/read/ver1o0/1/)  
 
 # 目標
 
 （※いわゆる CRUD の R）  
 
-`http://localhost:8000/practice/v1/rooms/read/1/` へアクセスすると、  
+`http://localhost:8000/practice/vol1o0/rooms/read/ver1o0/1/` へアクセスすると、  
 id が 1 の部屋を表示したい  
 
 ## 詳細
@@ -470,7 +470,7 @@ Merged to OA18o3o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/rooms/read/<int:id>/,practice_v1_rooms_read,"OA18o3o0g5o1o0 対局部屋の詳細",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_read
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/rooms/read/ver1.0/<int:id>/,practice_v1_rooms_read,"OA18o3o0g5o1o0 練習1.0巻 対局部屋の詳細1.0版",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_read
 ```
 
 ## Step OA18o2o0g7o2o0 ルート編集 - コマンド打鍵
@@ -492,7 +492,7 @@ docker-compose restart
 
 👇 部屋番号は適宜変えてほしい  
 
-📖 [http://localhost:8000/practice/v1/rooms/read/1/](http://localhost:8000/practice/v1/rooms/read/1/)  
+📖 [http://localhost:8000/practice/vol1o0/rooms/read/ver1o0/1/](http://localhost:8000/practice/vol1o0/rooms/read/ver1o0/1/)  
 
 ## Step OA18o3o0g7o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -523,7 +523,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/rooms/read/1/,対局部屋の詳細(1)
+/practice/vol1.0/rooms/read/ver1o0/1/,OA18o3o0g7o0 練習1.0巻 対局部屋の詳細1.0版 Id=1
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/vuetify/data-table1)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/vuetify/data-table1/ver1o0/)  
 
 # 目標
 
@@ -357,7 +357,7 @@ Merged to OA12o2o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/vuetify/data-table1,,"OA12o2o0g5o1o0 ビューティファイでデータテーブル１",apps1.practice_v1.views.vuetifies,VuetifyV,,render_data_table1
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/data-table1/ver1.0/,,"OA12o2o0g5o1o0 練習1.0巻 ビューティファイでデータテーブル１ 1.0版",apps1.practice_v1.views.vuetifies,VuetifyV,,render_data_table1
 ```
 
 ## Step OA12o1o0g5o2o0 ルート編集 - コマンド打鍵
@@ -377,7 +377,7 @@ docker-compose restart
 
 ## Step OA12o2o0g6o0 Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/vuetify/data-table1](http://localhost:8000/practice/v1/vuetify/data-table1)  
+📖 [http://localhost:8000/practice/vol1o0/vuetify/data-table1/ver1o0/](http://localhost:8000/practice/vol1o0/vuetify/data-table1/ver1o0/)  
 
 ## Step OA12o2o0g7o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -408,7 +408,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/vuetify/data-table1,ビューティファイでデータテーブル１
+/practice/vol1.0/vuetify/data-table1/ver1o0/,OA12o2o0g7o0 練習1.0巻 ビューティファイでデータテーブル１ 1.0版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

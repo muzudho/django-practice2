@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/my/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/my/ver1o0/)  
 
 # 目標
 
@@ -361,7 +361,7 @@ Merged to OA19o1o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/my/,practice_v1_my,"OA19o1o0g5o1o0 マイページ ビュー",apps1.practice_v1.views.my.v1o0,MyV,,render_my
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/my/ver1.0/,practice_v1_my,"OA19o1o0g5o1o0 練習1.0巻 マイページ1.0版",apps1.practice_v1.views.my.v1o0,MyV,,render_my
 ```
 
 ## Step OA11o4o0g6o2o0 ルート編集 - コマンド打鍵
@@ -381,7 +381,7 @@ docker-compose restart
 
 ## Step OA19o1o0g6o0 Web画面へアクセス
 
-📖 [http://localhost:8000/practice/v1/my/](http://localhost:8000/practice/v1/my/)  
+📖 [http://localhost:8000/practice/vol1o0/my/ver1o0/](http://localhost:8000/practice/vol1o0/my/ver1o0/)  
 
 ## Step OA19o1o0g7o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -410,7 +410,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/my/,マイ ページ
+/practice/vol1.0/my/ver1o0/,OA19o1o0g7o0 練習1.0巻 マイページ1.0版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

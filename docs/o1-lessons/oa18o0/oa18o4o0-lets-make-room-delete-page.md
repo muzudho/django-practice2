@@ -1,12 +1,12 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/v1/rooms/delete/1/) - 部屋IDは適宜変えてほしい  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/rooms/delete/ver1o0/1/) - 部屋IDは適宜変えてほしい  
 
 # 目標
 
 （※いわゆる CRUD の D）  
 
-`http://localhost:8000/practice/v1/rooms/delete/4/` へアクセスすると、  
+`http://localhost:8000/practice/vol1o0/rooms/delete/ver1o0/4/` へアクセスすると、  
 id が 4 の部屋を削除したい  
 
 ## 詳細
@@ -310,7 +310,7 @@ Merged to OA18o4o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/v1/rooms/delete/<int:id>/,practice_v1_rooms_delete,"OA18o4o0g5o1o0 対局部屋の削除",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_delete
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/rooms/delete/ver1.0/<int:id>/,practice_v1_rooms_delete,"OA18o4o0g5o1o0 練習1.0巻 対局部屋の削除1.0版",apps1.practice_v1.views.room.v1o0,RoomV,RoomVV1o0,render_delete
 ```
 
 ## Step OA18o4o0g5o2o0 ルート編集 - コマンド打鍵
@@ -332,7 +332,7 @@ docker-compose restart
 
 👇 部屋の番号は適宜変えてほしい  
 
-📖 [http://localhost:8000/practice/v1/rooms/delete/1/](http://localhost:8000/practice/v1/rooms/delete/1/)  
+📖 [http://localhost:8000/practice/vol1o0/rooms/delete/ver1o0/1/](http://localhost:8000/practice/vol1o0/rooms/delete/ver1o0/1/)  
 
 ## Step OA18o4o0g7o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -362,7 +362,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/v1/rooms/delete/1/,対局部屋の削除
+/practice/vol1.0/rooms/delete/ver1o0/1/,OA18o4o0g7o0 練習1.0巻 対局部屋の削除1.0版 Id=1
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 
