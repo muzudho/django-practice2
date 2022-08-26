@@ -435,7 +435,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/vol1.0/vuetify/textarea1/ver1o0/,OA13o2o0g9o0 練習1.0巻 ビューティファイでテキストエリア１ 1.0版
+/practice/vol1.0/vuetify/textarea1/ver1.0/,OA13o2o0g9o0 練習1.0巻 ビューティファイでテキストエリア１ 1.0版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 
