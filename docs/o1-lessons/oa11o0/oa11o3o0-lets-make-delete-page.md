@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/prefectures/delete/ver1o0/2/) - IDは適宜変えてほしい  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1.0/prefectures/delete/ver1.0/2/) - IDは適宜変えてほしい  
 
 # 目標
 
@@ -313,7 +313,7 @@ docker-compose restart
 
 👇 IDの番号は適宜変えてほしい。  
 
-📖 [http://localhost:8000/practice/vol1o0/prefectures/delete/ver1o0/2/](http://localhost:8000/practice/vol1o0/prefectures/delete/ver1o0/2/)  
+📖 [http://localhost:8000/practice/vol1.0/prefectures/delete/ver1.0/2/](http://localhost:8000/practice/vol1.0/prefectures/delete/ver1.0/2/)  
 
 ## Step OA11o3o0g7o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 

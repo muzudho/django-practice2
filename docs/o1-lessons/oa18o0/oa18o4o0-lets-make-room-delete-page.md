@@ -1,12 +1,12 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/rooms/delete/ver1o0/1/) - 部屋IDは適宜変えてほしい  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1.0/rooms/delete/ver1.0/1/) - 部屋IDは適宜変えてほしい  
 
 # 目標
 
 （※いわゆる CRUD の D）  
 
-`http://localhost:8000/practice/vol1o0/rooms/delete/ver1o0/4/` へアクセスすると、  
+`http://localhost:8000/practice/vol1.0/rooms/delete/ver1.0/4/` へアクセスすると、  
 id が 4 の部屋を削除したい  
 
 ## 詳細
@@ -333,7 +333,7 @@ docker-compose restart
 
 👇 部屋の番号は適宜変えてほしい  
 
-📖 [http://localhost:8000/practice/vol1o0/rooms/delete/ver1o0/1/](http://localhost:8000/practice/vol1o0/rooms/delete/ver1o0/1/)  
+📖 [http://localhost:8000/practice/vol1.0/rooms/delete/ver1.0/1/](http://localhost:8000/practice/vol1.0/rooms/delete/ver1.0/1/)  
 
 ## Step OA18o4o0g7o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 

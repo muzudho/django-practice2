@@ -45,7 +45,7 @@ def render_lobby(request, lobby_tp):
         'dj_room_dic': json.dumps(room_dic),
         'dj_user_dic': json.dumps(user_dic),
         # FIXME URL を urls.py で変更しても、こちらに反映されないが、どうするか？
-        "dj_path_of_home": "/practice/vol1o0/my/",
+        "dj_path_of_home": "/practice/vol1.0/my/ver1.0/",
         "dj_path_of_rooms_read": "/practice/ver1o0/rooms/read/",
     }
 

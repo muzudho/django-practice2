@@ -132,7 +132,7 @@ class UrlsAutoGenerator:
         --------
                                                        file                           path                    name  ...         class alias  method
         0                  ../src1/project1/urls_autogen.py                            NaN                     NaN  ...           NaN   NaN     NaN
-        1  ../src1/project1/urls_practice_vol1o0_autogen.py  practice/vo1o0/hello2/ver1o0/  practice_vol1o0_hello2  ...  PageTheHello   NaN  render
+        1  ../src1/project1/urls_practice_vol1o0_autogen.py  practice/vo1o0/hello2/ver1.0/  practice_vol1o0_hello2  ...  PageTheHello   NaN  render
         """
 
         print(f"Current working directory:{os.getcwd()}")
@@ -370,7 +370,7 @@ from apps1.practice_vol1o0.views.page_the_hello.ver1o0 import PageTheHello
 
 urlpatterns = [
     # O3o1o0gA10o0 こんにちわページ
-    path('practice/vol1o0/hello2/ver1o0/', PageTheHello.render),
+    path('practice/vol1.0/hello2/ver1.0/', PageTheHello.render),
 ]
 
 # EOF O3o2o_1o0g4o0
@@ -418,7 +418,7 @@ urlpatterns.extend(urlpatterns_autogen)
 
 ## Step o3o2o_1o0g6o0 Webページにアクセスする
 
-📖 [http://localhost:8000/practice/vol1o0/hello2/ver1o0/](http://localhost:8000/practice/vol1o0/hello2/ver1o0/)  
+📖 [http://localhost:8000/practice/vol1.0/hello2/ver1.0/](http://localhost:8000/practice/vol1.0/hello2/ver1.0/)  
 
 ## トラブルシューティング
 

@@ -1,7 +1,7 @@
 # サンプルを見る
 
-📖 [この記事のゴール：ログインが必要なページ](http://localhost:8000/practice/vol1o0/login-required/ver1o0/)  
-📖 [この記事のゴール：ログアウト](http://localhost:8000/practice/vol1o0/logout/ver1o0/)  
+📖 [この記事のゴール：ログインが必要なページ](http://localhost:8000/practice/vol1.0/login-required/ver1.0/)  
+📖 [この記事のゴール：ログアウト](http://localhost:8000/practice/vol1.0/logout/ver1.0/)  
 
 # 目標
 
@@ -250,11 +250,11 @@ docker-compose restart
 👇　ログインしているときは、ログイン情報が見えます。  
 　　ログインしていないときに（ページを開いたり、画面を再更新したりすると）、ログイン画面が出ます
 
-📖 [http://localhost:8000/practice/vol1o0/login-required/ver1o0/](http://localhost:8000/practice/vol1o0/login-required/ver1o0/)  
+📖 [http://localhost:8000/practice/vol1.0/login-required/ver1.0/](http://localhost:8000/practice/vol1.0/login-required/ver1.0/)  
 
 👇 ログアウトするにはこちら  
 
-📖 [http://localhost:8000/practice/vol1o0/logout/ver1o0/](http://localhost:8000/practice/vol1o0/logout/ver1o0/)  
+📖 [http://localhost:8000/practice/vol1.0/logout/ver1.0/](http://localhost:8000/practice/vol1.0/logout/ver1.0/)  
 
 ## Step O8o2o0g6o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -282,8 +282,8 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/vol1o0/login-required/ver1o0/,ログイン必須
-/practice/vol1o0/logout/ver1o0/,ログアウト
+/practice/vol1.0/login-required/ver1.0/,ログイン必須
+/practice/vol1.0/logout/ver1.0/,ログアウト
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/rooms/ver1o0/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1.0/rooms/ver1.0/)  
 
 # 目標
 
@@ -465,7 +465,7 @@ def render_list(request, room_list_tp):
         # Vue には、 JSONオブジェクト を渡すのではなく、 JSON文字列 を渡します
         "dj_room_array": json.dumps(room_list),
         # FIXME URL を urls.py で変更しても、こちらに反映されないが、どうするか？
-        "dj_read_room_path": "/practice/vol1o0/rooms/read/ver1o0/",
+        "dj_read_room_path": "/practice/vol1.0/rooms/read/ver1.0/",
     }
     return render(request, room_list_tp, context)
 
@@ -530,7 +530,7 @@ docker-compose restart
 
 ## Step OA18o2o0g8o0 Web画面へアクセス
 
-📖 [http://localhost:8000/practice/vol1o0/rooms/ver1o0/](http://localhost:8000/practice/vol1o0/rooms/ver1o0/)  
+📖 [http://localhost:8000/practice/vol1.0/rooms/ver1.0/](http://localhost:8000/practice/vol1.0/rooms/ver1.0/)  
 
 ## Step OA18o2o0g9o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 

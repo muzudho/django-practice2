@@ -159,7 +159,7 @@ docker-compose up
                             <!--                    ========================
                                                     1
                             1. 宛先を間違えないように
-                               `http://example.com/practice/vol1o0/vuetify/desserts1-from-textarea1`
+                               `http://example.com/practice/vol1.0/vuetify/desserts1-from-textarea1/1.0/`
                                                                            ========================
                             -->
                             {% endblock form_signature %}
@@ -397,7 +397,7 @@ docker-compose restart
 
 ## Step OA13o2o0g8o0 Web画面へアクセス
 
-📖 [http://localhost:8000/practice/vol1o0/vuetify/textarea1/ver1o0/](http://localhost:8000/practice/vol1o0/vuetify/textarea1/ver1o0/)  
+📖 [http://localhost:8000/practice/vol1.0/vuetify/textarea1/ver1.0/](http://localhost:8000/practice/vol1.0/vuetify/textarea1/ver1.0/)  
 
 ## Step OA13o2o0g9o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 

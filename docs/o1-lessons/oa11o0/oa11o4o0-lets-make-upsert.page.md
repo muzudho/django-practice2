@@ -1,7 +1,7 @@
 # サンプルを見る
 
-📖 [この記事のゴール：新規作成](http://tic.warabenture.com:8000/practice/vol1o0/prefectures/create/ver1o0/)  
-📖 [この記事のゴール：更新](http://tic.warabenture.com:8000/practice/vol1o0/prefectures/update/ver1o0/4/) - IDは適宜変えてほしい  
+📖 [この記事のゴール：新規作成](http://tic.warabenture.com:8000/practice/vol1.0/prefectures/create/ver1.0/)  
+📖 [この記事のゴール：更新](http://tic.warabenture.com:8000/practice/vol1.0/prefectures/update/ver1.0/4/) - IDは適宜変えてほしい  
 
 # 目標
 
@@ -412,11 +412,11 @@ docker-compose restart
 
 👇 作成するとき、IDは付けるな  
 
-📖 [http://localhost:8000/practice/vol1o0/prefectures/create/ver1o0/](http://localhost:8000/practice/vol1o0/prefectures/create/ver1o0/)  
+📖 [http://localhost:8000/practice/vol1.0/prefectures/create/ver1.0/](http://localhost:8000/practice/vol1.0/prefectures/create/ver1.0/)  
 
 👇 更新するとき、IDを付けろ。 IDは適宜変えてほしい  
 
-📖 [http://localhost:8000/practice/vol1o0/prefectures/update/ver1o0/4/](http://localhost:8000/practice/vol1o0/prefectures/update/ver1o0/4/)  
+📖 [http://localhost:8000/practice/vol1.0/prefectures/update/ver1.0/4/](http://localhost:8000/practice/vol1.0/prefectures/update/ver1.0/4/)  
 
 ## Step OA11o4o0g8o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 

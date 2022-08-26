@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/page-the-hello/ver1o0/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1.0/page-the-hello/ver1.0/)  
 
 # 目標
 
@@ -11,7 +11,7 @@ Webサイトのページを追加したい
 以下のようなURLで表示させる  
 
 ```plain
-http://example.com/practice/vol1o0/page-the-hello/ver1o0/
+http://example.com/practice/vol1.0/page-the-hello/ver1.0/
 ------]----------]---------------------------------------
 1      2          3
 
@@ -500,7 +500,7 @@ urlpatterns = [
 
 ## Step O3o1o0gA12o0 Webページにアクセスする
 
-📖 [http://localhost:8000/practice/vol1o0/page-the-hello/ver1o0/](http://localhost:8000/practice/vol1o0/page-the-hello/ver1o0/)  
+📖 [http://localhost:8000/practice/vol1.0/page-the-hello/ver1.0/](http://localhost:8000/practice/vol1.0/page-the-hello/ver1.0/)  
 
 # 次の記事
 

@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/auto_reload/ver1o0/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1.0/auto_reload/ver1.0/)  
 
 # 目標
 
@@ -432,7 +432,7 @@ docker-compose restart
 
 ## Step OA21o1o0g8o0 Web画面へアクセス
 
-📖 [http://localhost:8000/practice/vol1o0/auto_reload/ver1o0/](http://localhost:8000/practice/vol1o0/auto_reload/ver1o0/)  
+📖 [http://localhost:8000/practice/vol1.0/auto_reload/ver1.0/](http://localhost:8000/practice/vol1.0/auto_reload/ver1.0/)  
 
 ## Step OA21o1o0g9o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 

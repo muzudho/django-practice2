@@ -16,9 +16,9 @@ class Launcher():
         #                                          ---------------------------
 
         context = {
-            "dj_path_of_page_the_hello": "/practice/vol1o0/page-the-hello/ver1o0/",
-            "dj_path_of_page_to_be_added_1": "/practice/vol1o0/page-to-be-added-1/ver1o0/",
-            "dj_path_of_page_to_be_added_2": "/practice/vol1o0/page-to-be-added-2/ver1o0/",
+            "dj_path_of_page_the_hello": "/practice/vol1.0/page-the-hello/ver1.0/",
+            "dj_path_of_page_to_be_added_1": "/practice/vol1.0/page-to-be-added-1/ver1.0/",
+            "dj_path_of_page_to_be_added_2": "/practice/vol1.0/page-to-be-added-2/ver1.0/",
         }
 
         return render(request, template_path, context)

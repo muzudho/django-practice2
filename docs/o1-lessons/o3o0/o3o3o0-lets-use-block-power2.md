@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/page-to-be-added-2/ver1o0/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1.0/page-to-be-added-2/ver1.0/)  
 
 # 目標
 
@@ -223,7 +223,7 @@ docker-compose restart
 
 ## Step O3o3o0g5o0 Webページにアクセスする
 
-📖 [http://localhost:8000/practice/vol1o0/page-to-be-added-2/ver1o0/](http://localhost:8000/practice/vol1o0/page-to-be-added-2/ver1o0/)  
+📖 [http://localhost:8000/practice/vol1.0/page-to-be-added-2/ver1.0/](http://localhost:8000/practice/vol1.0/page-to-be-added-2/ver1.0/)  
 
 # 次の記事
 

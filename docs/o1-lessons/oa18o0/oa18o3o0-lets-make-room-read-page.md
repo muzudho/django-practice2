@@ -1,12 +1,12 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/rooms/read/ver1o0/1/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1.0/rooms/read/ver1.0/1/)  
 
 # 目標
 
 （※いわゆる CRUD の R）  
 
-`http://localhost:8000/practice/vol1o0/rooms/read/ver1o0/1/` へアクセスすると、  
+`http://localhost:8000/practice/vol1.0/rooms/read/ver1.0/1/` へアクセスすると、  
 id が 1 の部屋を表示したい  
 
 ## 詳細
@@ -492,7 +492,7 @@ docker-compose restart
 
 👇 部屋番号は適宜変えてほしい  
 
-📖 [http://localhost:8000/practice/vol1o0/rooms/read/ver1o0/1/](http://localhost:8000/practice/vol1o0/rooms/read/ver1o0/1/)  
+📖 [http://localhost:8000/practice/vol1.0/rooms/read/ver1.0/1/](http://localhost:8000/practice/vol1.0/rooms/read/ver1.0/1/)  
 
 ## Step OA18o3o0g7o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 

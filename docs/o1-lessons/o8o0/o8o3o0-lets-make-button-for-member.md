@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/buttom_for_member/ver1o0/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1.0/buttom_for_member/ver1.0/)  
 
 # 目標
 
@@ -216,10 +216,10 @@ class ButtonForMember():
     #                           -
 
     # 既存のログイン必須ページ
-    _path_of_login_required = "/practice/vol1o0/login-required/ver1o0/"
+    _path_of_login_required = "/practice/vol1.0/login-required/ver1.0/"
     #                          ---------------------------------------
     #                          1
-    # 1. `http://example.com/practice/vol1o0/login-required/ver1o0/`
+    # 1. `http://example.com/practice/vol1.0/login-required/ver1.0/`
     #                       ---------------------------
 
     # 既存のログイン ページ
@@ -331,7 +331,7 @@ Merged to O8o3o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1o0/buttom_for_member/ver1o0/,,"O8o3o0g5o1o0 会員にだけ見えるボタンを説明するページ",apps1.practice_vol1o0.views.button_for_member.ver1o0,ButtonForMember,,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/buttom_for_member/ver1.0/,,"O8o3o0g5o1o0 会員にだけ見えるボタンを説明するページ",apps1.practice_vol1o0.views.button_for_member.ver1o0,ButtonForMember,,render
 ```
 
 ## Step O8o3o0g5o2o0 ルート編集 - コマンド打鍵
@@ -351,7 +351,7 @@ docker-compose restart
 
 ## Step O8o3o0g6o0 Web画面へアクセス
 
-📖 [http://localhost:8000/practice/vol1o0/buttom_for_member/ver1o0/](http://localhost:8000/practice/vol1o0/buttom_for_member/ver1o0/)  
+📖 [http://localhost:8000/practice/vol1.0/buttom_for_member/ver1.0/](http://localhost:8000/practice/vol1.0/buttom_for_member/ver1.0/)  
 
 ## Step O8o3o0g7o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -380,7 +380,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/vol1o0/buttom_for_member/ver1o0/,会員にだけ見えるボタンを説明するページ
+/practice/vol1.0/buttom_for_member/ver1.0/,会員にだけ見えるボタンを説明するページ
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

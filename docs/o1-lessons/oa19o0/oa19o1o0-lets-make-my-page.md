@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/my/ver1o0/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1.0/my/ver1.0/)  
 
 # 目標
 
@@ -304,10 +304,10 @@ def render_my(request, my_page_tp):
         # "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
         'dj_user': request.user,
 
-        'dj_lobbyPath': '/practice/vol1o0/lobby/ver1o0/',
+        'dj_lobbyPath': '/practice/vol1.0/lobby/ver1.0/',
         #                ------------------------------
         #                1
-        # 1. http://example.com/practice/vol1o0/lobby/ver1o0/
+        # 1. http://example.com/practice/vol1.0/lobby/ver1.0/
         #                      ------------------------------
 
         'dj_ticTacToePath': '/tic-tac-toe/vol2.0/ver1.0/match-application/',
@@ -385,7 +385,7 @@ docker-compose restart
 
 ## Step OA19o1o0g6o0 Web画面へアクセス
 
-📖 [http://localhost:8000/practice/vol1o0/my/ver1o0/](http://localhost:8000/practice/vol1o0/my/ver1o0/)  
+📖 [http://localhost:8000/practice/vol1.0/my/ver1.0/](http://localhost:8000/practice/vol1.0/my/ver1.0/)  
 
 ## Step OA19o1o0g7o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 

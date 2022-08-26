@@ -1,14 +1,14 @@
 # サンプルを見る
 
-📖 [この記事のゴール：新規作成](http://tic.warabenture.com:8000/practice/vol1o0/rooms/upsert/ver1o0/)  
-📖 [この記事のゴール：更新](http://tic.warabenture.com:8000/practice/vol1o0/rooms/upsert/ver1o0/5/) - 部屋ID は適宜変えてほしい  
+📖 [この記事のゴール：新規作成](http://tic.warabenture.com:8000/practice/vol1.0/rooms/upsert/ver1.0/)  
+📖 [この記事のゴール：更新](http://tic.warabenture.com:8000/practice/vol1.0/rooms/upsert/ver1.0/5/) - 部屋ID は適宜変えてほしい  
 
 # 目標
 
 （※いわゆる CRUD の C と U）  
 
-`http://localhost:8000/practice/vol1o0/rooms/upsert/ver1o0/` へアクセスすると、部屋の新規作成を、  
-`http://localhost:8000/practice/vol1o0/rooms/upsert/ver1o0/4/` へアクセスすると、主キーが 4 の部屋の更新をしたい  
+`http://localhost:8000/practice/vol1.0/rooms/upsert/ver1.0/` へアクセスすると、部屋の新規作成を、  
+`http://localhost:8000/practice/vol1.0/rooms/upsert/ver1.0/4/` へアクセスすると、主キーが 4 の部屋の更新をしたい  
 
 ## 詳細
 
@@ -439,11 +439,11 @@ docker-compose restart
 
 👇 作成するとき、部屋ID は付けるな  
 
-📖 [http://localhost:8000/practice/vol1o0/rooms/upsert/ver1o0/](http://localhost:8000/practice/vol1o0/rooms/upsert/ver1o0/)  
+📖 [http://localhost:8000/practice/vol1.0/rooms/upsert/ver1.0/](http://localhost:8000/practice/vol1.0/rooms/upsert/ver1.0/)  
 
 👇 更新するとき、部屋ID を付けろ。 部屋ID は適宜変えてほしい  
 
-📖 [http://localhost:8000/practice/vol1o0/rooms/upsert/ver1o0/5/](http://localhost:8000/practice/vol1o0/rooms/upsert/ver1o0/5/)  
+📖 [http://localhost:8000/practice/vol1.0/rooms/upsert/ver1.0/5/](http://localhost:8000/practice/vol1.0/rooms/upsert/ver1.0/5/)  
 
 ## Step OA18o5o0g8o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 

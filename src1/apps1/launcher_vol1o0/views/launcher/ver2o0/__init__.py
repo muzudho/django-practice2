@@ -29,9 +29,9 @@ class Launcher():
         # Example
         # -------
         #    path                                         label
-        # 0  /practice/vol1o0/page-the-hello/ver1o0/      こんにちわページ
-        # 1  /practice/vol1o0/page-to-be-added-1/ver1o0/  １回追加されたページ
-        # 2  /practice/vol1o0/page-to-be-added-2/ver1o0/  ２回追加されたページ
+        # 0  /practice/vol1.0/page-the-hello/ver1.0/      こんにちわページ
+        # 1  /practice/vol1.0/page-to-be-added-1/ver1.0/  １回追加されたページ
+        # 2  /practice/vol1.0/page-to-be-added-2/ver1.0/  ２回追加されたページ
 
         # print(df.columns)
         #

@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/lobby/ver1o0/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1.0/lobby/ver1.0/)  
 
 # 目標
 
@@ -487,7 +487,7 @@ def render_lobby(request, lobby_tp):
         'dj_room_dic': json.dumps(room_dic),
         'dj_user_dic': json.dumps(user_dic),
         # FIXME URL を urls.py で変更しても、こちらに反映されないが、どうするか？
-        "dj_path_of_home": "/practice/vol1o0/my/",
+        "dj_path_of_home": "/practice/vol1.0/my/ver1.0/",
         "dj_path_of_rooms_read": "/practice/ver1o0/rooms/read/",
     }
 
@@ -552,7 +552,7 @@ docker-compose restart
 
 ## Step OA20o1o0g8o0 Web画面へアクセス
 
-📖 [http://localhost:8000/practice/vol1o0/lobby/ver1o0/](http://localhost:8000/practice/vol1o0/lobby/ver1o0/)  
+📖 [http://localhost:8000/practice/vol1.0/lobby/ver1.0/](http://localhost:8000/practice/vol1.0/lobby/ver1.0/)  
 
 ## Step OA20o1o0g9o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 

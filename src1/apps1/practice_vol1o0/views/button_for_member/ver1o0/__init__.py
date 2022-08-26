@@ -18,10 +18,10 @@ class ButtonForMember():
     #                           -
 
     # 既存のログイン必須ページ
-    _path_of_login_required = "/practice/vol1o0/login-required/ver1o0/"
+    _path_of_login_required = "/practice/vol1.0/login-required/ver1.0/"
     #                          ---------------------------------------
     #                          1
-    # 1. `http://example.com/practice/vol1o0/login-required/ver1o0/`
+    # 1. `http://example.com/practice/vol1.0/login-required/ver1.0/`
     #                       ---------------------------
 
     # 既存のログイン ページ
