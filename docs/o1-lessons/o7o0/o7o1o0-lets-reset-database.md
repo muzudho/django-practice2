@@ -117,7 +117,9 @@ docker-compose run --rm web python3 manage.py migrate
 
 ## Step O7o1o0g7o0 やりなおし
 
-Super-user など 今までにデータベースに登録した内容は消えているので、連載をやり直してほしい  
+今までにデータベースに登録した内容は消えているので、連載をやり直してほしい  
+
+* Super-user の作成
 
 # 次の記事
 

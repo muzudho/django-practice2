@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1/vuetify/textarea1-to-model/ver1o0/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1.0/vuetify/textarea1-to-model/ver1.0/)  
 
 # 目標
 
@@ -575,7 +575,7 @@ docker-compose restart
 
 👇 1件送信してほしい  
 
-📖 [http://localhost:8000/practice/vol1/vuetify/textarea1-to-model/ver1o0](http://localhost:8000/practice/vol1/vuetify/textarea1-to-model/ver1o0)  
+📖 [http://localhost:8000/practice/vol1.0/vuetify/textarea1-to-model/ver1.0/](http://localhost:8000/practice/vol1.0/vuetify/textarea1-to-model/ver1.0/)  
 
 ## Step OA13o4o0gA15o0 スーパーユーザーでWebの管理画面へアクセス
 
