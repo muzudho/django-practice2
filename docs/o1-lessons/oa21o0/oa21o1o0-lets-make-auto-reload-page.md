@@ -467,7 +467,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/vol1.0/auto_reload/ver1o0/,OA21o1o0g9o0 練習1.0巻 自動再読込 1.0版
+/practice/vol1.0/auto_reload/ver1.0/,OA21o1o0g9o0 練習1.0巻 自動再読込ページ1.0版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 
