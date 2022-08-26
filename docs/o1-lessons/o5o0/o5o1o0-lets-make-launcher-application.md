@@ -500,7 +500,7 @@ Merged to O5o1o0gA11o1o0
 ...略...
 
 
-../src1/project1/urls_launcher_vol1o0_autogen.py,launcher/vol1.0/finished-lesson/ver1.0/,,"O5o1o0gA11o1o0 ランチャー1.0巻 1.0版",apps1.launcher_vol1o0.views.finished_lesson.ver1o0,Launcher,LauncherView1o0g1o0,render
+../src1/project1/urls_launcher_vol1o0_autogen.py,launcher/vol1.0/finished-lesson/ver1.0/,,"O5o1o0gA11o1o0 ランチャー1.0巻 終了したレッスン1.0版",apps1.launcher_vol1o0.views.finished_lesson.ver1o0,Launcher,LauncherView1o0g1o0,render
 ```
 
 ## Step O5o1o0gA11o2o0 ルート編集 - コマンド打鍵
