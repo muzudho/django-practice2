@@ -331,7 +331,7 @@ Merged to O8o3o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/buttom_for_member/ver1.0/,,"O8o3o0g5o1o0 会員にだけ見えるボタンを説明するページ",apps1.practice_vol1o0.views.button_for_member.ver1o0,ButtonForMember,,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/buttom_for_member/ver1.0/,,"O8o3o0g5o1o0 練習1.0巻 会員にだけ見えるボタンを説明するページ1.0版",apps1.practice_vol1o0.views.button_for_member.ver1o0,ButtonForMember,,render
 ```
 
 ## Step O8o3o0g5o2o0 ルート編集 - コマンド打鍵
