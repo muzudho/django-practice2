@@ -8,12 +8,12 @@
 #}
 
 {% block form_signature %}
-    <form method="POST" action="save-desserts1-from-textarea1">
-        <!--                    =============================
+    <form method="POST" action="{% url 'practice1o0_vuetify_save_desserts_from_textarea1o0' %}">
+        <!--                    ==============================================================
                                 1
-        1. 宛先を間違えないように
-            `http://example.com/practice/vuetify/save-desserts1-from-textarea1`
-                                                 =============================
+        1. urls_*.py ファイルで pathへ指定したname属性
+            `http://example.com/{url}`
+                                =====
         -->
 {% endblock form_signature %}
 <!-- EOF OA13o4o0gA10o0 -->

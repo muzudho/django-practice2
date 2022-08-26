@@ -356,12 +356,12 @@ Iron (%):
 #}
 
 {% block form_signature %}
-    <form method="POST" action="save-desserts1-from-textarea1">
-        <!--                    =============================
+    <form method="POST" action="{% url 'practice1o0_vuetify_save_desserts_from_textarea1o0' %}">
+        <!--                    ==============================================================
                                 1
-        1. 宛先を間違えないように
-            `http://example.com/practice/vuetify/save-desserts1-from-textarea1`
-                                                 =============================
+        1. urls_*.py ファイルで pathへ指定したname属性
+            `http://example.com/{url}`
+                                =====
         -->
 {% endblock form_signature %}
 <!-- EOF OA13o4o0gA10o0 -->
@@ -553,7 +553,7 @@ class VuetifyV(object):
 
 
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/textarea1-to-model/ver1.0/,,"OA13o4o0gA13o1o0 練習1.0巻 ビューティファイでテキストエリア入力から保存まで . 入力1.0版",apps1.practice_vol1o0.views.vuetifies,VuetifyV,,render_textarea1_to_model
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/save-desserts1-from-textarea1/ver1.0/,,"OA13o4o0gA13o1o0 練習1.0巻 ビューティファイでテキストエリア入力から保存まで . 保存1.0版",apps1.practice_vol1o0.views.vuetifies,VuetifyV,,render_save_result_of_desserts1_from_textarea1
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/save-desserts-from-textarea/ver1.0/,,"OA13o4o0gA13o1o0 練習1.0巻 ビューティファイでテキストエリア入力から保存まで . 保存1.0版",apps1.practice_vol1o0.views.vuetifies,VuetifyV,,render_save_result_of_desserts1_from_textarea1
 ```
 
 ## Step OA13o4o0gA13o2o0 ルート編集 - コマンド打鍵

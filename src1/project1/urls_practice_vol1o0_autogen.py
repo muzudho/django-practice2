@@ -99,7 +99,7 @@ urlpatterns = [
     path('practice/vol1.0/vuetify/textarea1/ver1.0/', VuetifyV.render_textarea1),
 
     # OA13o2o0g7o1o0 練習1.0巻 ビューティファイでデザート１ . テキストエリア１から 1.0版
-    path('practice/vol1.0/vuetify/desserts1-from-textarea1/ver1.0/', VuetifyV.render_desserts1_from_textarea1),
+    path('practice/vol1.0/vuetify/desserts-from-textarea/ver1.0/', VuetifyV.render_desserts1_from_textarea1, name='practice1o0_vuetify_desserts_from_textarea1o0'),
 
     # OA13o3o0g5o1o0 練習1.0巻 ビューティファイでJSON形式のデザート１ 1.0版
     path('practice/vol1.0/vuetify/desserts1-as-json/ver1.0/', VuetifyV.render_desserts1_as_json),
@@ -108,7 +108,7 @@ urlpatterns = [
     path('practice/vol1.0/vuetify/textarea1-to-model/ver1.0/', VuetifyV.render_textarea1_to_model),
 
     # OA13o4o0gA13o1o0 練習1.0巻 ビューティファイでテキストエリア入力から保存まで . 保存1.0版
-    path('practice/vol1.0/vuetify/save-desserts1-from-textarea1/ver1.0/', VuetifyV.render_save_result_of_desserts1_from_textarea1),
+    path('practice/vol1.0/vuetify/save-desserts-from-textarea/ver1.0/', VuetifyV.render_save_result_of_desserts1_from_textarea1, name='practice1o0_vuetify_save_desserts_from_textarea1o0'),
 
     # OA18o2o0g7o1o0 練習1.0巻 対局部屋の一覧1.0版
     path('practice/vol1.0/rooms/ver1.0/', RoomVV1o0.render_list, name='practice_vol1o0_rooms'),
