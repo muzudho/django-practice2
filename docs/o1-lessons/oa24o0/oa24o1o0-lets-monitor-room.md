@@ -419,7 +419,7 @@ websocket_urlpatterns_merged.extend(
 #                        ^three
 ```
 
-## Step OA24o1o0g6o0 対局申込ビュー作成 - match_application/v3o0 フォルダー
+## Step OA24o1o0g6o0 対局申込ビュー作成 - match_application/ver3o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -505,7 +505,7 @@ class MatchApplicationV():
 # EOF OA24o1o0g6o0
 ```
 
-## Step OA24o1o0g7o0 対局申込ビュー作成 - playing/v3o0 フォルダー
+## Step OA24o1o0g7o0 対局申込ビュー作成 - playing/ver3o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 

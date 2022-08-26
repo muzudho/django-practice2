@@ -129,7 +129,7 @@ docker-compose up
 </html>
 ```
 
-## Step O3o2o0g3o0 画面作成 - page_to_be_added/v2o0.html.txt ファイル
+## Step O3o2o0g3o0 画面作成 - page_to_be_added/ver2o0.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい。  
 自動フォーマットされてくないので、拡張子をテキストファイルにしておく  
@@ -184,7 +184,7 @@ docker-compose up
 <!-- EOF O3o2o0g3o0 -->
 ```
 
-## Step O3o2o0g4o0 ビュー作成 - page_to_be_added/v2o0 フォルダー
+## Step O3o2o0g4o0 ビュー作成 - page_to_be_added/ver2o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい
 
@@ -217,11 +217,11 @@ class PageToBeAdded():
     def render(request):
         """描画"""
 
-        template_path = 'practice_vol1o0/page_to_be_added/v2o0.html.txt'
+        template_path = 'practice_vol1o0/page_to_be_added/ver2o0.html.txt'
         #                                                  ^two
         #                ----------------------------------------------
         #                1
-        # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/page_to_be_added/v2o0.html.txt` を取得
+        # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/page_to_be_added/ver2o0.html.txt` を取得
         #                                          ----------------------------------------------
 
         context = {}

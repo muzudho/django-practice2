@@ -111,7 +111,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA21o2o0g2o0 機能強化 - auto_reload/v2o0.js ファイル
+## Step OA21o2o0g2o0 機能強化 - auto_reload/ver2o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -183,10 +183,10 @@ function startReloadingAutomatically(intervalMilliseconds) {
 
 {% block script_src %}
 <script src="{% static 'practice_vol1o0/clock/ver1o0.js' %}"></script>
-<script src="{% static 'practice_vol1o0/auto_reload/v2o0.js' %}"></script>
+<script src="{% static 'practice_vol1o0/auto_reload/ver2o0.js' %}"></script>
 <!--                                                 ^two
                 ===========================================
-    `src1/apps1/practice_vol1o0/static/practice_vol1o0/auto_reload/v2o0.js`
+    `src1/apps1/practice_vol1o0/static/practice_vol1o0/auto_reload/ver2o0.js`
                                 ==========================================
 -->
 {% endblock script_src %}

@@ -10,11 +10,11 @@
 
 {% block script_src %}
 <script src="{% static 'practice_vol1o0/clock/ver1o0.js' %}"></script>
-<script src="{% static 'practice_vol1o0/auto_reload/v2o0.js' %}"></script>
-<!--                                                 ^two
-                ===========================================
-    `src1/apps1/practice_vol1o0/static/practice_vol1o0/auto_reload/v2o0.js`
-                                ==========================================
+<script src="{% static 'practice_vol1o0/auto_reload/ver2o0.js' %}"></script>
+<!--                                                   ^two
+                =============================================
+    `src1/apps1/practice_vol1o0/static/practice_vol1o0/auto_reload/ver2o0.js`
+                                ============================================
 -->
 {% endblock script_src %}
 

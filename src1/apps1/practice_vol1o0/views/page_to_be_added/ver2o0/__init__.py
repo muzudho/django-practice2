@@ -9,12 +9,12 @@ class PageToBeAdded():
     def render(request):
         """描画"""
 
-        template_path = 'practice_vol1o0/page_to_be_added/v2o0.html.txt'
-        #                                                  ^two
-        #                ----------------------------------------------
+        template_path = 'practice_vol1o0/page_to_be_added/ver2o0.html.txt'
+        #                                                    ^two
+        #                ------------------------------------------------
         #                1
-        # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/page_to_be_added/v2o0.html.txt` を取得
-        #                                          ----------------------------------------------
+        # 1. `src1/apps1/practice_vol1o0/templates/practice_vol1o0/page_to_be_added/ver2o0.html.txt` を取得
+        #                                          ------------------------------------------------
 
         context = {}
         return render(request, template_path, context)
