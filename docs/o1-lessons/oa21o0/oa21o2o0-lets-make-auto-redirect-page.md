@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1o0/auto_redirect/ver1o0/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1.0/auto-redirect/ver1.0/)  
 
 # 目標
 
@@ -376,7 +376,7 @@ Merged to OA21o2o0g6o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/auto_redirect/ver1.0/,,"OA21o2o0g6o1o0 練習1.0巻 自動リダイレクトページ 1.0版",apps1.practice_vol1o0.views.auto_redirect.ver1o0,AutoRedirectV,,render_auto_redirect
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/auto-redirect/ver1.0/,,"OA21o2o0g6o1o0 練習1.0巻 自動リダイレクトページ 1.0版",apps1.practice_vol1o0.views.auto_redirect.ver1o0,AutoRedirectV,,render_auto_redirect
 ```
 
 ## Step OA21o1o0g7o2o0 ルート編集 - コマンド打鍵
@@ -396,7 +396,7 @@ docker-compose restart
 
 ## Step OA21o2o0g7o0 Web画面へアクセス
 
-📖 [http://localhost:8000/practice/vol1o0/auto_redirect/ver1o0/](http://localhost:8000/practice/vol1o0/auto_redirect/ver1o0/)  
+📖 [http://localhost:8000/practice/vol1.0/auto-redirect/ver1.0/](http://localhost:8000/practice/vol1.0/auto-redirect/ver1.0/)  
 
 ## Step OA21o2o0g8o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
