@@ -3,11 +3,11 @@
 class MatchApplicationV():
     """OA16o1o0gA13o0 対局申込ビュー"""
 
-    playing_web_path = "/tic-tac-toe/vol1.0/ver1.0/playing/{0}/?&mypiece={1}"
+    playing_web_path = "/tic-tac-toe/vol1.0/playing/ver1.0/{0}/?&mypiece={1}"
     #                                   ^one
     #                   ----------------------------------------------------
     #                   1
-    # 1. `http://example.com:8000/tic-tac-toe/vol1.0/ver1.0/playing/Elephant/?&mypiece=X`
+    # 1. `http://example.com:8000/tic-tac-toe/vol1.0/playing/ver1.0/Elephant/?&mypiece=X`
     #                            -------------------------------------------------------
 
     template_path = "tic_tac_toe_vol1o0/match_application/ver1o0.html"

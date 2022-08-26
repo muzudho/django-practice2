@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/vol1.0/ver1.0/match-application/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/vol1.0/match-application/ver1.0/)  
 
 # 目標
 
@@ -845,11 +845,11 @@ connect();
 class MatchApplicationV():
     """OA16o1o0gA13o0 対局申込ビュー"""
 
-    playing_web_path = "/tic-tac-toe/vol1.0/ver1.0/playing/{0}/?&mypiece={1}"
+    playing_web_path = "/tic-tac-toe/vol1.0/playing/ver1.0/{0}/?&mypiece={1}"
     #                                   ^one
     #                   ----------------------------------------------------
     #                   1
-    # 1. `http://example.com:8000/tic-tac-toe/vol1.0/ver1.0/playing/Elephant/?&mypiece=X`
+    # 1. `http://example.com:8000/tic-tac-toe/vol1.0/playing/ver1.0/Elephant/?&mypiece=X`
     #                            -------------------------------------------------------
 
     template_path = "tic_tac_toe_vol1o0/match_application/ver1o0.html"
@@ -1134,8 +1134,8 @@ Merged to OA16o1o0gA17o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_vol1o0_autogen.py,tic-tac-toe/vol1.0/ver1.0/match-application/,,"OA16o1o0gA17o1o0 〇×ゲーム1.0巻 1.0版 対局申込",apps1.tic_tac_toe_vol1o0.views.match_application.v1o0,MatchApplicationV,,render
-../src1/project1/urls_tic_tac_toe_vol1o0_autogen.py,tic-tac-toe/vol1.0/ver1.0/playing/<str:room_name>/,,"OA16o1o0gA17o1o0 〇×ゲーム1.0巻 1.0版 対局中",apps1.tic_tac_toe_vol1o0.views.playing.v1o0,PlayingV,,render
+../src1/project1/urls_tic_tac_toe_vol1o0_autogen.py,tic-tac-toe/vol1.0/match-application/ver1.0/,,"OA16o1o0gA17o1o0 〇×ゲーム1.0巻 1.0版 対局申込",apps1.tic_tac_toe_vol1o0.views.match_application.v1o0,MatchApplicationV,,render
+../src1/project1/urls_tic_tac_toe_vol1o0_autogen.py,tic-tac-toe/vol1.0/playing/ver1.0/<str:room_name>/,,"OA16o1o0gA17o1o0 〇×ゲーム1.0巻 1.0版 対局中",apps1.tic_tac_toe_vol1o0.views.playing.v1o0,PlayingV,,render
 ```
 
 ## Step OA16o1o0gA17o2o0 ルート編集 - コマンド打鍵
@@ -1541,7 +1541,7 @@ TEMPLATES = [
 
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでください  
 
-📖 [http://localhost:8000/tic-tac-toe/vol1.0/ver1.0/match-application/](http://localhost:8000/tic-tac-toe/vol1.0/ver1.0/match-application/)  
+📖 [http://localhost:8000/tic-tac-toe/vol1.0/match-application/ver1.0/](http://localhost:8000/tic-tac-toe/vol1.0/match-application/ver1.0/)  
 
 ## Step OA16o1o0gA24o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -1596,7 +1596,7 @@ TEMPLATES = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/tic-tac-toe/vol1.0/ver1.0/match-application/,〇×ゲーム1.0巻 1.0版
+/tic-tac-toe/vol1.0/match-application/ver1.0/,〇×ゲーム1.0巻 1.0版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 
