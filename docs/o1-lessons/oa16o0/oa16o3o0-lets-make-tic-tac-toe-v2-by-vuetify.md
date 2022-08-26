@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/vol2.0/ver1.0/match-application/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/vol2.0/match-application/ver1.0/)  
 
 # 目標
 
@@ -1368,11 +1368,11 @@ class MatchApplicationV():
         ]),
     }
 
-    playing_web_path = "/tic-tac-toe/vol2.0/ver1.0/playing/{0}/?&myturn={1}"
+    playing_web_path = "/tic-tac-toe/vol2.0/playing/ver1.0/{0}/?&myturn={1}"
     #                                   ^ two
     #                   ---------------------------------------------------
     #                   1
-    # 1. `http://example.com:8000/tic-tac-toe/vol2.0/ver1.0/playing/Elephant/?&myturn=X`
+    # 1. `http://example.com:8000/tic-tac-toe/vol2.0/playing/ver1.0/Elephant/?&myturn=X`
     #                            ------------------------------------------------------
 
     template_path = "tic_tac_toe_vol2o0/gui/match_application/ver1o0.html"
@@ -1717,8 +1717,8 @@ Merged to OA16o3o0gA15o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_vol2o0_autogen.py,tic-tac-toe/vol2.0/ver1.0/match-application/,,"OA16o3o0gA15o1o0 〇×ゲーム2.0巻 1.0版 対局申込",apps1.tic_tac_toe_vol2o0.views.gui.match_application.v1o0,MatchApplicationV,,render
-../src1/project1/urls_tic_tac_toe_vol2o0_autogen.py,tic-tac-toe/vol2.0/ver1.0/playing/<str:kw_room_name>/,,"OA16o3o0gA15o1o0 〇×ゲーム2.0巻 1.0版 対局中",apps1.tic_tac_toe_vol2o0.views.gui.playing.v1o0,PlayingV,,render
+../src1/project1/urls_tic_tac_toe_vol2o0_autogen.py,tic-tac-toe/vol2.0/match-application/ver1.0/,,"OA16o3o0gA15o1o0 〇×ゲーム2.0巻 1.0版 対局申込",apps1.tic_tac_toe_vol2o0.views.gui.match_application.v1o0,MatchApplicationV,,render
+../src1/project1/urls_tic_tac_toe_vol2o0_autogen.py,tic-tac-toe/vol2.0/playing/ver1.0/<str:kw_room_name>/,,"OA16o3o0gA15o1o0 〇×ゲーム2.0巻 1.0版 対局中",apps1.tic_tac_toe_vol2o0.views.gui.playing.v1o0,PlayingV,,render
 ```
 
 ## Step OA16o3o_2o0g5o2o0 ルート編集 - コマンド打鍵
@@ -1904,7 +1904,7 @@ websocket_urlpatterns_merged.extend(
 
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでください  
 
-📖 [http://localhost:8000/tic-tac-toe/vol2.0/ver1.0/match-application/](http://localhost:8000/tic-tac-toe/vol2.0/ver1.0/match-application/)  
+📖 [http://localhost:8000/tic-tac-toe/vol2.0/match-application/ver1.0/](http://localhost:8000/tic-tac-toe/vol2.0/match-application/ver1.0/)  
 
 ## Step OA16o3o0gA19o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -1959,7 +1959,7 @@ websocket_urlpatterns_merged.extend(
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/tic-tac-toe/vol2.0/ver1.0/match-application/,〇×ゲーム2.0巻 1.0版 対局申込
+/tic-tac-toe/vol2.0/match-application/ver1.0/,〇×ゲーム2.0巻 1.0版 対局申込
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 

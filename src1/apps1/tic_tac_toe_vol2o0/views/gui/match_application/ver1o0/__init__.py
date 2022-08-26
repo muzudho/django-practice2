@@ -18,11 +18,11 @@ class MatchApplicationV():
         ]),
     }
 
-    playing_web_path = "/tic-tac-toe/vol2.0/ver1.0/playing/{0}/?&myturn={1}"
+    playing_web_path = "/tic-tac-toe/vol2.0/playing/ver1.0/{0}/?&myturn={1}"
     #                                   ^ two
     #                   ---------------------------------------------------
     #                   1
-    # 1. `http://example.com:8000/tic-tac-toe/vol2.0/ver1.0/playing/Elephant/?&myturn=X`
+    # 1. `http://example.com:8000/tic-tac-toe/vol2.0/playing/ver1.0/Elephant/?&myturn=X`
     #                            ------------------------------------------------------
 
     template_path = "tic_tac_toe_vol2o0/gui/match_application/ver1o0.html"

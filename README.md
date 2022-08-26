@@ -6,7 +6,7 @@ http://localhost:8000/
 
 本番環境
 
-http://tic.warabenture.com:8000/tic-tac-toe/vol2.0/ver1.0/match-application/
+http://tic.warabenture.com:8000/tic-tac-toe/vol2.0/match-application/ver1.0/
 
 ## メモ
 

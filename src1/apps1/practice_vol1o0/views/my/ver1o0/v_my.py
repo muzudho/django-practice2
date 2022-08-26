@@ -22,10 +22,10 @@ def render_my(request, my_page_tp):
         # 1. http://example.com/practice/vol1.0/lobby/ver1.0/
         #                      ------------------------------
 
-        'dj_ticTacToePath': '/tic-tac-toe/vol2.0/ver1.0/match-application/',
+        'dj_ticTacToePath': '/tic-tac-toe/vol2.0/match-application/ver1.0/',
         #                    ---------------------------------------------
         #                    1
-        # 1. http://example.com/tic-tac-toe/vol2.0/ver1.0/match-application/
+        # 1. http://example.com/tic-tac-toe/vol2.0/match-application/ver1.0/
         #                      ---------------------------------------------
 
         'dj_loginPath': '/accounts/vol1.0/login/',
