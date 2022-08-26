@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/vol2.0/ver1.0/engine-manual/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/tic-tac-toe/vol2.0/engine-manual/ver1.0/)  
 
 # 目標
 
@@ -1792,7 +1792,7 @@ Merged to OA16o2o0gA16o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_vol2o0_autogen.py,tic-tac-toe/vol2.0/ver1.0/engine-manual/,,"OA16o2o0gA16o1o0 〇×ゲーム2.0巻 1.0版 思考エンジン手動",apps1.tic_tac_toe_vol2o0.views.think.engine_manual.v1o0,EngineManual,,render
+../src1/project1/urls_tic_tac_toe_vol2o0_autogen.py,tic-tac-toe/vol2.0/engine-manual/ver1.0/,,"OA16o2o0gA16o1o0 〇×ゲーム2.0巻 1.0版 思考エンジン手動",apps1.tic_tac_toe_vol2o0.views.think.engine_manual.v1o0,EngineManual,,render
 ```
 
 ## Step OA16o2o0gA16o2o0 ルート編集 - コマンド打鍵
@@ -1878,7 +1878,7 @@ urlpatterns = [
 
 ## Step OA16o2o0gA18o0 Web画面へアクセス
 
-📖 [http://localhost:8000/tic-tac-toe/vol2.0/ver1.0/engine-manual/](http://localhost:8000/tic-tac-toe/vol2.0/ver1.0/engine-manual/)  
+📖 [http://localhost:8000/tic-tac-toe/vol2.0/engine-manual/ver1.0/](http://localhost:8000/tic-tac-toe/vol2.0/engine-manual/ver1.0/)  
 
 ## Step OA16o2o0gA19o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
@@ -1932,7 +1932,7 @@ urlpatterns = [
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/tic-tac-toe/vol2.0/ver1.0/engine-manual/,〇×ゲーム2.0巻 1.0版 思考エンジン手動テスト
+/tic-tac-toe/vol2.0/engine-manual/ver1.0/,〇×ゲーム2.0巻 1.0版 思考エンジン手動テスト
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 
