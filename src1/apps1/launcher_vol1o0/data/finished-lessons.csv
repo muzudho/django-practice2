@@ -1,45 +1,45 @@
 path,label
-/launcher/vol1.0/finished-lesson/ver1.0/,ランチャー1.0巻 1.0版
-/,ポータル（ランチャー1.0巻 2.0版）
-/admin,管理画面
-/practice/vol1.0/page-the-hello/ver1o0/,こんにちわページ
-/practice/vol1.0/page-to-be-added-1/ver1o0/,１回追加されたページ
-/practice/vol1.0/page-to-be-added-2/ver1o0/,２回追加されたページ
-/accounts/vol1.0/signup/,アカウント1.0巻 サインアップ
-/accounts/vol1.0/logout/,アカウント1.0巻 サインアウト
-/accounts/vol1.0/login/,アカウント1.0巻 ログイン（ユーザー認証）
-/practice/vol1.0/login-required/ver1o0/,ログイン必須
-/practice/vol1.0/logout/ver1o0/,ログアウト
-/practice/vol1.0/buttom_for_member/ver1o0/,会員にだけ見えるボタンを説明するページ
-/practice/vol1.0/user-list/ver1o0/,O9o1o0g9o0 練習1.0巻 会員一覧1.0版
-/practice/vol1.0/extends-user-list/ver1o0/,O9o2o0gA16o0 （拡張済）会員一覧1.0版
-/practice/vol1.0/active-user-list/ver1o0/,O9o3o0g9o0 練習1.0巻 アクティブユーザー一覧1.0版
-/practice/vol1.0/from-object-to-json-str/ver1o0/,OA10o2o0g8o0 練習1.0巻 モデルをダンプ出力する1.0版
-/practice/vol1.0/prefectures/ver1o0/,OA11o1o0g7o0 練習1.0巻 都道府県の一覧1.0版
-/practice/vol1.0/prefectures/read/ver1o0/1/,OA11o2o0g7o0 練習1.0巻 都道府県の詳細1.0版 Id=1
-/practice/vol1.0/prefectures/delete/ver1o0/2/,OA11o3o0g7o0 練習1.0巻 都道府県の削除1.0版 Id=2
-/practice/vol1.0/prefectures/create/ver1o0/,OA11o4o0g8o0 練習1.0巻 都道府県の新規作成1.0版
-/practice/vol1.0/prefectures/update/ver1o0/4/,OA11o4o0g8o0 練習1.0巻 都道府県の更新1.0版 id=4
-/practice/vol1.0/vuetify/hello1/ver1o0/,OA12o1o0g7o0 練習1.0巻 ビューティファイでハロー 1.0版
-/practice/vol1.0/vuetify/data-table1/ver1o0/,OA12o2o0g7o0 練習1.0巻 ビューティファイでデータテーブル１ 1.0版
-/practice/vol1.0/vuetify/validation1/ver1o0/,OA12o3o0g7o0 練習1.0巻 ビューティファイでバリデーション１ 1.0版
-/practice/vol1.0/vuetify/desserts1/ver1o0/,OA13o1o0g8o0 練習1.0巻 ビューティファイでデザート１ 1.0版
-/practice/vol1.0/vuetify/textarea1/ver1o0/,OA13o2o0g9o0 練習1.0巻 ビューティファイでテキストエリア１ 1.0版
-/practice/vol1.0/vuetify/desserts1-as-json/ver1o0/,OA13o3o0g7o0 練習1.0巻 ビューティファイでJSON形式のデザート１ 1.0版
-/practice/vol1.0/vuetify/textarea1-to-model/ver1o0/,OA13o4o0gA16o0 練習1.0巻 ビューティファイでテキストエリアから保存まで . 入力 1.0版
-/tic-tac-toe/vol1.0/match-application/ver1.0/,〇×ゲーム1.0巻 1.0版
-/tic-tac-toe/vol2.0/engine-manual/ver1.0/,〇×ゲーム2.0巻 1.0版 思考エンジン手動テスト
-/tic-tac-toe/vol2.0/match-application/ver1.0/,〇×ゲーム2.0巻 1.0版 対局申込
-/practice/vol1.0/rooms/ver1o0/,OA18o2o0g9o0 練習1.0巻 対局部屋の一覧1.0版
-/practice/vol1.0/rooms/read/ver1o0/1/,OA18o3o0g7o0 練習1.0巻 対局部屋の詳細1.0版 Id=1
-/practice/vol1.0/rooms/delete/ver1o0/1/,OA18o4o0g7o0 練習1.0巻 対局部屋の削除1.0版 Id=1
-/practice/vol1.0/rooms/upsert/ver1o0/,OA18o5o0g8o0 練習1.0巻 対局部屋の新規作成1.0版
-/practice/vol1.0/rooms/upsert/ver1o0/5/,OA18o5o0g8o0 練習1.0巻 対局部屋の更新1.0版
-/practice/vol1.0/my/ver1o0/,OA19o1o0g7o0 練習1.0巻 マイページ1.0版
-/practice/vol1.0/lobby/ver1o0/,OA20o1o0g9o0 練習1.0巻 ロビー1.0版
-/practice/vol1.0/auto_reload/ver1o0/,OA21o1o0g9o0 練習1.0巻 自動再読込 1.0版
-/practice/vol1.0/auto_redirect/ver1o0/,OA21o2o0g8o0 練習1.0巻 自動リダイレクト 1.0版
-/tic-tac-toe/vol3.0/match-application/ver1.0/,〇×ゲーム3.0巻 対局申込中1.0版
-/tic-tac-toe/vol3.0/match-application/ver2.0/,〇×ゲーム3.0巻 対局申込中2.0版
-/tic-tac-toe/vol3.0/match-application/ver3.0/,〇×ゲーム3.0巻 対局申込中3.0版
-/tic-tac-toe/vol3.0/match-application/ver4.0/,〇×ゲーム3.0巻 対局申込中4.0版
+/launcher/vol1.0/finished-lesson/ver1.0/,O5o2o0g5o0 ランチャー1.0巻 終了したレッスン1.0版
+/,O5o2o0g5o0 ランチャー1.0巻 終了したレッスン2.0版 （ポータル）
+/admin,O5o2o0g5o0 ランチャー1.0巻 管理画面
+/practice/vol1.0/page-the-hello/ver1.0/,O5o2o0g5o0 練習1.0巻 こんにちわ1.0版
+/practice/vol1.0/page-to-be-added-1/ver1.0/,O5o2o0g5o0 練習1.0巻 １回追加されたページ1.0版
+/practice/vol1.0/page-to-be-added-2/ver1.0/,O5o2o0g5o0 練習1.0巻 ２回追加されたページ1.0版
+/accounts/vol1.0/signup/,O6o1o0gA15o0 アカウント1.0巻 サインアップ
+/accounts/vol1.0/logout/,O6o1o0gA15o0 アカウント1.0巻 ログアウト
+/accounts/vol1.0/login/,O8o1o0g6o0 アカウント1.0巻 ログイン（ユーザー認証）
+/practice/vol1.0/login-required/ver1.0/,O8o2o0g6o0 練習1.0巻 ログイン必須ページ1.0版
+/practice/vol1.0/logout/ver1.0/,O8o2o0g6o0 練習1.0巻 ログアウト1.0版
+/practice/vol1.0/buttom_for_member/ver1.0/,O8o3o0g7o0 練習1.0巻 会員にだけ見えるボタンを説明するページ1.0版
+/practice/vol1.0/user-list/ver1.0/,O9o1o0g9o0 練習1.0巻 会員一覧1.0版
+/practice/vol1.0/extends-user-list/ver1.0/,O9o2o0gA16o0 練習1.0巻 拡張済会員一覧1.0版
+/practice/vol1.0/active-user-list/ver1.0/,O9o3o0g9o0 練習1.0巻 アクティブユーザー一覧1.0版
+/practice/vol1.0/from-object-to-json-str/ver1.0/,OA10o2o0g8o0 練習1.0巻 モデルをダンプ出力する1.0版
+/practice/vol1.0/prefectures/ver1.0/,OA11o1o0g7o0 練習1.0巻 都道府県の一覧1.0版
+/practice/vol1.0/prefectures/read/ver1.0/1/,OA11o2o0g7o0 練習1.0巻 都道府県の詳細1.0版 Id=1
+/practice/vol1.0/prefectures/delete/ver1.0/2/,OA11o3o0g7o0 練習1.0巻 都道府県の削除1.0版 Id=2
+/practice/vol1.0/prefectures/create/ver1.0/,OA11o4o0g8o0 練習1.0巻 都道府県の新規作成1.0版
+/practice/vol1.0/prefectures/update/ver1.0/4/,OA11o4o0g8o0 練習1.0巻 都道府県の更新1.0版 Id=4
+/practice/vol1.0/vuetify/hello1/ver1.0/,OA12o1o0g7o0 練習1.0巻 ビューティファイでハロー 1.0版
+/practice/vol1.0/vuetify/data-table1/ver1.0/,OA12o2o0g7o0 練習1.0巻 ビューティファイでデータテーブル１ 1.0版
+/practice/vol1.0/vuetify/validation1/ver1.0/,OA12o3o0g7o0 練習1.0巻 ビューティファイでバリデーション１ 1.0版
+/practice/vol1.0/vuetify/desserts1/ver1.0/,OA13o1o0g8o0 練習1.0巻 ビューティファイでデザート１ 1.0版
+/practice/vol1.0/vuetify/textarea1/ver1.0/,OA13o2o0g9o0 練習1.0巻 ビューティファイでテキストエリア１ 1.0版
+/practice/vol1.0/vuetify/desserts1-as-json/ver1.0/,OA13o3o0g7o0 練習1.0巻 ビューティファイでJSON形式のデザート１ 1.0版
+/practice/vol1.0/vuetify/textarea1-to-model/ver1.0/,OA13o4o0gA16o0 練習1.0巻 ビューティファイでテキストエリアから保存まで . 入力 1.0版
+/tic-tac-toe/vol1.0/match-application/ver1.0/,OA16o1o0gA24o0 〇×ゲーム1.0巻 対局申込中1.0版
+/tic-tac-toe/vol2.0/engine-manual/ver1.0/,OA16o2o0gA19o0 〇×ゲーム2.0巻 思考エンジン手動テスト1.0版
+/tic-tac-toe/vol2.0/match-application/ver1.0/,OA16o3o0gA19o0 〇×ゲーム2.0巻 対局申込中1.0版
+/practice/vol1.0/rooms/ver1.0/,OA18o2o0g9o0 練習1.0巻 対局部屋の一覧1.0版
+/practice/vol1.0/rooms/read/ver1.0/1/,OA18o3o0g7o0 練習1.0巻 対局部屋の詳細1.0版 Id=1
+/practice/vol1.0/rooms/delete/ver1.0/1/,OA18o4o0g7o0 練習1.0巻 対局部屋の削除1.0版 Id=1
+/practice/vol1.0/rooms/upsert/ver1.0/,OA18o5o0g8o0 練習1.0巻 対局部屋の新規作成1.0版
+/practice/vol1.0/rooms/upsert/ver1.0/5/,OA18o5o0g8o0 練習1.0巻 対局部屋の更新1.0版 Id=5
+/practice/vol1.0/my/ver1.0/,OA19o1o0g7o0 練習1.0巻 マイページ1.0版
+/practice/vol1.0/lobby/ver1.0/,OA20o1o0g9o0 練習1.0巻 ロビー1.0版
+/practice/vol1.0/auto_reload/ver1.0/,OA21o1o0g9o0 練習1.0巻 自動再読込ページ1.0版
+/practice/vol1.0/auto_redirect/ver1.0/,OA21o2o0g8o0 練習1.0巻 自動リダイレクトページ1.0版
+/tic-tac-toe/vol3.0/match-application/ver1.0/,OA22o1o0gA12o0 〇×ゲーム3.0巻 対局申込中1.0版
+/tic-tac-toe/vol3.0/match-application/ver2.0/,OA23o1o0g6o0 〇×ゲーム3.0巻 対局申込中2.0版
+/tic-tac-toe/vol3.0/match-application/ver3.0/,OA24o1o0gA10o0 〇×ゲーム3.0巻 対局申込中3.0版
+/tic-tac-toe/vol3.0/match-application/ver4.0/,OA25o1o0g7o0 〇×ゲーム3.0巻 対局申込中4.0版
