@@ -389,8 +389,8 @@ Merged to OA11o4o0g6o1o0
 ...略...
 
 
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/prefectures/create/ver1.0/,practice_vol1o0_prefectures_create,"OA11o4o0g6o1o0 練習1.0巻 都道府県の新規作成 1.0版",apps1.practice_vol1o0.views.prefecture.ver1o0,PrefectureV,,render_upsert
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/prefectures/update/ver1.0/<int:id>/,practice_vol1o0_refectures_update,"OA11o4o0g6o1o0 練習1.0巻 都道府県の更新 1.0版",apps1.practice_vol1o0.views.prefecture.ver1o0,PrefectureV,,render_upsert
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/prefectures/create/ver1.0/,practice_vol1o0_prefectures_create,"OA11o4o0g6o1o0 練習1.0巻 都道府県の新規作成1.0版",apps1.practice_vol1o0.views.prefecture.ver1o0,PrefectureV,,render_upsert
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/prefectures/update/ver1.0/<int:id>/,practice_vol1o0_refectures_update,"OA11o4o0g6o1o0 練習1.0巻 都道府県の更新1.0版",apps1.practice_vol1o0.views.prefecture.ver1o0,PrefectureV,,render_upsert
 ```
 
 ## Step OA11o4o0g6o2o0 ルート編集 - コマンド打鍵
