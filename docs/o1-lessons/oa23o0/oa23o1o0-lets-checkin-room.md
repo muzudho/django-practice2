@@ -433,7 +433,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/tic-tac-toe/vol3.0/match-application/ver2.0/,〇×ゲーム3.0巻 対局申込中2.0版
+/tic-tac-toe/vol3.0/match-application/ver2.0/,OA23o1o0g6o0 〇×ゲーム3.0巻 対局申込中2.0版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 
