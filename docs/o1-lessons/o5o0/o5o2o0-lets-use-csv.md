@@ -369,7 +369,7 @@ Merged to O5o2o0g8o1o0
 ...略...
 
 
-../src1/project1/urls_launcher_vol1o0_autogen.py,,home,"O5o2o0g8o1o0 ランチャー1.0巻 2.0版",apps1.launcher_vol1o0.views.finished_lesson.ver2o0,Launcher,LauncherView1o0g2o0,render
+../src1/project1/urls_launcher_vol1o0_autogen.py,,home,"O5o2o0g8o1o0 ランチャー1.0巻 終了したレッスン2.0版",apps1.launcher_vol1o0.views.finished_lesson.ver2o0,Launcher,LauncherView1o0g2o0,render
 ```
 
 👆 path を値無しにしている。スクリプトの方で、例えば `http://example.com/` といったURLの直下を指すよう対応する
