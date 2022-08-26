@@ -11,12 +11,12 @@ class Launcher():
     def render(request):
         """描画"""
 
-        template_path = 'launcher_vol1o0/ver2o0.html'
-        #                                   ^two
-        #                ---------------------------
+        template_path = 'launcher_vol1o0/finished_lesson/ver2o0.html'
+        #                                                   ^two
+        #                -------------------------------------------
         #                1
-        # 1. src1/apps1/launcher_vol1o0/templates/launcher_vol1o0/ver2o0.html を取得
-        #                                         ---------------------------
+        # 1. `src1/apps1/launcher_vol1o0/templates/launcher_vol1o0/finished_lesson/ver2o0.html` を取得
+        #                                          -------------------------------------------
 
         df = pd.read_csv('apps1/launcher_vol1o0/data/finished-lessons.csv')
         #                 -----------------------------------------------

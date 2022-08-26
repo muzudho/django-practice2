@@ -35,18 +35,6 @@ from .urls_autogen import urlpatterns as urlpatterns_autogen
 # 3. `2.` に含まれる変数
 # 4. `3.` の別名
 
-# O5o2o0g8o1o0 ランチャー1.0巻 2.0版
-from apps1.launcher_vol1o0.views.launcher.ver2o0 import Launcher as LauncherView1o0g2o0
-#                                            ^two
-#          ---------------                ------        --------    -------------------
-#          11                             12            2           3
-#    ------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
-# 3. `2.` の別名
-
 urlpatterns = [
 
     # 最初から Django の管理画面は用意されている
@@ -81,16 +69,6 @@ urlpatterns = [
     # 1. 例えば `http://example.com/` のような URLの直下
     # 2. `src1/projectN/urls_accounts_vol1o0.py` の urlpatterns を `1.` にぶら下げる
     #          -----------------------------
-
-    # O5o2o0g8o1o0 ランチャー1.0巻 2.0版
-    # あとで allauth のURLをインクルードしたとき、そちらのルートパスのURL と衝突するようだから、
-    # それより先に並べる必要がある
-    path('', LauncherView1o0g2o0.render, name='home'),
-    #    --  --------------------------        ----
-    #    1   2                                 3
-    # 1. 例えば `http://example.com/` のようなURLの直下
-    # 2. LauncherView1o0g2o0 クラスの render 静的メソッド
-    # 3. HTMLテンプレートの中で {% url 'home' %} のような形でURLを取得するのに使える
 ]
 
 # O3o2o_1o0g5o0 自動生成されたURL設定

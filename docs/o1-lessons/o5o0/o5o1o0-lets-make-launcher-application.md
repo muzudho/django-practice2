@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/launcher/vol1.0/ver1.0/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/launcher/vol1.0/finished-lesson/ver1.0/)  
 
 # 目標
 
@@ -245,7 +245,7 @@ favicon.ico を有効にするには HTML で設定する必要があるが、�
 以下略
 ```
 
-## Step O5o1o0g8o0 画面作成 - launcher_vol1o0/ver1o0.html ファイル
+## Step O5o1o0g8o0 画面作成 - launcher_vol1o0/finished_lesson/ver1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -259,7 +259,8 @@ favicon.ico を有効にするには HTML で設定する必要があるが、�
         │       │   └── 🚀 favicon.ico   # アプリケーション毎にアイコンを作るのがめんどくさいので static の直下に置いた
         │       ├── 📂 templates
         │       │   └── 📂 launcher_vol1o0        # アプリケーションと同名
-👉      │       │       └── 📄 ver1o0.html
+        │       │       └── 📂 finished_lesson
+👉      │       │           └── 📄 ver1o0.html
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -352,7 +353,8 @@ favicon.ico を有効にするには HTML で設定する必要があるが、�
         │       │   └── 🚀 favicon.ico   # アプリケーション毎にアイコンを作るのがめんどくさいので static の直下に置いた
         │       ├── 📂 templates
         │       │   └── 📂 launcher_vol1o0        # アプリケーションと同名
-        │       │       └── 📄 ver1o0.html
+        │       │       └── 📂 finished_lesson
+        │       │           └── 📄 ver1o0.html
         │       ├── 📄 __init__.py
         │       ├── 📄 admin.py
         │       ├── 📄 apps.py
@@ -376,9 +378,9 @@ TEMPLATES = [
 
             # O5o1o0g9o0 ランチャー1.0巻
             os.path.join(BASE_DIR, 'apps1/launcher_vol1o0/templates'),
-            #                       ---------------------------
+            #                       -------------------------------
             #                       10
-            # Example: /src1/apps1/launcher_vol1o0/templates/launcher_vol1o0/ver1o0.html
+            # Example: /src1/apps1/launcher_vol1o0/templates/launcher_vol1o0/finished_lesson/ver1o0.html
             #                      ---------------          ----------------
             #                      11                       2
             #                -------------------------------
@@ -401,7 +403,7 @@ TEMPLATES = [
 ]
 ```
 
-## Step O5o1o0gA10o0 ビュー作成 - launcher/ver1o0 フォルダー
+## Step O5o1o0gA10o0 ビュー作成 - finished_lesson/ver1o0 フォルダー
 
 👇 以下のファイルを作成してほしい  
 
@@ -415,9 +417,10 @@ TEMPLATES = [
         │       │   └── 🚀 favicon.ico      # アプリケーション毎にアイコンを作るのがめんどくさいので static の直下に置いた
         │       ├── 📂 templates
         │       │   └── 📂 launcher_vol1o0        # アプリケーションと同名
-        │       │       └── 📄 ver1o0.html
+        │       │       └── 📂 finished_lesson
+        │       │           └── 📄 ver1o0.html
         │       ├── 📂 views
-        │       │   └── 📂 launcher
+        │       │   └── 📂 finished_lesson
         │       │       └── 📂 ver1o0
 👉      │       │           └── 📄 __init__.py
         │       ├── 📄 __init__.py
@@ -440,11 +443,11 @@ class Launcher():
     def render(request):
         """描画"""
 
-        template_path = 'launcher_vol1o0/ver1o0.html'
-        #                ---------------------------
+        template_path = 'launcher_vol1o0/finished_lesson/ver1o0.html'
+        #                -------------------------------------------
         #                1
-        # 1. `src1/apps1/practice_vol1o0/templates/launcher_vol1o0/ver1o0.html` を取得
-        #                                          ---------------------------
+        # 1. `src1/apps1/launcher_vol1o0/templates/launcher_vol1o0/finished_lesson/ver1o0.html` を取得
+        #                                          -------------------------------------------
 
         context = {
             "dj_path_of_page_the_hello": "/practice/vol1.0/page-the-hello/ver1.0/",
@@ -475,7 +478,8 @@ Merged to O5o1o0gA11o1o0
     │   │       │   └── 🚀 favicon.ico
     │   │       ├── 📂 templates
     │   │       │   └── 📂 launcher_vol1o0        # アプリケーションと同名
-    │   │       │       └── 📄 ver1o0.html
+    │   │       │       └── 📂 finished_lesson
+    │   │       │           └── 📄 ver1o0.html
     │   │       ├── 📂 views
     │   │       │   └── 📂 launcher
     │   │       │       └── 📂 ver1o0
@@ -496,7 +500,7 @@ Merged to O5o1o0gA11o1o0
 ...略...
 
 
-../src1/project1/urls_launcher_vol1o0_autogen.py,launcher/vol1.0/ver1.0/,,"O5o1o0gA11o1o0 ランチャー1.0巻 1.0版",apps1.launcher_vol1o0.views.launcher.ver1o0,Launcher,LauncherView1o0g1o0,render
+../src1/project1/urls_launcher_vol1o0_autogen.py,launcher/vol1.0/finished-lesson/ver1.0/,,"O5o1o0gA11o1o0 ランチャー1.0巻 1.0版",apps1.launcher_vol1o0.views.finished_lesson.ver1o0,Launcher,LauncherView1o0g1o0,render
 ```
 
 ## Step O5o1o0gA11o2o0 ルート編集 - コマンド打鍵
@@ -520,7 +524,7 @@ Merged to O5o1o0gA11o1o0
 
 ## Step O5o1o0gA13o0 Webページにアクセスする
 
-📖 [http://localhost:8000/launcher/vol1.0/ver1.0/](http://localhost:8000/launcher/vol1.0/ver1.0/)  
+📖 [http://localhost:8000/launcher/vol1.0/finished-lesson/ver1.0/](http://localhost:8000/launcher/vol1.0/finished-lesson/ver1.0/)  
 
 # 次の記事
 

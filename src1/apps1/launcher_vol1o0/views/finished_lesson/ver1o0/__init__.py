@@ -9,11 +9,11 @@ class Launcher():
     def render(request):
         """描画"""
 
-        template_path = 'launcher_vol1o0/ver1o0.html'
-        #                ---------------------------
+        template_path = 'launcher_vol1o0/finished_lesson/ver1o0.html'
+        #                -------------------------------------------
         #                1
-        # 1. `src1/apps1/practice_vol1o0/templates/launcher_vol1o0/ver1o0.html` を取得
-        #                                          ---------------------------
+        # 1. `src1/apps1/launcher_vol1o0/templates/launcher_vol1o0/finished_lesson/ver1o0.html` を取得
+        #                                          -------------------------------------------
 
         context = {
             "dj_path_of_page_the_hello": "/practice/vol1.0/page-the-hello/ver1.0/",

@@ -126,9 +126,9 @@ TEMPLATES = [
 
             # O5o1o0g9o0 ランチャー1.0巻
             os.path.join(BASE_DIR, 'apps1/launcher_vol1o0/templates'),
-            #                       ---------------------------
+            #                       -------------------------------
             #                       10
-            # Example: /src1/apps1/launcher_vol1o0/templates/launcher_vol1o0/ver1o0.html
+            # Example: /src1/apps1/launcher_vol1o0/templates/launcher_vol1o0/finished_lesson/ver1o0.html
             #                      ---------------          ----------------
             #                      11                       2
             #                -------------------------------

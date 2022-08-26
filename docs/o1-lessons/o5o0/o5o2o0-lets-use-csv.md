@@ -160,7 +160,7 @@ docker-compose up
 
 ```csv
 path,label
-/launcher/vol1.0/ver1.0/,ランチャー1.0巻 1.0版
+/launcher/vol1.0/finished-lesson/ver1.0/,ランチャー1.0巻 1.0版
 /,ポータル（ランチャー1.0巻 2.0版）
 /admin,管理画面
 /practice/vol1.0/page-the-hello/ver1.0/,こんにちわページ
@@ -287,12 +287,12 @@ class Launcher():
     def render(request):
         """描画"""
 
-        template_path = 'launcher_vol1o0/ver2o0.html'
-        #                                   ^two
-        #                ---------------------------
+        template_path = 'launcher_vol1o0/finished_lesson/ver2o0.html'
+        #                                                   ^two
+        #                -------------------------------------------
         #                1
-        # 1. src1/apps1/launcher_vol1o0/templates/launcher_vol1o0/ver2o0.html を取得
-        #                                         ---------------------------
+        # 1. `src1/apps1/launcher_vol1o0/templates/launcher_vol1o0/finished_lesson/ver2o0.html` を取得
+        #                                          -------------------------------------------
 
         df = pd.read_csv('apps1/launcher_vol1o0/data/finished-lessons.csv')
         #                 -----------------------------------------------
@@ -369,7 +369,7 @@ Merged to O5o2o0g8o1o0
 ...略...
 
 
-../src1/project1/urls_launcher_vol1o0_autogen.py,,home,"O5o2o0g8o1o0 ランチャー1.0巻 2.0版",apps1.launcher_vol1o0.views.launcher.ver2o0,Launcher,LauncherView1o0g2o0,render
+../src1/project1/urls_launcher_vol1o0_autogen.py,,home,"O5o2o0g8o1o0 ランチャー1.0巻 2.0版",apps1.launcher_vol1o0.views.finished_lesson.ver2o0,Launcher,LauncherView1o0g2o0,render
 ```
 
 👆 path を値無しにしている。スクリプトの方で、例えば `http://example.com/` といったURLの直下を指すよう対応する

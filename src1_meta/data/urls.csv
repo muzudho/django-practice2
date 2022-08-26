@@ -3,8 +3,8 @@ file,path,name,comment,module,class,alias,method
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/hello2/ver1.0/,practice_vol1o0_hello2,"o3o2o_1o0g1o0 練習1.0巻 こんにちわ1.0版",apps1.practice_vol1o0.views.page_the_hello.ver1o0,PageTheHello,,render
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/page-to-be-added-1/ver1.0/,,"O3o2o0g5o1o0 練習ページ １回追加されたページ",apps1.practice_vol1o0.views.page_to_be_added.ver2o0,PageToBeAdded,PageToBeAdded1,render
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/page-to-be-added-2/ver1.0/,,"O3o3o0g4o1o0 練習1.0巻 ２回追加されたページ1.0版",apps1.practice_vol1o0.views.page_to_be_added.ver3o0,PageToBeAdded,PageToBeAdded2,render
-../src1/project1/urls_launcher_vol1o0_autogen.py,launcher/vol1.0/ver1.0/,,"O5o1o0gA11o1o0 ランチャー1.0巻 1.0版",apps1.launcher_vol1o0.views.launcher.ver1o0,Launcher,LauncherView1o0g1o0,render
-../src1/project1/urls_launcher_vol1o0_autogen.py,,home,"O5o2o0g8o1o0 ランチャー1.0巻 2.0版",apps1.launcher_vol1o0.views.launcher.ver2o0,Launcher,LauncherView1o0g2o0,render
+../src1/project1/urls_launcher_vol1o0_autogen.py,launcher/vol1.0/finished-lesson/ver1.0/,,"O5o1o0gA11o1o0 ランチャー1.0巻 1.0版",apps1.launcher_vol1o0.views.finished_lesson.ver1o0,Launcher,LauncherView1o0g1o0,render
+../src1/project1/urls_launcher_vol1o0_autogen.py,,home,"O5o2o0g8o1o0 ランチャー1.0巻 2.0版",apps1.launcher_vol1o0.views.finished_lesson.ver2o0,Launcher,LauncherView1o0g2o0,render
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/login-required/ver1.0/,,"O8o2o0g4o1o0 練習1.0巻 ログイン必須ページでログイン中1.0版",apps1.practice_vol1o0.views.login_required.ver1o0,LoggingIn,,render
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/logout/ver1.0/,,"O8o2o0g4o1o0 練習1.0巻 ログイン必須ページでログアウト中1.0版",apps1.practice_vol1o0.views.login_required.ver1o0,LoggingOut,,render
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/buttom_for_member/ver1.0/,,"O8o3o0g5o1o0 会員にだけ見えるボタンを説明するページ",apps1.practice_vol1o0.views.button_for_member.ver1o0,ButtonForMember,,render
