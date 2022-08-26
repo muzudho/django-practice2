@@ -265,7 +265,7 @@ docker-compose restart
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/vol1.0/vuetify/desserts1-as-json/ver1o0/,OA13o3o0g7o0 練習1.0巻 ビューティファイでJSON形式のデザート１ 1.0版
+/practice/vol1.0/vuetify/desserts1-as-json/ver1.0/,OA13o3o0g7o0 練習1.0巻 ビューティファイでJSON形式のデザート１ 1.0版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 
