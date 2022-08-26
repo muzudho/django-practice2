@@ -716,7 +716,7 @@ User: [あなたの名前]▽ 🖊 ➕
 👇 冗長なスペース，冗長なダブルクォーテーション，末尾のカンマ は止めてほしい  
 
 ```csv
-/practice/vol1.0/extends-user-list/ver1o0/,O9o2o0gA16o0 （拡張済）会員一覧1.0版
+/practice/vol1.0/extends-user-list/ver1.0/,O9o2o0gA16o0 練習1.0巻 拡張済会員一覧1.0版
 ```
 
 👇 ランチャーにリンクが追加されていることを確認してほしい 
