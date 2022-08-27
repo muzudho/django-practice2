@@ -3,6 +3,7 @@
 import os
 import pandas as pd
 
+# O3o2o_1o0g2o_3o0
 from .file_path import FilePath
 #    ]---------        --------
 #    12                3
@@ -11,6 +12,7 @@ from .file_path import FilePath
 #    ---------
 # 3. クラス名
 
+# O3o2o_1o0g2o_4o1o0
 from .urls_x_autogen import UrlsXAutogen
 
 

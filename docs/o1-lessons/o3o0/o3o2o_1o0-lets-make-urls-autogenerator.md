@@ -396,6 +396,7 @@ class UrlsXAutogen:
 import os
 import pandas as pd
 
+# O3o2o_1o0g2o_3o0
 from .file_path import FilePath
 #    ]---------        --------
 #    12                3
@@ -403,6 +404,9 @@ from .file_path import FilePath
 # 2. file_path.py
 #    ---------
 # 3. クラス名
+
+# O3o2o_1o0g2o_4o1o0
+from .urls_x_autogen import UrlsXAutogen
 
 
 class UrlsAutoGenerator:
@@ -437,9 +441,8 @@ class UrlsAutoGenerator:
     def write_url_some_files(self, df):
         """URL設定ファイル自動生成"""
 
-        # 書き出すテキスト
-        head_text_by_files = {}
-        body_text_by_files = {}
+        # 書き出すファイル
+        files_to_export = {}
 
         # 各行
         df = df.reset_index()  # make sure indexes pair with number of rows
@@ -456,10 +459,9 @@ class UrlsAutoGenerator:
                 self._summary_file_to_export = file_path_o.value
                 continue
 
-            if not file_path_o.value in head_text_by_files:
+            if not file_path_o.value in files_to_export:
                 # 新規ファイル
-                head_text_by_files[file_path_o.value] = ""
-                body_text_by_files[file_path_o.value] = ""
+                files_to_export[file_path_o.value] = UrlsXAutogen()
 
             module = row["module"]
             class_name = row["class"]
@@ -471,7 +473,7 @@ class UrlsAutoGenerator:
                 alias_phrase = f" as {alias}"
                 virtual_class_name = alias
 
-            head_text_by_files[file_path_o.value] += f"from {module} import {class_name}{alias_phrase}\n"
+            files_to_export[file_path_o.value].head_text += f"from {module} import {class_name}{alias_phrase}\n"
 
             comment = row["comment"]
             path = row["path"]
@@ -498,12 +500,12 @@ class UrlsAutoGenerator:
             else:
                 name_phrase = f", name='{name}'"
 
-            body_text_by_files[file_path_o.value] += f"""{comment_phrase}
+            files_to_export[file_path_o.value].body_text += f"""{comment_phrase}
     path('{path}', {virtual_class_name}.{method}{name_phrase}),
 """
 
         # 各ファイル書出し
-        for file_to_export in head_text_by_files.keys():
+        for file_to_export in files_to_export.keys():
             # ファイル書出し
             with open(file_to_export, 'w', encoding="utf8") as f:
                 print(f"Write... {file_to_export}")
@@ -511,9 +513,9 @@ class UrlsAutoGenerator:
 
 from django.urls import path
 
-{head_text_by_files[file_to_export]}
+{files_to_export[file_to_export].head_text}
 
-urlpatterns = [{body_text_by_files[file_to_export]}]
+urlpatterns = [{files_to_export[file_to_export].body_text}]
 
 # EOF O3o2o_1o0g4o0
 ''')
