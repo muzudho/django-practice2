@@ -18,6 +18,9 @@ from .path_render import PathRender
 # O3o2o_1o0g2o_4o2o0
 from .urls_file_render import UrlsFileRender
 
+# O3o2o_1o0g2o_4o3o0
+from .urls_summary_render import UrlsSummaryRender
+
 
 class UrlsAutoGenerator:
     def __init__(self):
@@ -96,25 +99,9 @@ class UrlsAutoGenerator:
     def write_url_summary_file(self, df):
         """集約ファイル自動生成"""
 
-        text = """# BOF O3o2o_1o0g4o0
-
-from django.urls import include, path
-
-# O3o1o0gA11o0 総合ルート編集
-from .settings import PROJECT_NAME
-#    ]--------        ------------
-#    12               3
-# 1. 同じディレクトリー
-# 2. `src1/projectN/settings.py`
-#                   --------
-# 3. 変数
-
-
-urlpatterns = [
-"""
+        urls_summary_render = UrlsSummaryRender()
 
         # Distinct
-        file_stems_to_export = set()
         df = df.reset_index()  # make sure indexes pair with number of rows
         for index, row in df.iterrows():
             # 出力先ファイル名オブジェクト
@@ -125,25 +112,15 @@ urlpatterns = [
 
             method_temp = row["method"]
             if pd.isnull(method_temp):
-                # Ignored. method列が空なら集約ファイルとします
+                # Ignored. method列が空なら無視します。集約ファイル
                 continue
 
             # ステムをリストに追加
-            file_stems_to_export.add(file_path_o.stem)
+            urls_summary_render.add_stem(file_path_o.stem)
 
-        # 辞書順ソート
-        file_stems_to_export = list(file_stems_to_export)
-        file_stems_to_export.sort()
-
-        # 各ファイル
-        for file_stem_to_export in file_stems_to_export:
-            text += f"""    path('', include(f'{{PROJECT_NAME}}.{file_stem_to_export}')),
-"""
-
-        text += """]
-
-# EOF O3o2o_1o0g4o0
-"""
+        text = UrlsSummaryRender.create_header_text()
+        text += urls_summary_render.create_path_items_text()
+        text += UrlsSummaryRender.create_footer_text()
 
         # ファイル書出し
         with open(self._summary_file_to_export, 'w', encoding="utf8") as f:
