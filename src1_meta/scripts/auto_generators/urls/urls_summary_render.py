@@ -34,6 +34,12 @@ urlpatterns = [
     def add_stem(self, stem):
         self._file_stems.add(stem)
 
+    def create_file_text(self):
+        s = UrlsSummaryRender.create_header_text()
+        s += self.create_path_items_text()
+        s += UrlsSummaryRender.create_footer_text()
+        return s
+
     def create_path_items_text(self):
         # 辞書順ソート
         file_stems = list(self._file_stems)

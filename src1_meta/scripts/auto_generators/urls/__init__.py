@@ -46,12 +46,32 @@ class UrlsAutoGenerator:
         print(f"Current working directory:{os.getcwd()}")
 
         # URL設定ファイル自動生成
-        self.write_url_some_files(df)
+        urls_file_map = self.create_urls_file_map(df)
 
         # 集約ファイル自動生成
-        self.write_url_summary_file(df)
+        urls_summary_render = self.create_url_summary_render(df)
 
-    def write_url_some_files(self, df):
+        # どんなファイルを書き出すかの一覧を出力
+        for file_path, urls_file_o in urls_file_map.items():
+            print(f"* [ ] Write {file_path}")
+
+        print(f"* [ ] Write {self._summary_file_to_export}")
+        print(f"Ok? (y/n)")
+        key = input()
+        if key.upper() == "Y":
+            # 各ファイル書出し
+            for file_path, urls_file_o in urls_file_map.items():
+                # ファイル書出し
+                with open(file_path, 'w', encoding="utf8") as f:
+                    print(f"Write... {file_path}")
+                    f.write(urls_file_o.create_file_text())
+
+            # ファイル書出し
+            with open(self._summary_file_to_export, 'w', encoding="utf8") as f:
+                print(f"Write... {self._summary_file_to_export}")
+                f.write(urls_summary_render.create_file_text())
+
+    def create_urls_file_map(self, df):
         """URL設定ファイル自動生成"""
 
         # `urls_*_autogen.py` ファイル描画オブジェクト
@@ -89,14 +109,9 @@ class UrlsAutoGenerator:
             urls_file_o = urls_file_map[file_path_o.value]
             urls_file_o.path_render_list.append(path_rdr)
 
-        # 各ファイル書出し
-        for file_path, urls_file_o in urls_file_map.items():
-            # ファイル書出し
-            with open(file_path, 'w', encoding="utf8") as f:
-                print(f"Write... {file_path}")
-                f.write(urls_file_o.create_file_text())
+        return urls_file_map
 
-    def write_url_summary_file(self, df):
+    def create_url_summary_render(self, df):
         """集約ファイル自動生成"""
 
         urls_summary_render = UrlsSummaryRender()
@@ -118,13 +133,6 @@ class UrlsAutoGenerator:
             # ステムをリストに追加
             urls_summary_render.add_stem(file_path_o.stem)
 
-        text = UrlsSummaryRender.create_header_text()
-        text += urls_summary_render.create_path_items_text()
-        text += UrlsSummaryRender.create_footer_text()
-
-        # ファイル書出し
-        with open(self._summary_file_to_export, 'w', encoding="utf8") as f:
-            print(f"Write... {self._summary_file_to_export}")
-            f.write(text)
+        return urls_summary_render
 
 # EOF O3o2o_1o0g2o0
