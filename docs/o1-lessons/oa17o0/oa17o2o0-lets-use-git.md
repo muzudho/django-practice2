@@ -85,6 +85,15 @@ git fetch https://github.com/muzudho/django-practice2.git
                         └── 📄 README.md
 ```
 
+# fetch したらデータベースが壊れてるかも
+
+👇 マイグレーションすると直るかもしれないが、何をやってるのか　さっぱり分からない  
+
+```shell
+docker-compose run --rm web python3 manage.py migrate sites
+docker-compose run --rm web python3 manage.py migrate
+```
+
 # パーミッション
 
 Windows に無くて Linux に有るのが ファイルのパーミッション。  
