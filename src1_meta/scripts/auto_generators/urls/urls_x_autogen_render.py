@@ -12,6 +12,7 @@ class UrlsXAutogenRender:
         self._real_class_name = ""
         self._alias_class_name = pd.NA
         self._comment = pd.NA
+        self._path = pd.NA
 
     @property
     def file_path_o(self):
@@ -80,8 +81,26 @@ class UrlsXAutogenRender:
     def comment(self, value):
         self._comment = value
 
+    @property
+    def path(self):
+        """パス"""
+        return self._path
+
+    @path.setter
+    def path(self, value):
+        if pd.isnull(value):
+            # 空文字列の指定があり得ます。
+            # pandas は空文字列と NaN を区別せず NaN にするので、空文字列に変換します
+            self._path = ""
+            return
+
+        self._path = value
+
     def create_head_text(self):
         return f"from {self.module} import {self.real_class_name}{self.create_alias_class_name_phrase()}\n"
+
+    def create_body_text(self):
+        pass
 
     def create_comment_phrase(self):
         """コメント句"""

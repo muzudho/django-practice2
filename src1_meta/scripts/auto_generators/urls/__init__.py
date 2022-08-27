@@ -79,17 +79,11 @@ class UrlsAutoGenerator:
             file_map[file_path_o.value].head_text += file_o.create_head_text()
 
             file_o.comment = row["comment"]
-            path = row["path"]
+            file_o.path = row["path"]
             name = row["name"]
 
             # コメント
             comment_phrase = file_o.create_comment_phrase()
-
-            # パス
-            if pd.isnull(path):
-                # 空文字列の指定があり得ます。
-                # pandas は空文字列と NaN を区別せず NaN にするので、空文字列に変換します
-                path = ""
 
             # 名前
             if pd.isnull(name):
@@ -99,7 +93,7 @@ class UrlsAutoGenerator:
                 name_phrase = f", name='{name}'"
 
             file_map[file_path_o.value].body_text += f"""{comment_phrase}
-    path('{path}', {file_o.virtual_class_name}.{method}{name_phrase}),
+    path('{file_o.path}', {file_o.virtual_class_name}.{method}{name_phrase}),
 """
 
         # 各ファイル書出し
