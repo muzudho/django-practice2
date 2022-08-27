@@ -68,7 +68,7 @@ cd src1
 docker-compose up
 ```
 
-## Step o3o2o_1o0g1o0 データ作成 - src1_meta/data/urls.csv ファイル
+## Step [O3o2o_1o0g1o0] データ作成 - src1_meta/data/urls.csv ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -85,7 +85,7 @@ file,path,name,comment,module,class,alias,method
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/hello2/ver1.0/,practice_vol1o0_hello2,"o3o2o_1o0g1o0 練習1.0巻 こんにちわ1.0版",apps1.practice_vol1o0.views.page_the_hello.ver1o0,PageTheHello,,render
 ```
 
-## Step O3o2o_1o0g2o_1o0 Pythonパッケージインストール - pandas
+## Step [O3o2o_1o0g2o_1o0] Pythonパッケージインストール - pandas
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -93,7 +93,7 @@ file,path,name,comment,module,class,alias,method
 pip install pandas
 ```
 
-## Step O3o2o_1o0g2o_1o0 スクリプト作成 - __init__.py ファイル
+## Step [O3o2o_1o0g2o_1o0] スクリプト作成 - __init__.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -113,7 +113,7 @@ pip install pandas
 ```py
 ```
 
-## Step O3o2o_1o0g2o_2o0 スクリプト作成 - file_path.py ファイル
+## Step [O3o2o_1o0g2o_2o0] スクリプト作成 - file_path.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -215,7 +215,7 @@ class FilePath:
 # EOF O3o2o_1o0g2o_2o0
 ```
 
-## Step O3o2o_1o0g2o_3o0 スクリプト作成/テスト作成 - file_path.py ファイル
+## Step [O3o2o_1o0g2o_3o0] スクリプト作成/テスト作成 - file_path.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -289,7 +289,7 @@ if __name__ == '__main__':
 # EOF O3o2o_1o0g2o_3o0
 ```
 
-## Step O3o2o_1o0g2o_4o0 スクリプト作成/テスト実行 - file_path.py ファイル
+## Step [O3o2o_1o0g2o_4o0] スクリプト作成/テスト実行 - file_path.py ファイル
 
 👇 以下のディレクトリーから、コマンドを打鍵してほしい  
 
@@ -318,7 +318,7 @@ Output:
 ```
 
 
-## Step O3o2o_1o0g2o_4o1o0 スクリプト作成 - path_render.py ファイル
+## Step [O3o2o_1o0g2o_4o1o0] スクリプト作成 - path_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -348,37 +348,14 @@ import pandas as pd
 
 
 class PathRender:
-    def __init__(self, file_path_o):
-        self._file_path_o = file_path_o
-        self._head_text = ""
-        self._body_text = ""
+    def __init__(self):
         self._module = ""
         self._real_class_name = ""
         self._alias_class_name = pd.NA
+        self._method = ""
         self._comment = pd.NA
-
-    @property
-    def file_path_o(self):
-        """ファイル パス オブジェクト"""
-        return self._file_path_o
-
-    @property
-    def head_text(self):
-        """ヘッド テキスト"""
-        return self._head_text
-
-    @head_text.setter
-    def head_text(self, value):
-        self._head_text = value
-
-    @property
-    def body_text(self):
-        """本文"""
-        return self._body_text
-
-    @body_text.setter
-    def body_text(self, value):
-        self._body_text = value
+        self._path = pd.NA
+        self._name = pd.NA
 
     @property
     def module(self):
@@ -416,6 +393,15 @@ class PathRender:
             return self.alias_class_name
 
     @property
+    def method(self):
+        """メソッド"""
+        return self._method
+
+    @method.setter
+    def method(self, value):
+        self._method = value
+
+    @property
     def comment(self):
         """コメント"""
         return self._comment
@@ -424,7 +410,50 @@ class PathRender:
     def comment(self, value):
         self._comment = value
 
-    def create_comment_phrase(self):
+    @property
+    def path(self):
+        """パス"""
+        return self._path
+
+    @path.setter
+    def path(self, value):
+        if pd.isnull(value):
+            # 空文字列の指定があり得ます。
+            # pandas は空文字列と NaN を区別せず NaN にするので、空文字列に変換します
+            self._path = ""
+            return
+
+        self._path = value
+
+    @property
+    def name(self):
+        """名前"""
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        self._name = value
+
+    def create_head_text(self):
+        return f"from {self.module} import {self.real_class_name}{self._create_alias_class_name_phrase()}\n"
+
+    def _create_alias_class_name_phrase(self):
+        if pd.isnull(self.alias_class_name):
+            return ""
+        else:
+            return f" as {self.alias_class_name}"
+
+    def create_body_text(self):
+        # コメント
+        comment_phrase = self._create_comment_phrase()
+        # name引数
+        name_arg = self._create_name_arg()
+
+        return f"""{comment_phrase}
+    path('{self.path}', {self.virtual_class_name}.{self.method}{name_arg}),
+"""
+
+    def _create_comment_phrase(self):
         """コメント句"""
         if pd.isnull(self._comment):
             # 省略可
@@ -433,16 +462,18 @@ class PathRender:
             return f"""
     # {self._comment}"""
 
-    def create_alias_class_name_phrase(self):
-        if pd.isnull(self.alias_class_name):
+    def _create_name_arg(self):
+        """名前引数"""
+        if pd.isnull(self.name):
+            # 省略可
             return ""
         else:
-            return f" as {self.alias_class_name}"
+            return f", name='{self.name}'"
 
 # EOF O3o2o_1o0g2o_4o1o0
 ```
 
-## Step O3o2o_1o0g2o_4o2o0 スクリプト作成 - urls_file_render.py ファイル
+## Step [O3o2o_1o0g2o_4o2o0] スクリプト作成 - urls_file_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -470,12 +501,41 @@ class PathRender:
 # BOF O3o2o_1o0g2o_4o2o0
 
 class UrlsFileRender:
-    pass
+    def __init__(self):
+        self._path_render_list = []
+
+    @property
+    def path_render_list(self):
+        return self._path_render_list
+
+    def create_file_text(self):
+        return f'''# BOF O3o2o_1o0g4o0
+
+from django.urls import path
+
+{self._create_import_paragraphs()}
+
+urlpatterns = [{self.create_path_items()}]
+
+# EOF O3o2o_1o0g4o0
+'''
+
+    def _create_import_paragraphs(self):
+        s = ""
+        for path_rdr in self._path_render_list:
+            s += path_rdr.create_head_text()
+        return s
+
+    def create_path_items(self):
+        s = ""
+        for path_rdr in self._path_render_list:
+            s += path_rdr.create_body_text()
+        return s
 
 # EOF O3o2o_1o0g2o_4o2o0
 ```
 
-## Step O3o2o_1o0g2o0 スクリプト作成 - urls/__init__.py ファイル
+## Step [O3o2o_1o0g2o0] スクリプト作成 - urls/__init__.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -516,6 +576,9 @@ from .file_path import FilePath
 # O3o2o_1o0g2o_4o1o0
 from .path_render import PathRender
 
+# O3o2o_1o0g2o_4o2o0
+from .urls_file_render import UrlsFileRender
+
 
 class UrlsAutoGenerator:
     def __init__(self):
@@ -549,75 +612,47 @@ class UrlsAutoGenerator:
     def write_url_some_files(self, df):
         """URL設定ファイル自動生成"""
 
-        # 書き出すファイル
-        file_map = {}
+        # `urls_*_autogen.py` ファイル描画オブジェクト
+        urls_file_map = {}
 
         # 各行
         df = df.reset_index()  # make sure indexes pair with number of rows
         for index, row in df.iterrows():
+
             # 出力先ファイルパスオブジェクト
             file_path_o, err = FilePath.create_or_err(row['file'])
             if not err is None:
                 print(err)
                 continue
 
-            method = row["method"]
-            if pd.isnull(method):
+            method_temp = row["method"]
+            if pd.isnull(method_temp):
                 # method列が空なら集約ファイルとします
                 self._summary_file_to_export = file_path_o.value
                 continue
 
-            # 新規ファイル作成
-            if not file_path_o.value in file_map:
-                file_map[file_path_o.value] = PathRender(file_path_o)
+            path_rdr = PathRender()
+            path_rdr.method = method_temp
+            path_rdr.module = row["module"]
+            path_rdr.real_class_name = row["class"]
+            path_rdr.alias_class_name = row['alias']
+            path_rdr.comment = row["comment"]
+            path_rdr.path = row["path"]
+            path_rdr.name = row["name"]
 
-            file_o = file_map[file_path_o.value]
+            # urls_*_aurogen.py ファイル オブジェクト取得
+            if not file_path_o.value in urls_file_map:
+                urls_file_map[file_path_o.value] = UrlsFileRender()
 
-            file_o.module = row["module"]
-            file_o.real_class_name = row["class"]
-            file_o.alias_class_name = row['alias']
-
-            file_map[file_path_o.value].head_text += f"from {file_o.module} import {file_o.real_class_name}{file_o.create_alias_class_name_phrase()}\n"
-
-            file_o.comment = row["comment"]
-            path = row["path"]
-            name = row["name"]
-
-            # コメント
-            comment_phrase = file_o.create_comment_phrase()
-
-            # パス
-            if pd.isnull(path):
-                # 空文字列の指定があり得ます。
-                # pandas は空文字列と NaN を区別せず NaN にするので、空文字列に変換します
-                path = ""
-
-            # 名前
-            if pd.isnull(name):
-                # 省略可
-                name_phrase = ""
-            else:
-                name_phrase = f", name='{name}'"
-
-            file_map[file_path_o.value].body_text += f"""{comment_phrase}
-    path('{path}', {file_o.virtual_class_name}.{method}{name_phrase}),
-"""
+            urls_file_o = urls_file_map[file_path_o.value]
+            urls_file_o.path_render_list.append(path_rdr)
 
         # 各ファイル書出し
-        for file_path, file_o in file_map.items():
+        for file_path, urls_file_o in urls_file_map.items():
             # ファイル書出し
             with open(file_path, 'w', encoding="utf8") as f:
                 print(f"Write... {file_path}")
-                f.write(f'''# BOF O3o2o_1o0g4o0
-
-from django.urls import path
-
-{file_o.head_text}
-
-urlpatterns = [{file_o.body_text}]
-
-# EOF O3o2o_1o0g4o0
-''')
+                f.write(urls_file_o.create_file_text())
 
     def write_url_summary_file(self, df):
         """集約ファイル自動生成"""
@@ -649,8 +684,8 @@ urlpatterns = [
                 print(err)
                 continue
 
-            method = row["method"]
-            if pd.isnull(method):
+            method_temp = row["method"]
+            if pd.isnull(method_temp):
                 # Ignored. method列が空なら集約ファイルとします
                 continue
 
@@ -679,7 +714,7 @@ urlpatterns = [
 # EOF O3o2o_1o0g2o0
 ```
 
-## Step O3o2o_1o0g2o1o0 スクリプト作成 - urls/__main__.py ファイル
+## Step [O3o2o_1o0g2o1o0] スクリプト作成 - urls/__main__.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -720,7 +755,7 @@ if __name__ == "__main__":
 # EOF O3o2o_1o0g2o1o0
 ```
 
-## Step O3o2o_1o0g3o0 コマンド実行
+## Step [O3o2o_1o0g3o0] コマンド実行
 
 👇 以下のディレクトリーから、コマンドを打鍵してほしい  
 
@@ -749,7 +784,7 @@ Current working directory:C:\Users\むずでょ\Documents\GitHub\django-practice
 Write... ../src1/project1/urls_practice_vol1o0_autogen.py
 ```
 
-## Step O3o2o_1o0g4o0 確認
+## Step [O3o2o_1o0g4o0] 確認
 
 👇 以下のファイルが自動生成されていることを確認してほしい  
 
@@ -808,7 +843,7 @@ urlpatterns = [
 # EOF O3o2o_1o0g4o0
 ```
 
-## Step O3o2o_1o0g5o0 総合ルート編集 - urls.py
+## Step [O3o2o_1o0g5o0] 総合ルート編集 - urls.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -848,7 +883,7 @@ from .urls_autogen import urlpatterns as urlpatterns_autogen
 urlpatterns.extend(urlpatterns_autogen)
 ```
 
-## Step o3o2o_1o0g6o0 Webページにアクセスする
+## Step [O3o2o_1o0g6o0] Webページにアクセスする
 
 📖 [http://localhost:8000/practice/vol1.0/hello2/ver1.0/](http://localhost:8000/practice/vol1.0/hello2/ver1.0/)  
 

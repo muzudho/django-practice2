@@ -51,7 +51,7 @@ class UrlsAutoGenerator:
     def write_url_some_files(self, df):
         """URL設定ファイル自動生成"""
 
-        # 書き出すパス
+        # `urls_*_autogen.py` ファイル描画オブジェクト
         urls_file_map = {}
 
         # 各行
@@ -91,16 +91,7 @@ class UrlsAutoGenerator:
             # ファイル書出し
             with open(file_path, 'w', encoding="utf8") as f:
                 print(f"Write... {file_path}")
-                f.write(f'''# BOF O3o2o_1o0g4o0
-
-from django.urls import path
-
-{urls_file_o.create_head_text()}
-
-urlpatterns = [{urls_file_o.create_body_text()}]
-
-# EOF O3o2o_1o0g4o0
-''')
+                f.write(urls_file_o.create_file_text())
 
     def write_url_summary_file(self, df):
         """集約ファイル自動生成"""

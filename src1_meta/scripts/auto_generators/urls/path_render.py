@@ -91,12 +91,25 @@ class PathRender:
         self._name = value
 
     def create_head_text(self):
-        return f"from {self.module} import {self.real_class_name}{self.create_alias_class_name_phrase()}\n"
+        return f"from {self.module} import {self.real_class_name}{self._create_alias_class_name_phrase()}\n"
+
+    def _create_alias_class_name_phrase(self):
+        if pd.isnull(self.alias_class_name):
+            return ""
+        else:
+            return f" as {self.alias_class_name}"
 
     def create_body_text(self):
-        pass
+        # コメント
+        comment_phrase = self._create_comment_phrase()
+        # name引数
+        name_arg = self._create_name_arg()
 
-    def create_comment_phrase(self):
+        return f"""{comment_phrase}
+    path('{self.path}', {self.virtual_class_name}.{self.method}{name_arg}),
+"""
+
+    def _create_comment_phrase(self):
         """コメント句"""
         if pd.isnull(self._comment):
             # 省略可
@@ -105,28 +118,12 @@ class PathRender:
             return f"""
     # {self._comment}"""
 
-    def create_alias_class_name_phrase(self):
-        if pd.isnull(self.alias_class_name):
-            return ""
-        else:
-            return f" as {self.alias_class_name}"
-
-    def create_name_phrase(self):
-        """名前句"""
+    def _create_name_arg(self):
+        """名前引数"""
         if pd.isnull(self.name):
             # 省略可
             return ""
         else:
             return f", name='{self.name}'"
-
-    def create_body_text(self):
-        # name引数
-        name_param = self.create_name_phrase()
-        # コメント
-        comment_phrase = self.create_comment_phrase()
-
-        return f"""{comment_phrase}
-    path('{self.path}', {self.virtual_class_name}.{self.method}{name_param}),
-"""
 
 # EOF O3o2o_1o0g2o_4o1o0

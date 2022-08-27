@@ -3,38 +3,30 @@
 class UrlsFileRender:
     def __init__(self):
         self._path_render_list = []
-        self._head_text = ""
-        self._body_text = ""
 
     @property
     def path_render_list(self):
         return self._path_render_list
 
-    @property
-    def head_text(self):
-        """ヘッド テキスト"""
-        return self._head_text
+    def create_file_text(self):
+        return f'''# BOF O3o2o_1o0g4o0
 
-    @head_text.setter
-    def head_text(self, value):
-        self._head_text = value
+from django.urls import path
 
-    @property
-    def body_text(self):
-        """本文"""
-        return self._body_text
+{self._create_import_paragraphs()}
 
-    @body_text.setter
-    def body_text(self, value):
-        self._body_text = value
+urlpatterns = [{self.create_path_items()}]
 
-    def create_head_text(self):
+# EOF O3o2o_1o0g4o0
+'''
+
+    def _create_import_paragraphs(self):
         s = ""
         for path_rdr in self._path_render_list:
             s += path_rdr.create_head_text()
         return s
 
-    def create_body_text(self):
+    def create_path_items(self):
         s = ""
         for path_rdr in self._path_render_list:
             s += path_rdr.create_body_text()
