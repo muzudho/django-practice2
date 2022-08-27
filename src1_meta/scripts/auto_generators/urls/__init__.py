@@ -66,33 +66,24 @@ class UrlsAutoGenerator:
                 self._summary_file_to_export = file_path_o.value
                 continue
 
+            # 新規ファイル作成
             if not file_path_o.value in file_map:
-                # 新規ファイル
                 file_map[file_path_o.value] = UrlsXAutogen(file_path_o)
 
-            module = row["module"]
-            class_name = row["class"]
-            alias = row['alias']
-            if pd.isnull(alias):
-                alias_phrase = ""
-                virtual_class_name = class_name
-            else:
-                alias_phrase = f" as {alias}"
-                virtual_class_name = alias
+            file_o = file_map[file_path_o.value]
 
-            file_map[file_path_o.value].head_text += f"from {module} import {class_name}{alias_phrase}\n"
+            file_o.module = row["module"]
+            file_o.real_class_name = row["class"]
+            file_o.alias_class_name = row['alias']
 
-            comment = row["comment"]
+            file_map[file_path_o.value].head_text += f"from {file_o.module} import {file_o.real_class_name}{file_o.create_alias_class_name_phrase()}\n"
+
+            file_o.comment = row["comment"]
             path = row["path"]
             name = row["name"]
 
             # コメント
-            if pd.isnull(comment):
-                # 省略可
-                comment_phrase = ""
-            else:
-                comment_phrase = f"""
-    # {comment}"""
+            comment_phrase = file_o.create_comment_phrase()
 
             # パス
             if pd.isnull(path):
@@ -108,7 +99,7 @@ class UrlsAutoGenerator:
                 name_phrase = f", name='{name}'"
 
             file_map[file_path_o.value].body_text += f"""{comment_phrase}
-    path('{path}', {virtual_class_name}.{method}{name_phrase}),
+    path('{path}', {file_o.virtual_class_name}.{method}{name_phrase}),
 """
 
         # 各ファイル書出し
