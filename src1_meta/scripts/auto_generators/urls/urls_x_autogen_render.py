@@ -3,7 +3,7 @@
 import pandas as pd
 
 
-class UrlsXAutogen:
+class UrlsXAutogenRender:
     def __init__(self, file_path_o):
         self._file_path_o = file_path_o
         self._head_text = ""
