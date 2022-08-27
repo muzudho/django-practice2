@@ -13,7 +13,7 @@ from .file_path import FilePath
 # 3. クラス名
 
 # O3o2o_1o0g2o_4o1o0
-from .path_render import PathRender
+from .path_renderer import PathRenderer
 
 # O3o2o_1o0g2o_4o2o0
 from .urls_file_render import UrlsFileRender
@@ -93,7 +93,7 @@ class UrlsAutoGenerator:
                 self._summary_file_to_export = file_path_o.value
                 continue
 
-            path_rdr = PathRender()
+            path_rdr = PathRenderer()
             path_rdr.method = method_temp
             path_rdr.module = row["module"]
             path_rdr.real_class_name = row["class"]

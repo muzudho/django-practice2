@@ -23,13 +23,13 @@ urlpatterns = [{self.create_path_items()}]
     def _create_import_paragraphs(self):
         s = ""
         for path_rdr in self._path_render_list:
-            s += path_rdr.create_head_text()
+            s += path_rdr.create_header_text()
         return s
 
     def create_path_items(self):
         s = ""
         for path_rdr in self._path_render_list:
-            s += path_rdr.create_body_text()
+            s += path_rdr.create_urlpatterns_item_text()
         return s
 
 # EOF O3o2o_1o0g2o_4o2o0

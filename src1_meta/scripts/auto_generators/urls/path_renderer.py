@@ -3,7 +3,7 @@
 import pandas as pd
 
 
-class PathRender:
+class PathRenderer:
     def __init__(self):
         self._module = ""
         self._real_class_name = ""
@@ -90,7 +90,7 @@ class PathRender:
     def name(self, value):
         self._name = value
 
-    def create_head_text(self):
+    def create_header_text(self):
         return f"from {self.module} import {self.real_class_name}{self._create_alias_class_name_phrase()}\n"
 
     def _create_alias_class_name_phrase(self):
@@ -99,7 +99,7 @@ class PathRender:
         else:
             return f" as {self.alias_class_name}"
 
-    def create_body_text(self):
+    def create_urlpatterns_item_text(self):
         # コメント
         comment_phrase = self._create_comment_phrase()
         # name引数

@@ -305,6 +305,8 @@ if __name__ == '__main__':
                         └── 📄 file_path.py
 ```
 
+Input:  
+
 ```shell
 # cd {testsのあるディレクトリー}
 
@@ -318,12 +320,12 @@ Output:
 ```
 
 
-## Step [O3o2o_1o0g2o_4o1o0] スクリプト作成 - path_render.py ファイル
+## Step [O3o2o_1o0g2o_4o1o0] スクリプト作成 - path_renderer.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    ├── 📂 src1     # 既存
+    ├── 📂 src1
     ├── 📂 src1_meta
     │   ├── 📂 data
     │   │   └── 📄 urls.csv
@@ -332,7 +334,7 @@ Output:
     │           └── 📂 urls
     │               ├── 📄 __init__.py
     │               ├── 📄 file_path.py
-👉  │               └── 📄 path_render.py
+👉  │               └── 📄 path_renderer.py
     └── 📂 tests
         └── 📂 src1_meta
             └── 📂 scripts
@@ -347,7 +349,7 @@ Output:
 import pandas as pd
 
 
-class PathRender:
+class PathRenderer:
     def __init__(self):
         self._module = ""
         self._real_class_name = ""
@@ -434,7 +436,7 @@ class PathRender:
     def name(self, value):
         self._name = value
 
-    def create_head_text(self):
+    def create_header_text(self):
         return f"from {self.module} import {self.real_class_name}{self._create_alias_class_name_phrase()}\n"
 
     def _create_alias_class_name_phrase(self):
@@ -443,7 +445,7 @@ class PathRender:
         else:
             return f" as {self.alias_class_name}"
 
-    def create_body_text(self):
+    def create_urlpatterns_item_text(self):
         # コメント
         comment_phrase = self._create_comment_phrase()
         # name引数
@@ -473,6 +475,113 @@ class PathRender:
 # EOF O3o2o_1o0g2o_4o1o0
 ```
 
+## Step [O3o2o_1o0g2o_4o1o1o0] スクリプト作成/テスト作成 - path_renderer.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    ├── 📂 src1
+    ├── 📂 src1_meta
+    │   ├── 📂 data
+    │   │   └── 📄 urls.csv
+    │   └── 📂 scripts
+    │       └── 📂 auto_generators
+    │           └── 📂 urls
+    │               ├── 📄 __init__.py
+    │               ├── 📄 file_path.py
+    │               └── 📄 path_renderer.py
+    └── 📂 tests
+        └── 📂 src1_meta
+            └── 📂 scripts
+                └── 📂 auto_generators
+                    └── 📂 urls
+                        ├── 📄 file_path.py
+👉                      └── 📄 path_renderer.py
+```
+
+```py
+# BOF O3o2o_1o0g2o_4o1o1o0
+
+"""テスト
+# cd {testsのあるディレクトリー}
+
+python -m tests.src1_meta.scripts.auto_generators.urls.path_renderer
+"""
+from src1_meta.scripts.auto_generators.urls.path_renderer import PathRenderer
+
+
+def test_ok1():
+    # Test data
+    path_rdr = PathRenderer()
+    path_rdr.method = "render"
+    path_rdr.module = "src1.this.is.a.file"
+    path_rdr.real_class_name = "HelloClass"
+    path_rdr.alias_class_name = "GoodMorningClass"
+    path_rdr.comment = "This is a text."
+    path_rdr.path = "C:\\This\\Is\\A\\Path\\urls_example_autogen.py"
+    path_rdr.name = "home"
+
+    actual = path_rdr.create_header_text()
+    expected = """from src1.this.is.a.file import HelloClass as GoodMorningClass
+"""
+
+    if not actual == expected:
+        print(
+            f"F\nimport_statement failed. actual:[{actual}] expected:[{expected}]\n")
+        return
+
+    actual = path_rdr.create_urlpatterns_item_text()
+    expected = """
+    # This is a text.
+    path('C:\\This\\Is\\A\\Path\\urls_example_autogen.py', GoodMorningClass.render, name='home'),
+"""
+
+    print(".", end="")  # Succeed
+
+    if not actual == expected:
+        print(
+            f"F\nurlpatterns_item_text failed. actual:[{actual}] expected:[{expected}]\n")
+        return
+
+    print(".", end="")
+
+
+if __name__ == '__main__':
+    test_ok1()
+
+# EOF O3o2o_1o0g2o_4o1o1o0
+```
+
+## Step [O3o2o_1o0g2o_4o1o2o0] スクリプト作成/テスト実行 - path_renderer.py ファイル
+
+👇 以下のディレクトリーから、コマンドを打鍵してほしい  
+
+```plaintext
+👉  📂
+    ├── 📂 src1
+    ├── 📂 src1_meta
+    └── 📂 tests
+        └── 📂 src1_meta
+            └── 📂 scripts
+                └── 📂 auto_generators
+                    └── 📂 urls
+                        └── 📄 path_renderer.py
+```
+
+Input:  
+
+```shell
+# cd {testsのあるディレクトリー}
+
+python -m tests.src1_meta.scripts.auto_generators.urls.path_renderer
+```
+
+Output:  
+
+```plaintext
+..
+```
+
 ## Step [O3o2o_1o0g2o_4o2o0] スクリプト作成 - urls_file_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
@@ -487,7 +596,7 @@ class PathRender:
     │           └── 📂 urls
     │               ├── 📄 __init__.py
     │               ├── 📄 file_path.py
-    │               ├── 📄 path_render.py
+    │               ├── 📄 path_renderer.py
 👉  │               └── 📄 urls_file_render.py
     └── 📂 tests
         └── 📂 src1_meta
@@ -523,13 +632,13 @@ urlpatterns = [{self.create_path_items()}]
     def _create_import_paragraphs(self):
         s = ""
         for path_rdr in self._path_render_list:
-            s += path_rdr.create_head_text()
+            s += path_rdr.create_header_text()
         return s
 
     def create_path_items(self):
         s = ""
         for path_rdr in self._path_render_list:
-            s += path_rdr.create_body_text()
+            s += path_rdr.create_urlpatterns_item_text()
         return s
 
 # EOF O3o2o_1o0g2o_4o2o0
@@ -549,7 +658,7 @@ urlpatterns = [{self.create_path_items()}]
     │           └── 📂 urls
     │               ├── 📄 __init__.py
     │               ├── 📄 file_path.py
-    │               ├── 📄 path_render.py
+    │               ├── 📄 path_renderer.py
     │               ├── 📄 urls_file_render.py
 👉  │               └── 📄 urls_summary_render.py
     └── 📂 tests
@@ -632,7 +741,7 @@ urlpatterns = [
     │           └── 📂 urls
 👉  │               ├── 📄 __init__.py
     │               ├── 📄 file_path.py
-    │               ├── 📄 path_render.py
+    │               ├── 📄 path_renderer.py
     │               ├── 📄 urls_file_render.py
     │               └── 📄 urls_summary_render.py
     └── 📂 tests
@@ -659,7 +768,7 @@ from .file_path import FilePath
 # 3. クラス名
 
 # O3o2o_1o0g2o_4o1o0
-from .path_render import PathRender
+from .path_renderer import PathRenderer
 
 # O3o2o_1o0g2o_4o2o0
 from .urls_file_render import UrlsFileRender
@@ -739,7 +848,7 @@ class UrlsAutoGenerator:
                 self._summary_file_to_export = file_path_o.value
                 continue
 
-            path_rdr = PathRender()
+            path_rdr = PathRenderer()
             path_rdr.method = method_temp
             path_rdr.module = row["module"]
             path_rdr.real_class_name = row["class"]
@@ -799,7 +908,7 @@ class UrlsAutoGenerator:
     │               ├── 📄 __init__.py
 👉  │               ├── 📄 __main__.py
     │               ├── 📄 file_path.py
-    │               ├── 📄 path_render.py
+    │               ├── 📄 path_renderer.py
     │               ├── 📄 urls_file_render.py
     │               └── 📄 urls_summary_render.py
     └── 📂 tests
