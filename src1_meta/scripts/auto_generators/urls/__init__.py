@@ -49,7 +49,7 @@ class UrlsAutoGenerator:
         """URL設定ファイル自動生成"""
 
         # 書き出すファイル
-        files_to_export = {}
+        file_map = {}
 
         # 各行
         df = df.reset_index()  # make sure indexes pair with number of rows
@@ -66,9 +66,9 @@ class UrlsAutoGenerator:
                 self._summary_file_to_export = file_path_o.value
                 continue
 
-            if not file_path_o.value in files_to_export:
+            if not file_path_o.value in file_map:
                 # 新規ファイル
-                files_to_export[file_path_o.value] = UrlsXAutogen()
+                file_map[file_path_o.value] = UrlsXAutogen(file_path_o)
 
             module = row["module"]
             class_name = row["class"]
@@ -80,7 +80,7 @@ class UrlsAutoGenerator:
                 alias_phrase = f" as {alias}"
                 virtual_class_name = alias
 
-            files_to_export[file_path_o.value].head_text += f"from {module} import {class_name}{alias_phrase}\n"
+            file_map[file_path_o.value].head_text += f"from {module} import {class_name}{alias_phrase}\n"
 
             comment = row["comment"]
             path = row["path"]
@@ -107,22 +107,22 @@ class UrlsAutoGenerator:
             else:
                 name_phrase = f", name='{name}'"
 
-            files_to_export[file_path_o.value].body_text += f"""{comment_phrase}
+            file_map[file_path_o.value].body_text += f"""{comment_phrase}
     path('{path}', {virtual_class_name}.{method}{name_phrase}),
 """
 
         # 各ファイル書出し
-        for file_to_export in files_to_export.keys():
+        for file_path, file_o in file_map.items():
             # ファイル書出し
-            with open(file_to_export, 'w', encoding="utf8") as f:
-                print(f"Write... {file_to_export}")
+            with open(file_path, 'w', encoding="utf8") as f:
+                print(f"Write... {file_path}")
                 f.write(f'''# BOF O3o2o_1o0g4o0
 
 from django.urls import path
 
-{files_to_export[file_to_export].head_text}
+{file_o.head_text}
 
-urlpatterns = [{files_to_export[file_to_export].body_text}]
+urlpatterns = [{file_o.body_text}]
 
 # EOF O3o2o_1o0g4o0
 ''')

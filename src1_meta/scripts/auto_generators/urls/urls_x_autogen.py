@@ -1,9 +1,14 @@
 # BOF O3o2o_1o0g2o_4o1o0
 
 class UrlsXAutogen:
-    def __init__(self):
+    def __init__(self, file_path_o):
+        self._file_path_o = file_path_o
         self._head_text = ""
         self._body_text = ""
+
+    @property
+    def file_path_o(self):
+        return self._file_path_o
 
     @property
     def head_text(self):
