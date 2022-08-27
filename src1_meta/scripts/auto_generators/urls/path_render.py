@@ -4,38 +4,14 @@ import pandas as pd
 
 
 class PathRender:
-    def __init__(self, file_path_o):
-        self._file_path_o = file_path_o
-        self._head_text = ""
-        self._body_text = ""
+    def __init__(self):
         self._module = ""
         self._real_class_name = ""
         self._alias_class_name = pd.NA
+        self._method = ""
         self._comment = pd.NA
         self._path = pd.NA
-
-    @property
-    def file_path_o(self):
-        """ファイル パス オブジェクト"""
-        return self._file_path_o
-
-    @property
-    def head_text(self):
-        """ヘッド テキスト"""
-        return self._head_text
-
-    @head_text.setter
-    def head_text(self, value):
-        self._head_text = value
-
-    @property
-    def body_text(self):
-        """本文"""
-        return self._body_text
-
-    @body_text.setter
-    def body_text(self, value):
-        self._body_text = value
+        self._name = pd.NA
 
     @property
     def module(self):
@@ -73,6 +49,15 @@ class PathRender:
             return self.alias_class_name
 
     @property
+    def method(self):
+        """メソッド"""
+        return self._method
+
+    @method.setter
+    def method(self, value):
+        self._method = value
+
+    @property
     def comment(self):
         """コメント"""
         return self._comment
@@ -96,6 +81,15 @@ class PathRender:
 
         self._path = value
 
+    @property
+    def name(self):
+        """名前"""
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        self._name = value
+
     def create_head_text(self):
         return f"from {self.module} import {self.real_class_name}{self.create_alias_class_name_phrase()}\n"
 
@@ -116,5 +110,23 @@ class PathRender:
             return ""
         else:
             return f" as {self.alias_class_name}"
+
+    def create_name_phrase(self):
+        """名前句"""
+        if pd.isnull(self.name):
+            # 省略可
+            return ""
+        else:
+            return f", name='{self.name}'"
+
+    def create_body_text(self):
+        # name引数
+        name_param = self.create_name_phrase()
+        # コメント
+        comment_phrase = self.create_comment_phrase()
+
+        return f"""{comment_phrase}
+    path('{self.path}', {self.virtual_class_name}.{self.method}{name_param}),
+"""
 
 # EOF O3o2o_1o0g2o_4o1o0

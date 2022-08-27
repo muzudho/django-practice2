@@ -15,6 +15,9 @@ from .file_path import FilePath
 # O3o2o_1o0g2o_4o1o0
 from .path_render import PathRender
 
+# O3o2o_1o0g2o_4o2o0
+from .urls_file_render import UrlsFileRender
+
 
 class UrlsAutoGenerator:
     def __init__(self):
@@ -48,56 +51,46 @@ class UrlsAutoGenerator:
     def write_url_some_files(self, df):
         """URL設定ファイル自動生成"""
 
-        # 書き出すファイル
-        file_map = {}
+        # 書き出すパス
+        urls_file_map = {}
 
         # 各行
         df = df.reset_index()  # make sure indexes pair with number of rows
         for index, row in df.iterrows():
+
             # 出力先ファイルパスオブジェクト
             file_path_o, err = FilePath.create_or_err(row['file'])
             if not err is None:
                 print(err)
                 continue
 
-            method = row["method"]
-            if pd.isnull(method):
+            method_temp = row["method"]
+            if pd.isnull(method_temp):
                 # method列が空なら集約ファイルとします
                 self._summary_file_to_export = file_path_o.value
                 continue
 
-            # 新規ファイル作成
-            if not file_path_o.value in file_map:
-                file_map[file_path_o.value] = PathRender(file_path_o)
+            path_rdr = PathRender()
+            path_rdr.method = method_temp
+            path_rdr.module = row["module"]
+            path_rdr.real_class_name = row["class"]
+            path_rdr.alias_class_name = row['alias']
+            path_rdr.comment = row["comment"]
+            path_rdr.path = row["path"]
+            path_rdr.name = row["name"]
 
-            file_o = file_map[file_path_o.value]
+            # urls_*_aurogen.py ファイル オブジェクト取得
+            if not file_path_o.value in urls_file_map:
+                urls_file_map[file_path_o.value] = UrlsFileRender(file_path_o)
 
-            file_o.module = row["module"]
-            file_o.real_class_name = row["class"]
-            file_o.alias_class_name = row['alias']
+            urls_file_o = urls_file_map[file_path_o.value]
 
-            file_map[file_path_o.value].head_text += file_o.create_head_text()
-
-            file_o.comment = row["comment"]
-            file_o.path = row["path"]
-            name = row["name"]
-
-            # コメント
-            comment_phrase = file_o.create_comment_phrase()
-
-            # 名前
-            if pd.isnull(name):
-                # 省略可
-                name_phrase = ""
-            else:
-                name_phrase = f", name='{name}'"
-
-            file_map[file_path_o.value].body_text += f"""{comment_phrase}
-    path('{file_o.path}', {file_o.virtual_class_name}.{method}{name_phrase}),
-"""
+            urls_file_o.path_render_list.append(path_rdr)
+            urls_file_o.head_text += path_rdr.create_head_text()
+            urls_file_o.body_text += path_rdr.create_body_text()
 
         # 各ファイル書出し
-        for file_path, file_o in file_map.items():
+        for file_path, urls_file_o in urls_file_map.items():
             # ファイル書出し
             with open(file_path, 'w', encoding="utf8") as f:
                 print(f"Write... {file_path}")
@@ -105,9 +98,9 @@ class UrlsAutoGenerator:
 
 from django.urls import path
 
-{file_o.head_text}
+{urls_file_o.head_text}
 
-urlpatterns = [{file_o.body_text}]
+urlpatterns = [{urls_file_o.body_text}]
 
 # EOF O3o2o_1o0g4o0
 ''')
@@ -142,8 +135,8 @@ urlpatterns = [
                 print(err)
                 continue
 
-            method = row["method"]
-            if pd.isnull(method):
+            method_temp = row["method"]
+            if pd.isnull(method_temp):
                 # Ignored. method列が空なら集約ファイルとします
                 continue
 

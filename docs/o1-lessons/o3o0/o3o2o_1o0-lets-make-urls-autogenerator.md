@@ -442,6 +442,39 @@ class PathRender:
 # EOF O3o2o_1o0g2o_4o1o0
 ```
 
+## Step O3o2o_1o0g2o_4o2o0 スクリプト作成 - urls_file_render.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    ├── 📂 src1     # 既存
+    ├── 📂 src1_meta
+    │   ├── 📂 data
+    │   │   └── 📄 urls.csv
+    │   └── 📂 scripts
+    │       └── 📂 auto_generators
+    │           └── 📂 urls
+    │               ├── 📄 __init__.py
+    │               ├── 📄 file_path.py
+    │               ├── 📄 path_render.py
+👉  │               └── 📄 urls_file_render.py
+    └── 📂 tests
+        └── 📂 src1_meta
+            └── 📂 scripts
+                └── 📂 auto_generators
+                    └── 📂 urls
+                        └── 📄 file_path.py
+```
+
+```py
+# BOF O3o2o_1o0g2o_4o2o0
+
+class UrlsFileRender:
+    pass
+
+# EOF O3o2o_1o0g2o_4o2o0
+```
+
 ## Step O3o2o_1o0g2o0 スクリプト作成 - urls/__init__.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
