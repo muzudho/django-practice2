@@ -2,6 +2,7 @@
 
 import os
 import pandas as pd
+from pathlib import Path
 
 # O3o2o_1o0g2o_3o0
 from .file_path import FilePath
@@ -68,7 +69,8 @@ class UrlsAutoGenerator:
 
         # どんなファイルを書き出すかの一覧を出力
         for file_path, urls_file_o in urls_file_map.items():
-            print(f"* [ ] Write {file_path}")
+            s = str(Path(file_path).absolute().resolve())
+            print(f"* [ ] Write {s}")
 
         print(f"* [ ] Write {self._summary_file_to_export}")
         print(f"Ok? (y/n)")
@@ -76,14 +78,16 @@ class UrlsAutoGenerator:
         if key.upper() == "Y":
             # 各ファイル書出し
             for file_path, urls_file_o in urls_file_map.items():
+                s = str(Path(file_path).absolute().resolve())
                 # ファイル書出し
-                with open(file_path, 'w', encoding="utf8") as f:
-                    print(f"Write... {file_path}")
+                with open(s, 'w', encoding="utf8") as f:
+                    print(f"Write... {s}")
                     f.write(urls_file_o.create_file_text())
 
             # ファイル書出し
             with open(self._summary_file_to_export, 'w', encoding="utf8") as f:
-                print(f"Write... {self._summary_file_to_export}")
+                s = str(Path(self._summary_file_to_export).absolute().resolve())
+                print(f"Write... {s}")
                 f.write(urls_summary_render.create_file_text())
 
     def create_urls_file_map(self, df):
