@@ -80,6 +80,9 @@ class UrlsXAutogenRender:
     def comment(self, value):
         self._comment = value
 
+    def create_head_text(self):
+        return f"from {self.module} import {self.real_class_name}{self.create_alias_class_name_phrase()}\n"
+
     def create_comment_phrase(self):
         """コメント句"""
         if pd.isnull(self._comment):

@@ -76,7 +76,7 @@ class UrlsAutoGenerator:
             file_o.real_class_name = row["class"]
             file_o.alias_class_name = row['alias']
 
-            file_map[file_path_o.value].head_text += f"from {file_o.module} import {file_o.real_class_name}{file_o.create_alias_class_name_phrase()}\n"
+            file_map[file_path_o.value].head_text += file_o.create_head_text()
 
             file_o.comment = row["comment"]
             path = row["path"]
