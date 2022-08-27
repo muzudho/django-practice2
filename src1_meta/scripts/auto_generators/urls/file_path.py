@@ -1,4 +1,4 @@
-# BOF O3o2o_1o0g2o_3o0
+# BOF O3o2o_1o0g2o_2o0
 
 import os
 
@@ -80,4 +80,4 @@ class FilePath:
         self._last_err = f"書き出すファイル名の先頭は `urls_`、 末尾は `_autogen.py` にしてください。 basename:{basename}"
         return False
 
-# EOF O3o2o_1o0g2o_3o0
+# EOF O3o2o_1o0g2o_2o0
