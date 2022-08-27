@@ -1,4 +1,4 @@
-# BOF O3o2o_1o0g4o0
+# AutoGenBegin O3o2o_1o0g4o0
 
 from django.urls import include, path
 
@@ -21,4 +21,4 @@ urlpatterns = [
     path('', include(f'{PROJECT_NAME}.urls_tic_tac_toe_vol3o0_autogen')),
 ]
 
-# EOF O3o2o_1o0g4o0
+# AutoGenEnd O3o2o_1o0g4o0

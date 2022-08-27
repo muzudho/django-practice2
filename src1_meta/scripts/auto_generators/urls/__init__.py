@@ -75,7 +75,13 @@ class UrlsAutoGenerator:
         print(f"* [ ] Write {self._summary_file_to_export}")
         print(f"Ok? (y/n)")
         key = input()
+
         if key.upper() == "Y":
+            # ファイルの削除
+            for file_path in file_collection.target_path_str_list:
+                print(f"Remove... {file_path}")
+                os.remove(file_path)
+
             # 各ファイル書出し
             for file_path, urls_file_o in urls_file_map.items():
                 s = str(Path(file_path).absolute().resolve())

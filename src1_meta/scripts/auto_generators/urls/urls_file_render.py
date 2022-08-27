@@ -9,7 +9,7 @@ class UrlsFileRender:
         return self._path_render_list
 
     def create_file_text(self):
-        return f'''# BOF O3o2o_1o0g4o0
+        return f'''# AutoGenBegin O3o2o_1o0g4o0
 
 from django.urls import path
 
@@ -17,7 +17,7 @@ from django.urls import path
 
 urlpatterns = [{self.create_path_items()}]
 
-# EOF O3o2o_1o0g4o0
+# AutoGenEnd O3o2o_1o0g4o0
 '''
 
     def _create_import_paragraphs(self):

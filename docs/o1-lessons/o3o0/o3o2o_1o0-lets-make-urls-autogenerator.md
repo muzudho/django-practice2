@@ -674,6 +674,9 @@ urlpatterns = [{self.create_path_items()}]
 ```py
 # BOF O3o2o_1o0g2o_4o3o0
 
+from pathlib import Path
+
+
 class UrlsSummaryRender:
 
     @staticmethod
@@ -704,6 +707,21 @@ urlpatterns = [
 
     def __init__(self):
         self._file_stems = set()
+        self._file_path = None
+
+    @property
+    def file_path(self):
+        return self._file_path
+
+    @file_path.setter
+    def file_path(self, value):
+        self._file_path = value
+
+    @property
+    def parent_directory(self):
+        print(
+            f"[UrlsSummaryRender parent_directory] self._file_path:{self._file_path}")
+        return Path(self._file_path).parent.absolute()
 
     def add_stem(self, stem):
         self._file_stems.add(stem)
@@ -758,6 +776,48 @@ urlpatterns = [
 
 ```py
 # BOF O3o2o_1o0g2o_4o4o0
+
+import glob
+from pathlib import Path
+
+
+class FileCollection:
+
+    @staticmethod
+    def find_to(path_pattern):
+
+        # 名前がマッチしているファイルを探す
+        print(f"[FileCollection find_to] path_pattern:{path_pattern}")
+        target_path_objects = glob.glob(path_pattern)
+        print(
+            f"[DirectFileCollectionory find_to] len(target_path_objects):{len(target_path_objects)}")
+
+        # 文字列のリストに変換
+        target_path_str_list = []
+
+        for target_path_o in target_path_objects:
+            print(f"[FileCollection find_to] target_path_o:{target_path_o}")
+            target_path_str_list.append(str(target_path_o))
+
+        return FileCollection(target_path_str_list)
+
+    def __init__(self, target_path_str_list):
+        self._target_path_str_list = target_path_str_list
+
+    @property
+    def target_path_str_list(self):
+        return self._target_path_str_list
+
+    def remove_all(self, removee_file_str_list):
+        for file_str in removee_file_str_list:
+            s = str(Path(file_str).absolute().resolve())
+            try:
+                self._target_path_str_list.remove(s)
+            except ValueError as e:
+                print(f"[FileCollection remove_all] failed e:{e}")
+                pass
+
+# EOF O3o2o_1o0g2o_4o4o0
 ```
 
 ## Step [O3o2o_1o0g2o0] スクリプト作成 - urls/__init__.py ファイル
@@ -790,6 +850,7 @@ urlpatterns = [
 
 import os
 import pandas as pd
+from pathlib import Path
 
 # O3o2o_1o0g2o_3o0
 from .file_path import FilePath
@@ -808,6 +869,9 @@ from .urls_file_render import UrlsFileRender
 
 # O3o2o_1o0g2o_4o3o0
 from .urls_summary_render import UrlsSummaryRender
+
+# O3o2o_1o0g2o_4o4o0
+from .file_collection import FileCollection
 
 
 class UrlsAutoGenerator:
@@ -839,24 +903,45 @@ class UrlsAutoGenerator:
         # 集約ファイル自動生成
         urls_summary_render = self.create_url_summary_render(df)
 
+        # 集約ファイルが置いてあるディレクトリー
+        path1 = urls_summary_render.parent_directory
+        # パスに "this/is/a/pen/../paper" が含まれていれば、 "this/is/a/paper" に解決する処理
+        path1 = path1.resolve()
+        # 検索対象
+        file_collection = FileCollection.find_to(f"{path1}/urls_*_autogen.py")
+        # 生成対象のファイルを除外
+        file_collection.remove_all(urls_file_map.keys())
+        # 残ったファイルは削除対象
+        for file_path in file_collection.target_path_str_list:
+            print(f"* [ ] Remove {file_path}")
+
         # どんなファイルを書き出すかの一覧を出力
         for file_path, urls_file_o in urls_file_map.items():
-            print(f"* [ ] Write {file_path}")
+            s = str(Path(file_path).absolute().resolve())
+            print(f"* [ ] Write {s}")
 
         print(f"* [ ] Write {self._summary_file_to_export}")
         print(f"Ok? (y/n)")
         key = input()
+
         if key.upper() == "Y":
+            # ファイルの削除
+            for file_path in file_collection.target_path_str_list:
+                print(f"Remove... {file_path}")
+                os.remove(file_path)
+
             # 各ファイル書出し
             for file_path, urls_file_o in urls_file_map.items():
+                s = str(Path(file_path).absolute().resolve())
                 # ファイル書出し
-                with open(file_path, 'w', encoding="utf8") as f:
-                    print(f"Write... {file_path}")
+                with open(s, 'w', encoding="utf8") as f:
+                    print(f"Write... {s}")
                     f.write(urls_file_o.create_file_text())
 
             # ファイル書出し
             with open(self._summary_file_to_export, 'w', encoding="utf8") as f:
-                print(f"Write... {self._summary_file_to_export}")
+                s = str(Path(self._summary_file_to_export).absolute().resolve())
+                print(f"Write... {s}")
                 f.write(urls_summary_render.create_file_text())
 
     def create_urls_file_map(self, df):
@@ -915,7 +1000,8 @@ class UrlsAutoGenerator:
 
             method_temp = row["method"]
             if pd.isnull(method_temp):
-                # Ignored. method列が空なら無視します。集約ファイル
+                # Ignored. method列が空なら集約ファイル
+                urls_summary_render.file_path = row["file"]
                 continue
 
             # ステムをリストに追加
@@ -1018,7 +1104,7 @@ Write... ../src1/project1/urls_practice_vol1o0_autogen.py
 📄 urls_autogen.py:  
 
 ```py
-# BOF O3o2o_1o0g4o0
+# AutoGenBegin O3o2o_1o0g4o0
 
 from django.urls import include, path
 
@@ -1036,13 +1122,13 @@ urlpatterns = [
     path('', include(f'{PROJECT_NAME}.urls_practice_vol1o0_autogen')),
 ]
 
-# EOF O3o2o_1o0g4o0
+# AutoGenEnd O3o2o_1o0g4o0
 ```
 
 📄 urls_practice_vol1o0_autogen.py
 
 ```py
-# BOF O3o2o_1o0g4o0
+# AutoGenBegin O3o2o_1o0g4o0
 
 from django.urls import path
 
@@ -1054,7 +1140,7 @@ urlpatterns = [
     path('practice/vol1.0/hello2/ver1.0/', PageTheHello.render),
 ]
 
-# EOF O3o2o_1o0g4o0
+# AutoGenEnd O3o2o_1o0g4o0
 ```
 
 ## Step [O3o2o_1o0g5o0] 総合ルート編集 - urls.py
@@ -1117,6 +1203,7 @@ urlpatterns.extend(urlpatterns_autogen)
 
 📖 [Writing Unicode text to a text file?](https://stackoverflow.com/questions/6048085/writing-unicode-text-to-a-text-file)  
 📖 [`Usage of __main__.py in Python`](https://www.geeksforgeeks.org/usage-of-__main__-py-in-python/)  
+📖 [[Django] 自動テストについてのまとめ](https://qiita.com/okoppe8/items/eb7c3be5b9f6be244549)  
 
 ## Pandas
 

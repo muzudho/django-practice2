@@ -1,4 +1,4 @@
-# BOF O3o2o_1o0g4o0
+# AutoGenBegin O3o2o_1o0g4o0
 
 from django.urls import path
 
@@ -14,4 +14,4 @@ urlpatterns = [
     path('', LauncherView1o0g2o0.render, name='home'),
 ]
 
-# EOF O3o2o_1o0g4o0
+# AutoGenEnd O3o2o_1o0g4o0

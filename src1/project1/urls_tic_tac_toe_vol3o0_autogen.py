@@ -1,4 +1,4 @@
-# BOF O3o2o_1o0g4o0
+# AutoGenBegin O3o2o_1o0g4o0
 
 from django.urls import path
 
@@ -34,4 +34,4 @@ urlpatterns = [
     path('tic-tac-toe/vol3.0/playing/ver4.0/<str:kw_room_name>/', TicTacToe3o0PlayingView4o0.render),
 ]
 
-# EOF O3o2o_1o0g4o0
+# AutoGenEnd O3o2o_1o0g4o0
