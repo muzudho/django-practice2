@@ -381,7 +381,8 @@ class UrlsXAutogen:
     │       └── 📂 auto_generators
     │           └── 📂 urls
 👉  │               ├── 📄 __init__.py
-    │               └── 📄 file_path.py
+    │               ├── 📄 file_path.py
+    │               └── 📄 urls_x_autogen.py
     └── 📂 tests
         └── 📂 src1_meta
             └── 📂 scripts
@@ -594,7 +595,8 @@ urlpatterns = [
     │           └── 📂 urls
     │               ├── 📄 __init__.py
 👉  │               ├── 📄 __main__.py
-    │               └── 📄 file_path.py
+    │               ├── 📄 file_path.py
+    │               └── 📄 urls_x_autogen.py
     └── 📂 tests
         └── 📂 src1_meta
             └── 📂 scripts
