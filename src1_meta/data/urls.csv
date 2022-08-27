@@ -1,6 +1,6 @@
 file,path,name,comment,module,class,alias,method
 ../src1/project1/urls_autogen.py,,,"集約ファイル",,,,
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/hello2/ver1.0/,practice_vol1o0_hello2,"o3o2o_1o0g1o0 練習1.0巻 こんにちわ1.0版",apps1.practice_vol1o0.views.page_the_hello.ver1o0,PageTheHello,,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/hello-alias/ver1.0/,practice_vol1o0_hello_alias,"O3o2o_1o0g1o0 練習1.0巻 こんにちわ別名1.0版",apps1.practice_vol1o0.views.page_the_hello.ver1o0,PageTheHello,,render
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/page-to-be-added-1/ver1.0/,,"O3o2o0g5o1o0 練習1.0巻 １回追加されたページ1.0版",apps1.practice_vol1o0.views.page_to_be_added.ver2o0,PageToBeAdded,PageToBeAdded1,render
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/page-to-be-added-2/ver1.0/,,"O3o3o0g4o1o0 練習1.0巻 ２回追加されたページ1.0版",apps1.practice_vol1o0.views.page_to_be_added.ver3o0,PageToBeAdded,PageToBeAdded2,render
 ../src1/project1/urls_launcher_vol1o0_autogen.py,launcher/vol1.0/finished-lesson/ver1.0/,,"O5o1o0gA11o1o0 ランチャー1.0巻 終了したレッスン1.0版",apps1.launcher_vol1o0.views.finished_lesson.ver1o0,Launcher,LauncherView1o0g1o0,render
