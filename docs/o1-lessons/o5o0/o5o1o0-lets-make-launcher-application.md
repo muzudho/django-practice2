@@ -34,14 +34,14 @@
     │   │   └── 📂 practice_vol1o0              # アプリケーション名
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_vol1o0
-    │   │       │       ├── 📂 page_the_hello
+    │   │       │       ├── 📂 hello
     │   │       │       │   └── 📄 ver1o0.html
     │   │       │       └── 📂 page_to_be_added
     │   │       │           ├── 📄 ver1o0.html
     │   │       │           ├── 📄 ver2o0.html.txt
     │   │       │           └── 📄 ver3o0.html.txt
     │   │       └── 📂 views
-    │   │           ├── 📂 page_the_hello
+    │   │           ├── 📂 hello
     │   │           │   └── 📂 ver1o0
     │   │           │       └── 📄 __init__.py
     │   │           └── 📂 page_to_be_added
@@ -270,6 +270,7 @@ favicon.ico を有効にするには HTML で設定する必要があるが、�
 ```
 
 ```html
+<!-- BOF O5o1o0g8o0 -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <html lang="ja">
@@ -296,7 +297,7 @@ favicon.ico を有効にするには HTML で設定する必要があるが、�
                             <h3>終わったレッスン</h3>
                         </v-row>
                         <v-row class="my-2">
-                            <v-btn :href="vu_pathOfPageTheHello">こんにちわページ</v-btn>
+                            <v-btn :href="vu_pathOfHello">こんにちわページ</v-btn>
                         </v-row>
                         <v-row class="my-2">
                             <v-btn :href="vu_pathOfPageToBeAdded1">１回追加されたページ</v-btn>
@@ -321,9 +322,9 @@ favicon.ico を有効にするには HTML で設定する必要があるが、�
                 data: {
                     // "vu_" は 「vue1.dataのメンバー」 の目印
                     // "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
-                    vu_pathOfPageTheHello: `${location.protocol}//${location.host}{{ dj_path_of_page_the_hello }}`,
-                    //                      --------------------  ---------------]-------------------------------
-                    //                      1                     2               3
+                    vu_pathOfHello: `${location.protocol}//${location.host}{{ dj_path_of_hello }}`,
+                    //               --------------------  ---------------]----------------------
+                    //               1                     2               3
                     // 1. スキーム（HTTPプロトコル）
                     // 2. ホスト
                     // 3. パス
@@ -337,6 +338,7 @@ favicon.ico を有効にするには HTML で設定する必要があるが、�
         </script>
     </body>
 </html>
+<!-- EOF O5o1o0g8o0 -->
 ```
 
 ## Step O5o1o0g9o0 設定変更 - settings.py ファイル＜その２＞
@@ -450,7 +452,7 @@ class Launcher():
         #                                          -------------------------------------------
 
         context = {
-            "dj_path_of_page_the_hello": "/practice/vol1.0/page-the-hello/ver1.0/",
+            "dj_path_of_hello": "/practice/vol1.0/page-the-hello/ver1.0/",
             "dj_path_of_page_to_be_added_1": "/practice/vol1.0/page-to-be-added-1/ver1.0/",
             "dj_path_of_page_to_be_added_2": "/practice/vol1.0/page-to-be-added-2/ver1.0/",
         }

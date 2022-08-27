@@ -30,10 +30,10 @@ URLの設定はめんどうだ。自動化しよう
     │   │   └── 📂 practice_vol1o0              # アプリケーション名
     │   │       ├── 📂 templates
     │   │       │   └── 📂 practice_vol1o0
-    │   │       │       └── 📂 page_the_hello
+    │   │       │       └── 📂 hello
     │   │       │           └── 📄 ver1o0.html
     │   │       └── 📂 views
-    │   │           └── 📂 page_the_hello
+    │   │           └── 📂 hello
     │   │               └── 📂 ver1o0
     │   │                   └── 📄 __init__.py
     │   ├── 📂 data
@@ -82,7 +82,7 @@ docker-compose up
 ```csv
 file,path,name,comment,module,class,alias,method
 ../src1/project1/urls_autogen.py,,,"集約ファイル",,,,
-../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/hello-alias/ver1.0/,practice_vol1o0_hello_alias,"O3o2o_1o0g1o0 練習1.0巻 こんにちわ別名1.0版",apps1.practice_vol1o0.views.page_the_hello.ver1o0,PageTheHello,,render
+../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/hello-alias/ver1.0/,practice_vol1o0_hello_alias,"O3o2o_1o0g1o0 練習1.0巻 こんにちわ別名1.0版",apps1.practice_vol1o0.views.hello.ver1o0,HelloView,,render
 ```
 
 ## Step [O3o2o_1o0g2o_1o0] Pythonパッケージインストール - pandas
@@ -787,7 +787,7 @@ class FileCollection:
     def find_to(path_pattern):
 
         # 名前がマッチしているファイルを探す
-        print(f"[FileCollection find_to] path_pattern:{path_pattern}")
+        # print(f"[FileCollection find_to] path_pattern:{path_pattern}")
         target_path_objects = glob.glob(path_pattern)
         print(
             f"[DirectFileCollectionory find_to] len(target_path_objects):{len(target_path_objects)}")
@@ -796,7 +796,7 @@ class FileCollection:
         target_path_str_list = []
 
         for target_path_o in target_path_objects:
-            print(f"[FileCollection find_to] target_path_o:{target_path_o}")
+            # print(f"[FileCollection find_to] target_path_o:{target_path_o}")
             target_path_str_list.append(str(target_path_o))
 
         return FileCollection(target_path_str_list)
@@ -814,7 +814,7 @@ class FileCollection:
             try:
                 self._target_path_str_list.remove(s)
             except ValueError as e:
-                print(f"[FileCollection remove_all] failed e:{e}")
+                print(f"[FileCollection remove_all] Remove failed. error:{e}")
                 pass
 
 # EOF O3o2o_1o0g2o_4o4o0
@@ -890,9 +890,9 @@ class UrlsAutoGenerator:
         """
         Examples
         --------
-                                                       file                                path                         name  ...         class alias  method
-        0                  ../src1/project1/urls_autogen.py                                 NaN                          NaN  ...           NaN   NaN     NaN
-        1  ../src1/project1/urls_practice_vol1o0_autogen.py  practice/vo1o0/hello-alias/ver1o0/  practice_vol1o0_hello_alias  ...  PageTheHello   NaN  render
+                                                       file                                path                         name  ...      class alias  method
+        0                  ../src1/project1/urls_autogen.py                                 NaN                          NaN  ...        NaN   NaN     NaN
+        1  ../src1/project1/urls_practice_vol1o0_autogen.py  practice/vo1o0/hello-alias/ver1o0/  practice_vol1o0_hello_alias  ...  HelloView   NaN  render
         """
 
         print(f"Current working directory:{os.getcwd()}")
@@ -1132,12 +1132,12 @@ urlpatterns = [
 
 from django.urls import path
 
-from apps1.practice_vol1o0.views.page_the_hello.ver1o0 import PageTheHello
+from apps1.practice_vol1o0.views.hello.ver1o0 import HelloView
 
 
 urlpatterns = [
-    # O3o1o0gA10o0 こんにちわ別名
-    path('practice/vol1.0/hello-alias/ver1.0/', PageTheHello.render),
+    # O3o2o_1o0g1o0 練習1.0巻 こんにちわ別名1.0版
+    path('practice/vol1.0/hello-alias/ver1.0/', HelloView.render, name='practice_vol1o0_hello_alias'),
 ]
 
 # AutoGenEnd O3o2o_1o0g4o0

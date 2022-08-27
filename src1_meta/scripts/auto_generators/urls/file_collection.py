@@ -10,7 +10,7 @@ class FileCollection:
     def find_to(path_pattern):
 
         # 名前がマッチしているファイルを探す
-        print(f"[FileCollection find_to] path_pattern:{path_pattern}")
+        # print(f"[FileCollection find_to] path_pattern:{path_pattern}")
         target_path_objects = glob.glob(path_pattern)
         print(
             f"[DirectFileCollectionory find_to] len(target_path_objects):{len(target_path_objects)}")
@@ -19,7 +19,7 @@ class FileCollection:
         target_path_str_list = []
 
         for target_path_o in target_path_objects:
-            print(f"[FileCollection find_to] target_path_o:{target_path_o}")
+            # print(f"[FileCollection find_to] target_path_o:{target_path_o}")
             target_path_str_list.append(str(target_path_o))
 
         return FileCollection(target_path_str_list)
@@ -37,7 +37,7 @@ class FileCollection:
             try:
                 self._target_path_str_list.remove(s)
             except ValueError as e:
-                print(f"[FileCollection remove_all] failed e:{e}")
+                print(f"[FileCollection remove_all] Remove failed. error:{e}")
                 pass
 
 # EOF O3o2o_1o0g2o_4o4o0

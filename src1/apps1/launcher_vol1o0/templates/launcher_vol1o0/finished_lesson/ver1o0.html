@@ -1,3 +1,4 @@
+<!-- BOF O5o1o0g8o0 -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <html lang="ja">
@@ -24,7 +25,7 @@
                             <h3>終わったレッスン</h3>
                         </v-row>
                         <v-row class="my-2">
-                            <v-btn :href="vu_pathOfPageTheHello">こんにちわページ</v-btn>
+                            <v-btn :href="vu_pathOfHello">こんにちわページ</v-btn>
                         </v-row>
                         <v-row class="my-2">
                             <v-btn :href="vu_pathOfPageToBeAdded1">１回追加されたページ</v-btn>
@@ -49,9 +50,9 @@
                 data: {
                     // "vu_" は 「vue1.dataのメンバー」 の目印
                     // "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
-                    vu_pathOfPageTheHello: `${location.protocol}//${location.host}{{ dj_path_of_page_the_hello }}`,
-                    //                      --------------------  ---------------]-------------------------------
-                    //                      1                     2               3
+                    vu_pathOfHello: `${location.protocol}//${location.host}{{ dj_path_of_hello }}`,
+                    //               --------------------  ---------------]----------------------
+                    //               1                     2               3
                     // 1. スキーム（HTTPプロトコル）
                     // 2. ホスト
                     // 3. パス
@@ -65,3 +66,4 @@
         </script>
     </body>
 </html>
+<!-- EOF O5o1o0g8o0 -->
