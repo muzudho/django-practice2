@@ -21,6 +21,9 @@ from .urls_file_render import UrlsFileRender
 # O3o2o_1o0g2o_4o3o0
 from .urls_summary_render import UrlsSummaryRender
 
+# O3o2o_1o0g2o_4o4o0
+from .directory import Directory
+
 
 class UrlsAutoGenerator:
     def __init__(self):
@@ -50,6 +53,9 @@ class UrlsAutoGenerator:
 
         # 集約ファイル自動生成
         urls_summary_render = self.create_url_summary_render(df)
+
+        # 集約ファイルが置いてあるディレクトリーを探索
+        directory = Directory.search(urls_summary_render.parent_directory)
 
         # どんなファイルを書き出すかの一覧を出力
         for file_path, urls_file_o in urls_file_map.items():
@@ -127,7 +133,8 @@ class UrlsAutoGenerator:
 
             method_temp = row["method"]
             if pd.isnull(method_temp):
-                # Ignored. method列が空なら無視します。集約ファイル
+                # Ignored. method列が空なら集約ファイル
+                urls_summary_render.file_path = row["file"]
                 continue
 
             # ステムをリストに追加

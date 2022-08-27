@@ -1,5 +1,8 @@
 # BOF O3o2o_1o0g2o_4o3o0
 
+from pathlib import Path
+
+
 class UrlsSummaryRender:
 
     @staticmethod
@@ -30,6 +33,21 @@ urlpatterns = [
 
     def __init__(self):
         self._file_stems = set()
+        self._file_path = None
+
+    @property
+    def file_path(self):
+        return self._file_path
+
+    @file_path.setter
+    def file_path(self, value):
+        self._file_path = value
+
+    @property
+    def parent_directory(self):
+        print(
+            f"[UrlsSummaryRender parent_directory] self._file_path:{self._file_path}")
+        return Path(self._file_path).parent.absolute()
 
     def add_stem(self, stem):
         self._file_stems.add(stem)
