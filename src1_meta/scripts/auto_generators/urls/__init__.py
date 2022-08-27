@@ -3,6 +3,14 @@
 import os
 import pandas as pd
 
+from .file_path import FilePath
+#    ]---------        --------
+#    12                3
+# 1. 同じディレクトリー
+# 2. file_path.py
+#    ---------
+# 3. クラス名
+
 
 class UrlsAutoGenerator:
     def __init__(self):
@@ -37,31 +45,28 @@ class UrlsAutoGenerator:
         """URL設定ファイル自動生成"""
 
         # 書き出すテキスト
-        head_text_of_files = {}
-        body_text_of_files = {}
+        head_text_by_files = {}
+        body_text_by_files = {}
 
         # 各行
         df = df.reset_index()  # make sure indexes pair with number of rows
         for index, row in df.iterrows():
-
-            file_to_export = row['file']
-            # 誤上書き防止のため、ファイル名の末尾は `_autogen.py` かチェックします
-            basename = os.path.basename(file_to_export)
-            if not basename.endswith("_autogen.py"):
-                print(
-                    f"書き出すファイル名の末尾は `_autogen.py` にしてください。 basename:{basename}")
+            # 出力先ファイルパスオブジェクト
+            file_path_o, err = FilePath.create_or_err(row['file'])
+            if not err is None:
+                print(err)
                 continue
 
             method = row["method"]
             if pd.isnull(method):
                 # method列が空なら集約ファイルとします
-                self._summary_file_to_export = file_to_export
+                self._summary_file_to_export = file_path_o.value
                 continue
 
-            if not file_to_export in head_text_of_files:
+            if not file_path_o.value in head_text_by_files:
                 # 新規ファイル
-                head_text_of_files[file_to_export] = ""
-                body_text_of_files[file_to_export] = ""
+                head_text_by_files[file_path_o.value] = ""
+                body_text_by_files[file_path_o.value] = ""
 
             module = row["module"]
             class_name = row["class"]
@@ -73,7 +78,7 @@ class UrlsAutoGenerator:
                 alias_phrase = f" as {alias}"
                 virtual_class_name = alias
 
-            head_text_of_files[file_to_export] += f"from {module} import {class_name}{alias_phrase}\n"
+            head_text_by_files[file_path_o.value] += f"from {module} import {class_name}{alias_phrase}\n"
 
             comment = row["comment"]
             path = row["path"]
@@ -100,12 +105,12 @@ class UrlsAutoGenerator:
             else:
                 name_phrase = f", name='{name}'"
 
-            body_text_of_files[file_to_export] += f"""{comment_phrase}
+            body_text_by_files[file_path_o.value] += f"""{comment_phrase}
     path('{path}', {virtual_class_name}.{method}{name_phrase}),
 """
 
         # 各ファイル書出し
-        for file_to_export in head_text_of_files.keys():
+        for file_to_export in head_text_by_files.keys():
             # ファイル書出し
             with open(file_to_export, 'w', encoding="utf8") as f:
                 print(f"Write... {file_to_export}")
@@ -113,9 +118,9 @@ class UrlsAutoGenerator:
 
 from django.urls import path
 
-{head_text_of_files[file_to_export]}
+{head_text_by_files[file_to_export]}
 
-urlpatterns = [{body_text_of_files[file_to_export]}]
+urlpatterns = [{body_text_by_files[file_to_export]}]
 
 # EOF O3o2o_1o0g4o0
 ''')
@@ -144,11 +149,10 @@ urlpatterns = [
         file_stems_to_export = set()
         df = df.reset_index()  # make sure indexes pair with number of rows
         for index, row in df.iterrows():
-            file_to_export = row["file"]
-            basename = os.path.basename(file_to_export)
-            if not basename.endswith("_autogen.py"):
-                print(
-                    f"書き出すファイル名の末尾は `_autogen.py` にしてください。 basename:{basename}")
+            # 出力先ファイル名オブジェクト
+            file_path_o, err = FilePath.create_or_err(row['file'])
+            if not err is None:
+                print(err)
                 continue
 
             method = row["method"]
@@ -156,10 +160,8 @@ urlpatterns = [
                 # Ignored. method列が空なら集約ファイルとします
                 continue
 
-            # 拡張子を除去
-            file_stem = basename[:-3]
-
-            file_stems_to_export.add(file_stem)
+            # ステムをリストに追加
+            file_stems_to_export.add(file_path_o.stem)
 
         # 辞書順ソート
         file_stems_to_export = list(file_stems_to_export)
@@ -179,10 +181,5 @@ urlpatterns = [
         with open(self._summary_file_to_export, 'w', encoding="utf8") as f:
             print(f"Write... {self._summary_file_to_export}")
             f.write(text)
-
-
-if __name__ == "__main__":
-    urlsAutoGenerator = UrlsAutoGenerator()
-    urlsAutoGenerator.execute()
 
 # EOF O3o2o_1o0g2o0

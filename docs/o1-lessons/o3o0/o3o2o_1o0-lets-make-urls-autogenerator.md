@@ -93,7 +93,7 @@ file,path,name,comment,module,class,alias,method
 pip install pandas
 ```
 
-## Step O3o2o_1o0g2o0 スクリプト作成 - src1_meta/scripts/auto_generators/urls.py ファイル
+## Step O3o2o_1o0g2o_1o0 スクリプト作成 - __init__.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -104,7 +104,231 @@ pip install pandas
         │   └── 📄 urls.csv
         └── 📂 scripts
             └── 📂 auto_generators
-                └── 📄 urls.py
+                └── 📂 urls
+👉                  └── 📄 __init__.py
+```
+
+👇 中身は空っぽでよい  
+
+```py
+```
+
+## Step O3o2o_1o0g2o_2o0 スクリプト作成 - file_path.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    ├── 📂 src1     # 既存
+    └── 📂 src1_meta
+        ├── 📂 data
+        │   └── 📄 urls.csv
+        └── 📂 scripts
+            └── 📂 auto_generators
+                └── 📂 urls
+                    ├── 📄 __init__.py
+👉                  └── 📄 file_path.py
+```
+
+```py
+import os
+
+
+class FilePath:
+    """ファイルパス
+
+    Examples
+    --------
+    C:\this\is\a\base.name
+                 ---]-----
+                 111 112
+                 ---------
+                 11
+    ----------------------
+    10
+
+    10. file path
+    11. basename
+    111. stem
+    112. extension with dot
+    """
+
+    @staticmethod
+    def create_or_err(file_path):
+        # ファイル名オブジェクト
+        file_path_o = FilePath(file_path)
+
+        if file_path_o.is_valid():
+            return file_path_o, None
+
+        return None, file_path_o._last_err
+
+    def __init__(self, value):
+        # 値
+        self._value = value
+        # 最後のエラーメッセージ
+        self._last_err = None
+        # ベースネーム
+        self._basename = None
+        # ステム
+        self._stem = None
+
+    @property
+    def value(self):
+        """値"""
+        return self._value
+
+    @property
+    def last_err(self):
+        """最後のエラーメッセージ"""
+        return self._last_err
+
+    @property
+    def basename(self):
+        """ベースネーム"""
+        if self._basename is None:
+            self._basename = os.path.basename(self.value)
+
+        return self._basename
+
+    @property
+    def stem(self):
+        """ステム"""
+        if self._stem is None:
+            # 拡張子を除去
+            self._stem = self.basename[:-3]
+
+        return self._stem
+
+    def is_valid(self):
+        """ファイル名が `urls_*_autogen.py` な感じかチェックします"""
+
+        basename = os.path.basename(self._value)
+
+        if basename.startswith("urls_") and basename.endswith("_autogen.py"):
+            return True
+
+        self._last_err = f"書き出すファイル名の先頭は `urls_`、 末尾は `_autogen.py` にしてください。 basename:{basename}"
+        return False
+```
+
+## Step O3o2o_1o0g2o_3o0 スクリプト作成/テスト作成 - file_path.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    ├── 📂 src1     # 既存
+    ├── 📂 src1_meta
+    │   ├── 📂 data
+    │   │   └── 📄 urls.csv
+    │   └── 📂 scripts
+    │       └── 📂 auto_generators
+    │           └── 📂 urls
+    │               ├── 📄 __init__.py
+    │               └── 📄 file_path.py
+    └── 📂 tests
+        └── 📂 src1_meta
+            └── 📂 scripts
+                └── 📂 auto_generators
+                    └── 📂 urls
+👉                      └── 📄 file_path.py
+```
+
+```py
+"""テスト
+# cd {testsのあるディレクトリー}
+
+python -m tests.src1_meta.scripts.auto_generators.urls.file_path
+"""
+from src1_meta.scripts.auto_generators.urls.file_path import FilePath
+
+
+def test_ok1():
+    # 出力先ファイルパスオブジェクト
+    file_path_o, err = FilePath.create_or_err(
+        'C:\\this\\is\\a\\urls_path_autogen.py')
+    if not err is None:
+        print(f"F\n{err}")
+        return
+
+    print(".", end="")  # Succeed
+
+
+def test_not_starts_with_urls():
+    # 出力先ファイルパスオブジェクト
+    file_path_o, err = FilePath.create_or_err(
+        'C:\\this\\is\\a\\path_autogen.py')
+    if err == "書き出すファイル名の先頭は `urls_`、 末尾は `_autogen.py` にしてください。 basename:path_autogen.py":
+        print(".", end="")
+        return
+
+    print("F")  # Failed
+
+
+def test_not_ends_with_autogen():
+    # 出力先ファイルパスオブジェクト
+    file_path_o, err = FilePath.create_or_err(
+        'C:\\this\\is\\a\\urls_path.py')
+    if err == "書き出すファイル名の先頭は `urls_`、 末尾は `_autogen.py` にしてください。 basename:urls_path.py":
+        print(".", end="")
+        return
+
+    print("F", end="")
+
+
+if __name__ == '__main__':
+    test_ok1()
+    test_not_starts_with_urls()
+    test_not_ends_with_autogen()
+```
+
+## Step O3o2o_1o0g2o_4o0 スクリプト作成/テスト実行 - file_path.py ファイル
+
+👇 以下のディレクトリーから、コマンドを打鍵してほしい  
+
+```plaintext
+👉  📂
+    ├── 📂 src1
+    ├── 📂 src1_meta
+    └── 📂 tests
+        └── 📂 src1_meta
+            └── 📂 scripts
+                └── 📂 auto_generators
+                    └── 📂 urls
+                        └── 📄 file_path.py
+```
+
+```shell
+# cd {testsのあるディレクトリー}
+
+python -m tests.src1_meta.scripts.auto_generators.urls.file_path
+```
+
+Output:  
+
+```plaintext
+...
+```
+
+## Step O3o2o_1o0g2o0 スクリプト作成 - urls/__init__.py ファイル
+
+👇 以下の既存ファイルを編集してほしい  
+
+```plaintext
+    ├── 📂 src1     # 既存
+    ├── 📂 src1_meta
+    │   ├── 📂 data
+    │   │   └── 📄 urls.csv
+    │   └── 📂 scripts
+    │       └── 📂 auto_generators
+    │           └── 📂 urls
+👉  │               ├── 📄 __init__.py
+    │               └── 📄 file_path.py
+    └── 📂 tests
+        └── 📂 src1_meta
+            └── 📂 scripts
+                └── 📂 auto_generators
+                    └── 📂 urls
+                        └── 📄 file_path.py
 ```
 
 ```py
@@ -112,6 +336,14 @@ pip install pandas
 
 import os
 import pandas as pd
+
+from .file_path import FilePath
+#    ]---------        --------
+#    12                3
+# 1. 同じディレクトリー
+# 2. file_path.py
+#    ---------
+# 3. クラス名
 
 
 class UrlsAutoGenerator:
@@ -132,7 +364,7 @@ class UrlsAutoGenerator:
         --------
                                                        file                           path                    name  ...         class alias  method
         0                  ../src1/project1/urls_autogen.py                            NaN                     NaN  ...           NaN   NaN     NaN
-        1  ../src1/project1/urls_practice_vol1o0_autogen.py  practice/vo1o0/hello2/ver1.0/  practice_vol1o0_hello2  ...  PageTheHello   NaN  render
+        1  ../src1/project1/urls_practice_vol1o0_autogen.py  practice/vo1o0/hello2/ver1o0/  practice_vol1o0_hello2  ...  PageTheHello   NaN  render
         """
 
         print(f"Current working directory:{os.getcwd()}")
@@ -147,31 +379,28 @@ class UrlsAutoGenerator:
         """URL設定ファイル自動生成"""
 
         # 書き出すテキスト
-        head_text_of_files = {}
-        body_text_of_files = {}
+        head_text_by_files = {}
+        body_text_by_files = {}
 
         # 各行
         df = df.reset_index()  # make sure indexes pair with number of rows
         for index, row in df.iterrows():
-
-            file_to_export = row['file']
-            # 誤上書き防止のため、ファイル名の末尾は `_autogen.py` かチェックします
-            basename = os.path.basename(file_to_export)
-            if not basename.endswith("_autogen.py"):
-                print(
-                    f"書き出すファイル名の末尾は `_autogen.py` にしてください。 basename:{basename}")
+            # 出力先ファイルパスオブジェクト
+            file_path_o, err = FilePath.create_or_err(row['file'])
+            if not err is None:
+                print(err)
                 continue
 
             method = row["method"]
             if pd.isnull(method):
                 # method列が空なら集約ファイルとします
-                self._summary_file_to_export = file_to_export
+                self._summary_file_to_export = file_path_o.value
                 continue
 
-            if not file_to_export in head_text_of_files:
+            if not file_path_o.value in head_text_by_files:
                 # 新規ファイル
-                head_text_of_files[file_to_export] = ""
-                body_text_of_files[file_to_export] = ""
+                head_text_by_files[file_path_o.value] = ""
+                body_text_by_files[file_path_o.value] = ""
 
             module = row["module"]
             class_name = row["class"]
@@ -183,7 +412,7 @@ class UrlsAutoGenerator:
                 alias_phrase = f" as {alias}"
                 virtual_class_name = alias
 
-            head_text_of_files[file_to_export] += f"from {module} import {class_name}{alias_phrase}\n"
+            head_text_by_files[file_path_o.value] += f"from {module} import {class_name}{alias_phrase}\n"
 
             comment = row["comment"]
             path = row["path"]
@@ -210,12 +439,12 @@ class UrlsAutoGenerator:
             else:
                 name_phrase = f", name='{name}'"
 
-            body_text_of_files[file_to_export] += f"""{comment_phrase}
+            body_text_by_files[file_path_o.value] += f"""{comment_phrase}
     path('{path}', {virtual_class_name}.{method}{name_phrase}),
 """
 
         # 各ファイル書出し
-        for file_to_export in head_text_of_files.keys():
+        for file_to_export in head_text_by_files.keys():
             # ファイル書出し
             with open(file_to_export, 'w', encoding="utf8") as f:
                 print(f"Write... {file_to_export}")
@@ -223,9 +452,9 @@ class UrlsAutoGenerator:
 
 from django.urls import path
 
-{head_text_of_files[file_to_export]}
+{head_text_by_files[file_to_export]}
 
-urlpatterns = [{body_text_of_files[file_to_export]}]
+urlpatterns = [{body_text_by_files[file_to_export]}]
 
 # EOF O3o2o_1o0g4o0
 ''')
@@ -254,11 +483,10 @@ urlpatterns = [
         file_stems_to_export = set()
         df = df.reset_index()  # make sure indexes pair with number of rows
         for index, row in df.iterrows():
-            file_to_export = row["file"]
-            basename = os.path.basename(file_to_export)
-            if not basename.endswith("_autogen.py"):
-                print(
-                    f"書き出すファイル名の末尾は `_autogen.py` にしてください。 basename:{basename}")
+            # 出力先ファイル名オブジェクト
+            file_path_o, err = FilePath.create_or_err(row['file'])
+            if not err is None:
+                print(err)
                 continue
 
             method = row["method"]
@@ -266,10 +494,8 @@ urlpatterns = [
                 # Ignored. method列が空なら集約ファイルとします
                 continue
 
-            # 拡張子を除去
-            file_stem = basename[:-3]
-
-            file_stems_to_export.add(file_stem)
+            # ステムをリストに追加
+            file_stems_to_export.add(file_path_o.stem)
 
         # 辞書順ソート
         file_stems_to_export = list(file_stems_to_export)
@@ -290,17 +516,58 @@ urlpatterns = [
             print(f"Write... {self._summary_file_to_export}")
             f.write(text)
 
+# EOF O3o2o_1o0g2o0
+```
 
-if __name__ == "__main__":
+## Step O3o2o_1o0g2o1o0 スクリプト作成 - urls/__main__.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    ├── 📂 src1     # 既存
+    ├── 📂 src1_meta
+    │   ├── 📂 data
+    │   │   └── 📄 urls.csv
+    │   └── 📂 scripts
+    │       └── 📂 auto_generators
+    │           └── 📂 urls
+    │               ├── 📄 __init__.py
+👉  │               ├── 📄 __main__.py
+    │               └── 📄 file_path.py
+    └── 📂 tests
+        └── 📂 src1_meta
+            └── 📂 scripts
+                └── 📂 auto_generators
+                    └── 📂 urls
+                        └── 📄 file_path.py
+```
+
+```py
+from .__init__ import UrlsAutoGenerator
+
+
+def main():
     urlsAutoGenerator = UrlsAutoGenerator()
     urlsAutoGenerator.execute()
 
-# EOF O3o2o_1o0g2o0
+
+if __name__ == "__main__":
+    main()
 ```
 
 ## Step O3o2o_1o0g3o0 コマンド実行
 
-👇 以下のコマンドを打鍵してほしい  
+👇 以下のディレクトリーから、コマンドを打鍵してほしい  
+
+```plaintext
+    📂
+    ├── 📂 src1
+👉  ├── 📂 src1_meta
+    │   └── 📂 scripts
+    │       └── 📂 auto_generators
+    │           └── 📄 urls.py
+    └── 📂 tests
+```
 
 ```shell
 # ディレクトリーを移動してほしい
@@ -435,6 +702,7 @@ urlpatterns.extend(urlpatterns_autogen)
 ## Python
 
 📖 [Writing Unicode text to a text file?](https://stackoverflow.com/questions/6048085/writing-unicode-text-to-a-text-file)  
+📖 [`Usage of __main__.py in Python`](https://www.geeksforgeeks.org/usage-of-__main__-py-in-python/)  
 
 ## Pandas
 
