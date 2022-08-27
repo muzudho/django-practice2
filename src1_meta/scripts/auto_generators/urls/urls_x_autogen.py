@@ -1,4 +1,4 @@
-# BOF O3o2o_1o0g2o_3o0
+# BOF O3o2o_1o0g2o_4o1o0
 
 class UrlsXAutogen:
     def __init__(self):
@@ -21,4 +21,4 @@ class UrlsXAutogen:
     def body_text(self, value):
         self._body_text = value
 
-# EOF O3o2o_1o0g2o_3o0
+# EOF O3o2o_1o0g2o_4o1o0

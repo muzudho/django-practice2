@@ -289,7 +289,36 @@ if __name__ == '__main__':
 # EOF O3o2o_1o0g2o_3o0
 ```
 
-## Step O3o2o_1o0g2o_3o0 スクリプト作成 - urls_x_autogen.py ファイル
+## Step O3o2o_1o0g2o_4o0 スクリプト作成/テスト実行 - file_path.py ファイル
+
+👇 以下のディレクトリーから、コマンドを打鍵してほしい  
+
+```plaintext
+👉  📂
+    ├── 📂 src1
+    ├── 📂 src1_meta
+    └── 📂 tests
+        └── 📂 src1_meta
+            └── 📂 scripts
+                └── 📂 auto_generators
+                    └── 📂 urls
+                        └── 📄 file_path.py
+```
+
+```shell
+# cd {testsのあるディレクトリー}
+
+python -m tests.src1_meta.scripts.auto_generators.urls.file_path
+```
+
+Output:  
+
+```plaintext
+...
+```
+
+
+## Step O3o2o_1o0g2o_4o1o0 スクリプト作成 - urls_x_autogen.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -337,34 +366,6 @@ class UrlsXAutogen:
         self._body_text = value
 
 # EOF O3o2o_1o0g2o_3o0
-```
-
-## Step O3o2o_1o0g2o_4o0 スクリプト作成/テスト実行 - file_path.py ファイル
-
-👇 以下のディレクトリーから、コマンドを打鍵してほしい  
-
-```plaintext
-👉  📂
-    ├── 📂 src1
-    ├── 📂 src1_meta
-    └── 📂 tests
-        └── 📂 src1_meta
-            └── 📂 scripts
-                └── 📂 auto_generators
-                    └── 📂 urls
-                        └── 📄 file_path.py
-```
-
-```shell
-# cd {testsのあるディレクトリー}
-
-python -m tests.src1_meta.scripts.auto_generators.urls.file_path
-```
-
-Output:  
-
-```plaintext
-...
 ```
 
 ## Step O3o2o_1o0g2o0 スクリプト作成 - urls/__init__.py ファイル
