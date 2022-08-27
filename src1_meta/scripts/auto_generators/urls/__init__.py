@@ -81,13 +81,10 @@ class UrlsAutoGenerator:
 
             # urls_*_aurogen.py ファイル オブジェクト取得
             if not file_path_o.value in urls_file_map:
-                urls_file_map[file_path_o.value] = UrlsFileRender(file_path_o)
+                urls_file_map[file_path_o.value] = UrlsFileRender()
 
             urls_file_o = urls_file_map[file_path_o.value]
-
             urls_file_o.path_render_list.append(path_rdr)
-            urls_file_o.head_text += path_rdr.create_head_text()
-            urls_file_o.body_text += path_rdr.create_body_text()
 
         # 各ファイル書出し
         for file_path, urls_file_o in urls_file_map.items():
@@ -98,9 +95,9 @@ class UrlsAutoGenerator:
 
 from django.urls import path
 
-{urls_file_o.head_text}
+{urls_file_o.create_head_text()}
 
-urlpatterns = [{urls_file_o.body_text}]
+urlpatterns = [{urls_file_o.create_body_text()}]
 
 # EOF O3o2o_1o0g4o0
 ''')
