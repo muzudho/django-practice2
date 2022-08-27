@@ -1,3 +1,5 @@
+# BOF O3o2o_1o0g2o_3o0
+
 """テスト
 # cd {testsのあるディレクトリー}
 
@@ -43,3 +45,5 @@ if __name__ == '__main__':
     test_ok1()
     test_not_starts_with_urls()
     test_not_ends_with_autogen()
+
+# EOF O3o2o_1o0g2o_3o0

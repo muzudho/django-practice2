@@ -130,6 +130,8 @@ pip install pandas
 ```
 
 ```py
+# BOF O3o2o_1o0g2o_3o0
+
 import os
 
 
@@ -209,6 +211,8 @@ class FilePath:
 
         self._last_err = f"書き出すファイル名の先頭は `urls_`、 末尾は `_autogen.py` にしてください。 basename:{basename}"
         return False
+
+# EOF O3o2o_1o0g2o_3o0
 ```
 
 ## Step O3o2o_1o0g2o_3o0 スクリプト作成/テスト作成 - file_path.py ファイル
@@ -234,6 +238,8 @@ class FilePath:
 ```
 
 ```py
+# BOF O3o2o_1o0g2o_3o0
+
 """テスト
 # cd {testsのあるディレクトリー}
 
@@ -279,6 +285,58 @@ if __name__ == '__main__':
     test_ok1()
     test_not_starts_with_urls()
     test_not_ends_with_autogen()
+
+# EOF O3o2o_1o0g2o_3o0
+```
+
+## Step O3o2o_1o0g2o_3o0 スクリプト作成 - urls_x_autogen.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    ├── 📂 src1     # 既存
+    ├── 📂 src1_meta
+    │   ├── 📂 data
+    │   │   └── 📄 urls.csv
+    │   └── 📂 scripts
+    │       └── 📂 auto_generators
+    │           └── 📂 urls
+    │               ├── 📄 __init__.py
+    │               ├── 📄 file_path.py
+    │               └── 📄 urls_x_autogen.py
+    └── 📂 tests
+        └── 📂 src1_meta
+            └── 📂 scripts
+                └── 📂 auto_generators
+                    └── 📂 urls
+                        └── 📄 file_path.py
+```
+
+```py
+# BOF O3o2o_1o0g2o_3o0
+
+class UrlsXAutogen:
+    def __init__(self):
+        self._head_text = ""
+        self._body_text = ""
+
+    @property
+    def head_text(self):
+        return self._head_text
+
+    @head_text.setter
+    def head_text(self, value):
+        self._head_text = value
+
+    @property
+    def body_text(self):
+        return self._body_text
+
+    @body_text.setter
+    def body_text(self, value):
+        self._body_text = value
+
+# EOF O3o2o_1o0g2o_3o0
 ```
 
 ## Step O3o2o_1o0g2o_4o0 スクリプト作成/テスト実行 - file_path.py ファイル
