@@ -729,7 +729,7 @@ urlpatterns = [
 # EOF O3o2o_1o0g2o_4o3o0
 ```
 
-## Step [O3o2o_1o0g2o_4o4o0] スクリプト作成 - directory.py ファイル
+## Step [O3o2o_1o0g2o_4o4o0] スクリプト作成 - file_collection.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -742,7 +742,7 @@ urlpatterns = [
     │       └── 📂 auto_generators
     │           └── 📂 urls
     │               ├── 📄 __init__.py
-👉  │               ├── 📄 directory.py
+👉  │               ├── 📄 file_collection.py
     │               ├── 📄 file_path.py
     │               ├── 📄 path_renderer.py
     │               ├── 📄 urls_file_render.py

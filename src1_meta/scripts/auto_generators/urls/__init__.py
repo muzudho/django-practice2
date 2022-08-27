@@ -22,7 +22,7 @@ from .urls_file_render import UrlsFileRender
 from .urls_summary_render import UrlsSummaryRender
 
 # O3o2o_1o0g2o_4o4o0
-from .directory import Directory
+from .file_collection import FileCollection
 
 
 class UrlsAutoGenerator:
@@ -54,11 +54,17 @@ class UrlsAutoGenerator:
         # 集約ファイル自動生成
         urls_summary_render = self.create_url_summary_render(df)
 
-        # 集約ファイルが置いてあるディレクトリーを探索
-        directory = Directory.search(urls_summary_render.parent_directory)
+        # 集約ファイルが置いてあるディレクトリー
+        path1 = urls_summary_render.parent_directory
+        # パスに "this/is/a/pen/../paper" が含まれていれば、 "this/is/a/paper" に解決する処理
+        path1 = path1.resolve()
+        # 検索対象
+        file_collection = FileCollection.find_to(f"{path1}/urls_*_autogen.py")
         # 生成対象のファイルを除外
-        directory.remove_all(urls_file_map.keys())
+        file_collection.remove_all(urls_file_map.keys())
         # 残ったファイルは削除対象
+        for file_path in file_collection.target_path_str_list:
+            print(f"* [ ] Remove {file_path}")
 
         # どんなファイルを書き出すかの一覧を出力
         for file_path, urls_file_o in urls_file_map.items():
