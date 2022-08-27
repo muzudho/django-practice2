@@ -56,6 +56,9 @@ class UrlsAutoGenerator:
 
         # 集約ファイルが置いてあるディレクトリーを探索
         directory = Directory.search(urls_summary_render.parent_directory)
+        # 生成対象のファイルを除外
+        directory.remove_all(urls_file_map.keys())
+        # 残ったファイルは削除対象
 
         # どんなファイルを書き出すかの一覧を出力
         for file_path, urls_file_o in urls_file_map.items():
