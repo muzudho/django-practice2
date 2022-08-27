@@ -318,7 +318,7 @@ Output:
 ```
 
 
-## Step O3o2o_1o0g2o_4o1o0 スクリプト作成 - urls_x_autogen_render.py ファイル
+## Step O3o2o_1o0g2o_4o1o0 スクリプト作成 - path_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -332,7 +332,7 @@ Output:
     │           └── 📂 urls
     │               ├── 📄 __init__.py
     │               ├── 📄 file_path.py
-👉  │               └── 📄 urls_x_autogen_render.py
+👉  │               └── 📄 path_render.py
     └── 📂 tests
         └── 📂 src1_meta
             └── 📂 scripts
@@ -347,7 +347,7 @@ Output:
 import pandas as pd
 
 
-class UrlsXAutogenRender:
+class PathRender:
     def __init__(self, file_path_o):
         self._file_path_o = file_path_o
         self._head_text = ""
@@ -456,7 +456,7 @@ class UrlsXAutogenRender:
     │           └── 📂 urls
 👉  │               ├── 📄 __init__.py
     │               ├── 📄 file_path.py
-    │               └── 📄 urls_x_autogen_render.py
+    │               └── 📄 path_render.py
     └── 📂 tests
         └── 📂 src1_meta
             └── 📂 scripts
@@ -481,7 +481,7 @@ from .file_path import FilePath
 # 3. クラス名
 
 # O3o2o_1o0g2o_4o1o0
-from .urls_x_autogen_render import UrlsXAutogenRender
+from .path_render import PathRender
 
 
 class UrlsAutoGenerator:
@@ -536,7 +536,7 @@ class UrlsAutoGenerator:
 
             # 新規ファイル作成
             if not file_path_o.value in file_map:
-                file_map[file_path_o.value] = UrlsXAutogenRender(file_path_o)
+                file_map[file_path_o.value] = PathRender(file_path_o)
 
             file_o = file_map[file_path_o.value]
 
@@ -661,7 +661,7 @@ urlpatterns = [
     │               ├── 📄 __init__.py
 👉  │               ├── 📄 __main__.py
     │               ├── 📄 file_path.py
-    │               └── 📄 urls_x_autogen_render.py
+    │               └── 📄 path_render.py
     └── 📂 tests
         └── 📂 src1_meta
             └── 📂 scripts

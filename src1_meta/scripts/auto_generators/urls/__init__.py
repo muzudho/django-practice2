@@ -13,7 +13,7 @@ from .file_path import FilePath
 # 3. クラス名
 
 # O3o2o_1o0g2o_4o1o0
-from .urls_x_autogen_render import UrlsXAutogenRender
+from .path_render import PathRender
 
 
 class UrlsAutoGenerator:
@@ -68,7 +68,7 @@ class UrlsAutoGenerator:
 
             # 新規ファイル作成
             if not file_path_o.value in file_map:
-                file_map[file_path_o.value] = UrlsXAutogenRender(file_path_o)
+                file_map[file_path_o.value] = PathRender(file_path_o)
 
             file_o = file_map[file_path_o.value]
 
