@@ -342,15 +342,29 @@ Output:
 ```
 
 ```py
-# BOF O3o2o_1o0g2o_3o0
+# BOF O3o2o_1o0g2o_4o1o0
+
+import pandas as pd
+
 
 class UrlsXAutogen:
-    def __init__(self):
+    def __init__(self, file_path_o):
+        self._file_path_o = file_path_o
         self._head_text = ""
         self._body_text = ""
+        self._module = ""
+        self._real_class_name = ""
+        self._alias_class_name = pd.NA
+        self._comment = pd.NA
+
+    @property
+    def file_path_o(self):
+        """ファイル パス オブジェクト"""
+        return self._file_path_o
 
     @property
     def head_text(self):
+        """ヘッド テキスト"""
         return self._head_text
 
     @head_text.setter
@@ -359,13 +373,73 @@ class UrlsXAutogen:
 
     @property
     def body_text(self):
+        """本文"""
         return self._body_text
 
     @body_text.setter
     def body_text(self, value):
         self._body_text = value
 
-# EOF O3o2o_1o0g2o_3o0
+    @property
+    def module(self):
+        """モジュール"""
+        return self._module
+
+    @module.setter
+    def module(self, value):
+        self._module = value
+
+    @property
+    def real_class_name(self):
+        """実クラス名"""
+        return self._real_class_name
+
+    @real_class_name.setter
+    def real_class_name(self, value):
+        self._real_class_name = value
+
+    @property
+    def alias_class_name(self):
+        """クラスの別名"""
+        return self._alias_class_name
+
+    @alias_class_name.setter
+    def alias_class_name(self, value):
+        self._alias_class_name = value
+
+    @property
+    def virtual_class_name(self):
+        """実際的なクラス名"""
+        if pd.isnull(self.alias_class_name):
+            return self.real_class_name
+        else:
+            return self.alias_class_name
+
+    @property
+    def comment(self):
+        """コメント"""
+        return self._comment
+
+    @comment.setter
+    def comment(self, value):
+        self._comment = value
+
+    def create_comment_phrase(self):
+        """コメント句"""
+        if pd.isnull(self._comment):
+            # 省略可
+            return ""
+        else:
+            return f"""
+    # {self._comment}"""
+
+    def create_alias_class_name_phrase(self):
+        if pd.isnull(self.alias_class_name):
+            return ""
+        else:
+            return f" as {self.alias_class_name}"
+
+# EOF O3o2o_1o0g2o_4o1o0
 ```
 
 ## Step O3o2o_1o0g2o0 スクリプト作成 - urls/__init__.py ファイル
@@ -460,33 +534,24 @@ class UrlsAutoGenerator:
                 self._summary_file_to_export = file_path_o.value
                 continue
 
+            # 新規ファイル作成
             if not file_path_o.value in file_map:
-                # 新規ファイル
                 file_map[file_path_o.value] = UrlsXAutogen(file_path_o)
 
-            module = row["module"]
-            class_name = row["class"]
-            alias = row['alias']
-            if pd.isnull(alias):
-                alias_phrase = ""
-                virtual_class_name = class_name
-            else:
-                alias_phrase = f" as {alias}"
-                virtual_class_name = alias
+            file_o = file_map[file_path_o.value]
 
-            file_map[file_path_o.value].head_text += f"from {module} import {class_name}{alias_phrase}\n"
+            file_o.module = row["module"]
+            file_o.real_class_name = row["class"]
+            file_o.alias_class_name = row['alias']
 
-            comment = row["comment"]
+            file_map[file_path_o.value].head_text += f"from {file_o.module} import {file_o.real_class_name}{file_o.create_alias_class_name_phrase()}\n"
+
+            file_o.comment = row["comment"]
             path = row["path"]
             name = row["name"]
 
             # コメント
-            if pd.isnull(comment):
-                # 省略可
-                comment_phrase = ""
-            else:
-                comment_phrase = f"""
-    # {comment}"""
+            comment_phrase = file_o.create_comment_phrase()
 
             # パス
             if pd.isnull(path):
@@ -502,7 +567,7 @@ class UrlsAutoGenerator:
                 name_phrase = f", name='{name}'"
 
             file_map[file_path_o.value].body_text += f"""{comment_phrase}
-    path('{path}', {virtual_class_name}.{method}{name_phrase}),
+    path('{path}', {file_o.virtual_class_name}.{method}{name_phrase}),
 """
 
         # 各ファイル書出し
