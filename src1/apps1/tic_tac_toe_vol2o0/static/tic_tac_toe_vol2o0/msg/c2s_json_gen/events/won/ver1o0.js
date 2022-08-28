@@ -6,12 +6,17 @@
  * * 勝ったことに納得したとき
  */
 class EvtWon {
+    constructor(getArgs) {
+        this._getArgs = getArgs;
+    }
+
     /**
      * メッセージ新規作成
-     * @param {*} winner - 勝者。 "X" か "O"
      * @returns メッセージ
      */
-    createMessage(winner) {
+    createMessage() {
+        // {string} winner - 勝者。 "X" か "O"
+        const winner = this._getArgs();
         return new EndC2sMessage(winner);
     }
 }

@@ -590,7 +590,7 @@ class EvtWon {
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
         <script>
-            // TODO こう作りたい
+            // イベント一覧
             const eventDict = {};
             eventDict["DoMove"] = new EvtDoMove(() => {
                 const sq = vue1.sqListbox.value;
@@ -599,25 +599,10 @@ class EvtWon {
             });
             eventDict["Draw"] = new EvtDraw();
             eventDict["Start"] = new EvtStart();
-            eventDict["Won"] = new EvtWon();
-            // しかしなかなか難しい
-
-            // Create message by event
-            const dictCreateMsg = {};
-
-            dictCreateMsg["DoMove"] = () => {
-                return eventDict["DoMove"].createMessage();
-            };
-            dictCreateMsg["Draw"] = () => {
-                return new EvtDraw().createMessage();
-            };
-            dictCreateMsg["Start"] = () => {
-                return new EvtStart().createMessage();
-            };
-            dictCreateMsg["Won"] = () => {
+            eventDict["Won"] = new EvtWon(() => {
                 const winner = vue1.playerListbox.value;
-                return new EvtWon().createMessage(winner);
-            };
+                return winner;
+            });
 
             const vue1 = new Vue({
                 el: "#app",
@@ -653,8 +638,8 @@ class EvtWon {
                      */
                     postVu() {
                         const eventName = this.c2sEventNameListbox.value;
-                        if (eventName in dictCreateMsg) {
-                            const message = dictCreateMsg[eventName]();
+                        if (eventName in eventDict) {
+                            const message = eventDict[eventName].createMessage();
                             this.outputTextbox.value = JSON.stringify(message.asJsObject(), null, "    ");
                         }
                     },
