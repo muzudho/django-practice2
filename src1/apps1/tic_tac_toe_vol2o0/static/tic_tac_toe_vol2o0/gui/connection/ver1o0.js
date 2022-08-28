@@ -42,7 +42,7 @@ class Connection {
         // 再接続のために記憶しておきます
         this._onOpenWebSocket = onOpenWebSocket;
         this._onCloseWebSocket = onCloseWebSocket;
-        this._s2cMsgDrv = s2cMessageDriven;
+        this._s2cMessageDriven = s2cMessageDriven;
         this._onWebSocketError = onWebSocketError;
         this._onRetryWaiting = onRetryWaiting;
         this._onGiveUp = onGiveUp;
@@ -79,7 +79,7 @@ class Connection {
                 // JSON を解析、メッセージだけ抽出
                 let data1 = JSON.parse(e.data);
                 let message = data1["message"];
-                this._s2cMsgDrv.execute(message);
+                this._s2cMessageDriven.execute(message);
             };
 
             this.#webSock1.addEventListener("open", (event1) => {

@@ -243,7 +243,7 @@ class Connection {
         // 再接続のために記憶しておきます
         this._onOpenWebSocket = onOpenWebSocket;
         this._onCloseWebSocket = onCloseWebSocket;
-        this._s2cMsgDrv = s2cMessageDriven;
+        this._s2cMessageDriven = s2cMessageDriven;
         this._onWebSocketError = onWebSocketError;
         this._onRetryWaiting = onRetryWaiting;
         this._onGiveUp = onGiveUp;
@@ -280,7 +280,7 @@ class Connection {
                 // JSON を解析、メッセージだけ抽出
                 let data1 = JSON.parse(e.data);
                 let message = data1["message"];
-                this._s2cMsgDrv.execute(message);
+                this._s2cMessageDriven.execute(message);
             };
 
             this.#webSock1.addEventListener("open", (event1) => {
@@ -584,21 +584,21 @@ class Connection {
             // 3. パス
             console.log(`[HTML] convertPartsToConnectionString roomName=${roomName} connectionString=${connectionString}`);
 
-            // サーバーからクライアントへメッセージ送信
-            const s2cMsgDrv = new S2cMessageDriven();
+            // クライアントが、サーバーからのメッセージ受信
+            const msgDriven = new S2cMessageDriven();
             // 対局開始時
-            s2cMsgDrv.addHandler("S2C_Start", (message)=>{
+            msgDriven.addHandler("S2C_Start", (message)=>{
                 vue1.onStart();
             });
             // 対局終了時
-            s2cMsgDrv.addHandler("S2C_End", (message)=>{
+            msgDriven.addHandler("S2C_End", (message)=>{
                 // 勝者
                 let winner = message["s2c_winner"];
                 console.log(`[HTML onEnd] winner:${winner}`);
                 vue1.onGameover(winner);
             });
             // 指し手受信時
-            s2cMsgDrv.addHandler("S2C_Moved", (message)=>{
+            msgDriven.addHandler("S2C_Moved", (message)=>{
                 // 升番号
                 let sq = parseInt(message["s2c_sq"]);
                 // 手番。 "X" か "O"
@@ -622,7 +622,7 @@ class Connection {
                 roomName,
                 connectionString,
                 // サーバーからのメッセージを受信したとき
-                s2cMsgDrv,
+                msgDriven,
                 // Webソケットを開かれたとき
                 () => {
                     console.log("WebSockets connection created.");
@@ -688,7 +688,7 @@ class Connection {
 
                                 // 自分の指し手なら送信
                                 if (vue1.engine.position.turn.me == pieceMoved) {
-                                    let message = new EvtDoMove(()=>{
+                                    const message = new EvtDoMove(()=>{
                                         return [sq, pieceMoved];
                                     }).createMessage();
                                     connection.send(message.asJsObject());
@@ -712,7 +712,10 @@ class Connection {
                                 switch (gameoverSet.value) {
                                     case GameoverSet.won:
                                         // 自分が勝ったとき
-                                        message = new EvtWon().createMessage(vue1.engine.position.turn.me);
+                                        message = new EvtWon(()=>{
+                                            const winner = vue1.engine.position.turn.me;
+                                            return winner;
+                                        }).createMessage();
                                         connection.send(message.asJsObject());
                                         break;
                                     case GameoverSet.draw:

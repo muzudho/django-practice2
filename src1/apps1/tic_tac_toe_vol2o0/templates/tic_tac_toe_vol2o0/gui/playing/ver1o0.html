@@ -111,21 +111,21 @@
             // 3. パス
             console.log(`[HTML] convertPartsToConnectionString roomName=${roomName} connectionString=${connectionString}`);
 
-            // サーバーからクライアントへメッセージ送信
-            const s2cMsgDrv = new S2cMessageDriven();
+            // クライアントが、サーバーからのメッセージ受信
+            const msgDriven = new S2cMessageDriven();
             // 対局開始時
-            s2cMsgDrv.addHandler("S2C_Start", (message)=>{
+            msgDriven.addHandler("S2C_Start", (message)=>{
                 vue1.onStart();
             });
             // 対局終了時
-            s2cMsgDrv.addHandler("S2C_End", (message)=>{
+            msgDriven.addHandler("S2C_End", (message)=>{
                 // 勝者
                 let winner = message["s2c_winner"];
                 console.log(`[HTML onEnd] winner:${winner}`);
                 vue1.onGameover(winner);
             });
             // 指し手受信時
-            s2cMsgDrv.addHandler("S2C_Moved", (message)=>{
+            msgDriven.addHandler("S2C_Moved", (message)=>{
                 // 升番号
                 let sq = parseInt(message["s2c_sq"]);
                 // 手番。 "X" か "O"
@@ -149,7 +149,7 @@
                 roomName,
                 connectionString,
                 // サーバーからのメッセージを受信したとき
-                s2cMsgDrv,
+                msgDriven,
                 // Webソケットを開かれたとき
                 () => {
                     console.log("WebSockets connection created.");
@@ -239,7 +239,10 @@
                                 switch (gameoverSet.value) {
                                     case GameoverSet.won:
                                         // 自分が勝ったとき
-                                        message = new EvtWon().createMessage(vue1.engine.position.turn.me);
+                                        message = new EvtWon(()=>{
+                                            const winner = vue1.engine.position.turn.me;
+                                            return winner;
+                                        }).createMessage();
                                         connection.send(message.asJsObject());
                                         break;
                                     case GameoverSet.draw:
