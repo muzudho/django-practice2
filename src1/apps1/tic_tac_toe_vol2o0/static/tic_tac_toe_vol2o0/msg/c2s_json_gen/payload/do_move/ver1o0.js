@@ -1,11 +1,11 @@
 // BOF OA16o3o_1o0g_1o__10o0
 
 /**
- * コマンド
+ * クライアントからサーバーへ送るメッセージ
  *
  * * 自分のターンに駒を置いたら送ります
  */
-class CmdDoMove {
+class MsgDoMove {
     /**
      * 新規作成
      * @param {int} sq - 升番号

@@ -49,21 +49,36 @@
         <script src="{% static 'tic_tac_toe_vol2o0/think/user_ctrl/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/think/judge_ctrl/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/think/engine/ver1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/commands/do_move/ver1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/commands/draw/ver1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/commands/start/ver1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/ver1o0.js' %}"></script>
-        <!--            =====================================================
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/payload/do_move/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/payload/draw/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/payload/start/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/payload/won/ver1o0.js' %}"></script>
+        <!--            =================================================================
                         1
-        1. src1/apps1/tic_tac_toe_vol2o0/static/tic_tac_toe_vol2o0/msg/c2s_json_gen/ver1o0.js
-                                         ====================================================
+        1. src1/apps1/tic_tac_toe_vol2o0/static/tic_tac_toe_vol2o0/msg/c2s_json_gen/payload/won/ver1o0.js
+                                         ================================================================
         -->
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
         <script>
-            // クライアントからサーバーへ送るメッセージを生成できる
-            const c2sJsonGen1 = new C2sJsonGen();
+            const msgCreators = {};
+
+            msgCreators["DoMove"] = () => {
+                const sq = vue1.sqListbox.value;
+                const myTurn = vue1.playerListbox.value;
+                return new MsgDoMove().create(sq, myTurn);
+            };
+            msgCreators["Draw"] = () => {
+                return new MsgDraw().create();
+            };
+            msgCreators["Start"] = () => {
+                return new MsgStart().create();
+            };
+            msgCreators["Won"] = () => {
+                const winner = vue1.playerListbox.value;
+                return new MsgWon().create(winner);
+            };
 
             const vue1 = new Vue({
                 el: "#app",
@@ -100,39 +115,11 @@
                     postVu() {
                         // console.log(`[methods postVu]`);
                         let doc = null;
-                        switch (this.c2sMessageTypeListbox.value) {
-                            case "DoMove":
-                                {
-                                    const sq = this.sqListbox.value;
-                                    const myTurn = this.playerListbox.value;
-                                    doc = new CmdDoMove().create(sq, myTurn);
-                                }
-                                break;
-
-                            case "Draw":
-                                {
-                                    doc = new CmdDraw().create();
-                                }
-                                break;
-
-                            case "Start":
-                                {
-                                    doc = new CmdStart().create();
-                                }
-                                break;
-
-                            case "Won":
-                                {
-                                    const winner = this.playerListbox.value;
-                                    doc = c2sJsonGen1.createWon(winner);
-                                }
-                                break;
-
-                            default:
-                                {
-                                    doc = {};
-                                }
-                                break;
+                        const key = this.c2sMessageTypeListbox.value;
+                        if (key in msgCreators) {
+                            doc = msgCreators[key]();
+                        } else {
+                            doc = {};
                         }
 
                         this.outputTextbox.value = JSON.stringify(doc, null, "    ");

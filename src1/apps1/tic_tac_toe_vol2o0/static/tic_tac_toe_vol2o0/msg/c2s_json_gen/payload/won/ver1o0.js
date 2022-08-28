@@ -1,17 +1,17 @@
-// BOF OA16o3o_1o0g_1o0
+// BOF OA16o3o_1o0g_1o__13o0
 
 /**
- * 送信JSONジェネレーター
+ * クライアントからサーバーへ送るメッセージ
  *
- * * クライアントからサーバーへ送る
+ * * 勝ったことに納得したら送ります
  */
-class C2sJsonGen {
+class MsgWon {
     /**
-     * 勝った方のプレイヤーが、サーバーに対局終了メッセージを送ります
+     * 新規作成
      * @param {*} winner - 勝者。 "X" か "O"
      * @returns メッセージ
      */
-    createWon(winner) {
+    create(winner) {
         // `c2s_` は クライアントからサーバーへ送る変数の目印
         return {
             c2s_event: "C2S_End",
@@ -20,4 +20,4 @@ class C2sJsonGen {
     }
 }
 
-// EOF OA16o3o_1o0g_1o0
+// EOF OA16o3o_1o0g_1o__13o0

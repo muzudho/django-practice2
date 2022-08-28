@@ -118,7 +118,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA16o3o_1o0g_1o__10o0 コマンド作成 - msg/c2s_json_gen/commands/do_move/ver1o0.js ファイル
+## Step OA16o3o_1o0g_1o__10o0 クライアントからサーバーへ送るメッセージ作成 - msg/c2s_json_gen/payload/do_move/ver1o0.js ファイル
 
 Separated from OA16o3o_1o0g_1o0  
 
@@ -132,7 +132,7 @@ Separated from OA16o3o_1o0g_1o0
                     └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
                         └── 📂 msg
                             └── 📂 c2s_json_gen
-                                └── 📂 commands
+                                └── 📂 payload
                                     └── 📂 do_move
 👉                                      └── 📄 ver1o0.js
 ```
@@ -141,11 +141,11 @@ Separated from OA16o3o_1o0g_1o0
 // BOF OA16o3o_1o0g_1o__10o0
 
 /**
- * コマンド
+ * クライアントからサーバーへ送るメッセージ
  *
- * * どちらかのプレイヤーが駒を置きました
+ * * 自分のターンに駒を置いたら送ります
  */
-class CmdDoMove {
+class MsgDoMove {
     /**
      * 新規作成
      * @param {int} sq - 升番号
@@ -166,7 +166,7 @@ class CmdDoMove {
 // EOF OA16o3o_1o0g_1o__10o0
 ```
 
-## Step OA16o3o_1o0g_1o__11o0 コマンド作成 - msg/c2s_json_gen/commands/draw/ver1o0.js ファイル
+## Step OA16o3o_1o0g_1o__11o0 クライアントからサーバーへ送るメッセージ作成 - msg/c2s_json_gen/payload/draw/ver1o0.js ファイル
 
 Separated from OA16o3o_1o0g_1o0  
 
@@ -180,7 +180,7 @@ Separated from OA16o3o_1o0g_1o0
                     └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
                         └── 📂 msg
                             └── 📂 c2s_json_gen
-                                └── 📂 commands
+                                └── 📂 payload
                                     ├── 📂 do_move
                                     │   └── 📄 ver1o0.js
                                     └── 📂 draw
@@ -191,12 +191,13 @@ Separated from OA16o3o_1o0g_1o0
 // BOF OA16o3o_1o0g_1o__11o0
 
 /**
- * コマンド
+ * クライアントからサーバーへ送るメッセージ
  *
  * * 引き分けで対局終了したと納得したら送ります
  */
-class CmdDraw {
+class MsgDraw {
     /**
+     * 新規作成
      * @returns メッセージ
      */
     create() {
@@ -211,7 +212,7 @@ class CmdDraw {
 // EOF OA16o3o_1o0g_1o__11o0
 ```
 
-## Step OA16o3o_1o0g_1o__12o0 コマンド作成 - msg/c2s_json_gen/commands/start/ver1o0.js ファイル
+## Step OA16o3o_1o0g_1o__12o0 クライアントからサーバーへ送るメッセージ作成 - msg/c2s_json_gen/payload/start/ver1o0.js ファイル
 
 Separated from OA16o3o_1o0g_1o0  
 
@@ -225,7 +226,7 @@ Separated from OA16o3o_1o0g_1o0
                     └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
                         └── 📂 msg
                             └── 📂 c2s_json_gen
-                                └── 📂 commands
+                                └── 📂 payload
                                     ├── 📂 do_move
                                     │   └── 📄 ver1o0.js
                                     ├── 📂 draw
@@ -238,12 +239,13 @@ Separated from OA16o3o_1o0g_1o0
 // BOF OA16o3o_1o0g_1o__12o0
 
 /**
- * コマンド
+ * クライアントからサーバーへ送るメッセージ
  *
  * * 対局開始に納得したとき送ります
  */
-class CmdStart {
+class MsgStart {
     /**
+     * 新規作成
      * @returns メッセージ
      */
     create() {
@@ -257,9 +259,9 @@ class CmdStart {
 // EOF OA16o3o_1o0g_1o__12o0
 ```
 
-## Step OA16o3o_1o0g_1o0 クライアントからサーバーへ送るメッセージ実装 - msg/c2s_json_gen/v1o0.js ファイル
+## Step OA16o3o_1o0g_1o__13o0 クライアントからサーバーへ送るメッセージ作成 - msg/c2s_json_gen/payload/won/ver1o0.js ファイル
 
-Separated from OA16o3o0g2o0  
+Separated from OA16o3o_1o0g_1o0  
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -271,24 +273,32 @@ Separated from OA16o3o0g2o0
                     └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
                         └── 📂 msg
                             └── 📂 c2s_json_gen
-👉                              └── 📄 ver1o0.js
+                                └── 📂 payload
+                                    ├── 📂 do_move
+                                    │   └── 📄 ver1o0.js
+                                    ├── 📂 draw
+                                    │   └── 📄 ver1o0.js
+                                    ├── 📂 start
+                                    │   └── 📄 ver1o0.js
+                                    └── 📂 won
+👉                                      └── 📄 ver1o0.js
 ```
 
 ```js
-// BOF OA16o3o_1o0g_1o0
+// BOF OA16o3o_1o0g_1o__13o0
 
 /**
- * 送信JSONジェネレーター
+ * クライアントからサーバーへ送るメッセージ
  *
- * * クライアントからサーバーへ送る
+ * * 勝ったことに納得したら送ります
  */
-class C2sJsonGen {
+class MsgWon {
     /**
-     * 勝った方のプレイヤーが、サーバーに対局終了メッセージを送ります
+     * 新規作成
      * @param {*} winner - 勝者。 "X" か "O"
      * @returns メッセージ
      */
-    createWon(winner) {
+    create(winner) {
         // `c2s_` は クライアントからサーバーへ送る変数の目印
         return {
             c2s_event: "C2S_End",
@@ -297,8 +307,17 @@ class C2sJsonGen {
     }
 }
 
-// EOF OA16o3o_1o0g_1o0
+// EOF OA16o3o_1o0g_1o__13o0
 ```
+
+## ~~Step OA16o3o_1o0g_1o0~~
+
+1. Separated from OA16o3o0g2o0  
+2. Separate to OA16o3o_1o0g_1o__10o0
+3. Separate to OA16o3o_1o0g_1o__11o0
+4. Separate to OA16o3o_1o0g_1o__12o0
+5. Separate to OA16o3o_1o0g_1o__13o0
+6. Removed
 
 ## Step OA16o3o_1o0g1o0 画面作成 - msg/c2s_json_gen/v1o0.html ファイル
 
@@ -312,7 +331,15 @@ class C2sJsonGen {
                 │   └── 📂 tic_tac_toe_vol2o0
                 │       └── 📂 msg
                 │           └── 📂 c2s_json_gen
-                │               └── 📄 ver1o0.js
+                │               └── 📂 payload
+                │                   ├── 📂 do_move
+                │                   │   └── 📄 ver1o0.js
+                │                   ├── 📂 draw
+                │                   │   └── 📄 ver1o0.js
+                │                   ├── 📂 start
+                │                   │   └── 📄 ver1o0.js
+                │                   └── 📂 won
+                │                       └── 📄 ver1o0.js
                 └── 📂 templates
                     └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
                         └── 📂 msg
@@ -372,21 +399,36 @@ class C2sJsonGen {
         <script src="{% static 'tic_tac_toe_vol2o0/think/user_ctrl/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/think/judge_ctrl/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/think/engine/ver1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/commands/do_move/ver1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/commands/draw/ver1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/commands/start/ver1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/ver1o0.js' %}"></script>
-        <!--            =====================================================
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/payload/do_move/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/payload/draw/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/payload/start/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/payload/won/ver1o0.js' %}"></script>
+        <!--            =================================================================
                         1
-        1. src1/apps1/tic_tac_toe_vol2o0/static/tic_tac_toe_vol2o0/msg/c2s_json_gen/ver1o0.js
-                                         ====================================================
+        1. src1/apps1/tic_tac_toe_vol2o0/static/tic_tac_toe_vol2o0/msg/c2s_json_gen/payload/won/ver1o0.js
+                                         ================================================================
         -->
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
         <script>
-            // クライアントからサーバーへ送るメッセージを生成できる
-            const c2sJsonGen1 = new C2sJsonGen();
+            const msgCreators = {};
+
+            msgCreators["DoMove"] = () => {
+                const sq = vue1.sqListbox.value;
+                const myTurn = vue1.playerListbox.value;
+                return new MsgDoMove().create(sq, myTurn);
+            };
+            msgCreators["Draw"] = () => {
+                return new MsgDraw().create();
+            };
+            msgCreators["Start"] = () => {
+                return new MsgStart().create();
+            };
+            msgCreators["Won"] = () => {
+                const winner = vue1.playerListbox.value;
+                return new MsgWon().create(winner);
+            };
 
             const vue1 = new Vue({
                 el: "#app",
@@ -423,39 +465,11 @@ class C2sJsonGen {
                     postVu() {
                         // console.log(`[methods postVu]`);
                         let doc = null;
-                        switch (this.c2sMessageTypeListbox.value) {
-                            case "DoMove":
-                                {
-                                    const sq = this.sqListbox.value;
-                                    const myTurn = this.playerListbox.value;
-                                    doc = new CmdDoMove().create(sq, myTurn);
-                                }
-                                break;
-
-                            case "Draw":
-                                {
-                                    doc = new CmdDraw().create();
-                                }
-                                break;
-
-                            case "Start":
-                                {
-                                    doc = new CmdStart().create();
-                                }
-                                break;
-
-                            case "Won":
-                                {
-                                    const winner = this.playerListbox.value;
-                                    doc = c2sJsonGen1.createWon(winner);
-                                }
-                                break;
-
-                            default:
-                                {
-                                    doc = {};
-                                }
-                                break;
+                        const key = this.c2sMessageTypeListbox.value;
+                        if (key in msgCreators) {
+                            doc = msgCreators[key]();
+                        } else {
+                            doc = {};
                         }
 
                         this.outputTextbox.value = JSON.stringify(doc, null, "    ");
@@ -480,7 +494,15 @@ class C2sJsonGen {
                 │   └── 📂 tic_tac_toe_vol2o0
                 │       └── 📂 msg
                 │           └── 📂 c2s_json_gen
-                │               └── 📄 ver1o0.js
+                │               └── 📂 payload
+                │                   ├── 📂 do_move
+                │                   │   └── 📄 ver1o0.js
+                │                   ├── 📂 draw
+                │                   │   └── 📄 ver1o0.js
+                │                   ├── 📂 start
+                │                   │   └── 📄 ver1o0.js
+                │                   └── 📂 won
+                │                       └── 📄 ver1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
                 │       └── 📂 msg
@@ -527,7 +549,15 @@ def render_main(request, template_path):
                 │   └── 📂 tic_tac_toe_vol2o0
                 │       └── 📂 msg
                 │           └── 📂 c2s_json_gen
-                │               └── 📄 ver1o0.js
+                │               └── 📂 payload
+                │                   ├── 📂 do_move
+                │                   │   └── 📄 ver1o0.js
+                │                   ├── 📂 draw
+                │                   │   └── 📄 ver1o0.js
+                │                   ├── 📂 start
+                │                   │   └── 📄 ver1o0.js
+                │                   └── 📂 won
+                │                       └── 📄 ver1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
                 │       └── 📂 msg
@@ -588,7 +618,15 @@ Merged to OA16o3o_1o0g4o1o0
     │           │   └── 📂 tic_tac_toe_vol2o0
     │           │       └── 📂 msg
     │           │           └── 📂 c2s_json_gen
-    │           │               └── 📄 ver1o0.js
+    │           │               └── 📂 payload
+    │           │                   ├── 📂 do_move
+    │           │                   │   └── 📄 ver1o0.js
+    │           │                   ├── 📂 draw
+    │           │                   │   └── 📄 ver1o0.js
+    │           │                   ├── 📂 start
+    │           │                   │   └── 📄 ver1o0.js
+    │           │                   └── 📂 won
+    │           │                       └── 📄 ver1o0.js
     │           ├── 📂 templates
     │           │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
     │           │       └── 📂 msg
