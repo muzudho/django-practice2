@@ -11,10 +11,7 @@ class EvtStart {
      * @returns メッセージ
      */
     createMessage() {
-        return new MessageC2S({
-            // `c2s_` は クライアントからサーバーへ送る変数の目印
-            c2s_type: "C2S_Start",
-        });
+        return new StartC2sMessage();
     }
 }
 

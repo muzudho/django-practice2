@@ -556,7 +556,9 @@ class Connection {
         <script src="{% static 'tic_tac_toe_vol2o0/think/engine/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/gui/connection/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/s2c_message_driven/ver1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/message/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/messages/end/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/messages/moved/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/messages/start/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/events/do_move/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/events/draw/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/events/start/ver1o0.js' %}"></script>
@@ -625,7 +627,7 @@ class Connection {
                 () => {
                     console.log("WebSockets connection created.");
                     let message = new EvtStart().createMessage();
-                    connection.send(message.jsonDoc);
+                    connection.send(message.asJsObject());
                 },
                 // Webソケットが閉じられたとき
                 (exception) => {
@@ -687,7 +689,7 @@ class Connection {
                                 // 自分の指し手なら送信
                                 if (vue1.engine.position.turn.me == pieceMoved) {
                                     let message = new EvtDoMove().createMessage(sq, pieceMoved);
-                                    connection.send(message.jsonDoc);
+                                    connection.send(message.asJsObject());
                                 }
 
                                 // 手番の再描画を通知
@@ -709,12 +711,12 @@ class Connection {
                                     case GameoverSet.won:
                                         // 自分が勝ったとき
                                         message = new EvtWon().createMessage(vue1.engine.position.turn.me);
-                                        connection.send(message.jsonDoc);
+                                        connection.send(message.asJsObject());
                                         break;
                                     case GameoverSet.draw:
                                         // 引き分けたとき
                                         message = new EvtDraw().createMessage();
-                                        connection.send(message.jsonDoc);
+                                        connection.send(message.asJsObject());
                                         break;
                                     case GameoverSet.lost:
                                         // 自分が負けたとき

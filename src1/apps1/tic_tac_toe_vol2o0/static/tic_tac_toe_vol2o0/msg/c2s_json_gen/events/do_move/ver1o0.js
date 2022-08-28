@@ -13,12 +13,7 @@ class EvtDoMove {
      * @returns メッセージ
      */
     createMessage(sq, pieceMoved) {
-        return new MessageC2S({
-            // `c2s_` は クライアントからサーバーへ送る変数の目印
-            c2s_type: "C2S_Moved",
-            c2s_sq: sq,
-            c2s_pieceMoved: pieceMoved,
-        });
+        return new MovedC2sMessage(sq, pieceMoved);
     }
 }
 

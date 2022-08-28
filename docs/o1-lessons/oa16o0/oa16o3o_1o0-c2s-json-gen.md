@@ -118,7 +118,11 @@ cd src1
 docker-compose up
 ```
 
-## Step OA16o3o_1o0g_1o__10o___100o0 メッセージ実装 - msg/c2s_json_gen/message/ver1o0.js ファイル
+## ~~Step OA16o3o_1o0g_1o__10o___100o0~~
+
+Removed  
+
+## Step OA16o3o_1o0g_1o__10o___101o0 メッセージ作成 - msg/c2s_json_gen/messages/moved/ver1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -130,30 +134,143 @@ docker-compose up
                     └── 📂 tic_tac_toe_vol2o0       # アプリケーションと同名
                         └── 📂 msg
                             └── 📂 c2s_json_gen
-                                └── 📂 message
-👉                                  └── 📄 ver1o0.js
+                                └── 📂 messages
+                                    └── 📂 moved
+👉                                      └── 📄 ver1o0.js
 ```
 
 ```js
-// BOF OA16o3o_1o0g_1o__10o___100o0
+// BOF OA16o3o_1o0g_1o__10o___101o0
 
 /**
  * クライアントからサーバーへ送るメッセージ
+ *
+ * * 駒の移動を表す
  */
-class MessageC2S {
-    constructor(jsonDoc) {
-        this._jsonDoc = jsonDoc;
+class MovedC2sMessage {
+    /**
+     * 設定
+     * @param {*} sq - マス番号
+     * @param {*} pieceMoved - 動かした駒
+     */
+    constructor(sq, pieceMoved) {
+        this._sq = sq;
+        this._pieceMoved = pieceMoved;
     }
 
-    get jsonDoc() {
-        return this._jsonDoc;
+    /**
+     * JSObject形式で取得
+     * @returns JSObject形式
+     */
+    asJsObject() {
+        return {
+            // `c2s_` は クライアントからサーバーへ送る変数の目印
+            c2s_type: "C2S_Moved",
+            c2s_sq: this._sq,
+            c2s_pieceMoved: this._pieceMoved,
+        };
     }
 }
 
-// EOF OA16o3o_1o0g_1o__10o___100o0
+// EOF OA16o3o_1o0g_1o__10o___101o0
 ```
 
-## Step OA16o3o_1o0g_1o__10o0 クライアントからサーバーへ送るメッセージ作成 - msg/c2s_json_gen/events/do_move/ver1o0.js ファイル
+## Step OA16o3o_1o0g_1o__11o___102o0 メッセージ作成 - msg/c2s_json_gen/messages/end/ver1o0.js ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        └── 📂 apps1
+            └── 📂 tic_tac_toe_vol2o0    # アプリケーション
+                └── 📂 static
+                    └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
+                        └── 📂 msg
+                            └── 📂 c2s_json_gen
+                                └── 📂 messages
+                                    ├── 📂 end
+👉                                  │   └── 📄 ver1o0.js
+                                    └── 📂 moved
+                                        └── 📄 ver1o0.js
+```
+
+```js
+// BOF OA16o3o_1o0g_1o__11o___102o0
+
+/**
+ * クライアントからサーバーへ送るメッセージ
+ *
+ * * 対局終了を表す
+ */
+class EndC2sMessage {
+    constructor(winner) {
+        this._winner = winner;
+    }
+
+    /**
+     * JSObject形式で取得
+     * @returns JSObject形式
+     */
+    asJsObject() {
+        return {
+            // `c2s_` は クライアントからサーバーへ送る変数の目印
+            c2s_type: "C2S_End",
+            c2s_winner: this._winner,
+        };
+    }
+}
+
+// EOF OA16o3o_1o0g_1o__11o___102o0
+```
+
+## Step OA16o3o_1o0g_1o__11o___103o0 メッセージ作成 - msg/c2s_json_gen/messages/start/ver1o0.js ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        └── 📂 apps1
+            └── 📂 tic_tac_toe_vol2o0    # アプリケーション
+                └── 📂 static
+                    └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
+                        └── 📂 msg
+                            └── 📂 c2s_json_gen
+                                └── 📂 messages
+                                    ├── 📂 end
+                                    │   └── 📄 ver1o0.js
+                                    ├── 📂 moved
+                                    │   └── 📄 ver1o0.js
+                                    └── 📂 start
+👉                                      └── 📄 ver1o0.js
+```
+
+```js
+// BOF OA16o3o_1o0g_1o__11o___103o0
+
+/**
+ * クライアントからサーバーへ送るメッセージ
+ *
+ * * 対局開始を表す
+ */
+class StartC2sMessage {
+    constructor() {}
+
+    /**
+     * JSObject形式で取得
+     * @returns JSObject形式
+     */
+    asJsObject() {
+        return {
+            // `c2s_` は クライアントからサーバーへ送る変数の目印
+            c2s_type: "C2S_Start",
+        };
+    }
+}
+
+// EOF OA16o3o_1o0g_1o__11o___103o0
+```
+
+## Step OA16o3o_1o0g_1o__10o0 イベント作成 - msg/c2s_json_gen/events/do_move/ver1o0.js ファイル
 
 Separated from OA16o3o_1o0g_1o0  
 
@@ -167,11 +284,16 @@ Separated from OA16o3o_1o0g_1o0
                     └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
                         └── 📂 msg
                             └── 📂 c2s_json_gen
-                                ├── 📂 message
-                                │   └── 📄 ver1o0.js
-                                └── 📂 events
-                                    └── 📂 do_move
-👉                                      └── 📄 ver1o0.js
+                                ├── 📂 events
+                                │   └── 📂 do_move
+👉                              │       └── 📄 ver1o0.js
+                                └── 📂 messages
+                                    ├── 📂 end
+                                    │   └── 📄 ver1o0.js
+                                    ├── 📂 moved
+                                    │   └── 📄 ver1o0.js
+                                    └── 📂 start
+                                        └── 📄 ver1o0.js
 ```
 
 ```js
@@ -190,19 +312,14 @@ class EvtDoMove {
      * @returns メッセージ
      */
     createMessage(sq, pieceMoved) {
-        return new MessageC2S({
-            // `c2s_` は クライアントからサーバーへ送る変数の目印
-            c2s_type: "C2S_Moved",
-            c2s_sq: sq,
-            c2s_pieceMoved: pieceMoved,
-        });
+        return new MovedC2sMessage(sq, pieceMoved);
     }
 }
 
 // EOF OA16o3o_1o0g_1o__10o0
 ```
 
-## Step OA16o3o_1o0g_1o__11o0 クライアントからサーバーへ送るメッセージ作成 - msg/c2s_json_gen/events/draw/ver1o0.js ファイル
+## Step OA16o3o_1o0g_1o__11o0 イベント作成 - msg/c2s_json_gen/events/draw/ver1o0.js ファイル
 
 Separated from OA16o3o_1o0g_1o0  
 
@@ -216,13 +333,18 @@ Separated from OA16o3o_1o0g_1o0
                     └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
                         └── 📂 msg
                             └── 📂 c2s_json_gen
-                                ├── 📂 message
-                                │   └── 📄 ver1o0.js
-                                └── 📂 events
-                                    ├── 📂 do_move
+                                ├── 📂 events
+                                │   ├── 📂 do_move
+                                │   │   └── 📄 ver1o0.js
+                                │   └── 📂 draw
+👉                              │       └── 📄 ver1o0.js
+                                └── 📂 messages
+                                    ├── 📂 end
                                     │   └── 📄 ver1o0.js
-                                    └── 📂 draw
-👉                                      └── 📄 ver1o0.js
+                                    ├── 📂 moved
+                                    │   └── 📄 ver1o0.js
+                                    └── 📂 start
+                                        └── 📄 ver1o0.js
 ```
 
 ```js
@@ -239,18 +361,14 @@ class EvtDraw {
      * @returns メッセージ
      */
     createMessage() {
-        return new MessageC2S({
-            // `c2s_` は クライアントからサーバーへ送る変数の目印
-            c2s_type: "C2S_End",
-            c2s_winner: PC_EMPTY_LABEL,
-        });
+        return new EndC2sMessage(PC_EMPTY_LABEL);
     }
 }
 
 // EOF OA16o3o_1o0g_1o__11o0
 ```
 
-## Step OA16o3o_1o0g_1o__12o0 クライアントからサーバーへ送るメッセージ作成 - msg/c2s_json_gen/events/start/ver1o0.js ファイル
+## Step OA16o3o_1o0g_1o__12o0 メッセージ作成 - msg/c2s_json_gen/events/start/ver1o0.js ファイル
 
 Separated from OA16o3o_1o0g_1o0  
 
@@ -264,15 +382,20 @@ Separated from OA16o3o_1o0g_1o0
                     └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
                         └── 📂 msg
                             └── 📂 c2s_json_gen
-                                ├── 📂 message
-                                │   └── 📄 ver1o0.js
-                                └── 📂 events
-                                    ├── 📂 do_move
+                                ├── 📂 events
+                                │   ├── 📂 do_move
+                                │   │   └── 📄 ver1o0.js
+                                │   ├── 📂 draw
+                                │   │   └── 📄 ver1o0.js
+                                │   └── 📂 start
+👉                              │       └── 📄 ver1o0.js
+                                └── 📂 messages
+                                    ├── 📂 end
                                     │   └── 📄 ver1o0.js
-                                    ├── 📂 draw
+                                    ├── 📂 moved
                                     │   └── 📄 ver1o0.js
                                     └── 📂 start
-👉                                      └── 📄 ver1o0.js
+                                        └── 📄 ver1o0.js
 ```
 
 ```js
@@ -289,17 +412,14 @@ class EvtStart {
      * @returns メッセージ
      */
     createMessage() {
-        return new MessageC2S({
-            // `c2s_` は クライアントからサーバーへ送る変数の目印
-            c2s_type: "C2S_Start",
-        });
+        return new StartC2sMessage();
     }
 }
 
 // EOF OA16o3o_1o0g_1o__12o0
 ```
 
-## Step OA16o3o_1o0g_1o__13o0 クライアントからサーバーへ送るメッセージ作成 - msg/c2s_json_gen/events/won/ver1o0.js ファイル
+## Step OA16o3o_1o0g_1o__13o0 イベント作成 - msg/c2s_json_gen/events/won/ver1o0.js ファイル
 
 Separated from OA16o3o_1o0g_1o0  
 
@@ -313,17 +433,22 @@ Separated from OA16o3o_1o0g_1o0
                     └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
                         └── 📂 msg
                             └── 📂 c2s_json_gen
-                                ├── 📂 message
-                                │   └── 📄 ver1o0.js
-                                └── 📂 events
-                                    ├── 📂 do_move
+                                ├── 📂 events
+                                │   ├── 📂 do_move
+                                │   │   └── 📄 ver1o0.js
+                                │   ├── 📂 draw
+                                │   │   └── 📄 ver1o0.js
+                                │   ├── 📂 start
+                                │   │   └── 📄 ver1o0.js
+                                │   └── 📂 won
+👉                              │       └── 📄 ver1o0.js
+                                └── 📂 messages
+                                    ├── 📂 end
                                     │   └── 📄 ver1o0.js
-                                    ├── 📂 draw
+                                    ├── 📂 moved
                                     │   └── 📄 ver1o0.js
-                                    ├── 📂 start
-                                    │   └── 📄 ver1o0.js
-                                    └── 📂 won
-👉                                      └── 📄 ver1o0.js
+                                    └── 📂 start
+                                        └── 📄 ver1o0.js
 ```
 
 ```js
@@ -341,11 +466,7 @@ class EvtWon {
      * @returns メッセージ
      */
     createMessage(winner) {
-        return new MessageC2S({
-            // `c2s_` は クライアントからサーバーへ送る変数の目印
-            c2s_type: "C2S_End",
-            c2s_winner: winner,
-        });
+        return new EndC2sMessage(winner);
     }
 }
 
@@ -373,16 +494,21 @@ class EvtWon {
                 │   └── 📂 tic_tac_toe_vol2o0
                 │       └── 📂 msg
                 │           └── 📂 c2s_json_gen
-                │               ├── 📂 message
-                │               │   └── 📄 ver1o0.js
-                │               └── 📂 events
-                │                   ├── 📂 do_move
+                │               ├── 📂 events
+                │               │   ├── 📂 do_move
+                │               │   │   └── 📄 ver1o0.js
+                │               │   ├── 📂 draw
+                │               │   │   └── 📄 ver1o0.js
+                │               │   ├── 📂 start
+                │               │   │   └── 📄 ver1o0.js
+                │               │   └── 📂 won
+                │               │       └── 📄 ver1o0.js
+                │               └── 📂 messages
+                │                   ├── 📂 end
                 │                   │   └── 📄 ver1o0.js
-                │                   ├── 📂 draw
+                │                   ├── 📂 moved
                 │                   │   └── 📄 ver1o0.js
-                │                   ├── 📂 start
-                │                   │   └── 📄 ver1o0.js
-                │                   └── 📂 won
+                │                   └── 📂 start
                 │                       └── 📄 ver1o0.js
                 └── 📂 templates
                     └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
@@ -443,7 +569,9 @@ class EvtWon {
         <script src="{% static 'tic_tac_toe_vol2o0/think/user_ctrl/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/think/judge_ctrl/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/think/engine/ver1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/message/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/messages/end/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/messages/moved/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/messages/start/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/events/do_move/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/events/draw/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/events/start/ver1o0.js' %}"></script>
@@ -457,7 +585,7 @@ class EvtWon {
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
         <script>
-            // Create message by event later.
+            // Create message by event
             const dictCreateMsg = {};
 
             dictCreateMsg["DoMove"] = () => {
@@ -512,7 +640,7 @@ class EvtWon {
                         const eventName = this.c2sEventNameListbox.value;
                         if (eventName in dictCreateMsg) {
                             const message = dictCreateMsg[eventName]();
-                            this.outputTextbox.value = JSON.stringify(message.jsonDoc, null, "    ");
+                            this.outputTextbox.value = JSON.stringify(message.asJsObject(), null, "    ");
                         }
                     },
                 },
@@ -535,16 +663,21 @@ class EvtWon {
                 │   └── 📂 tic_tac_toe_vol2o0
                 │       └── 📂 msg
                 │           └── 📂 c2s_json_gen
-                │               ├── 📂 message
-                │               │   └── 📄 ver1o0.js
-                │               └── 📂 events
-                │                   ├── 📂 do_move
+                │               ├── 📂 events
+                │               │   ├── 📂 do_move
+                │               │   │   └── 📄 ver1o0.js
+                │               │   ├── 📂 draw
+                │               │   │   └── 📄 ver1o0.js
+                │               │   ├── 📂 start
+                │               │   │   └── 📄 ver1o0.js
+                │               │   └── 📂 won
+                │               │       └── 📄 ver1o0.js
+                │               └── 📂 messages
+                │                   ├── 📂 end
                 │                   │   └── 📄 ver1o0.js
-                │                   ├── 📂 draw
+                │                   ├── 📂 moved
                 │                   │   └── 📄 ver1o0.js
-                │                   ├── 📂 start
-                │                   │   └── 📄 ver1o0.js
-                │                   └── 📂 won
+                │                   └── 📂 start
                 │                       └── 📄 ver1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
@@ -592,16 +725,21 @@ def render_main(request, template_path):
                 │   └── 📂 tic_tac_toe_vol2o0
                 │       └── 📂 msg
                 │           └── 📂 c2s_json_gen
-                │               ├── 📂 message
-                │               │   └── 📄 ver1o0.js
-                │               └── 📂 events
-                │                   ├── 📂 do_move
+                │               ├── 📂 events
+                │               │   ├── 📂 do_move
+                │               │   │   └── 📄 ver1o0.js
+                │               │   ├── 📂 draw
+                │               │   │   └── 📄 ver1o0.js
+                │               │   ├── 📂 start
+                │               │   │   └── 📄 ver1o0.js
+                │               │   └── 📂 won
+                │               │       └── 📄 ver1o0.js
+                │               └── 📂 messages
+                │                   ├── 📂 end
                 │                   │   └── 📄 ver1o0.js
-                │                   ├── 📂 draw
+                │                   ├── 📂 moved
                 │                   │   └── 📄 ver1o0.js
-                │                   ├── 📂 start
-                │                   │   └── 📄 ver1o0.js
-                │                   └── 📂 won
+                │                   └── 📂 start
                 │                       └── 📄 ver1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
@@ -663,16 +801,21 @@ Merged to OA16o3o_1o0g4o1o0
     │           │   └── 📂 tic_tac_toe_vol2o0
     │           │       └── 📂 msg
     │           │           └── 📂 c2s_json_gen
-    │           │               ├── 📂 message
-    │           │               │   └── 📄 ver1o0.js
-    │           │               └── 📂 events
-    │           │                   ├── 📂 do_move
+    │           │               ├── 📂 events
+    │           │               │   ├── 📂 do_move
+    │           │               │   │   └── 📄 ver1o0.js
+    │           │               │   ├── 📂 draw
+    │           │               │   │   └── 📄 ver1o0.js
+    │           │               │   ├── 📂 start
+    │           │               │   │   └── 📄 ver1o0.js
+    │           │               │   └── 📂 won
+    │           │               │       └── 📄 ver1o0.js
+    │           │               └── 📂 messages
+    │           │                   ├── 📂 end
     │           │                   │   └── 📄 ver1o0.js
-    │           │                   ├── 📂 draw
+    │           │                   ├── 📂 moved
     │           │                   │   └── 📄 ver1o0.js
-    │           │                   ├── 📂 start
-    │           │                   │   └── 📄 ver1o0.js
-    │           │                   └── 📂 won
+    │           │                   └── 📂 start
     │           │                       └── 📄 ver1o0.js
     │           ├── 📂 templates
     │           │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名

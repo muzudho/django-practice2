@@ -12,11 +12,7 @@ class EvtWon {
      * @returns メッセージ
      */
     createMessage(winner) {
-        return new MessageC2S({
-            // `c2s_` は クライアントからサーバーへ送る変数の目印
-            c2s_type: "C2S_End",
-            c2s_winner: winner,
-        });
+        return new EndC2sMessage(winner);
     }
 }
 

@@ -11,11 +11,7 @@ class EvtDraw {
      * @returns メッセージ
      */
     createMessage() {
-        return new MessageC2S({
-            // `c2s_` は クライアントからサーバーへ送る変数の目印
-            c2s_type: "C2S_End",
-            c2s_winner: PC_EMPTY_LABEL,
-        });
+        return new EndC2sMessage(PC_EMPTY_LABEL);
     }
 }
 
