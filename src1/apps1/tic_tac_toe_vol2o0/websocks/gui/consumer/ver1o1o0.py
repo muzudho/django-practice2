@@ -20,10 +20,11 @@ from apps1.tic_tac_toe_vol2o0.websocks.gui.message_driven.ver1o0 import TicTacTo
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py にさらに含まれるクラス
 
-# OA16o3o_2o0g1o_1o0 〇×ゲーム2.0巻 S2cメッセージ End 1.0版
-from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.end.ver1o0 import EndS2cMessage
 from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.moved.ver1o0 import MovedS2cMessage
 from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.start.ver1o0 import StartS2cMessage
+
+# OA16o3o0gA10o_1o0 Endメッセージハンドラー
+from apps1.tic_tac_toe_vol2o0.websocks.gui.c2s_handlers.end.ver1o0 import EndC2sHandler
 
 
 class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
@@ -33,9 +34,10 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
         super().__init__()
 
         self._messageDriven = TicTacToeV2MessageDriven()
-        self._messageDriven.addHandler('C2S_End', self.on_end)
-        self._messageDriven.addHandler('C2S_Moved', self.on_move)
-        self._messageDriven.addHandler('C2S_Start', self.on_start)
+        self._messageDriven.addHandler(
+            'C2S_End', EndC2sHandler().on_message_received)
+        self._messageDriven.addHandler('C2S_Moved', self._on_move)
+        self._messageDriven.addHandler('C2S_Start', self._on_start)
 
     async def on_receive(self, doc_received):
         """クライアントからメッセージを受信したとき
@@ -44,43 +46,18 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
         -------
         response
         """
-
         return await self._messageDriven.execute(self.scope, doc_received)
 
-    async def on_end(self, scope, doc_received):
-        """対局終了時"""
-        print("[TicTacToeV2MessageDriven on_end]")
-        # TODO 現状、クライアント側から勝者を送ってきているが、勝敗判定のロジックはサーバー側に置きたい
-        winner = doc_received.get("c2s_winner", None)
-
-        args = {
-            "player1": winner
-        }
-
-        return EndS2cMessage(args).asDict()
-
-    async def on_move(self, scope, doc_received):
+    async def _on_move(self, scope, doc_received):
         """駒を置いたとき"""
+        return MovedS2cMessage({
+            # `s2c_` は サーバーからクライアントへ送る変数の目印
+            "sq1": doc_received.get("c2s_sq", None),
+            "piece1": doc_received.get("c2s_pieceMoved", None),
+        }).asDict()
 
-        # `s2c_` は サーバーからクライアントへ送る変数の目印
-        c2s_sq = doc_received.get("c2s_sq", None)
-        piece_moved = doc_received.get("c2s_pieceMoved", None)
-        print(
-            f"[TicTacToeV2MessageDriven on_move] C2S_Moved c2s_sq=[{c2s_sq}] piece_moved=[{piece_moved}]")
-
-        args = {
-            "sq1": c2s_sq,
-            "piece1": piece_moved,
-        }
-
-        return MovedS2cMessage(args).asDict()
-
-    async def on_start(self, scope, doc_received):
+    async def _on_start(self, scope, doc_received):
         """対局開始時"""
-        print("[TicTacToeV2MessageDriven on_start]")
-
-        args = {}
-
-        return StartS2cMessage(args).asDict()
+        return StartS2cMessage({}).asDict()
 
 # EOF OA16o3o0gA10o0
