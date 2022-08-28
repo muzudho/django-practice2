@@ -624,8 +624,8 @@ class EvtWon {
                     playerListbox: {
                         value: "",
                     },
-                    // イベント名一覧
-                    c2sEventNameItems: ["DoMove", "Draw", "Start", "Won"],
+                    // イベント名一覧（あとで入れます）
+                    c2sEventNameItems: [],
                     // マス番号の一覧
                     sqItems: ["", 0, 1, 2, 3, 4, 5, 6, 7, 8],
                     // プレイヤーの一覧
@@ -645,6 +645,11 @@ class EvtWon {
                     },
                 },
             });
+
+            // イベント名一覧
+            for (const [eventName, object] of Object.entries(eventDict)) {
+                vue1.c2sEventNameItems.push(eventName);
+            }
         </script>
     </body>
 </html>
