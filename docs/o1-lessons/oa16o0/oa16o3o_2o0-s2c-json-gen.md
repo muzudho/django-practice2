@@ -162,7 +162,7 @@ class S2cJsonGenCommands:
         """
         return {
             'type': 'send_message',  # type属性は必須
-            's2c_event': "S2C_End",
+            's2c_type': "S2C_End",
             's2c_winner': args["player1"],
         }
 
@@ -184,7 +184,7 @@ class S2cJsonGenCommands:
         """
         return {
             'type': 'send_message',  # type属性は必須
-            's2c_event': 'S2C_Moved',
+            's2c_type': 'S2C_Moved',
             's2c_sq': args["sq1"],
             's2c_pieceMoved': args["piece1"],
         }
@@ -200,7 +200,7 @@ class S2cJsonGenCommands:
         """
         return {
             'type': 'send_message',  # type属性は必須
-            's2c_event': "S2C_Start",
+            's2c_type': "S2C_Start",
         }
 
 

@@ -8,8 +8,8 @@ class S2cMessageDriven {
         this._handlers = {};
     }
 
-    addHandler(eventName, handler) {
-        this._handlers[eventName] = handler;
+    addHandler(s2c_type, handler) {
+        this._handlers[s2c_type] = handler;
     }
 
     /**
@@ -19,16 +19,16 @@ class S2cMessageDriven {
     execute(message) {
         // `s2c_` は サーバーからクライアントへ送られてきた変数の目印
         // イベント名
-        let eventName = message["s2c_event"];
-        console.log(`[S2cMessageDriven execute] サーバーからのメッセージを受信しました eventName:${eventName}`);
+        let s2c_type = message["s2c_type"];
+        console.log(`[S2cMessageDriven execute] サーバーからのメッセージを受信しました s2c_type:${s2c_type}`);
 
-        if (eventName in this._handlers) {
+        if (s2c_type in this._handlers) {
             // 実行
-            const execute2 = this._handlers[eventName];
+            const execute2 = this._handlers[s2c_type];
             execute2(message);
         } else {
             // Undefined behavior
-            console.log(`[S2cMessageDriven execute] ignored. eventName=[${eventName}]`);
+            console.log(`[S2cMessageDriven execute] ignored. s2c_type=[${s2c_type}]`);
         }
     }
 }
