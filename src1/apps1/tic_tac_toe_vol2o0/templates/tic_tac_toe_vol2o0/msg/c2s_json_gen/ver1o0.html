@@ -65,13 +65,23 @@
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
         <script>
+            // TODO こう作りたい
+            const eventDict = {};
+            eventDict["DoMove"] = new EvtDoMove(() => {
+                const sq = vue1.sqListbox.value;
+                const myTurn = vue1.playerListbox.value;
+                return [sq, myTurn];
+            });
+            eventDict["Draw"] = new EvtDraw();
+            eventDict["Start"] = new EvtStart();
+            eventDict["Won"] = new EvtWon();
+            // しかしなかなか難しい
+
             // Create message by event
             const dictCreateMsg = {};
 
             dictCreateMsg["DoMove"] = () => {
-                const sq = vue1.sqListbox.value;
-                const myTurn = vue1.playerListbox.value;
-                return new EvtDoMove().createMessage(sq, myTurn);
+                return eventDict["DoMove"].createMessage();
             };
             dictCreateMsg["Draw"] = () => {
                 return new EvtDraw().createMessage();

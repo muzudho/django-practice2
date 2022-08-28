@@ -6,13 +6,18 @@
  * * 自分のターンに駒を置いたとき
  */
 class EvtDoMove {
+    constructor(getArgs) {
+        this._getArgs = getArgs;
+    }
+
     /**
      * メッセージ新規作成
-     * @param {int} sq - 升番号
-     * @param {string} pieceMoved - 駒を置いたプレイヤー。 X か O
      * @returns メッセージ
      */
-    createMessage(sq, pieceMoved) {
+    createMessage() {
+        // {int} sq - 升番号
+        // {string} pieceMoved - 駒を置いたプレイヤー。 X か O
+        const [sq, pieceMoved] = this._getArgs();
         return new MovedC2sMessage(sq, pieceMoved);
     }
 }

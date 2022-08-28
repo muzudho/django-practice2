@@ -688,7 +688,9 @@ class Connection {
 
                                 // 自分の指し手なら送信
                                 if (vue1.engine.position.turn.me == pieceMoved) {
-                                    let message = new EvtDoMove().createMessage(sq, pieceMoved);
+                                    let message = new EvtDoMove(()=>{
+                                        return [sq, pieceMoved];
+                                    }).createMessage();
                                     connection.send(message.asJsObject());
                                 }
 

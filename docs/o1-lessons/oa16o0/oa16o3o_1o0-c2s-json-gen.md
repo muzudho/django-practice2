@@ -305,13 +305,18 @@ Separated from OA16o3o_1o0g_1o0
  * * 自分のターンに駒を置いたとき
  */
 class EvtDoMove {
+    constructor(getArgs) {
+        this._getArgs = getArgs;
+    }
+
     /**
      * メッセージ新規作成
-     * @param {int} sq - 升番号
-     * @param {string} pieceMoved - 駒を置いたプレイヤー。 X か O
      * @returns メッセージ
      */
-    createMessage(sq, pieceMoved) {
+    createMessage() {
+        // {int} sq - 升番号
+        // {string} pieceMoved - 駒を置いたプレイヤー。 X か O
+        const [sq, pieceMoved] = this._getArgs();
         return new MovedC2sMessage(sq, pieceMoved);
     }
 }
@@ -585,13 +590,23 @@ class EvtWon {
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
         <script>
+            // TODO こう作りたい
+            const eventDict = {};
+            eventDict["DoMove"] = new EvtDoMove(() => {
+                const sq = vue1.sqListbox.value;
+                const myTurn = vue1.playerListbox.value;
+                return [sq, myTurn];
+            });
+            eventDict["Draw"] = new EvtDraw();
+            eventDict["Start"] = new EvtStart();
+            eventDict["Won"] = new EvtWon();
+            // しかしなかなか難しい
+
             // Create message by event
             const dictCreateMsg = {};
 
             dictCreateMsg["DoMove"] = () => {
-                const sq = vue1.sqListbox.value;
-                const myTurn = vue1.playerListbox.value;
-                return new EvtDoMove().createMessage(sq, myTurn);
+                return eventDict["DoMove"].createMessage();
             };
             dictCreateMsg["Draw"] = () => {
                 return new EvtDraw().createMessage();
