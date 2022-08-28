@@ -49,6 +49,7 @@
         <script src="{% static 'tic_tac_toe_vol2o0/think/user_ctrl/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/think/judge_ctrl/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/think/engine/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/commands/do_move/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/ver1o0.js' %}"></script>
         <!--            =====================================================
                         1
@@ -102,7 +103,7 @@
                                 {
                                     const sq = this.sqListbox.value;
                                     const myTurn = this.playerListbox.value;
-                                    doc = c2sJsonGen1.createDoMove(sq, myTurn);
+                                    doc = new CmdDoMove().create(sq, myTurn);
                                 }
                                 break;
 

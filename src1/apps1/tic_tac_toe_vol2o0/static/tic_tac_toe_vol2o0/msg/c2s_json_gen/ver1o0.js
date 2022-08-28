@@ -7,22 +7,6 @@
  */
 class C2sJsonGen {
     /**
-     * どちらかのプレイヤーが駒を置いたとき
-     * @param {int} sq - 升番号
-     * @param {string} pieceMoved - 駒を置いたプレイヤー。 X か O
-     * @returns メッセージ
-     */
-    createDoMove(sq, pieceMoved) {
-        // `c2s_` は クライアントからサーバーへ送る変数の目印
-        console.log(`[C2sJsonGen createDoMove] sq=${sq} pieceMoved=${pieceMoved}`);
-        return {
-            c2s_event: "C2S_Moved",
-            c2s_sq: sq,
-            c2s_pieceMoved: pieceMoved,
-        };
-    }
-
-    /**
      * 引き分けたとき、とりあえず両方のプレイヤーが、サーバーへ対局終了メッセージを送ります
      * @returns メッセージ
      */

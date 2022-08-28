@@ -118,6 +118,54 @@ cd src1
 docker-compose up
 ```
 
+## Step OA16o3o_1o0g_1o__10o0 コマンド作成 - msg/c2s_json_gen/commands/do_move/ver1o0.js ファイル
+
+Moved from OA16o3o0g2o0  
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        └── 📂 apps1
+            └── 📂 tic_tac_toe_vol2o0    # アプリケーション
+                └── 📂 static
+                    └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
+                        └── 📂 msg
+                            └── 📂 c2s_json_gen
+                                └── 📂 commands
+                                    └── 📂 do_move
+👉                                      └── 📄 ver1o0.js
+```
+
+```js
+// BOF OA16o3o_1o0g_1o__10o0
+
+/**
+ * コマンド
+ *
+ * * どちらかのプレイヤーが駒を置きました
+ */
+class CmdDoMove {
+    /**
+     * 新規作成
+     * @param {int} sq - 升番号
+     * @param {string} pieceMoved - 駒を置いたプレイヤー。 X か O
+     * @returns メッセージ
+     */
+    create(sq, pieceMoved) {
+        // `c2s_` は クライアントからサーバーへ送る変数の目印
+        console.log(`[CmdDoMove create] sq=${sq} pieceMoved=${pieceMoved}`);
+        return {
+            c2s_event: "C2S_Moved",
+            c2s_sq: sq,
+            c2s_pieceMoved: pieceMoved,
+        };
+    }
+}
+
+// EOF OA16o3o_1o0g_1o__10o0
+```
+
 ## Step OA16o3o_1o0g_1o0 クライアントからサーバーへ送るメッセージ実装 - msg/c2s_json_gen/v1o0.js ファイル
 
 Moved from OA16o3o0g2o0  
@@ -144,22 +192,6 @@ Moved from OA16o3o0g2o0
  * * クライアントからサーバーへ送る
  */
 class C2sJsonGen {
-    /**
-     * どちらかのプレイヤーが駒を置いたとき
-     * @param {int} sq - 升番号
-     * @param {string} pieceMoved - 駒を置いたプレイヤー。 X か O
-     * @returns メッセージ
-     */
-    createDoMove(sq, pieceMoved) {
-        // `c2s_` は クライアントからサーバーへ送る変数の目印
-        console.log(`[C2sJsonGen createDoMove] sq=${sq} pieceMoved=${pieceMoved}`);
-        return {
-            c2s_event: "C2S_Moved",
-            c2s_sq: sq,
-            c2s_pieceMoved: pieceMoved,
-        };
-    }
-
     /**
      * 引き分けたとき、とりあえず両方のプレイヤーが、サーバーへ対局終了メッセージを送ります
      * @returns メッセージ
@@ -272,6 +304,7 @@ class C2sJsonGen {
         <script src="{% static 'tic_tac_toe_vol2o0/think/user_ctrl/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/think/judge_ctrl/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/think/engine/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/commands/do_move/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/ver1o0.js' %}"></script>
         <!--            =====================================================
                         1
@@ -325,7 +358,7 @@ class C2sJsonGen {
                                 {
                                     const sq = this.sqListbox.value;
                                     const myTurn = this.playerListbox.value;
-                                    doc = c2sJsonGen1.createDoMove(sq, myTurn);
+                                    doc = new CmdDoMove().create(sq, myTurn);
                                 }
                                 break;
 
