@@ -35,17 +35,8 @@ from apps1.tic_tac_toe_vol2o0.websocks.gui.message_driven.ver1o0 import TicTacTo
 
 # OA16o3o_2o0g1o_1o0 〇×ゲーム2.0巻 S2cメッセージ End 1.0版
 from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.end.ver1o0 import EndS2cMessage
-
-# OA16o3o_2o0g1o0 〇×ゲーム2.0巻 メッセージS2C JSONジェネレーター1.0版
-from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.commands.ver1o0 import S2cJsonGenCommands as CommandsGen
-#          ------------------                                 ------        ------------------    -----------
-#          11                                                 12            2                     3
-#    ---------------------------------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py にさらに含まれるクラス
-# 3. `2.` の別名
+from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.moved.ver1o0 import MovedS2cMessage
+from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.start.ver1o0 import StartS2cMessage
 
 
 class TicTacToeV3o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
@@ -162,7 +153,7 @@ class TicTacToeV3o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
             "piece1": piece_moved,
         }
 
-        return CommandsGen.create_moved(args)
+        return MovedS2cMessage(args).asDict()
 
     async def on_start(self, scope, doc_received):
         """対局開始時"""
@@ -171,7 +162,7 @@ class TicTacToeV3o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
         #     f"[TicTacToeV3o1o0ConsumerCustom on_start] ignored. doc_received={doc_received}")
         args = {}
 
-        return CommandsGen.create_start(args)
+        return StartS2cMessage(args).asDict()
 
 
 @sync_to_async

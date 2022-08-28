@@ -123,6 +123,8 @@ docker-compose up
 
 ## Step OA16o3o_2o0g1o_1o0 メッセージ作成 - msg/s2c_json_gen/messages/end/ver1o0/__init__.py ファイル
 
+Separated from OA16o3o_2o0g1o0  
+
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
@@ -157,7 +159,9 @@ class EndS2cMessage:
 # EOF OA16o3o_2o0g1o_1o0
 ```
 
-## Step OA16o3o_2o0g1o0 ビュー作成 - msg/s2c_json_gen/commands/v1o0 フォルダー
+## Step OA16o3o_2o0g1o_2o0 メッセージ作成 - msg/s2c_json_gen/messages/moved/ver1o0/__init__.py ファイル
+
+Separated from OA16o3o_2o0g1o0  
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -168,61 +172,85 @@ class EndS2cMessage:
                 └── 📂 views
                     └── 📂 msg
                         └── 📂 s2c_json_gen
-                            └── 📂 commands
-                                └── 📂 ver1o0
-👉                                  └── 📄 __init__.py
+                            └── 📂 messages
+                                ├── 📂 end
+                                │   └── 📂 ver1o0
+                                │       └── 📄 __init__.py
+                                └── 📂 moved
+                                    └── 📂 ver1o0
+👉                                      └── 📄 __init__.py
 ```
 
 ```py
-# BOF OA16o3o_2o0g1o0
+# BOF OA16o3o_2o0g1o_2o0
 
+class MovedS2cMessage:
+    def __init__(self, args):
+        """設定"""
+        self._sq = args["sq1"]
+        self._pieceMoved = args["piece1"]
 
-class S2cJsonGenCommands:
-    """サーバーからクライアントへ送るJSON構造の変数を生成
-
-    `s2c_` は サーバーからクライアントへ送る変数の目印
-    """
-
-    @staticmethod
-    def create_moved(args):
-        """駒を動かした
-
-        Parameters
-        ----------
-        sq : int
-            移動先
-        piece_moved : string
-            動かした駒
-
-        Returns
-        -------
-        doc : dict
-            クライアントへ送る
-        """
+    def asDict(self):
+        """Dict形式で取得"""
         return {
             'type': 'send_message',  # type属性は必須
             's2c_type': 'S2C_Moved',
-            's2c_sq': args["sq1"],
-            's2c_pieceMoved': args["piece1"],
+            's2c_sq': self._sq,
+            's2c_pieceMoved': self._pieceMoved,
         }
 
-    @staticmethod
-    def create_start(args):
-        """対局開始
+# EOF OA16o3o_2o0g1o_2o0
+```
 
-        Returns
-        -------
-        doc : dict
-            クライアントへ送る
-        """
+## Step OA16o3o_2o0g1o_3o0 メッセージ作成 - msg/s2c_json_gen/messages/start/ver1o0/__init__.py ファイル
+
+Separated from OA16o3o_2o0g1o0  
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        └── 📂 apps1
+            └── 📂 tic_tac_toe_vol2o0    # アプリケーション
+                └── 📂 views
+                    └── 📂 msg
+                        └── 📂 s2c_json_gen
+                            └── 📂 messages
+                                ├── 📂 end
+                                │   └── 📂 ver1o0
+                                │       └── 📄 __init__.py
+                                ├── 📂 moved
+                                │   └── 📂 ver1o0
+                                │       └── 📄 __init__.py
+                                └── 📂 start
+                                    └── 📂 ver1o0
+👉                                      └── 📄 __init__.py
+```
+
+```py
+# BOF OA16o3o_2o0g1o_3o0
+
+class StartS2cMessage:
+    def __init__(self, args):
+        """設定"""
+        pass
+
+    def asDict(self):
+        """Dict形式で取得"""
         return {
             'type': 'send_message',  # type属性は必須
             's2c_type': "S2C_Start",
         }
 
-
-# EOF OA16o3o_2o0g1o0
+# EOF OA16o3o_2o0g1o_3o0
 ```
+
+## ~~Step OA16o3o_2o0g1o0~~
+
+1. Separated to OA16o3o_2o0g1o_1o0
+2. Separated to OA16o3o_2o0g1o_2o0
+3. Separated to OA16o3o_2o0g1o_3o0
+4. Removed
 
 ## Step OA16o3o_2o0g2o0 画面作成 - msg/s2c_json_gen/v1o0.html ファイル
 
@@ -439,17 +467,15 @@ from django.shortcuts import render
 
 # OA16o3o_2o0g1o_1o0 〇×ゲーム2.0巻 S2cメッセージ End 1.0版
 from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.end.ver1o0 import EndS2cMessage
-
-# OA16o3o_2o0g1o0 S2C JSON ジェネレーター
-from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.commands.ver1o0 import S2cJsonGenCommands as CommandsGen
-#          ------------------                                 ------        ------------------    -----------
-#          11                                                 12            2                     3
-#    ---------------------------------------------------------------
+from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.moved.ver1o0 import MovedS2cMessage
+from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.start.ver1o0 import StartS2cMessage
+#          ------------------                                       ------        ---------------
+#          11                                                       12            2
+#    ---------------------------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py にさらに含まれるクラス
-# 3. `2.` の別名
 
 
 def render_main(request, template_path):
@@ -475,22 +501,17 @@ def render_main(request, template_path):
         # TODO バリデーションチェックしたい
 
         message_object_dict = {
-            "S2C_End": EndS2cMessage(args)
+            "S2C_End": EndS2cMessage(args),
+            "S2C_Moved": MovedS2cMessage(args),
+            "S2C_Start": StartS2cMessage(args),
         }
 
         if messageType in message_object_dict:
-            # 新仕様
             doc = message_object_dict.get(messageType).asDict()
             dj_output_json = json.dumps(doc)
         else:
-            # 旧仕様
-            json_gen = {
-                "S2C_Moved": CommandsGen.create_moved,
-                "S2C_Start": CommandsGen.create_start,
-            }
-
-            doc = json_gen.get(messageType)(args)
-            dj_output_json = json.dumps(doc)
+            # 空っぽのJSON文字列
+            dj_output_json = "{}"
 
     else:
         # 空っぽのJSON文字列

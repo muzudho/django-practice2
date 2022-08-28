@@ -5,17 +5,15 @@ from django.shortcuts import render
 
 # OA16o3o_2o0g1o_1o0 〇×ゲーム2.0巻 S2cメッセージ End 1.0版
 from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.end.ver1o0 import EndS2cMessage
-
-# OA16o3o_2o0g1o0 S2C JSON ジェネレーター
-from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.commands.ver1o0 import S2cJsonGenCommands as CommandsGen
-#          ------------------                                 ------        ------------------    -----------
-#          11                                                 12            2                     3
-#    ---------------------------------------------------------------
+from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.moved.ver1o0 import MovedS2cMessage
+from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.start.ver1o0 import StartS2cMessage
+#          ------------------                                       ------        ---------------
+#          11                                                       12            2
+#    ---------------------------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py にさらに含まれるクラス
-# 3. `2.` の別名
 
 
 def render_main(request, template_path):
@@ -41,22 +39,17 @@ def render_main(request, template_path):
         # TODO バリデーションチェックしたい
 
         message_object_dict = {
-            "S2C_End": EndS2cMessage(args)
+            "S2C_End": EndS2cMessage(args),
+            "S2C_Moved": MovedS2cMessage(args),
+            "S2C_Start": StartS2cMessage(args),
         }
 
         if messageType in message_object_dict:
-            # 新仕様
             doc = message_object_dict.get(messageType).asDict()
             dj_output_json = json.dumps(doc)
         else:
-            # 旧仕様
-            json_gen = {
-                "S2C_Moved": CommandsGen.create_moved,
-                "S2C_Start": CommandsGen.create_start,
-            }
-
-            doc = json_gen.get(messageType)(args)
-            dj_output_json = json.dumps(doc)
+            # 空っぽのJSON文字列
+            dj_output_json = "{}"
 
     else:
         # 空っぽのJSON文字列
