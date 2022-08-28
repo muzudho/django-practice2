@@ -152,7 +152,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 }
 ```
 
-## Step OA21o2o0g3o0 テンプレート編集 - auto_reload/v1o1o0.html.txt ファイル
+## Step OA21o2o0g3o0 テンプレート編集 - auto_reload/ver1o1o0.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -167,7 +167,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
                 └── 📂 templates
                     └── 📂 practice_vol1o0          # アプリケーションと同名
                         └── 📂 auto_reload
-👉                          └── 📄 v1o1o0.html.txt
+👉                          └── 📄 ver1o1o0.html.txt
 ```
 
 ```html
@@ -237,7 +237,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
                 ├── 📂 templates
                 │   └── 📂 practice_vol1o0
                 │       └── 📂 auto_reload
-                │           └── 📄 v1o1o0.html.txt
+                │           └── 📄 ver1o1o0.html.txt
                 └── 📂 views
                     └── 📂 auto_redirect
                         └── 📂 ver1o0
@@ -290,7 +290,7 @@ class AutoRedirectV():
                 ├── 📂 templates
                 │   └── 📂 practice_vol1o0
                 │       └── 📂 auto_reload
-                │           └── 📄 v1o1o0.html.txt
+                │           └── 📄 ver1o1o0.html.txt
                 └── 📂 views
                     └── 📂 auto_redirect
                         └── 📂 ver1o0
@@ -360,7 +360,7 @@ Merged to OA21o2o0g6o1o0
     │           ├── 📂 templates
     │           │   └── 📂 practice_vol1o0
     │           │       └── 📂 auto_reload
-    │           │           └── 📄 v1o1o0.html.txt
+    │           │           └── 📄 ver1o1o0.html.txt
     │           └── 📂 views
     │               └── 📂 auto_redirect
     │                   └── 📂 ver1o0
@@ -416,7 +416,7 @@ docker-compose restart
         │       ├── 📂 templates
         │       │   └── 📂 practice_vol1o0
         │       │       └── 📂 auto_reload
-        │       │           └── 📄 v1o1o0.html.txt
+        │       │           └── 📄 ver1o1o0.html.txt
         │       └── 📂 views
         │           └── 📂 auto_redirect
         │               └── 📂 ver1o0

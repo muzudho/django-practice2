@@ -21,7 +21,7 @@ class TicTacToeV2MessageDriven():
         c2s_type = doc_received.get("c2s_type", None)
 
         if(c2s_type in self._handlersAsync):
-            response_json = await self._handlersAsync[c2s_type](scope, doc_received)
+            response_json = await self._handlersAsync[c2s_type].on_message_received(scope, doc_received)
             return response_json
 
         raise ValueError(

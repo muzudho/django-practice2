@@ -950,7 +950,7 @@ class Connection {
 <!-- EOF OA16o3o0g6o0 -->
 ```
 
-## Step OA16o3o0g7o0 対局画面作成 - gui/playing/v1o1o0.html.txt ファイル
+## Step OA16o3o0g7o0 対局画面作成 - gui/playing/ver1o1o0.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -973,7 +973,7 @@ class Connection {
                             │   └── 📄 ver1o0.html
                             └── 📂 playing
                                 ├── 📄 ver1o0.html
-👉                              └── 📄 v1o1o0.html.txt
+👉                              └── 📄 ver1o1o0.html.txt
 ```
 
 👆 自動フォーマットされてくないので、拡張子をテキストファイルにしておく  
@@ -1044,7 +1044,7 @@ class Connection {
                 │           │   └── 📄 ver1o0.html
                 │           └── 📂 playing
                 │               ├── 📄 ver1o0.html
-                │               └── 📄 v1o1o0.html.txt
+                │               └── 📄 ver1o1o0.html.txt
                 └── 📂 websocks
                     └── 📂 gui
                         └── 📂 message_driven
@@ -1075,7 +1075,7 @@ class TicTacToeV2MessageDriven():
         c2s_type = doc_received.get("c2s_type", None)
 
         if(c2s_type in self._handlersAsync):
-            response_json = await self._handlersAsync[c2s_type](scope, doc_received)
+            response_json = await self._handlersAsync[c2s_type].on_message_received(scope, doc_received)
             return response_json
 
         raise ValueError(
@@ -1108,7 +1108,7 @@ class TicTacToeV2MessageDriven():
                 │           │   └── 📄 ver1o0.html
                 │           └── 📂 playing
                 │               ├── 📄 ver1o0.html
-                │               └── 📄 v1o1o0.html.txt
+                │               └── 📄 ver1o1o0.html.txt
                 └── 📂 websocks
                     └── 📂 gui
                         ├── 📂 consumer
@@ -1189,7 +1189,7 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
 # EOF OA16o3o0g9o0
 ```
 
-## Step OA16o3o0gA10o_1o0 ハンドラー作成 - gui/c2s_handlers/v1o1o0.py ファイル
+## Step OA16o3o0gA10o_1o0 ハンドラー作成 - gui/c2s_handlers/end/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1212,7 +1212,7 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
                 │           │   └── 📄 ver1o0.html
                 │           └── 📂 playing
                 │               ├── 📄 ver1o0.html
-                │               └── 📄 v1o1o0.html.txt
+                │               └── 📄 ver1o1o0.html.txt
                 └── 📂 websocks
                     └── 📂 gui
                         ├── 📂 c2s_handlers
@@ -1250,7 +1250,7 @@ class EndC2sHandler:
 # EOF OA16o3o0gA10o_1o0
 ```
 
-## Step OA16o3o0gA10o0 Webソケットの通信プロトコル作成 - gui/consumer/v1o1o0.py ファイル
+## Step OA16o3o0gA10o_2o0 ハンドラー作成 - gui/c2s_handlers/move/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1273,12 +1273,123 @@ class EndC2sHandler:
                 │           │   └── 📄 ver1o0.html
                 │           └── 📂 playing
                 │               ├── 📄 ver1o0.html
-                │               └── 📄 v1o1o0.html.txt
+                │               └── 📄 ver1o1o0.html.txt
+                └── 📂 websocks
+                    └── 📂 gui
+                        ├── 📂 c2s_handlers
+                        │   ├── 📂 end
+                        │   │   └── 📄 ver1o0.py
+                        │   └── 📂 move
+👉                      │       └── 📄 ver1o0.py
+                        ├── 📂 consumer
+                        │   └── 📄 ver1o0.py
+                        └── 📂 message_driven
+                            └── 📄 ver1o0.py
+```
+
+```py
+# BOF OA16o3o0gA10o_2o0
+
+# OA16o3o_2o0g1o_2o0 Movedメッセージ
+from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.moved.ver1o0 import MovedS2cMessage
+
+
+class MoveC2sHandler:
+
+    async def on_message_received(self, scope, doc_received):
+        """駒を置いたとき"""
+        return MovedS2cMessage({
+            # `s2c_` は サーバーからクライアントへ送る変数の目印
+            "sq1": doc_received.get("c2s_sq", None),
+            "piece1": doc_received.get("c2s_pieceMoved", None),
+        }).asDict()
+
+# EOF OA16o3o0gA10o_2o0
+```
+
+## Step OA16o3o0gA10o_3o0 ハンドラー作成 - gui/c2s_handlers/start/v1o0.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        └── 📂 apps1
+            └── 📂 tic_tac_toe_vol2o0    # アプリケーション
+                ├── 📂 static
+                │   └── 📂 tic_tac_toe_vol2o0
+                │       ├── 📂 gui
+                │       │   └── 📂 connection
+                │       │       └── 📄 ver1o0.js
+                │       └── 📂 msg
+                │           └── 📂 s2c_message_driven
+                │               └── 📄 ver1o0.js
+                ├── 📂 templates
+                │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
+                │       └── 📂 gui
+                │           ├── 📂 match_application
+                │           │   └── 📄 ver1o0.html
+                │           └── 📂 playing
+                │               ├── 📄 ver1o0.html
+                │               └── 📄 ver1o1o0.html.txt
+                └── 📂 websocks
+                    └── 📂 gui
+                        ├── 📂 c2s_handlers
+                        │   ├── 📂 end
+                        │   │   └── 📄 ver1o0.py
+                        │   ├── 📂 move
+                        │   │   └── 📄 ver1o0.py
+                        │   └── 📂 start
+👉                      │       └── 📄 ver1o0.py
+                        ├── 📂 consumer
+                        │   └── 📄 ver1o0.py
+                        └── 📂 message_driven
+                            └── 📄 ver1o0.py
+```
+
+```py
+# BOF OA16o3o0gA10o_3o0
+
+# OA16o3o_2o0g1o_3o0 Startメッセージ
+from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.start.ver1o0 import StartS2cMessage
+
+
+class StartC2sHandler:
+    async def on_message_received(self, scope, doc_received):
+        """対局開始時"""
+        return StartS2cMessage({}).asDict()
+
+# EOF OA16o3o0gA10o_3o0
+```
+
+## Step OA16o3o0gA10o0 Webソケットの通信プロトコル作成 - gui/consumer/ver1o1o0.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        └── 📂 apps1
+            └── 📂 tic_tac_toe_vol2o0    # アプリケーション
+                ├── 📂 static
+                │   └── 📂 tic_tac_toe_vol2o0
+                │       ├── 📂 gui
+                │       │   └── 📂 connection
+                │       │       └── 📄 ver1o0.js
+                │       └── 📂 msg
+                │           └── 📂 s2c_message_driven
+                │               └── 📄 ver1o0.js
+                ├── 📂 templates
+                │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
+                │       └── 📂 gui
+                │           ├── 📂 match_application
+                │           │   └── 📄 ver1o0.html
+                │           └── 📂 playing
+                │               ├── 📄 ver1o0.html
+                │               └── 📄 ver1o1o0.html.txt
                 └── 📂 websocks
                     └── 📂 gui
                         ├── 📂 consumer
                         │   ├── 📄 ver1o0.py
-👉                      │   └── 📄 v1o1o0.py
+👉                      │   └── 📄 ver1o1o0.py
                         └── 📂 message_driven
                             └── 📄 ver1o0.py
 ```
@@ -1286,7 +1397,7 @@ class EndC2sHandler:
 ```py
 # BOF OA16o3o0gA10o0
 
-# 〇×ゲーム2.0巻 Webソケット コンシューマー1.0版
+# [OA16o3o0g9o0] 〇×ゲーム2.0巻 - Webソケット コンシューマー1.0版
 from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o0 import TicTacToeV2ConsumerBase
 #          ------------------                       ------        -----------------------
 #          11                                       12            2
@@ -1296,34 +1407,29 @@ from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o0 import TicTacToeV2Con
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py にさらに含まれるクラス
 
-# 〇×ゲーム2.0巻 Webソケット メッセージ駆動1.0版
+# [OA16o3o0g8o0] 〇×ゲーム2.0巻 - WebソケットGUI メッセージ駆動 1.0版
 from apps1.tic_tac_toe_vol2o0.websocks.gui.message_driven.ver1o0 import TicTacToeV2MessageDriven
-#          ------------------                             ------        ------------------------
-#          11                                             12            2
-#    -----------------------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py にさらに含まれるクラス
 
-from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.moved.ver1o0 import MovedS2cMessage
-from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.start.ver1o0 import StartS2cMessage
-
-# OA16o3o0gA10o_1o0 Endメッセージハンドラー
+# [OA16o3o0gA10o_1o0] 〇×ゲーム2.0巻 - WebソケットGUI Endメッセージハンドラー 1.0版
 from apps1.tic_tac_toe_vol2o0.websocks.gui.c2s_handlers.end.ver1o0 import EndC2sHandler
+
+# [OA16o3o0gA10o_2o0] 〇×ゲーム2.0巻 - WebソケットGUI Moveメッセージハンドラー 1.0版
+from apps1.tic_tac_toe_vol2o0.websocks.gui.c2s_handlers.move.ver1o0 import MoveC2sHandler
+
+# [OA16o3o0gA10o_3o0] 〇×ゲーム2.0巻 - WebソケットGUI Startメッセージハンドラー 1.0版
+from apps1.tic_tac_toe_vol2o0.websocks.gui.c2s_handlers.start.ver1o0 import StartC2sHandler
 
 
 class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
-    """OA16o3o0gA10o0 Webソケット用コンシューマー"""
+    """[OA16o3o0gA10o0] Webソケット用コンシューマー 1.1.0版"""
 
     def __init__(self):
         super().__init__()
 
         self._messageDriven = TicTacToeV2MessageDriven()
-        self._messageDriven.addHandler(
-            'C2S_End', EndC2sHandler().on_message_received)
-        self._messageDriven.addHandler('C2S_Moved', self._on_move)
-        self._messageDriven.addHandler('C2S_Start', self._on_start)
+        self._messageDriven.addHandler('C2S_End', EndC2sHandler())
+        self._messageDriven.addHandler('C2S_Moved', MoveC2sHandler())
+        self._messageDriven.addHandler('C2S_Start', StartC2sHandler())
 
     async def on_receive(self, doc_received):
         """クライアントからメッセージを受信したとき
@@ -1333,18 +1439,6 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
         response
         """
         return await self._messageDriven.execute(self.scope, doc_received)
-
-    async def _on_move(self, scope, doc_received):
-        """駒を置いたとき"""
-        return MovedS2cMessage({
-            # `s2c_` は サーバーからクライアントへ送る変数の目印
-            "sq1": doc_received.get("c2s_sq", None),
-            "piece1": doc_received.get("c2s_pieceMoved", None),
-        }).asDict()
-
-    async def _on_start(self, scope, doc_received):
-        """対局開始時"""
-        return StartS2cMessage({}).asDict()
 
 # EOF OA16o3o0gA10o0
 ```
@@ -1372,7 +1466,7 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
                 │           │   └── 📄 ver1o0.html
                 │           └── 📂 playing
                 │               ├── 📄 ver1o0.html
-                │               └── 📄 v1o1o0.html.txt
+                │               └── 📄 ver1o1o0.html.txt
                 ├── 📂 views
                 │   └── 📂 gui
                 │       └── 📂 match_application
@@ -1382,7 +1476,7 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
                     └── 📂 gui
                         ├── 📂 consumer
                         │   ├── 📄 ver1o0.py
-                        │   └── 📄 v1o1o0.py
+                        │   └── 📄 ver1o1o0.py
                         └── 📂 message_driven
                             └── 📄 ver1o0.py
 ```
@@ -1477,7 +1571,7 @@ class MatchApplicationV():
                 │           │   └── 📄 ver1o0.html
                 │           └── 📂 playing
                 │               ├── 📄 ver1o0.html
-                │               └── 📄 v1o1o0.html.txt
+                │               └── 📄 ver1o1o0.html.txt
                 ├── 📂 views
                 │   └── 📂 gui
                 │       └── 📂 match_application
@@ -1488,7 +1582,7 @@ class MatchApplicationV():
                     └── 📂 gui
                         ├── 📂 consumer
                         │   ├── 📄 ver1o0.py
-                        │   └── 📄 v1o1o0.py
+                        │   └── 📄 ver1o1o0.py
                         └── 📂 message_driven
                             └── 📄 ver1o0.py
 ```
@@ -1551,7 +1645,7 @@ def render_match_application(request, playing_web_path, match_application_tp, on
                 │           │   └── 📄 ver1o0.html
                 │           └── 📂 playing
                 │               ├── 📄 ver1o0.html
-                │               └── 📄 v1o1o0.html.txt
+                │               └── 📄 ver1o1o0.html.txt
                 ├── 📂 views
                 │   └── 📂 gui
                 │       ├── 📂 match_application
@@ -1565,7 +1659,7 @@ def render_match_application(request, playing_web_path, match_application_tp, on
                     └── 📂 gui
                         ├── 📂 consumer
                         │   ├── 📄 ver1o0.py
-                        │   └── 📄 v1o1o0.py
+                        │   └── 📄 ver1o1o0.py
                         └── 📂 message_driven
                             └── 📄 ver1o0.py
 ```
@@ -1647,7 +1741,7 @@ class PlayingV():
                 │           │   └── 📄 ver1o0.html
                 │           └── 📂 playing
                 │               ├── 📄 ver1o0.html
-                │               └── 📄 v1o1o0.html.txt
+                │               └── 📄 ver1o1o0.html.txt
                 ├── 📂 views
                 │   └── 📂 gui
                 │       ├── 📂 match_application
@@ -1662,7 +1756,7 @@ class PlayingV():
                     └── 📂 gui
                         ├── 📂 consumer
                         │   ├── 📄 ver1o0.py
-                        │   └── 📄 v1o1o0.py
+                        │   └── 📄 ver1o1o0.py
                         └── 📂 message_driven
                             └── 📄 ver1o0.py
 ```
@@ -1729,7 +1823,7 @@ Merged to OA16o3o0gA15o1o0
     │           │           │   └── 📄 ver1o0.html
     │           │           └── 📂 playing
     │           │               ├── 📄 ver1o0.html
-    │           │               └── 📄 v1o1o0.html.txt
+    │           │               └── 📄 ver1o1o0.html.txt
     │           ├── 📂 views
     │           │   └── 📂 gui
     │           │       ├── 📂 match_application
@@ -1744,7 +1838,7 @@ Merged to OA16o3o0gA15o1o0
     │               └── 📂 gui
     │                   ├── 📂 consumer
     │                   │   ├── 📄 ver1o0.py
-    │                   │   └── 📄 v1o1o0.py
+    │                   │   └── 📄 ver1o1o0.py
     │                   └── 📂 message_driven
     │                       └── 📄 ver1o0.py
     └── 📂 src1_meta
@@ -1799,7 +1893,7 @@ docker-compose restart
         │       │           │   └── 📄 ver1o0.html
         │       │           └── 📂 playing
         │       │               ├── 📄 ver1o0.html
-        │       │               └── 📄 v1o1o0.html.txt
+        │       │               └── 📄 ver1o1o0.html.txt
         │       ├── 📂 views
         │       │   └── 📂 gui
         │       │       ├── 📂 match_application
@@ -1814,7 +1908,7 @@ docker-compose restart
         │           └── 📂 gui
         │               ├── 📂 consumer
         │               │   ├── 📄 ver1o0.py
-        │               │   └── 📄 v1o1o0.py
+        │               │   └── 📄 ver1o1o0.py
         │               └── 📂 message_driven
         │                   └── 📄 ver1o0.py
         └── 📂 project1                      # プロジェクト
@@ -1880,7 +1974,7 @@ websocket_urlpatterns = [
         │       │           │   └── 📄 ver1o0.html
         │       │           └── 📂 playing
         │       │               ├── 📄 ver1o0.html
-        │       │               └── 📄 v1o1o0.html.txt
+        │       │               └── 📄 ver1o1o0.html.txt
         │       ├── 📂 views
         │       │   └── 📂 gui
         │       │       ├── 📂 match_application
@@ -1895,7 +1989,7 @@ websocket_urlpatterns = [
         │           └── 📂 gui
         │               ├── 📂 consumer
         │               │   ├── 📄 ver1o0.py
-        │               │   └── 📄 v1o1o0.py
+        │               │   └── 📄 ver1o1o0.py
         │               └── 📂 message_driven
         │                   └── 📄 ver1o0.py
         └── 📂 project1                      # プロジェクト
@@ -1972,7 +2066,7 @@ websocket_urlpatterns_merged.extend(
         │       │           │   └── 📄 ver1o0.html
         │       │           └── 📂 playing
         │       │               ├── 📄 ver1o0.html
-        │       │               └── 📄 v1o1o0.html.txt
+        │       │               └── 📄 ver1o1o0.html.txt
         │       ├── 📂 views
         │       │   └── 📂 gui
         │       │       ├── 📂 match_application
@@ -1987,7 +2081,7 @@ websocket_urlpatterns_merged.extend(
         │           └── 📂 gui
         │               ├── 📂 consumer
         │               │   ├── 📄 ver1o0.py
-        │               │   └── 📄 v1o1o0.py
+        │               │   └── 📄 ver1o1o0.py
         │               └── 📂 message_driven
         │                   └── 📄 ver1o0.py
         └── 📂 project1                          # プロジェクト
