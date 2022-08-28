@@ -1,10 +1,10 @@
-# BOF OA16o3o0gA12o0
+# BOF [OA16o3o0gA12o0]
 
 from django.shortcuts import render, redirect
 
 
 def render_match_application(request, playing_web_path, match_application_tp, on_sent, on_open):
-    """OA16o3o0gA12o0 対局申込 - 描画
+    """[OA16o3o0gA12o0] 対局申込 - 描画
 
     Parameters
     ----------
@@ -29,4 +29,4 @@ def render_match_application(request, playing_web_path, match_application_tp, on
 
     return render(request, match_application_tp, context)
 
-# EOF OA16o3o0gA12o0
+# EOF [OA16o3o0gA12o0]

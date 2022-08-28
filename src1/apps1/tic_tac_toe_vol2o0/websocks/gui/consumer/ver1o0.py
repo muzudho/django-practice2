@@ -1,4 +1,4 @@
-# BOF OA16o3o0g9o0
+# BOF [OA16o3o0g9o0]
 
 # 参考にした記事
 # -------------
@@ -8,7 +8,7 @@ from channels.generic.websocket import AsyncJsonWebsocketConsumer
 
 
 class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
-    """OA16o3o0g9o0 Webソケット用コンシューマー"""
+    """[OA16o3o0g9o0] Webソケット用コンシューマー"""
 
     def __init__(self):
         super().__init__()
@@ -66,4 +66,4 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
             "message": message,
         }))
 
-# EOF OA16o3o0g9o0
+# EOF [OA16o3o0g9o0]

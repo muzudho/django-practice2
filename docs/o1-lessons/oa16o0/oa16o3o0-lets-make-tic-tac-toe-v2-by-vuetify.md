@@ -110,7 +110,7 @@
 
 # 手順
 
-## Step OA16o3o0g1o0 Dockerコンテナの起動
+## Step [OA16o3o0g1o0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -122,11 +122,11 @@ cd src1
 docker-compose up
 ```
 
-## ~~Step OA16o3o0g2o0~~
+## ~~Step [OA16o3o0g2o0]~~
 
-Moved to OA16o3o_1o0g_1o0  
+Moved to [OA16o3o_1o0g_1o0]  
 
-## Step OA16o3o0g3o0 受信メッセージ駆動実装 - msg/s2c_message_driven/v1o0.js ファイル
+## Step [OA16o3o0g3o0] 受信メッセージ駆動実装 - msg/s2c_message_driven/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -142,7 +142,7 @@ Moved to OA16o3o_1o0g_1o0
 ```
 
 ```js
-// BOF OA16o3o0g3o0
+// BOF [OA16o3o0g3o0]
 
 /**
  * 受信メッセージ駆動
@@ -177,10 +177,10 @@ class S2cMessageDriven {
     }
 }
 
-// EOF OA16o3o0g3o0
+// EOF [OA16o3o0g3o0]
 ```
 
-## Step OA16o3o0g4o0 Webソケット接続の実装 - gui/connection/v1o0.js ファイル
+## Step [OA16o3o0g4o0] Webソケット接続の実装 - gui/connection/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -199,7 +199,7 @@ class S2cMessageDriven {
 ```
 
 ```js
-// BOF OA16o3o0g4o0
+// BOF [OA16o3o0g4o0]
 
 // 参考にした記事
 // -------------
@@ -347,10 +347,10 @@ class Connection {
     }
 }
 
-// EOF OA16o3o0g4o0
+// EOF [OA16o3o0g4o0]
 ```
 
-## Step OA16o3o0g5o0 対局申込画面作成 - gui/match_application/v1o0.html ファイル
+## Step [OA16o3o0g5o0] 対局申込画面作成 - gui/match_application/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -374,8 +374,7 @@ class Connection {
 ```
 
 ```html
-{# OA16o3o0g5o0 #}
-<!-- -->
+<!-- BOF [OA16o3o0g5o0] -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <html>
@@ -443,9 +442,10 @@ class Connection {
         </script>
     </body>
 </html>
+<!-- EOF [OA16o3o0g5o0] -->
 ```
 
-## Step OA16o3o0g6o0 対局画面作成 - gui/playing/v1o0.html ファイル
+## Step [OA16o3o0g6o0] 対局画面作成 - gui/playing/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -471,7 +471,7 @@ class Connection {
 ```
 
 ```html
-<!-- BOF OA16o3o0g6o0 -->
+<!-- BOF [OA16o3o0g6o0] -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <html>
@@ -947,10 +947,10 @@ class Connection {
         </script>
     </body>
 </html>
-<!-- EOF OA16o3o0g6o0 -->
+<!-- EOF [OA16o3o0g6o0] -->
 ```
 
-## Step OA16o3o0g7o0 対局画面作成 - gui/playing/ver1o1o0.html.txt ファイル
+## Step [OA16o3o0g7o0] 対局画面作成 - gui/playing/ver1o1o0.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -979,7 +979,7 @@ class Connection {
 👆 自動フォーマットされてくないので、拡張子をテキストファイルにしておく  
 
 ```html
-<!-- BOF OA16o3o0g7o0 -->
+<!-- BOF [OA16o3o0g7o0] -->
 {% extends "tic_tac_toe_vol2o0/gui/playing/ver1o0.html" %}
 {#          ------------------------------------------
             1
@@ -1018,10 +1018,10 @@ class Connection {
         }
     },
 {% endblock methods_footer %}
-<!-- EOF OA16o3o0g7o0 -->
+<!-- EOF [OA16o3o0g7o0] -->
 ```
 
-## Step OA16o3o0g8o0 通信プロトコル作成 - gui/message_driven/v1o0.py ファイル
+## Step [OA16o3o0g8o0] 通信プロトコル作成 - gui/message_driven/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1052,10 +1052,10 @@ class Connection {
 ```
 
 ```py
-# BOF OA16o3o0g8o0
+# BOF [OA16o3o0g8o0]
 
 class TicTacToeV2MessageDriven():
-    """OA16o3o0g8o0 〇×ゲーム v2 メッセージ駆動"""
+    """[OA16o3o0g8o0] 〇×ゲーム v2 メッセージ駆動"""
 
     def __init__(self):
         self._handlersAsync = {}
@@ -1082,10 +1082,10 @@ class TicTacToeV2MessageDriven():
             f"[TicTacToeV2MessageDriven execute] unknown c2s_type: {c2s_type}")
 
 
-# EOF OA16o3o0g8o0
+# EOF [OA16o3o0g8o0]
 ```
 
-## Step OA16o3o0g9o0 Webソケットの通信プロトコル作成 - gui/consumer/v1o0.py ファイル
+## Step [OA16o3o0g9o0] Webソケットの通信プロトコル作成 - gui/consumer/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1118,7 +1118,7 @@ class TicTacToeV2MessageDriven():
 ```
 
 ```py
-# BOF OA16o3o0g9o0
+# BOF [OA16o3o0g9o0]
 
 # 参考にした記事
 # -------------
@@ -1128,7 +1128,7 @@ from channels.generic.websocket import AsyncJsonWebsocketConsumer
 
 
 class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
-    """OA16o3o0g9o0 Webソケット用コンシューマー"""
+    """[OA16o3o0g9o0] Webソケット用コンシューマー"""
 
     def __init__(self):
         super().__init__()
@@ -1186,10 +1186,10 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
             "message": message,
         }))
 
-# EOF OA16o3o0g9o0
+# EOF [OA16o3o0g9o0]
 ```
 
-## Step OA16o3o0gA10o_1o0 ハンドラー作成 - gui/c2s_handlers/end/v1o0.py ファイル
+## Step [OA16o3o0gA10o_1o0] ハンドラー作成 - gui/c2s_handlers/end/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1225,9 +1225,9 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
 ```
 
 ```py
-# BOF OA16o3o0gA10o_1o0
+# BOF [OA16o3o0gA10o_1o0]
 
-# OA16o3o_2o0g1o_1o0 Endメッセージ
+# [OA16o3o_2o0g1o_1o0] Endメッセージ
 from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.end.ver1o0 import EndS2cMessage
 #          ------------------                                     ------        -------------
 #          11                                                     12            2
@@ -1247,10 +1247,10 @@ class EndC2sHandler:
             "player1": doc_received.get("c2s_winner", None)
         }).asDict()
 
-# EOF OA16o3o0gA10o_1o0
+# EOF [OA16o3o0gA10o_1o0]
 ```
 
-## Step OA16o3o0gA10o_2o0 ハンドラー作成 - gui/c2s_handlers/move/v1o0.py ファイル
+## Step [OA16o3o0gA10o_2o0] ハンドラー作成 - gui/c2s_handlers/move/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1288,9 +1288,9 @@ class EndC2sHandler:
 ```
 
 ```py
-# BOF OA16o3o0gA10o_2o0
+# BOF [OA16o3o0gA10o_2o0]
 
-# OA16o3o_2o0g1o_2o0 Movedメッセージ
+# [OA16o3o_2o0g1o_2o0] Movedメッセージ
 from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.moved.ver1o0 import MovedS2cMessage
 
 
@@ -1304,10 +1304,10 @@ class MoveC2sHandler:
             "piece1": doc_received.get("c2s_pieceMoved", None),
         }).asDict()
 
-# EOF OA16o3o0gA10o_2o0
+# EOF [OA16o3o0gA10o_2o0]
 ```
 
-## Step OA16o3o0gA10o_3o0 ハンドラー作成 - gui/c2s_handlers/start/v1o0.py ファイル
+## Step [OA16o3o0gA10o_3o0] ハンドラー作成 - gui/c2s_handlers/start/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1347,9 +1347,9 @@ class MoveC2sHandler:
 ```
 
 ```py
-# BOF OA16o3o0gA10o_3o0
+# BOF [OA16o3o0gA10o_3o0]
 
-# OA16o3o_2o0g1o_3o0 Startメッセージ
+# [OA16o3o_2o0g1o_3o0] Startメッセージ
 from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.start.ver1o0 import StartS2cMessage
 
 
@@ -1358,10 +1358,10 @@ class StartC2sHandler:
         """対局開始時"""
         return StartS2cMessage({}).asDict()
 
-# EOF OA16o3o0gA10o_3o0
+# EOF [OA16o3o0gA10o_3o0]
 ```
 
-## Step OA16o3o0gA10o0 Webソケットの通信プロトコル作成 - gui/consumer/ver1o1o0.py ファイル
+## Step [OA16o3o0gA10o0] Webソケットの通信プロトコル作成 - gui/consumer/ver1o1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1395,7 +1395,7 @@ class StartC2sHandler:
 ```
 
 ```py
-# BOF OA16o3o0gA10o0
+# BOF [OA16o3o0gA10o0]
 
 # [OA16o3o0g9o0] 〇×ゲーム2.0巻 - Webソケット コンシューマー1.0版
 from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o0 import TicTacToeV2ConsumerBase
@@ -1440,10 +1440,10 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
         """
         return await self._messageDriven.execute(self.scope, doc_received)
 
-# EOF OA16o3o0gA10o0
+# EOF [OA16o3o0gA10o0]
 ```
 
-## Step OA16o3o0gA11o0 ビュー作成 - gui/match_application/v1o0 フォルダー
+## Step [OA16o3o0gA11o0] ビュー作成 - gui/match_application/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1482,7 +1482,7 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
 ```
 
 ```py
-# BOF OA16o3o0gA11o0
+# BOF [OA16o3o0gA11o0]
 
 import json
 
@@ -1545,10 +1545,10 @@ class MatchApplicationV():
         """訪問後"""
         return MatchApplicationV.open_context
 
-# EOF OA16o3o0gA11o0
+# EOF [OA16o3o0gA11o0]
 ```
 
-## Step OA16o3o0gA12o0 ビュー作成 - gui/match_application/v_render.py ファイル
+## Step [OA16o3o0gA12o0] ビュー作成 - gui/match_application/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1588,13 +1588,13 @@ class MatchApplicationV():
 ```
 
 ```py
-# BOF OA16o3o0gA12o0
+# BOF [OA16o3o0gA12o0]
 
 from django.shortcuts import render, redirect
 
 
 def render_match_application(request, playing_web_path, match_application_tp, on_sent, on_open):
-    """OA16o3o0gA12o0 対局申込 - 描画
+    """[OA16o3o0gA12o0] 対局申込 - 描画
 
     Parameters
     ----------
@@ -1619,10 +1619,10 @@ def render_match_application(request, playing_web_path, match_application_tp, on
 
     return render(request, match_application_tp, context)
 
-# EOF OA16o3o0gA12o0
+# EOF [OA16o3o0gA12o0]
 ```
 
-## Step OA16o3o0gA13o0 ビュー作成 - gui/playing/v1o0 フォルダー
+## Step [OA16o3o0gA13o0] ビュー作成 - gui/playing/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1665,10 +1665,10 @@ def render_match_application(request, playing_web_path, match_application_tp, on
 ```
 
 ```py
-# BOF OA16o3o0gA13o0
+# BOF [OA16o3o0gA13o0]
 
 class PlayingV():
-    """OA16o3o0gA13o0 対局中ビュー"""
+    """[OA16o3o0gA13o0] 対局中ビュー"""
 
     # 駒
     expected_pieces = ['X', 'O']
@@ -1715,10 +1715,10 @@ class PlayingV():
         # 拡張したい挙動があれば、ここに書く
         pass
 
-# EOF OA16o3o0gA13o0
+# EOF [OA16o3o0gA13o0]
 ```
 
-## Step OA16o3o0gA14o0 ビュー作成 - gui/playing/v1o0/v_render.py ファイル
+## Step [OA16o3o0gA14o0] ビュー作成 - gui/playing/v1o0/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1762,14 +1762,14 @@ class PlayingV():
 ```
 
 ```py
-# BOF OA16o3o0gA14o0
+# BOF [OA16o3o0gA14o0]
 
 from django.http import Http404
 from django.shortcuts import render
 
 
 def render_playing(request, kw_room_name, wsp_playing, playing_tp, on_update, expected_pieces):
-    """OA16o3o0gA14o0 対局中 - 描画
+    """[OA16o3o0gA14o0] 対局中 - 描画
 
     Parameters
     ----------
@@ -1793,14 +1793,14 @@ def render_playing(request, kw_room_name, wsp_playing, playing_tp, on_update, ex
     }
     return render(request, playing_tp, context)
 
-# EOF OA16o3o0gA14o0
+# EOF [OA16o3o0gA14o0]
 ```
 
-## ~~Step OA16o3o0gA15o0~~
+## ~~Step [OA16o3o0gA15o0]~~
 
-Merged to OA16o3o0gA15o1o0  
+Merged to [OA16o3o0gA15o1o0]  
 
-## Step OA16o3o0gA15o1o0 ルート編集 - urls.csv ファイル
+## Step [OA16o3o0gA15o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -1855,7 +1855,7 @@ Merged to OA16o3o0gA15o1o0
 ../src1/project1/urls_tic_tac_toe_vol2o0_autogen.py,tic-tac-toe/vol2.0/playing/ver1.0/<str:kw_room_name>/,,"OA16o3o0gA15o1o0 〇×ゲーム2.0巻 対局中1.0版",apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0,PlayingV,,render
 ```
 
-## Step OA16o3o_2o0g5o2o0 ルート編集 - コマンド打鍵
+## Step [OA16o3o_2o0g5o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -1870,7 +1870,7 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## Step OA16o3o0gA16o0 Webソケット用ルート新規作成 - ws_urls_tic_tac_toe_v2.py ファイル
+## Step [OA16o3o0gA16o0] Webソケット用ルート新規作成 - ws_urls_tic_tac_toe_v2.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1917,12 +1917,12 @@ docker-compose restart
 ```
 
 ```py
-# BOF OA16o3o0gA16o0
+# BOF [OA16o3o0gA16o0]
 
 # See also: 📖 [Channels - Consumers](https://channels.readthedocs.io/en/latest/topics/consumers.html)
 from django.conf.urls import url
 
-# OA16o3o0gA16o0 〇×ゲーム2.0巻 ウェブソケットGUIコンシューマー ver1.1.0
+# [OA16o3o0gA16o0] 〇×ゲーム2.0巻 ウェブソケットGUIコンシューマー ver1.1.0
 from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o1o0 import TicTacToeV2o1o0ConsumerCustom
 #          ------------------                       --------        -----------------------------
 #          11                                       12              2
@@ -1935,7 +1935,7 @@ from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o1o0 import TicTacToeV2o
 
 websocket_urlpatterns = [
 
-    # OA16o3o0gA16o0 〇×ゲーム v2
+    # [OA16o3o0gA16o0] 〇×ゲーム v2
     url(r'^tic-tac-toe/v2/playing/(?P<kw_room_name>\w+)/$',
         # -----------------------------------------------
         # 1
@@ -1948,10 +1948,10 @@ websocket_urlpatterns = [
     # 2. クラス名とメソッド。 URL を ASGI形式にする
 ]
 
-# EOF OA16o3o0gA16o0
+# EOF [OA16o3o0gA16o0]
 ```
 
-## Step OA16o3o0gA17o0 Webソケット用総合ルート編集 - asgi.py ファイル＜その２＞
+## Step [OA16o3o0gA17o0] Webソケット用総合ルート編集 - asgi.py ファイル＜その２＞
 
 👇以下の既存のファイルを編集してほしい  
 
@@ -2003,7 +2003,7 @@ websocket_urlpatterns = [
 
 
 # * 以下を追加
-# OA16o3o0gA17o0 〇×ゲーム v2
+# [OA16o3o0gA17o0] 〇×ゲーム v2
 from . import ws_urls_tic_tac_toe_v2
 #                                  ^two
 #    -        ----------------------
@@ -2028,19 +2028,19 @@ websocket_urlpatterns_merged = []
 
 
 # * 以下を追加
-# OA16o3o0gA17o0 〇×ゲーム v2
+# [OA16o3o0gA17o0] 〇×ゲーム v2
 websocket_urlpatterns_merged.extend(
     ws_urls_tic_tac_toe_v2.websocket_urlpatterns)
 #                        ^two
 ```
 
-## Step OA16o3o0gA18o0 Web画面へアクセス
+## Step [OA16o3o0gA18o0] Web画面へアクセス
 
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでください  
 
 📖 [http://localhost:8000/tic-tac-toe/vol2.0/match-application/ver1.0/](http://localhost:8000/tic-tac-toe/vol2.0/match-application/ver1.0/)  
 
-## Step OA16o3o0gA19o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
+## Step [OA16o3o0gA19o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

@@ -1,7 +1,7 @@
-# BOF OA16o3o0g8o0
+# BOF [OA16o3o0g8o0]
 
 class TicTacToeV2MessageDriven():
-    """OA16o3o0g8o0 〇×ゲーム v2 メッセージ駆動"""
+    """[OA16o3o0g8o0] 〇×ゲーム v2 メッセージ駆動"""
 
     def __init__(self):
         self._handlersAsync = {}
@@ -28,4 +28,4 @@ class TicTacToeV2MessageDriven():
             f"[TicTacToeV2MessageDriven execute] unknown c2s_type: {c2s_type}")
 
 
-# EOF OA16o3o0g8o0
+# EOF [OA16o3o0g8o0]

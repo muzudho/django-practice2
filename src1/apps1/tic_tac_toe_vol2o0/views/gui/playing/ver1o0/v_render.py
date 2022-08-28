@@ -1,11 +1,11 @@
-# BOF OA16o3o0gA14o0
+# BOF [OA16o3o0gA14o0]
 
 from django.http import Http404
 from django.shortcuts import render
 
 
 def render_playing(request, kw_room_name, wsp_playing, playing_tp, on_update, expected_pieces):
-    """OA16o3o0gA14o0 対局中 - 描画
+    """[OA16o3o0gA14o0] 対局中 - 描画
 
     Parameters
     ----------
@@ -29,4 +29,4 @@ def render_playing(request, kw_room_name, wsp_playing, playing_tp, on_update, ex
     }
     return render(request, playing_tp, context)
 
-# EOF OA16o3o0gA14o0
+# EOF [OA16o3o0gA14o0]

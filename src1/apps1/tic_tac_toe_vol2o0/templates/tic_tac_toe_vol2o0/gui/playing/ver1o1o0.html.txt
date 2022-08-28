@@ -1,4 +1,4 @@
-<!-- BOF OA16o3o0g7o0 -->
+<!-- BOF [OA16o3o0g7o0] -->
 {% extends "tic_tac_toe_vol2o0/gui/playing/ver1o0.html" %}
 {#          ------------------------------------------
             1
@@ -37,4 +37,4 @@
         }
     },
 {% endblock methods_footer %}
-<!-- EOF OA16o3o0g7o0 -->
+<!-- EOF [OA16o3o0g7o0] -->

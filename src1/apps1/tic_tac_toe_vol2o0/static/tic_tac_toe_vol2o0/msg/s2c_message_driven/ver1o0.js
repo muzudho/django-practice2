@@ -1,4 +1,4 @@
-// BOF OA16o3o0g3o0
+// BOF [OA16o3o0g3o0]
 
 /**
  * 受信メッセージ駆動
@@ -33,4 +33,4 @@ class S2cMessageDriven {
     }
 }
 
-// EOF OA16o3o0g3o0
+// EOF [OA16o3o0g3o0]

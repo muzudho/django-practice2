@@ -1,7 +1,7 @@
-# BOF OA16o3o0gA13o0
+# BOF [OA16o3o0gA13o0]
 
 class PlayingV():
-    """OA16o3o0gA13o0 対局中ビュー"""
+    """[OA16o3o0gA13o0] 対局中ビュー"""
 
     # 駒
     expected_pieces = ['X', 'O']
@@ -48,4 +48,4 @@ class PlayingV():
         # 拡張したい挙動があれば、ここに書く
         pass
 
-# EOF OA16o3o0gA13o0
+# EOF [OA16o3o0gA13o0]

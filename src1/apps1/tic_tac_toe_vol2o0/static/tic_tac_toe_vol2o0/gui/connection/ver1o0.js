@@ -1,4 +1,4 @@
-// BOF OA16o3o0g4o0
+// BOF [OA16o3o0g4o0]
 
 // 参考にした記事
 // -------------
@@ -146,4 +146,4 @@ class Connection {
     }
 }
 
-// EOF OA16o3o0g4o0
+// EOF [OA16o3o0g4o0]

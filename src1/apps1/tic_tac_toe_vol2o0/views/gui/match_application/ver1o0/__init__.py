@@ -1,4 +1,4 @@
-# BOF OA16o3o0gA11o0
+# BOF [OA16o3o0gA11o0]
 
 import json
 
@@ -61,4 +61,4 @@ class MatchApplicationV():
         """訪問後"""
         return MatchApplicationV.open_context
 
-# EOF OA16o3o0gA11o0
+# EOF [OA16o3o0gA11o0]

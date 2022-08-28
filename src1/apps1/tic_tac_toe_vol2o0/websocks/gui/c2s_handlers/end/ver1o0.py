@@ -1,6 +1,6 @@
-# BOF OA16o3o0gA10o_1o0
+# BOF [OA16o3o0gA10o_1o0]
 
-# OA16o3o_2o0g1o_1o0 Endメッセージ
+# [OA16o3o_2o0g1o_1o0] Endメッセージ
 from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.end.ver1o0 import EndS2cMessage
 #          ------------------                                     ------        -------------
 #          11                                                     12            2
@@ -20,4 +20,4 @@ class EndC2sHandler:
             "player1": doc_received.get("c2s_winner", None)
         }).asDict()
 
-# EOF OA16o3o0gA10o_1o0
+# EOF [OA16o3o0gA10o_1o0]

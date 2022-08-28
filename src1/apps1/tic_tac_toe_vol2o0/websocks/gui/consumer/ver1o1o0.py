@@ -1,4 +1,4 @@
-# BOF OA16o3o0gA10o0
+# BOF [OA16o3o0gA10o0]
 
 # [OA16o3o0g9o0] 〇×ゲーム2.0巻 - Webソケット コンシューマー1.0版
 from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o0 import TicTacToeV2ConsumerBase
@@ -43,4 +43,4 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
         """
         return await self._messageDriven.execute(self.scope, doc_received)
 
-# EOF OA16o3o0gA10o0
+# EOF [OA16o3o0gA10o0]
