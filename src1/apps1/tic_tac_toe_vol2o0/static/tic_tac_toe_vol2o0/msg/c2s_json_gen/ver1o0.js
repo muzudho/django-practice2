@@ -7,17 +7,6 @@
  */
 class C2sJsonGen {
     /**
-     * 対局を開始したとき
-     * @returns メッセージ
-     */
-    createStart() {
-        // `c2s_` は クライアントからサーバーへ送る変数の目印
-        return {
-            c2s_event: "C2S_Start",
-        };
-    }
-
-    /**
      * 勝った方のプレイヤーが、サーバーに対局終了メッセージを送ります
      * @param {*} winner - 勝者。 "X" か "O"
      * @returns メッセージ

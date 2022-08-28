@@ -51,6 +51,7 @@
         <script src="{% static 'tic_tac_toe_vol2o0/think/engine/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/commands/do_move/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/commands/draw/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/commands/start/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/ver1o0.js' %}"></script>
         <!--            =====================================================
                         1
@@ -116,7 +117,7 @@
 
                             case "Start":
                                 {
-                                    doc = c2sJsonGen1.createStart();
+                                    doc = new CmdStart().create();
                                 }
                                 break;
 

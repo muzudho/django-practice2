@@ -211,6 +211,52 @@ class CmdDraw {
 // EOF OA16o3o_1o0g_1o__11o0
 ```
 
+## Step OA16o3o_1o0g_1o__12o0 コマンド作成 - msg/c2s_json_gen/commands/start/ver1o0.js ファイル
+
+Separated from OA16o3o_1o0g_1o0  
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        └── 📂 apps1
+            └── 📂 tic_tac_toe_vol2o0    # アプリケーション
+                └── 📂 static
+                    └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
+                        └── 📂 msg
+                            └── 📂 c2s_json_gen
+                                └── 📂 commands
+                                    ├── 📂 do_move
+                                    │   └── 📄 ver1o0.js
+                                    ├── 📂 draw
+                                    │   └── 📄 ver1o0.js
+                                    └── 📂 start
+👉                                      └── 📄 ver1o0.js
+```
+
+```js
+// BOF OA16o3o_1o0g_1o__12o0
+
+/**
+ * コマンド
+ *
+ * * 対局開始に納得したとき送ります
+ */
+class CmdStart {
+    /**
+     * @returns メッセージ
+     */
+    create() {
+        // `c2s_` は クライアントからサーバーへ送る変数の目印
+        return {
+            c2s_event: "C2S_Start",
+        };
+    }
+}
+
+// EOF OA16o3o_1o0g_1o__12o0
+```
+
 ## Step OA16o3o_1o0g_1o0 クライアントからサーバーへ送るメッセージ実装 - msg/c2s_json_gen/v1o0.js ファイル
 
 Separated from OA16o3o0g2o0  
@@ -237,29 +283,6 @@ Separated from OA16o3o0g2o0
  * * クライアントからサーバーへ送る
  */
 class C2sJsonGen {
-    /**
-     * 引き分けたとき、とりあえず両方のプレイヤーが、サーバーへ対局終了メッセージを送ります
-     * @returns メッセージ
-     */
-    createDraw() {
-        // `c2s_` は クライアントからサーバーへ送る変数の目印
-        return {
-            c2s_event: "C2S_End",
-            c2s_winner: PC_EMPTY_LABEL,
-        };
-    }
-
-    /**
-     * 対局を開始したとき
-     * @returns メッセージ
-     */
-    createStart() {
-        // `c2s_` は クライアントからサーバーへ送る変数の目印
-        return {
-            c2s_event: "C2S_Start",
-        };
-    }
-
     /**
      * 勝った方のプレイヤーが、サーバーに対局終了メッセージを送ります
      * @param {*} winner - 勝者。 "X" か "O"
@@ -351,6 +374,7 @@ class C2sJsonGen {
         <script src="{% static 'tic_tac_toe_vol2o0/think/engine/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/commands/do_move/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/commands/draw/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/commands/start/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/ver1o0.js' %}"></script>
         <!--            =====================================================
                         1
@@ -416,7 +440,7 @@ class C2sJsonGen {
 
                             case "Start":
                                 {
-                                    doc = c2sJsonGen1.createStart();
+                                    doc = new CmdStart().create();
                                 }
                                 break;
 
