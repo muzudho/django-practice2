@@ -118,11 +118,11 @@ cd src1
 docker-compose up
 ```
 
-## ~~Step OA16o3o_1o0g_1o__10o___100o0~~
+## ~~Step [OA16o3o_1o0g_1o__10o___100o0]~~
 
 Removed  
 
-## Step OA16o3o_1o0g_1o__10o___101o0 メッセージ作成 - msg/c2s_json_gen/messages/moved/ver1o0.js ファイル
+## Step [OA16o3o_1o0g_1o__10o___101o0] メッセージ作成 - msg/c2s_json_gen/messages/moved/ver1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -175,7 +175,7 @@ class MovedC2sMessage {
 // EOF OA16o3o_1o0g_1o__10o___101o0
 ```
 
-## Step OA16o3o_1o0g_1o__11o___102o0 メッセージ作成 - msg/c2s_json_gen/messages/end/ver1o0.js ファイル
+## Step [OA16o3o_1o0g_1o__11o___102o0] メッセージ作成 - msg/c2s_json_gen/messages/end/ver1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -223,7 +223,7 @@ class EndC2sMessage {
 // EOF OA16o3o_1o0g_1o__11o___102o0
 ```
 
-## Step OA16o3o_1o0g_1o__11o___103o0 メッセージ作成 - msg/c2s_json_gen/messages/start/ver1o0.js ファイル
+## Step [OA16o3o_1o0g_1o__11o___103o0] メッセージ作成 - msg/c2s_json_gen/messages/start/ver1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -270,7 +270,7 @@ class StartC2sMessage {
 // EOF OA16o3o_1o0g_1o__11o___103o0
 ```
 
-## Step OA16o3o_1o0g_1o__10o0 イベント作成 - msg/c2s_json_gen/events/do_move/ver1o0.js ファイル
+## Step [OA16o3o_1o0g_1o__10o0] イベント作成 - msg/c2s_json_gen/events/do_move/ver1o0.js ファイル
 
 Separated from OA16o3o_1o0g_1o0  
 
@@ -319,7 +319,7 @@ class EvtDoMove {
 // EOF OA16o3o_1o0g_1o__10o0
 ```
 
-## Step OA16o3o_1o0g_1o__11o0 イベント作成 - msg/c2s_json_gen/events/draw/ver1o0.js ファイル
+## Step [OA16o3o_1o0g_1o__11o0] イベント作成 - msg/c2s_json_gen/events/draw/ver1o0.js ファイル
 
 Separated from OA16o3o_1o0g_1o0  
 
@@ -368,7 +368,7 @@ class EvtDraw {
 // EOF OA16o3o_1o0g_1o__11o0
 ```
 
-## Step OA16o3o_1o0g_1o__12o0 メッセージ作成 - msg/c2s_json_gen/events/start/ver1o0.js ファイル
+## Step [OA16o3o_1o0g_1o__12o0] メッセージ作成 - msg/c2s_json_gen/events/start/ver1o0.js ファイル
 
 Separated from OA16o3o_1o0g_1o0  
 
@@ -419,7 +419,7 @@ class EvtStart {
 // EOF OA16o3o_1o0g_1o__12o0
 ```
 
-## Step OA16o3o_1o0g_1o__13o0 イベント作成 - msg/c2s_json_gen/events/won/ver1o0.js ファイル
+## Step [OA16o3o_1o0g_1o__13o0] イベント作成 - msg/c2s_json_gen/events/won/ver1o0.js ファイル
 
 Separated from OA16o3o_1o0g_1o0  
 
@@ -473,7 +473,7 @@ class EvtWon {
 // EOF OA16o3o_1o0g_1o__13o0
 ```
 
-## ~~Step OA16o3o_1o0g_1o0~~
+## ~~Step [OA16o3o_1o0g_1o0]~~
 
 1. Separated from OA16o3o0g2o0  
 2. Separate to OA16o3o_1o0g_1o__10o0
@@ -482,7 +482,7 @@ class EvtWon {
 5. Separate to OA16o3o_1o0g_1o__13o0
 6. Removed
 
-## Step OA16o3o_1o0g1o0 画面作成 - msg/c2s_json_gen/v1o0.html ファイル
+## Step [OA16o3o_1o0g1o0] 画面作成 - msg/c2s_json_gen/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -651,7 +651,7 @@ class EvtWon {
 <!-- EOF OA16o3o_1o0g1o0 -->
 ```
 
-## Step OA16o3o_1o0g2o0 ビュー作成 - msg/c2s_json_gen/v1o0/v_render.py ファイル
+## Step [OA16o3o_1o0g2o0] ビュー作成 - msg/c2s_json_gen/v1o0/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -713,7 +713,7 @@ def render_main(request, template_path):
 # EOF OA16o3o_1o0g2o0
 ```
 
-## Step OA16o3o_1o0g3o0 ビュー作成 - msg/c2s_json_gen/v1o0 フォルダー
+## Step [OA16o3o_1o0g3o0] ビュー作成 - msg/c2s_json_gen/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -785,11 +785,11 @@ class C2sJsonGenView():
 # EOF OA16o3o_1o0g3o0
 ```
 
-## ~~Step OA16o3o_1o0g4o0~~
+## ~~Step [OA16o3o_1o0g4o0]~~
 
 Merged to OA16o3o_1o0g4o1o0  
 
-## Step OA16o3o_1o0g4o1o0 ルート編集 - urls.csv ファイル
+## Step [OA16o3o_1o0g4o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -840,7 +840,7 @@ Merged to OA16o3o_1o0g4o1o0
 ../src1/project1/urls_tic_tac_toe_vol2o0_autogen.py,tic-tac-toe/vol2.0/c2s-json-gen/ver1.0/,,"OA16o3o_1o0g4o1o0 〇×ゲーム2.0巻 C2S JSON ジェネレーター1.0版",apps1.tic_tac_toe_vol2o0.views.msg.c2s_json_gen.ver1o0,C2sJsonGenView,C2sJsonGenViewV1o0,render
 ```
 
-## Step OA16o3o_1o0g4o2o0 ルート編集 - コマンド打鍵
+## Step [OA16o3o_1o0g4o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
