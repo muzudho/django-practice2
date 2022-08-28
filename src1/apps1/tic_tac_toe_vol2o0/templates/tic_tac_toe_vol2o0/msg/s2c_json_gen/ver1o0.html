@@ -37,17 +37,13 @@
                             1. form要素の中に csrf_token を入れてください
                             -->
 
-                            <!-- `po_` は POST送信するパラメーター名の目印 -->
                             <!-- 入力 -->
-                            <input type="hidden" name="po_player1" v-model="player1Inputbox.value"/>
-                            <input type="hidden" name="po_sq1" v-model="sq1Inputbox.value"/>
-                            <input type="hidden" name="po_piece1" v-model="piece1Inputbox.value"/>
-
                             <!-- リスト -->
+                            <!-- `po_` は POST送信するパラメーター名の目印 -->
                             <v-select name="po_messageType" v-model="c2sMessageTypeListbox.value" :items="c2sMessageTypeItems" label="サーバーからクライアントへ送られてくるメッセージの種類一覧"></v-select>
-                            <v-select v-model="sqListbox.value" :items="sqItems" label="マス番号一覧"></v-select>
-                            <v-select v-model="playerListbox.value" :items="playerItems" label="プレイヤー一覧"></v-select>
-                            <v-select v-model="pieceListbox.value" :items="pieceItems" label="駒一覧"></v-select>
+                            <v-select name="po_sq1" v-model="sqListbox.value" :items="sqItems" label="マス番号一覧"></v-select>
+                            <v-select name="po_player1" v-model="playerListbox.value" :items="playerItems" label="プレイヤー一覧"></v-select>
+                            <v-select name="po_piece1" v-model="pieceListbox.value" :items="pieceItems" label="駒一覧"></v-select>
 
                             <!-- ボタン -->
                             <v-btn type="submit" block elevation="2" v-on:click="pullVu()"> Pull </v-btn>
@@ -82,23 +78,11 @@
                     // 出力
                     outputTextbox: {
                         // `dj_` は Djangoでレンダーするパラメーター名の目印
-                        value: '{{ dj_output_json|escapejs }}',
+                        value: JSON.stringify(JSON.parse('{{ dj_output_json|escapejs }}'), null, '    '),
                     },
                     // メッセージの種類リストボックス
                     c2sMessageTypeListbox: {
                         value: "S2C_End",
-                    },
-                    // 隠し入力ボックス：プレイヤー１
-                    player1Inputbox: {
-                        value: "",
-                    },
-                    // 隠し入力ボックス：マス１
-                    sq1Inputbox: {
-                        value: "",
-                    },
-                    // 隠し入力ボックス：駒１
-                    piece1Inputbox: {
-                        value: "",
                     },
                     // マス番号リストボックス
                     sqListbox: {
@@ -127,30 +111,7 @@
                      * po_input 欄のコマンドを入力します
                      */
                     pullVu() {
-                        switch (this.c2sMessageTypeListbox.value) {
-                            case "S2C_End":
-                                {
-                                    // Winner
-                                    this.player1Inputbox.value = this.playerListbox.value;
-                                }
-                                break;
-
-                            case "S2C_Moved":
-                                {
-                                    this.sq1Inputbox.value = this.sqListbox.value;
-                                    this.piece1Inputbox.value = this.pieceListbox.value;
-                                }
-                                break;
-
-                            case "S2C_Start":
-                                {
-
-                                }
-                                break;
-
-                            default:
-                                break;
-                        }
+                        // ボタン押下後、ページ再読み込み前にやりたいことがあれば、ここに書いてください
                     },
                 },
             });
