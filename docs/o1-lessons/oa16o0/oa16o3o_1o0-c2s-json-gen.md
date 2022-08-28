@@ -192,7 +192,7 @@ class EvtDoMove {
     createMessage(sq, pieceMoved) {
         return new MessageC2S({
             // `c2s_` は クライアントからサーバーへ送る変数の目印
-            c2s_event: "C2S_Moved",
+            c2s_type: "C2S_Moved",
             c2s_sq: sq,
             c2s_pieceMoved: pieceMoved,
         });
@@ -241,7 +241,7 @@ class EvtDraw {
     createMessage() {
         return new MessageC2S({
             // `c2s_` は クライアントからサーバーへ送る変数の目印
-            c2s_event: "C2S_End",
+            c2s_type: "C2S_End",
             c2s_winner: PC_EMPTY_LABEL,
         });
     }
@@ -291,7 +291,7 @@ class EvtStart {
     createMessage() {
         return new MessageC2S({
             // `c2s_` は クライアントからサーバーへ送る変数の目印
-            c2s_event: "C2S_Start",
+            c2s_type: "C2S_Start",
         });
     }
 }
@@ -343,7 +343,7 @@ class EvtWon {
     createMessage(winner) {
         return new MessageC2S({
             // `c2s_` は クライアントからサーバーへ送る変数の目印
-            c2s_event: "C2S_End",
+            c2s_type: "C2S_End",
             c2s_winner: winner,
         });
     }
@@ -457,7 +457,7 @@ class EvtWon {
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
         <script>
-            // Create message by event
+            // Create message by event later.
             const dictCreateMsg = {};
 
             dictCreateMsg["DoMove"] = () => {

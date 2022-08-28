@@ -6,8 +6,8 @@ class TicTacToeV2MessageDriven():
     def __init__(self):
         self._handlersAsync = {}
 
-    def addHandler(self, eventName, handlerAsync):
-        self._handlersAsync[eventName] = handlerAsync
+    def addHandler(self, c2s_type, handlerAsync):
+        self._handlersAsync[c2s_type] = handlerAsync
 
     async def execute(self, scope, doc_received):
         """クライアントからサーバーへ送られてきた変数を解析し、
@@ -18,14 +18,14 @@ class TicTacToeV2MessageDriven():
         # print(f"[TicTacToeV2MessageDriven execute] user=[{user}]")
 
         # `c2s_` は クライアントからサーバーへ送られてきた変数の目印
-        eventName = doc_received.get("c2s_event", None)
+        c2s_type = doc_received.get("c2s_type", None)
 
-        if(eventName in self._handlersAsync):
-            response_json = await self._handlersAsync[eventName](scope, doc_received)
+        if(c2s_type in self._handlersAsync):
+            response_json = await self._handlersAsync[c2s_type](scope, doc_received)
             return response_json
 
         raise ValueError(
-            f"[TicTacToeV2MessageDriven execute] unknown event: {eventName}")
+            f"[TicTacToeV2MessageDriven execute] unknown c2s_type: {c2s_type}")
 
 
 # EOF OA16o3o0g8o0

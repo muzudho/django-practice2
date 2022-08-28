@@ -83,11 +83,15 @@
         <script src="{% static 'tic_tac_toe_vol2o0/think/engine/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/gui/connection/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/s2c_message_driven/ver1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/ver1o0.js' %}"></script>
-        <!--            =====================================================
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/message/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/events/do_move/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/events/draw/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/events/start/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/events/won/ver1o0.js' %}"></script>
+        <!--            ================================================================
                         1
-        1. src1/apps1/tic_tac_toe_vol2o0/static/tic_tac_toe_vol2o0/msg/c2s_json_gen/ver1o0.js
-                                         ====================================================
+        1. src1/apps1/tic_tac_toe_vol2o0/static/tic_tac_toe_vol2o0/msg/c2s_json_gen/events/won/ver1o0.js
+                                         ===============================================================
         -->
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
@@ -138,9 +142,6 @@
                 vue1.engine.judgeCtrl.doJudge(vue1.engine.position);
             });
 
-            // クライアントからサーバーへ送るJSON生成
-            const c2sMessages = new C2sJsonGen();
-
             // 接続
             var connection = new Connection(
                 roomName,
@@ -150,8 +151,8 @@
                 // Webソケットを開かれたとき
                 () => {
                     console.log("WebSockets connection created.");
-                    let response = c2sMessages.createStart();
-                    connection.send(response);
+                    let message = new EvtStart().createMessage();
+                    connection.send(message.jsonDoc);
                 },
                 // Webソケットが閉じられたとき
                 (exception) => {
@@ -212,8 +213,8 @@
 
                                 // 自分の指し手なら送信
                                 if (vue1.engine.position.turn.me == pieceMoved) {
-                                    let response = c2sMessages.createDoMove(sq, pieceMoved);
-                                    connection.send(response);
+                                    let message = new EvtDoMove().createMessage(sq, pieceMoved);
+                                    connection.send(message.jsonDoc);
                                 }
 
                                 // 手番の再描画を通知
@@ -234,13 +235,13 @@
                                 switch (gameoverSet.value) {
                                     case GameoverSet.won:
                                         // 自分が勝ったとき
-                                        response = c2sMessages.createWon(vue1.engine.position.turn.me);
-                                        connection.send(response);
+                                        message = new EvtWon().createMessage(vue1.engine.position.turn.me);
+                                        connection.send(message.jsonDoc);
                                         break;
                                     case GameoverSet.draw:
                                         // 引き分けたとき
-                                        response = c2sMessages.createDraw();
-                                        connection.send(response);
+                                        message = new EvtDraw().createMessage();
+                                        connection.send(message.jsonDoc);
                                         break;
                                     case GameoverSet.lost:
                                         // 自分が負けたとき

@@ -103,14 +103,14 @@ class TicTacToeV3o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
             # print(f"[TicTacToeV3o1o0ConsumerCustom on_move 2] scope={scope}")
 
             # `c2s_` は クライアントからサーバーへ送られてきた変数の目印
-            event = doc_received.get("c2s_event", None)
+            c2s_type = doc_received.get("c2s_type", None)
             # 駒を置いたマス番号
             sq = doc_received.get("c2s_sq", None)
             # 駒を置いた方の X か O
             piece_moved = doc_received.get("c2s_pieceMoved", None)
             print(
-                f"[TicTacToeV3o1o0ConsumerCustom on_move 3] クライアントからのメッセージを受信しました room_name=[{room_name}] event=[{event}] piece_moved=[{piece_moved}] sq=[{sq}]")
-            # クライアントからのメッセージを受信しました room_name=[Elephant] event=[C2S_Moved] piece_moved=[X] sq=[2]
+                f"[TicTacToeV3o1o0ConsumerCustom on_move 3] クライアントからのメッセージを受信しました room_name=[{room_name}] c2s_type=[{c2s_type}] piece_moved=[{piece_moved}] sq=[{sq}]")
+            # クライアントからのメッセージを受信しました room_name=[Elephant] c2s_type=[C2S_Moved] piece_moved=[X] sq=[2]
 
             # 部屋取得
             room = await get_room_by_name(room_name)

@@ -556,11 +556,15 @@ class Connection {
         <script src="{% static 'tic_tac_toe_vol2o0/think/engine/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/gui/connection/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/s2c_message_driven/ver1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/ver1o0.js' %}"></script>
-        <!--            =====================================================
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/message/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/events/do_move/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/events/draw/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/events/start/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/events/won/ver1o0.js' %}"></script>
+        <!--            ================================================================
                         1
-        1. src1/apps1/tic_tac_toe_vol2o0/static/tic_tac_toe_vol2o0/msg/c2s_json_gen/ver1o0.js
-                                         ====================================================
+        1. src1/apps1/tic_tac_toe_vol2o0/static/tic_tac_toe_vol2o0/msg/c2s_json_gen/events/won/ver1o0.js
+                                         ===============================================================
         -->
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
@@ -611,9 +615,6 @@ class Connection {
                 vue1.engine.judgeCtrl.doJudge(vue1.engine.position);
             });
 
-            // クライアントからサーバーへ送るJSON生成
-            const c2sMessages = new C2sJsonGen();
-
             // 接続
             var connection = new Connection(
                 roomName,
@@ -623,8 +624,8 @@ class Connection {
                 // Webソケットを開かれたとき
                 () => {
                     console.log("WebSockets connection created.");
-                    let response = c2sMessages.createStart();
-                    connection.send(response);
+                    let message = new EvtStart().createMessage();
+                    connection.send(message.jsonDoc);
                 },
                 // Webソケットが閉じられたとき
                 (exception) => {
@@ -685,8 +686,8 @@ class Connection {
 
                                 // 自分の指し手なら送信
                                 if (vue1.engine.position.turn.me == pieceMoved) {
-                                    let response = c2sMessages.createDoMove(sq, pieceMoved);
-                                    connection.send(response);
+                                    let message = new EvtDoMove().createMessage(sq, pieceMoved);
+                                    connection.send(message.jsonDoc);
                                 }
 
                                 // 手番の再描画を通知
@@ -707,13 +708,13 @@ class Connection {
                                 switch (gameoverSet.value) {
                                     case GameoverSet.won:
                                         // 自分が勝ったとき
-                                        response = c2sMessages.createWon(vue1.engine.position.turn.me);
-                                        connection.send(response);
+                                        message = new EvtWon().createMessage(vue1.engine.position.turn.me);
+                                        connection.send(message.jsonDoc);
                                         break;
                                     case GameoverSet.draw:
                                         // 引き分けたとき
-                                        response = c2sMessages.createDraw();
-                                        connection.send(response);
+                                        message = new EvtDraw().createMessage();
+                                        connection.send(message.jsonDoc);
                                         break;
                                     case GameoverSet.lost:
                                         // 自分が負けたとき
@@ -1052,8 +1053,8 @@ class TicTacToeV2MessageDriven():
     def __init__(self):
         self._handlersAsync = {}
 
-    def addHandler(self, eventName, handlerAsync):
-        self._handlersAsync[eventName] = handlerAsync
+    def addHandler(self, c2s_type, handlerAsync):
+        self._handlersAsync[c2s_type] = handlerAsync
 
     async def execute(self, scope, doc_received):
         """クライアントからサーバーへ送られてきた変数を解析し、
@@ -1064,14 +1065,14 @@ class TicTacToeV2MessageDriven():
         # print(f"[TicTacToeV2MessageDriven execute] user=[{user}]")
 
         # `c2s_` は クライアントからサーバーへ送られてきた変数の目印
-        eventName = doc_received.get("c2s_event", None)
+        c2s_type = doc_received.get("c2s_type", None)
 
-        if(eventName in self._handlersAsync):
-            response_json = await self._handlersAsync[eventName](scope, doc_received)
+        if(c2s_type in self._handlersAsync):
+            response_json = await self._handlersAsync[c2s_type](scope, doc_received)
             return response_json
 
         raise ValueError(
-            f"[TicTacToeV2MessageDriven execute] unknown event: {eventName}")
+            f"[TicTacToeV2MessageDriven execute] unknown c2s_type: {c2s_type}")
 
 
 # EOF OA16o3o0g8o0
