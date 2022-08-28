@@ -7,18 +7,6 @@
  */
 class C2sJsonGen {
     /**
-     * 引き分けたとき、とりあえず両方のプレイヤーが、サーバーへ対局終了メッセージを送ります
-     * @returns メッセージ
-     */
-    createDraw() {
-        // `c2s_` は クライアントからサーバーへ送る変数の目印
-        return {
-            c2s_event: "C2S_End",
-            c2s_winner: PC_EMPTY_LABEL,
-        };
-    }
-
-    /**
      * 対局を開始したとき
      * @returns メッセージ
      */

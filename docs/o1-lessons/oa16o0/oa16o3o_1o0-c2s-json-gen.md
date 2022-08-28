@@ -120,7 +120,7 @@ docker-compose up
 
 ## Step OA16o3o_1o0g_1o__10o0 コマンド作成 - msg/c2s_json_gen/commands/do_move/ver1o0.js ファイル
 
-Moved from OA16o3o0g2o0  
+Separated from OA16o3o_1o0g_1o0  
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -166,9 +166,54 @@ class CmdDoMove {
 // EOF OA16o3o_1o0g_1o__10o0
 ```
 
+## Step OA16o3o_1o0g_1o__11o0 コマンド作成 - msg/c2s_json_gen/commands/draw/ver1o0.js ファイル
+
+Separated from OA16o3o_1o0g_1o0  
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        └── 📂 apps1
+            └── 📂 tic_tac_toe_vol2o0    # アプリケーション
+                └── 📂 static
+                    └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
+                        └── 📂 msg
+                            └── 📂 c2s_json_gen
+                                └── 📂 commands
+                                    ├── 📂 do_move
+                                    │   └── 📄 ver1o0.js
+                                    └── 📂 draw
+👉                                      └── 📄 ver1o0.js
+```
+
+```js
+// BOF OA16o3o_1o0g_1o__11o0
+
+/**
+ * コマンド
+ *
+ * * 引き分けで対局終了したと納得したら送ります
+ */
+class CmdDraw {
+    /**
+     * @returns メッセージ
+     */
+    create() {
+        // `c2s_` は クライアントからサーバーへ送る変数の目印
+        return {
+            c2s_event: "C2S_End",
+            c2s_winner: PC_EMPTY_LABEL,
+        };
+    }
+}
+
+// EOF OA16o3o_1o0g_1o__11o0
+```
+
 ## Step OA16o3o_1o0g_1o0 クライアントからサーバーへ送るメッセージ実装 - msg/c2s_json_gen/v1o0.js ファイル
 
-Moved from OA16o3o0g2o0  
+Separated from OA16o3o0g2o0  
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -305,6 +350,7 @@ class C2sJsonGen {
         <script src="{% static 'tic_tac_toe_vol2o0/think/judge_ctrl/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/think/engine/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/commands/do_move/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/commands/draw/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/ver1o0.js' %}"></script>
         <!--            =====================================================
                         1
@@ -364,7 +410,7 @@ class C2sJsonGen {
 
                             case "Draw":
                                 {
-                                    doc = c2sJsonGen1.createDraw();
+                                    doc = new CmdDraw().create();
                                 }
                                 break;
 
