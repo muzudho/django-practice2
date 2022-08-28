@@ -33,6 +33,9 @@ from apps1.tic_tac_toe_vol2o0.websocks.gui.message_driven.ver1o0 import TicTacTo
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py にさらに含まれるクラス
 
+# OA16o3o_2o0g1o_1o0 〇×ゲーム2.0巻 S2cメッセージ End 1.0版
+from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.end.ver1o0 import EndS2cMessage
+
 # OA16o3o_2o0g1o0 〇×ゲーム2.0巻 メッセージS2C JSONジェネレーター1.0版
 from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.commands.ver1o0 import S2cJsonGenCommands as CommandsGen
 #          ------------------                                 ------        ------------------    -----------
@@ -77,7 +80,7 @@ class TicTacToeV3o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
             "player1": winner
         }
 
-        return CommandsGen.create_end(args)
+        return EndS2cMessage(args).asDict()
 
     async def on_move(self, scope, doc_received):
         """駒を置いたとき"""

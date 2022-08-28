@@ -3,6 +3,9 @@
 import json
 from django.shortcuts import render
 
+# OA16o3o_2o0g1o_1o0 〇×ゲーム2.0巻 S2cメッセージ End 1.0版
+from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.end.ver1o0 import EndS2cMessage
+
 # OA16o3o_2o0g1o0 S2C JSON ジェネレーター
 from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.commands.ver1o0 import S2cJsonGenCommands as CommandsGen
 #          ------------------                                 ------        ------------------    -----------
@@ -37,14 +40,23 @@ def render_main(request, template_path):
         #     f'[render_main] messageType:{messageType} player1:{args["player1"]} sq1:{args["sq1"]} piece1:{args["piece1"]}')
         # TODO バリデーションチェックしたい
 
-        json_gen = {
-            "S2C_End": CommandsGen.create_end,
-            "S2C_Moved": CommandsGen.create_moved,
-            "S2C_Start": CommandsGen.create_start,
+        message_object_dict = {
+            "S2C_End": EndS2cMessage(args)
         }
 
-        doc = json_gen.get(messageType)(args)
-        dj_output_json = json.dumps(doc)
+        if messageType in message_object_dict:
+            # 新仕様
+            doc = message_object_dict.get(messageType).asDict()
+            dj_output_json = json.dumps(doc)
+        else:
+            # 旧仕様
+            json_gen = {
+                "S2C_Moved": CommandsGen.create_moved,
+                "S2C_Start": CommandsGen.create_start,
+            }
+
+            doc = json_gen.get(messageType)(args)
+            dj_output_json = json.dumps(doc)
 
     else:
         # 空っぽのJSON文字列
