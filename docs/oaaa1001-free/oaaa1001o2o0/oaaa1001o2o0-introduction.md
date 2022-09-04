@@ -543,6 +543,12 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## Step OA13o1o0g7o0 Web画面へアクセス
+## Step [OA13o1o0g7o0] Web画面へアクセス
 
 📖 [http://localhost:8000/consecutive_name/vol1.0/data-table/ver0.1/](http://localhost:8000/consecutive_name/vol1.0/data-table/ver0.1/)  
+
+## 次の記事
+
+📖 [DjangoとDocker自由課題[OAAA1001o2o1o0] 催事のマスターデータを作ろう！](https://qiita.com/muzudho1/items/662b4aecd07a2f7e79af)  
+
+以上

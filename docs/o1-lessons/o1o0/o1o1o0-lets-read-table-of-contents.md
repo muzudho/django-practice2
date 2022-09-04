@@ -161,6 +161,13 @@ Lesson [OA25o0] Watching game
 
 # 以下は自由課題
 
+## ライフゲーム
+
 * 📖 [DjangoとDocker自由課題[OAAA1001o1o0] ライフゲームを作ろう！](https://qiita.com/muzudho1/items/a2c90f8d3dfaad849211)
 * 📖 [DjangoとDocker自由課題[OAAA1001o1o0ga12o_1o0] ライフゲームの思考エンジンを作ろう！](https://qiita.com/muzudho1/items/4ec5896c7a8fb27161ff)
 * 📖 [DjangoとDocker自由課題[OAAA1001o1o0ga13o__10o0] ライフゲームのGUIを作ろう！](https://qiita.com/muzudho1/items/01d2482576f8ca8d7e0e)
+
+## 連続名ツール
+
+* 📖 [DjangoとDocker自由課題[OAAA1001o2o0] 連続名ツールを作ろう！](https://qiita.com/muzudho1/items/0ae87ae14ee28ccbb08e)
+* 📖 [DjangoとDocker自由課題[OAAA1001o2o1o0] 催事のマスターデータを作ろう！](https://qiita.com/muzudho1/items/662b4aecd07a2f7e79af)
