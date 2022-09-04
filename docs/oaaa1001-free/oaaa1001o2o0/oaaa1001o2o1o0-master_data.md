@@ -18,7 +18,9 @@
 
 📖 [電脳向量表記](https://qiita.com/muzudho1/items/fdbf31e41dd8c247081f)  
 
-# Step [OAAA1001o2o1o0g1o0] Dockerコンテナの起動
+# 手順
+
+## Step [OAAA1001o2o1o0g1o0] Dockerコンテナの起動
 
 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -30,7 +32,7 @@ cd src1
 docker-compose up
 ```
 
-# Step [OAAA1001o2o1o0g2o0] マスターデータ作成 - events/ver1o0.json ファイル
+## Step [OAAA1001o2o1o0g2o0] マスターデータ作成 - events/ver1o0.json ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -80,4 +82,78 @@ docker-compose up
         }
     ]
 }
+```
+
+## Step [OAAA1001o2o1o0g3o0] モデル作成 - events/ver1o0.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        └── 📂 apps1
+            └── 📂 consecutive_name_vol1o0              # アプリケーション
+                └── 📂 models
+                    └── 📂 events
+                        └── 📄 ver1o0.py
+```
+
+```py
+# BOF [OAAA1001o2o1o0g3o0]
+
+# See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92
+from django.db import models
+
+
+class Event(models.Model):
+    """[OAAA1001o2o1o0g3o0] イベント"""
+
+    # プロパティの仕様を決める感じで
+    id = models.AutoField('Id', primary_key=True)
+    display_name = models.CharField('表示名', max_length=32)
+    sort = models.IntegerField('順番', blank=True, default=0)
+
+    def __str__(self):
+        """このオブジェクトを文字列にしたとき返るもの"""
+        return f"{self.display_name} event"
+
+# EOF [OAAA1001o2o1o0g3o0]
+```
+
+## Step [OAAA1001o2o1o0g3o0] モデル登録 - admin.py ファイル
+
+👇 以下の既存ファイルに追記してほしい  
+
+```plaintext
+    └── 📂 src1
+        └── 📂 apps1
+            └── 📂 practice_vol1o0          # アプリケーション
+👉              └── 📄 admin.py
+```
+
+```py
+# ...略...
+
+
+# OA10o1o0g3o0 練習1.0巻 都道府県1.0版
+from .models.prefecture.ver1o0 import Prefecture
+#    -------------------------        ----------
+#    1                                2
+# 1. このファイルと同じディレクトリにある `models/prefecture/ver1o0.py` ファイルの拡張子抜き
+#                                      ------------------------
+# 2. クラス
+
+
+# ...略...
+
+
+# Register your models here.
+#   └── * 管理画面にモデルが表示されるようになる
+#       └── * `manage.py makemigrations` コマンドの実行対象になる
+
+
+# ...略...
+
+
+# OA10o1o0g3o0 練習1.0巻 都道府県1.0版
+admin.site.register(Prefecture)
 ```

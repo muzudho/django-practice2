@@ -50,7 +50,9 @@
 * 去年 Icaco という名前のチームが 今年も Icaco という名前で出場している  
 * 数年ぶりに Jujube という名前のチームが出場している（途中で名前を変えて出場していたかどうかは分からない）  
 
-# Step [OAAA1001o2o0g1o0] Dockerコンテナの起動
+# 手順
+
+## Step [OAAA1001o2o0g1o0] Dockerコンテナの起動
 
 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -62,7 +64,7 @@ cd src1
 docker-compose up
 ```
 
-# Step [OAAA1001o2o0g2o0] フォルダー作成 - apps1/consecutive_name_vol1o0 フォルダー
+## Step [OAAA1001o2o0g2o0] フォルダー作成 - apps1/consecutive_name_vol1o0 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -72,7 +74,7 @@ docker-compose up
             └── 📂 consecutive_name_vol1o0      # アプリケーション
 ```
 
-# Step [OAAA1001o2o0g3o0] アプリケーション作成
+## Step [OAAA1001o2o0g3o0] アプリケーション作成
 
 Dockerコンテナ を起動しているターミナルとは別のターミナルをもう１つ開き、  
 
@@ -108,7 +110,7 @@ docker-compose run --rm web python manage.py startapp consecutive_name_vol1o0 ./
 👉              └── 📄 views.py
 ```
 
-# Step [OAAA1001o2o0g4o0] 今回使わないファイルの削除
+## Step [OAAA1001o2o0g4o0] 今回使わないファイルの削除
 
 👇 以下のファイルを削除してほしい  
 
@@ -126,7 +128,7 @@ docker-compose run --rm web python manage.py startapp consecutive_name_vol1o0 ./
 👉              └── 📄 views.py
 ```
 
-# Step [OAAA1001o2o0g5o0] アプリケーション設定変更 - apps.py
+## Step [OAAA1001o2o0g5o0] アプリケーション設定変更 - apps.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -158,7 +160,7 @@ class NameOfConsecutiveVol1O0Config(AppConfig):
     #          -----------------------------
 ```
 
-# Step [OAAA1001o2o0g6o0] アプリケーション登録 - settings.py ファイル
+## Step [OAAA1001o2o0g6o0] アプリケーション登録 - settings.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -199,7 +201,7 @@ INSTALLED_APPS = [
 # ...略...
 ```
 
-# Step [OAAA1001o2o0g7o0] テンプレートフォルダー指定 - settings.py ファイル
+## Step [OAAA1001o2o0g7o0] テンプレートフォルダー指定 - settings.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -250,7 +252,7 @@ TEMPLATES = [
 ]
 ```
 
-# Step [OAAA1001o2o0g8o0] スモークテスト用データ作成 - smoke_test/ver1o0.json ファイル
+## Step [OAAA1001o2o0g8o0] スモークテスト用データ作成 - smoke_test/ver1o0.json ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -333,7 +335,7 @@ TEMPLATES = [
 }
 ```
 
-# Step [OAAA1001o2o0g9o0] 画面作成 - settings.py ファイル
+## Step [OAAA1001o2o0g9o0] 画面作成 - settings.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -409,7 +411,7 @@ TEMPLATES = [
 <!-- EOF [OAAA1001o2o0g9o0] -->
 ```
 
-# Step [OAAA1001o2o0g10o0] ビュー作成 - board/ver1o0 フォルダー
+## Step [OAAA1001o2o0g10o0] ビュー作成 - board/ver1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -477,7 +479,7 @@ class DataTableView():
 # EOF [OAAA1001o2o0g10o0]
 ```
 
-# Step [OAAA1001o2o0g11o0] ルート編集 - urls.csv ファイル
+## Step [OAAA1001o2o0g11o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
