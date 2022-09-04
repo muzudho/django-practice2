@@ -18,10 +18,10 @@ class DataTableView():
         # 1. `src1/apps1/consecutive_name_vol1o0/templates/consecutive_name_vol1o0/data_table/ver1o0.html` を取得
         #                                                  ----------------------------------------------
 
-        with open('apps1/consecutive_name_vol1o0/static/consecutive_name_vol1o0/data/smoek_test/ver1o0.json', mode='r', encoding='utf-8') as f:
+        with open('apps1/consecutive_name_vol1o0/static/consecutive_name_vol1o0/data/smoke_test/ver1o0.json', mode='r', encoding='utf-8') as f:
             #      ----------------------------------------------------------------------------------------
             #      1
-            # 1. `src1/apps1/consecutive_name_vol1o0/static/consecutive_name_vol1o0/data/smoek_test/ver1o0.json` を取得
+            # 1. `src1/apps1/consecutive_name_vol1o0/static/consecutive_name_vol1o0/data/smoke_test/ver1o0.json` を取得
             #          ----------------------------------------------------------------------------------------
             jsObject = json.load(f)
 

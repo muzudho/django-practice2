@@ -37,10 +37,10 @@
 * 去年 Cherry という名前のチームが、今年は Durian と Eggfruit という名前で出場している  
 * 去年 Fig と Grape という名前のチームが、今年は合体して Hernandia という名前で出場している  
 
-👇 以下は「継続」。前と後ろで違わずつながっている。特に問題なし  
+👇 以下は「継続」。前と後ろで違わずつながっている。何が継続しているか判定する方法は人為的だ。このツールは記録と表示のみ行う  
 
 * 去年 Icaco という名前のチームが 今年も Icaco という名前で出場している  
-* 数年ぶりに Jujube という名前のチームが出場している  
+* 数年ぶりに Jujube という名前のチームが出場している（途中で名前を変えて出場していたかどうかは分からない）  
 
 # Step [OAAA1001o2o0g1o0] Dockerコンテナの起動
 
@@ -453,10 +453,10 @@ class DataTableView():
         # 1. `src1/apps1/consecutive_name_vol1o0/templates/consecutive_name_vol1o0/data_table/ver1o0.html` を取得
         #                                                  ----------------------------------------------
 
-        with open('apps1/consecutive_name_vol1o0/static/consecutive_name_vol1o0/data/smoek_test/ver1o0.json', mode='r', encoding='utf-8') as f:
+        with open('apps1/consecutive_name_vol1o0/static/consecutive_name_vol1o0/data/smoke_test/ver1o0.json', mode='r', encoding='utf-8') as f:
             #      ----------------------------------------------------------------------------------------
             #      1
-            # 1. `src1/apps1/consecutive_name_vol1o0/static/consecutive_name_vol1o0/data/smoek_test/ver1o0.json` を取得
+            # 1. `src1/apps1/consecutive_name_vol1o0/static/consecutive_name_vol1o0/data/smoke_test/ver1o0.json` を取得
             #          ----------------------------------------------------------------------------------------
             jsObject = json.load(f)
 
@@ -535,4 +535,4 @@ docker-compose restart
 
 ## Step OA13o1o0g7o0 Web画面へアクセス
 
-📖 [http://localhost:8000/consecutive_name/vol1.0/data-table/ver0.1/](http://localhost:8000/practice/vol1.0/vuetify/desserts1/ver1.0/)  
+📖 [http://localhost:8000/consecutive_name/vol1.0/data-table/ver0.1/](http://localhost:8000/consecutive_name/vol1.0/data-table/ver0.1/)  
