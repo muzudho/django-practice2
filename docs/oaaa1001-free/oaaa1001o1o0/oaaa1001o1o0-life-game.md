@@ -252,8 +252,8 @@ TEMPLATES = [
             # ...略...
 
 
-            # OAAA1001o1o0g8o0 ライフゲーム1.0巻
-            os.path.join(BASE_DIR, 'apps1/lifegame_vol1.0/templates'),
+            # [OAAA1001o1o0g8o0] ライフゲーム1.0巻
+            os.path.join(BASE_DIR, 'apps1/lifegame_vol1o0/templates'),
             #                       -------------------------------
             #                       10
             # Example: /src1/apps1/lifegame_vol1o0/templates/lifegame_vol1o0/board/ver0o1o0.html

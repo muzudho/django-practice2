@@ -61,7 +61,7 @@ docker-compose up
 ```plaintext
     └── 📂 src1
         └── 📂 apps1                            # 複数のアプリケーションを入れるフォルダー
-            └── 📂 consecutive_name_vol1o0   # アプリケーション
+            └── 📂 consecutive_name_vol1o0      # アプリケーション
 ```
 
 # Step OAAA1001o2o0g3o0 アプリケーション作成
@@ -152,7 +152,7 @@ class NameOfConsecutiveVol1O0Config(AppConfig):
 
 # Step OAAA1001o2o0g6o0 アプリケーション登録 - settings.py ファイル
 
-👇 以下の既存のファイルを編集してほしい  
+👇 以下の既存ファイルを編集してほしい  
 
 ```plaintext
     └── 📂 src1
@@ -189,4 +189,138 @@ INSTALLED_APPS = [
 
 
 # ...略...
+```
+
+# Step OAAA1001o2o0g7o0 テンプレートフォルダー指定 - settings.py ファイル
+
+👇 以下の既存ファイルを編集してほしい  
+
+```plaintext
+    └── 📂 src1
+        ├── 📂 apps1
+        │   └── 📂 consecutive_name_vol1o0       # アプリケーション
+        │       ├── 📂 migrations
+        │       │   └── 📄 __init__.py
+        │       ├── 📄 __init__.py
+        │       ├── 📄 admin.py
+        │       ├── 📄 apps.py
+        │       └── 📄 tests.py
+        └── 📂 project1
+👉          └── 📄 settings.py
+```
+
+👇 変更するのは `TEMPLATES[0]["DIRS"]` 変数  
+
+```py
+TEMPLATES = [
+    {
+        # ...略... 'BACKEND'
+
+
+        'DIRS': [
+            # ...略...
+
+
+            # [OAAA1001o2o0g7o0] 連続名1.0巻
+            os.path.join(BASE_DIR, 'apps1/consecutive_name_vol1o0/templates'),
+            #                       ---------------------------------------
+            #                       10
+            # Example: `/src1/apps1/consecutive_name_vol1o0/templates/consecutive_name_vol1o0/board/ver0o1o0.html`
+            #                       -----------------------          ------------------------
+            #                       11                               2
+            #                 -----------------------------
+            #                 10
+            # 10. テンプレート ディレクトリーへのパス
+            # 11. アプリケーション
+            # 2. まるで `http://example.com/consecutive_name_vol1o0` という素材フォルダーがあるかのように扱われる
+            #                             -------------------------
+        ],
+
+
+        # ...略... 'APP_DIRS' や 'OPTIONS'
+    },
+]
+```
+
+# Step OAAA1001o2o0g8o0 スモークテスト用データ作成 - settings.py ファイル
+
+👇 以下の既存ファイルを編集してほしい  
+
+```plaintext
+    └── 📂 src1
+        ├── 📂 apps1
+        │   └── 📂 consecutive_name_vol1o0              # アプリケーション
+        │       ├── 📂 migrations
+        │       │   └── 📄 __init__.py
+        │       ├── 📂 static
+        │       │   └── 📂 consecutive_name_vol1o0      # アプリケーションと同名
+        │       │       └── 📂 data
+        │       │           └── 📂 smoke_test
+👉      │       │               └── 📄 ver1o0.json
+        │       ├── 📄 __init__.py
+        │       ├── 📄 admin.py
+        │       ├── 📄 apps.py
+        │       └── 📄 tests.py
+        └── 📂 project1
+            └── 📄 settings.py
+```
+
+```json
+{
+    "headers": [
+        {
+            "text": "2020春",
+            "align": "start",
+            "sortable": false,
+            "value": "event2020spr"
+        },
+        { "text": "2020冬", "value": "event2020wtr" },
+        { "text": "2021春", "value": "event2021spr" },
+        { "text": "2021冬", "value": "event2021wtr" },
+        { "text": "2022春", "value": "event2022spr" },
+        { "text": "2022冬", "value": "event2022wtr" }
+    ],
+    "participants": [
+        {
+            "event2020spr": "Apple",
+            "event2020wtr": "Apple",
+            "event2021spr": "Apple",
+            "event2021wtr": "Banana",
+            "event2022spr": "Banana",
+            "event2022wtr": "Apple"
+        },
+        {
+            "event2020spr": "Cherry",
+            "event2020wtr": "Cherry",
+            "event2021spr": "Cherry",
+            "event2021wtr": "Durian",
+            "event2022spr": "Durian",
+            "event2022wtr": "Durian"
+        },
+        {
+            "event2020spr": "Cherry",
+            "event2020wtr": "Cherry",
+            "event2021spr": "Cherry",
+            "event2021wtr": "Eggfruit",
+            "event2022spr": "Eggfruit",
+            "event2022wtr": "Eggfruit"
+        },
+        {
+            "event2020spr": "Fig",
+            "event2020wtr": "Fig",
+            "event2021spr": "Fig",
+            "event2021wtr": "Fig",
+            "event2022spr": "Hernandia",
+            "event2022wtr": "Hernandia"
+        },
+        {
+            "event2020spr": "Grape",
+            "event2020wtr": "Grape",
+            "event2021spr": "Grape",
+            "event2021wtr": "Grape",
+            "event2022spr": "Hernandia",
+            "event2022wtr": "Hernandia"
+        }
+    ]
+}
 ```

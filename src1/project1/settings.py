@@ -172,8 +172,8 @@ TEMPLATES = [
             # 2. まるで `http://example.com/tic_tac_toe_vol1o0` という素材フォルダーがあるかのように扱われる
             #                             --------------------
 
-            # OAAA1001o1o0g8o0 ライフゲーム1.0巻
-            os.path.join(BASE_DIR, 'apps1/lifegame_vol1.0/templates'),
+            # [OAAA1001o1o0g8o0] ライフゲーム1.0巻
+            os.path.join(BASE_DIR, 'apps1/lifegame_vol1o0/templates'),
             #                       -------------------------------
             #                       10
             # Example: /src1/apps1/lifegame_vol1o0/templates/lifegame_vol1o0/board/ver0o1o0.html
@@ -185,6 +185,20 @@ TEMPLATES = [
             # 11. アプリケーション
             # 2. まるで `http://example.com/lifegame_vol1o0` という素材フォルダーがあるかのように扱われる
             #                             ----------------
+
+            # [OAAA1001o2o0g7o0] 連続名1.0巻
+            os.path.join(BASE_DIR, 'apps1/consecutive_name_vol1o0/templates'),
+            #                       ---------------------------------------
+            #                       10
+            # Example: `/src1/apps1/consecutive_name_vol1o0/templates/consecutive_name_vol1o0/board/ver0o1o0.html`
+            #                       -----------------------          ------------------------
+            #                       11                               2
+            #                 -----------------------------
+            #                 10
+            # 10. テンプレート ディレクトリーへのパス
+            # 11. アプリケーション
+            # 2. まるで `http://example.com/consecutive_name_vol1o0` という素材フォルダーがあるかのように扱われる
+            #                             -------------------------
         ],
         'APP_DIRS': True,
         'OPTIONS': {
