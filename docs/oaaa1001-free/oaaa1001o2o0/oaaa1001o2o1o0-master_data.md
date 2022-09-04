@@ -32,7 +32,7 @@ cd src1
 docker-compose up
 ```
 
-## Step [OAAA1001o2o1o0g2o0] マスターデータ作成 - events/ver1o0.json ファイル
+## Step [OAAA1001o2o1o0g2o0] マスターデータ作成 - data/event/ver1o0.json ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -43,7 +43,7 @@ docker-compose up
                 └── 📂 static
                     └── 📂 consecutive_name_vol1o0      # アプリケーションと同名
                         └── 📂 data
-                            └── 📂 events
+                            └── 📂 event
 👉                              └── 📄 ver1o0.json
 ```
 
@@ -52,39 +52,85 @@ docker-compose up
     "events": [
         {
             "id": "1",
-            "display_name": "2020春",
+            "event": "ダミーデータを扱う大会",
+            "event_s": "ダミー大会",
             "sort": 1.1
         },
         {
             "id": "2",
-            "display_name": "2020冬",
+            "event": "予備データを眺める選手権",
+            "event_s": "予備デー選手権",
+            "sort": 1.2
+        }
+    ]
+}
+```
+
+## Step [OAAA1001o2o1o0g2o1o0] マスターデータ作成 - data/volume/ver1o0.json ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        └── 📂 apps1
+            └── 📂 consecutive_name_vol1o0              # アプリケーション
+                └── 📂 static
+                    └── 📂 consecutive_name_vol1o0      # アプリケーションと同名
+                        └── 📂 data
+                            └── 📂 volume
+👉                              └── 📄 ver1o0.json
+```
+
+```json
+{
+    "events": [
+        {
+            "event_id": "1",
+            "id": "1",
+            "volume": "2020年スプリング杯",
+            "volume_s": "2020春",
+            "sort": 1.1
+        },
+        {
+            "event_id": "1",
+            "id": "2",
+            "volume": "2020年ウィンター杯",
+            "volume_s": "2020冬",
             "sort": 1.2
         },
         {
+            "event_id": "1",
             "id": "3",
-            "display_name": "2021春",
+            "volume": "2021年スプリング杯",
+            "volume_s": "2021春",
             "sort": 1.3
         },
         {
+            "event_id": "1",
             "id": "4",
-            "display_name": "2021冬",
+            "volume": "2021年ウィンター杯",
+            "volume_s": "2021冬",
             "sort": 1.4
         },
         {
+            "event_id": "1",
             "id": "5",
-            "display_name": "2022春",
+            "volume": "2022春スプリング杯",
+            "volume_s": "2022春",
             "sort": 1.5
         },
         {
+            "event_id": "1",
             "id": "6",
-            "display_name": "2022冬",
+            "volume": "2022冬スプリング杯",
+            "volume_s": "2022冬",
             "sort": 1.6
         }
     ]
 }
 ```
 
-## Step [OAAA1001o2o1o0g3o0] モデル作成 - events/ver1o0.py ファイル
+## Step [OAAA1001o2o1o0g3o0] モデル作成 - event/ver1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -93,7 +139,7 @@ docker-compose up
         └── 📂 apps1
             └── 📂 consecutive_name_vol1o0              # アプリケーション
                 └── 📂 models
-                    └── 📂 events
+                    └── 📂 event
                         └── 📄 ver1o0.py
 ```
 
@@ -105,11 +151,12 @@ from django.db import models
 
 
 class Event(models.Model):
-    """[OAAA1001o2o1o0g3o0] イベント"""
+    """[OAAA1001o2o1o0g3o0] 催事種別"""
 
     # プロパティの仕様を決める感じで
     id = models.AutoField('Id', primary_key=True)
-    display_name = models.CharField('表示名', max_length=32)
+    name = models.CharField('名称', max_length=32, blank=True, null=True)
+    name_s = models.CharField('名称_短縮', max_length=16, blank=True, null=True)
     sort = models.IntegerField('順番', blank=True, default=0)
 
     def __str__(self):
@@ -119,28 +166,73 @@ class Event(models.Model):
 # EOF [OAAA1001o2o1o0g3o0]
 ```
 
-## Step [OAAA1001o2o1o0g3o0] モデル登録 - admin.py ファイル
+## Step [OAAA1001o2o1o0g3o1o0] モデル作成 - event_volume/ver1o0.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        └── 📂 apps1
+            └── 📂 consecutive_name_vol1o0              # アプリケーション
+                └── 📂 models
+                    ├── 📂 event
+                    │   └── 📄 ver1o0.py
+                    └── 📂 event_volume
+👉                      └── 📄 ver1o0.py
+```
+
+```py
+# BOF [OAAA1001o2o1o0g3o1o0]
+
+# See also: https://qiita.com/zaburo/items/ab7f0eeeaec0e60d6b92
+from django.db import models
+
+
+class EventVolume(models.Model):
+    """[OAAA1001o2o1o0g3o1o0] 催事巻"""
+
+    # プロパティの仕様を決める感じで
+    id = models.AutoField('Id', primary_key=True)
+    event_id = models.IntegerField('催事種別Id', blank=True, default=0)
+    name = models.CharField('名称', max_length=64, blank=True, null=True)
+    name_s = models.CharField('名称_短縮', max_length=16, blank=True, null=True)
+    sort = models.IntegerField('順番', blank=True, default=0)
+
+    def __str__(self):
+        """このオブジェクトを文字列にしたとき返るもの"""
+        return f"{self.display_name} event-volume"
+
+# EOF [OAAA1001o2o1o0g3o1o0]
+```
+
+## Step [OAAA1001o2o1o0g4o0] モデル登録 - admin.py ファイル
 
 👇 以下の既存ファイルに追記してほしい  
 
 ```plaintext
     └── 📂 src1
         └── 📂 apps1
-            └── 📂 practice_vol1o0          # アプリケーション
+            └── 📂 consecutive_name_vol1o0              # アプリケーション
+                ├── 📂 models
+                │   └── 📂 event
+                │       └── 📄 ver1o0.py
 👉              └── 📄 admin.py
 ```
 
 ```py
-# ...略...
+# ...略... from django.contrib import admin
 
 
-# OA10o1o0g3o0 練習1.0巻 都道府県1.0版
-from .models.prefecture.ver1o0 import Prefecture
-#    -------------------------        ----------
-#    1                                2
-# 1. このファイルと同じディレクトリにある `models/prefecture/ver1o0.py` ファイルの拡張子抜き
-#                                      ------------------------
+# [OAAA1001o2o1o0g4o0] 連続名1.0巻 催事種別1.0版
+from .models.event.ver1o0 import Event
+#    --------------------        -----
+#    1                           2
+# 1. このファイルと同じディレクトリにある `models/event/ver1o0.py` ファイルの拡張子抜き
+#                                      ----------------------
 # 2. クラス
+
+# [OAAA1001o2o1o0g4o0] 連続名1.0巻 催事巻1.0版
+from .models.event_volume.ver1o0 import EventVolume
 
 
 # ...略...
@@ -154,6 +246,83 @@ from .models.prefecture.ver1o0 import Prefecture
 # ...略...
 
 
-# OA10o1o0g3o0 練習1.0巻 都道府県1.0版
-admin.site.register(Prefecture)
+# [OAAA1001o2o1o0g4o0] 連続名1.0巻 催事種別1.0版
+admin.site.register(Event)
+
+# [OAAA1001o2o1o0g4o0] 連続名1.0巻 催事巻1.0版
+admin.site.register(EventVolume)
 ```
+
+👆 管理画面に EventVolume オブジェクトが表示されるようにしている  
+
+## Step [OAAA1001o2o1o0g5o0] マイグレーション ファイル生成 - コマンド実行
+
+```shell
+# docker-compose.yml ファイルを置いてあるディレクトリーへ移動してほしい
+# cd src1
+
+docker-compose run --rm web python3 manage.py makemigrations consecutive_name_vol1o0
+#                                                            -----------------------
+#                                                            1
+# 1. アプリケーション
+#    settings.py に `apps1.consecutive_name_vol1o0` と 書いていても、ここには `consecutive_name_vol1o0` と書く
+```
+
+👇 以下のファイルが生成される  
+
+```plaintext
+    └── 📂 src1
+        └── 📂 apps1
+            └── 📂 consecutive_name_vol1o0              # アプリケーション
+                ├── 📂 migrations
+                │   ├── 📄 __init__.py
+👉              │   └── 📄 0001_initial.py
+                ├── 📂 models
+                │   └── 📂 event
+                │       └── 📄 ver1o0.py
+👉              └── 📄 admin.py
+```
+
+👆 この生成されたファイルは マイグレーション ファイル と呼ぶらしい  
+
+まだ マイグレーション作業は完了していない  
+
+## Step [OAAA1001o2o1o0g6o0] マイグレーション - コマンド実行
+
+```shell
+docker-compose run --rm web python manage.py migrate
+```
+
+👆 ここまでやって マイグレーション という作業が終わるらしい  
+
+## Step [OAAA1001o2o1o0g7o0] スーパーユーザーでWebの管理画面へアクセス
+
+👇 スーパーユーザーでログインすること  
+
+📖 [http://localhost:8000/admin](http://localhost:8000/admin)  
+
+👇 画面左に以下のように表示されていればOK  
+
+```plain
++----------------------------------+
+| CONSECUTIVE_NAME_VOL1O0          |
++-------------+--------+-----------+
+| Events      | ➕ Add | 🖊 Change |
++-------------+--------+-----------+
+```
+
+## Step [OAAA1001o2o1o0g8o0] EventVolume を３つほど追加してほしい
+
+Events ラベルの右横の `➕ Add` リンクをクリックしてほしい  
+
+```plaintext
+表示名:
+       ----------------
+順番:   0
+       ----------------
+
+                [Save and add another] [Save and continue editing] [SAVE]
+```
+
+👆 入力フォームが出てくるから、３件ほど適当に追加してほしい。  
+`[SAVE]` が追加ボタンのようだ  

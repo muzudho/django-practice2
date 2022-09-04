@@ -5,11 +5,12 @@ from django.db import models
 
 
 class Event(models.Model):
-    """[OAAA1001o2o1o0g3o0] イベント"""
+    """[OAAA1001o2o1o0g3o0] 催事種別"""
 
     # プロパティの仕様を決める感じで
     id = models.AutoField('Id', primary_key=True)
-    display_name = models.CharField('表示名', max_length=32)
+    name = models.CharField('名称', max_length=32, blank=True, null=True)
+    name_s = models.CharField('名称_短縮', max_length=16, blank=True, null=True)
     sort = models.IntegerField('順番', blank=True, default=0)
 
     def __str__(self):
