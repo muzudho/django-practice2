@@ -108,7 +108,7 @@ docker-compose up
 }
 ```
 
-## Step [OAAA1001o2o1o0g2o0] マスターデータ作成 - data/consecutive/ver1o0.json ファイル
+## Step [OAAA1001o2o1o0g3o0] マスターデータ作成 - data/consecutive/ver1o0.json ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -119,8 +119,10 @@ docker-compose up
                 └── 📂 static
                     └── 📂 consecutive_name_vol1o0      # アプリケーションと同名
                         └── 📂 data
-                            └── 📂 consecutive
-👉                              └── 📄 ver1o0.json
+                            ├── 📂 consecutive
+👉                          │   └── 📄 ver1o0.json
+                            └── 📂 participant
+                                └── 📄 ver1o0.json
 ```
 
 ```json
@@ -167,3 +169,179 @@ docker-compose up
 ```
 
 👆 現在から見て、どれが前回か、という構造にする  
+
+## Step [OAAA1001o2o1o0g4o0] データ作成 - data/transition/ver1o0.json ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        └── 📂 apps1
+            └── 📂 consecutive_name_vol1o0              # アプリケーション
+                └── 📂 static
+                    └── 📂 consecutive_name_vol1o0      # アプリケーションと同名
+                        └── 📂 data
+                            ├── 📂 consecutive
+                            │   └── 📄 ver1o0.json
+                            ├── 📂 participant
+                            │   └── 📄 ver1o0.json
+                            └── 📂 transition
+👉                              └── 📄 ver1o0.json
+```
+
+```json
+{
+    "transitions": [
+        {
+            "id": 1,
+            "last_pcp_id":3,
+            "pcp_id": 3,
+        },
+        {
+            "id": 2,
+            "last_pcp_id":3,
+            "pcp_id": 2,
+        },
+        {
+            "id": 3,
+            "last_pcp_id":3,
+            "pcp_id": 1,
+        },
+        {
+            "id": 4,
+            "last_pcp_id":5,
+            "pcp_id": 4
+        },
+        {
+            "id": 5,
+            "last_pcp_id":5,
+            "pcp_id": 5
+        },
+        {
+            "id": 6,
+            "last_pcp_id":6,
+            "pcp_id": 6
+        },
+        {
+            "id": 7,
+            "last_pcp_id":8,
+            "pcp_id": 7
+        },
+        {
+            "id": 7,
+            "last_pcp_id":8,
+            "pcp_id": 8
+        },
+        {
+            "id": 8,
+            "last_pcp_id":9,
+            "pcp_id": 9
+        }
+    ]
+}
+```
+
+👆 参加者の最終データが、他のボリュームのどの参加者と連続しているか、という構造にする  
+
+これらのデータを元に、以前の [OAAA1001o2o0g8o0] のような JSON に整形することを目指せばよい  
+
+## Step [OAAA1001o2o1o0g5o_1o0] オブジェクト定義 - participant/ver1o0.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        └── 📂 apps1
+            └── 📂 consecutive_name_vol1o0              # アプリケーション
+                ├── 📂 static
+                │   └── 📂 consecutive_name_vol1o0      # アプリケーションと同名
+                │       └── 📂 data
+                │           ├── 📂 consecutive
+                │           │   └── 📄 ver1o0.json
+                │           ├── 📂 participant
+                │           │   └── 📄 ver1o0.json
+                │           └── 📂 transition
+                │               └── 📄 ver1o0.json
+                └── 📂 views
+                    └── 📂 participant
+👉                      └── 📄 ver1o0.py
+```
+
+```py
+# BOF [OAAA1001o2o1o0g5o_1o0]
+
+class Participant:
+    """[OAAA1001o2o1o0g5o_1o0] 参加者"""
+
+    def __init__(self, id, event_id, volume_id, name):
+        self._id = id
+        self._event_id = event_id
+        self._volume_id = volume_id
+        self._name = name
+
+    @property
+    def id(self):
+        return self._id
+
+    @property
+    def event_id(self):
+        return self._event_id
+
+    @property
+    def volume_id(self):
+        return self._volume_id
+
+    @property
+    def name(self):
+        return self._name
+
+# EOF [OAAA1001o2o1o0g5o_1o0]
+```
+
+## Step [OAAA1001o2o1o0g5o0] データ自動生成 - participant 〇 consecutive → transition
+
+いきなり最終形を作るのは難しいので、  
+participant/ver1o0.json と consecutive/ver1o0.json を与えると、 transition/ver2o0.json を返すような  
+関数を作ることにする  
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    ├── 📂 src1
+    │   └── 📂 apps1
+    │       └── 📂 consecutive_name_vol1o0              # アプリケーション
+    │           └── 📂 static
+    │               └── 📂 consecutive_name_vol1o0      # アプリケーションと同名
+    │                   └── 📂 data
+    │                       ├── 📂 consecutive
+    │                       │   └── 📄 ver1o0.json
+    │                       ├── 📂 participant
+    │                       │   └── 📄 ver1o0.json
+    │                       └── 📂 transition
+    │                           └── 📄 ver1o0.json
+    └── 📂 src1_meta
+        └── 📂 scripts
+            └── 📂 auto_generators
+                └── 📂 consecutive_name_vol1o0
+                    └── 📂 x_pcp_con_y_tra
+👉                      └── 📄 __init__.py
+```
+
+```py
+# BOF [OAAA1001o2o1o0g5o0]
+
+class XPcpConYTra:
+
+    @staticmethod
+    def convert(participant_js_object, consecutive_js_object):
+
+        pass
+
+# EOF [OAAA1001o2o1o0g5o0]
+```
+
+# 参考にした記事
+
+## Python Json
+
+📖 [Python JSON](https://www.programiz.com/python-programming/json)  
