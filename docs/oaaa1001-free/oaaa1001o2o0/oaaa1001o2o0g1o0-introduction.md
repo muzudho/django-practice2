@@ -42,7 +42,7 @@
 * 去年 Icaco という名前のチームが 今年も Icaco という名前で出場している  
 * 数年ぶりに Jujube という名前のチームが出場している  
 
-# Step OAAA1001o2o0g1o0 Dockerコンテナの起動
+# Step [OAAA1001o2o0g1o0] Dockerコンテナの起動
 
 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -54,7 +54,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OAAA1001o2o0g2o0 フォルダー作成 - apps1/consecutive_name_vol1o0 フォルダー
+# Step [OAAA1001o2o0g2o0] フォルダー作成 - apps1/consecutive_name_vol1o0 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -64,7 +64,7 @@ docker-compose up
             └── 📂 consecutive_name_vol1o0      # アプリケーション
 ```
 
-# Step OAAA1001o2o0g3o0 アプリケーション作成
+# Step [OAAA1001o2o0g3o0] アプリケーション作成
 
 Dockerコンテナ を起動しているターミナルとは別のターミナルをもう１つ開き、  
 
@@ -100,7 +100,7 @@ docker-compose run --rm web python manage.py startapp consecutive_name_vol1o0 ./
 👉              └── 📄 views.py
 ```
 
-# Step OAAA1001o2o0g4o0 今回使わないファイルの削除
+# Step [OAAA1001o2o0g4o0] 今回使わないファイルの削除
 
 👇 以下のファイルを削除してほしい  
 
@@ -118,7 +118,7 @@ docker-compose run --rm web python manage.py startapp consecutive_name_vol1o0 ./
 👉              └── 📄 views.py
 ```
 
-# Step OAAA1001o2o0g5o0 アプリケーション設定変更 - apps.py
+# Step [OAAA1001o2o0g5o0] アプリケーション設定変更 - apps.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -150,7 +150,7 @@ class NameOfConsecutiveVol1O0Config(AppConfig):
     #          -----------------------------
 ```
 
-# Step OAAA1001o2o0g6o0 アプリケーション登録 - settings.py ファイル
+# Step [OAAA1001o2o0g6o0] アプリケーション登録 - settings.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -191,7 +191,7 @@ INSTALLED_APPS = [
 # ...略...
 ```
 
-# Step OAAA1001o2o0g7o0 テンプレートフォルダー指定 - settings.py ファイル
+# Step [OAAA1001o2o0g7o0] テンプレートフォルダー指定 - settings.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -242,7 +242,7 @@ TEMPLATES = [
 ]
 ```
 
-# Step OAAA1001o2o0g8o0 スモークテスト用データ作成 - settings.py ファイル
+# Step [OAAA1001o2o0g8o0] スモークテスト用データ作成 - settings.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -280,7 +280,7 @@ TEMPLATES = [
         { "text": "2022春", "value": "event2022spr" },
         { "text": "2022冬", "value": "event2022wtr" }
     ],
-    "participants": [
+    "bodies": [
         {
             "event2020spr": "Apple",
             "event2020wtr": "Apple",
@@ -325,7 +325,7 @@ TEMPLATES = [
 }
 ```
 
-# Step OAAA1001o2o0g9o0 画面作成 - settings.py ファイル
+# Step [OAAA1001o2o0g9o0] 画面作成 - settings.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -378,7 +378,7 @@ TEMPLATES = [
             <v-app>
                 <v-main>
                     <v-container>
-                        <v-data-table :headers="headers" :items="desserts" :items-per-page="5" class="elevation-1"></v-data-table>
+                        <v-data-table :headers="headers" :items="bodies" :items-per-page="5" class="elevation-1"></v-data-table>
                     </v-container>
                 </v-main>
             </v-app>
@@ -387,15 +387,148 @@ TEMPLATES = [
         <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
         <script>
-            var dessertsDoc = JSON.parse("{{ dessertsStr|escapejs }}");
+            // "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
+            var dataTableJsObject = JSON.parse("{{ dj_dataTableJson|escapejs }}");
 
             new Vue({
                 el: "#app",
                 vuetify: new Vuetify(),
-                data: dessertsDoc,
+                data: dataTableJsObject,
             });
         </script>
     </body>
 </html>
 <!-- EOF [OAAA1001o2o0g9o0] -->
 ```
+
+# Step [OAAA1001o2o0g10o0] ビュー作成 - board/ver1o0 フォルダー
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        ├── 📂 apps1
+        │   └── 📂 consecutive_name_vol1o0              # アプリケーション
+        │       ├── 📂 migrations
+        │       │   └── 📄 __init__.py
+        │       ├── 📂 static
+        │       │   └── 📂 consecutive_name_vol1o0      # アプリケーションと同名
+        │       │       └── 📂 data
+        │       │           └── 📂 smoke_test
+        │       │               └── 📄 ver1o0.json
+        │       ├── 📂 templates
+        │       │   └── 📂 consecutive_name_vol1o0
+        │       │       └── 📂 data_table
+        │       │           └── 📄 ver1o0.html
+        │       ├── 📂 views
+        │       │   └── 📂 data_table
+        │       │       └── 📂 ver1o0
+👉      │       │           └── 📄 __init__.py
+        │       ├── 📄 __init__.py
+        │       ├── 📄 admin.py
+        │       ├── 📄 apps.py
+        │       └── 📄 tests.py
+        └── 📂 project1
+            └── 📄 settings.py
+```
+
+```py
+# BOF [OAAA1001o2o0g10o0]
+
+import json
+from django.shortcuts import render
+
+
+class DataTableView():
+    """[OAAA1001o2o0g10o0] データテーブル"""
+
+    @staticmethod
+    def render(request):
+        """[OAAA1001o2o0g10o0] 描画"""
+
+        # Template path
+        data_table_tp = 'consecutive_name_vol1o0/data_table/ver1o0.html'
+        #                ----------------------------------------------
+        #                1
+        # 1. `src1/apps1/consecutive_name_vol1o0/templates/consecutive_name_vol1o0/data_table/ver1o0.html` を取得
+        #                                                  ----------------------------------------------
+
+        with open('apps1/consecutive_name_vol1o0/static/consecutive_name_vol1o0/data/smoek_test/ver1o0.json', mode='r', encoding='utf-8') as f:
+            #      ----------------------------------------------------------------------------------------
+            #      1
+            # 1. `src1/apps1/consecutive_name_vol1o0/static/consecutive_name_vol1o0/data/smoek_test/ver1o0.json` を取得
+            #          ----------------------------------------------------------------------------------------
+            jsObject = json.load(f)
+
+        context = {
+            # "dj_" は 「Djangoがレンダーに埋め込む変数」 の目印
+            'dj_dataTableJson': json.dumps(jsObject)
+        }
+        return render(request, data_table_tp, context)
+
+# EOF [OAAA1001o2o0g10o0]
+```
+
+# Step [OAAA1001o2o0g11o0] ルート編集 - urls.csv ファイル
+
+👇 以下の既存ファイルの末尾に追記してほしい  
+
+```plaintext
+    ├── 📂 src1
+    │   ├── 📂 apps1
+    │   │   └── 📂 consecutive_name_vol1o0              # アプリケーション
+    │   │       ├── 📂 migrations
+    │   │       │   └── 📄 __init__.py
+    │   │       ├── 📂 static
+    │   │       │   └── 📂 consecutive_name_vol1o0      # アプリケーションと同名
+    │   │       │       └── 📂 data
+    │   │       │           └── 📂 smoke_test
+    │   │       │               └── 📄 ver1o0.json
+    │   │       ├── 📂 templates
+    │   │       │   └── 📂 consecutive_name_vol1o0
+    │   │       │       └── 📂 data_table
+    │   │       │           └── 📄 ver1o0.html
+    │   │       ├── 📂 views
+    │   │       │   └── 📂 data_table
+    │   │       │       └── 📂 ver1o0
+    │   │       │           └── 📄 __init__.py
+    │   │       ├── 📄 __init__.py
+    │   │       ├── 📄 admin.py
+    │   │       ├── 📄 apps.py
+    │   │       └── 📄 tests.py
+    │   └── 📂 project1
+    │       └── 📄 settings.py
+    └── 📂 src1_meta
+        └── 📂 data
+👉          └── 📄 urls.csv
+```
+
+```csv
+...略... file,path,name,comment,module,class,alias,method
+...略...
+
+
+../src1/project1/urls_consecutive_name_vol1o0_autogen.py,consecutive_name/vol1.0/data-table/ver0.1,,"[OAAA1001o2o0g11o0] ライフゲーム1.0巻 盤0.1版",apps1.consecutive_name_vol1o0.views.data_table.ver1o0,DataTableView,ConsecutiveName1o0DataTableView1o0,render
+```
+
+## Step [OAAA1001o2o0g11o0] ルート編集 - コマンド打鍵
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
+cd ../src1_meta
+python -m scripts.auto_generators.urls
+```
+
+確認がでてきて、良ければ `y`  
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```
+cd ../src1
+docker-compose restart
+```
+
+* ディレクトリーは、がんばって移動してほしい
+* スクリプトについて See also: O3o2o_1o0g2o0
+* 設定ファイルを変更したら、サーバーの再起動が必要

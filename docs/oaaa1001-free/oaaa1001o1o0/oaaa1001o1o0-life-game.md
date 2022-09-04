@@ -24,7 +24,7 @@
 
 📺 [THE RECURSIVE COSMOS: Conway's Game of Life ライフゲームの世界](https://www.youtube.com/playlist?list=PLZC7Zqdh0Qb3wOpit5dewit3q2-Mqg9vC)  
 
-# Step OAAA1001o1o0g1o0 Dockerコンテナの起動
+# Step [OAAA1001o1o0g1o0] Dockerコンテナの起動
 
 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -36,7 +36,7 @@ cd src1
 docker-compose up
 ```
 
-# Step OAAA1001o1o0g2o0 フォルダー作成 - apps1/lifegame_vol1o0 フォルダー
+# Step [OAAA1001o1o0g2o0] フォルダー作成 - apps1/lifegame_vol1o0 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -46,7 +46,7 @@ docker-compose up
             └── 📂 lifegame_vol1o0      # アプリケーション
 ```
 
-# Step OAAA1001o1o0g3o0 アプリケーション作成
+# Step [OAAA1001o1o0g3o0] アプリケーション作成
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -76,7 +76,7 @@ docker-compose run --rm web python manage.py startapp lifegame_vol1o0 ./apps1/li
 👉              └── 📄 views.py
 ```
 
-# Step OAAA1001o1o0g4o0 今回使わないファイルの削除
+# Step [OAAA1001o1o0g4o0] 今回使わないファイルの削除
 
 👇 以下のファイルを削除してほしい  
 
@@ -94,7 +94,7 @@ docker-compose run --rm web python manage.py startapp lifegame_vol1o0 ./apps1/li
 👉              └── 📄 views.py
 ```
 
-# Step OAAA1001o1o0g5o0 アプリケーション設定変更 - apps.py
+# Step [OAAA1001o1o0g5o0] アプリケーション設定変更 - apps.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -126,7 +126,7 @@ class LifegameV1Config(AppConfig):
     #          ---------------------
 ```
 
-# Step OAAA1001o1o0g6o0 アプリケーション登録 - settings.py ファイル
+# Step [OAAA1001o1o0g6o0] アプリケーション登録 - settings.py ファイル
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -167,7 +167,7 @@ INSTALLED_APPS = [
 # ...略...
 ```
 
-# Step OAAA1001o1o0g7o0 画面作成 - board/ver0o1o0.html ファイル
+# Step [OAAA1001o1o0g7o0] 画面作成 - board/ver0o1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -218,7 +218,7 @@ INSTALLED_APPS = [
 </html>
 ```
 
-# Step OAAA1001o1o0g8o0 設定変更 - settings.py ファイル
+# Step [OAAA1001o1o0g8o0] 設定変更 - settings.py ファイル
 
 👇 以下のファイルを編集してほしい  
 
@@ -273,7 +273,7 @@ TEMPLATES = [
 ]
 ```
 
-# Step OAAA1001o1o0g9o0 ビュー作成 - board/v0o1 フォルダー
+# Step [OAAA1001o1o0g9o0] ビュー作成 - board/ver0o1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -324,11 +324,11 @@ class BoardView():
 # EOF OAAA1001o1o0g9o0
 ```
 
-# ~~Step OAAA1001o1o0ga10o0~~
+# ~~Step [OAAA1001o1o0ga10o0]~~
 
 Merged to OAAA1001o1o0ga10o1o0  
 
-# Step OAAA1001o1o0ga10o1o0 ルート編集 - urls.csv ファイル
+# Step [OAAA1001o1o0ga10o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -362,10 +362,10 @@ Merged to OAAA1001o1o0ga10o1o0
 ...略...
 
 
-../src1/project1/urls_lifegame_vol1o0_autogen.py,lifegame/vol1.0/board/ver0.1,,"OAAA1001o1o0ga10o1o0 ライフゲーム1.0巻 盤0.1版",apps1.lifegame_vol1o0.views.board.ver0o1o0,BoardView,Lifegame1o0BoardView0o1o0,render
+../src1/project1/urls_lifegame_vol1o0_autogen.py,lifegame/vol1.0/board/ver0.1,,"[OAAA1001o1o0ga10o1o0] ライフゲーム1.0巻 盤0.1版",apps1.lifegame_vol1o0.views.board.ver0o1o0,BoardView,Lifegame1o0BoardView0o1o0,render
 ```
 
-## Step OAAA1001o1o0ga10o2o0 ルート編集 - コマンド打鍵
+## Step [OAAA1001o1o0ga10o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -380,11 +380,11 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-# ~~Step OAAA1001o1o0ga11o0~~
+# ~~Step [OAAA1001o1o0ga11o0]~~
 
 Merged to OAAA1001o1o0ga10o1o0  
 
-# Step OAAA1001o1o0ga12o_1o__10o0 Webページにアクセスする
+# Step [OAAA1001o1o0ga12o_1o__10o0] Webページにアクセスする
 
 👇 接続の確認だけしてほしい  
 

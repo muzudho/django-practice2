@@ -13,6 +13,7 @@ from .settings import PROJECT_NAME
 
 
 urlpatterns = [
+    path('', include(f'{PROJECT_NAME}.urls_consecutive_name_vol1o0_autogen')),
     path('', include(f'{PROJECT_NAME}.urls_launcher_vol1o0_autogen')),
     path('', include(f'{PROJECT_NAME}.urls_lifegame_vol1o0_autogen')),
     path('', include(f'{PROJECT_NAME}.urls_practice_vol1o0_autogen')),

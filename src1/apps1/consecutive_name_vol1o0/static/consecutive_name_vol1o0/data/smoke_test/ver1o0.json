@@ -12,7 +12,7 @@
         { "text": "2022春", "value": "event2022spr" },
         { "text": "2022冬", "value": "event2022wtr" }
     ],
-    "participants": [
+    "bodies": [
         {
             "event2020spr": "Apple",
             "event2020wtr": "Apple",
