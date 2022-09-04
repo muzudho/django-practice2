@@ -1,0 +1,58 @@
+{
+    "participants": [
+        {
+            "id": 1,
+            "event_id": 1,
+            "volume_id": 4,
+            "name": "Apple"
+        },
+        {
+            "id": 2,
+            "event_id": 1,
+            "volume_id": 5,
+            "name": "Banana"
+        },
+        {
+            "id": 3,
+            "event_id": 1,
+            "volume_id": 6,
+            "name": "Apple"
+        },
+        {
+            "id": 4,
+            "event_id": 1,
+            "volume_id": 3,
+            "name": "Cherry"
+        },
+        {
+            "id": 5,
+            "event_id": 1,
+            "volume_id": 4,
+            "name": "Durian"
+        },
+        {
+            "id": 6,
+            "event_id": 1,
+            "volume_id": 4,
+            "name": "Eggfruit"
+        },
+        {
+            "id": 7,
+            "event_id": 1,
+            "volume_id": 4,
+            "name": "Fig"
+        },
+        {
+            "id": 8,
+            "event_id": 1,
+            "volume_id": 5,
+            "name": "Hernandia"
+        },
+        {
+            "id": 9,
+            "event_id": 1,
+            "volume_id": 4,
+            "name": "Grape"
+        }
+    ]
+}
