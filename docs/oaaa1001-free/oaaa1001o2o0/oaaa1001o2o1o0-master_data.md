@@ -157,7 +157,7 @@ class Event(models.Model):
     id = models.AutoField('Id', primary_key=True)
     name = models.CharField('名称', max_length=32, blank=True, null=True)
     name_s = models.CharField('名称_短縮', max_length=16, blank=True, null=True)
-    sort = models.IntegerField('順番', blank=True, default=0)
+    sort = models.FloatField('順番', blank=True, default=0)
 
     def __str__(self):
         """このオブジェクトを文字列にしたとき返るもの"""
@@ -196,7 +196,7 @@ class EventVolume(models.Model):
     event_id = models.IntegerField('催事種別Id', blank=True, default=0)
     name = models.CharField('名称', max_length=64, blank=True, null=True)
     name_s = models.CharField('名称_短縮', max_length=16, blank=True, null=True)
-    sort = models.IntegerField('順番', blank=True, default=0)
+    sort = models.FloatField('順番', blank=True, default=0)
 
     def __str__(self):
         """このオブジェクトを文字列にしたとき返るもの"""
@@ -304,11 +304,13 @@ docker-compose run --rm web python manage.py migrate
 👇 画面左に以下のように表示されていればOK  
 
 ```plain
-+----------------------------------+
-| CONSECUTIVE_NAME_VOL1O0          |
-+-------------+--------+-----------+
-| Events      | ➕ Add | 🖊 Change |
-+-------------+--------+-----------+
++------------------------------------+
+| CONSECUTIVE_NAME_VOL1O0            |
++---------------+--------+-----------+
+| Event volumes | ➕ Add | 🖊 Change |
++---------------+--------+-----------+
+| Events        | ➕ Add | 🖊 Change |
++---------------+--------+-----------+
 ```
 
 ## Step [OAAA1001o2o1o0g8o0] EventVolume を３つほど追加してほしい
@@ -316,13 +318,23 @@ docker-compose run --rm web python manage.py migrate
 Events ラベルの右横の `➕ Add` リンクをクリックしてほしい  
 
 ```plaintext
-表示名:
-       ----------------
-順番:   0
-       ----------------
+名称:
+         ----------------
+名称_短縮:
+         ----------------
+順番:     0
+         ----------------
 
                 [Save and add another] [Save and continue editing] [SAVE]
 ```
 
 👆 入力フォームが出てくるから、３件ほど適当に追加してほしい。  
 `[SAVE]` が追加ボタンのようだ  
+
+# 参考にした記事
+
+## Django モデル
+
+📖 [Djangoモデルフィールドのnullとblankの違いを理解する](https://djangobrothers.com/blogs/django_null_blank/)  
+
+以上

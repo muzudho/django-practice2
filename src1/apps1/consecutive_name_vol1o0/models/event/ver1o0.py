@@ -11,7 +11,7 @@ class Event(models.Model):
     id = models.AutoField('Id', primary_key=True)
     name = models.CharField('名称', max_length=32, blank=True, null=True)
     name_s = models.CharField('名称_短縮', max_length=16, blank=True, null=True)
-    sort = models.IntegerField('順番', blank=True, default=0)
+    sort = models.FloatField('順番', blank=True, default=0)
 
     def __str__(self):
         """このオブジェクトを文字列にしたとき返るもの"""
