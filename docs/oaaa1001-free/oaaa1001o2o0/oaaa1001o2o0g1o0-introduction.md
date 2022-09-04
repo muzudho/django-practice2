@@ -244,7 +244,7 @@ TEMPLATES = [
 
 # Step OAAA1001o2o0g8o0 スモークテスト用データ作成 - settings.py ファイル
 
-👇 以下の既存ファイルを編集してほしい  
+👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 src1
@@ -323,4 +323,79 @@ TEMPLATES = [
         }
     ]
 }
+```
+
+# Step OAAA1001o2o0g9o0 画面作成 - settings.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        ├── 📂 apps1
+        │   └── 📂 consecutive_name_vol1o0              # アプリケーション
+        │       ├── 📂 migrations
+        │       │   └── 📄 __init__.py
+        │       ├── 📂 static
+        │       │   └── 📂 consecutive_name_vol1o0      # アプリケーションと同名
+        │       │       └── 📂 data
+        │       │           └── 📂 smoke_test
+        │       │               └── 📄 ver1o0.json
+        │       ├── 📂 templates
+        │       │   └── 📂 consecutive_name_vol1o0
+        │       │       └── 📂 data_table
+        │       │           └── 📄 ver1o0.html
+        │       ├── 📄 __init__.py
+        │       ├── 📄 admin.py
+        │       ├── 📄 apps.py
+        │       └── 📄 tests.py
+        └── 📂 project1
+            └── 📄 settings.py
+```
+
+```html
+<!-- BOF [OAAA1001o2o0g9o0] -->
+{% load static %} {# 👈あとで static "URL" を使うので load static します #}
+<!DOCTYPE html>
+<!-- See also: https://vuetifyjs.com/en/components/data-tables/#dense -->
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
+        <!-- Vuetify -->
+        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+        <!--                                                ===================
+                                                            1
+            1. Example: `http://example.com/static/favicon.ico`
+                                            ==================
+        -->
+        <title>連続名ツール</title>
+    </head>
+    <body>
+        <div id="app">
+            <v-app>
+                <v-main>
+                    <v-container>
+                        <v-data-table :headers="headers" :items="desserts" :items-per-page="5" class="elevation-1"></v-data-table>
+                    </v-container>
+                </v-main>
+            </v-app>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+        <script>
+            var dessertsDoc = JSON.parse("{{ dessertsStr|escapejs }}");
+
+            new Vue({
+                el: "#app",
+                vuetify: new Vuetify(),
+                data: dessertsDoc,
+            });
+        </script>
+    </body>
+</html>
+<!-- EOF [OAAA1001o2o0g9o0] -->
 ```

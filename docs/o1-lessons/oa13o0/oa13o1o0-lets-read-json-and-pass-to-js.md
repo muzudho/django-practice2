@@ -225,8 +225,7 @@ docker-compose up
 ```
 
 ```html
-{# OA13o1o0g3o0 #}
-<!-- -->
+<!-- BOF [OA13o1o0g3o0] -->
 {% load static %} {# 👈あとで static "URL" を使うので load static します #}
 <!DOCTYPE html>
 <!-- See also: https://vuetifyjs.com/en/components/data-tables/#dense -->
@@ -270,6 +269,7 @@ docker-compose up
         </script>
     </body>
 </html>
+<!-- EOF [OA13o1o0g3o0] -->
 ```
 
 ## Step OA13o1o0g4o0 ビュー作成 - v_desserts1.py ファイル
