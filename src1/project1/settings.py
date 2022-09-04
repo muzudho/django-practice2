@@ -65,6 +65,9 @@ INSTALLED_APPS = [
     # OAAA1001o1o0g6o0 ライフゲーム1.0巻
     'apps1.lifegame_vol1o0',
 
+    # [OAAA1001o2o0g6o0] 連続名1.0巻
+    'apps1.consecutive_name_vol1o0',
+
     # Djangoの標準アプリケーション
     'django.contrib.admin',
     'django.contrib.auth',
