@@ -331,6 +331,7 @@ class Consecutive:
     def __init__(self, id, prev):
         self._id = id
         self._prev = prev
+        self._originator = None
 
     @property
     def id(self):
@@ -339,6 +340,14 @@ class Consecutive:
     @property
     def prev(self):
         return self._prev
+
+    @property
+    def originator(self):
+        return self._originator
+
+    @originator.setter
+    def originator(self, value):
+        self._originator = value
 
 # EOF [OAAA1001o2o1o0g5o_2o0]
 ```
@@ -395,10 +404,10 @@ class Transition:
 # EOF [OAAA1001o2o1o0g5o_3o0]
 ```
 
-## Step [OAAA1001o2o1o0g5o0] データ自動生成 - participant 〇 consecutive → transition
+## Step [OAAA1001o2o1o0g5o0] データ自動計算 - consecutive → transition
 
 いきなり最終形を作るのは難しいので、  
-participant/ver1o0.json と consecutive/ver1o0.json を与えると、 transition/ver2o0.json を返すような  
+consecutive/ver1o0.json を与えると、 transition/ver2o0.json を返すような  
 関数を作ることにする  
 
 👇 以下のファイルを新規作成してほしい  
@@ -420,7 +429,7 @@ participant/ver1o0.json と consecutive/ver1o0.json を与えると、 transitio
         └── 📂 scripts
             └── 📂 auto_generators
                 └── 📂 consecutive_name_vol1o0
-                    └── 📂 x_pcp_con_y_tra
+                    └── 📂 x_con_y_tra
 👉                      └── 📄 __init__.py
 ```
 
