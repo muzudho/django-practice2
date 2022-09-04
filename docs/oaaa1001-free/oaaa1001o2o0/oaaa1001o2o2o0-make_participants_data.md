@@ -298,6 +298,103 @@ class Participant:
 # EOF [OAAA1001o2o1o0g5o_1o0]
 ```
 
+## Step [OAAA1001o2o1o0g5o_2o0] オブジェクト定義 - consecutive/ver1o0.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        └── 📂 apps1
+            └── 📂 consecutive_name_vol1o0              # アプリケーション
+                ├── 📂 static
+                │   └── 📂 consecutive_name_vol1o0      # アプリケーションと同名
+                │       └── 📂 data
+                │           ├── 📂 consecutive
+                │           │   └── 📄 ver1o0.json
+                │           ├── 📂 participant
+                │           │   └── 📄 ver1o0.json
+                │           └── 📂 transition
+                │               └── 📄 ver1o0.json
+                └── 📂 views
+                    ├── 📂 consecutive
+👉                  │   └── 📄 ver1o0.py
+                    └── 📂 participant
+                        └── 📄 ver1o0.py
+```
+
+```py
+# BOF [OAAA1001o2o1o0g5o_2o0]
+
+class Consecutive:
+    """[OAAA1001o2o1o0g5o_2o0] 連続性"""
+
+    def __init__(self, id, prev):
+        self._id = id
+        self._prev = prev
+
+    @property
+    def id(self):
+        return self._id
+
+    @property
+    def prev(self):
+        return self._prev
+
+# EOF [OAAA1001o2o1o0g5o_2o0]
+```
+
+## Step [OAAA1001o2o1o0g5o_3o0] オブジェクト定義 - transition/ver1o0.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        └── 📂 apps1
+            └── 📂 consecutive_name_vol1o0              # アプリケーション
+                ├── 📂 static
+                │   └── 📂 consecutive_name_vol1o0      # アプリケーションと同名
+                │       └── 📂 data
+                │           ├── 📂 consecutive
+                │           │   └── 📄 ver1o0.json
+                │           ├── 📂 participant
+                │           │   └── 📄 ver1o0.json
+                │           └── 📂 transition
+                │               └── 📄 ver1o0.json
+                └── 📂 views
+                    ├── 📂 consecutive
+                    │   └── 📄 ver1o0.py
+                    ├── 📂 participant
+                    │   └── 📄 ver1o0.py
+                    └── 📂 transition
+👉                      └── 📄 ver1o0.py
+```
+
+```py
+# BOF [OAAA1001o2o1o0g5o_3o0]
+
+class Transition:
+    """[OAAA1001o2o1o0g5o_3o0] 推移"""
+
+    def __init__(self, id, last_pcp_id, pcp_id):
+        self._id = id
+        self._last_pcp_id = last_pcp_id
+        self._pcp_id = pcp_id
+
+    @property
+    def id(self):
+        return self._id
+
+    @property
+    def last_pcp_id(self):
+        return self._last_pcp_id
+
+    @property
+    def pcp_id(self):
+        return self._pcp_id
+
+# EOF [OAAA1001o2o1o0g5o_3o0]
+```
+
 ## Step [OAAA1001o2o1o0g5o0] データ自動生成 - participant 〇 consecutive → transition
 
 いきなり最終形を作るのは難しいので、  
