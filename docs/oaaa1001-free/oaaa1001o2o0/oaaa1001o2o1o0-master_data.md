@@ -161,7 +161,7 @@ class Event(models.Model):
 
     def __str__(self):
         """このオブジェクトを文字列にしたとき返るもの"""
-        return f"{self.display_name} event"
+        return f"{self.name} event"
 
 # EOF [OAAA1001o2o1o0g3o0]
 ```
@@ -200,7 +200,7 @@ class EventVolume(models.Model):
 
     def __str__(self):
         """このオブジェクトを文字列にしたとき返るもの"""
-        return f"{self.display_name} event-volume"
+        return f"{self.name} event-volume"
 
 # EOF [OAAA1001o2o1o0g3o1o0]
 ```
@@ -313,7 +313,7 @@ docker-compose run --rm web python manage.py migrate
 +---------------+--------+-----------+
 ```
 
-## Step [OAAA1001o2o1o0g8o0] EventVolume を３つほど追加してほしい
+## Step [OAAA1001o2o1o0g8o0] Event をいくつか追加してほしい
 
 Events ラベルの右横の `➕ Add` リンクをクリックしてほしい  
 
@@ -328,13 +328,44 @@ Events ラベルの右横の `➕ Add` リンクをクリックしてほしい
                 [Save and add another] [Save and continue editing] [SAVE]
 ```
 
-👆 入力フォームが出てくるから、３件ほど適当に追加してほしい。  
+👆 入力フォームが出てくるから、以前に作ったJSONを参考に、何件か適当に追加してほしい。  
+`Id` は　ずれるものだから、合わせようとせず、違ったら違ったで うまくやってほしい。  
 `[SAVE]` が追加ボタンのようだ  
+
+## Step [OAAA1001o2o1o0g8o1o0] 登録した Event を確認してほしい
+
+Events ラベルをクリックすると、一覧画面が出てくる  
+
+## Step [OAAA1001o2o1o0g9o0] EventVolume をいくつか追加してほしい
+
+EventVolumes ラベルの右横の `➕ Add` リンクをクリックしてほしい  
+
+```plaintext
+催事種別Id: 0
+           ----------------
+名称:
+           ----------------
+名称_短縮:
+           ----------------
+順番:       0
+           ----------------
+
+                [Save and add another] [Save and continue editing] [SAVE]
+```
+
+👆 入力フォームが出てくるから、以前に作ったJSONを参考に、何件か適当に追加してほしい。  
+`Id` は　ずれるものだから、合わせようとせず、違ったら違ったで うまくやってほしい。  
+`[SAVE]` が追加ボタンのようだ  
+
+## Step [OAAA1001o2o1o0g9o1o0] 登録した EventVolume を確認してほしい
+
+EventVolumes ラベルをクリックすると、一覧画面が出てくる  
 
 # 参考にした記事
 
 ## Django モデル
 
 📖 [Djangoモデルフィールドのnullとblankの違いを理解する](https://djangobrothers.com/blogs/django_null_blank/)  
+📖 [Django 4.0 のモデルフィールドリファレンスまとめ](https://qiita.com/KeAt/items/55fdedc8cac7c6852043)  
 
 以上

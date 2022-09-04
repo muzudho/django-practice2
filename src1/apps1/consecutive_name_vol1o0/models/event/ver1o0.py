@@ -15,6 +15,6 @@ class Event(models.Model):
 
     def __str__(self):
         """このオブジェクトを文字列にしたとき返るもの"""
-        return f"{self.display_name} event"
+        return f"{self.name} event"
 
 # EOF [OAAA1001o2o1o0g3o0]

@@ -16,6 +16,6 @@ class EventVolume(models.Model):
 
     def __str__(self):
         """このオブジェクトを文字列にしたとき返るもの"""
-        return f"{self.display_name} event-volume"
+        return f"{self.name} event-volume"
 
 # EOF [OAAA1001o2o1o0g3o1o0]
