@@ -193,49 +193,40 @@ docker-compose up
 {
     "transitions": [
         {
-            "id": 1,
-            "last_pcp_id":3,
-            "pcp_id": 3,
-        },
-        {
-            "id": 2,
-            "last_pcp_id":3,
-            "pcp_id": 2,
-        },
-        {
-            "id": 3,
-            "last_pcp_id":3,
             "pcp_id": 1,
+            "last_pcp_id": 3
         },
         {
-            "id": 4,
-            "last_pcp_id":5,
-            "pcp_id": 4
+            "pcp_id": 2,
+            "last_pcp_id": 3
         },
         {
-            "id": 5,
-            "last_pcp_id":5,
-            "pcp_id": 5
+            "pcp_id": 3,
+            "last_pcp_id": 3
         },
         {
-            "id": 6,
-            "last_pcp_id":6,
-            "pcp_id": 6
+            "pcp_id": 4,
+            "last_pcp_id": 5
         },
         {
-            "id": 7,
-            "last_pcp_id":8,
-            "pcp_id": 7
+            "pcp_id": 5,
+            "last_pcp_id": 5
         },
         {
-            "id": 7,
-            "last_pcp_id":8,
-            "pcp_id": 8
+            "pcp_id": 6,
+            "last_pcp_id": 6
         },
         {
-            "id": 8,
-            "last_pcp_id":9,
-            "pcp_id": 9
+            "pcp_id": 7,
+            "last_pcp_id": 8
+        },
+        {
+            "pcp_id": 8,
+            "last_pcp_id": 8
+        },
+        {
+            "pcp_id": 9,
+            "last_pcp_id": 9
         }
     ]
 }
@@ -384,22 +375,17 @@ class Consecutive:
 class Transition:
     """[OAAA1001o2o1o0g5o_3o0] 推移"""
 
-    def __init__(self, id, last_pcp_id, pcp_id):
-        self._id = id
-        self._last_pcp_id = last_pcp_id
+    def __init__(self, pcp_id, last_pcp_id):
         self._pcp_id = pcp_id
-
-    @property
-    def id(self):
-        return self._id
-
-    @property
-    def last_pcp_id(self):
-        return self._last_pcp_id
+        self._last_pcp_id = last_pcp_id
 
     @property
     def pcp_id(self):
         return self._pcp_id
+
+    @property
+    def last_pcp_id(self):
+        return self._last_pcp_id
 
 # EOF [OAAA1001o2o1o0g5o_3o0]
 ```
