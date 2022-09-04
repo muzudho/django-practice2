@@ -846,13 +846,13 @@ class FileCollection:
 ```
 
 ```py
-# BOF O3o2o_1o0g2o0
+# BOF [O3o2o_1o0g2o0]
 
 import os
 import pandas as pd
 from pathlib import Path
 
-# O3o2o_1o0g2o_3o0
+# [O3o2o_1o0g2o_3o0]
 from .file_path import FilePath
 #    ]---------        --------
 #    12                3
@@ -861,16 +861,16 @@ from .file_path import FilePath
 #    ---------
 # 3. クラス名
 
-# O3o2o_1o0g2o_4o1o0
+# [O3o2o_1o0g2o_4o1o0]
 from .path_renderer import PathRenderer
 
-# O3o2o_1o0g2o_4o2o0
+# [O3o2o_1o0g2o_4o2o0]
 from .urls_file_render import UrlsFileRender
 
-# O3o2o_1o0g2o_4o3o0
+# [O3o2o_1o0g2o_4o3o0]
 from .urls_summary_render import UrlsSummaryRender
 
-# O3o2o_1o0g2o_4o4o0
+# [O3o2o_1o0g2o_4o4o0]
 from .file_collection import FileCollection
 
 
@@ -913,35 +913,39 @@ class UrlsAutoGenerator:
         file_collection.remove_all(urls_file_map.keys())
         # 残ったファイルは削除対象
         for file_path in file_collection.target_path_str_list:
-            print(f"* [ ] Remove {file_path}")
+            abs_path = str(Path(file_path).absolute().resolve())
+            print(f"* [ ] Remove {abs_path}")
 
         # どんなファイルを書き出すかの一覧を出力
         for file_path, urls_file_o in urls_file_map.items():
-            s = str(Path(file_path).absolute().resolve())
-            print(f"* [ ] Write {s}")
+            abs_path = str(Path(file_path).absolute().resolve())
+            print(f"* [ ] Write {abs_path}")
 
-        print(f"* [ ] Write {self._summary_file_to_export}")
+        abs_path = str(Path(self._summary_file_to_export).absolute().resolve())
+        print(f"* [ ] Write {abs_path}")
         print(f"Ok? (y/n)")
         key = input()
 
         if key.upper() == "Y":
             # ファイルの削除
             for file_path in file_collection.target_path_str_list:
-                print(f"Remove... {file_path}")
-                os.remove(file_path)
+                abs_path = str(Path(file_path).absolute().resolve())
+                print(f"Remove... {abs_path}")
+                os.remove(abs_path)
 
             # 各ファイル書出し
             for file_path, urls_file_o in urls_file_map.items():
-                s = str(Path(file_path).absolute().resolve())
+                abs_path = str(Path(file_path).absolute().resolve())
                 # ファイル書出し
-                with open(s, 'w', encoding="utf8") as f:
-                    print(f"Write... {s}")
+                with open(abs_path, 'w', encoding="utf8") as f:
+                    print(f"Write... {abs_path}")
                     f.write(urls_file_o.create_file_text())
 
             # ファイル書出し
-            with open(self._summary_file_to_export, 'w', encoding="utf8") as f:
-                s = str(Path(self._summary_file_to_export).absolute().resolve())
-                print(f"Write... {s}")
+            abs_path = str(
+                Path(self._summary_file_to_export).absolute().resolve())
+            with open(abs_path, 'w', encoding="utf8") as f:
+                print(f"Write... {abs_path}")
                 f.write(urls_summary_render.create_file_text())
 
     def create_urls_file_map(self, df):
@@ -1009,7 +1013,7 @@ class UrlsAutoGenerator:
 
         return urls_summary_render
 
-# EOF O3o2o_1o0g2o0
+# EOF [O3o2o_1o0g2o0]
 ```
 
 ## Step [O3o2o_1o0g2o1o0] スクリプト作成 - urls/__main__.py ファイル

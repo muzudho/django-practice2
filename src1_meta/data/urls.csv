@@ -52,4 +52,4 @@ file,path,name,comment,module,class,alias,method
 ../src1/project1/urls_lifegame_vol1o0_autogen.py,lifegame/vol1.0/board/ver0.1,,"[OAAA1001o1o0ga10o1o0] ライフゲーム1.0巻 盤0.1版",apps1.lifegame_vol1o0.views.board.ver0o1o0,BoardView,Lifegame1o0BoardView0o1o0,render
 ../src1/project1/urls_lifegame_vol1o0_autogen.py,lifegame/vol1.0/board/ver0.2,,"[OAAA1001o1o0ga12o_7o1o0] ライフゲーム1.0巻 盤0.2版",apps1.lifegame_vol1o0.views.board.ver0o2o0,BoardView,Lifegame1o0BoardView0o2o0,render
 ../src1/project1/urls_lifegame_vol1o0_autogen.py,lifegame/vol1.0/board/ver0.3,,"[OAAA1001o1o0ga15o1o0] ライフゲーム1.0巻 盤0.3版",apps1.lifegame_vol1o0.views.board.ver0o3o0,BoardView,Lifegame1o0BoardView0o3o0,render
-../src1/project1/urls_consecutive_name_vol1o0_autogen.py,consecutive_name/vol1.0/data-table/ver0.1,,"[OAAA1001o2o0g11o0] ライフゲーム1.0巻 盤0.1版",apps1.consecutive_name_vol1o0.views.data_table.ver1o0,DataTableView,ConsecutiveName1o0DataTableView1o0,render
+../src1/project1/urls_consecutive_name_vol1o0_autogen.py,consecutive_name/vol1.0/data-table/ver0.1/,,"[OAAA1001o2o0g11o0] ライフゲーム1.0巻 盤0.1版",apps1.consecutive_name_vol1o0.views.data_table.ver1o0,DataTableView,ConsecutiveName1o0DataTableView1o0,render

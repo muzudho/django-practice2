@@ -508,7 +508,7 @@ class DataTableView():
 ...略...
 
 
-../src1/project1/urls_consecutive_name_vol1o0_autogen.py,consecutive_name/vol1.0/data-table/ver0.1,,"[OAAA1001o2o0g11o0] ライフゲーム1.0巻 盤0.1版",apps1.consecutive_name_vol1o0.views.data_table.ver1o0,DataTableView,ConsecutiveName1o0DataTableView1o0,render
+../src1/project1/urls_consecutive_name_vol1o0_autogen.py,consecutive_name/vol1.0/data-table/ver0.1/,,"[OAAA1001o2o0g11o0] ライフゲーム1.0巻 盤0.1版",apps1.consecutive_name_vol1o0.views.data_table.ver1o0,DataTableView,ConsecutiveName1o0DataTableView1o0,render
 ```
 
 ## Step [OAAA1001o2o0g11o0] ルート編集 - コマンド打鍵
@@ -532,3 +532,7 @@ docker-compose restart
 * ディレクトリーは、がんばって移動してほしい
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
+
+## Step OA13o1o0g7o0 Web画面へアクセス
+
+📖 [http://localhost:8000/consecutive_name/vol1.0/data-table/ver0.1/](http://localhost:8000/practice/vol1.0/vuetify/desserts1/ver1.0/)  
