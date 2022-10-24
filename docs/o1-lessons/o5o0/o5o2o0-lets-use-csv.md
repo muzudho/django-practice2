@@ -163,7 +163,7 @@ path,label
 /launcher/vol1.0/finished-lesson/ver1.0/,O5o2o0g5o0 ランチャー1.0巻 終了したレッスン1.0版
 /,O5o2o0g5o0 ランチャー1.0巻 終了したレッスン2.0版 （ポータル）
 /admin,O5o2o0g5o0 ランチャー1.0巻 管理画面
-/practice/vol1.0/page-the-hello/ver1.0/,O5o2o0g5o0 練習1.0巻 こんにちわ1.0版
+/practice/vol1.0/hello/ver1.0/,O5o2o0g5o0 練習1.0巻 こんにちわ1.0版
 /practice/vol1.0/page-to-be-added-1/ver1.0/,O5o2o0g5o0 練習1.0巻 １回追加されたページ1.0版
 /practice/vol1.0/page-to-be-added-2/ver1.0/,O5o2o0g5o0 練習1.0巻 ２回追加されたページ1.0版
 ```
@@ -305,7 +305,7 @@ class Launcher():
         # Example
         # -------
         #    path                                         label
-        # 0  /practice/vol1.0/page-the-hello/ver1.0/      こんにちわページ
+        # 0  /practice/vol1.0/hello/ver1.0/      こんにちわページ
         # 1  /practice/vol1.0/page-to-be-added-1/ver1.0/  １回追加されたページ
         # 2  /practice/vol1.0/page-to-be-added-2/ver1.0/  ２回追加されたページ
 

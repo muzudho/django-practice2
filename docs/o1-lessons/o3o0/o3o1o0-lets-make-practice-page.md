@@ -1,6 +1,6 @@
 # サンプルを見る
 
-📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1.0/page-the-hello/ver1.0/)  
+📖 [この記事のゴール](http://tic.warabenture.com:8000/practice/vol1.0/hello/ver1.0/)  
 
 # 目標
 
@@ -11,7 +11,7 @@ Webサイトのページを追加したい
 以下のようなURLで表示させる  
 
 ```plain
-http://example.com/practice/vol1.0/page-the-hello/ver1.0/
+http://example.com/practice/vol1.0/hello/ver1.0/
 ------]----------]---------------------------------------
 1      2          3
 
@@ -59,7 +59,7 @@ http://example.com/practice/vol1.0/page-the-hello/ver1.0/
 
 # 手順
 
-## Step O3o1o0g1o0 Dockerコンテナの起動
+## Step [O3o1o0g1o0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -71,7 +71,7 @@ cd src1
 docker-compose up
 ```
 
-## Step O3o1o0g2o0 フォルダー作成 - apps1/practice_vol1o0 フォルダー
+## Step [O3o1o0g2o0] フォルダー作成 - apps1/practice_vol1o0 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -84,7 +84,7 @@ docker-compose up
 * `apps1` - 末尾の `1` は文字列検索しやすいように付けているだけで特別な意味はない
 * `practice_vol1o0` - 末尾の `_vol1o0` はレッスンの都合で付けている `1.0巻` という意味だが無くてもいい
 
-## Step O3o1o0g3o0 アプリケーション作成
+## Step [O3o1o0g3o0] アプリケーション作成
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -94,7 +94,7 @@ docker-compose run --rm web python manage.py startapp practice_vol1o0 ./apps1/pr
 #                                                     1               2                                  3
 # 1. 任意のDjangoアプリケーション名
 # 2. アプリケーション フォルダーへのパス
-# 3. `src1/project1/settings.py` 設定ファイルに従う
+# 3. `src1/projectN/settings.py` 設定ファイルに従う
 #          -----------------
 ```
 
@@ -114,7 +114,7 @@ docker-compose run --rm web python manage.py startapp practice_vol1o0 ./apps1/pr
 👉              └── 📄 views.py
 ```
 
-## Step O3o1o0g4o0 今回使わないファイルの削除
+## Step [O3o1o0g4o0] 今回使わないファイルの削除
 
 👇 以下のファイルを削除してほしい  
 
@@ -132,7 +132,7 @@ docker-compose run --rm web python manage.py startapp practice_vol1o0 ./apps1/pr
 👉              └── 📄 views.py
 ```
 
-## Step O3o1o0g5o0 アプリケーション設定変更 - apps.py
+## Step [O3o1o0g5o0] アプリケーション設定変更 - apps.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -149,7 +149,7 @@ docker-compose run --rm web python manage.py startapp practice_vol1o0 ./apps1/pr
 ```
 
 ```py
-# BOF O3o1o0g5o0
+# BOF [O3o1o0g5o0]
 
 from django.apps import AppConfig
 
@@ -158,17 +158,17 @@ class PracticeConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     # * 変更前
     #name = 'practice_v1'
-    # * O3o1o0g5o0 変更後
+    # * [O3o1o0g5o0] 変更後
     name = 'apps1.practice_vol1o0'
     #       ---------------------
     #       1
     # 1. `src1/apps1/practice_vol1o0/apps.py`
     #          ---------------------
 
-# EOF O3o1o0g5o0
+# EOF [O3o1o0g5o0]
 ```
 
-## Step O3o1o0g6o0 アプリケーション登録 - settings.py ファイル＜その２＞
+## Step [O3o1o0g6o0] アプリケーション登録 - settings.py ファイル＜その２＞
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -187,22 +187,7 @@ class PracticeConfig(AppConfig):
 ```
 
 ```py
-# * 変更前
-# INSTALLED_APPS = [
-#     'django.contrib.admin',
-#     'django.contrib.auth',
-#     'django.contrib.contenttypes',
-#     'django.contrib.sessions',
-#     'django.contrib.messages',
-#     'django.contrib.staticfiles',
-# ]
-#
-# * 変更後
 INSTALLED_APPS = [
-    # あなたが追加したアプリケーション
-    # O3o1o0g6o0 練習1.0巻
-    'apps1.practice_vol1o0',
-
     # Djangoの標準アプリケーション
     'django.contrib.admin',
     'django.contrib.auth',
@@ -210,13 +195,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # vvvv 追加 ここから
+    # あなたが追加したアプリケーション
+    # [O3o1o0g6o0] 練習1.0巻
+    'apps1.practice_vol1o0',
+    # ^^^^ 追加 ここまで
 ]
 ```
 
 これで、 `src1/apps1/practice_vol1o0` フォルダーは practice_vol1o0 アプリケーションとして認識される。  
 そのメリットは　今後のレッスンで触れる  
 
-## Step O3o1o0g7o0 画面作成 - hello/ver1o0.html ファイル
+## Step [O3o1o0g7o0] 画面作成 - hello/ver1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -241,7 +232,7 @@ INSTALLED_APPS = [
 * `templateの下のpractice_vol1o0` - あなたの Django の支配下のすべてのアプリケーションのテンプレート素材は、まるで実行時メモリの中で、あなたの Django の支配下のすべてのアプリケーションからアクセスできる１つの静的フォルダーに再配置されているかのように扱えると考えてほしい。あとは自分の頭で考えてほしい
 
 ```html
-<!-- O3o1o0g7o0 -->
+<!-- BOF [O3o1o0g7o0] -->
 <html>
     <head>
         <title>ページ１</title>
@@ -250,9 +241,10 @@ INSTALLED_APPS = [
         こんにちわ、世界！
     </body>
 </html>
+<!-- EOF [O3o1o0g7o0] -->
 ```
 
-## Step O3o1o0g8o0 設定変更 - settings.py ファイル
+## Step [O3o1o0g8o0] 設定変更 - settings.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -280,11 +272,11 @@ INSTALLED_APPS = [
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # * 変更前
+        # * [O3o1o0g8o0] 変更前
         # 'DIRS': [],
         # * 変更後
         'DIRS': [
-            # O3o1o0g8o0 練習1.0巻
+            # [O3o1o0g8o0] 練習1.0巻
             os.path.join(BASE_DIR, 'apps1/practice_vol1o0/templates'),
             #                       -------------------------------
             #                       10
@@ -311,7 +303,7 @@ TEMPLATES = [
 ]
 ```
 
-## Step O3o1o0g9o0 ビュー作成 - hello/ver1o0 フォルダー
+## Step [O3o1o0g9o0] ビュー作成 - hello/ver1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -338,13 +330,13 @@ TEMPLATES = [
 ```
 
 ```py
-# BOF O3o1o0g9o0
+# BOF [O3o1o0g9o0]
 
 from django.shortcuts import render
 
 
 class HelloView():
-    """O3o1o0g9o0 こんにちわページ"""
+    """[O3o1o0g9o0] こんにちわページ"""
 
     @staticmethod
     def render(request):
@@ -370,10 +362,10 @@ class HelloView():
         # context = {}
         # HttpResponse(template.render(context, request))
 
-# EOF O3o1o0g9o0
+# EOF [O3o1o0g9o0]
 ```
 
-## Step O3o1o0gA10o0 サブ ルート作成 - urls_practice.py
+## Step [O3o1o0gA10o0] サブ ルート作成 - urls_practice.py
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -402,11 +394,11 @@ class HelloView():
 ```
 
 ```py
-# BOF O3o1o0gA10o0
+# BOF [O3o1o0gA10o0]
 
 from django.urls import path
 
-# O3o1o0gA10o0 練習1.0巻 こんにちわページ1.0版
+# [O3o1o0gA10o0] 練習1.0巻 こんにちわページ1.0版
 from apps1.practice_vol1o0.views.hello.ver1o0 import HelloView
 #          ---------------             ------        ---------
 #          11                          12            2
@@ -419,23 +411,23 @@ from apps1.practice_vol1o0.views.hello.ver1o0 import HelloView
 
 urlpatterns = [
 
-    # O3o1o0gA10o0 練習1.0巻 こんにちわページ1.0版
-    path('practice/vol1.0/page-the-hello/ver1.0/',
-         # -------------------------------------
+    # [O3o1o0gA10o0] 練習1.0巻 こんにちわページ1.0版
+    path('practice/vol1.0/hello/ver1.0/',
+         # ----------------------------
          # 1
          HelloView.render, name='hello'),
     #    ----------------        -----
     #    2                       3
-    # 1. 例えば `http://example.com/practice/vol1.0/page-the-hello/ver1.0/` のようなURLのパスの部分
-    #                              ---------------------------------------
+    # 1. 例えば `http://example.com/practice/vol1.0/hello/ver1.0/` のようなURLのパスの部分
+    #                              -----------------------------
     # 2. HelloView クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'hello' %} のような形でURLを取得するのに使える
 ]
 
-# EOF O3o1o0gA10o0
+# EOF [O3o1o0gA10o0]
 ```
 
-## Step O3o1o0gA11o0 総合ルート編集 - urls.py
+## Step [O3o1o0gA11o0] 総合ルート編集 - urls.py
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -469,7 +461,7 @@ urlpatterns = [
 
 from django.urls import include, path # include を追加
 
-# O3o1o0gA11o0 総合ルート編集
+# [O3o1o0gA11o0] 総合ルート編集
 from .settings import PROJECT_NAME
 #    ]--------        ------------
 #    12               3
@@ -488,7 +480,7 @@ urlpatterns = [
     # ...中略...
 
 
-    # O3o1o0gA11o0 練習
+    # [O3o1o0gA11o0] 練習
     path('', include(f'{PROJECT_NAME}.urls_practice')),
     #    --            ----------------------------
     #    1             2
@@ -498,13 +490,13 @@ urlpatterns = [
 ]
 ```
 
-## Step O3o1o0gA12o0 Webページにアクセスする
+## Step [O3o1o0gA12o0] Webページにアクセスする
 
-📖 [http://localhost:8000/practice/vol1.0/page-the-hello/ver1.0/](http://localhost:8000/practice/vol1.0/page-the-hello/ver1.0/)  
+📖 [http://localhost:8000/practice/vol1.0/hello/ver1.0/](http://localhost:8000/practice/vol1.0/hello/ver1.0/)  
 
 # 次の記事
 
-📖 [o3o2o_1o0 URL設定を自動化しよう！](https://qiita.com/muzudho1/items/eed6f70c0c1502942738)  
+📖 [[o3o2o_1o0] URL設定を自動化しよう！](https://qiita.com/muzudho1/items/eed6f70c0c1502942738)  
 
 # 参考にした記事
 

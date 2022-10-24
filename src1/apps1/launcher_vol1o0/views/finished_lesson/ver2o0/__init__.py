@@ -29,7 +29,7 @@ class Launcher():
         # Example
         # -------
         #    path                                         label
-        # 0  /practice/vol1.0/page-the-hello/ver1.0/      こんにちわページ
+        # 0  /practice/vol1.0/hello/ver1.0/      こんにちわページ
         # 1  /practice/vol1.0/page-to-be-added-1/ver1.0/  １回追加されたページ
         # 2  /practice/vol1.0/page-to-be-added-2/ver1.0/  ２回追加されたページ
 

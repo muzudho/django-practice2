@@ -16,14 +16,14 @@ from apps1.practice_vol1o0.views.hello.ver1o0 import HelloView
 urlpatterns = [
 
     # O3o1o0gA10o0 練習1.0巻 こんにちわページ1.0版
-    path('practice/vol1.0/page-the-hello/ver1.0/',
-         # -------------------------------------
+    path('practice/vol1.0/hello/ver1.0/',
+         # ----------------------------
          # 1
          HelloView.render, name='hello'),
     #    ----------------        -----
     #    2                       3
-    # 1. 例えば `http://example.com/practice/vol1.0/page-the-hello/ver1.0/` のようなURLのパスの部分
-    #                              ---------------------------------------
+    # 1. 例えば `http://example.com/practice/vol1.0/hello/ver1.0/` のようなURLのパスの部分
+    #                              -----------------------------
     # 2. HelloView クラスの render 静的メソッド
     # 3. HTMLテンプレートの中で {% url 'hello' %} のような形でURLを取得するのに使える
 ]

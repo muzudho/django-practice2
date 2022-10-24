@@ -22,13 +22,13 @@
 
 # 手順
 
-## Step O2o1o0g1o0 エディターのインストール - Visual Studio Code
+## Step [O2o1o0g1o0] エディターのインストール - Visual Studio Code
 
 👇 以下のリンクから、がんばって Visual Studio Code をインストールしてほしい  
 
 📖 [Visual Studio Code](https://code.visualstudio.com/)  
 
-## Step O2o1o0g2o0 リポジトリの用意 - Git
+## Step [O2o1o0g2o0] リポジトリの用意 - Git
 
 がんばって Git を使ったソース管理を覚えてきてほしい  
 
@@ -38,11 +38,11 @@
     * 📖 [Git Hub Desktop](https://desktop.github.com/)
 * 📖 [Git Lab](https://gitlab.com/gitlab-org/gitlab)
 
-## Step O2o1o0g3o0 仮想コンテナの用意 - Docker
+## Step [O2o1o0g3o0] 仮想コンテナの用意 - Docker
 
 がんばって Docker と docker-compose を覚えてきてほしい  
 
-## Step O2o1o0g4o0 開発環境の確認
+## Step [O2o1o0g4o0] 開発環境の確認
 
 VSCode のターミナルで以下のコマンドを叩いていって、あなたのPCと この記事の環境が似ているか確認してほしい  
 
@@ -69,7 +69,7 @@ docker-compose -version
 python -m pip install --upgrade pip
 ```
 
-## Step O2o1o0g5o0 Pythonパッケージ インストール指定 - requirements.txt ファイル
+## Step [O2o1o0g5o0] Pythonパッケージ インストール指定 - requirements.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -86,7 +86,7 @@ Django>=3.0,<4.0
 psycopg2>=2.8
 ```
 
-## Step O2o1o0g6o0 ドッカーファイル作成 - Dockerfile ファイル
+## Step [O2o1o0g6o0] ドッカーファイル作成 - Dockerfile ファイル
 
 以下のファイルを新規作成してほしい  
 
@@ -120,15 +120,15 @@ RUN pip install -r requirements.txt
 COPY . /code/
 ```
 
-## Step O2o1o0g7o0 ドッカーコンポーズファイル作成 - docker-compose.yml ファイル
+## Step [O2o1o0g7o0] ドッカーコンポーズファイル作成 - docker-compose.yml ファイル
 
 以下のファイルを新規作成してほしい  
 
 ```plaintext
     └── 📂 src1
-👉      ├── 🐳docker-compose.yml
-        ├── 🐳Dockerfile
-        └── 📄requirements.txt
+👉      ├── 🐳 docker-compose.yml
+        ├── 🐳 Dockerfile
+        └── 📄 requirements.txt
 ```
 
 ```yaml
@@ -153,10 +153,10 @@ services:
     #                                   1       2               3
     # 1. Dockerコンテナ内のサーバーは localhost ではなく 0.0.0.0 と書く
     # 2. Dockerコンテナ内のWebアプリケーションのポート番号
-    # 3. Django設定のPythonモジュール。分からなければ、Djangoの設定ファイル（src1/project1/settings.py）の拡張子抜きのドット区切りと考えればよい
+    # 3. Django設定のPythonモジュール。分からなければ、Djangoの設定ファイル（src1/projectN/settings.py）の拡張子抜きのドット区切りと考えればよい
     #                                                                        -----------------
-    #    例えばレッスンの最初に project1 プロジェクトを作成したなら、
-    #    デフォルトでは project1 プロジェクトの --settings=project1.settings を指定するようハードコーディングされる。
+    #    例えばレッスンの最初に projectN プロジェクトを作成したなら、
+    #    デフォルトでは projectN プロジェクトの --settings=projectN.settings を指定するようハードコーディングされる。
     #    この Django設定 を差し替えたくなったら、ここを変えればよい
     volumes:
       - .:/code
@@ -170,7 +170,7 @@ services:
       - db
 ```
 
-## Step O2o1o0g8o0 プロジェクト作成 - startproject 管理コマンド
+## Step [O2o1o0g8o0] プロジェクト作成 - startproject 管理コマンド
 
 以下の説明は なんとことだか分からないだろうが、自分の頭で考えてほしい  
 
@@ -216,7 +216,7 @@ Creating src1_web_run ... done
         └── 📄 manage.py
 ```
 
-## Step O2o1o0g9o0 セキュリティ対策 - SECRET_KEY 変数
+## Step [O2o1o0g9o0] セキュリティ対策 - SECRET_KEY 変数
 
 プロジェクトを作成した直後には問題がある。だから対応する。  
 
@@ -315,7 +315,7 @@ src1/project2/settings_secrets.py
 from .settings_secrets import SECRET_KEY, ALLOWED_HOSTS
 #    -----------------        -------------------------
 #    1                        2
-# 1. `src1/project1/settings_secrets.py` を指しています
+# 1. `src1/projectN/settings_secrets.py` を指しています
 #                   ----------------
 # 2. このファイル内では使われていませんが、このファイルを使う側から使われます
 ```
@@ -349,9 +349,9 @@ ALLOWED_HOSTS = []
 # 1. 例えば レンタルサーバーを借りたときなどは、ここに IPアドレス や ホスト名 を入れないと、外部からWebサイトが見れないだろう
 ```
 
-## Step O2o1o0g9o1o0 プロジェクト名の一般化
+## Step [O2o1o0g9o1o0] プロジェクト名の一般化
 
-## Step O2o1o0g9o1o1o0 asgi.py
+## Step [O2o1o0g9o1o1o0] asgi.py
 
 👇 以下のファイルを編集してほしい
 
@@ -377,7 +377,7 @@ ALLOWED_HOSTS = []
 
 
 # vvvv 追加ここから
-# O2o1o0g9o1o1o0 プロジェクト名の一般化
+# [O2o1o0g9o1o1o0] プロジェクト名の一般化
 from .settings import PROJECT_NAME
 #    ]--------        ------------
 #    12               3
@@ -388,7 +388,7 @@ from .settings import PROJECT_NAME
 
 # * 変更前
 # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project1.settings')
-# * O2o1o0g9o1o1o0 プロジェクト名の一般化
+# * [O2o1o0g9o1o1o0] プロジェクト名の一般化
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', f'{PROJECT_NAME}.settings')
 #                                                 -----------------------
 #                                                 1
@@ -400,7 +400,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', f'{PROJECT_NAME}.settings')
 # ...略... application変数の設定など
 ```
 
-## Step O2o1o0g9o1o2o_9o0 settings.py
+## Step [O2o1o0g9o1o2o_9o0] settings.py
 
 👇 以下のファイルを編集してほしい
 
@@ -427,7 +427,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', f'{PROJECT_NAME}.settings')
 
 # * 変更前
 # WSGI_APPLICATION = 'project1.wsgi.application'
-# * O2o1o0g9o1o2o_9o0 プロジェクト名の一般化
+# * [O2o1o0g9o1o2o_9o0] プロジェクト名の一般化
 WSGI_APPLICATION = f'{PROJECT_NAME}.wsgi.application'
 #                    -------------------------------
 #                    1
@@ -439,9 +439,9 @@ WSGI_APPLICATION = f'{PROJECT_NAME}.wsgi.application'
 # ...略...
 ```
 
-## Step O2o1o0g9o1o2o0 urls.py
+## Step [O2o1o0g9o1o2o0] urls.py
 
-## Step O2o1o0g9o1o3o0 wsgi.py
+## Step [O2o1o0g9o1o3o0] wsgi.py
 
 👇 以下のファイルを編集してほしい
 
@@ -466,7 +466,7 @@ WSGI_APPLICATION = f'{PROJECT_NAME}.wsgi.application'
 # ...略...
 
 
-# O2o1o0g9o1o3o0 プロジェクト名の一般化
+# [O2o1o0g9o1o3o0] プロジェクト名の一般化
 from .settings import PROJECT_NAME
 #    ]--------        ------------
 #    12               3
@@ -492,7 +492,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', f'{PROJECT_NAME}.settings')
 # ...略...
 ```
 
-## Step O2o1o0gA10o0 コメント - manage.py ファイル
+## Step [O2o1o0gA10o0] コメント - manage.py ファイル
 
 👇 以下のファイルに、コメントを書き入れてもいいし、書き入れなくてもよい  
 
@@ -525,10 +525,10 @@ def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project1.settings')
     #                                                -----------------
     #                                                1
-    # 1. Django設定のPythonモジュール。分からなければ、Djangoの設定ファイル（src1/project1/settings.py）の拡張子抜きのドット区切りと考えればよい
+    # 1. Django設定のPythonモジュール。分からなければ、Djangoの設定ファイル（src1/projectN/settings.py）の拡張子抜きのドット区切りと考えればよい
     #                                                                        -----------------
-    #    例えばレッスンの最初に project1 プロジェクトを作成したなら、
-    #    デフォルトでは project1 プロジェクトの settings.py ファイルを指定するようハードコーディングされる。
+    #    例えばレッスンの最初に projectN プロジェクトを作成したなら、
+    #    デフォルトでは projectN プロジェクトの settings.py ファイルを指定するようハードコーディングされる。
     #    コマンドライン引数で設定ファイルを指定できるので、ここを編集する必要はない
     try:
         from django.core.management import execute_from_command_line
@@ -545,7 +545,7 @@ if __name__ == '__main__':
     main()
 ```
 
-## Step O2o1o0gA11o0 コメント - urls.py ファイル
+## Step [O2o1o0gA11o0] コメント - urls.py ファイル
 
 👇 以下のファイルに、コメントを書き入れてもいいし、書き入れなくてもよい  
 
@@ -567,7 +567,7 @@ if __name__ == '__main__':
 ```
 
 ```py
-"""project1 URL Configuration
+"""projectN URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -605,7 +605,7 @@ urlpatterns = [
 ]
 ```
 
-## Step O2o1o0gA12o0 設定変更 - settings.py ファイル
+## Step [O2o1o0gA12o0] 設定変更 - settings.py ファイル
 
 👇 以下のファイルを編集してほしい  
 
@@ -696,7 +696,7 @@ DATABASES = {
 }
 ```
 
-## Step O2o1o0gA13o0 コメント - settings.py ファイル
+## Step [O2o1o0gA13o0] コメント - settings.py ファイル
 
 👇 以下のファイルに、コメントを書き入れてもいいし、書き入れなくてもよい  
 
@@ -724,9 +724,9 @@ DATABASES = {
 BASE_DIR = Path(__file__).resolve().parent.parent
 #                        ------------------------
 #                        1
-# 1. 例えば `src1/project1/settings.py` ファイルから見て
-#    .resolve()               は `code/project1/settings.py` （`src1` は見えず `code` に差し変わっている）
-#    .resolve().parent        は `code/project1/`
+# 1. 例えば `src1/projectN/settings.py` ファイルから見て
+#    .resolve()               は `code/projectN/settings.py` （`src1` は見えず `code` に差し変わっている）
+#    .resolve().parent        は `code/projectN/`
 #    .resolve().parent.parent は `code/`
 #    となっていて、つまり BASE_DIR は あなたの開発用ディレクトリーを指している
 ```
@@ -736,11 +736,11 @@ ROOT_URLCONF = f'{PROJECT_NAME}.urls'
 #                -------------------
 #                1
 # 1. DjangoのURL設定の大元となるPythonモジュール。
-#    `src1/project1/urls.py` を指している
+#    `src1/projectN/urls.py` を指している
 #          -------------
 ```
 
-## Step O2o1o0gA14o0 コメント - settings_secrets.py ファイル
+## Step [O2o1o0gA14o0] コメント - settings_secrets.py ファイル
 
 👇 以下のファイルに、コメントを書き入れてもいいし、書き入れなくてもよい  
 
@@ -768,7 +768,7 @@ ALLOWED_HOSTS = []
 # 1. 例えば レンタルサーバーを借りたときなどは、ここに IPアドレス や ホスト名 を入れないと、外部からWebサイトが見れないだろう
 ```
 
-## Step O2o1o0gA15o0 ギット設定 - .gitignore ファイル
+## Step [O2o1o0gA15o0] ギット設定 - .gitignore ファイル
 
 👇 （もしgitを使っているなら）以下のファイルを編集してほしい  
 
@@ -801,7 +801,7 @@ ALLOWED_HOSTS = []
 src1/data/db
 ```
 
-## Step O2o1o0gA16o0 ドッカーコンテナ起動 - docker-compose コマンド
+## Step [O2o1o0gA16o0] ドッカーコンテナ起動 - docker-compose コマンド
 
 👇 以下のコマンドを叩いてほしい  
 
@@ -834,7 +834,7 @@ docker-compose up
     └── 📄 .gitignore
 ```
 
-## Step O2o1o0gA17o0 Webページへアクセス
+## Step [O2o1o0gA17o0] Webページへアクセス
 
 次に、ブラウザで以下のURLにアクセスしてほしい  
 
@@ -843,7 +843,7 @@ docker-compose up
 これで、ロケットが飛んでいるページが出てくれば　インストールは完了だ。  
 `[Ctrl]+[C]` キーでWebサーバーを停めることができる  
 
-## Step O2o1o0gA18o0 Dockerコンテナの停止の練習
+## Step [O2o1o0gA18o0] Dockerコンテナの停止の練習
 
 Dockerコンテナの停止の練習をしてほしい。そんなん知ってるという人はパスして構わない  
 
