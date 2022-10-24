@@ -70,7 +70,7 @@
 
 # 手順
 
-## Step O3o3o0g1o0 Dockerコンテナの起動
+## Step [O3o3o0g1o0] Dockerコンテナの起動
 
 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -82,7 +82,7 @@ cd src1
 docker-compose up
 ```
 
-## Step O3o3o0g2o0 画面作成 - page_to_be_added/ver3o0.html.txt ファイル
+## Step [O3o3o0g2o0] 画面作成 - page_to_be_added/ver3o0.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい。  
 自動フォーマットされてくないので、拡張子をテキストファイルにしておく  
@@ -130,7 +130,7 @@ docker-compose up
 <!-- EOF O3o3o0g2o0 -->
 ```
 
-## Step O3o3o0g3o0 ビュー作成 - page_to_be_added/ver3o0 フォルダー
+## Step [O3o3o0g3o0] ビュー作成 - page_to_be_added/ver3o0 フォルダー
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -173,11 +173,11 @@ class PageToBeAdded():
 # EOF O3o3o0g3o0
 ```
 
-## ~~Step O3o3o0g4o0~~
+## ~~Step [O3o3o0g4o0]~~
 
 Merged to O3o3o0g4o1o0  
 
-## Step O3o3o0g4o1o0 ルート編集 - urls.csv ファイル
+## Step [O3o3o0g4o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -206,7 +206,7 @@ Merged to O3o3o0g4o1o0
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/page-to-be-added-2/ver1.0/,,"O3o3o0g4o1o0 練習1.0巻 ２回追加されたページ1.0版",apps1.practice_vol1o0.views.page_to_be_added.ver3o0,PageToBeAdded,PageToBeAdded2,render
 ```
 
-## Step O3o2o0g5o2o0 ルート編集 - コマンド打鍵
+## Step [O3o2o0g5o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -221,7 +221,7 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## Step O3o3o0g5o0 Webページにアクセスする
+## Step [O3o3o0g5o0] Webページにアクセスする
 
 📖 [http://localhost:8000/practice/vol1.0/page-to-be-added-2/ver1.0/](http://localhost:8000/practice/vol1.0/page-to-be-added-2/ver1.0/)  
 

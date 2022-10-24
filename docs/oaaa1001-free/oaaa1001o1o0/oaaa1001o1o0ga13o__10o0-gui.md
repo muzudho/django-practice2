@@ -19,7 +19,7 @@
 | レッスン編 | 📖 [DjangoとDockerでゲーム対局サーバーを作ろう！](https://qiita.com/muzudho1/items/eb0df0ea604e1fd9cdae)                                     |
 | 前回の記事 | 📖 [DjangoとDocker自由課題OAAA1001o1o0ga12o_1o0 ライフゲームの思考エンジンを作ろう！](https://qiita.com/muzudho1/items/4ec5896c7a8fb27161ff) |
 
-# Step OAAA1001o1o0ga13o__10o0 画面作成 - gui/cell_id_helper/v1o0.js ファイル
+# Step [OAAA1001o1o0ga13o__10o0] 画面作成 - gui/cell_id_helper/v1o0.js ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -88,7 +88,7 @@ class CellIdHelper {
 }
 ```
 
-# Step OAAA1001o1o0ga13o_1o0 画面作成 - gui/dynamic_html_board/v1o0.js ファイル
+# Step [OAAA1001o1o0ga13o_1o0] 画面作成 - gui/dynamic_html_board/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -198,7 +198,7 @@ class DynamicHtmlBoard {
 }
 ```
 
-# Step OAAA1001o1o0ga13o0 画面作成 - board/ver0o3o0.html.txt ファイル
+# Step [OAAA1001o1o0ga13o0] 画面作成 - board/ver0o3o0.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -711,7 +711,7 @@ board 0 xy 46 15 copy_from board 1 rect 42 1 4 4
 <!-- EOF OAAA1001o1o0ga13o0 -->
 ```
 
-# Step OAAA1001o1o0ga14o0 ビュー作成 - board/ver0o3o0 フォルダー
+# Step [OAAA1001o1o0ga14o0] ビュー作成 - board/ver0o3o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -786,10 +786,10 @@ class BoardView():
 # EOF OAAA1001o1o0ga14o0
 ```
 
-# ~~Step OAAA1001o1o0ga15o0~~
+# ~~Step [OAAA1001o1o0ga15o0]~~
 
 Merged to OAAA1001o1o0ga15o1o0  
-# Step OAAA1001o1o0ga15o1o0 ルート編集 - urls.csv ファイル
+# Step [OAAA1001o1o0ga15o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -849,7 +849,7 @@ Merged to OAAA1001o1o0ga15o1o0
 ../src1/project1/urls_lifegame_vol1o0_autogen.py,lifegame/vol1.0/board/ver0.3,,"OAAA1001o1o0ga15o1o0 ライフゲーム1.0巻 盤0.3版",apps1.lifegame_vol1o0.views.board.ver0o3o0,BoardView,Lifegame1o0BoardView0o3o0,render
 ```
 
-## Step OAAA1001o1o0ga10o2o0 ルート編集 - コマンド打鍵
+## Step [OAAA1001o1o0ga10o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -864,6 +864,6 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-# Step OAAA1001o1o0ga16o0 Webページにアクセスする
+# Step [OAAA1001o1o0ga16o0] Webページにアクセスする
 
 📖 [http://localhost:8000/lifegame/vol1.0/board/ver0.3](http://localhost:8000/lifegame/vol1.0/board/ver0.3)  

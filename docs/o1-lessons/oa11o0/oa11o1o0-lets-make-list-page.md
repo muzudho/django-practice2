@@ -89,7 +89,7 @@
 
 # 手順
 
-## Step OA11o1o0g1o0 Dockerコンテナの起動
+## Step [OA11o1o0g1o0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -101,7 +101,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA11o1o0g2o0 画面作成 - list.html ファイル
+## Step [OA11o1o0g2o0] 画面作成 - list.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -168,7 +168,7 @@ docker-compose up
 </html>
 ```
 
-## Step OA11o1o0g3o0 ビュー作成 - v_list.py ファイル
+## Step [OA11o1o0g3o0] ビュー作成 - v_list.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -221,7 +221,7 @@ def render_list(request):
 # EOF OA11o1o0g3o0
 ```
 
-## Step OA11o1o0g4o0 ビュー作成 - prefecture モジュール
+## Step [OA11o1o0g4o0] ビュー作成 - prefecture モジュール
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -249,11 +249,11 @@ class PrefectureV(object):
     from .v_list import render_list
 ```
 
-## ~~Step OA11o1o0g5o0~~
+## ~~Step [OA11o1o0g5o0]~~
 
 Merged to OA11o1o0g5o1o0  
 
-## Step OA11o1o0g5o1o0 ルート編集 - urls.csv ファイル
+## Step [OA11o1o0g5o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -284,7 +284,7 @@ Merged to OA11o1o0g5o1o0
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/prefectures/ver1.0/,practice_vol1o0_prefectures,"OA11o1o0g5o1o0 練習1.0巻 都道府県一覧1.0版",apps1.practice_vol1o0.views.prefecture.ver1o0,PrefectureV,,render_list
 ```
 
-## Step OA11o1o0g5o2o0 ルート編集 - コマンド打鍵
+## Step [OA11o1o0g5o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -299,11 +299,11 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## Step OA11o1o0g6o0 Web画面へアクセス
+## Step [OA11o1o0g6o0] Web画面へアクセス
 
 📖 [http://localhost:8000/practice/vol1.0/prefectures/ver1.0/](http://localhost:8000/practice/vol1.0/prefectures/ver1.0/)  
 
-## Step OA11o1o0g7o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
+## Step [OA11o1o0g7o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

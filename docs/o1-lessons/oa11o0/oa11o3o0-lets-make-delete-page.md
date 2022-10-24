@@ -96,7 +96,7 @@ id が 2 のメンバーを削除したい。
 
 # 手順
 
-## Step OA11o3o0g1o0 Dockerコンテナの起動
+## Step [OA11o3o0g1o0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -108,7 +108,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA11o3o0g2o0 画面作成 - delete.html ファイル
+## Step [OA11o3o0g2o0] 画面作成 - delete.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -157,7 +157,7 @@ docker-compose up
 <!-- EOF OA11o3o0g2o0 -->
 ```
 
-## Step OA11o3o0g3o0 ビュー編集 - v_delete.py ファイル
+## Step [OA11o3o0g3o0] ビュー編集 - v_delete.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -226,7 +226,7 @@ def render_delete(request, id=id):
 # EOF OA11o3o0g3o0
 ```
 
-## Step OA11o3o0g4o0 ビュー編集 - prefecture モジュール
+## Step [OA11o3o0g4o0] ビュー編集 - prefecture モジュール
 
 👇 以下のファイルを編集してほしい  
 
@@ -259,11 +259,11 @@ class PrefectureV(object):
     from .v_delete import render_delete
 ```
 
-## ~~Step OA11o3o0g5o0~~
+## ~~Step [OA11o3o0g5o0]~~
 
 Merged to OA11o3o0g5o1o0  
 
-## Step OA11o3o0g5o1o0 ルート編集 - urls.csv ファイル
+## Step [OA11o3o0g5o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -294,7 +294,7 @@ Merged to OA11o3o0g5o1o0
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/prefectures/delete/ver1.0/<int:id>/,practice_vol1o0_prefectures_delete,"OA11o3o0g5o1o0 練習1.0巻 都道府県の削除1.0版",apps1.practice_vol1o0.views.prefecture.ver1o0,PrefectureV,,render_delete
 ```
 
-## Step OA11o3o0g5o2o0 ルート編集 - コマンド打鍵
+## Step [OA11o3o0g5o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -309,13 +309,13 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## Step OA11o3o0g6o0 Web画面へアクセス
+## Step [OA11o3o0g6o0] Web画面へアクセス
 
 👇 IDの番号は適宜変えてほしい。  
 
 📖 [http://localhost:8000/practice/vol1.0/prefectures/delete/ver1.0/2/](http://localhost:8000/practice/vol1.0/prefectures/delete/ver1.0/2/)  
 
-## Step OA11o3o0g7o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
+## Step [OA11o3o0g7o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

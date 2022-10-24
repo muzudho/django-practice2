@@ -55,7 +55,7 @@
 
 # 手順
 
-## Step O8o1o0g1o0 Dockerコンテナの起動
+## Step [O8o1o0g1o0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -67,7 +67,7 @@ cd src1
 docker-compose up
 ```
 
-## Step O8o1o0g2o0 テンプレート作成 - login.html ファイル
+## Step [O8o1o0g2o0] テンプレート作成 - login.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -263,7 +263,7 @@ docker-compose up
 <!-- EOF O8o1o0g2o0 -->
 ```
 
-## Step O8o1o0g3o0 ビュー作成 - login フォルダー
+## Step [O8o1o0g3o0] ビュー作成 - login フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -305,7 +305,7 @@ class AccountsV1LoginView(LoginView):
 # EOF O8o1o0g3o0
 ```
 
-## Step O8o1o0g4o0 サブ ルート作成 - urls_accounts_vol1o0.py
+## Step [O8o1o0g4o0] サブ ルート作成 - urls_accounts_vol1o0.py
 
 URLの自動生成をしたくても、作りが他と異なるので、手作業で設定してほしい  
 
@@ -347,7 +347,7 @@ urlpatterns = [
 ]
 ```
 
-## Step O8o1o0g5o0 Web画面へアクセス
+## Step [O8o1o0g5o0] Web画面へアクセス
 
 📖 [http://localhost:8000/accounts/vol1.0/login/](http://localhost:8000/accounts/vol1.0/login/)  
 
@@ -359,7 +359,7 @@ urlpatterns = [
 
 👆 ログアウトを試してほしい  
 
-## Step O8o1o0g6o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
+## Step [O8o1o0g6o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

@@ -85,7 +85,7 @@ Django に最初から入っている HTMLレンダラー に満足できない�
 
 # 手順
 
-## Step OA12o1o0g1o0 Dockerコンテナの起動
+## Step [OA12o1o0g1o0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -97,7 +97,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA12o1o0g2o0 画面作成 - hello/v1o0.html ファイル
+## Step [OA12o1o0g2o0] 画面作成 - hello/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -160,7 +160,7 @@ docker-compose up
 
 👆 `<v-alert>` の説明は 📖[Vuetify Alerts Usage](https://vuetifyjs.com/en/components/alerts/#usage) のページにある  
 
-## Step OA12o1o0g3o0 ビュー作成 - v_hello1.py ファイル
+## Step [OA12o1o0g3o0] ビュー作成 - v_hello1.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -201,7 +201,7 @@ def render_hello1(request):
 # EOF OA12o1o0g3o0
 ```
 
-## Step OA12o1o0g4o0 ビュー作成 - vuetifies フォルダー
+## Step [OA12o1o0g4o0] ビュー作成 - vuetifies フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -229,11 +229,11 @@ class VuetifyV(object):
     from .hello.v1o0 import render_hello1
 ```
 
-## ~~Step OA12o1o0g5o0~~
+## ~~Step [OA12o1o0g5o0]~~
 
-Merged to Step OA12o1o0g5o1o0  
+Merged to Step [OA12o1o0g5o1o0]  
 
-## Step OA12o1o0g5o1o0 ルート編集 - urls.csv ファイル
+## Step [OA12o1o0g5o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -264,7 +264,7 @@ Merged to Step OA12o1o0g5o1o0
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/hello1/ver1.0/,,"OA12o1o0g5o1o0 練習1.0巻 ビューティファイでハロー 1.0版",apps1.practice_vol1o0.views.vuetifies,VuetifyV,,render_hello1
 ```
 
-## Step OA12o1o0g5o2o0 ルート編集 - コマンド打鍵
+## Step [OA12o1o0g5o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -279,11 +279,11 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## Step OA12o1o0g6o0 Web画面へアクセス
+## Step [OA12o1o0g6o0] Web画面へアクセス
 
 📖 [http://localhost:8000/practice/vol1.0/vuetify/hello1/ver1.0/](http://localhost:8000/practice/vol1.0/vuetify/hello1/ver1.0/)  
 
-## Step OA12o1o0g7o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
+## Step [OA12o1o0g7o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

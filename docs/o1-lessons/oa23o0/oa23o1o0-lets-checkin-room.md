@@ -105,7 +105,7 @@
 
 # 手順
 
-## Step OA23o1o0g1o0 Dockerコンテナの起動
+## Step [OA23o1o0g1o0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -117,7 +117,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA23o1o0g2o0 対局申込ビュー編集 - match_application/ver2o0 フォルダー
+## Step [OA23o1o0g2o0] 対局申込ビュー編集 - match_application/ver2o0 フォルダー
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -204,7 +204,7 @@ class MatchApplicationV():
 # EOF OA23o1o0g2o0
 ```
 
-## Step OA23o1o0g3o0 対局申込ビュー作成 - match_application/ver2o0/v_on_sent.py ファイル
+## Step [OA23o1o0g3o0] 対局申込ビュー作成 - match_application/ver2o0/v_on_sent.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -322,11 +322,11 @@ def match_application_on_sent(request):
 # EOF OA23o1o0g3o0
 ```
 
-## ~~Step OA23o1o0g4o0~~
+## ~~Step [OA23o1o0g4o0]~~
 
 Merged to OA23o1o0g4o1o0  
 
-## Step OA23o1o0g4o1o0 ルート編集 - urls.csv ファイル
+## Step [OA23o1o0g4o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -352,7 +352,7 @@ Merged to OA23o1o0g4o1o0
 ../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/match-application/ver2.0/,,"OA23o1o0g4o1o0 〇×ゲーム3.0巻 対局申込中2.0版",apps1.tic_tac_toe_vol3o0.views.match_application.ver2o0,MatchApplicationV,TicTacToe3o0MatchApplicationView2o0,render
 ```
 
-## Step OA23o1o0g4o2o0 ルート編集 - コマンド打鍵
+## Step [OA23o1o0g4o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -367,7 +367,7 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## Step OA23o1o0g5o0 Web画面へアクセス
+## Step [OA23o1o0g5o0] Web画面へアクセス
 
 先手と後手で、２人分のプレイヤーのアカウントがほしい。  
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでほしい  
@@ -410,7 +410,7 @@ docker-compose restart
 
 また、既存でない部屋名でも ちゃんとユーザーの主キーが記録されることを確認してほしい  
 
-## Step OA23o1o0g6o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
+## Step [OA23o1o0g6o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

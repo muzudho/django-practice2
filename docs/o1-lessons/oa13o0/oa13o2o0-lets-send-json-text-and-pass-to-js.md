@@ -79,7 +79,7 @@ Web ページで表示する内容を、JSON形式のテキストで渡したい
 
 # 手順
 
-## Step OA13o2o0g1o0 Dockerコンテナの起動
+## Step [OA13o2o0g1o0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -91,7 +91,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA13o2o0g2o0 データの再利用 - desserts.json ファイル
+## Step [OA13o2o0g2o0] データの再利用 - desserts.json ファイル
 
 👇 以下の記事で掲載した JSON ファイルを再利用してほしい  
 
@@ -108,7 +108,7 @@ docker-compose up
 👉                              └── 📄 ver1o0.json
 ```
 
-## Step OA13o2o0g3o0 画面作成 - vuetifies/textarea1/ver1o0.html ファイル
+## Step [OA13o2o0g3o0] 画面作成 - vuetifies/textarea1/ver1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -197,7 +197,7 @@ docker-compose up
 <!-- EOF OA13o2o0g3o0 -->
 ```
 
-## Step OA13o2o0g4o0 HTMLファイルの再利用 - desserts1.html ファイル
+## Step [OA13o2o0g4o0] HTMLファイルの再利用 - desserts1.html ファイル
 
 👇 以下の記事で掲載した HTML ファイルを再利用してほしい  
 
@@ -221,7 +221,7 @@ docker-compose up
                                 └── 📄 ver1o0.html
 ```
 
-## Step OA13o2o0g5o0 ビュー作成 - vuetifies/textarea1/ver1o0.py ファイル
+## Step [OA13o2o0g5o0] ビュー作成 - vuetifies/textarea1/ver1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -297,7 +297,7 @@ def render_desserts1_from_textarea1(request):
 # EOF OA13o2o0g5o0
 ```
 
-## Step OA13o2o0g6o0 ビュー編集 - VuetifyV モジュール
+## Step [OA13o2o0g6o0] ビュー編集 - VuetifyV モジュール
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -337,11 +337,11 @@ class VuetifyV(object):
     from .textarea1.ver1o0 import render_textarea1, render_desserts1_from_textarea1
 ```
 
-## ~~Step OA13o2o0g7o0~~
+## ~~Step [OA13o2o0g7o0]~~
 
 Merged to OA13o2o0g7o1o0  
 
-## Step OA13o2o0g7o1o0 ルート編集 - urls.csv ファイル
+## Step [OA13o2o0g7o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -380,7 +380,7 @@ Merged to OA13o2o0g7o1o0
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/desserts-from-textarea/ver1.0/,,"OA13o2o0g7o1o0 練習1.0巻 ビューティファイでデザート１ . テキストエリア１から 1.0版",apps1.practice_vol1o0.views.vuetifies,VuetifyV,,render_desserts1_from_textarea1
 ```
 
-## Step OA13o2o0g7o2o0 ルート編集 - コマンド打鍵
+## Step [OA13o2o0g7o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -395,11 +395,11 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## Step OA13o2o0g8o0 Web画面へアクセス
+## Step [OA13o2o0g8o0] Web画面へアクセス
 
 📖 [http://localhost:8000/practice/vol1.0/vuetify/textarea1/ver1.0/](http://localhost:8000/practice/vol1.0/vuetify/textarea1/ver1.0/)  
 
-## Step OA13o2o0g9o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
+## Step [OA13o2o0g9o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

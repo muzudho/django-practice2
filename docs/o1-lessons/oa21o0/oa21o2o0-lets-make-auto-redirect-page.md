@@ -99,7 +99,7 @@
 
 # 手順
 
-## Step OA21o2o0g1o0 Dockerコンテナの起動
+## Step [OA21o2o0g1o0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -111,7 +111,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA21o2o0g2o0 機能強化 - auto_reload/ver2o0.js ファイル
+## Step [OA21o2o0g2o0] 機能強化 - auto_reload/ver2o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -152,7 +152,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 }
 ```
 
-## Step OA21o2o0g3o0 テンプレート編集 - auto_reload/ver1o1o0.html.txt ファイル
+## Step [OA21o2o0g3o0] テンプレート編集 - auto_reload/ver1o1o0.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -222,7 +222,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 <!-- EOF OA21o2o0g3o0 -->
 ```
 
-## Step OA21o2o0g4o0 ビュー作成 - auto_redirect/ver1o0 フォルダー
+## Step [OA21o2o0g4o0] ビュー作成 - auto_redirect/ver1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -275,7 +275,7 @@ class AutoRedirectV():
 # EOF OA21o2o0g4o0
 ```
 
-## Step OA21o2o0g5o0 ビュー作成 - auto_redirect/v1o0/v_redirect.py ファイル
+## Step [OA21o2o0g5o0] ビュー作成 - auto_redirect/v1o0/v_redirect.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -341,11 +341,11 @@ def render_auto_redirect(request, auto_redirect_tp):
 # EOF OA21o2o0g5o0
 ```
 
-## ~~Step OA21o2o0g6o0~~
+## ~~Step [OA21o2o0g6o0]~~
 
 Merged to OA21o2o0g6o1o0  
 
-## Step OA21o2o0g6o1o0 ルート編集 - urls.csv ファイル
+## Step [OA21o2o0g6o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -379,7 +379,7 @@ Merged to OA21o2o0g6o1o0
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/auto-redirect/ver1.0/,,"OA21o2o0g6o1o0 練習1.0巻 自動リダイレクトページ1.0版",apps1.practice_vol1o0.views.auto_redirect.ver1o0,AutoRedirectV,,render_auto_redirect
 ```
 
-## Step OA21o1o0g7o2o0 ルート編集 - コマンド打鍵
+## Step [OA21o1o0g7o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -394,11 +394,11 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## Step OA21o2o0g7o0 Web画面へアクセス
+## Step [OA21o2o0g7o0] Web画面へアクセス
 
 📖 [http://localhost:8000/practice/vol1.0/auto-redirect/ver1.0/](http://localhost:8000/practice/vol1.0/auto-redirect/ver1.0/)  
 
-## Step OA21o2o0g8o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
+## Step [OA21o2o0g8o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

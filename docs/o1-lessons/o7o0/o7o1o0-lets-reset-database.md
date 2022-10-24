@@ -65,18 +65,18 @@ allauthなど、他のDjangoサーバーのアプリケーションを混ぜる�
 
 # 手順
 
-## Step O7o1o0g1o0 バックアップを残しておけ
+## Step [O7o1o0g1o0] バックアップを残しておけ
 
 関連するすべてのフォルダーまるごと、 **バックアップを残しておけ**  
 
 このレッスンは　異常時からの復旧の練習だ。  
 データを損失するし、復旧できるとも限らない  
 
-## Step O7o1o0g2o0 Dockerコンテナ停止
+## Step [O7o1o0g2o0] Dockerコンテナ停止
 
 Dockerコンテナが動いていれば、停止させてほしい  
 
-## Step O7o1o0g3o0 data フォルダーを消そう
+## Step [O7o1o0g3o0] data フォルダーを消そう
 
 👇 以下のフォルダーを消してほしい。 Webサイトのデータが全部飛ぶ  
 
@@ -85,7 +85,7 @@ Dockerコンテナが動いていれば、停止させてほしい
 👉      └── 📂 data
 ```
 
-## Step O7o1o0g4o0 Dockerコンテナの起動
+## Step [O7o1o0g4o0] Dockerコンテナの起動
 
 👇 Docker コンテナを起動しておいてほしい  
 
@@ -97,7 +97,7 @@ Dockerコンテナが動いていれば、停止させてほしい
 docker-compose up
 ```
 
-## Step O7o1o0g5o0 コマンドの打鍵 - migrate
+## Step [O7o1o0g5o0] コマンドの打鍵 - migrate
 
 👇 以下のコマンドを打鍵してほしい。何をやっているかは分からない  
 
@@ -108,14 +108,14 @@ docker-compose run --rm web python3 manage.py migrate
 
 （マイグレーションをしているのは分かるが、何でこうなるのか　よく分からない）  
 
-## Step O7o1o0g6o0 Webページへアクセス
+## Step [O7o1o0g6o0] Webページへアクセス
 
 📖 [http://localhost:8000/accounts/vol1.0/signup/](http://localhost:8000/accounts/vol1.0/signup/)  
 
 👆 allauth など、正常に動いているか　確認してほしい。  
 もし動いていなければ Webサイト は破壊してしまった。 連載を１からやり直してほしい  
 
-## Step O7o1o0g7o0 やりなおし
+## Step [O7o1o0g7o0] やりなおし
 
 今までにデータベースに登録した内容は消えているので、連載をやり直してほしい  
 

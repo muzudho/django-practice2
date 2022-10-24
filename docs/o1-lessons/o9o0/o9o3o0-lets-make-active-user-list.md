@@ -60,7 +60,7 @@
 
 # 手順
 
-## Step O9o3o0g1o0 Dockerコンテナの起動
+## Step [O9o3o0g1o0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -72,7 +72,7 @@ cd src1
 docker-compose up
 ```
 
-## Step O9o3o0g2o0 画面作成 - active_user_list/ver1o0.html ファイル
+## Step [O9o3o0g2o0] 画面作成 - active_user_list/ver1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -158,7 +158,7 @@ docker-compose up
 </html>
 ```
 
-## Step O9o3o0g3o0 モデル関連作成 - session/ver1o0 フォルダー
+## Step [O9o3o0g3o0] モデル関連作成 - session/ver1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -189,7 +189,7 @@ class MhSession():
     # 2. `1.` に含まれる関数
 ```
 
-## Step O9o3o0g4o0 ビュー作成 - session/ver1o0/v_get_all_logged_in_users.py ファイル
+## Step [O9o3o0g4o0] ビュー作成 - session/ver1o0/v_get_all_logged_in_users.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -274,7 +274,7 @@ web_1  | ]
     return user_dic
 ```
 
-## Step O9o3o0g5o0 ビュー作成 - session/ver1o0 フォルダー
+## Step [O9o3o0g5o0] ビュー作成 - session/ver1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -323,7 +323,7 @@ class SessionV():
         return render_active_user_list(request, SessionV._path_of_this_page)
 ```
 
-## Step O9o3o0g6o0 ビュー作成 - session/v_render.py ファイル
+## Step [O9o3o0g6o0] ビュー作成 - session/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -374,11 +374,11 @@ def render_active_user_list(request, path_of_this_page):
     return render(request, path_of_this_page, context)
 ```
 
-## ~~Step O9o3o0g7o0~~
+## ~~Step [O9o3o0g7o0]~~
 
 Merged to O9o3o0g7o1o0  
 
-## Step O9o3o0g7o1o0 ルート編集 - urls.csv ファイル
+## Step [O9o3o0g7o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -413,7 +413,7 @@ Merged to O9o3o0g7o1o0
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/active-user-list/ver1.0/,,"O9o3o0g7o1o0 練習1.0巻 アクティブユーザー一覧1.0版",apps1.practice_vol1o0.views.session.ver1o0,SessionV,,render
 ```
 
-## Step O9o3o0g7o2o0 ルート編集 - コマンド打鍵
+## Step [O9o3o0g7o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -428,11 +428,11 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## Step O9o3o0g8o0 Web画面へアクセス
+## Step [O9o3o0g8o0] Web画面へアクセス
 
 📖 [http://localhost:8000/practice/vol1.0/active-user-list/ver1.0/](http://localhost:8000/practice/vol1.0/active-user-list/ver1.0/)  
 
-## Step O9o3o0g9o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
+## Step [O9o3o0g9o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

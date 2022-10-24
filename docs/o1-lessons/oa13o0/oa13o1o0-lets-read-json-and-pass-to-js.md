@@ -75,7 +75,7 @@ Vuetify に JSON形式でデータを渡したい
 
 # 手順
 
-## Step OA13o1o0g1o0 Dockerコンテナの起動
+## Step [OA13o1o0g1o0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -87,7 +87,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA13o1o0g2o0 データ作成 - desserts1/ver1o0.json ファイル
+## Step [OA13o1o0g2o0] データ作成 - desserts1/ver1o0.json ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -204,7 +204,7 @@ docker-compose up
 
 👆 このJSONは 📖[Vuetify - Data tables - Usage](https://vuetifyjs.com/en/components/data-tables/#dense) のスクリプトに埋め込まれてある  
 
-## Step OA13o1o0g3o0 画面作成 - desserts1.html ファイル
+## Step [OA13o1o0g3o0] 画面作成 - desserts1.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -272,7 +272,7 @@ docker-compose up
 <!-- EOF [OA13o1o0g3o0] -->
 ```
 
-## Step OA13o1o0g4o0 ビュー作成 - v_desserts1.py ファイル
+## Step [OA13o1o0g4o0] ビュー作成 - v_desserts1.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -328,7 +328,7 @@ def render_desserts1(request):
 # EOF OA13o1o0g4o0
 ```
 
-## Step OA13o1o0g5o0 ビュー編集 - VuetifyV モジュール
+## Step [OA13o1o0g5o0] ビュー編集 - VuetifyV モジュール
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -366,11 +366,11 @@ class VuetifyV(object):
     from .dessert1.ver1o0 import render_desserts1
 ```
 
-## ~~Step OA13o1o0g6o0~~
+## ~~Step [OA13o1o0g6o0]~~
 
 Merged to OA13o1o0g6o1o0
 
-## Step OA13o1o0g6o1o0 ルート編集 - urls.csv ファイル
+## Step [OA13o1o0g6o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -406,7 +406,7 @@ Merged to OA13o1o0g6o1o0
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/desserts1/ver1.0/,,"OA13o1o0g6o1o0 練習1.0巻 ビューティファイでデザート１ 1.0版",apps1.practice_vol1o0.views.vuetifies,VuetifyV,,render_desserts1
 ```
 
-## Step OA13o1o0g6o2o0 ルート編集 - コマンド打鍵
+## Step [OA13o1o0g6o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -421,11 +421,11 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## Step OA13o1o0g7o0 Web画面へアクセス
+## Step [OA13o1o0g7o0] Web画面へアクセス
 
 📖 [http://localhost:8000/practice/vol1.0/vuetify/desserts1/ver1.0/](http://localhost:8000/practice/vol1.0/vuetify/desserts1/ver1.0/)  
 
-## Step OA13o1o0g8o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
+## Step [OA13o1o0g8o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

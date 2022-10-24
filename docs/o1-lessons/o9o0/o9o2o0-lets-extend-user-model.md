@@ -64,7 +64,7 @@ Django に最初から付いている User モデルを拡張したい
 
 # 手順
 
-## Step O9o2o0g1o0 Dockerコンテナの起動
+## Step [O9o2o0g1o0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -76,7 +76,7 @@ cd src1
 docker-compose up
 ```
 
-## Step O9o2o0g2o0 User モデル拡張 - user_profile/ver1o0.py ファイル
+## Step [O9o2o0g2o0] User モデル拡張 - user_profile/ver1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -151,7 +151,7 @@ def save_user_profile(sender, instance, **kwargs):
 post_save.connect(create_user_profile, sender=User)
 ```
 
-## Step O9o2o0g3o0 マイグレーション ファイル作成 - コマンド実行
+## Step [O9o2o0g3o0] マイグレーション ファイル作成 - コマンド実行
 
 （このマイグレーションのステップは今はまだやらなくていいかもしれない）  
 
@@ -187,7 +187,7 @@ docker-compose run --rm web python3 manage.py makemigrations practice_vol1o0 --s
 
 まだ マイグレーション作業は完了していない  
 
-## Step O9o2o0g4o0 マイグレーション対象確認 - コマンド実行＜その２＞
+## Step [O9o2o0g4o0] マイグレーション対象確認 - コマンド実行＜その２＞
 
 ```shell
 docker-compose run --rm web python3 manage.py showmigrations --settings project1.settings
@@ -204,7 +204,7 @@ docker-compose run --rm web python3 manage.py showmigrations --settings project1
 [ ] 0002_fuga ... マイグレーションが終わっていない。これからやる
 ```
 
-## Step O9o2o0g5o0 マイグレーション -  コマンド実行＜その３＞
+## Step [O9o2o0g5o0] マイグレーション -  コマンド実行＜その３＞
 
 ```shell
 docker-compose run --rm web python3 manage.py migrate --settings project1.settings
@@ -216,7 +216,7 @@ docker-compose run --rm web python3 manage.py migrate --settings project1.settin
 
 👆 ここまでやって マイグレーション という作業が終わるらしい  
 
-## Step O9o2o0g6o0 マイグレーション確認 - コマンド実行＜その４＞
+## Step [O9o2o0g6o0] マイグレーション確認 - コマンド実行＜その４＞
 
 ```shell
 docker-compose run --rm web python3 manage.py showmigrations --settings project1.settings
@@ -228,7 +228,7 @@ docker-compose run --rm web python3 manage.py showmigrations --settings project1
 
 👆 マイグレーションした後に、マイグレーションされたものを確認  
 
-## Step O9o2o0g7o0 モデルヘルパー編集 - user/ver1o0/__init__.py ファイル
+## Step [O9o2o0g7o0] モデルヘルパー編集 - user/ver1o0/__init__.py ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -262,7 +262,7 @@ class MhUser():
     # 2. `1.` に含まれる関数
 ```
 
-## Step O9o2o0g8o0 モデルヘルパー モジュール作成 - mh_get_extends_user_dic.py ファイル
+## Step [O9o2o0g8o0] モデルヘルパー モジュール作成 - mh_get_extends_user_dic.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -319,7 +319,7 @@ def get_extends_user_dic():
     return user_dic
 ```
 
-## Step O9o2o0g9o0 画面編集 - extends_user_list.html ファイル
+## Step [O9o2o0g9o0] 画面編集 - extends_user_list.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -411,7 +411,7 @@ def get_extends_user_dic():
 </html>
 ```
 
-## Step O9o2o0gA10o0 ビュー作成 - extends_user_list/ver1o0 フォルダー
+## Step [O9o2o0gA10o0] ビュー作成 - extends_user_list/ver1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -463,7 +463,7 @@ class ExtendsUserListV():
         return render_extends_user_list(request, ExtendsUserListV._path_of_this_page)
 ```
 
-## Step O9o2o0gA11o0 ビュー作成 - extends_user_list/v_render.py ファイル
+## Step [O9o2o0gA11o0] ビュー作成 - extends_user_list/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -528,11 +528,11 @@ def render_extends_user_list(request, extends_user_list_tp):
 # EOF O9o2o0gA11o0
 ```
 
-## ~~Step O9o2o0gA12o0~~
+## ~~Step [O9o2o0gA12o0]~~
 
 Merged to O9o2o0gA12o1o0  
 
-## Step O9o2o0gA12o1o0 ルート編集 - urls.csv ファイル
+## Step [O9o2o0gA12o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -570,7 +570,7 @@ Merged to O9o2o0gA12o1o0
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/extends-user-list/ver1.0/,,"O9o2o0gA12o1o0 練習1.0巻 （拡張済）会員一覧1.0版",apps1.practice_vol1o0.views.extends_user_list.ver1o0,ExtendsUserListV,,render
 ```
 
-## Step O9o2o0gA12o2o0 ルート編集 - コマンド打鍵
+## Step [O9o2o0gA12o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -585,7 +585,7 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## Step O9o2o0gA13o0 管理画面へモデル登録 - admin.py ファイル編集
+## Step [O9o2o0gA13o0] 管理画面へモデル登録 - admin.py ファイル編集
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -641,7 +641,7 @@ admin.site.register(Profile)
 
 👆 管理画面に Profile オブジェクトが表示されるようにした  
 
-## Step O9o2o0gA14o0 スーパーユーザーでWebの管理画面へアクセス
+## Step [O9o2o0gA14o0] スーパーユーザーでWebの管理画面へアクセス
 
 👇 スーパーユーザーでログインすること  
 
@@ -676,11 +676,11 @@ User: [あなたの名前]▽ 🖊 ➕
 
 👆 あなたのプロフィールに、User が紐づいているようにデータを登録（SAVE）しておいてほしい  
 
-## Step O9o2o0gA15o0 Web画面へアクセス
+## Step [O9o2o0gA15o0] Web画面へアクセス
 
 📖 [http://localhost:8000/practice/vol1.0/extends-user-list/ver1.0/](http://localhost:8000/practice/vol1.0/extends-user-list/ver1.0/)  
 
-## Step O9o2o0gA16o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
+## Step [O9o2o0gA16o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

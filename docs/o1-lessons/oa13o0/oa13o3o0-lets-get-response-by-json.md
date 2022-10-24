@@ -79,7 +79,7 @@
 
 # 手順
 
-## Step OA13o3o0g1o0 Dockerコンテナの起動
+## Step [OA13o3o0g1o0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -91,7 +91,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA13o3o0g2o0 データの再利用 - desserts.json ファイル
+## Step [OA13o3o0g2o0] データの再利用 - desserts.json ファイル
 
 👇 以下の記事で掲載した JSON ファイルを再利用してほしい  
 
@@ -108,7 +108,7 @@ docker-compose up
 👉                              └── 📄 ver1o0.json
 ```
 
-## Step OA13o3o0g3o0 ビュー編集 - vuetifies/desserts1_as_json/ver1o0.py ファイル
+## Step [OA13o3o0g3o0] ビュー編集 - vuetifies/desserts1_as_json/ver1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -149,7 +149,7 @@ def render_desserts1_as_json(request):
 # EOF OA13o3o0g3o0
 ```
 
-## Step OA13o3o0g4o0 ビュー編集 - VuetifyV モジュール
+## Step [OA13o3o0g4o0] ビュー編集 - VuetifyV モジュール
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -182,11 +182,11 @@ class VuetifyV(object):
     from .desserts1_as_json.ver1o0 import render_desserts1_as_json
 ```
 
-## ~~Step OA13o3o0g5o0~~
+## ~~Step [OA13o3o0g5o0]~~
 
 Merged to OA13o3o0g5o1o0
 
-## Step OA13o3o0g5o1o0 ルート編集 - urls.csv ファイル
+## Step [OA13o3o0g5o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -217,7 +217,7 @@ Merged to OA13o3o0g5o1o0
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/vuetify/desserts1-as-json/ver1.0/,,"OA13o3o0g5o1o0 練習1.0巻 ビューティファイでJSON形式のデザート１ 1.0版",apps1.practice_vol1o0.views.vuetifies,VuetifyV,,render_desserts1_as_json
 ```
 
-## Step OA13o3o0g5o2o0 ルート編集 - コマンド打鍵
+## Step [OA13o3o0g5o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -232,11 +232,11 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## Step OA13o3o0g6o0 Web画面へアクセス
+## Step [OA13o3o0g6o0] Web画面へアクセス
 
 📖 [http://localhost:8000/practice/vol1.0/vuetify/desserts1-as-json/ver1.0/](http://localhost:8000/practice/vol1.0/vuetify/desserts1-as-json/ver1.0/)  
 
-## Step OA13o3o0g7o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
+## Step [OA13o3o0g7o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

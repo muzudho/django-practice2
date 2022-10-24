@@ -121,7 +121,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA16o3o_2o0g1o_1o0 メッセージ作成 - msg/s2c_json_gen/messages/end/ver1o0/__init__.py ファイル
+## Step [OA16o3o_2o0g1o_1o0] メッセージ作成 - msg/s2c_json_gen/messages/end/ver1o0/__init__.py ファイル
 
 Separated from OA16o3o_2o0g1o0  
 
@@ -159,7 +159,7 @@ class EndS2cMessage:
 # EOF OA16o3o_2o0g1o_1o0
 ```
 
-## Step OA16o3o_2o0g1o_2o0 メッセージ作成 - msg/s2c_json_gen/messages/moved/ver1o0/__init__.py ファイル
+## Step [OA16o3o_2o0g1o_2o0] メッセージ作成 - msg/s2c_json_gen/messages/moved/ver1o0/__init__.py ファイル
 
 Separated from OA16o3o_2o0g1o0  
 
@@ -202,7 +202,7 @@ class MovedS2cMessage:
 # EOF OA16o3o_2o0g1o_2o0
 ```
 
-## Step OA16o3o_2o0g1o_3o0 メッセージ作成 - msg/s2c_json_gen/messages/start/ver1o0/__init__.py ファイル
+## Step [OA16o3o_2o0g1o_3o0] メッセージ作成 - msg/s2c_json_gen/messages/start/ver1o0/__init__.py ファイル
 
 Separated from OA16o3o_2o0g1o0  
 
@@ -245,14 +245,14 @@ class StartS2cMessage:
 # EOF OA16o3o_2o0g1o_3o0
 ```
 
-## ~~Step OA16o3o_2o0g1o0~~
+## ~~Step [OA16o3o_2o0g1o0]~~
 
 1. Separated to OA16o3o_2o0g1o_1o0
 2. Separated to OA16o3o_2o0g1o_2o0
 3. Separated to OA16o3o_2o0g1o_3o0
 4. Removed
 
-## Step OA16o3o_2o0g2o0 画面作成 - msg/s2c_json_gen/v1o0.html ファイル
+## Step [OA16o3o_2o0g2o0] 画面作成 - msg/s2c_json_gen/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -397,7 +397,7 @@ class StartS2cMessage:
 <!-- EOF OA16o3o_2o0g2o0 -->
 ```
 
-## Step OA16o3o_2o0g3o0 ビュー作成 - msg/s2c_json_gen/v1o0/v_render.py ファイル
+## Step [OA16o3o_2o0g3o0] ビュー作成 - msg/s2c_json_gen/v1o0/v_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -488,7 +488,7 @@ def render_main(request, template_path):
 # EOF OA16o3o_2o0g3o0
 ```
 
-## Step OA16o3o_2o0g4o0 ビュー作成 - msg/s2c_json_gen/v1o0 フォルダー
+## Step [OA16o3o_2o0g4o0] ビュー作成 - msg/s2c_json_gen/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -544,11 +544,11 @@ class S2cJsonGenView():
 # EOF OA16o3o_2o0g4o0
 ```
 
-## ~~Step OA16o3o_2o0g5o0~~
+## ~~Step [OA16o3o_2o0g5o0]~~
 
 Merged to OA16o3o_2o0g5o1o0  
 
-## Step OA16o3o_2o0g5o1o0 ルート編集 - urls.csv ファイル
+## Step [OA16o3o_2o0g5o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -583,7 +583,7 @@ Merged to OA16o3o_2o0g5o1o0
 ../src1/project1/urls_tic_tac_toe_vol2o0_autogen.py,tic-tac-toe/vol2.0/s2c-json-gen/ver1.0/,,"OA16o3o_2o0g5o1o0 〇×ゲーム2.0巻 S2C JSON ジェネレーター1.0版",apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.ver1o0,S2cJsonGenView,S2cJsonGenViewV1o0,render
 ```
 
-## Step OA16o3o_2o0g5o2o0 ルート編集 - コマンド打鍵
+## Step [OA16o3o_2o0g5o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 

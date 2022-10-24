@@ -130,7 +130,7 @@ pip install pandas
 ```
 
 ```py
-# BOF O3o2o_1o0g2o_2o0
+# BOF [O3o2o_1o0g2o_2o0]
 
 import os
 
@@ -212,7 +212,7 @@ class FilePath:
         self._last_err = f"書き出すファイル名の先頭は `urls_`、 末尾は `_autogen.py` にしてください。 basename:{basename}"
         return False
 
-# EOF O3o2o_1o0g2o_2o0
+# EOF [O3o2o_1o0g2o_2o0]
 ```
 
 ## Step [O3o2o_1o0g2o_3o0] スクリプト作成/テスト作成 - file_path.py ファイル
@@ -238,7 +238,7 @@ class FilePath:
 ```
 
 ```py
-# BOF O3o2o_1o0g2o_3o0
+# BOF [O3o2o_1o0g2o_3o0]
 
 """テスト
 # cd {testsのあるディレクトリー}
@@ -286,7 +286,7 @@ if __name__ == '__main__':
     test_not_starts_with_urls()
     test_not_ends_with_autogen()
 
-# EOF O3o2o_1o0g2o_3o0
+# EOF [O3o2o_1o0g2o_3o0]
 ```
 
 ## Step [O3o2o_1o0g2o_4o0] スクリプト作成/テスト実行 - file_path.py ファイル
@@ -319,6 +319,7 @@ Output:
 ...
 ```
 
+👆 エラーが表示されていなければオーケーだ  
 
 ## Step [O3o2o_1o0g2o_4o1o0] スクリプト作成 - path_renderer.py ファイル
 
@@ -344,7 +345,7 @@ Output:
 ```
 
 ```py
-# BOF O3o2o_1o0g2o_4o1o0
+# BOF [O3o2o_1o0g2o_4o1o0]
 
 import pandas as pd
 
@@ -472,7 +473,7 @@ class PathRenderer:
         else:
             return f", name='{self.name}'"
 
-# EOF O3o2o_1o0g2o_4o1o0
+# EOF [O3o2o_1o0g2o_4o1o0]
 ```
 
 ## Step [O3o2o_1o0g2o_4o1o1o0] スクリプト作成/テスト作成 - path_renderer.py ファイル
@@ -500,7 +501,7 @@ class PathRenderer:
 ```
 
 ```py
-# BOF O3o2o_1o0g2o_4o1o1o0
+# BOF [O3o2o_1o0g2o_4o1o1o0]
 
 """テスト
 # cd {testsのあるディレクトリー}
@@ -549,7 +550,7 @@ def test_ok1():
 if __name__ == '__main__':
     test_ok1()
 
-# EOF O3o2o_1o0g2o_4o1o1o0
+# EOF [O3o2o_1o0g2o_4o1o1o0]
 ```
 
 ## Step [O3o2o_1o0g2o_4o1o2o0] スクリプト作成/テスト実行 - path_renderer.py ファイル
@@ -582,6 +583,8 @@ Output:
 ..
 ```
 
+👆 エラーが表示されていなければオーケーだ  
+
 ## Step [O3o2o_1o0g2o_4o2o0] スクリプト作成 - urls_file_render.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
@@ -608,7 +611,7 @@ Output:
 ```
 
 ```py
-# BOF O3o2o_1o0g2o_4o2o0
+# BOF [O3o2o_1o0g2o_4o2o0]
 
 class UrlsFileRender:
     def __init__(self):
@@ -619,7 +622,7 @@ class UrlsFileRender:
         return self._path_render_list
 
     def create_file_text(self):
-        return f'''# AutoGenBegin O3o2o_1o0g4o0
+        return f'''# AutoGenBegin [O3o2o_1o0g4o0]
 
 from django.urls import path
 
@@ -627,7 +630,7 @@ from django.urls import path
 
 urlpatterns = [{self.create_path_items()}]
 
-# AutoGenEnd O3o2o_1o0g4o0
+# AutoGenEnd [O3o2o_1o0g4o0]
 '''
 
     def _create_import_paragraphs(self):
@@ -642,7 +645,7 @@ urlpatterns = [{self.create_path_items()}]
             s += path_rdr.create_urlpatterns_item_text()
         return s
 
-# EOF O3o2o_1o0g2o_4o2o0
+# EOF [O3o2o_1o0g2o_4o2o0]
 ```
 
 ## Step [O3o2o_1o0g2o_4o3o0] スクリプト作成 - urls_summary_render.py ファイル
@@ -672,7 +675,7 @@ urlpatterns = [{self.create_path_items()}]
 ```
 
 ```py
-# BOF O3o2o_1o0g2o_4o3o0
+# BOF [O3o2o_1o0g2o_4o3o0]
 
 from pathlib import Path
 
@@ -681,11 +684,11 @@ class UrlsSummaryRender:
 
     @staticmethod
     def create_header_text():
-        return """# AutoGenBegin O3o2o_1o0g4o0
+        return """# AutoGenBegin [O3o2o_1o0g4o0]
 
 from django.urls import include, path
 
-# O3o1o0gA11o0 総合ルート編集
+# [O3o1o0gA11o0] 総合ルート編集
 from .settings import PROJECT_NAME
 #    ]--------        ------------
 #    12               3
@@ -702,7 +705,7 @@ urlpatterns = [
     def create_footer_text():
         return """]
 
-# AutoGenEnd O3o2o_1o0g4o0
+# AutoGenEnd [O3o2o_1o0g4o0]
 """
 
     def __init__(self):
@@ -744,7 +747,7 @@ urlpatterns = [
 """
         return s
 
-# EOF O3o2o_1o0g2o_4o3o0
+# EOF [O3o2o_1o0g2o_4o3o0]
 ```
 
 ## Step [O3o2o_1o0g2o_4o4o0] スクリプト作成 - file_collection.py ファイル
@@ -775,7 +778,7 @@ urlpatterns = [
 ```
 
 ```py
-# BOF O3o2o_1o0g2o_4o4o0
+# BOF [O3o2o_1o0g2o_4o4o0]
 
 import glob
 from pathlib import Path
@@ -817,7 +820,7 @@ class FileCollection:
                 print(f"[FileCollection remove_all] Remove failed. error:{e}")
                 pass
 
-# EOF O3o2o_1o0g2o_4o4o0
+# EOF [O3o2o_1o0g2o_4o4o0]
 ```
 
 ## Step [O3o2o_1o0g2o0] スクリプト作成 - urls/__init__.py ファイル
@@ -1043,7 +1046,7 @@ class UrlsAutoGenerator:
 ```
 
 ```py
-# BOF O3o2o_1o0g2o1o0
+# BOF [O3o2o_1o0g2o1o0]
 
 from .__init__ import UrlsAutoGenerator
 
@@ -1056,7 +1059,7 @@ def main():
 if __name__ == "__main__":
     main()
 
-# EOF O3o2o_1o0g2o1o0
+# EOF [O3o2o_1o0g2o1o0]
 ```
 
 ## Step [O3o2o_1o0g3o0] コマンド実行
@@ -1077,15 +1080,33 @@ if __name__ == "__main__":
 # ディレクトリーを移動してほしい
 # cd src1_meta
 
-# See also: O3o2o_1o0g2o0
+# See also: [O3o2o_1o0g2o0]
 python -m scripts.auto_generators.urls
 ```
 
 Output:  
 
 ```plaintext
-Current working directory:C:\Users\むずでょ\Documents\GitHub\django-practice2\src1_meta
-Write... ../src1/project1/urls_practice_vol1o0_autogen.py
+Current working directory:C:\Users\むずでょ\Documents\GitHub\webgl-practice\me\src1_meta
+[UrlsSummaryRender parent_directory] self._file_path:../src1/project1/urls_autogen.py
+[DirectFileCollectionory find_to] len(target_path_objects):0
+[FileCollection remove_all] Remove failed. error:list.remove(x): x not in list
+* [ ] Write C:\Users\むずでょ\Documents\GitHub\django-practice2\src1\project1\urls_practice_vol1o0_autogen.py
+* [ ] Write C:\Users\むずでょ\Documents\GitHub\django-practice2\src1\project1\urls_autogen.py
+Ok? (y/n)
+```
+
+Input:  
+
+```plaintext
+y
+```
+
+Output:  
+
+```plaintext
+Write... C:\Users\むずでょ\Documents\GitHub\django-practice2\src1\project1\urls_warabenture_vol1o0_autogen.py
+Write... C:\Users\むずでょ\Documents\GitHub\django-practice2\src1\project1\urls_autogen.py
 ```
 
 ## Step [O3o2o_1o0g4o0] 確認
@@ -1108,11 +1129,11 @@ Write... ../src1/project1/urls_practice_vol1o0_autogen.py
 📄 urls_autogen.py:  
 
 ```py
-# AutoGenBegin O3o2o_1o0g4o0
+# AutoGenBegin [O3o2o_1o0g4o0]
 
 from django.urls import include, path
 
-# O3o1o0gA11o0 総合ルート編集
+# [O3o1o0gA11o0] 総合ルート編集
 from .settings import PROJECT_NAME
 #    ]--------        ------------
 #    12               3
@@ -1126,13 +1147,13 @@ urlpatterns = [
     path('', include(f'{PROJECT_NAME}.urls_practice_vol1o0_autogen')),
 ]
 
-# AutoGenEnd O3o2o_1o0g4o0
+# AutoGenEnd [O3o2o_1o0g4o0]
 ```
 
 📄 urls_practice_vol1o0_autogen.py
 
 ```py
-# AutoGenBegin O3o2o_1o0g4o0
+# AutoGenBegin [O3o2o_1o0g4o0]
 
 from django.urls import path
 
@@ -1140,11 +1161,11 @@ from apps1.practice_vol1o0.views.hello.ver1o0 import HelloView
 
 
 urlpatterns = [
-    # O3o2o_1o0g1o0 練習1.0巻 こんにちわ別名1.0版
+    # [O3o2o_1o0g1o0] 練習1.0巻 こんにちわ別名1.0版
     path('practice/vol1.0/hello-alias/ver1.0/', HelloView.render, name='practice_vol1o0_hello_alias'),
 ]
 
-# AutoGenEnd O3o2o_1o0g4o0
+# AutoGenEnd [O3o2o_1o0g4o0]
 ```
 
 ## Step [O3o2o_1o0g5o0] 総合ルート編集 - urls.py
@@ -1168,7 +1189,7 @@ urlpatterns = [
 # ...略...
 
 
-# O3o2o_1o0g5o0 自動生成されたURL設定
+# [O3o2o_1o0g5o0] 自動生成されたURL設定
 from .urls_autogen import urlpatterns as urlpatterns_autogen
 #    ]------------        -----------    -------------------
 #    12                   3              4
@@ -1183,7 +1204,7 @@ from .urls_autogen import urlpatterns as urlpatterns_autogen
 # ...略... ]
 
 
-# O3o2o_1o0g5o0 自動生成されたURL設定
+# [O3o2o_1o0g5o0] 自動生成されたURL設定
 urlpatterns.extend(urlpatterns_autogen)
 ```
 

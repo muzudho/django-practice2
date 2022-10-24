@@ -95,7 +95,7 @@
 
 # 手順
 
-## Step OA21o1o0g1o0 Dockerコンテナの起動
+## Step [OA21o1o0g1o0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -107,7 +107,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA21o1o0g2o0 機能強化 - clock/v1o0.js ファイル
+## Step [OA21o1o0g2o0] 機能強化 - clock/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -151,7 +151,7 @@ function getTimeStamp() {
 }
 ```
 
-## Step OA21o1o0g3o0 機能強化 - auto_reload/v1o0.js ファイル
+## Step [OA21o1o0g3o0] 機能強化 - auto_reload/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -180,7 +180,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 }
 ```
 
-## Step OA21o1o0g4o0 画面編集 - auto_reload/v1o0.html ファイル
+## Step [OA21o1o0g4o0] 画面編集 - auto_reload/v1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -275,7 +275,7 @@ function startReloadingAutomatically(intervalMilliseconds) {
 <!-- EOF OA21o1o0g4o0 -->
 ```
 
-## Step OA21o1o0g5o0 ビュー作成 - auto_reload/ver1o0 フォルダー
+## Step [OA21o1o0g5o0] ビュー作成 - auto_reload/ver1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -329,7 +329,7 @@ class AutoReloadV():
 # EOF OA21o1o0g5o0
 ```
 
-## Step OA21o1o0g6o0 ビュー作成 - auto_reload/v1o0/v_auto_reload.py ファイル
+## Step [OA21o1o0g6o0] ビュー作成 - auto_reload/v1o0/v_auto_reload.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -375,11 +375,11 @@ def render_auto_reload(request, auto_reload_tp):
 # EOF OA21o1o0g6o0
 ```
 
-## ~~Step OA21o1o0g7o0~~
+## ~~Step [OA21o1o0g7o0]~~
 
 Merged to OA21o1o0g7o1o0  
 
-## Step OA21o1o0g7o1o0 ルート編集 - urls.csv ファイル
+## Step [OA21o1o0g7o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -415,7 +415,7 @@ Merged to OA21o1o0g7o1o0
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/auto-reload/ver1.0/,,"OA21o1o0g7o1o0 練習1.0巻 自動リロードページ1.0版",apps1.practice_vol1o0.views.auto_reload.ver1o0,AutoReloadV,,render_auto_reload
 ```
 
-## Step OA21o1o0g7o2o0 ルート編集 - コマンド打鍵
+## Step [OA21o1o0g7o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -430,11 +430,11 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## Step OA21o1o0g8o0 Web画面へアクセス
+## Step [OA21o1o0g8o0] Web画面へアクセス
 
 📖 [http://localhost:8000/practice/vol1.0/auto-reload/ver1.0/](http://localhost:8000/practice/vol1.0/auto-reload/ver1.0/)  
 
-## Step OA21o1o0g9o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
+## Step [OA21o1o0g9o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

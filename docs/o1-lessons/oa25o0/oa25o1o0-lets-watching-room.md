@@ -93,7 +93,7 @@
 
 # 手順
 
-## Step OA25o1o0g1o0 Dockerコンテナの起動
+## Step [OA25o1o0g1o0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -105,7 +105,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA25o1o0g2o0 対局画面作成 - playing/ver4o0.html.txt ファイル
+## Step [OA25o1o0g2o0] 対局画面作成 - playing/ver4o0.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -163,7 +163,7 @@ docker-compose up
 <!-- EOF OA25o1o0g2o0 -->
 ```
 
-## Step OA25o1o0g3o0 対局申込ビュー作成 - match_application/ver4o0 フォルダー
+## Step [OA25o1o0g3o0] 対局申込ビュー作成 - match_application/ver4o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -266,7 +266,7 @@ class MatchApplicationV():
 # EOF OA25o1o0g3o0
 ```
 
-## Step OA25o1o0g4o0 対局申込ビュー作成 - playing/ver4o0 フォルダー
+## Step [OA25o1o0g4o0] 対局申込ビュー作成 - playing/ver4o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -354,11 +354,11 @@ class PlayingV():
 # EOF OA25o1o0g4o0
 ```
 
-## ~~Step OA25o1o0g5o0~~
+## ~~Step [OA25o1o0g5o0]~~
 
 Merged to OA25o1o0g5o1o0  
 
-## Step OA25o1o0g5o1o0 ルート編集 - urls.csv ファイル
+## Step [OA25o1o0g5o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -391,7 +391,7 @@ Merged to OA25o1o0g5o1o0
 ../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/playing/ver4.0/<str:kw_room_name>/,,"OA25o1o0g5o1o0 〇×ゲーム3.0巻 対局中4.0版",apps1.tic_tac_toe_vol3o0.views.playing.ver4o0,PlayingV,TicTacToe3o0PlayingView4o0,render
 ```
 
-## Step OA24o1o0g8o2o0 ルート編集 - コマンド打鍵
+## Step [OA24o1o0g8o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -406,7 +406,7 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## Step OA25o1o0g6o0 Web画面へアクセス
+## Step [OA25o1o0g6o0] Web画面へアクセス
 
 * 観戦モードのテストをするので、Webページを３窓で開き、一方が X プレイヤー、もう一方が O プレイヤー、もう一方は WatchingGame を選んでください
 * テストするためには `サインアップ` してアカウントを作ってから、 `ログイン` してください
@@ -420,7 +420,7 @@ docker-compose restart
 
 📖 [http://localhost:8000/admin](http://localhost:8000/admin)  
 
-## Step OA25o1o0g7o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
+## Step [OA25o1o0g7o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

@@ -74,7 +74,7 @@
 
 # 手順
 
-## Step O5o1o0g1o0 Dockerコンテナの起動
+## Step [O5o1o0g1o0] Dockerコンテナの起動
 
 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -86,7 +86,7 @@ cd src1
 docker-compose up
 ```
 
-## Step O5o1o0g2o0 フォルダー作成 - apps1/launcher_vol1o0 フォルダー
+## Step [O5o1o0g2o0] フォルダー作成 - apps1/launcher_vol1o0 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -96,7 +96,7 @@ docker-compose up
             └── 📂 launcher_vol1o0        # アプリケーション名
 ```
 
-## Step O5o1o0g3o0 アプリケーション作成
+## Step [O5o1o0g3o0] アプリケーション作成
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -108,7 +108,7 @@ docker-compose run --rm web python manage.py startapp launcher_vol1o0 ./apps1/la
 # 2. パス
 ```
 
-## Step O5o1o0g4o0 今回使わないファイルの削除
+## Step [O5o1o0g4o0] 今回使わないファイルの削除
 
 👇 以下のファイルを削除してほしい  
 
@@ -126,7 +126,7 @@ docker-compose run --rm web python manage.py startapp launcher_vol1o0 ./apps1/la
 👉              └── 📄 views.py
 ```
 
-## Step O5o1o0g5o0 アプリケーション設定変更 - apps.py
+## Step [O5o1o0g5o0] アプリケーション設定変更 - apps.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -162,7 +162,7 @@ class PortalConfig(AppConfig):
 # EOF O5o1o0g5o0
 ```
 
-## Step O5o1o0g6o0 アプリケーション登録 - settings.py ファイル＜その２＞
+## Step [O5o1o0g6o0] アプリケーション登録 - settings.py ファイル＜その２＞
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -201,7 +201,7 @@ INSTALLED_APPS = [
 これで、 `src1/apps1/launcher_vol1o0` フォルダーは launcher_vol1o0 アプリケーションとして認識される。  
 例えば、 launcher_vol1o0 フォルダーの直下に置いた static フォルダーが Django の静的リソースの検索対象のパスになるといったメリットがある  
 
-## Step O5o1o0g7o0 アイコンの設定 - favicon.ico ファイル
+## Step [O5o1o0g7o0] アイコンの設定 - favicon.ico ファイル
 
 favicon.ico は、例えば 以下のサイトで作れる。作ってきてほしい  
 
@@ -245,7 +245,7 @@ favicon.ico を有効にするには HTML で設定する必要があるが、�
 以下略
 ```
 
-## Step O5o1o0g8o0 画面作成 - launcher_vol1o0/finished_lesson/ver1o0.html ファイル
+## Step [O5o1o0g8o0] 画面作成 - launcher_vol1o0/finished_lesson/ver1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -341,7 +341,7 @@ favicon.ico を有効にするには HTML で設定する必要があるが、�
 <!-- EOF O5o1o0g8o0 -->
 ```
 
-## Step O5o1o0g9o0 設定変更 - settings.py ファイル＜その２＞
+## Step [O5o1o0g9o0] 設定変更 - settings.py ファイル＜その２＞
 
 👇 以下のファイルを編集してほしい  
 
@@ -405,7 +405,7 @@ TEMPLATES = [
 ]
 ```
 
-## Step O5o1o0gA10o0 ビュー作成 - finished_lesson/ver1o0 フォルダー
+## Step [O5o1o0gA10o0] ビュー作成 - finished_lesson/ver1o0 フォルダー
 
 👇 以下のファイルを作成してほしい  
 
@@ -462,11 +462,11 @@ class Launcher():
 # EOF O5o1o0gA10o0
 ```
 
-## ~~Step O5o1o0gA11o0~~
+## ~~Step [O5o1o0gA11o0]~~
 
 Merged to O5o1o0gA11o1o0  
 
-## Step O5o1o0gA11o1o0 ルート編集 - urls.csv ファイル
+## Step [O5o1o0gA11o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -505,7 +505,7 @@ Merged to O5o1o0gA11o1o0
 ../src1/project1/urls_launcher_vol1o0_autogen.py,launcher/vol1.0/finished-lesson/ver1.0/,,"O5o1o0gA11o1o0 ランチャー1.0巻 終了したレッスン1.0版",apps1.launcher_vol1o0.views.finished_lesson.ver1o0,Launcher,LauncherView1o0g1o0,render
 ```
 
-## Step O5o1o0gA11o2o0 ルート編集 - コマンド打鍵
+## Step [O5o1o0gA11o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -520,11 +520,11 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## ~~Step O5o1o0gA12o0~~
+## ~~Step [O5o1o0gA12o0]~~
 
 Merged to O5o1o0gA11o1o0  
 
-## Step O5o1o0gA13o0 Webページにアクセスする
+## Step [O5o1o0gA13o0] Webページにアクセスする
 
 📖 [http://localhost:8000/launcher/vol1.0/finished-lesson/ver1.0/](http://localhost:8000/launcher/vol1.0/finished-lesson/ver1.0/)  
 

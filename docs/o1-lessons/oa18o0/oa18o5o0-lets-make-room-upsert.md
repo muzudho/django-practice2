@@ -126,7 +126,7 @@
 
 # 手順
 
-## Step OA18o5o0g1o0 Dockerコンテナの起動
+## Step [OA18o5o0g1o0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -138,7 +138,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA18o5o0g2o0 画面作成 - room/upsert/ver1o0.html ファイル
+## Step [OA18o5o0g2o0] 画面作成 - room/upsert/ver1o0.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -198,7 +198,7 @@ docker-compose up
 <!-- EOF OA18o5o0g2o0 -->
 ```
 
-## Step OA18o5o0g3o0 フォーム作成 - f_room.py ファイル
+## Step [OA18o5o0g3o0] フォーム作成 - f_room.py ファイル
 
 HTMLタグの `<form>～</form>` の子要素を自動生成させよう。  
 
@@ -243,7 +243,7 @@ class RoomForm(ModelForm):
 # BOF OA18o5o0g3o0
 ```
 
-## Step OA18o5o0g4o0 ビュー編集 - room フォルダー
+## Step [OA18o5o0g4o0] ビュー編集 - room フォルダー
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -295,7 +295,7 @@ class RoomV():
         return render_upsert(request, id, RoomV._path_of_upsert_page)
 ```
 
-## Step OA18o5o0g5o0 ビュー作成 - room/upsert/ver1o0 ファイル
+## Step [OA18o5o0g5o0] ビュー作成 - room/upsert/ver1o0 ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -381,11 +381,11 @@ def render_upsert(request, id, room_upsert_tp):
 # EOF OA18o5o0g5o0
 ```
 
-## ~~Step OA18o5o0g6o0~~
+## ~~Step [OA18o5o0g6o0]~~
 
 Merged to OA18o5o0g6o1o0  
 
-## Step OA18o5o0g6o1o0 ルート編集 - urls.csv ファイル
+## Step [OA18o5o0g6o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -420,7 +420,7 @@ Merged to OA18o5o0g6o1o0
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/rooms/upsert/ver1.0/<int:id>/,practice_vol1o0_rooms_update,"OA18o5o0g6o1o0 練習1.0巻 対局部屋の更新1.0版",apps1.practice_vol1o0.views.room.ver1o0,RoomV,RoomVV1o0,render_upsert
 ```
 
-## Step OA18o4o0g5o2o0 ルート編集 - コマンド打鍵
+## Step [OA18o4o0g5o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -435,7 +435,7 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## Step OA18o5o0g7o0 Web画面へアクセス
+## Step [OA18o5o0g7o0] Web画面へアクセス
 
 👇 作成するとき、部屋ID は付けるな  
 
@@ -445,7 +445,7 @@ docker-compose restart
 
 📖 [http://localhost:8000/practice/vol1.0/rooms/upsert/ver1.0/5/](http://localhost:8000/practice/vol1.0/rooms/upsert/ver1.0/5/)  
 
-## Step OA18o5o0g8o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
+## Step [OA18o5o0g8o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

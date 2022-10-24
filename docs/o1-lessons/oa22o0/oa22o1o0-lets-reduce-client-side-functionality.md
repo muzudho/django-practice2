@@ -94,7 +94,7 @@
 
 # 手順
 
-## Step OA22o1o0g1o0 Dockerコンテナの起動
+## Step [OA22o1o0g1o0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -106,7 +106,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA22o1o0g2o0 フォルダー作成 - apps1/tic_tac_toe_vol3o0 フォルダー
+## Step [OA22o1o0g2o0] フォルダー作成 - apps1/tic_tac_toe_vol3o0 フォルダー
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -116,7 +116,7 @@ docker-compose up
             └── 📂 tic_tac_toe_vol3o0                     # アプリケーション Three
 ```
 
-## Step OA22o1o0g3o0 アプリケーション作成
+## Step [OA22o1o0g3o0] アプリケーション作成
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -128,7 +128,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_vol3o0 ./apps1
 # 2. 既存のディレクトリーへのパス
 ```
 
-## Step OA22o1o0g4o0 今回使わないファイルの削除
+## Step [OA22o1o0g4o0] 今回使わないファイルの削除
 
 👇 以下のファイルを削除してほしい  
 
@@ -146,7 +146,7 @@ docker-compose run --rm web python manage.py startapp tic_tac_toe_vol3o0 ./apps1
 👉              └── 📄 views.py
 ```
 
-## Step OA22o1o0g5o0 アプリケーション設定変更 - apps.py
+## Step [OA22o1o0g5o0] アプリケーション設定変更 - apps.py
 
 👇 以下のファイルを編集してほしい  
 
@@ -178,7 +178,7 @@ class TicTacToeV3Config(AppConfig):
     #          --------------------
 ```
 
-## Step OA22o1o0g6o0 アプリケーション登録 - settings.py ファイル
+## Step [OA22o1o0g6o0] アプリケーション登録 - settings.py ファイル
 
 👇 以下の既存のファイルを編集してほしい  
 
@@ -217,7 +217,7 @@ INSTALLED_APPS = [
 これで、 `src1/apps1/tic_tac_toe_vol3o0` フォルダーは tic_tac_toe_vol3o0 アプリケーションとして認識される。  
 例えば、 tic_tac_toe_vol3o0 フォルダーの直下に置いた static フォルダーが Django の静的リソースの検索対象のパスになるといったメリットがある  
 
-## Step OA22o1o0g7o0 対局画面作成 - playing/v1o0.html.txt ファイル
+## Step [OA22o1o0g7o0] 対局画面作成 - playing/v1o0.html.txt ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -264,7 +264,7 @@ INSTALLED_APPS = [
 <!-- EOF OA22o1o0g7o0 -->
 ```
 
-## Step OA22o1o0g8o0 対局申込ビュー作成 - match_application/v1o0 フォルダー
+## Step [OA22o1o0g8o0] 対局申込ビュー作成 - match_application/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -350,7 +350,7 @@ class MatchApplicationV():
 # EOF OA22o1o0g8o0
 ```
 
-## Step OA22o1o0g9o0 対局ビュー作成 - playing/v1o0 フォルダー
+## Step [OA22o1o0g9o0] 対局ビュー作成 - playing/v1o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -444,11 +444,11 @@ class PlayingV():
 # EOF OA22o1o0g9o0
 ```
 
-## ~~Step OA22o1o0gA10o0~~
+## ~~Step [OA22o1o0gA10o0]~~
 
 Merged to OA22o1o0gA10o1o0  
 
-## Step OA22o1o0gA10o1o0 ルート編集 - urls.csv ファイル
+## Step [OA22o1o0gA10o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -502,7 +502,7 @@ path('tic-tac-toe/vol3.0/playing/ver1.0/<str:kw_room_name>/', XxxView.render, na
 3. HTMLテンプレートの中で {% url 'playing' %} のような形でURLを取得するのに使える
 ```
 
-## Step OA22o1o0gA10o2o0 ルート編集 - コマンド打鍵
+## Step [OA22o1o0gA10o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -517,13 +517,13 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## Step OA22o1o0gA11o0 Web画面へアクセス
+## Step [OA22o1o0gA11o0] Web画面へアクセス
 
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでください  
 
 📖 [http://localhost:8000/tic-tac-toe/vol3.0/match-application/ver1.0/](http://localhost:8000/tic-tac-toe/vol3.0/match-application/ver1.0/)  
 
-## Step OA22o1o0gA12o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
+## Step [OA22o1o0gA12o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

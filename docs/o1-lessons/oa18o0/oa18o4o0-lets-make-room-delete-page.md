@@ -111,7 +111,7 @@ id が 4 の部屋を削除したい
 
 # 手順
 
-## Step OA18o4o0g1o0 Dockerコンテナの起動
+## Step [OA18o4o0g1o0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -123,7 +123,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA18o4o0g2o0 画面作成 - delete.html ファイル
+## Step [OA18o4o0g2o0] 画面作成 - delete.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -167,7 +167,7 @@ docker-compose up
 <!-- EOF OA18o4o0g2o0 -->
 ```
 
-## Step OA18o4o0g3o0 ビュー編集 - room/v1o0 フォルダー
+## Step [OA18o4o0g3o0] ビュー編集 - room/v1o0 フォルダー
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -218,7 +218,7 @@ class RoomV():
         return render_delete(request, id, RoomV._path_of_delete_page)
 ```
 
-## Step OA18o4o0g4o0 ビュー作成 - room/delete/v1o0.py ファイル
+## Step [OA18o4o0g4o0] ビュー作成 - room/delete/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -278,11 +278,11 @@ def render_delete(request, room_pk, room_delete_tp):
 # EOF OA18o4o0g4o0
 ```
 
-## ~~Step OA18o4o0g5o0~~
+## ~~Step [OA18o4o0g5o0]~~
 
 Merged to OA18o4o0g5o1o0  
 
-## Step OA18o4o0g5o1o0 ルート編集 - urls.csv ファイル
+## Step [OA18o4o0g5o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -314,7 +314,7 @@ Merged to OA18o4o0g5o1o0
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/rooms/delete/ver1.0/<int:id>/,practice_vol1o0_rooms_delete,"OA18o4o0g5o1o0 練習1.0巻 対局部屋の削除1.0版",apps1.practice_vol1o0.views.room.ver1o0,RoomV,RoomVV1o0,render_delete
 ```
 
-## Step OA18o4o0g5o2o0 ルート編集 - コマンド打鍵
+## Step [OA18o4o0g5o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -329,13 +329,13 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## Step OA18o4o0g6o0 Web画面へアクセス
+## Step [OA18o4o0g6o0] Web画面へアクセス
 
 👇 部屋の番号は適宜変えてほしい  
 
 📖 [http://localhost:8000/practice/vol1.0/rooms/delete/ver1.0/1/](http://localhost:8000/practice/vol1.0/rooms/delete/ver1.0/1/)  
 
-## Step OA18o4o0g7o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
+## Step [OA18o4o0g7o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

@@ -114,7 +114,7 @@
 
 # 手順
 
-## Step OA11o4o0g1o0 Dockerコンテナの起動
+## Step [OA11o4o0g1o0] Dockerコンテナの起動
 
 👇 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -126,7 +126,7 @@ cd src1
 docker-compose up
 ```
 
-## Step OA11o4o0g2o0 画面作成 - upsert.html ファイル
+## Step [OA11o4o0g2o0] 画面作成 - upsert.html ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -192,7 +192,7 @@ docker-compose up
 <!-- EOF OA11o4o0g2o0 -->
 ```
 
-## Step OA11o4o0g3o0 入力フォーム作成 - f_prefecture.py ファイル
+## Step [OA11o4o0g3o0] 入力フォーム作成 - f_prefecture.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -238,7 +238,7 @@ class PrefectureForm(ModelForm):
 
 👆 HTMLタグの `<form>～</form>` の子要素を自動的に埋めてくれる  
 
-## Step OA11o4o0g4o0 ビュー編集 - v_upsert.py ファイル
+## Step [OA11o4o0g4o0] ビュー編集 - v_upsert.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -323,7 +323,7 @@ def render_upsert(request, id=None):
 # EOF OA11o4o0g4o0
 ```
 
-## Step OA11o4o0g5o0 ビュー編集 - prefecture/ver1o0 フォルダー
+## Step [OA11o4o0g5o0] ビュー編集 - prefecture/ver1o0 フォルダー
 
 👇 以下のファイルを編集してほしい  
 
@@ -356,11 +356,11 @@ class PrefectureV(object):
     from .v_upsert import render_upsert
 ```
 
-## ~~Step OA11o4o0g6o0~~
+## ~~Step [OA11o4o0g6o0]~~
 
 Merged to OA11o4o0g6o1o0  
 
-## Step OA11o4o0g6o1o0 ルート編集 - urls.csv ファイル
+## Step [OA11o4o0g6o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -393,7 +393,7 @@ Merged to OA11o4o0g6o1o0
 ../src1/project1/urls_practice_vol1o0_autogen.py,practice/vol1.0/prefectures/update/ver1.0/<int:id>/,practice_vol1o0_refectures_update,"OA11o4o0g6o1o0 練習1.0巻 都道府県の更新1.0版",apps1.practice_vol1o0.views.prefecture.ver1o0,PrefectureV,,render_upsert
 ```
 
-## Step OA11o4o0g6o2o0 ルート編集 - コマンド打鍵
+## Step [OA11o4o0g6o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -408,7 +408,7 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## Step OA11o4o0g7o0 Web画面へアクセス
+## Step [OA11o4o0g7o0] Web画面へアクセス
 
 👇 作成するとき、IDは付けるな  
 
@@ -418,7 +418,7 @@ docker-compose restart
 
 📖 [http://localhost:8000/practice/vol1.0/prefectures/update/ver1.0/4/](http://localhost:8000/practice/vol1.0/prefectures/update/ver1.0/4/)  
 
-## Step OA11o4o0g8o0 ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
+## Step [OA11o4o0g8o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
 👇 以下の既存ファイルの最終行に追記してほしい  
 

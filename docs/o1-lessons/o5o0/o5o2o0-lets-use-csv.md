@@ -69,7 +69,7 @@ Pythonコードを編集しなくても、ランチャーのボタン（リン�
 
 # 手順
 
-## Step O5o2o0g1o0 Dockerコンテナの起動
+## Step [O5o2o0g1o0] Dockerコンテナの起動
 
 （していなければ） Docker コンテナを起動しておいてほしい  
 
@@ -81,7 +81,7 @@ cd src1
 docker-compose up
 ```
 
-## Step O5o2o0g2o0 Pythonパッケージ インストール指定の編集 - requirements.txt ファイル
+## Step [O5o2o0g2o0] Pythonパッケージ インストール指定の編集 - requirements.txt ファイル
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -100,7 +100,7 @@ docker-compose up
 pandas
 ```
 
-## Step O5o2o0g3o0 Visual Studio Code のエラー抑制 - pip コマンド
+## Step [O5o2o0g3o0] Visual Studio Code のエラー抑制 - pip コマンド
 
 Python の pandas パッケージは、 Dockerコンテナにインストールされていればよく、  
 Dockerコンテナの外側のPCにインストールしている必要はないが、  
@@ -119,7 +119,7 @@ Dockerコンテナの外側のPCにも pandas をインストールすれば（�
 pip install pandas
 ```
 
-## Step O5o2o0g4o0 Dockerコンテナの停止～ビルド～起動
+## Step [O5o2o0g4o0] Dockerコンテナの停止～ビルド～起動
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -143,7 +143,7 @@ docker-compose build
 docker-compose up
 ```
 
-## Step O5o2o0g5o0 データ作成 - finished-lessons.csv ファイル
+## Step [O5o2o0g5o0] データ作成 - finished-lessons.csv ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -168,7 +168,7 @@ path,label
 /practice/vol1.0/page-to-be-added-2/ver1.0/,O5o2o0g5o0 練習1.0巻 ２回追加されたページ1.0版
 ```
 
-## Step O5o2o0g6o0 画面作成 - launcher_vol1o0/ver2o0.html ファイル
+## Step [O5o2o0g6o0] 画面作成 - launcher_vol1o0/ver2o0.html ファイル
 
 以下のファイルを新規作成してほしい  
 
@@ -253,7 +253,7 @@ path,label
 {# EOF O5o2o0g6o0 #}
 ```
 
-## Step O5o2o0g7o0 ビュー作成 - launcher/ver2o0 フォルダー
+## Step [O5o2o0g7o0] ビュー作成 - launcher/ver2o0 フォルダー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -337,11 +337,11 @@ class Launcher():
 # EOF O5o2o0g7o0
 ```
 
-## ~~Step O5o2o0g8o0~~
+## ~~Step [O5o2o0g8o0]~~
 
 Merged to O5o2o0g8o1o0  
 
-## Step O5o2o0g8o1o0 ルート編集 - urls.csv ファイル
+## Step [O5o2o0g8o1o0] ルート編集 - urls.csv ファイル
 
 👇 以下の既存ファイルの末尾に追記してほしい  
 
@@ -375,7 +375,7 @@ Merged to O5o2o0g8o1o0
 👆 path を値無しにしている。スクリプトの方で、例えば `http://example.com/` といったURLの直下を指すよう対応する
 👆 name に `home` と指定した。 設定にもよるが、ログイン後の飛び先にしようとしている  
 
-## Step O5o2o0g8o2o0 ルート編集 - コマンド打鍵
+## Step [O5o2o0g8o2o0] ルート編集 - コマンド打鍵
 
 👇 以下のコマンドを打鍵してほしい  
 
@@ -390,7 +390,7 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
-## Step O5o2o0g9o0 Webページにアクセスする
+## Step [O5o2o0g9o0] Webページにアクセスする
 
 📖 [http://localhost:8000/](http://localhost:8000/)  
 
