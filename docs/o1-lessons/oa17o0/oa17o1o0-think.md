@@ -39,3 +39,46 @@
 サービスの提供は、無くなることもある  
 
 📖 [さくらのVPS 「スタートアップスクリプト」の一部提供終了のお知らせ](https://vps.sakura.ad.jp/news/startupscripts-end-jupyterlab/)  
+
+# さくらのVPSのどこにソースを置く？
+
+例えば:  
+
+```plaintext
+    /
+    └── 📂 home
+        └── 📂 ubuntu
+            └── 📂 repos
+                └── 📂 django-practice2
+                    └── 📂 src1            # ソース
+                        ├── 📂 apps1        # 各種アプリケーション
+                        ├── 📂 project2     # 本番用プロジェクト
+                        ├── 📄 .env
+                        ├── 🐳 docker-compose.yml   # `🐳 docker-compose-project2.yml` をリネーム
+                        ├── 🐳 Dockerfile
+                        ├── 📄 manage.py
+                        └── 📄 requirements.txt
+```
+
+* git か Visual Studio Code の Remote host を使ってファイルをコピーしてほしい
+* settings.py の DEBUGフラッグは下げてほしい
+* `📂 project2` settings.py などに `project1` という文字が含まれていれば `project2` に変えてほしい
+
+# コマンド
+
+```shell
+cd /home/ubuntu/repos/django-practice2/src1
+
+docker-compose up
+# ファイルを指定するなら
+# docker-compose -f docker-compose-project2.yml up
+```
+
+
+## Dockerコンテナの停止の方法
+
+```shell
+docker-compose down
+```
+
+📖 [Dockerイメージとコンテナの削除方法](https://qiita.com/tifa2chan/items/e9aa408244687a63a0ae)  

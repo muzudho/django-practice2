@@ -116,44 +116,41 @@ SSH は難しいので後で
 -----------
 
 名前        状態    IPアドレス  ゾーン  スペック
----------  ------
+---------  ------  ---------  -----  -------
 サーバー名  停止中
 
 ```
 
+# 電源を起動する
 
-# さくらのVPSのどこにソースを置く？
+最初、`停止中` なので、 `電源操作` を選んで `起動する` をしてほしい  
 
-例えば:  
+# 接続する
+
+Visual Studio Code の `Remote Explorer` を使う  
+
+`SSH接続コマンド` を入力するのは難しいので、代わりに  
+もし以前に接続したことがあれば、 📄 `C:\Users\{ユーザー名}\.ssh\ssh_config` といったファイルがあるかもしれない。  
+それを編集する  
+
+サーバーのパスワードを入力する  
+
+接続したら `Open Folder` ボタンをクリックする  
+
+また、サーバーのパスワードを入力する  
+
+例えば、 `/home/ubuntu` がカレントディレクトリーかもしれない。 （`ubuntu` はユーザー名）  
 
 ```plaintext
     /
     └── 📂 home
         └── 📂 ubuntu
-            └── 📂 repos
-                └── 📂 django-practice2
-                    └── 📂 src1            # ソース
-                        ├── 📂 apps1        # 各種アプリケーション
-                        ├── 📂 project2     # 本番用プロジェクト
-                        ├── 📄 .env
-                        ├── 🐳 docker-compose.yml   # `🐳 docker-compose-project2.yml` をリネーム
-                        ├── 🐳 Dockerfile
-                        ├── 📄 manage.py
-                        └── 📄 requirements.txt
-```
-
-* git か Visual Studio Code の Remote host を使ってファイルをコピーしてほしい
-* settings.py の DEBUGフラッグは下げてほしい
-* `📂 project2` settings.py などに `project1` という文字が含まれていれば `project2` に変えてほしい
-
-# コマンド
-
-```shell
-cd /home/ubuntu/repos/django-practice2/src1
-
-docker-compose up
-# ファイルを指定するなら
-# docker-compose -f docker-compose-project2.yml up
+            ├── 📂 .cache
+            ├── 📂 .vscode-server
+            ├── 📄 .bash_logout
+            ├── 📄 .bashrc
+            ├── 📄 .profile
+            └── 📄 .wget-hsts
 ```
 
 # Dockerマシンをどうやってインストールする？
@@ -163,26 +160,6 @@ docker-compose up
 
 📖 [AWSに電子政府きふわらべをデプロイするオーバービュー（＾～＾）](https://crieit.net/posts/AWS-61a238f50f23a)  
 
-# 備忘録
-
-`さくらのVPS` でドッカーコンテナを起動したら、外部に公開するまで　あと２つ設定が必要。
-
-(1)  
-さくらサーバー側でポートを開く。  
-セキュリティの関係上、初期設定で SSH しか開いていないので、Webの8000番ポートも通すようにする。  
-
-(2)  
-Django の settings.py に `ALLOWED_HOSTS = []` という文字列配列がある。  
-ここに外部からアクセスさせる IPアドレスまたは ドメインを書くこと。  
-ファイルを保存すると　自動で読込まれるので、ドッカーコンテナの再起動は必要ない。  
-
-# Dockerコンテナの停止の方法
-
-```shell
-docker-compose down
-```
-
-📖 [Dockerイメージとコンテナの削除方法](https://qiita.com/tifa2chan/items/e9aa408244687a63a0ae)  
 
 # 次の記事
 
