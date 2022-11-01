@@ -1,4 +1,4 @@
-DjangoとDocker練習[OA17o1o0] さくらVPS 備忘録
+DjangoとDocker練習[OA17o1o0] さくらのVPS のサーバー利用スペースを購入する
 
 # 本題の前に
 
@@ -154,6 +154,8 @@ Visual Studio Code の `Remote Explorer` を使う
 ```
 
 # Dockerマシンをどうやってインストールする？
+
+`docker` と、 `docker-compose` をインストールしてほしい  
 
 この連載では レンタルサーバーのインスタンスに Dockerマシンをインストールする方法 は説明しないが、  
 👇 AWSのEC2のインスタンスのケースは 昔に記事を書いたから、参考にしてもいいし、しなくてもいい  

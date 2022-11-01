@@ -1,4 +1,4 @@
-DjangoとDocker練習[OA17o3o0] さくらVPS 備忘録
+DjangoとDocker練習[OA17o3o0] さくらのVPS 備忘録
 
 # 情報
 
@@ -24,3 +24,7 @@ DjangoとDocker練習[OA17o3o0] さくらVPS 備忘録
 Django の settings.py に `ALLOWED_HOSTS = []` という文字列配列がある。  
 ここに外部からアクセスさせる IPアドレスまたは ドメインを書くこと。  
 ファイルを保存すると　自動で読込まれるので、ドッカーコンテナの再起動は必要ない。  
+
+# 次の記事
+
+📖 [Djangoでゲーム対局部屋のモデルを定義しよう！](https://qiita.com/muzudho1/items/e1cf253dd6929bcd708d)  

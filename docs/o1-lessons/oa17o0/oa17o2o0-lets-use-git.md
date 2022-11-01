@@ -1,3 +1,5 @@
+DjangoとDocker練習[O17o2o0] gitでソースをクローンしよう！
+
 Git を使ってソースをデプロイする方法を説明する  
 
 # 情報
@@ -118,4 +120,4 @@ drwxrwxr-x 6 ubuntu ubuntu 4096 Aug 14 20:05 django-practice2/
 
 # 次の記事
 
-📖 [Djangoでゲーム対局部屋のモデルを定義しよう！](https://qiita.com/muzudho1/items/e1cf253dd6929bcd708d)  
+* 📖 [[OA17o3o0] さくらのVPS 備忘録](https://qiita.com/muzudho1/items/c34c8cf93a091e25cc59)
