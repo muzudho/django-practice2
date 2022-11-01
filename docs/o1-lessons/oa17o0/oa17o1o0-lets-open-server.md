@@ -21,9 +21,9 @@ DjangoとDocker練習[OA17o1o0] さくらのVPS のサーバー利用スペー�
 
 もう会員になっているものとして話しを進める  
 
-## Step [OA17o1o2o0] ログインしよう
+## Step [OA17o1o2o0] コントロールパネルへログインしよう
 
-📖 [会員IDログイン](https://secure.sakura.ad.jp/vps/login?redirect=%2Fservers)  
+📖 [さくらのVPS コントロールパネル](https://secure.sakura.ad.jp/vps/login?redirect=%2Fservers)  
 
 ## Step [OA17o1o2o0] レンタルサーバーを借りよう
 

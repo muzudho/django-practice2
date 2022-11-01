@@ -120,6 +120,12 @@ drwxrwxr-x 6 ubuntu ubuntu 4096 Aug 14 20:05 django-practice2/
 
 さくらのVPS を借りると ubuntu というユーザーだったので、そうする  
 
+```shell
+# 指定のフォルダー以下のすべてのファイル、ディレクトリーのパーミッションの変更（上書き）の例
+sudo chown -R ubuntu:ubuntu django-practice2
+# サーバーのパスワードを入力
+```
+
 ## DEBUG フラグ
 
 * settings.py の DEBUGフラグは下げてほしい
