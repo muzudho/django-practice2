@@ -61,7 +61,6 @@
 ```
 
 * git か Visual Studio Code の Remote host を使ってファイルをコピーしてほしい
-* settings.py の DEBUGフラッグは下げてほしい
 * `📂 project2` settings.py などに `project1` という文字が含まれていれば `project2` に変えてほしい
 
 # コマンド
@@ -73,12 +72,3 @@ docker-compose up
 # ファイルを指定するなら
 # docker-compose -f docker-compose-project2.yml up
 ```
-
-
-## Dockerコンテナの停止の方法
-
-```shell
-docker-compose down
-```
-
-📖 [Dockerイメージとコンテナの削除方法](https://qiita.com/tifa2chan/items/e9aa408244687a63a0ae)  

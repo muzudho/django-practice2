@@ -10,6 +10,23 @@ DjangoとDocker練習[OA17o3o0] さくらのVPS 備忘録
 
 # 手順
 
+## Step [OA17o3o_1o0] ドッカ―コンテナ起動
+
+```shell
+# cd src1
+
+docker-compose up
+```
+
+### Dockerコンテナの停止の方法
+
+```shell
+# 停止したくなったときに
+docker-compose down
+```
+
+📖 [Dockerイメージとコンテナの削除方法](https://qiita.com/tifa2chan/items/e9aa408244687a63a0ae)  
+
 ## Step [OA17o3o0] 備忘録
 
 `さくらのVPS` でドッカーコンテナを起動したら、外部に公開するまで　あと２つ設定が必要。
@@ -24,6 +41,10 @@ DjangoとDocker練習[OA17o3o0] さくらのVPS 備忘録
 Django の settings.py に `ALLOWED_HOSTS = []` という文字列配列がある。  
 ここに外部からアクセスさせる IPアドレスまたは ドメインを書くこと。  
 ファイルを保存すると　自動で読込まれるので、ドッカーコンテナの再起動は必要ない。  
+
+わたしは、ドメインは `Value Domain` のようなサービスを使って購入している  
+
+📖 [Value Domain](https://www.value-domain.com/)  
 
 # 次の記事
 

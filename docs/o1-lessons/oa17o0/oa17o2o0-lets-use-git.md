@@ -14,11 +14,13 @@ Git を使ってソースをデプロイする方法を説明する
 
 * `レポジトリ` - ソースを置いているディレクトリー
 
-# 本題に入る前に
+# 手順
+
+## 本題に入る前に
 
 Git Hub にレポジトリを作っておいてほしい  
 
-# git をインストールする
+## git をインストールする
 
 📖 [1.5 使い始める - Gitのインストール](https://git-scm.com/book/ja/v2/%E4%BD%BF%E3%81%84%E5%A7%8B%E3%82%81%E3%82%8B-Git%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)  
 
@@ -30,7 +32,7 @@ git は Dockerコンテナの外側のOSにインストールしたい
 sudo apt-get install git-all
 ```
 
-# ソースをクローンしたいディレクトリーに移動する
+## ソースをクローンしたいディレクトリーに移動する
 
 👇 例えば 以下の場所にソースを置きたいとする  
 ディレクトリーは作成しておいてほしい  
@@ -46,7 +48,7 @@ sudo apt-get install git-all
 cd /home/ubuntu/repos
 ```
 
-# ソースをクローンする
+## ソースをクローンする
 
 URLは適宜変えてほしい  
 
@@ -87,7 +89,7 @@ git fetch https://github.com/muzudho/django-practice2.git
                         └── 📄 README.md
 ```
 
-# fetch したらデータベースが壊れてるかも
+## fetch したらデータベースが壊れてるかも
 
 👇 マイグレーションすると直るかもしれないが、何をやってるのか　さっぱり分からない  
 
@@ -96,7 +98,7 @@ docker-compose run --rm web python3 manage.py migrate sites
 docker-compose run --rm web python3 manage.py migrate
 ```
 
-# パーミッション
+## パーミッション
 
 Windows に無くて Linux に有るのが ファイルのパーミッション。  
 👇 確認してほしい  
@@ -117,6 +119,29 @@ drwxrwxr-x 6 ubuntu ubuntu 4096 Aug 14 20:05 django-practice2/
 ```
 
 さくらのVPS を借りると ubuntu というユーザーだったので、そうする  
+
+## DEBUG フラグ
+
+* settings.py の DEBUGフラグは下げてほしい
+
+## .env ファイルをアプロードしてほしい
+
+このファイルの内容は秘密にすること  
+
+```plaintext
+    📂 /
+        └── 📂 home
+            └── 📂 ubuntu
+                └── 📂 repos
+                    └── 📂 django-practice2     # レポジトリ
+                        ├── 📂 docs
+                        ├── 📂 src1
+                        ├── 📂 src2_local
+👉                      ├── 📄 .env
+                        ├── 📄 .gitignore
+                        ├── 📄 LICENSE
+                        └── 📄 README.md
+```
 
 # 次の記事
 
