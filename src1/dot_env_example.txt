@@ -1,0 +1,4 @@
+`.env` というファイル名にしてください
+
+EMAIL_HOST_USER={ここにメールアドレス}
+EMAIL_HOST_PASSWORD={ここにパスワード}
