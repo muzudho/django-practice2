@@ -1,4 +1,4 @@
-DjangoとDocker練習[OA17o3o0] さくらのVPS 備忘録
+DjangoとDocker練習[OA17o3o0] さくらのVPS コンテナー起動
 
 # 情報
 
@@ -15,14 +15,15 @@ DjangoとDocker練習[OA17o3o0] さくらのVPS 備忘録
 ```shell
 # cd src1
 
-docker-compose up
+# Docker を実行する権限のあるユーザーで実行
+sudo docker-compose up
 ```
 
 ### Dockerコンテナの停止の方法
 
 ```shell
 # 停止したくなったときに
-docker-compose down
+sudo docker-compose down
 ```
 
 📖 [Dockerイメージとコンテナの削除方法](https://qiita.com/tifa2chan/items/e9aa408244687a63a0ae)  
