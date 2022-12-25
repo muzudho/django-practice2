@@ -65,12 +65,21 @@ git clone https://github.com/muzudho/django-practice2.git
 # ここまでは1回行うだけでよい
 ```
 
-👇 2回目以降は、プルしてフェッチ  
+👇 2回目以降は、プルしてフェッチ（この操作でサーバーが壊れる。あとで説明する）  
 
-```
+```shell
+# （慎重）ローカルの変更をすべて破棄したいなら
+git restore .
+
+# 取得
 git pull https://github.com/muzudho/django-practice2.git
 git fetch https://github.com/muzudho/django-practice2.git
 ```
+
+以下の２つを説明する  
+
+* パーミッションが変わってるかもしれない
+* Docker が止まっているかもしれない
 
 これでディレクトリー構成はクローンされる。  
 👇 例えば以下のように  
@@ -124,6 +133,12 @@ drwxrwxr-x 6 ubuntu ubuntu 4096 Aug 14 20:05 django-practice2/
 # 指定のフォルダー以下のすべてのファイル、ディレクトリーのパーミッションの変更（上書き）の例
 sudo chown -R ubuntu:ubuntu django-practice2
 # サーバーのパスワードを入力
+```
+
+👇 docker-compose は ルート権限で実行しないといけないかもしれない  
+
+```
+sudo docker-compose up
 ```
 
 ## DEBUG フラグ
