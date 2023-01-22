@@ -18,14 +18,14 @@ class Connection {
      *
      * @param {string} roomName - 部屋名
      * @param {strint} connectionString - Webソケット接続文字列
-     * @param {S2cMessageDriven} s2cMessageDriven - 受信メッセージ駆動
+     * @param {MessageReceiver} messageReceiver - メッセージ受信器
      * @param {function} onOpenWebSocket - Webソケットを開かれたとき
      * @param {function} onCloseWebSocket - Webソケットが閉じられたとき。 例: サーバー側にエラーがあって接続が切れたりなど
      * @param {function} onWebSocketError - Webソケットエラー時のメッセージ
      * @param {function} onRetryWaiting - 再接続のためのインターバルの定期的なメッセージ
      * @param {function} onGiveUp - 再接続を諦めたとき
      */
-    constructor(roomName, connectionString, s2cMessageDriven, onOpenWebSocket, onCloseWebSocket, onWebSocketError, onRetryWaiting, onGiveUp) {
+    constructor(roomName, connectionString, messageReceiver, onOpenWebSocket, onCloseWebSocket, onWebSocketError, onRetryWaiting, onGiveUp) {
         // console.log(`[Connection constructor] roomName=[${roomName}] connectionString=[${connectionString}]`);
 
         // 部屋名
@@ -42,7 +42,7 @@ class Connection {
         // 再接続のために記憶しておきます
         this._onOpenWebSocket = onOpenWebSocket;
         this._onCloseWebSocket = onCloseWebSocket;
-        this._s2cMessageDriven = s2cMessageDriven;
+        this._messageReceiver = messageReceiver;
         this._onWebSocketError = onWebSocketError;
         this._onRetryWaiting = onRetryWaiting;
         this._onGiveUp = onGiveUp;
@@ -79,7 +79,7 @@ class Connection {
                 // JSON を解析、メッセージだけ抽出
                 let data1 = JSON.parse(e.data);
                 let message = data1["message"];
-                this._s2cMessageDriven.execute(message);
+                this._messageReceiver.execute(message);
             };
 
             this.#webSock1.addEventListener("open", (event1) => {

@@ -82,7 +82,7 @@
         <script src="{% static 'tic_tac_toe_vol2o0/think/judge_ctrl/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/think/engine/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/gui/connection/ver1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_vol2o0/msg/s2c_message_driven/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/message_receiver/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/messages/end/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/messages/moved/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/messages/start/ver1o0.js' %}"></script>
@@ -112,20 +112,20 @@
             console.log(`[HTML] convertPartsToConnectionString roomName=${roomName} connectionString=${connectionString}`);
 
             // クライアントが、サーバーからのメッセージ受信
-            const msgDriven = new S2cMessageDriven();
+            const messageReceiver = new MessageReceiver();
             // 対局開始時
-            msgDriven.addHandler("S2C_Start", (message)=>{
+            messageReceiver.addMessageListener("S2C_Start", (message)=>{
                 vue1.onStart();
             });
             // 対局終了時
-            msgDriven.addHandler("S2C_End", (message)=>{
+            messageReceiver.addMessageListener("S2C_End", (message)=>{
                 // 勝者
                 let winner = message["s2c_winner"];
                 console.log(`[HTML onEnd] winner:${winner}`);
                 vue1.onGameover(winner);
             });
             // 指し手受信時
-            msgDriven.addHandler("S2C_Moved", (message)=>{
+            messageReceiver.addMessageListener("S2C_Moved", (message)=>{
                 // 升番号
                 let sq = parseInt(message["s2c_sq"]);
                 // 手番。 "X" か "O"
@@ -149,7 +149,7 @@
                 roomName,
                 connectionString,
                 // サーバーからのメッセージを受信したとき
-                msgDriven,
+                messageReceiver,
                 // Webソケットを開かれたとき
                 () => {
                     console.log("WebSockets connection created.");

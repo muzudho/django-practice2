@@ -7,7 +7,7 @@ import json
 from channels.generic.websocket import AsyncJsonWebsocketConsumer
 
 
-class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
+class ConsumerBase(AsyncJsonWebsocketConsumer):
     """[OA16o3o0g9o0] Webソケット用コンシューマー"""
 
     def __init__(self):
@@ -42,7 +42,7 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
         """クライアントからのメッセージの受信"""
 
         # ちゃんと動いているようなら消す
-        # print(f"[TicTacToeV2ConsumerBase receive] text_data={text_data}")
+        # print(f"[ConsumerBase receive] text_data={text_data}")
 
         doc_received = json.loads(text_data)
 

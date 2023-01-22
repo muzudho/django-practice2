@@ -9,8 +9,8 @@ class MovedS2cMessage:
     def asDict(self):
         """Dict形式で取得"""
         return {
-            'type': 'send_message',  # type属性は必須
-            's2c_type': 'S2C_Moved',
+            'type': 'send_message',         # type属性は必須
+            'message_name': 'S2C_Moved',    # Server to client
             's2c_sq': self._sq,
             's2c_pieceMoved': self._pieceMoved,
         }

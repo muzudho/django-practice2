@@ -14,8 +14,7 @@ class StartC2sMessage {
      */
     asJsObject() {
         return {
-            // `c2s_` は クライアントからサーバーへ送る変数の目印
-            c2s_type: "C2S_Start",
+            message_name: "C2S_Start", // Client to server
         };
     }
 }

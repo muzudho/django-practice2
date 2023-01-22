@@ -22,8 +22,7 @@ class MovedC2sMessage {
      */
     asJsObject() {
         return {
-            // `c2s_` は クライアントからサーバーへ送る変数の目印
-            c2s_type: "C2S_Moved",
+            message_name: "C2S_Moved", // Client to server
             c2s_sq: this._sq,
             c2s_pieceMoved: this._pieceMoved,
         };

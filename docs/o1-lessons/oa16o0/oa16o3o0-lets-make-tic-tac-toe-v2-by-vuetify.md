@@ -126,7 +126,7 @@ docker-compose up
 
 Moved to [OA16o3o_1o0g_1o0]  
 
-## Step [OA16o3o0g3o0] 受信メッセージ駆動実装 - msg/s2c_message_driven/v1o0.js ファイル
+## Step [OA16o3o0g3o0] メッセージ受信器 - msg/message_receiver/v1o0.js ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -137,7 +137,7 @@ Moved to [OA16o3o_1o0g_1o0]
                 └── 📂 static
                     └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
                         └── 📂 msg
-                            └── 📂 s2c_message_driven
+                            └── 📂 message_receiver
 👉                              └── 📄 ver1o0.js
 ```
 
@@ -145,15 +145,15 @@ Moved to [OA16o3o_1o0g_1o0]
 // BOF [OA16o3o0g3o0]
 
 /**
- * 受信メッセージ駆動
+ * メッセージ受信器
  */
-class S2cMessageDriven {
+class MessageReceiver {
     constructor() {
-        this._handlers = {};
+        this._messageListeners = {};
     }
 
-    addHandler(s2c_type, handler) {
-        this._handlers[s2c_type] = handler;
+    addMessageListener(name, setMessage) {
+        this._messageListeners[name] = setMessage;
     }
 
     /**
@@ -161,18 +161,17 @@ class S2cMessageDriven {
      * @returns 関数
      */
     execute(message) {
-        // `s2c_` は サーバーからクライアントへ送られてきた変数の目印
-        // イベント名
-        let s2c_type = message["s2c_type"];
-        console.log(`[S2cMessageDriven execute] サーバーからのメッセージを受信しました s2c_type:${s2c_type}`);
+        // メッセージ名 (Server to client)
+        let message_name = message["message_name"];
+        console.log(`[MessageReceiver execute] サーバーからのメッセージを受信しました message_name:${message_name}`);
 
-        if (s2c_type in this._handlers) {
+        if (message_name in this._messageListeners) {
             // 実行
-            const execute2 = this._handlers[s2c_type];
+            const execute2 = this._messageListeners[message_name];
             execute2(message);
         } else {
             // Undefined behavior
-            console.log(`[S2cMessageDriven execute] ignored. s2c_type=[${s2c_type}]`);
+            console.log(`[MessageReceiver execute] ignored. message_name:[${message_name}]`);
         }
     }
 }
@@ -194,7 +193,7 @@ class S2cMessageDriven {
                         │   └── 📂 connection
 👉                      │       └── 📄 ver1o0.js
                         └── 📂 msg
-                            └── 📂 s2c_message_driven
+                            └── 📂 message_receiver
                                 └── 📄 ver1o0.js
 ```
 
@@ -219,14 +218,14 @@ class Connection {
      *
      * @param {string} roomName - 部屋名
      * @param {strint} connectionString - Webソケット接続文字列
-     * @param {S2cMessageDriven} s2cMessageDriven - 受信メッセージ駆動
+     * @param {MessageReceiver} messageReceiver - メッセージ受信器
      * @param {function} onOpenWebSocket - Webソケットを開かれたとき
      * @param {function} onCloseWebSocket - Webソケットが閉じられたとき。 例: サーバー側にエラーがあって接続が切れたりなど
      * @param {function} onWebSocketError - Webソケットエラー時のメッセージ
      * @param {function} onRetryWaiting - 再接続のためのインターバルの定期的なメッセージ
      * @param {function} onGiveUp - 再接続を諦めたとき
      */
-    constructor(roomName, connectionString, s2cMessageDriven, onOpenWebSocket, onCloseWebSocket, onWebSocketError, onRetryWaiting, onGiveUp) {
+    constructor(roomName, connectionString, messageReceiver, onOpenWebSocket, onCloseWebSocket, onWebSocketError, onRetryWaiting, onGiveUp) {
         // console.log(`[Connection constructor] roomName=[${roomName}] connectionString=[${connectionString}]`);
 
         // 部屋名
@@ -243,7 +242,7 @@ class Connection {
         // 再接続のために記憶しておきます
         this._onOpenWebSocket = onOpenWebSocket;
         this._onCloseWebSocket = onCloseWebSocket;
-        this._s2cMessageDriven = s2cMessageDriven;
+        this._messageReceiver = messageReceiver;
         this._onWebSocketError = onWebSocketError;
         this._onRetryWaiting = onRetryWaiting;
         this._onGiveUp = onGiveUp;
@@ -280,7 +279,7 @@ class Connection {
                 // JSON を解析、メッセージだけ抽出
                 let data1 = JSON.parse(e.data);
                 let message = data1["message"];
-                this._s2cMessageDriven.execute(message);
+                this._messageReceiver.execute(message);
             };
 
             this.#webSock1.addEventListener("open", (event1) => {
@@ -364,7 +363,7 @@ class Connection {
                 │       │   └── 📂 connection
                 │       │       └── 📄 ver1o0.js
                 │       └── 📂 msg
-                │           └── 📂 s2c_message_driven
+                │           └── 📂 message_receiver
                 │               └── 📄 ver1o0.js
                 └── 📂 templates
                     └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
@@ -459,7 +458,7 @@ class Connection {
                 │       │   └── 📂 connection
                 │       │       └── 📄 ver1o0.js
                 │       └── 📂 msg
-                │           └── 📂 s2c_message_driven
+                │           └── 📂 message_receiver
                 │               └── 📄 ver1o0.js
                 └── 📂 templates
                     └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
@@ -555,7 +554,7 @@ class Connection {
         <script src="{% static 'tic_tac_toe_vol2o0/think/judge_ctrl/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/think/engine/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/gui/connection/ver1o0.js' %}"></script>
-        <script src="{% static 'tic_tac_toe_vol2o0/msg/s2c_message_driven/ver1o0.js' %}"></script>
+        <script src="{% static 'tic_tac_toe_vol2o0/msg/message_receiver/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/messages/end/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/messages/moved/ver1o0.js' %}"></script>
         <script src="{% static 'tic_tac_toe_vol2o0/msg/c2s_json_gen/messages/start/ver1o0.js' %}"></script>
@@ -585,20 +584,20 @@ class Connection {
             console.log(`[HTML] convertPartsToConnectionString roomName=${roomName} connectionString=${connectionString}`);
 
             // クライアントが、サーバーからのメッセージ受信
-            const msgDriven = new S2cMessageDriven();
+            const messageReceiver = new MessageReceiver();
             // 対局開始時
-            msgDriven.addHandler("S2C_Start", (message)=>{
+            messageReceiver.addMessageListener("S2C_Start", (message)=>{
                 vue1.onStart();
             });
             // 対局終了時
-            msgDriven.addHandler("S2C_End", (message)=>{
+            messageReceiver.addMessageListener("S2C_End", (message)=>{
                 // 勝者
                 let winner = message["s2c_winner"];
                 console.log(`[HTML onEnd] winner:${winner}`);
                 vue1.onGameover(winner);
             });
             // 指し手受信時
-            msgDriven.addHandler("S2C_Moved", (message)=>{
+            messageReceiver.addMessageListener("S2C_Moved", (message)=>{
                 // 升番号
                 let sq = parseInt(message["s2c_sq"]);
                 // 手番。 "X" か "O"
@@ -622,7 +621,7 @@ class Connection {
                 roomName,
                 connectionString,
                 // サーバーからのメッセージを受信したとき
-                msgDriven,
+                messageReceiver,
                 // Webソケットを開かれたとき
                 () => {
                     console.log("WebSockets connection created.");
@@ -964,7 +963,7 @@ class Connection {
                 │       │   └── 📂 connection
                 │       │       └── 📄 ver1o0.js
                 │       └── 📂 msg
-                │           └── 📂 s2c_message_driven
+                │           └── 📂 message_receiver
                 │               └── 📄 ver1o0.js
                 └── 📂 templates
                     └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
@@ -1021,7 +1020,7 @@ class Connection {
 <!-- EOF [OA16o3o0g7o0] -->
 ```
 
-## Step [OA16o3o0g8o0] 通信プロトコル作成 - gui/message_driven/v1o0.py ファイル
+## Step [OA16o3o0g8o0] 通信プロトコル作成 - gui/message_manager/v1o0.py ファイル
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1035,7 +1034,7 @@ class Connection {
                 │       │   └── 📂 connection
                 │       │       └── 📄 ver1o0.js
                 │       └── 📂 msg
-                │           └── 📂 s2c_message_driven
+                │           └── 📂 message_receiver
                 │               └── 📄 ver1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
@@ -1047,21 +1046,21 @@ class Connection {
                 │               └── 📄 ver1o1o0.html.txt
                 └── 📂 websocks
                     └── 📂 gui
-                        └── 📂 message_driven
+                        └── 📂 message_manager
 👉                          └── 📄 ver1o0.py
 ```
 
 ```py
 # BOF [OA16o3o0g8o0]
 
-class TicTacToeV2MessageDriven():
+class MessageManager():
     """[OA16o3o0g8o0] 〇×ゲーム v2 メッセージ駆動"""
 
     def __init__(self):
-        self._handlersAsync = {}
+        self.addMessageListenerAsync = {}
 
-    def addHandler(self, c2s_type, handlerAsync):
-        self._handlersAsync[c2s_type] = handlerAsync
+    def addMessageListener(self, name, setMessageAsync):
+        self.addMessageListenerAsync[name] = setMessageAsync
 
     async def execute(self, scope, doc_received):
         """クライアントからサーバーへ送られてきた変数を解析し、
@@ -1069,17 +1068,17 @@ class TicTacToeV2MessageDriven():
 
         # ログインしていなければ AnonymousUser
         # user = scope["user"]
-        # print(f"[TicTacToeV2MessageDriven execute] user=[{user}]")
+        # print(f"[MessageManager execute] user=[{user}]")
 
-        # `c2s_` は クライアントからサーバーへ送られてきた変数の目印
-        c2s_type = doc_received.get("c2s_type", None)
+        # メッセージ名 (Client to server)
+        messageName = doc_received.get("message_name", None)
 
-        if(c2s_type in self._handlersAsync):
-            response_json = await self._handlersAsync[c2s_type].on_message_received(scope, doc_received)
+        if(messageName in self.addMessageListenerAsync):
+            response_json = await self.addMessageListenerAsync[messageName].on_message_received(scope, doc_received)
             return response_json
 
         raise ValueError(
-            f"[TicTacToeV2MessageDriven execute] unknown c2s_type: {c2s_type}")
+            f"[MessageManager execute] unknown message name: {messageName}")
 
 
 # EOF [OA16o3o0g8o0]
@@ -1099,7 +1098,7 @@ class TicTacToeV2MessageDriven():
                 │       │   └── 📂 connection
                 │       │       └── 📄 ver1o0.js
                 │       └── 📂 msg
-                │           └── 📂 s2c_message_driven
+                │           └── 📂 message_receiver
                 │               └── 📄 ver1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
@@ -1113,7 +1112,7 @@ class TicTacToeV2MessageDriven():
                     └── 📂 gui
                         ├── 📂 consumer
 👉                      │   └── 📄 ver1o0.py
-                        └── 📂 message_driven
+                        └── 📂 message_manager
                             └── 📄 ver1o0.py
 ```
 
@@ -1127,7 +1126,7 @@ import json
 from channels.generic.websocket import AsyncJsonWebsocketConsumer
 
 
-class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
+class ConsumerBase(AsyncJsonWebsocketConsumer):
     """[OA16o3o0g9o0] Webソケット用コンシューマー"""
 
     def __init__(self):
@@ -1162,7 +1161,7 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
         """クライアントからのメッセージの受信"""
 
         # ちゃんと動いているようなら消す
-        # print(f"[TicTacToeV2ConsumerBase receive] text_data={text_data}")
+        # print(f"[ConsumerBase receive] text_data={text_data}")
 
         doc_received = json.loads(text_data)
 
@@ -1203,7 +1202,7 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
                 │       │   └── 📂 connection
                 │       │       └── 📄 ver1o0.js
                 │       └── 📂 msg
-                │           └── 📂 s2c_message_driven
+                │           └── 📂 message_receiver
                 │               └── 📄 ver1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
@@ -1220,7 +1219,7 @@ class TicTacToeV2ConsumerBase(AsyncJsonWebsocketConsumer):
 👉                      │       └── 📄 ver1o0.py
                         ├── 📂 consumer
                         │   └── 📄 ver1o0.py
-                        └── 📂 message_driven
+                        └── 📂 message_manager
                             └── 📄 ver1o0.py
 ```
 
@@ -1264,7 +1263,7 @@ class EndC2sHandler:
                 │       │   └── 📂 connection
                 │       │       └── 📄 ver1o0.js
                 │       └── 📂 msg
-                │           └── 📂 s2c_message_driven
+                │           └── 📂 message_receiver
                 │               └── 📄 ver1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
@@ -1283,7 +1282,7 @@ class EndC2sHandler:
 👉                      │       └── 📄 ver1o0.py
                         ├── 📂 consumer
                         │   └── 📄 ver1o0.py
-                        └── 📂 message_driven
+                        └── 📂 message_manager
                             └── 📄 ver1o0.py
 ```
 
@@ -1321,7 +1320,7 @@ class MoveC2sHandler:
                 │       │   └── 📂 connection
                 │       │       └── 📄 ver1o0.js
                 │       └── 📂 msg
-                │           └── 📂 s2c_message_driven
+                │           └── 📂 message_receiver
                 │               └── 📄 ver1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
@@ -1342,7 +1341,7 @@ class MoveC2sHandler:
 👉                      │       └── 📄 ver1o0.py
                         ├── 📂 consumer
                         │   └── 📄 ver1o0.py
-                        └── 📂 message_driven
+                        └── 📂 message_manager
                             └── 📄 ver1o0.py
 ```
 
@@ -1375,7 +1374,7 @@ class StartC2sHandler:
                 │       │   └── 📂 connection
                 │       │       └── 📄 ver1o0.js
                 │       └── 📂 msg
-                │           └── 📂 s2c_message_driven
+                │           └── 📂 message_receiver
                 │               └── 📄 ver1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
@@ -1390,7 +1389,7 @@ class StartC2sHandler:
                         ├── 📂 consumer
                         │   ├── 📄 ver1o0.py
 👉                      │   └── 📄 ver1o1o0.py
-                        └── 📂 message_driven
+                        └── 📂 message_manager
                             └── 📄 ver1o0.py
 ```
 
@@ -1398,8 +1397,8 @@ class StartC2sHandler:
 # BOF [OA16o3o0gA10o0]
 
 # [OA16o3o0g9o0] 〇×ゲーム2.0巻 - Webソケット コンシューマー1.0版
-from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o0 import TicTacToeV2ConsumerBase
-#          ------------------                       ------        -----------------------
+from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o0 import ConsumerBase
+#          ------------------                       ------        ------------
 #          11                                       12            2
 #    -----------------------------------------------
 #    10
@@ -1408,7 +1407,7 @@ from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o0 import TicTacToeV2Con
 # 2. `12.` に含まれる __init__.py にさらに含まれるクラス
 
 # [OA16o3o0g8o0] 〇×ゲーム2.0巻 - WebソケットGUI メッセージ駆動 1.0版
-from apps1.tic_tac_toe_vol2o0.websocks.gui.message_driven.ver1o0 import TicTacToeV2MessageDriven
+from apps1.tic_tac_toe_vol2o0.websocks.gui.message_manager.ver1o0 import MessageManager
 
 # [OA16o3o0gA10o_1o0] 〇×ゲーム2.0巻 - WebソケットGUI Endメッセージハンドラー 1.0版
 from apps1.tic_tac_toe_vol2o0.websocks.gui.c2s_handlers.end.ver1o0 import EndC2sHandler
@@ -1420,16 +1419,16 @@ from apps1.tic_tac_toe_vol2o0.websocks.gui.c2s_handlers.move.ver1o0 import MoveC
 from apps1.tic_tac_toe_vol2o0.websocks.gui.c2s_handlers.start.ver1o0 import StartC2sHandler
 
 
-class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
+class ConsumerCustom(ConsumerBase):
     """[OA16o3o0gA10o0] Webソケット用コンシューマー 1.1.0版"""
 
     def __init__(self):
         super().__init__()
 
-        self._messageDriven = TicTacToeV2MessageDriven()
-        self._messageDriven.addHandler('C2S_End', EndC2sHandler())
-        self._messageDriven.addHandler('C2S_Moved', MoveC2sHandler())
-        self._messageDriven.addHandler('C2S_Start', StartC2sHandler())
+        self._messageManager = MessageManager()
+        self._messageManager.addMessageListener('C2S_End', EndC2sHandler())
+        self._messageManager.addMessageListener('C2S_Moved', MoveC2sHandler())
+        self._messageManager.addMessageListener('C2S_Start', StartC2sHandler())
 
     async def on_receive(self, doc_received):
         """クライアントからメッセージを受信したとき
@@ -1438,7 +1437,7 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
         -------
         response
         """
-        return await self._messageDriven.execute(self.scope, doc_received)
+        return await self._messageManager.execute(self.scope, doc_received)
 
 # EOF [OA16o3o0gA10o0]
 ```
@@ -1457,7 +1456,7 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
                 │       │   └── 📂 connection
                 │       │       └── 📄 ver1o0.js
                 │       └── 📂 msg
-                │           └── 📂 s2c_message_driven
+                │           └── 📂 message_receiver
                 │               └── 📄 ver1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
@@ -1477,7 +1476,7 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
                         ├── 📂 consumer
                         │   ├── 📄 ver1o0.py
                         │   └── 📄 ver1o1o0.py
-                        └── 📂 message_driven
+                        └── 📂 message_manager
                             └── 📄 ver1o0.py
 ```
 
@@ -1562,7 +1561,7 @@ class MatchApplicationV():
                 │       │   └── 📂 connection
                 │       │       └── 📄 ver1o0.js
                 │       └── 📂 msg
-                │           └── 📂 s2c_message_driven
+                │           └── 📂 message_receiver
                 │               └── 📄 ver1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
@@ -1583,7 +1582,7 @@ class MatchApplicationV():
                         ├── 📂 consumer
                         │   ├── 📄 ver1o0.py
                         │   └── 📄 ver1o1o0.py
-                        └── 📂 message_driven
+                        └── 📂 message_manager
                             └── 📄 ver1o0.py
 ```
 
@@ -1636,7 +1635,7 @@ def render_match_application(request, playing_web_path, match_application_tp, on
                 │       │   └── 📂 connection
                 │       │       └── 📄 ver1o0.js
                 │       └── 📂 msg
-                │           └── 📂 s2c_message_driven
+                │           └── 📂 message_receiver
                 │               └── 📄 ver1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
@@ -1660,7 +1659,7 @@ def render_match_application(request, playing_web_path, match_application_tp, on
                         ├── 📂 consumer
                         │   ├── 📄 ver1o0.py
                         │   └── 📄 ver1o1o0.py
-                        └── 📂 message_driven
+                        └── 📂 message_manager
                             └── 📄 ver1o0.py
 ```
 
@@ -1732,7 +1731,7 @@ class PlayingV():
                 │       │   └── 📂 connection
                 │       │       └── 📄 ver1o0.js
                 │       └── 📂 msg
-                │           └── 📂 s2c_message_driven
+                │           └── 📂 message_receiver
                 │               └── 📄 ver1o0.js
                 ├── 📂 templates
                 │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
@@ -1757,7 +1756,7 @@ class PlayingV():
                         ├── 📂 consumer
                         │   ├── 📄 ver1o0.py
                         │   └── 📄 ver1o1o0.py
-                        └── 📂 message_driven
+                        └── 📂 message_manager
                             └── 📄 ver1o0.py
 ```
 
@@ -1814,7 +1813,7 @@ Merged to [OA16o3o0gA15o1o0]
     │           │       │   └── 📂 connection
     │           │       │       └── 📄 ver1o0.js
     │           │       └── 📂 msg
-    │           │           └── 📂 s2c_message_driven
+    │           │           └── 📂 message_receiver
     │           │               └── 📄 ver1o0.js
     │           ├── 📂 templates
     │           │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
@@ -1839,7 +1838,7 @@ Merged to [OA16o3o0gA15o1o0]
     │                   ├── 📂 consumer
     │                   │   ├── 📄 ver1o0.py
     │                   │   └── 📄 ver1o1o0.py
-    │                   └── 📂 message_driven
+    │                   └── 📂 message_manager
     │                       └── 📄 ver1o0.py
     └── 📂 src1_meta
         └── 📂 data
@@ -1884,7 +1883,7 @@ docker-compose restart
         │       │       │   └── 📂 connection
         │       │       │       └── 📄 ver1o0.js
         │       │       └── 📂 msg
-        │       │           └── 📂 s2c_message_driven
+        │       │           └── 📂 message_receiver
         │       │               └── 📄 ver1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
@@ -1909,7 +1908,7 @@ docker-compose restart
         │               ├── 📂 consumer
         │               │   ├── 📄 ver1o0.py
         │               │   └── 📄 ver1o1o0.py
-        │               └── 📂 message_driven
+        │               └── 📂 message_manager
         │                   └── 📄 ver1o0.py
         └── 📂 project1                      # プロジェクト
             ├── 📄 urls_tic_tac_toe_v2.py
@@ -1923,8 +1922,8 @@ docker-compose restart
 from django.conf.urls import url
 
 # [OA16o3o0gA16o0] 〇×ゲーム2.0巻 ウェブソケットGUIコンシューマー ver1.1.0
-from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o1o0 import TicTacToeV2o1o0ConsumerCustom
-#          ------------------                       --------        -----------------------------
+from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o1o0 import ConsumerCustom
+#          ------------------                       --------        --------------
 #          11                                       12              2
 #    -------------------------------------------------------
 #    10
@@ -1939,8 +1938,8 @@ websocket_urlpatterns = [
     url(r'^tic-tac-toe/v2/playing/(?P<kw_room_name>\w+)/$',
         # -----------------------------------------------
         # 1
-        TicTacToeV2o1o0ConsumerCustom.as_asgi()),
-    #   ---------------------------------------
+        ConsumerCustom.as_asgi()),
+    #   ------------------------
     #   2
     # 1. 例えば `ws://example.com/tic-tac-toe/v2/playing/Elephant/` のようなURLのパスの部分
     #                            --------------------------------
@@ -1965,7 +1964,7 @@ websocket_urlpatterns = [
         │       │       │   └── 📂 connection
         │       │       │       └── 📄 ver1o0.js
         │       │       └── 📂 msg
-        │       │           └── 📂 s2c_message_driven
+        │       │           └── 📂 message_receiver
         │       │               └── 📄 ver1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_vol2o0    # アプリケーションと同名
@@ -1990,7 +1989,7 @@ websocket_urlpatterns = [
         │               ├── 📂 consumer
         │               │   ├── 📄 ver1o0.py
         │               │   └── 📄 ver1o1o0.py
-        │               └── 📂 message_driven
+        │               └── 📂 message_manager
         │                   └── 📄 ver1o0.py
         └── 📂 project1                      # プロジェクト
 👉          ├── 📄 asgi.py
@@ -2057,7 +2056,7 @@ websocket_urlpatterns_merged.extend(
         │       │       │   └── 📂 connection
         │       │       │       └── 📄 ver1o0.js
         │       │       └── 📂 msg
-        │       │           └── 📂 s2c_message_driven
+        │       │           └── 📂 message_receiver
         │       │               └── 📄 ver1o0.js
         │       ├── 📂 templates
         │       │   └── 📂 tic_tac_toe_vol2o0
@@ -2082,7 +2081,7 @@ websocket_urlpatterns_merged.extend(
         │               ├── 📂 consumer
         │               │   ├── 📄 ver1o0.py
         │               │   └── 📄 ver1o1o0.py
-        │               └── 📂 message_driven
+        │               └── 📂 message_manager
         │                   └── 📄 ver1o0.py
         └── 📂 project1                          # プロジェクト
             ├── 📄 asgi.py

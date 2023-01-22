@@ -8,8 +8,8 @@ class EndS2cMessage:
     def asDict(self):
         """Dict形式で取得"""
         return {
-            'type': 'send_message',  # type属性は必須
-            's2c_type': "S2C_End",
+            'type': 'send_message',     # type属性は必須
+            'message_name': "S2C_End",  # Server to client
             's2c_winner': self._winner,
         }
 

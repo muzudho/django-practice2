@@ -1,8 +1,8 @@
 # BOF [OA16o3o0gA10o0]
 
 # [OA16o3o0g9o0] 〇×ゲーム2.0巻 - Webソケット コンシューマー1.0版
-from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o0 import TicTacToeV2ConsumerBase
-#          ------------------                       ------        -----------------------
+from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o0 import ConsumerBase
+#          ------------------                       ------        ------------
 #          11                                       12            2
 #    -----------------------------------------------
 #    10
@@ -11,7 +11,7 @@ from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o0 import TicTacToeV2Con
 # 2. `12.` に含まれる __init__.py にさらに含まれるクラス
 
 # [OA16o3o0g8o0] 〇×ゲーム2.0巻 - WebソケットGUI メッセージ駆動 1.0版
-from apps1.tic_tac_toe_vol2o0.websocks.gui.message_driven.ver1o0 import TicTacToeV2MessageDriven
+from apps1.tic_tac_toe_vol2o0.websocks.gui.message_manager.ver1o0 import MessageManager
 
 # [OA16o3o0gA10o_1o0] 〇×ゲーム2.0巻 - WebソケットGUI Endメッセージハンドラー 1.0版
 from apps1.tic_tac_toe_vol2o0.websocks.gui.c2s_handlers.end.ver1o0 import EndC2sHandler
@@ -23,16 +23,16 @@ from apps1.tic_tac_toe_vol2o0.websocks.gui.c2s_handlers.move.ver1o0 import MoveC
 from apps1.tic_tac_toe_vol2o0.websocks.gui.c2s_handlers.start.ver1o0 import StartC2sHandler
 
 
-class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
+class ConsumerCustom(ConsumerBase):
     """[OA16o3o0gA10o0] Webソケット用コンシューマー 1.1.0版"""
 
     def __init__(self):
         super().__init__()
 
-        self._messageDriven = TicTacToeV2MessageDriven()
-        self._messageDriven.addHandler('C2S_End', EndC2sHandler())
-        self._messageDriven.addHandler('C2S_Moved', MoveC2sHandler())
-        self._messageDriven.addHandler('C2S_Start', StartC2sHandler())
+        self._messageManager = MessageManager()
+        self._messageManager.addMessageListener('C2S_End', EndC2sHandler())
+        self._messageManager.addMessageListener('C2S_Moved', MoveC2sHandler())
+        self._messageManager.addMessageListener('C2S_Start', StartC2sHandler())
 
     async def on_receive(self, doc_received):
         """クライアントからメッセージを受信したとき
@@ -41,6 +41,6 @@ class TicTacToeV2o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
         -------
         response
         """
-        return await self._messageDriven.execute(self.scope, doc_received)
+        return await self._messageManager.execute(self.scope, doc_received)
 
 # EOF [OA16o3o0gA10o0]

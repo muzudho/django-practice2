@@ -13,9 +13,9 @@ from apps1.practice_vol1o0.models.room.ver1o0 import Room
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
 # 〇×ゲーム2.0巻 ウェブソケットGUIコンシューマー1.0版
-from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o0 import TicTacToeV2ConsumerBase
+from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o0 import ConsumerBase
 #                         ^two
-#          ------------------                       ------        -----------------------
+#          ------------------                       ------        ------------
 #          11                                       12            2
 #    -----------------------------------------------------
 #    10
@@ -24,10 +24,10 @@ from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o0 import TicTacToeV2Con
 # 2. `12.` に含まれている __init__.py ファイルにさらに含まれるクラス
 
 # 〇×ゲーム2.0巻 ウェブソケットGUIメッセージ駆動1.0版
-from apps1.tic_tac_toe_vol2o0.websocks.gui.message_driven.ver1o0 import TicTacToeV2MessageDriven
-#          ------------------                             ------        ------------------------
-#          11                                             12            2
-#    -----------------------------------------------------------
+from apps1.tic_tac_toe_vol2o0.websocks.gui.message_manager.ver1o0 import MessageManager
+#          ------------------                              ------        --------------
+#          11                                              12            2
+#    ------------------------------------------------------------
 #    10
 # 10, 12. ディレクトリー
 # 11. アプリケーション
@@ -39,17 +39,15 @@ from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.moved.ver1o0 impor
 from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.start.ver1o0 import StartS2cMessage
 
 
-class TicTacToeV3o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
+class TicTacToeV3o1o0ConsumerCustom(ConsumerBase):
     """OA24o1o0g3o0 Webソケット用コンシューマー"""
 
     def __init__(self):
         super().__init__()
-        self._messageDriven = TicTacToeV2MessageDriven()
-        #                               ^three
-
-        self._messageDriven.addHandler('C2S_End', self.on_end)
-        self._messageDriven.addHandler('C2S_Moved', self.on_move)
-        self._messageDriven.addHandler('C2S_Start', self.on_start)
+        self._messageManager = MessageManager()
+        self._messageManager.addMessageListener('C2S_End', self.on_end)
+        self._messageManager.addMessageListener('C2S_Moved', self.on_move)
+        self._messageManager.addMessageListener('C2S_Start', self.on_start)
 
     async def on_receive(self, doc_received):
         """クライアントからメッセージを受信したとき
@@ -59,7 +57,7 @@ class TicTacToeV3o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
         response
         """
 
-        return await self._messageDriven.execute(self.scope, doc_received)
+        return await self._messageManager.execute(self.scope, doc_received)
 
     async def on_end(self, scope, doc_received):
         """対局終了時"""
@@ -96,15 +94,15 @@ class TicTacToeV3o1o0ConsumerCustom(TicTacToeV2ConsumerBase):
             room_name = scope["url_route"]["kwargs"]["kw_room_name"]
             # print(f"[TicTacToeV3o1o0ConsumerCustom on_move 2] scope={scope}")
 
-            # `c2s_` は クライアントからサーバーへ送られてきた変数の目印
-            c2s_type = doc_received.get("c2s_type", None)
+            # メッセージ名 (Client to server)
+            message_name = doc_received.get("message_name", None)
             # 駒を置いたマス番号
             sq = doc_received.get("c2s_sq", None)
             # 駒を置いた方の X か O
             piece_moved = doc_received.get("c2s_pieceMoved", None)
             print(
-                f"[TicTacToeV3o1o0ConsumerCustom on_move 3] クライアントからのメッセージを受信しました room_name=[{room_name}] c2s_type=[{c2s_type}] piece_moved=[{piece_moved}] sq=[{sq}]")
-            # クライアントからのメッセージを受信しました room_name=[Elephant] c2s_type=[C2S_Moved] piece_moved=[X] sq=[2]
+                f"[TicTacToeV3o1o0ConsumerCustom on_move 3] クライアントからのメッセージを受信しました room_name=[{room_name}] message_name=[{message_name}] piece_moved=[{piece_moved}] sq=[{sq}]")
+            # クライアントからのメッセージを受信しました room_name=[Elephant] message_name=[C2S_Moved] piece_moved=[X] sq=[2]
 
             # 部屋取得
             room = await get_room_by_name(room_name)

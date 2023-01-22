@@ -16,8 +16,7 @@ class EndC2sMessage {
      */
     asJsObject() {
         return {
-            // `c2s_` は クライアントからサーバーへ送る変数の目印
-            c2s_type: "C2S_End",
+            message_name: "C2S_End", // Client to server
             c2s_winner: this._winner,
         };
     }
