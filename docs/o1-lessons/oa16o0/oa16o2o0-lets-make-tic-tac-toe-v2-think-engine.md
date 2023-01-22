@@ -555,8 +555,6 @@ class RoomState {
      * @param {function} onChangeValue - 値の変更時
      */
     constructor(value, onChangeValue) {
-        console.log(`[RoomState constructor]`);
-
         this._value = value;
         this._onChangeValue = onChangeValue;
     }
@@ -569,8 +567,6 @@ class RoomState {
     }
 
     set value(value) {
-        console.log(`[RoomState set value]`);
-
         if (this._value === value) {
             return;
         }
@@ -1272,8 +1268,6 @@ class Engine {
      * 対局開始時
      */
     start() {
-        console.log(`[Engine start] 自分の手番=${this._position.turn.me}`);
-
         // 勝者のクリアー
         this._winner = "";
 
@@ -1543,7 +1537,6 @@ board
                              * @param {string} pieceMoved - 動かした駒
                              */
                             (sq, pieceMoved) => {
-                                // console.log(`[Engine onDidMove] 置いたマス:${sq} 動かした駒:${pieceMoved}`);
                             }
                         ),
                         // 審判コントロール

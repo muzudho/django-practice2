@@ -109,7 +109,7 @@
             // 1. プロトコル（Web socket）
             // 2. ホスト アドレス
             // 3. パス
-            console.log(`[HTML] convertPartsToConnectionString roomName=${roomName} connectionString=${connectionString}`);
+            console.log(`[HTML] roomName=${roomName} connectionString=${connectionString}`);
 
             // クライアントが、サーバーからのメッセージ受信
             const messageReceiver = new MessageReceiver();
@@ -121,7 +121,6 @@
             messageReceiver.addMessageListener("S2C_End", (message)=>{
                 // 勝者
                 let winner = message["s2c_winner"];
-                console.log(`[HTML onEnd] winner:${winner}`);
                 vue1.onGameover(winner);
             });
             // 指し手受信時
@@ -130,7 +129,6 @@
                 let sq = parseInt(message["s2c_sq"]);
                 // 手番。 "X" か "O"
                 let piece_moved = message["s2c_pieceMoved"];
-                console.log(`[HTML onMoved] sq:${sq} piece_moved:${piece_moved} 自分の手番:${vue1.engine.position.turn.me}`);
 
                 if (piece_moved != vue1.engine.position.turn.me) {
                     // 相手の手番なら、自動で動かします
@@ -152,13 +150,13 @@
                 messageReceiver,
                 // Webソケットを開かれたとき
                 () => {
-                    console.log("WebSockets connection created.");
+                    // console.log("WebSockets connection created.");
                     let message = new EvtStart().createMessage();
                     connection.send(message.asJsObject());
                 },
                 // Webソケットが閉じられたとき
                 (exception) => {
-                    console.log(`Socket is closed. Reconnect it. ${exception.reason}`);
+                    // console.log(`Socket is closed. Reconnect it. ${exception.reason}`);
                     // 再接続の初回トライを書いてよいのはこのタイミングです
                     connection.reconnect();
                 },
@@ -210,8 +208,6 @@
                             (sq, pieceMoved) => {
                                 // ボタンのラベルを更新
                                 vue1.setLabelOfButton(sq, pieceMoved);
-
-                                console.log(`[Engine onDidMove] sq=${sq} pieceMoved=${pieceMoved}`);
 
                                 // 自分の指し手なら送信
                                 if (vue1.engine.position.turn.me == pieceMoved) {
@@ -281,7 +277,6 @@
                     isItOpponentsTurnToMove: false,
                     roomState: new RoomState(RoomState.none,(oldValue, newValue)=>{
                         // changeRoomState
-                        console.log(`[data roomState changeRoomState] state old=${oldValue} new=${newValue}`);
                         vue1.raiseRoomStateChanged();
                     }),
                     gameover_message : "",
@@ -298,15 +293,10 @@
                 mounted: () => {
                     // * ここで vue1 はまだ初期化されていない
                     // * ここで this は Window を指している
-                    console.log(`[mounted] ★dataより後か先か？`);
-                    console.log(`[mounted] ★this:${this}`);
-                    // console.log(`[mounted] ★vue1.data.messages.youWon:${vue1.messages.youWon}`);
                 },
                 methods: {
                     // 対局開始時
                     onStart() {
-                        console.log("[methods onStart]");
-
                         // 「相手の手番に着手しないでください」というアラートの非表示
                         this.isItOpponentsTurnToMove = false;
 
@@ -322,29 +312,25 @@
                         }
 
                         // ダンプ
-                        this.dump();
+                        // this.dump();
                     },
                     /**
                      * 升ボタンをクリックしたとき
                      * @param {*} sq - Square; 0 <= sq
                      */
                     clickSquare(sq) {
-                        console.log(`[methods clickSquare] gameoverSet:${this.engine.gameoverSet.value}`);
                         if (this.engine.gameoverSet.value != GameoverSet.none) {
                             // Ban on illegal move
-                            console.log(`Ban on illegal move. gameoverSet:${this.engine.gameoverSet.value}`);
                             return;
                         }
 
                         if (this.engine.position.board.getPieceBySq(sq) == PC_EMPTY) {
                             if (!this.engine.position.turn.isMe) {
                                 // Wait for other to place the move
-                                console.log("Wait for other to place the move");
                                 this.isItOpponentsTurnToMove = true;
                             } else {
                                 if (this.engine.gameoverSet.value != GameoverSet.none) {
                                     // ゲームオーバー後に駒を置いてはいけません
-                                    console.log(`warning of illegal move. gameoverSet:${this.engine.gameoverSet.value}`);
                                     return;
                                 }
 
@@ -392,7 +378,6 @@
                      * @param {*} piece - text
                      */
                     setLabelOfButton(sq, piece) {
-                        console.log(`[methods setLabelOfButton] sq=${sq} piece=${piece}`);
                         switch (sq) {
                             case 0:
                                 this.label0 = piece;
@@ -431,30 +416,24 @@
                      * (2) 自分の手番か
                      */
                     updateYourTurn(){
-                        console.log(`[methods updateYourTurn 1] this.roomState=${this.roomState.value} 私の番か:${this.engine.position.turn.isMe}`);
                         let isYourTurn = this.roomState.value == RoomState.playing && this.engine.position.turn.isMe;
 
                         {% block isYourTurn_patch1 %}
                         // 条件を追加したいなら、ここに挿しこめる
                         {% endblock isYourTurn_patch1 %}
 
-                        console.log(`[methods updateYourTurn 2] isYourTurn=${isYourTurn}`);
-
                         // v-show="" は複雑なメソッドを指定すると動かないようなので、プロパティにします
                         this.isYourTurn = isYourTurn;
                     },
                     raiseRoomStateChanged() {
-                        console.log(`[methods raiseRoomStateChanged] roomState=${this.roomState.value}`);
                         this.isGameover = this.roomState.value == RoomState.none;
 
                         this.updateYourTurn();
                     },
                     raiseMyTurnChanged() {
-                        console.log(`[methods raiseMyTurnChanged]`);
                         this.updateYourTurn();
                     },
                     raisePositionChanged() {
-                        console.log(`[methods raisePositionChanged]`);
                         this.raiseMyTurnChanged();
                     },
                     {% block methods_footer %}
@@ -469,7 +448,6 @@
                 },
             });
 
-            console.log(`[HTML] ★WS接続`);
             connection.connect();
         </script>
     </body>

@@ -24,8 +24,6 @@ class RoomState {
      * @param {function} onChangeValue - 値の変更時
      */
     constructor(value, onChangeValue) {
-        console.log(`[RoomState constructor]`);
-
         this._value = value;
         this._onChangeValue = onChangeValue;
     }
@@ -38,8 +36,6 @@ class RoomState {
     }
 
     set value(value) {
-        console.log(`[RoomState set value]`);
-
         if (this._value === value) {
             return;
         }

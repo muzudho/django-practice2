@@ -593,7 +593,7 @@ function isGameOver() {
 function connect() {
     // on websocket open, send the START event.
     webSock1.onopen = () => {
-        console.log("WebSockets connection created.");
+        // console.log("WebSockets connection created.");
         webSock1.send(
             JSON.stringify({
                 event: "START",
@@ -603,7 +603,7 @@ function connect() {
     };
 
     webSock1.onclose = (e) => {
-        console.log("Socket is closed. Reconnect will be attempted in 1 second.", e.reason);
+        // console.log("Socket is closed. Reconnect will be attempted in 1 second.", e.reason);
         setTimeout(function () {
             connect();
         }, 1000);

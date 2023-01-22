@@ -163,7 +163,15 @@ class MessageReceiver {
     execute(message) {
         // メッセージ名 (Server to client)
         let message_name = message["message_name"];
-        console.log(`[MessageReceiver execute] サーバーからのメッセージを受信しました message_name:${message_name}`);
+
+        let description = `[Server] ${message_name}`;
+        const keys = Object.keys(message);
+        keys.forEach((key) => {
+            if (key != "message_name" && key != "type") {
+                description += ` ${key}:${message[key]}`;
+            }
+        });
+        console.log(description);
 
         if (message_name in this._messageListeners) {
             // 実行
@@ -171,7 +179,7 @@ class MessageReceiver {
             execute2(message);
         } else {
             // Undefined behavior
-            console.log(`[MessageReceiver execute] ignored. message_name:[${message_name}]`);
+            console.log(`(ignored) [Server] ${message_name}`);
         }
     }
 }
@@ -283,7 +291,7 @@ class Connection {
             };
 
             this.#webSock1.addEventListener("open", (event1) => {
-                console.log("[Connection connect] WebSockets connection created.");
+                // console.log("[Connection connect] WebSockets connection created.");
                 // 再接続カウンターをリセットします
                 this._retryCount = 0;
             });
@@ -294,24 +302,24 @@ class Connection {
             // 状態を表示
             if (this.#webSock1.readyState == WebSocket.CONNECTING) {
                 // 未接続
-                console.log("[Connection connect] Connecting socket.");
+                // console.log("[Connection connect] Connecting socket.");
             } else if (this.#webSock1.readyState == WebSocket.OPEN) {
-                console.log("[Connection connect] Open socket.");
+                // console.log("[Connection connect] Open socket.");
                 this.#webSock1.onopen();
             } else if (this.#webSock1.readyState == WebSocket.CLOSING) {
-                console.log("[Connection connect] Closing socket.");
+                // console.log("[Connection connect] Closing socket.");
             } else if (this.#webSock1.readyState == WebSocket.CLOSED) {
                 // サーバーが落ちたりしたときは、ここ
-                console.log("[Connection connect] Closed socket.");
+                // console.log("[Connection connect] Closed socket.");
 
                 // 再接続のリトライを書くタイミングはここです
                 this.reconnect();
             } else {
-                console.log(`[Connection connect] #webSock1.readyState=${this.#webSock1.readyState}`);
+                // console.log(`[Connection connect] #webSock1.readyState=${this.#webSock1.readyState}`);
             }
         } catch (exception) {
             // キャッチで捕まえられない
-            console.log(`[Connection connect] exception:${exception}`);
+            // console.log(`[Connection connect] exception:${exception}`);
         }
     }
 
@@ -581,7 +589,7 @@ class Connection {
             // 1. プロトコル（Web socket）
             // 2. ホスト アドレス
             // 3. パス
-            console.log(`[HTML] convertPartsToConnectionString roomName=${roomName} connectionString=${connectionString}`);
+            console.log(`[HTML] roomName=${roomName} connectionString=${connectionString}`);
 
             // クライアントが、サーバーからのメッセージ受信
             const messageReceiver = new MessageReceiver();
@@ -593,7 +601,6 @@ class Connection {
             messageReceiver.addMessageListener("S2C_End", (message)=>{
                 // 勝者
                 let winner = message["s2c_winner"];
-                console.log(`[HTML onEnd] winner:${winner}`);
                 vue1.onGameover(winner);
             });
             // 指し手受信時
@@ -602,7 +609,6 @@ class Connection {
                 let sq = parseInt(message["s2c_sq"]);
                 // 手番。 "X" か "O"
                 let piece_moved = message["s2c_pieceMoved"];
-                console.log(`[HTML onMoved] sq:${sq} piece_moved:${piece_moved} 自分の手番:${vue1.engine.position.turn.me}`);
 
                 if (piece_moved != vue1.engine.position.turn.me) {
                     // 相手の手番なら、自動で動かします
@@ -624,13 +630,13 @@ class Connection {
                 messageReceiver,
                 // Webソケットを開かれたとき
                 () => {
-                    console.log("WebSockets connection created.");
+                    // console.log("WebSockets connection created.");
                     let message = new EvtStart().createMessage();
                     connection.send(message.asJsObject());
                 },
                 // Webソケットが閉じられたとき
                 (exception) => {
-                    console.log(`Socket is closed. Reconnect it. ${exception.reason}`);
+                    // console.log(`Socket is closed. Reconnect it. ${exception.reason}`);
                     // 再接続の初回トライを書いてよいのはこのタイミングです
                     connection.reconnect();
                 },
@@ -682,8 +688,6 @@ class Connection {
                             (sq, pieceMoved) => {
                                 // ボタンのラベルを更新
                                 vue1.setLabelOfButton(sq, pieceMoved);
-
-                                console.log(`[Engine onDidMove] sq=${sq} pieceMoved=${pieceMoved}`);
 
                                 // 自分の指し手なら送信
                                 if (vue1.engine.position.turn.me == pieceMoved) {
@@ -753,7 +757,6 @@ class Connection {
                     isItOpponentsTurnToMove: false,
                     roomState: new RoomState(RoomState.none,(oldValue, newValue)=>{
                         // changeRoomState
-                        console.log(`[data roomState changeRoomState] state old=${oldValue} new=${newValue}`);
                         vue1.raiseRoomStateChanged();
                     }),
                     gameover_message : "",
@@ -770,15 +773,10 @@ class Connection {
                 mounted: () => {
                     // * ここで vue1 はまだ初期化されていない
                     // * ここで this は Window を指している
-                    console.log(`[mounted] ★dataより後か先か？`);
-                    console.log(`[mounted] ★this:${this}`);
-                    // console.log(`[mounted] ★vue1.data.messages.youWon:${vue1.messages.youWon}`);
                 },
                 methods: {
                     // 対局開始時
                     onStart() {
-                        console.log("[methods onStart]");
-
                         // 「相手の手番に着手しないでください」というアラートの非表示
                         this.isItOpponentsTurnToMove = false;
 
@@ -794,29 +792,25 @@ class Connection {
                         }
 
                         // ダンプ
-                        this.dump();
+                        // this.dump();
                     },
                     /**
                      * 升ボタンをクリックしたとき
                      * @param {*} sq - Square; 0 <= sq
                      */
                     clickSquare(sq) {
-                        console.log(`[methods clickSquare] gameoverSet:${this.engine.gameoverSet.value}`);
                         if (this.engine.gameoverSet.value != GameoverSet.none) {
                             // Ban on illegal move
-                            console.log(`Ban on illegal move. gameoverSet:${this.engine.gameoverSet.value}`);
                             return;
                         }
 
                         if (this.engine.position.board.getPieceBySq(sq) == PC_EMPTY) {
                             if (!this.engine.position.turn.isMe) {
                                 // Wait for other to place the move
-                                console.log("Wait for other to place the move");
                                 this.isItOpponentsTurnToMove = true;
                             } else {
                                 if (this.engine.gameoverSet.value != GameoverSet.none) {
                                     // ゲームオーバー後に駒を置いてはいけません
-                                    console.log(`warning of illegal move. gameoverSet:${this.engine.gameoverSet.value}`);
                                     return;
                                 }
 
@@ -864,7 +858,6 @@ class Connection {
                      * @param {*} piece - text
                      */
                     setLabelOfButton(sq, piece) {
-                        console.log(`[methods setLabelOfButton] sq=${sq} piece=${piece}`);
                         switch (sq) {
                             case 0:
                                 this.label0 = piece;
@@ -903,30 +896,24 @@ class Connection {
                      * (2) 自分の手番か
                      */
                     updateYourTurn(){
-                        console.log(`[methods updateYourTurn 1] this.roomState=${this.roomState.value} 私の番か:${this.engine.position.turn.isMe}`);
                         let isYourTurn = this.roomState.value == RoomState.playing && this.engine.position.turn.isMe;
 
                         {% block isYourTurn_patch1 %}
                         // 条件を追加したいなら、ここに挿しこめる
                         {% endblock isYourTurn_patch1 %}
 
-                        console.log(`[methods updateYourTurn 2] isYourTurn=${isYourTurn}`);
-
                         // v-show="" は複雑なメソッドを指定すると動かないようなので、プロパティにします
                         this.isYourTurn = isYourTurn;
                     },
                     raiseRoomStateChanged() {
-                        console.log(`[methods raiseRoomStateChanged] roomState=${this.roomState.value}`);
                         this.isGameover = this.roomState.value == RoomState.none;
 
                         this.updateYourTurn();
                     },
                     raiseMyTurnChanged() {
-                        console.log(`[methods raiseMyTurnChanged]`);
                         this.updateYourTurn();
                     },
                     raisePositionChanged() {
-                        console.log(`[methods raisePositionChanged]`);
                         this.raiseMyTurnChanged();
                     },
                     {% block methods_footer %}
@@ -941,7 +928,6 @@ class Connection {
                 },
             });
 
-            console.log(`[HTML] ★WS接続`);
             connection.connect();
         </script>
     </body>

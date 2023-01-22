@@ -83,7 +83,7 @@ class Connection {
             };
 
             this.#webSock1.addEventListener("open", (event1) => {
-                console.log("[Connection connect] WebSockets connection created.");
+                // console.log("[Connection connect] WebSockets connection created.");
                 // 再接続カウンターをリセットします
                 this._retryCount = 0;
             });
@@ -94,24 +94,24 @@ class Connection {
             // 状態を表示
             if (this.#webSock1.readyState == WebSocket.CONNECTING) {
                 // 未接続
-                console.log("[Connection connect] Connecting socket.");
+                // console.log("[Connection connect] Connecting socket.");
             } else if (this.#webSock1.readyState == WebSocket.OPEN) {
-                console.log("[Connection connect] Open socket.");
+                // console.log("[Connection connect] Open socket.");
                 this.#webSock1.onopen();
             } else if (this.#webSock1.readyState == WebSocket.CLOSING) {
-                console.log("[Connection connect] Closing socket.");
+                // console.log("[Connection connect] Closing socket.");
             } else if (this.#webSock1.readyState == WebSocket.CLOSED) {
                 // サーバーが落ちたりしたときは、ここ
-                console.log("[Connection connect] Closed socket.");
+                // console.log("[Connection connect] Closed socket.");
 
                 // 再接続のリトライを書くタイミングはここです
                 this.reconnect();
             } else {
-                console.log(`[Connection connect] #webSock1.readyState=${this.#webSock1.readyState}`);
+                // console.log(`[Connection connect] #webSock1.readyState=${this.#webSock1.readyState}`);
             }
         } catch (exception) {
             // キャッチで捕まえられない
-            console.log(`[Connection connect] exception:${exception}`);
+            // console.log(`[Connection connect] exception:${exception}`);
         }
     }
 

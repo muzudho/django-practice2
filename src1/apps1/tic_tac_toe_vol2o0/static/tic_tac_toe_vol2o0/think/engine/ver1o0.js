@@ -76,8 +76,6 @@ class Engine {
      * 対局開始時
      */
     start() {
-        console.log(`[Engine start] 自分の手番=${this._position.turn.me}`);
-
         // 勝者のクリアー
         this._winner = "";
 

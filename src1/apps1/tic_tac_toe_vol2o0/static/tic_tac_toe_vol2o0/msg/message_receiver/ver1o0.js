@@ -19,7 +19,15 @@ class MessageReceiver {
     execute(message) {
         // メッセージ名 (Server to client)
         let message_name = message["message_name"];
-        console.log(`[MessageReceiver execute] サーバーからのメッセージを受信しました message_name:${message_name}`);
+
+        let description = `[Server] ${message_name}`;
+        const keys = Object.keys(message);
+        keys.forEach((key) => {
+            if (key != "message_name" && key != "type") {
+                description += ` ${key}:${message[key]}`;
+            }
+        });
+        console.log(description);
 
         if (message_name in this._messageListeners) {
             // 実行
@@ -27,7 +35,7 @@ class MessageReceiver {
             execute2(message);
         } else {
             // Undefined behavior
-            console.log(`[MessageReceiver execute] ignored. message_name:[${message_name}]`);
+            console.log(`(ignored) [Server] ${message_name}`);
         }
     }
 }
