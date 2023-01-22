@@ -81,6 +81,8 @@ class Connection {
                 // JSON を解析、メッセージだけ抽出
                 let data1 = JSON.parse(e.data);
                 let message = data1["message"];
+
+                console.log(`[Server] ${JSON.stringify(message)}`);
                 this._messageReceiver.execute(message);
             };
 

@@ -20,15 +20,15 @@ class MessageReceiver {
         // イベント名 (Server to client)
         let event = message["event"];
 
-        let description = `[Server] event:${event}`;
-        const keys = Object.keys(message);
-        keys.forEach((key) => {
-            if (key != "event" && key != "type") {
-                description += ` ${key}:${message[key]}`;
-            }
-        });
-        description += ` type:${message["type"]}`;
-        console.log(description);
+        // let description = `[Server] event:${event}`;
+        // const keys = Object.keys(message);
+        // keys.forEach((key) => {
+        //     if (key != "event" && key != "type") {
+        //         description += ` ${key}:${message[key]}`;
+        //     }
+        // });
+        // description += ` type:${message["type"]}`;
+        // console.log(description);
 
         if (event in this._messageListeners) {
             // 実行

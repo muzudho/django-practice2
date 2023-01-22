@@ -164,15 +164,15 @@ class MessageReceiver {
         // イベント名 (Server to client)
         let event = message["event"];
 
-        let description = `[Server] event:${event}`;
-        const keys = Object.keys(message);
-        keys.forEach((key) => {
-            if (key != "event" && key != "type") {
-                description += ` ${key}:${message[key]}`;
-            }
-        });
-        description += ` type:${message["type"]}`;
-        console.log(description);
+        // let description = `[Server] event:${event}`;
+        // const keys = Object.keys(message);
+        // keys.forEach((key) => {
+        //     if (key != "event" && key != "type") {
+        //         description += ` ${key}:${message[key]}`;
+        //     }
+        // });
+        // description += ` type:${message["type"]}`;
+        // console.log(description);
 
         if (event in this._messageListeners) {
             // 実行
@@ -290,6 +290,8 @@ class Connection {
                 // JSON を解析、メッセージだけ抽出
                 let data1 = JSON.parse(e.data);
                 let message = data1["message"];
+
+                console.log(`[Server] ${JSON.stringify(message)}`)
                 this._messageReceiver.execute(message);
             };
 
