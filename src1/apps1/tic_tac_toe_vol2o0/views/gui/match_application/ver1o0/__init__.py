@@ -4,7 +4,7 @@ import json
 
 
 class MatchApplicationView():
-    """OA16o3o0gA11o0 対局申込ビュー"""
+    """[OA16o3o0gA11o0] 対局申込ビュー"""
 
     # 対局申込 - 訪問後
     open_context = {

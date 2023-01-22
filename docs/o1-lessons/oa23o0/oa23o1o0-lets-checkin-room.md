@@ -221,7 +221,7 @@ class MatchApplicationView():
 ```
 
 ```py
-# BOF OA23o1o0g3o0
+# BOF [OA23o1o0g3o0]
 
 # 部屋モデル
 from apps1.practice_vol1o0.models.room.ver1o0 import Room
@@ -245,7 +245,7 @@ from apps1.practice_vol1o0.models.user_profile.ver1o0 import Profile
 
 
 def match_application_on_sent(request):
-    """OA23o1o0g3o0 対局申込 - 送信後
+    """[OA23o1o0g3o0] 対局申込 - 送信後
 
     * ログインしていないユーザーが部屋に入っても 何も記録しません
     * ログインしているユーザーが部屋に入ってくると、以下のものを記録します（チェックイン）
@@ -320,7 +320,7 @@ def match_application_on_sent(request):
         # print(f"[match_application_on_sent] ★ ゲスト")
         pass
 
-# EOF OA23o1o0g3o0
+# EOF [OA23o1o0g3o0]
 ```
 
 ## ~~Step [OA23o1o0g4o0]~~
@@ -407,7 +407,7 @@ E-mail: (あなたに届く、あなたの２個目のEメールアドレス)
 
 👇 それをいいことに、対局部屋のブラウザ画面を残したまま 今のユーザーをログアウトしてほしい  
 
-📖 [http://localhost:8000/accounts/vol1.0/login/](http://localhost:8000/accounts/vol1.0/logout/)  
+📖 [http://localhost:8000/accounts/vol1.0/logout/](http://localhost:8000/accounts/vol1.0/logout/)  
 
 👇 以下の URL を開いて、スーパーユーザー でログインしなおしてほしい（既に作っているはずだ）  
 
