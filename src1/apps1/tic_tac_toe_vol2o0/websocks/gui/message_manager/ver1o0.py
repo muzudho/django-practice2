@@ -4,10 +4,10 @@ class MessageManager():
     """[OA16o3o0g8o0] 〇×ゲーム v2 メッセージ駆動"""
 
     def __init__(self):
-        self.addMessageListenerAsync = {}
+        self._message_handlers = {}
 
-    def addMessageListener(self, name, setMessage):
-        self.addMessageListenerAsync[name] = setMessage
+    def addMessageHandler(self, eventName, message_handler):
+        self._message_handlers[eventName] = message_handler
 
     async def execute(self, scope, doc_received):
         """クライアントからサーバーへ送られてきた変数を解析し、
@@ -17,15 +17,20 @@ class MessageManager():
         # user = scope["user"]
         # print(f"[MessageManager execute] user=[{user}]")
 
-        # メッセージ名 (Client to server)
-        messageName = doc_received.get("event", None)
+        # イベント名 (Client to server)
+        event = doc_received.get("event", None)
 
-        if(messageName in self.addMessageListenerAsync):
-            response_json = await self.addMessageListenerAsync[messageName].on_message_received(scope, doc_received)
+        if(event in self._message_handlers):
+            message_handler = self._message_handlers[event]
+            if message_handler is None:
+                raise ValueError(
+                    f"[MessageManager execute] message handler not found. event:{event}")
+
+            response_json = await message_handler.on_message_received(scope, doc_received)
             return response_json
 
         raise ValueError(
-            f"[MessageManager execute] unknown message name: {messageName}")
+            f"[MessageManager execute] unknown event:{event}")
 
 
 # EOF [OA16o3o0g8o0]

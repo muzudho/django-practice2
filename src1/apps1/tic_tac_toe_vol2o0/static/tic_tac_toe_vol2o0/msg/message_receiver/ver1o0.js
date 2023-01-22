@@ -32,8 +32,8 @@ class MessageReceiver {
 
         if (event in this._messageListeners) {
             // 実行
-            const execute2 = this._messageListeners[event];
-            execute2(message);
+            const setMessage = this._messageListeners[event];
+            setMessage(message);
         } else {
             // Undefined behavior
             console.log(`(ignored) [Server] ${event}`);

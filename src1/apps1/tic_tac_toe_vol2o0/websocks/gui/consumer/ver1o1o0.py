@@ -30,9 +30,9 @@ class ConsumerCustom(ConsumerBase):
         super().__init__()
 
         self._messageManager = MessageManager()
-        self._messageManager.addMessageListener('C2S_End', EndC2sHandler())
-        self._messageManager.addMessageListener('C2S_Moved', MoveC2sHandler())
-        self._messageManager.addMessageListener('C2S_Start', StartC2sHandler())
+        self._messageManager.addMessageHandler('C2S_End', EndC2sHandler())
+        self._messageManager.addMessageHandler('C2S_Moved', MoveC2sHandler())
+        self._messageManager.addMessageHandler('C2S_Start', StartC2sHandler())
 
     async def on_receive(self, doc_received):
         """クライアントからメッセージを受信したとき

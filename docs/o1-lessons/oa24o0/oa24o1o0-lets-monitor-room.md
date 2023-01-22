@@ -113,7 +113,7 @@ docker-compose up
 
 Merged to OA24o1o0g3o0  
 
-## Step [OA24o1o0g3o0] Webソケットの通信プロトコル作成 - consumer_custom/v1o0.py ファイル
+## Step [OA24o1o0g3o_1o0] Moveメッセージ・ハンドラー
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -122,12 +122,14 @@ Merged to OA24o1o0g3o0
         └── 📂 apps1
             └── 📂 tic_tac_toe_vol3o0                 # アプリケーション
                 └── 📂 websocks
-                    └── 📂 consumer_custom
-👉                      └── 📄 ver1o0.py
+                    └── 📂 gui
+                        └── 📂 c2s_handlers
+                            └── 📂 move
+👉                              └── 📄 ver1o0.py
 ```
 
 ```py
-# BOF OA24o1o0g3o0
+# BOF [OA24o1o0g3o_1o0]
 
 from asgiref.sync import sync_to_async
 
@@ -141,67 +143,15 @@ from apps1.practice_vol1o0.models.room.ver1o0 import Room
 # 11. アプリケーション
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 
-# 〇×ゲーム2.0巻 ウェブソケットGUIコンシューマー1.0版
-from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o0 import ConsumerBase
-#                         ^two
-#          ------------------                       ------        ------------
-#          11                                       12            2
-#    -----------------------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれている __init__.py ファイルにさらに含まれるクラス
-
-# 〇×ゲーム2.0巻 ウェブソケットGUIメッセージ駆動1.0版
-from apps1.tic_tac_toe_vol2o0.websocks.gui.message_manager.ver1o0 import MessageManager
-#          ------------------                              ------        --------------
-#          11                                              12            2
-#    ------------------------------------------------------------
-#    10
-# 10, 12. ディレクトリー
-# 11. アプリケーション
-# 2. `12.` に含まれる __init__.py にさらに含まれるクラス
-
-# OA16o3o_2o0g1o_1o0 〇×ゲーム2.0巻 S2cメッセージ End 1.0版
-from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.end.ver1o0 import EndS2cMessage
+# [OA16o3o_2o0g1o_2o0] Movedメッセージ
 from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.moved.ver1o0 import MovedS2cMessage
-from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.messages.start.ver1o0 import StartS2cMessage
 
 
-class TicTacToeV3o1o0ConsumerCustom(ConsumerBase):
-    """OA24o1o0g3o0 Webソケット用コンシューマー"""
+class MoveC2sHandler:
+    """駒を置いたとき"""
 
-    def __init__(self):
-        super().__init__()
-        self._messageManager = MessageManager()
-        self._messageManager.addMessageListener('C2S_End', self.on_end)
-        self._messageManager.addMessageListener('C2S_Moved', self.on_move)
-        self._messageManager.addMessageListener('C2S_Start', self.on_start)
-
-    async def on_receive(self, doc_received):
-        """クライアントからメッセージを受信したとき
-
-        Returns
-        -------
-        response
-        """
-
-        return await self._messageManager.execute(self.scope, doc_received)
-
-    async def on_end(self, scope, doc_received):
-        """対局終了時"""
-        # print("[TicTacToeV3o1o0ConsumerCustom on_end] ignored")
-        # TODO 現状、クライアント側から勝者を送ってきているが、勝敗判定のロジックはサーバー側に置きたい
-        winner = doc_received.get("winner", None)
-
-        args = {
-            "player1": winner
-        }
-
-        return EndS2cMessage(args).asDict()
-
-    async def on_move(self, scope, doc_received):
-        """駒を置いたとき"""
+    async def on_message_received(self, scope, doc_received):
+        """メッセージ受信"""
 
         # ログインしていなければ AnonymousUser
         user = scope["user"]
@@ -282,15 +232,6 @@ class TicTacToeV3o1o0ConsumerCustom(ConsumerBase):
 
         return MovedS2cMessage(args).asDict()
 
-    async def on_start(self, scope, doc_received):
-        """対局開始時"""
-
-        # print(
-        #     f"[TicTacToeV3o1o0ConsumerCustom on_start] ignored. doc_received={doc_received}")
-        args = {}
-
-        return StartS2cMessage(args).asDict()
-
 
 @sync_to_async
 def get_room_by_name(name):
@@ -302,7 +243,78 @@ def get_room_by_name(name):
 def save_room(room):
     room.save()
 
-# EOF OA24o1o0g3o0
+# EOF [OA24o1o0g3o_1o0]
+```
+
+## Step [OA24o1o0g3o0] Webソケットの通信プロトコル作成 - consumer_custom/v1o0.py ファイル
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    └── 📂 src1
+        └── 📂 apps1
+            └── 📂 tic_tac_toe_vol3o0                 # アプリケーション
+                └── 📂 websocks
+                    └── 📂 consumer_custom
+👉                      └── 📄 ver1o0.py
+```
+
+```py
+# BOF [OA24o1o0g3o0]
+
+# 〇×ゲーム2.0巻 ウェブソケットGUIコンシューマー1.0版
+from apps1.tic_tac_toe_vol2o0.websocks.gui.consumer.ver1o0 import ConsumerBase
+#                         ^two
+#          ------------------                       ------        ------------
+#          11                                       12            2
+#    -----------------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれている __init__.py ファイルにさらに含まれるクラス
+
+# 〇×ゲーム2.0巻 ウェブソケットGUIメッセージ駆動1.0版
+from apps1.tic_tac_toe_vol2o0.websocks.gui.message_manager.ver1o0 import MessageManager
+#          ------------------                              ------        --------------
+#          11                                              12            2
+#    ------------------------------------------------------------
+#    10
+# 10, 12. ディレクトリー
+# 11. アプリケーション
+# 2. `12.` に含まれる __init__.py にさらに含まれるクラス
+
+# [OA16o3o0gA10o_1o0] 〇×ゲーム2.0巻 - WebソケットGUI Endメッセージハンドラー 1.0版
+from apps1.tic_tac_toe_vol2o0.websocks.gui.c2s_handlers.end.ver1o0 import EndC2sHandler
+
+# [OA24o1o0g3o_1o0] 〇×ゲーム3.0巻 - WebソケットGUI Moveメッセージハンドラー 1.0版
+from apps1.tic_tac_toe_vol3o0.websocks.gui.c2s_handlers.move.ver1o0 import MoveC2sHandler
+#                         ^
+
+# [OA16o3o0gA10o_3o0] 〇×ゲーム2.0巻 - WebソケットGUI Startメッセージハンドラー 1.0版
+from apps1.tic_tac_toe_vol2o0.websocks.gui.c2s_handlers.start.ver1o0 import StartC2sHandler
+
+
+class TicTacToeV3o1o0ConsumerCustom(ConsumerBase):
+    """OA24o1o0g3o0 Webソケット用コンシューマー"""
+
+    def __init__(self):
+        super().__init__()
+        self._messageManager = MessageManager()
+        self._messageManager.addMessageHandler('C2S_End', EndC2sHandler())
+        self._messageManager.addMessageHandler('C2S_Moved', MoveC2sHandler())
+        self._messageManager.addMessageHandler('C2S_Start', StartC2sHandler())
+
+    async def on_receive(self, doc_received):
+        """クライアントからメッセージを受信したとき
+
+        Returns
+        -------
+        response
+        """
+
+        return await self._messageManager.execute(self.scope, doc_received)
+
+# EOF [OA24o1o0g3o0]
 ```
 
 ## Step [OA24o1o0g4o0] Webソケット用ルート新規作成 - ws_urls_tic_tac_toe_v3.py ファイル
