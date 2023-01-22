@@ -1,9 +1,9 @@
-# BOF OA23o1o0g2o0
+# BOF [OA23o1o0g2o0]
 
 # 〇×ゲーム2.0巻 対局申込1.0版
-from apps1.tic_tac_toe_vol2o0.views.gui.match_application.ver1o0 import MatchApplicationV as MatchApplicationVV2g1o0
-#                       ^two
-#    -----------------------------------------------------------        -----------------    -----------------------
+from apps1.tic_tac_toe_vol2o0.views.gui.match_application.ver1o0 import MatchApplicationV as ViewOfMatchApplicationV2g1o0
+#                         ^two
+#    -----------------------------------------------------------        -----------------    ----------------------------
 #    1                                                                  2                    3
 # 1. `src1/apps1/tic_tac_toe_vol2o0/views/gui/match_application/ver1o0/__init__.py`
 #          -----------------------------------------------------------
@@ -11,9 +11,9 @@ from apps1.tic_tac_toe_vol2o0.views.gui.match_application.ver1o0 import MatchApp
 # 3. '2.' の別名
 
 # 〇×ゲーム3.0巻 対局申込1.0版
-from apps1.tic_tac_toe_vol3o0.views.match_application.ver1o0 import MatchApplicationV as MatchApplicationVV3g1o0
+from apps1.tic_tac_toe_vol3o0.views.match_application.ver1o0 import MatchApplicationV as ViewOfMatchApplicationV3g1o0
 #                         ^three                         ^one
-#          ------------------                         ------        -----------------    -----------------------
+#          ------------------                         ------        -----------------    ----------------------------
 #          11                                         12            2                    3
 #    -------------------------------------------------------
 #    10
@@ -26,7 +26,7 @@ from apps1.tic_tac_toe_vol3o0.views.match_application.ver1o0 import MatchApplica
 
 
 class MatchApplicationV():
-    """OA23o1o0g2o0 対局申込ビュー"""
+    """[OA23o1o0g2o0] 対局申込ビュー"""
 
     @staticmethod
     def render(request):
@@ -43,8 +43,8 @@ class MatchApplicationV():
 
         return render_match_application(
             request,
-            MatchApplicationVV3g1o0.playing_web_path,
-            MatchApplicationVV2g1o0.template_path,
+            ViewOfMatchApplicationV3g1o0.playing_web_path,
+            ViewOfMatchApplicationV2g1o0.template_path,
             MatchApplicationV.on_sent,
             MatchApplicationV.open)
 
@@ -65,6 +65,6 @@ class MatchApplicationV():
     @staticmethod
     def open(request):
         """訪問後"""
-        return MatchApplicationVV2g1o0.open_context
+        return ViewOfMatchApplicationV2g1o0.open_context
 
-# EOF OA23o1o0g2o0
+# EOF [OA23o1o0g2o0]

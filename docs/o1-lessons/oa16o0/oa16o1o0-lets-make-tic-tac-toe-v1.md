@@ -840,10 +840,10 @@ connect();
 ```
 
 ```py
-# BOF OA16o1o0gA13o0
+# BOF [OA16o1o0gA13o0]
 
 class MatchApplicationV():
-    """OA16o1o0gA13o0 対局申込ビュー"""
+    """[OA16o1o0gA13o0] 対局申込ビュー"""
 
     playing_web_path = "/tic-tac-toe/vol1.0/playing/ver1.0/{0}/?&mypiece={1}"
     #                                   ^one
@@ -875,7 +875,7 @@ class MatchApplicationV():
             MatchApplicationV.playing_web_path,
             MatchApplicationV.template_path)
 
-# EOF OA16o1o0gA13o0
+# EOF [OA16o1o0gA13o0]
 ```
 
 
