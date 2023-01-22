@@ -447,10 +447,10 @@ websocket_urlpatterns_merged.extend(
 # BOF [OA24o1o0g6o0]
 
 # 〇×ゲーム2.0巻 対局申込1.0版
-from apps1.tic_tac_toe_vol2o0.views.gui.match_application.ver1o0 import MatchApplicationV as ViewOfMatchApplicationV2g1o0
+from apps1.tic_tac_toe_vol2o0.views.gui.match_application.ver1o0 import MatchApplicationView as ViewOfMatchApplicationV2g1o0
 #                         ^two
-#          ------------------                             ------        -----------------    ----------------------------
-#          11                                             12            2                    3
+#          ------------------                             ------        --------------------    ----------------------------
+#          11                                             12            2                       3
 #    -----------------------------------------------------------
 #    10
 # 10. `src1/apps1/tic_tac_toe_vol2o0/views/gui/match_application/ver1o0/__init__.py`
@@ -461,10 +461,10 @@ from apps1.tic_tac_toe_vol2o0.views.gui.match_application.ver1o0 import MatchApp
 # 3. '2.' の別名
 
 # 〇×ゲーム3.0巻 対局申込1.0版
-from apps1.tic_tac_toe_vol3o0.views.match_application.ver1o0 import MatchApplicationV as ViewOfMatchApplicationV3g1o0
+from apps1.tic_tac_toe_vol3o0.views.match_application.ver1o0 import MatchApplicationView as ViewOfMatchApplicationV3g1o0
 #                         ^three                         ^one
-#          ------------------                         ------        -----------------    ----------------------------
-#          11                                         12            2                    3
+#          ------------------                         ------        --------------------    ----------------------------
+#          11                                         12            2                       3
 #    -------------------------------------------------------
 #    10
 # 10. `src1/apps1/tic_tac_toe_vol3o0/views/match_application/v1o0/__init__.py`
@@ -475,7 +475,7 @@ from apps1.tic_tac_toe_vol3o0.views.match_application.ver1o0 import MatchApplica
 # 3. '2.' の別名
 
 
-class MatchApplicationV():
+class MatchApplicationView():
     """[OA24o1o0g6o0] 対局申込ビュー"""
 
     # 〇×ゲーム3.0巻 対局中3.0版
@@ -501,7 +501,7 @@ class MatchApplicationV():
 
         return render_match_application(
             request,
-            MatchApplicationV.playing_web_path,
+            MatchApplicationView.playing_web_path,
             ViewOfMatchApplicationV2g1o0.template_path,
             ViewOfMatchApplicationV3g1o0.on_sent,
             ViewOfMatchApplicationV2g1o0.open)
@@ -632,7 +632,7 @@ Marged to OA24o1o0g8o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/match-application/ver3.0/,,"OA24o1o0g8o1o0 〇×ゲーム3.0巻 対局申込中3.0版",apps1.tic_tac_toe_vol3o0.views.match_application.ver3o0,MatchApplicationV,TicTacToe3o0MatchApplicationView3o0,render
+../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/match-application/ver3.0/,,"OA24o1o0g8o1o0 〇×ゲーム3.0巻 対局申込中3.0版",apps1.tic_tac_toe_vol3o0.views.match_application.ver3o0,MatchApplicationView,TicTacToe3o0MatchApplicationView3o0,render
 ../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/playing/ver3.0/<str:kw_room_name>/,,"OA24o1o0g8o1o0 〇×ゲーム3.0巻 対局中3.0版",apps1.tic_tac_toe_vol3o0.views.playing.ver3o0,PlayingV,TicTacToe3o0PlayingView3o0,render
 ```
 

@@ -3,7 +3,7 @@
 import json
 
 
-class MatchApplicationV():
+class MatchApplicationView():
     """OA16o3o0gA11o0 対局申込ビュー"""
 
     # 対局申込 - 訪問後
@@ -46,10 +46,10 @@ class MatchApplicationV():
 
         return render_match_application(
             request,
-            MatchApplicationV.playing_web_path,
-            MatchApplicationV.template_path,
-            MatchApplicationV.on_sent,
-            MatchApplicationV.open)
+            MatchApplicationView.playing_web_path,
+            MatchApplicationView.template_path,
+            MatchApplicationView.on_sent,
+            MatchApplicationView.open)
 
     @staticmethod
     def on_sent(request):
@@ -59,6 +59,6 @@ class MatchApplicationV():
     @staticmethod
     def open(request):
         """訪問後"""
-        return MatchApplicationV.open_context
+        return MatchApplicationView.open_context
 
 # EOF [OA16o3o0gA11o0]

@@ -108,7 +108,7 @@
     └── 📄 .gitignore
 ```
 
-# 手順
+# 実装手順
 
 ## Step [OA16o3o0g1o0] Dockerコンテナの起動
 
@@ -1481,7 +1481,7 @@ class ConsumerCustom(ConsumerBase):
 import json
 
 
-class MatchApplicationV():
+class MatchApplicationView():
     """OA16o3o0gA11o0 対局申込ビュー"""
 
     # 対局申込 - 訪問後
@@ -1524,10 +1524,10 @@ class MatchApplicationV():
 
         return render_match_application(
             request,
-            MatchApplicationV.playing_web_path,
-            MatchApplicationV.template_path,
-            MatchApplicationV.on_sent,
-            MatchApplicationV.open)
+            MatchApplicationView.playing_web_path,
+            MatchApplicationView.template_path,
+            MatchApplicationView.on_sent,
+            MatchApplicationView.open)
 
     @staticmethod
     def on_sent(request):
@@ -1537,7 +1537,7 @@ class MatchApplicationV():
     @staticmethod
     def open(request):
         """訪問後"""
-        return MatchApplicationV.open_context
+        return MatchApplicationView.open_context
 
 # EOF [OA16o3o0gA11o0]
 ```
@@ -1845,7 +1845,7 @@ Merged to [OA16o3o0gA15o1o0]
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_vol2o0_autogen.py,tic-tac-toe/vol2.0/match-application/ver1.0/,,"OA16o3o0gA15o1o0 〇×ゲーム2.0巻 対局申込中1.0版",apps1.tic_tac_toe_vol2o0.views.gui.match_application.ver1o0,MatchApplicationV,,render
+../src1/project1/urls_tic_tac_toe_vol2o0_autogen.py,tic-tac-toe/vol2.0/match-application/ver1.0/,,"OA16o3o0gA15o1o0 〇×ゲーム2.0巻 対局申込中1.0版",apps1.tic_tac_toe_vol2o0.views.gui.match_application.ver1o0,MatchApplicationView,,render
 ../src1/project1/urls_tic_tac_toe_vol2o0_autogen.py,tic-tac-toe/vol2.0/playing/ver1.0/<str:kw_room_name>/,,"OA16o3o0gA15o1o0 〇×ゲーム2.0巻 対局中1.0版",apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0,PlayingV,,render
 ```
 
@@ -2028,11 +2028,15 @@ websocket_urlpatterns_merged.extend(
 #                        ^two
 ```
 
+# テスト手順
+
 ## Step [OA16o3o0gA18o0] Web画面へアクセス
 
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでください  
 
 📖 [http://localhost:8000/tic-tac-toe/vol2.0/match-application/ver1.0/](http://localhost:8000/tic-tac-toe/vol2.0/match-application/ver1.0/)  
+
+# 後処理
 
 ## Step [OA16o3o0gA19o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 

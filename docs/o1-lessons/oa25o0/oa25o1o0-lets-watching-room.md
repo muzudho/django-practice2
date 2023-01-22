@@ -91,7 +91,7 @@
     └── 📄 .gitignore
 ```
 
-# 手順
+# 実装手順
 
 ## Step [OA25o1o0g1o0] Dockerコンテナの起動
 
@@ -182,15 +182,15 @@ docker-compose up
 ```
 
 ```py
-# BOF OA25o1o0g3o0
+# BOF [OA25o1o0g3o0]
 
 import json
 
 # 〇×ゲーム2.0巻 対局申込1.0版
-from apps1.tic_tac_toe_vol2o0.views.gui.match_application.ver1o0 import MatchApplicationV as MatchApplicationVV2g1o0
+from apps1.tic_tac_toe_vol2o0.views.gui.match_application.ver1o0 import MatchApplicationView as ViewOfMatchApplicationV2g1o0
 #                         ^two
-#          ------------------                             ------        -----------------    -----------------------
-#          11                                             12            2                    3
+#          ------------------                             ------        --------------------    ----------------------------
+#          11                                             12            2                       3
 #    -----------------------------------------------------------
 #    10
 # 10. `src1/apps1/tic_tac_toe_vol2o0/views/gui/match_application/ver1o0/__init__.py`
@@ -201,10 +201,10 @@ from apps1.tic_tac_toe_vol2o0.views.gui.match_application.ver1o0 import MatchApp
 # 3. '2.' の別名
 
 # 〇×ゲーム3.0巻 対局申込1.0版
-from apps1.tic_tac_toe_vol3o0.views.match_application.ver1o0 import MatchApplicationV as MatchApplicationVV3g1o0
+from apps1.tic_tac_toe_vol3o0.views.match_application.ver1o0 import MatchApplicationView as ViewOfMatchApplicationV3g1o0
 #                       ^three                           ^one
-#          ------------------                         ------        -----------------    -----------------------
-#          11                                         12            2                    3
+#          ------------------                         ------        --------------------    ----------------------------
+#          11                                         12            2                       3
 #    -------------------------------------------------------
 #    10
 # 10. `src1/apps1/tic_tac_toe_vol3o0/views/match_application/ver1o0/__init__.py`
@@ -215,8 +215,8 @@ from apps1.tic_tac_toe_vol3o0.views.match_application.ver1o0 import MatchApplica
 # 3. '2.' の別名
 
 
-class MatchApplicationV():
-    """OA25o1o0g3o0 対局申込ビュー"""
+class MatchApplicationView():
+    """[OA25o1o0g3o0] 対局申込ビュー"""
 
     # 対局申込 - 訪問後
     open_context = {
@@ -253,17 +253,17 @@ class MatchApplicationV():
 
         return render_match_application(
             request,
-            MatchApplicationV.playing_web_path,
-            MatchApplicationVV2g1o0.template_path,
-            MatchApplicationVV3g1o0.on_sent,
-            MatchApplicationV.open)
+            MatchApplicationView.playing_web_path,
+            ViewOfMatchApplicationV2g1o0.template_path,
+            ViewOfMatchApplicationV3g1o0.on_sent,
+            MatchApplicationView.open)
 
     @staticmethod
     def open(request):
         """訪問後"""
-        return MatchApplicationV.open_context
+        return MatchApplicationView.open_context
 
-# EOF OA25o1o0g3o0
+# EOF [OA25o1o0g3o0]
 ```
 
 ## Step [OA25o1o0g4o0] 対局申込ビュー作成 - playing/ver4o0 フォルダー
@@ -387,7 +387,7 @@ Merged to OA25o1o0g5o1o0
 ...略...
 
 
-../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/match-application/ver4.0/,,"OA25o1o0g5o1o0 〇×ゲーム3.0巻 対局申込中4.0版",apps1.tic_tac_toe_vol3o0.views.match_application.ver4o0,MatchApplicationV,TicTacToe3o0MatchApplicationView4o0,render
+../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/match-application/ver4.0/,,"OA25o1o0g5o1o0 〇×ゲーム3.0巻 対局申込中4.0版",apps1.tic_tac_toe_vol3o0.views.match_application.ver4o0,MatchApplicationView,TicTacToe3o0MatchApplicationView4o0,render
 ../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/playing/ver4.0/<str:kw_room_name>/,,"OA25o1o0g5o1o0 〇×ゲーム3.0巻 対局中4.0版",apps1.tic_tac_toe_vol3o0.views.playing.ver4o0,PlayingV,TicTacToe3o0PlayingView4o0,render
 ```
 
@@ -406,6 +406,8 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
+# テスト手順
+
 ## Step [OA25o1o0g6o0] Web画面へアクセス
 
 * 観戦モードのテストをするので、Webページを３窓で開き、一方が X プレイヤー、もう一方が O プレイヤー、もう一方は WatchingGame を選んでください
@@ -419,6 +421,8 @@ docker-compose restart
 部屋、ユーザーを確認するには、管理画面を使うのが確実です:  
 
 📖 [http://localhost:8000/admin](http://localhost:8000/admin)  
+
+# 後処理
 
 ## Step [OA25o1o0g7o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 

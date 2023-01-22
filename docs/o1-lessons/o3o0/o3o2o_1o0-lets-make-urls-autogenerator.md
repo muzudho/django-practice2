@@ -54,7 +54,7 @@ URLの設定はめんどうだ。自動化しよう
     └── 📄 .gitignore
 ```
 
-# 手順
+# 実装手順
 
 ## Step. Dockerコンテナの起動
 
@@ -1062,6 +1062,8 @@ if __name__ == "__main__":
 # EOF [O3o2o_1o0g2o1o0]
 ```
 
+# テスト手順
+
 ## Step [O3o2o_1o0g3o0] コマンド実行
 
 👇 以下のディレクトリーから、コマンドを打鍵してほしい  
@@ -1212,7 +1214,7 @@ urlpatterns.extend(urlpatterns_autogen)
 
 📖 [http://localhost:8000/practice/vol1.0/hello-alias/ver1.0/](http://localhost:8000/practice/vol1.0/hello-alias/ver1.0/)  
 
-## トラブルシューティング
+# トラブルシューティング
 
 もし、 `TemplateDoesNotExist at /` といったエラーメッセージが出てきた場合、  
 同じURLを指す複数の `path( ... )` が urlpatterns変数に設定されていることが考えられる。  

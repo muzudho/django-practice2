@@ -1,6 +1,6 @@
 # BOF [OA16o1o0gA13o0]
 
-class MatchApplicationV():
+class MatchApplicationView():
     """[OA16o1o0gA13o0] 対局申込ビュー"""
 
     playing_web_path = "/tic-tac-toe/vol1.0/playing/ver1.0/{0}/?&mypiece={1}"
@@ -30,7 +30,7 @@ class MatchApplicationV():
 
         return render_match_application(
             request,
-            MatchApplicationV.playing_web_path,
-            MatchApplicationV.template_path)
+            MatchApplicationView.playing_web_path,
+            MatchApplicationView.template_path)
 
 # EOF [OA16o1o0gA13o0]
