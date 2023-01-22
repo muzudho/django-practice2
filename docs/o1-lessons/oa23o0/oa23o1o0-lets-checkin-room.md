@@ -375,15 +375,28 @@ docker-compose restart
 １つのPCで ２つのアカウントをアクティブにする方法が分からないが、  
 今のところ 厳密に作れてはいないので、以下の手順で行う  
 
-👇 以下のリンクから `サインアップ` して２人目のアカウントを用意してほしい  
+👇 （既にログインしているかもしれないので）ログアウトを試す
+
+📖 [http://localhost:8000/accounts/vol1.0/logout/](http://localhost:8000/accounts/vol1.0/logout/)  
+
+👇 以下のリンクから `サインアップ` してテスト用のアカウントを用意してほしい  
+
+```plaintext
+ユーザー名: test1
+E-mail: (あなたに届く、あなたの２個目のEメールアドレス)
+パスワード: test1example
+パスワード（再入力） test1example
+```
 
 📖 [http://localhost:8000/accounts/vol1.0/signup/](http://localhost:8000/accounts/vol1.0/signup/)  
 
-👇 サインアップしたら、ログインしてほしい  
+確認のメールが届くので、アクティベーション用のリンクをクリックしてほしい  
+
+👇 アカウントをアクティベートしたら、以下の URL を開いてほしい（ログイン処理が完了する）  
 
 📖 [http://localhost:8000/accounts/vol1.0/login/](http://localhost:8000/accounts/vol1.0/login/)  
 
-👇 そして `Elephant` 部屋に `X` 番として入ってほしい  
+👇 そして 以下の URL を開いて、 `Test1` 部屋に `X` 番として入ってほしい  
 
 📖 [http://localhost:8000/tic-tac-toe/vol3.0/match-application/ver2.0/](http://localhost:8000/tic-tac-toe/vol3.0/match-application/ver2.0/)  
 
@@ -393,22 +406,35 @@ docker-compose restart
 
 📖 [http://localhost:8000/accounts/vol1.0/login/](http://localhost:8000/accounts/vol1.0/logout/)  
 
-👇 スーパーユーザー でログインしなおして、  
+👇 以下の URL を開いて、スーパーユーザー でログインしなおしてほしい（既に作っているはずだ）  
 
 📖 [http://localhost:8000/accounts/vol1.0/login/](http://localhost:8000/accounts/vol1.0/login/)  
 
-👇 `Elephant` 部屋に `O` 番として入ってほしい  
+👇 以下の URL を開いて、 `Test1` 部屋に `O` 番として入ってほしい  
 
 📖 [http://localhost:8000/tic-tac-toe/vol3.0/match-application/ver2.0/](http://localhost:8000/tic-tac-toe/vol3.0/match-application/ver2.0/)  
 
 👇 部屋、ユーザーを確認するには、管理画面を使うのが確実だ。  
-スーパーユーザーのまま、管理画面に入っていてほしい  
+スーパーユーザーのまま、 以下の URL を開いて、管理画面に入っていてほしい  
 
 📖 [http://localhost:8000/admin](http://localhost:8000/admin)  
 
+サイドメニューから、 `Rooms` モデルを開いてほしい  
+`Test 1 room` があるはずなので、開いてほしい  
+
 部屋に入っているユーザーの主キーが記録されていることを確認してほしい  
 
-また、既存でない部屋名でも ちゃんとユーザーの主キーが記録されることを確認してほしい  
+例：  
+
+```plaintext
+部屋名: Test1
+対局者_先手Id: 2
+対局者_後手Id: 1
+盤面:
+棋譜:
+```
+
+また、（余裕があれば）既存でない部屋名でも ちゃんとユーザーの主キーが記録されることを確認してほしい  
 
 ## Step [OA23o1o0g6o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 
