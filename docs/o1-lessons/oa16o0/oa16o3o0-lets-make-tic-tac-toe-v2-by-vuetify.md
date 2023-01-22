@@ -260,7 +260,9 @@ class Connection {
      * メッセージ送信
      */
     send(response) {
-        this.#webSock1.send(JSON.stringify(response));
+        const message = JSON.stringify(response)
+        console.log(`[Client] ${message}`)
+        this.#webSock1.send(message);
     }
 
     /**
@@ -823,7 +825,6 @@ class Connection {
                      * 対局は終了しました
                      */
                     onGameover(winner) {
-                        console.log(`[methods onGameover] winner=${winner}`);
                         this.engine.winner = winner;
                         this.roomState.value = RoomState.none; // 画面を対局終了状態へ
 

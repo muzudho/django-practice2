@@ -343,7 +343,6 @@
                      * 対局は終了しました
                      */
                     onGameover(winner) {
-                        console.log(`[methods onGameover] winner=${winner}`);
                         this.engine.winner = winner;
                         this.roomState.value = RoomState.none; // 画面を対局終了状態へ
 

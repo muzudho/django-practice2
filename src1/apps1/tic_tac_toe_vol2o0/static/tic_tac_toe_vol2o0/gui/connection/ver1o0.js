@@ -52,7 +52,9 @@ class Connection {
      * メッセージ送信
      */
     send(response) {
-        this.#webSock1.send(JSON.stringify(response));
+        const message = JSON.stringify(response);
+        console.log(`[Client] ${message}`);
+        this.#webSock1.send(message);
     }
 
     /**

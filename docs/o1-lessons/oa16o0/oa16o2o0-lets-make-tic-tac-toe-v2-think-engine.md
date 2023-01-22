@@ -989,8 +989,6 @@ class UserCtrl {
     doMove(position, piece, sq) {
         if (position.board.getPieceBySq(sq) == PC_EMPTY) {
             // 空升なら駒を置きます
-            // console.log(`[UserCtrl doMove] 置いたマス:${sq} 動かした駒:${piece}`);
-
             position.record.push(sq); // 棋譜に追加
 
             // 駒を置きます
@@ -1006,9 +1004,7 @@ class UserCtrl {
                     return false;
             }
 
-            // console.log(`[UserCtrl doMove] 反転前の手番=${position.turn.next}`);
             position.turn.next = flipTurn(position.turn.next);
-            // console.log(`[UserCtrl doMove] 反転後の手番=${position.turn.next}`);
 
             this._onDidMove(sq, piece);
             return true;
@@ -1027,15 +1023,12 @@ class UserCtrl {
      */
     undoMove(position) {
         const previousSq = position.record.pop();
-        // console.log(`[UserCtrl undoMove] previousSq:${previousSq}`);
 
         if (typeof previousSq === "undefined") {
             return false;
         }
 
-        // console.log(`[UserCtrl doMove] 反転前の手番:${position.turn.next}`);
         position.turn.next = flipTurn(position.turn.next);
-        // console.log(`[UserCtrl doMove] 反転後の手番:${position.turn.next}`);
 
         // 盤上の駒を消します
         position.board.setPiece(previousSq, PC_EMPTY);
