@@ -152,8 +152,8 @@ class EndS2cMessage:
         """Dict形式で取得"""
         return {
             'type': 'send_message',  # type属性は必須
-            'message_name': "S2C_End", # Server to client
-            's2c_winner': self._winner,
+            'event': "S2C_End", # Server to client
+            'winner': self._winner,
         }
 
 # EOF OA16o3o_2o0g1o_1o0
@@ -194,9 +194,9 @@ class MovedS2cMessage:
         """Dict形式で取得"""
         return {
             'type': 'send_message',  # type属性は必須
-            'message_name': 'S2C_Moved', # Server to client
-            's2c_sq': self._sq,
-            's2c_pieceMoved': self._pieceMoved,
+            'event': 'S2C_Moved', # Server to client
+            'sq': self._sq,
+            'piece': self._pieceMoved,
         }
 
 # EOF OA16o3o_2o0g1o_2o0
@@ -239,7 +239,7 @@ class StartS2cMessage:
         """Dict形式で取得"""
         return {
             'type': 'send_message',  # type属性は必須
-            'message_name': "S2C_Start", # Server to client
+            'event': "S2C_Start", # Server to client
         }
 
 # EOF OA16o3o_2o0g1o_3o0

@@ -22,9 +22,9 @@ class MovedC2sMessage {
      */
     asJsObject() {
         return {
-            message_name: "C2S_Moved", // Client to server
-            c2s_sq: this._sq,
-            c2s_pieceMoved: this._pieceMoved,
+            event: "C2S_Moved", // Client to server
+            sq: this._sq,
+            piece: this._pieceMoved,
         };
     }
 }

@@ -14,7 +14,7 @@ class StartC2sMessage {
      */
     asJsObject() {
         return {
-            message_name: "C2S_Start", // Client to server
+            event: "C2S_Start", // Client to server
         };
     }
 }

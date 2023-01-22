@@ -10,8 +10,8 @@ class MoveC2sHandler:
         """駒を置いたとき"""
         return MovedS2cMessage({
             # `s2c_` は サーバーからクライアントへ送る変数の目印
-            "sq1": doc_received.get("c2s_sq", None),
-            "piece1": doc_received.get("c2s_pieceMoved", None),
+            "sq1": doc_received.get("sq", None),
+            "piece1": doc_received.get("piece", None),
         }).asDict()
 
 # EOF [OA16o3o0gA10o_2o0]

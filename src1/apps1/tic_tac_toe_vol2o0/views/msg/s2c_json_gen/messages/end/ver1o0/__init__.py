@@ -9,8 +9,8 @@ class EndS2cMessage:
         """Dict形式で取得"""
         return {
             'type': 'send_message',     # type属性は必須
-            'message_name': "S2C_End",  # Server to client
-            's2c_winner': self._winner,
+            'event': "S2C_End",  # Server to client
+            'winner': self._winner,
         }
 
 # EOF OA16o3o_2o0g1o_1o0

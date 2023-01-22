@@ -16,8 +16,8 @@ class EndC2sMessage {
      */
     asJsObject() {
         return {
-            message_name: "C2S_End", // Client to server
-            c2s_winner: this._winner,
+            event: "C2S_End", // Client to server
+            winner: this._winner,
         };
     }
 }

@@ -18,7 +18,7 @@ class MessageManager():
         # print(f"[MessageManager execute] user=[{user}]")
 
         # メッセージ名 (Client to server)
-        messageName = doc_received.get("message_name", None)
+        messageName = doc_received.get("event", None)
 
         if(messageName in self.addMessageListenerAsync):
             response_json = await self.addMessageListenerAsync[messageName].on_message_received(scope, doc_received)

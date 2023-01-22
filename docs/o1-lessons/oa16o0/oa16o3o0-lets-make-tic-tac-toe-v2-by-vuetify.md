@@ -161,25 +161,26 @@ class MessageReceiver {
      * @returns 関数
      */
     execute(message) {
-        // メッセージ名 (Server to client)
-        let message_name = message["message_name"];
+        // イベント名 (Server to client)
+        let event = message["event"];
 
-        let description = `[Server] ${message_name}`;
+        let description = `[Server] event:${event}`;
         const keys = Object.keys(message);
         keys.forEach((key) => {
-            if (key != "message_name" && key != "type") {
+            if (key != "event" && key != "type") {
                 description += ` ${key}:${message[key]}`;
             }
         });
+        description += ` type:${message["type"]}`;
         console.log(description);
 
-        if (message_name in this._messageListeners) {
+        if (event in this._messageListeners) {
             // 実行
-            const execute2 = this._messageListeners[message_name];
+            const execute2 = this._messageListeners[event];
             execute2(message);
         } else {
             // Undefined behavior
-            console.log(`(ignored) [Server] ${message_name}`);
+            console.log(`(ignored) [Server] ${event}`);
         }
     }
 }
@@ -602,15 +603,15 @@ class Connection {
             // 対局終了時
             messageReceiver.addMessageListener("S2C_End", (message)=>{
                 // 勝者
-                let winner = message["s2c_winner"];
+                let winner = message["winner"];
                 vue1.onGameover(winner);
             });
             // 指し手受信時
             messageReceiver.addMessageListener("S2C_Moved", (message)=>{
                 // 升番号
-                let sq = parseInt(message["s2c_sq"]);
+                let sq = parseInt(message["sq"]);
                 // 手番。 "X" か "O"
-                let piece_moved = message["s2c_pieceMoved"];
+                let piece_moved = message["piece"];
 
                 if (piece_moved != vue1.engine.position.turn.me) {
                     // 相手の手番なら、自動で動かします
@@ -1058,7 +1059,7 @@ class MessageManager():
         # print(f"[MessageManager execute] user=[{user}]")
 
         # メッセージ名 (Client to server)
-        messageName = doc_received.get("message_name", None)
+        messageName = doc_received.get("event", None)
 
         if(messageName in self.addMessageListenerAsync):
             response_json = await self.addMessageListenerAsync[messageName].on_message_received(scope, doc_received)
@@ -1230,7 +1231,7 @@ class EndC2sHandler:
         """対局終了時"""
         return EndS2cMessage({
             # TODO 現状、勝者は、クライアント側から送ってきたものをそのまま返しているが、勝敗判定のロジックはサーバー側に置きたい
-            "player1": doc_received.get("c2s_winner", None)
+            "player1": doc_received.get("winner", None)
         }).asDict()
 
 # EOF [OA16o3o0gA10o_1o0]
@@ -1286,8 +1287,8 @@ class MoveC2sHandler:
         """駒を置いたとき"""
         return MovedS2cMessage({
             # `s2c_` は サーバーからクライアントへ送る変数の目印
-            "sq1": doc_received.get("c2s_sq", None),
-            "piece1": doc_received.get("c2s_pieceMoved", None),
+            "sq1": doc_received.get("sq", None),
+            "piece1": doc_received.get("piece", None),
         }).asDict()
 
 # EOF [OA16o3o0gA10o_2o0]

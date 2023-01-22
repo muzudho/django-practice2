@@ -17,7 +17,7 @@ class EndC2sHandler:
         """対局終了時"""
         return EndS2cMessage({
             # TODO 現状、勝者は、クライアント側から送ってきたものをそのまま返しているが、勝敗判定のロジックはサーバー側に置きたい
-            "player1": doc_received.get("c2s_winner", None)
+            "player1": doc_received.get("winner", None)
         }).asDict()
 
 # EOF [OA16o3o0gA10o_1o0]

@@ -192,7 +192,7 @@ class TicTacToeV3o1o0ConsumerCustom(ConsumerBase):
         """対局終了時"""
         # print("[TicTacToeV3o1o0ConsumerCustom on_end] ignored")
         # TODO 現状、クライアント側から勝者を送ってきているが、勝敗判定のロジックはサーバー側に置きたい
-        winner = doc_received.get("c2s_winner", None)
+        winner = doc_received.get("winner", None)
 
         args = {
             "player1": winner
@@ -223,15 +223,15 @@ class TicTacToeV3o1o0ConsumerCustom(ConsumerBase):
             room_name = scope["url_route"]["kwargs"]["kw_room_name"]
             # print(f"[TicTacToeV3o1o0ConsumerCustom on_move 2] scope={scope}")
 
-            # メッセージ名 (Client to server)
-            message_name = doc_received.get("message_name", None)
+            # イベント名 (Client to server)
+            event = doc_received.get("event", None)
             # 駒を置いたマス番号
-            sq = doc_received.get("c2s_sq", None)
+            sq = doc_received.get("sq", None)
             # 駒を置いた方の X か O
-            piece_moved = doc_received.get("c2s_pieceMoved", None)
+            piece_moved = doc_received.get("piece", None)
             print(
-                f"[TicTacToeV3o1o0ConsumerCustom on_move 3] クライアントからのメッセージを受信しました room_name=[{room_name}] message_name=[{message_name}] piece_moved=[{piece_moved}] sq=[{sq}]")
-            # クライアントからのメッセージを受信しました room_name=[Elephant] message_name=[C2S_Moved] piece_moved=[X] sq=[2]
+                f"[TicTacToeV3o1o0ConsumerCustom on_move 3] クライアントからのメッセージを受信しました room_name=[{room_name}] event=[{event}] piece_moved=[{piece_moved}] sq=[{sq}]")
+            # クライアントからのメッセージを受信しました room_name=[Elephant] event=[C2S_Moved] piece_moved=[X] sq=[2]
 
             # 部屋取得
             room = await get_room_by_name(room_name)
@@ -269,14 +269,14 @@ class TicTacToeV3o1o0ConsumerCustom(ConsumerBase):
 
             print(f"[TicTacToeV3o1o0ConsumerCustom on_move 10] saved")
 
-        # `s2c_` は サーバーからクライアントへ送る変数の目印
-        c2s_sq = doc_received.get("c2s_sq", None)
-        piece_moved = doc_received.get("c2s_pieceMoved", None)
+        # Client to server
+        sq = doc_received.get("sq", None)
+        piece_moved = doc_received.get("piece", None)
         # print(
-        #     f"[TicTacToeV3o1o0ConsumerCustom on_move 11] C2S_Moved c2s_sq=[{c2s_sq}] piece_moved=[{piece_moved}]")
+        #     f"[TicTacToeV3o1o0ConsumerCustom on_move 11] C2S_Moved sq=[{sq}] piece_moved=[{piece_moved}]")
 
         args = {
-            "sq1": c2s_sq,
+            "sq1": sq,
             "piece1": piece_moved,
         }
 

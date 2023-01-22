@@ -120,15 +120,15 @@
             // 対局終了時
             messageReceiver.addMessageListener("S2C_End", (message)=>{
                 // 勝者
-                let winner = message["s2c_winner"];
+                let winner = message["winner"];
                 vue1.onGameover(winner);
             });
             // 指し手受信時
             messageReceiver.addMessageListener("S2C_Moved", (message)=>{
                 // 升番号
-                let sq = parseInt(message["s2c_sq"]);
+                let sq = parseInt(message["sq"]);
                 // 手番。 "X" か "O"
-                let piece_moved = message["s2c_pieceMoved"];
+                let piece_moved = message["piece"];
 
                 if (piece_moved != vue1.engine.position.turn.me) {
                     // 相手の手番なら、自動で動かします

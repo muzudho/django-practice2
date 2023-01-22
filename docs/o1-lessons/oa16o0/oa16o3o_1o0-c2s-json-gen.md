@@ -164,9 +164,9 @@ class MovedC2sMessage {
      */
     asJsObject() {
         return {
-            message_name: "C2S_Moved", // Client to server
-            c2s_sq: this._sq,
-            c2s_pieceMoved: this._pieceMoved,
+            event: "C2S_Moved", // Client to server
+            sq: this._sq,
+            piece: this._pieceMoved,
         };
     }
 }
@@ -212,8 +212,8 @@ class EndC2sMessage {
      */
     asJsObject() {
         return {
-            message_name: "C2S_End",    // Client to server
-            c2s_winner: this._winner,
+            event: "C2S_End",    // Client to server
+            winner: this._winner,
         };
     }
 }
@@ -259,7 +259,7 @@ class StartC2sMessage {
      */
     asJsObject() {
         return {
-            message_name: "C2S_Start",  // Client to server
+            event: "C2S_Start",  // Client to server
         };
     }
 }
