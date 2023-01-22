@@ -16,9 +16,9 @@ from apps1.tic_tac_toe_vol2o0.views.gui.match_application.ver1o0 import MatchApp
 # 2. `12.` に含まれる __init__.py ファイルにさらに含まれるクラス
 # 3. '2.' の別名
 
-# 〇×ゲーム3.0巻 対局申込1.0版
-from apps1.tic_tac_toe_vol3o0.views.match_application.ver1o0 import MatchApplicationView as ViewOfMatchApplicationV3g1o0
-#                       ^three                           ^one
+# 〇×ゲーム3.0巻 対局申込2.0版
+from apps1.tic_tac_toe_vol3o0.views.match_application.ver2o0 import MatchApplicationView as ViewOfMatchApplicationV3g2o0
+#                       ^three                           ^two
 #          ------------------                         ------        --------------------    ----------------------------
 #          11                                         12            2                       3
 #    -------------------------------------------------------
@@ -71,7 +71,7 @@ class MatchApplicationView():
             request,
             MatchApplicationView.playing_web_path,
             ViewOfMatchApplicationV2g1o0.template_path,
-            ViewOfMatchApplicationV3g1o0.on_sent,
+            ViewOfMatchApplicationV3g2o0.on_sent,
             MatchApplicationView.open)
 
     @staticmethod
