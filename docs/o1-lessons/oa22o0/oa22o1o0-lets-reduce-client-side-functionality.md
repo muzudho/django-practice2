@@ -92,7 +92,7 @@
     └── 📄 .gitignore
 ```
 
-# 手順
+# 実装手順
 
 ## Step [OA22o1o0g1o0] Dockerコンテナの起動
 
@@ -380,13 +380,13 @@ class MatchApplicationView():
 ```
 
 ```py
-# BOF OA22o1o0g9o0
+# BOF [OA22o1o0g9o0]
 
 # 〇×ゲーム2.0巻 1.0版
-from apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0 import PlayingV as PlayingVV2g1o0
+from apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0 import PlayingView as ViewOfPlayingV2g1o0
 #                         ^two
-#          ------------------                   ------        --------    --------------
-#          11                                   12            2           3
+#          ------------------                   ------        -----------    -------------------
+#          11                                   12            2              3
 #    -------------------------------------------------
 #    10
 # 10. `src1/apps1/tic_tac_toe_vol2o0/views/gui/playing/ver1o0/__init__.py`
@@ -397,8 +397,8 @@ from apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0 import PlayingV as Playin
 # 3. `2.` の別名
 
 
-class PlayingV():
-    """OA22o1o0g9o0 対局中ビュー"""
+class PlayingView():
+    """[OA22o1o0g9o0] 対局中ビュー"""
 
     web_socket_path = "/tic-tac-toe/v2/playing/"
     #                                ^two
@@ -430,10 +430,10 @@ class PlayingV():
         return render_playing(
             request,
             kw_room_name,
-            PlayingV.web_socket_path,
-            PlayingV.template_path,
-            PlayingV.on_update,
-            PlayingVV2g1o0.expected_pieces)
+            PlayingView.web_socket_path,
+            PlayingView.template_path,
+            PlayingView.on_update,
+            ViewOfPlayingV2g1o0.expected_pieces)
 
     @staticmethod
     def on_update(request):
@@ -441,7 +441,7 @@ class PlayingV():
         # 何もしません
         pass
 
-# EOF OA22o1o0g9o0
+# EOF [OA22o1o0g9o0]
 ```
 
 ## ~~Step [OA22o1o0gA10o0]~~
@@ -486,7 +486,7 @@ Merged to OA22o1o0gA10o1o0
 
 
 ../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/match-application/ver1.0/,,"OA22o1o0gA10o1o0 〇×ゲーム3.0巻 対局申込中1.0版",apps1.tic_tac_toe_vol3o0.views.match_application.ver1o0,MatchApplicationView,TicTacToe3o0MatchApplicationView1o0,render
-../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/playing/ver1.0/<str:kw_room_name>/,,"OA22o1o0gA10o1o0 〇×ゲーム3.0巻 対局中1.0版",apps1.tic_tac_toe_vol3o0.views.playing.ver1o0,PlayingV,TicTacToe3o0PlayingView1o0,render
+../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/playing/ver1.0/<str:kw_room_name>/,,"OA22o1o0gA10o1o0 〇×ゲーム3.0巻 対局中1.0版",apps1.tic_tac_toe_vol3o0.views.playing.ver1o0,PlayingView,TicTacToe3o0PlayingView1o0,render
 ```
 
 備考:  
@@ -517,11 +517,15 @@ docker-compose restart
 * スクリプトについて See also: O3o2o_1o0g2o0
 * 設定ファイルを変更したら、サーバーの再起動が必要
 
+# テスト手順
+
 ## Step [OA22o1o0gA11o0] Web画面へアクセス
 
 このゲームは２人用なので、Webページを２窓で開き、片方が X プレイヤー、もう片方が O プレイヤーとして遊んでください  
 
 📖 [http://localhost:8000/tic-tac-toe/vol3.0/match-application/ver1.0/](http://localhost:8000/tic-tac-toe/vol3.0/match-application/ver1.0/)  
+
+# 後処理
 
 ## Step [OA22o1o0gA12o0] ランチャーのリンク用データ追加 - finished-lessons.csv ファイル
 

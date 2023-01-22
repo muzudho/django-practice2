@@ -1661,7 +1661,7 @@ def render_match_application(request, playing_web_path, match_application_tp, on
 ```py
 # BOF [OA16o3o0gA13o0]
 
-class PlayingV():
+class PlayingView():
     """[OA16o3o0gA13o0] 対局中ビュー"""
 
     # 駒
@@ -1698,10 +1698,10 @@ class PlayingV():
         return render_playing(
             request,
             kw_room_name,
-            PlayingV.web_socket_path,
-            PlayingV.template_path,
-            PlayingV.on_update,
-            PlayingV.expected_pieces)
+            PlayingView.web_socket_path,
+            PlayingView.template_path,
+            PlayingView.on_update,
+            PlayingView.expected_pieces)
 
     @staticmethod
     def on_update(request):
@@ -1846,7 +1846,7 @@ Merged to [OA16o3o0gA15o1o0]
 
 
 ../src1/project1/urls_tic_tac_toe_vol2o0_autogen.py,tic-tac-toe/vol2.0/match-application/ver1.0/,,"OA16o3o0gA15o1o0 〇×ゲーム2.0巻 対局申込中1.0版",apps1.tic_tac_toe_vol2o0.views.gui.match_application.ver1o0,MatchApplicationView,,render
-../src1/project1/urls_tic_tac_toe_vol2o0_autogen.py,tic-tac-toe/vol2.0/playing/ver1.0/<str:kw_room_name>/,,"OA16o3o0gA15o1o0 〇×ゲーム2.0巻 対局中1.0版",apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0,PlayingV,,render
+../src1/project1/urls_tic_tac_toe_vol2o0_autogen.py,tic-tac-toe/vol2.0/playing/ver1.0/<str:kw_room_name>/,,"OA16o3o0gA15o1o0 〇×ゲーム2.0巻 対局中1.0版",apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0,PlayingView,,render
 ```
 
 ## Step [OA16o3o_2o0g5o2o0] ルート編集 - コマンド打鍵

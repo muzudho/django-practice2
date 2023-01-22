@@ -985,10 +985,10 @@ def render_match_application(request, upf_playing, match_application_tp):
 ```
 
 ```py
-# BOF OA16o1o0gA15o0
+# BOF [OA16o1o0gA15o0]
 
-class PlayingV():
-    """OA16o1o0gA15o0 対局中ビュー"""
+class PlayingView():
+    """[OA16o1o0gA15o0] 対局中ビュー"""
 
     template_path = "tic_tac_toe_vol1o0/playing/ver1o0.html"
     #                                              ^one
@@ -1008,9 +1008,9 @@ class PlayingV():
         #                                                      --------
         # 2. `1.` に含まれる関数
 
-        return render_playing(request, room_name, PlayingV.template_path)
+        return render_playing(request, room_name, PlayingView.template_path)
 
-# EOF OA16o1o0gA15o0
+# EOF [OA16o1o0gA15o0]
 ```
 
 ## Step [OA16o1o0gA16o0] ビュー作成 - playing/v1o0/v_render.py ファイル
@@ -1135,7 +1135,7 @@ Merged to OA16o1o0gA17o1o0
 
 
 ../src1/project1/urls_tic_tac_toe_vol1o0_autogen.py,tic-tac-toe/vol1.0/match-application/ver1.0/,,"OA16o1o0gA17o1o0 〇×ゲーム1.0巻 対局申込中1.0版",apps1.tic_tac_toe_vol1o0.views.match_application.ver1o0,MatchApplicationView,,render
-../src1/project1/urls_tic_tac_toe_vol1o0_autogen.py,tic-tac-toe/vol1.0/playing/ver1.0/<str:room_name>/,,"OA16o1o0gA17o1o0 〇×ゲーム1.0巻 対局中1.0版",apps1.tic_tac_toe_vol1o0.views.playing.ver1o0,PlayingV,,render
+../src1/project1/urls_tic_tac_toe_vol1o0_autogen.py,tic-tac-toe/vol1.0/playing/ver1.0/<str:room_name>/,,"OA16o1o0gA17o1o0 〇×ゲーム1.0巻 対局中1.0版",apps1.tic_tac_toe_vol1o0.views.playing.ver1o0,PlayingView,,render
 ```
 
 ## Step [OA16o1o0gA17o2o0] ルート編集 - コマンド打鍵

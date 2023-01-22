@@ -3,12 +3,12 @@
 from django.urls import path
 
 from apps1.tic_tac_toe_vol3o0.views.match_application.ver1o0 import MatchApplicationView as TicTacToe3o0MatchApplicationView1o0
-from apps1.tic_tac_toe_vol3o0.views.playing.ver1o0 import PlayingV as TicTacToe3o0PlayingView1o0
+from apps1.tic_tac_toe_vol3o0.views.playing.ver1o0 import PlayingView as TicTacToe3o0PlayingView1o0
 from apps1.tic_tac_toe_vol3o0.views.match_application.ver2o0 import MatchApplicationView as TicTacToe3o0MatchApplicationView2o0
 from apps1.tic_tac_toe_vol3o0.views.match_application.ver3o0 import MatchApplicationView as TicTacToe3o0MatchApplicationView3o0
-from apps1.tic_tac_toe_vol3o0.views.playing.ver3o0 import PlayingV as TicTacToe3o0PlayingView3o0
+from apps1.tic_tac_toe_vol3o0.views.playing.ver3o0 import PlayingView as TicTacToe3o0PlayingView3o0
 from apps1.tic_tac_toe_vol3o0.views.match_application.ver4o0 import MatchApplicationView as TicTacToe3o0MatchApplicationView4o0
-from apps1.tic_tac_toe_vol3o0.views.playing.ver4o0 import PlayingV as TicTacToe3o0PlayingView4o0
+from apps1.tic_tac_toe_vol3o0.views.playing.ver4o0 import PlayingView as TicTacToe3o0PlayingView4o0
 
 
 urlpatterns = [

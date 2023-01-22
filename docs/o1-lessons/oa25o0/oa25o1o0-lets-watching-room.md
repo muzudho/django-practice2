@@ -288,12 +288,12 @@ class MatchApplicationView():
 ```
 
 ```py
-# BOF OA25o1o0g4o0
+# BOF [OA25o1o0g4o0]
 
 # 〇×ゲーム3.0巻 対局中1.0版
-from apps1.tic_tac_toe_vol3o0.views.playing.ver1o0 import PlayingV as PlayingVV3o1o0
-#          ------------------               ------        --------    --------------
-#          11                               12            2           3
+from apps1.tic_tac_toe_vol3o0.views.playing.ver1o0 import PlayingView as ViewOfPlayingV3o1o0
+#          ------------------               ------        -----------    -------------------
+#          11                               12            2              3
 #    ---------------------------------------------
 #    10
 # 10. `src1/apps1/tic_tac_toe_vol3o0/views/playing/ver1o0/__init__.py`
@@ -304,9 +304,9 @@ from apps1.tic_tac_toe_vol3o0.views.playing.ver1o0 import PlayingV as PlayingVV3
 # 3. '2.' の別名
 
 # 〇×ゲーム3.0巻 対局中3.0版
-from apps1.tic_tac_toe_vol3o0.views.playing.ver3o0 import PlayingV as PlayingVV3o3o0
-#          ------------------               ------        --------    --------------
-#          11                               12            2           3
+from apps1.tic_tac_toe_vol3o0.views.playing.ver3o0 import PlayingView as ViewOfPlayingV3o3o0
+#          ------------------               ------        -----------    -------------------
+#          11                               12            2              3
 #    ---------------------------------------------
 #    10
 # 10. `src1/apps1/tic_tac_toe_vol3o0/views/playing/ver3o0/__init__.py`
@@ -317,8 +317,8 @@ from apps1.tic_tac_toe_vol3o0.views.playing.ver3o0 import PlayingV as PlayingVV3
 # 3. '2.' の別名
 
 
-class PlayingV():
-    """OA25o1o0g4o0 対局中ビュー"""
+class PlayingView():
+    """[OA25o1o0g4o0] 対局中ビュー"""
 
     # 駒
     expected_pieces = ['X', 'O', '_']
@@ -346,12 +346,12 @@ class PlayingV():
         return render_playing(
             request,
             kw_room_name,
-            PlayingVV3o3o0.web_socket_path,
-            PlayingV.template_path,
-            PlayingVV3o1o0.on_update,
-            PlayingV.expected_pieces)
+            ViewOfPlayingV3o3o0.web_socket_path,
+            PlayingView.template_path,
+            ViewOfPlayingV3o1o0.on_update,
+            PlayingView.expected_pieces)
 
-# EOF OA25o1o0g4o0
+# EOF [OA25o1o0g4o0]
 ```
 
 ## ~~Step [OA25o1o0g5o0]~~
@@ -388,7 +388,7 @@ Merged to OA25o1o0g5o1o0
 
 
 ../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/match-application/ver4.0/,,"OA25o1o0g5o1o0 〇×ゲーム3.0巻 対局申込中4.0版",apps1.tic_tac_toe_vol3o0.views.match_application.ver4o0,MatchApplicationView,TicTacToe3o0MatchApplicationView4o0,render
-../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/playing/ver4.0/<str:kw_room_name>/,,"OA25o1o0g5o1o0 〇×ゲーム3.0巻 対局中4.0版",apps1.tic_tac_toe_vol3o0.views.playing.ver4o0,PlayingV,TicTacToe3o0PlayingView4o0,render
+../src1/project1/urls_tic_tac_toe_vol3o0_autogen.py,tic-tac-toe/vol3.0/playing/ver4.0/<str:kw_room_name>/,,"OA25o1o0g5o1o0 〇×ゲーム3.0巻 対局中4.0版",apps1.tic_tac_toe_vol3o0.views.playing.ver4o0,PlayingView,TicTacToe3o0PlayingView4o0,render
 ```
 
 ## Step [OA24o1o0g8o2o0] ルート編集 - コマンド打鍵

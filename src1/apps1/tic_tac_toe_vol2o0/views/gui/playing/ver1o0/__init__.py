@@ -1,6 +1,6 @@
 # BOF [OA16o3o0gA13o0]
 
-class PlayingV():
+class PlayingView():
     """[OA16o3o0gA13o0] 対局中ビュー"""
 
     # 駒
@@ -37,10 +37,10 @@ class PlayingV():
         return render_playing(
             request,
             kw_room_name,
-            PlayingV.web_socket_path,
-            PlayingV.template_path,
-            PlayingV.on_update,
-            PlayingV.expected_pieces)
+            PlayingView.web_socket_path,
+            PlayingView.template_path,
+            PlayingView.on_update,
+            PlayingView.expected_pieces)
 
     @staticmethod
     def on_update(request):

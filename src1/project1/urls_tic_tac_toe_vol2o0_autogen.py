@@ -6,7 +6,7 @@ from apps1.tic_tac_toe_vol2o0.views.think.engine_manual.ver1o0 import EngineManu
 from apps1.tic_tac_toe_vol2o0.views.msg.c2s_json_gen.ver1o0 import C2sJsonGenView as C2sJsonGenViewV1o0
 from apps1.tic_tac_toe_vol2o0.views.msg.s2c_json_gen.ver1o0 import S2cJsonGenView as S2cJsonGenViewV1o0
 from apps1.tic_tac_toe_vol2o0.views.gui.match_application.ver1o0 import MatchApplicationView
-from apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0 import PlayingV
+from apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0 import PlayingView
 
 
 urlpatterns = [
@@ -23,7 +23,7 @@ urlpatterns = [
     path('tic-tac-toe/vol2.0/match-application/ver1.0/', MatchApplicationView.render),
 
     # [OA16o3o0gA15o1o0] 〇×ゲーム2.0巻 対局中1.0版
-    path('tic-tac-toe/vol2.0/playing/ver1.0/<str:kw_room_name>/', PlayingV.render),
+    path('tic-tac-toe/vol2.0/playing/ver1.0/<str:kw_room_name>/', PlayingView.render),
 ]
 
 # AutoGenEnd O3o2o_1o0g4o0

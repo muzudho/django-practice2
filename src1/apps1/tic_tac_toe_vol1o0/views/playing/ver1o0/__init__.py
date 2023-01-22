@@ -1,7 +1,7 @@
-# BOF OA16o1o0gA15o0
+# BOF [OA16o1o0gA15o0]
 
-class PlayingV():
-    """OA16o1o0gA15o0 対局中ビュー"""
+class PlayingView():
+    """[OA16o1o0gA15o0] 対局中ビュー"""
 
     template_path = "tic_tac_toe_vol1o0/playing/ver1o0.html"
     #                                              ^one
@@ -21,6 +21,6 @@ class PlayingV():
         #                                                      --------
         # 2. `1.` に含まれる関数
 
-        return render_playing(request, room_name, PlayingV.template_path)
+        return render_playing(request, room_name, PlayingView.template_path)
 
-# EOF OA16o1o0gA15o0
+# EOF [OA16o1o0gA15o0]

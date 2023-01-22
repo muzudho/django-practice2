@@ -1,10 +1,10 @@
-# BOF OA22o1o0g9o0
+# BOF [OA22o1o0g9o0]
 
 # 〇×ゲーム2.0巻 1.0版
-from apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0 import PlayingV as PlayingVV2g1o0
+from apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0 import PlayingView as ViewOfPlayingV2g1o0
 #                         ^two
-#          ------------------                   ------        --------    --------------
-#          11                                   12            2           3
+#          ------------------                   ------        -----------    -------------------
+#          11                                   12            2              3
 #    -------------------------------------------------
 #    10
 # 10. `src1/apps1/tic_tac_toe_vol2o0/views/gui/playing/ver1o0/__init__.py`
@@ -15,8 +15,8 @@ from apps1.tic_tac_toe_vol2o0.views.gui.playing.ver1o0 import PlayingV as Playin
 # 3. `2.` の別名
 
 
-class PlayingV():
-    """OA22o1o0g9o0 対局中ビュー"""
+class PlayingView():
+    """[OA22o1o0g9o0] 対局中ビュー"""
 
     web_socket_path = "/tic-tac-toe/v2/playing/"
     #                                ^two
@@ -48,10 +48,10 @@ class PlayingV():
         return render_playing(
             request,
             kw_room_name,
-            PlayingV.web_socket_path,
-            PlayingV.template_path,
-            PlayingV.on_update,
-            PlayingVV2g1o0.expected_pieces)
+            PlayingView.web_socket_path,
+            PlayingView.template_path,
+            PlayingView.on_update,
+            ViewOfPlayingV2g1o0.expected_pieces)
 
     @staticmethod
     def on_update(request):
@@ -59,4 +59,4 @@ class PlayingV():
         # 何もしません
         pass
 
-# EOF OA22o1o0g9o0
+# EOF [OA22o1o0g9o0]
